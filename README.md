@@ -16,7 +16,7 @@ November 14th @ 1p in Ezel 301
 ### [Fossetcon 2015](http://fossetcon.org/2015/)
 [_You don't need JavaScript for that!_](http://fossetcon.org/2015/sessions/you-don%E2%80%99t-need-javascript)  
 November 20th @ 2p in Palm 3  
-[Code examples](http://benmvp.github.io/you-dont-need-js-for-that)  
+[Slides](http://benmvp.github.io/slides/fossetcon2015-no-js.html) | [Code examples](http://benmvp.github.io/you-dont-need-js-for-that)  
 
 ----------
 
