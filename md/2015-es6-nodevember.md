@@ -67,22 +67,27 @@ _[2 minutes]_
 
 ## Everything you can do in ES6, you can already do in ES5*
 
+NOTES:
+- So we can just leave it at that?
+
 /////
 
 # Thanks!
 
 NOTES:
-And that's the end of my talk!
+- I could just thank you for coming
 
 /////
 
 # Questions?
 
 ## Ben Ilegbodu
-[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
-[github.com/benmvp](https://github.com/benmvp/)
+
+[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[github/benmvp](https://github.com/benmvp/)
 
 NOTES:
+- And we can spend the remaining 28 minutes asking questions
 - J/K!
 - Transpilers work because there's actually a way to write ES6 code in ES5, right?
 - But in all seriousness, I think ES6 is JavaScript putting on its big kid pants and having a syntax more comprable to the other popular programming languages
@@ -246,6 +251,10 @@ function notify(msg, options) {
 
   // display notification
 }
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
 
 How can we clean/shorten this code up?
@@ -289,6 +298,9 @@ function notify(msg, options) {
   let timeout = options.timeout;
   let canClose = options.close === undefined ? true : options.close;
 }
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
 
 #### Before
@@ -341,6 +353,9 @@ function notify(msg, options = {}) {
 
   // display notification
 }
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
 
 #### Before  
@@ -493,11 +508,6 @@ NOTES:
 - Object destructuring can also be done in function headers to simulate named parameters
 - Now, not only is `options` defaulted in the function header, but it's immediately destructured into the variables the function cares about
 - And now anyone looking at the function header can tell what properties matter
-- How many people find destructuring to make the code less readable?
-  - You're not alone!
-  - I feel the same way too!
-  - Of all the ES6 syntactic sugar features, destructuring seems the least readable to me
-  - But I hope that as we all get familiar with the syntax, it'll become more readable
 
 /////
 
@@ -527,6 +537,12 @@ function notify(msg, options) {
 ```
 
 NOTES:
+- All of ur code has moved into the function header!
+- How many people find destructuring to make the code less readable?
+  - You're not alone!
+  - I feel the same way too!
+  - Of all the ES6 syntactic sugar features, destructuring seems the least readable to me
+  - But I hope that as we all get familiar with the syntax, it'll become more readable
 - Let's go ahead and take a look at array destructuring while we're here...
 
 /////
@@ -561,6 +577,14 @@ NOTES:
 - The final example shows how you can destructure an array parameter similar to what we did with object destructuring for named parameters
 
 - Now let's move on to a new problem...
+
+=====
+
+# Quick Hits
+
+NOTES:
+- Let's quickly look at some other ES6 features
+- We're going to move pretty quickly through the rest of these
 
 ===== <!-- .slide: data-transition="fade" -->
 
@@ -1304,5 +1328,5 @@ _[30 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
-[github.com/benmvp](https://github.com/benmvp/)
+[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[github/benmvp](https://github.com/benmvp/)
