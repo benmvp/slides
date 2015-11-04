@@ -15,7 +15,7 @@ NOTES:
 - Giving a talk to an audience w/ diverse knowledge is a fun challenge
 - For the newbies who are afraid to admit they thought ECMAScript was a skin disease, this will be a good ES6 primer for you
 - For the intermediate folks, I'm hoping I'll fill in any gaps in knowledge you may have
-- For the advanced folks who may know ES6 more than me, feel free to play "Candy Crush"
+- For the advanced folks who may know ES6 more than me, feel free to zone out on Slack
   - J/K! Hopefully there'll be a nugget or 3 that you can take away
   - Also, my blog goes into the nitty gritty details for all of the features
 
@@ -234,37 +234,37 @@ NOTES:
 - That's 30+ features!
 - I've broken them up into 2 categories: sugar & spice
   - Hence the name of the talk
-  - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades
+  - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
 
 /////
 
 ## Agenda
 
-<div style="columns:2;-webkit-columns:2;-moz-columns:2;font-size:smaller">
-  Block scoping  
-  Default parameters  
-  Destructuring  
-  Rest parameters  
-  Spread operator  
-  `for-of` operator  
-  Template literals  
-  Arrow functions  
-  Enhanced object literals  
-  String APIs  
-  Array APIs   
-</div>
+Block scoping  
+Default parameters  
+Destructuring  
+Rest parameters  
+Spread operator  
+`for-of` operator  
+Template literals  
+Arrow functions  
+Enhanced object literals  
+String APIs  
+Array APIs   
 
 NOTES:
 - We'll be covering about ⅓ of the features
 - Because of time constraints, we'll focus more on the sugar features
-- Will give a high-level overview of most of the spicy features
+- Really would like to talk about spicier features like promises, iterators and generators
+- But not enough time
+- So instead going to focus on features you're more likely to leverage right away and which will help you write clearer code
 - Buckle up your seat belts, we're going to cover 10+ features in less than 25 minutes
 
 =====
 
 ```js
-function notify(message, options) {
+function notify(msg, options) {
   var type, timeout, canClose;
 
   if (!options)
@@ -281,10 +281,10 @@ function notify(message, options) {
 NOTES:
 _[6 minutes]_
 
-- Take a look at this code for a bit
+- Take a look at this code for a bit while I talk
 - It's a function that will display a notification message
   - There are a few options on how the message will be displayed
-- How many people have written code like this?
+- I'm sure we've all written code like this
 - It's not bad but it feels like it could be cleaner. Problems:
   - The variable declaration are separated from the assignments
   - Defaulting `options` if it's `undefined` in code
@@ -325,8 +325,6 @@ NOTES:
 
 /////
 
-### var hoisting!
-
 ```js
 (function() {
   var list = [1, 2, 3];
@@ -343,6 +341,8 @@ NOTES:
   console.log(list, count, flag);
 }) ();
 ```
+
+`var` hoisting!
 
 NOTES:
 - It’s because in JavaScript any variable declared by `var`
@@ -382,7 +382,6 @@ NOTES:
   // accessing `flag` outside of block is a ReferenceError!
   console.log(list, count, flag);
 }) ();
-
 ```
 
 `let` works how you expect variables to work!
@@ -413,6 +412,10 @@ data.key = 'moses'; // not an error updating const object's properties
 
 `const` does to!
 
+Use `Object.freeze(obj)` for objects!
+
+<!-- .element: class="fragment" data-fragment-index="0" -->
+
 NOTES:
 - `const` is pretty straightforward
 - Can’t change a value that is declared `const`
@@ -423,20 +426,33 @@ NOTES:
 
 /////
 
+Unified declarations with assignments!
+
 ```js
-function notify(message, options) {
+function notify(msg, options) {
   if (!options)
     options = {};
 
   let type = options.type || 'info';
   let timeout = options.timeout;
   let canClose = options.close === undefined ? true : options.close;
-
-  // display notification
 }
 ```
 
-Unified declarations & assignments!
+#### Before
+
+```js
+function notify(msg, options) {
+  var type, timeout, canClose;
+
+  if (!options)
+    options = {};
+
+  type = options.type || 'info';
+  timeout = options.timeout;
+  canClose = options.close === undefined ? true : options.close;
+}
+```
 
 NOTES:
 
@@ -461,8 +477,10 @@ _[9 minutes]_
 
 /////
 
+Defaulting logic in header!
+
 ```js
-function notify(message, options = {}) {
+function notify(msg, options = {}) {
   let type = options.type || 'info';
   let timeout = options.timeout;
   let canClose = options.close === undefined ? true : options.close;
@@ -471,7 +489,20 @@ function notify(message, options = {}) {
 }
 ```
 
-Defaulting logic in header!
+#### Before  
+
+```js
+function notify(msg, options) {
+  if (!options)
+    options = {};
+
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
+
+  // display notification
+}
+```
 
 NOTES:
 - `options` is now defaulted to an empty object in the function header
@@ -518,13 +549,17 @@ NOTES:
 /////
 
 ```js
-function notify(message, options = {}) {
+function notify(msg, options = {}) {
   let type = options.type || 'info';
   let timeout = options.timeout;
   let canClose = options.close === undefined ? true : options.close;
 
   // display notification
 }
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
 
 NOTES:
@@ -549,9 +584,11 @@ _[11 minutes]_
 ```js
 let me = {first: 'Ben', last: 'Ilegbodu'};
 
+// shorthand notation
 let {last, age=21, first} = me;
     // last='Ilegbodu', age=21, first='Ben'
 
+// full notation
 let {last: lName, mi: initial} = me;
     // lName='Ilegbodu', initial=undefined
 ```
@@ -562,6 +599,7 @@ NOTES:
 - There are 2 types of destructuring: object & array
 - We're looking at object destructuring
 - Object destructuring assignment uses an OBJECT literal pattern on the left hand side of an assignment operation
+- Kind of like `_.pick()`
 - Here are several examples of object destructuring
   - In the first example, We have the shorthand notation where the property names become the variable names
   - We can also default `undefined` values
@@ -569,15 +607,27 @@ NOTES:
 
 /////
 
+Single assignment statement!
+
 ```js
-function notify(message, options = {}) {
-  let {type='info', timeout, close: canClose} = options;
+function notify(msg, options = {}) {
+  let {type='info', timeout, close: canClose=true} = options;
 
   // display notification
 }
 ```
 
-Single assignment statement!
+#### Before
+
+```js
+function notify(msg, options = {}) {
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
+
+  // display notification
+}
+```
 
 NOTES:
 - So now with object destructuring, we can collapse multiple assignments in to one
@@ -586,33 +636,74 @@ NOTES:
 
 /////
 
+Named parameters!
+
 ```js
-function notify(message, {type='info', timeout, close:canClose} = {}) {
+function notify(msg, {type='info', timeout, close:canClose=true} = {}){
+  // display notification
+}
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
+```
+
+#### Before
+
+```js
+function notify(msg, options = {}) {
+  let {type='info', timeout, close: canClose=true} = options;
+
   // display notification
 }
 ```
 
-Named parameters!
-
 NOTES:
 - It's called object destructuring again! lol
 - Object destructuring can also be done in function headers to simulate named parameters
-- Now, not only is `options` defaulted in the function header, but it's immediately destructured into the variables the function cars about
+- Now, not only is `options` defaulted in the function header, but it's immediately destructured into the variables the function cares about
 - And now anyone looking at the function header can tell what properties matter
-- I'll be the first to admit that the code is not all that readable
+- I'll be the first to admit that the code doesn't feel all that readable
   - Of all the ES6 syntactic sugar features, destructuring seems the least readable to me
   - But I hope that as we all get familiar with the syntax, it'll become more readable
 - Let's go ahead and take a look at array destructuring while we're here...
 
 /////
 
+### After
+
 ```js
-let [a, , c] = [8, true, 11];
-    // a=8, c=11
-let [a, [b, c]] = [false, [10, 5], 4];
-    // a=false, b=10, c=5
+function notify(msg, {type='info', timeout, close:canClose=true} = {}){
+  // display notification
+}
+```
+
+### Original
+
+```js
+function notify(msg, options) {
+  var type, timeout, canClose;
+
+  if (!options)
+    options = {};
+
+  type = options.type || 'info';
+  timeout = options.timeout;
+  canClose = options.close === undefined ? true : options.close;
+
+  // display notification
+}
+```
+
+/////
+
+```js
+let [a, b, c] = [8, true, 11];
+    // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
+let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2015-11-14');
+    // yr='2015', mo='11', day='14'
 ```
 
 ```js
@@ -629,9 +720,10 @@ NOTES:
 - The main difference is:
   - Array destructuring uses an array literal pattern on the left hand side of the assignment
   - And the order in the pattern determines the assignment matching
-- The first example skips values when mapping variables
-- The second example maps nested arrays to variables
-- Third example shows how defaulting works with array destructuring
+- The first example maps all the entries into variables
+- Second example shows how defaulting works with array destructuring
+- Third example is a real-world use case with regular expression matches
+  - Don't need to maintain the intermediate array
 - The final example shows how you can destructure an array parameter similar to what we did with object destructuring for named parameters
 
 - Now let's move on to a new problem...
@@ -712,6 +804,7 @@ NOTES:
 function join(separator) {
   var values = [];
 
+  // arguments is not an array, just "array-like"
   for (var i = 1; i < arguments.length; i++) {
       values.push(arguments[i]);
   }
@@ -741,6 +834,8 @@ Replace `arguments` with an array
 
 /////
 
+Clearer function signature!
+
 ```js
 function join(separator, ...values) {
   return values.join(separator);
@@ -750,7 +845,20 @@ function join(separator, ...values) {
 join('-', 'tic', 'tac', 'toe');
 ```
 
-Clearer function signature!
+#### Before
+
+```js
+function join(separator) {
+  var values = [];
+
+  // arguments is not an array, just "array-like"
+  for (var i = 1; i < arguments.length; i++) {
+      values.push(arguments[i]);
+  }
+
+  return values.join(separator);
+}
+```
 
 NOTES:
 - That's it!
@@ -763,14 +871,7 @@ NOTES:
 
 /////
 
-```js
-var list = [9, 8, 7, 6, 5],
-    first = list[0],
-    rest = list.slice(1);
-
-// output: 9  [8, 7, 6, 5]
-console.log(first, rest);
-```
+Destructuring + rest parameters!
 
 ```js
 let list = [9, 8, 7, 6, 5];
@@ -780,7 +881,15 @@ let [first, ...rest] = list;
 console.log(first, rest);
 ```
 
-Destructuring + rest parameters!
+#### Before
+```js
+var list = [9, 8, 7, 6, 5],
+    first = list[0],
+    rest = list.slice(1);
+
+// output: 9  [8, 7, 6, 5]
+console.log(first, rest);
+```
 
 NOTES:
 - One last thing with rest parameters
@@ -819,16 +928,25 @@ Replace `apply` with the spread operator
 
 /////
 
+No more `apply`!
+
 ```js
-let maxValueNormal = Math.max(33, 2, 9);
 let arrayOfValues = [33, 2, 9];
 let maxValueFromArray = Math.max(...arrayOfValues);
 
 // output: 33  33
-console.log(maxValueNormal, maxValueFromArray);
+console.log(maxValueFromArray);
 ```
 
-No more `apply`!
+#### Before
+
+```js
+var arrayOfValues = [33, 2, 9],
+    maxValueFromArray = Math.max.apply(null, arrayOfValues);
+
+// output: 33
+console.log(maxValueFromArray);
+```
 
 NOTES:
 - Instead of calling `apply` we can use the spread operator
@@ -893,6 +1011,8 @@ NOTES:
 
 /////
 
+No more concat!
+
 ```js
 let start = ['do', 're'];
 let middle = ['mi', 'fa', 'so'];
@@ -900,6 +1020,18 @@ let end = ['la', 'ti'];
 
 // output: do ♪ re ♪ mi ♪ fa ♪ so ♪ la ♪ ti
 [...start, ...middle, ...end].join(' ♪ ');
+```
+
+#### Before
+
+```js
+et start = ['do', 're'];
+let middle = ['mi', 'fa', 'so'];
+let end = ['la', 'ti'];
+let scaleFromConcat = start.concat(middle).concat(end);
+
+// output: do ♪ re ♪ mi ♪ fa ♪ so ♪ la ♪ ti
+scaleFromConcat.join(' ♪ ');
 ```
 
 NOTES:
@@ -910,6 +1042,8 @@ NOTES:
 
 =====
 
+ES3: `for` loop
+
 ```js
 var list = [8, 3, 11, 9, 6];
 
@@ -917,8 +1051,6 @@ for (var i = 0; i < list.length; i++) {
   console.log(list[i]);
 }
 ```
-
-ES3: `for` loop
 
 NOTES:
 _[20 minutes]_
@@ -928,6 +1060,8 @@ _[20 minutes]_
 
 /////
 
+`for-in` does not work with arrays!
+
 ```js
 var list = [8, 3, 11, 9, 6];
 
@@ -936,8 +1070,6 @@ for (var i in list) {
   console.log(list[i]);
 }
 ```
-
-`for-in` does not work with arrays!
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array, but it has problems
@@ -950,6 +1082,8 @@ NOTES:
 
 /////
 
+ES5: `forEach` method
+
 ```js
 var list = [8, 3, 11, 9, 6];
 
@@ -957,8 +1091,6 @@ list.forEach(function(value, i)) {
   console.log(value);
 };
 ```
-
-ES5: `forEach` method
 
 What about `break`, `continue` & `return`?
 
@@ -983,6 +1115,8 @@ Replace `for` and `forEach` with `for-of`
 
 /////
 
+ES6: `for-of`
+
 ```js
 let list = [8, 3, 11, 9, 6];
 
@@ -991,7 +1125,15 @@ for (let value of list) {
 }
 ```
 
-ES6: `for-of`
+#### Before
+
+```js
+var list = [8, 3, 11, 9, 6];
+
+for (var i = 0; i < list.length; i++) {
+  console.log(list[i]);
+}
+```
 
 NOTES:
 - It’s still succinct because it doesn’t need a counter variable and reads to the end just like `forEach`
@@ -1044,7 +1186,7 @@ console.log('Name: ' + last + ', ' + (15 + 16));
     
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
-    'needed. White is respected\n');
+    'needed. Whitespace is respected\n');
 ```
 
 Good ol' string concatenation
@@ -1068,23 +1210,35 @@ NOTES:
 
 /////
 
-```js
-let first = 'Ben',
-	last = `Ilegbodu`;
+String interpolation + multi-line!
 
-// don't need to escape ' or "!
+```js
+let first = 'Ben', last = `Ilegbodu`;
+
 // output: He said, "It's your fault!
 console.log(`He said, "It's your fault!"`);
 
-// string interpolation!
 // output: Name: Ilegbodu, 31
 console.log(`Name: ${last}, ${15 + 16}`);
 
-// multi-line support!
 console.log(`This is multi-line text, so
     that newline characters are not
-    needed. White is respected
+    needed. Whitespace is respected
 `);
+```
+
+#### Before
+
+```js
+var first = 'Ben', last = 'Ilegbodu';
+
+console.log('He said, "It\'s your fault!"');
+
+console.log('Name: ' + last + ', ' + (15 + 16));
+    
+console.log('This is multi-line text, so\n' +
+    'that newline characters are not\n' +
+    'needed. Whitespace is respected\n');
 ```
 
 NOTES:
@@ -1187,6 +1341,8 @@ NOTES:
 
 /////
 
+Arrow functions works how you would expect!
+
 ```js
 MyObj.prototype.update = function() {
 	$.get(this._url).done(responseData => {
@@ -1196,7 +1352,19 @@ MyObj.prototype.update = function() {
 };
 ```
 
-Arrow functions works how you would expect!
+#### Before
+
+```js
+'use strict';
+
+MyObj.prototype.update = function() {
+  $.get(this._url).done(function(responseData) {
+    // `this` is undefined!
+    this._data = responseData;
+  });
+};
+```
+
 
 NOTES:
 - Arrow functions in ES6 solve this problem
@@ -1380,24 +1548,22 @@ NOTES:
 
 ## Review
 
-<div style="columns:2;-webkit-columns:2;-moz-columns:2;font-size:smaller">
-  Block scoping  
-  Default parameters  
-  Destructuring  
-  Rest parameters  
-  Spread operator  
-  `for-of` operator  
-  Template literals  
-  Arrow functions  
-  Enhanced object literals  
-  String APIs  
-  Array APIs   
-</div>
+Block scoping  
+Default parameters  
+Destructuring  
+Rest parameters  
+Spread operator  
+`for-of` operator  
+Template literals  
+Arrow functions  
+Enhanced object literals  
+String APIs  
+Array APIs   
 
 NOTES:
 _[29 minutes]_
 
-- As a reminder, here's what we covered to make our code clearer
+- As a reminder, here's what we covered to make our code clearer or shorter
 
 /////
 
