@@ -53,10 +53,8 @@ _[1 minute]_
 <!-- .slide: data-background="url(img/eventbrite-logo.png) no-repeat center" data-background-size="contain"-->
 
 NOTES:
-- How many of you have heard of Eventbrite?
-  - I sure hope so! We're sponsoring the event
-  - Any of you who registered for Nodevember used Eventbrite to buy your ticket
-  - I work on the team that’s actual rebuilding that page you used to buy your tickets into something beautiful & responsive
+- Any of you who registered for Nodevember used Eventbrite to buy your ticket
+- I work on the team that’s actual rebuilding that page you used to buy your tickets into something beautiful & responsive
 
 =====
 
@@ -64,34 +62,6 @@ NOTES:
 
 NOTES:
 _[2 minutes]_
-
-/////
-
-```js
-class MySet extends Set {
-  union(...values) {
-    return new MySet([...this, ...values]);
-  }
-  toString(name='set') {
-    return `${name} - ${this.size}`;
-  }
-}
-
-const mySet = new MySet([1, 3, 5, 3, 8]);
-let unionSet = mySet.union(2, 4, 6, 8);
-console.log(unionSet.toString());
-```
-
-NOTES:
-#### Features shown
-
-- new Set collection
-- classes
-- rest parameters
-- spread operator
-- default parameters
-- template literals
-- let & const
 
 /////
 
@@ -133,13 +103,13 @@ _[3 minutes]_
 
 ## Native JavaScript engine support
 
-- Google Chrome - 63%
-- Mozilla Firefox - 71%
-- Microsoft Edge - 80%  <!-- .element: class="fragment highlight-green" -->
+- Google Chrome - 65%
+- Mozilla Firefox - 72%
+- Microsoft Edge - 84%  <!-- .element: class="fragment highlight-green" -->
 - Safari 9 - 54%
-- Opera - 63%
-- Webkit - 53%
-- Node 4 - 53%
+- Opera - 65%
+- Webkit - 71%
+- Node 5 - 59%
 - iOS 9 - 54%
 
 [ECMAScript 6 Compatibility Table](http://kangax.github.io/compat-table/es6/)
@@ -160,7 +130,7 @@ NOTES:
 
 - [Traceur](https://github.com/google/traceur-compiler) - 59%
 - [Babel](https://babeljs.io/) - 71%   <!-- .element: class="fragment highlight-green" -->
-- [TypeScript](http://www.typescriptlang.org/) - 52%
+- [TypeScript](http://www.typescriptlang.org/) - 51%
 
 NOTES:
 - “Transpilers” let you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
@@ -278,6 +248,8 @@ function notify(msg, options) {
 }
 ```
 
+How can we clean/shorten this code up?
+
 NOTES:
 _[6 minutes]_
 
@@ -285,144 +257,24 @@ _[6 minutes]_
 - It's a function that will display a notification message
   - There are a few options on how the message will be displayed
 - I'm sure we've all written code like this
-- It's not bad but it feels like it could be cleaner. Problems:
-  - The variable declaration are separated from the assignments
-  - Defaulting `options` if it's `undefined` in code
-  - Looking at function definition, it's not clear what's required and what's not
-  - Multiple assignments to local variables with some defaulting
-  - Similarly not clear what properties `options` accepts and what the default values will be
+- It's not bad but it feels like it could be cleaner.
 - Let's try to fix these problems with some ES6 features
 - The first issue is the separate declarations from assignments
-- Ideally we'd move the declarations to after we default `options`, but we need to keep `var` declarations on top
-- Why? Let's look at another code example...
-
-/////
-
-```js
-(function() {
-  var list = [1, 2, 3];
-  count = 8; // `count` not yet declared!
-
-  if (true) {
-    var list = []; // `list` redeclared!
-    var count = 2;
-    var flag = true;
-  }
-
-  // `flag` declared w/in block!
-  // output: []  2  true
-  console.log(list, count, flag);
-}) ();
-```
-
-Why isn't this an error in JavaScript?
-
-NOTES:
-- In most other languages this would be an error
-- `count` is assigned before being declared
-- `flag` is accessed outside of the block in which it's declared
-- Why aren't these errors in JavaScript???
-
-/////
-
-```js
-(function() {
-  var list = [1, 2, 3];
-  var count = 8;
-  var flag;
-
-  if (true) {
-    list = [];
-    count = 2;
-    flag = true;
-  }
-
-  // output: []  2  true
-  console.log(list, count, flag);
-}) ();
-```
-
-`var` hoisting!
-
-NOTES:
-- It’s because in JavaScript any variable declared by `var`
-  - the JavaScript interpreter moves it to the top
-  - It’s called “hoisting”
-- So now how our code runs makes sense
-- That’s why it’s been good practice in JavaScript to always define variables at the top so there’s no confusion
-- So `count` is declared when it’s assigned to
-- `list` ends up not being redeclared in the block. It’s just assigned to
-- And `flag` is available outside of the if-block
+- Ideally we'd move the declarations to after we default `options`
+  - But we need to keep `var` declarations on top to be safe from `var` hoisting
 - What we need is for a variable declaration that does __not__ hoist
 - There's an ES6 feature for that!
 
-=====
+/////
 
 # Block scoping
 
 Replace `var` with `let` & `const`
 
 NOTES:
-- It's called Block scoping
+- In fact there are two: `let` & `const`
+- Together they're called Block scoping
 - With block scoping we can replace `var` with `let` & `const`
-
-/////
-
-```js
-(function() {
-  let list = [1, 2, 3];
-  count = 8; // ReferenceError!
-
-  if (true) {
-    let list = []; // `list` is "shadowed" w/in block
-    let count = 2;
-    let flag = true;
-  }
-
-  // accessing `flag` outside of block is a ReferenceError!
-  console.log(list, count, flag);
-}) ();
-```
-
-`let` works how you expect variables to work!
-
-NOTES:
-- The `let` keyword is like `var` only it works how you would expect variables to work
-- If you try to assign to the undeclared variable `count`, it’s a `ReferenceError`
-- If you try to reference `flag` outside of the block it was defined in, it’s an error
-- And now `list` is actually redeclared within the if block
-  - It’s actually a different variable then the variable outside of the if block
-  - The inner `list` “shadows” the outer `list` within the scope of the block
-  - That’s why it’s called block scoping
-
-- So, this code doesn’t actually execute because of the errors
-  - But if it did run the value of `list` at the end of the function would be `[1, 2, 3]` not empty
-
-/////
-
-```js
-const NAME_KEY = 'name';
-const data = {key: 'adam', value: 'eve'};
-const token;  // ReferenceError for not assigning a value
-
-NAME_KEY = 'key'; // TypeError for trying to change a const value
-
-data.key = 'moses'; // not an error updating const object's properties
-```
-
-`const` does to!
-
-Use `Object.freeze(obj)` for objects!
-
-<!-- .element: class="fragment" data-fragment-index="0" -->
-
-NOTES:
-- `const` is pretty straightforward
-- Can’t change a value that is declared `const`
-- Must assign an initial value if declared `const`
-- One interesting thing is that if an object is `const` its properties are not
-  - You can still assign to them
-  - Need to use `Object.freeze`
 
 /////
 
@@ -456,8 +308,10 @@ function notify(msg, options) {
 
 NOTES:
 
-- So now with `let` we can safely move the declarations down w/ the assignments
+- Now with `let` we can safely move the declarations down w/ the assignments
 - No more worries about variable hoisting
+- `const` works similarly except you cannot change the value of a variable declared `const`
+
 - One problem down, a few more to go
 - It'd be nice if we didn't have to default `options` in code
 - It'd also be nice if it were clear to function callers that `options` does get defaulted
@@ -578,32 +432,8 @@ _[11 minutes]_
 
 - It's called Destructuring
 - With destructuring we can reduce multiple assignments down to one
-
-/////
-
-```js
-let me = {first: 'Ben', last: 'Ilegbodu'};
-
-// shorthand notation
-let {last, age=21, first} = me;
-    // last='Ilegbodu', age=21, first='Ben'
-
-// full notation
-let {last: lName, mi: initial} = me;
-    // lName='Ilegbodu', initial=undefined
-```
-
-### Object destructuring
-
-NOTES:
-- There are 2 types of destructuring: object & array
-- We're looking at object destructuring
-- Object destructuring assignment uses an OBJECT literal pattern on the left hand side of an assignment operation
-- Kind of like `_.pick()`
-- Here are several examples of object destructuring
-  - In the first example, We have the shorthand notation where the property names become the variable names
-  - We can also default `undefined` values
-  - Or we can use full notation if we want different variable names as in the second example
+- Be advised, destructuring is probably the most "out there" syntax addition
+- It's ok if you don't understand it at first
 
 /////
 
@@ -663,10 +493,11 @@ NOTES:
 - Object destructuring can also be done in function headers to simulate named parameters
 - Now, not only is `options` defaulted in the function header, but it's immediately destructured into the variables the function cares about
 - And now anyone looking at the function header can tell what properties matter
-- I'll be the first to admit that the code doesn't feel all that readable
+- How many people find destructuring to make the code less readable?
+  - You're not alone!
+  - I feel the same way too!
   - Of all the ES6 syntactic sugar features, destructuring seems the least readable to me
   - But I hope that as we all get familiar with the syntax, it'll become more readable
-- Let's go ahead and take a look at array destructuring while we're here...
 
 /////
 
@@ -694,6 +525,9 @@ function notify(msg, options) {
   // display notification
 }
 ```
+
+NOTES:
+- Let's go ahead and take a look at array destructuring while we're here...
 
 /////
 
@@ -731,76 +565,6 @@ NOTES:
 ===== <!-- .slide: data-transition="fade" -->
 
 ```js
-function foo(separator) {
-
-
-
-
-
-
-
-}
-```
-
-How many arguments does `foo` accept?
-
-NOTES:
-_[14 minutes]_
-
-- When you look at function `foo`, how many arguments does it take?
-- I purposefully changed the name of the method
-- Seems like a single parameter right?
-
-///// <!-- .slide: data-transition="fade" -->
-
-```js
-function foo(separator) {
-  var values = [];
-
-  for (var i = 1; i < arguments.length; i++) {
-      values.push(arguments[i]);
-  }
-
-  return values.join(separator);
-}
-```
-
-Still _looks_ like one parameter
-
-NOTES:
-- Does it help if I add in the implementation?
-- Not really... still _looks_ like one parameter
-- Although the use of `arguments` gives us a clue
-
-/////
-
-```js
-function foo(separator) {
-  var values = [];
-
-  for (var i = 1; i < arguments.length; i++) {
-      values.push(arguments[i]);
-  }
-
-  return values.join(separator);
-}
-
-// output: tic-tac-toe
-foo('-', 'tic', 'tac', 'toe');
-```
-
-Does it take four parameters?
-
-Infinite!  <!-- .element: class="fragment" -->
-
-NOTES:
-- How about when I add a sample call?
-- Is it... four? No.
-- By now, you've probably realized that it takes an unlimitted number of arguments
-
-/////
-
-```js
 function join(separator) {
   var values = [];
 
@@ -816,12 +580,14 @@ function join(separator) {
 join('-', 'tic', 'tac', 'toe');
 ```
 
-Arguments list is unclear
+Parameters list is unclear
 
 NOTES:
-- The method is actually a `join` method that takes a separator string followed by an unlimitted number of parameters to join
+_[15 minutes]_
+
+- We have here a `join` method that takes a separator string followed by an unlimitted number of parameters to join
 - The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
-- Because `join` uses the `separator` parameter the implementation has to start at index 1 of `arguments`
+- Because `join` uses the `separator` parameter the implementation has to start at index `1` of `arguments`
 - And even if it could start at 0, arguments is only array-like so it doesn't have the `join` method that arrays have
 - What we need is an easy way to get an array of the parameters after `separator`
 - And guess what? There's an ES6 feature for that
@@ -881,7 +647,7 @@ let [first, ...rest] = list;
 console.log(first, rest);
 ```
 
-#### Before
+#### Old way
 ```js
 var list = [9, 8, 7, 6, 5],
     first = list[0],
@@ -908,16 +674,16 @@ var maxValueNormal = Math.max(33, 2, 9),
 console.log(maxValueNormal, maxValueFromArray);
 ```
 
-Is it `apply` or `call`?
+`Math.max.apply`???
 
 NOTES:
 _[17 minutes]_
 
 - `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
 - If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
-- I don't know about you, but I can never remember which one to use, `apply` or `call`
 - `apply` converts the array of values into a sequence of parameters
 - But it's kind of esoteric
+  - Plus you have to specify `null` as the context
 - Maybe there's an ES6 feature for this?
 
 /////
@@ -955,88 +721,34 @@ NOTES:
 
 /////
 
-```js
-function join(separator, ...values) {
-  return values.join(separator);
-}
-
-let start = ['do', 're'];
-let middle = ['mi', 'fa', 'so'];
-let end = ['la', 'ti'];
-
-// output: do ♪ re ♪ mi ♪ fa ♪ so ♪ la ♪ ti
-join(' ♪ ', ...start, ...middle, ...end);
-```
-
-Spread operator can be used multiple times
-
-NOTES:
-- Take a look at this example
-- Remember our `join` function?
-- We're spreading _multiple_ string arrays to pass them all as parameters to `join`
-- But the fun doesn't stop there!
-
-/////
-
-```js
-let arrayFromConstructor = new Array('do', 're');
-let arrayFromLiteral = ['do', 're'];
-```
-
-Equivalent!
+No more `concat`! 
 
 ```js
 let start = ['do', 're'];
 let middle = ['mi', 'fa', 'so'];
 let end = ['la', 'ti'];
-
-let scaleFromConcat = start.concat(middle).concat(end);
-let scaleFromConstructor = new Array(...start, ...middle, ...end);
 let scaleFromLiteral = [...start, ...middle, ...end];
 
 // output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
 console.log(scaleFromLiteral);
-``` 
-<!-- .element: class="fragment" data-fragment-index="0" -->
+```
 
-No more `concat`! 
-
-<!-- .element: class="fragment" data-fragment-index="0" -->
-
-NOTES:
-- An array literal is a shortened form of passing multiple parameters to a constructor function
-
-- So when we spread multiple arrays into an array literal it's just like when we spread multiple arrays into a function
-- Therefore using the spread operator within an array literal can replace using `concat`
-
-/////
-
-No more concat!
+#### Old way
 
 ```js
 let start = ['do', 're'];
 let middle = ['mi', 'fa', 'so'];
 let end = ['la', 'ti'];
-
-// output: do ♪ re ♪ mi ♪ fa ♪ so ♪ la ♪ ti
-[...start, ...middle, ...end].join(' ♪ ');
-```
-
-#### Before
-
-```js
-et start = ['do', 're'];
-let middle = ['mi', 'fa', 'so'];
-let end = ['la', 'ti'];
 let scaleFromConcat = start.concat(middle).concat(end);
 
-// output: do ♪ re ♪ mi ♪ fa ♪ so ♪ la ♪ ti
-scaleFromConcat.join(' ♪ ');
+// output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
+console.log(scaleFromConcat);
 ```
 
+
 NOTES:
-- What this all means is that we no longer need our `join` function
-- We can create one array that is the concatenation of all of them and then call array `.join()`
+- When we spread multiple arrays into an array literal we're constructing a new array with all of those values
+- Therefore using the spread operator within an array literal can replace using `concat`
 
 - All this talk of arrays reminds me of another problem...
 
@@ -1140,37 +852,6 @@ NOTES:
 - It also supports `break`, `continue` and `return` unlike `forEach`
 - `for-of` is for arrays and `for-in` is for objects
 - Now JavaScript has a similar loop control structure that mirrors what you’d see in C#, Python or Java
-
-/////
-
-```js
-let divs = document.querySelectorAll('div');
-for (let div of divs) {
-  
-}
-```
-
-```js
-for (let char of 'Hello, Ben') {
-    console.log(char);
-}
-```
-
-```js
-let set = new Set([9, 4, 7, 3, 4, 0]);
-for (let item of set) {
-    console.log(item);
-}
-```
-
-Works on any iterable!
-
-NOTES:
-- These examples use non-array collections
-  - We’ve got a DOM `NodeList` from document.querySelectorAll
-  - A string which is just collection of characters
-  - And the new Set object introduced w/ ES6 which is a unique collection of values
-- But in fact, `for-of` doesn’t just work on arrays or collections, it works on any object that is iterable
 
 =====
 
@@ -1381,19 +1062,14 @@ NOTES:
 var MyView = Backbone.ItemView.extend({
     serializeData: function() {
         var quantity = this._calculateQuantity(),
-            canChange = this._canChangeQuantity(),
-            message = this._generateMessage();
+            canChange = this._canChangeQuantity();
         return {
             quantity: quantity,
-            canChange: canChange,
-            message: message
+            canChange: canChange
         };
     },
     _calculateQuantity: function() { return 7; },
-    _canChangeQuantity: function() { return true; },
-    _generateMessage: function() {
-        return 'Hiya!';
-    }
+    _canChangeQuantity: function() { return true; }
 });
 ```
 
@@ -1416,26 +1092,36 @@ Write less code in object literals
 
 /////
 
+Object literal shorthand!
+
 ```js
 const MyView = Backbone.View.extend({
     serializeData() {
         let quantity = this._calculateQuantity(),
-            canChange = this._canChangeQuantity(),
-            message = this._generateMessage();
+            canChange = this._canChangeQuantity();
 
-        // {quantity: 7, canChange: true, message: 'Hiya!'}
-        return { quantity, canChange, message };
+        // {quantity: 7, canChange: true}
+        return {quantity, canChange};
     },
-
     _calculateQuantity() { return 7; },
-
-    _canChangeQuantity() { return true; },
-
-    _generateMessage() { return 'Hiya!'; }
+    _canChangeQuantity() { return true; }
 });
 ```
 
-Object literal shorthand!
+#### Before
+
+```js
+var MyView = Backbone.ItemView.extend({
+    serializeData: function() {
+        var quantity = this._calculateQuantity(),
+            canChange = this._canChangeQuantity();
+
+        return {quantity: quantity, canChange: canChange};
+    },
+    _calculateQuantity: function() { return 7; },
+    _canChangeQuantity: function() { return true; }
+});
+```
 
 NOTES:
 - Those with a keen eye will notice that the methods look a little different
@@ -1498,6 +1184,8 @@ NOTES:
 NOTES:
 _[28 minutes]_
 
+- Just want to alert you to some new methods introduce with ES6 for `String`
+
 =====
 
 ## Array API
@@ -1513,6 +1201,9 @@ _[28 minutes]_
 `arr.copyWithin`
 
 `arr.fill`
+
+NOTES:
+- Also some useful methods for `Array` too
 
 =====
 
@@ -1564,35 +1255,6 @@ NOTES:
 _[29 minutes]_
 
 - As a reminder, here's what we covered to make our code clearer or shorter
-
-/////
-
-## Features not covered
-
-<div style="columns:2;-webkit-columns:2;-moz-columns:2;font-size:smaller">
-  \_\_proto\_\_  
-  Generators  
-  Iterators  
-  Maps  
-  Math APIs  
-  Modules  
-  Module loaders  
-  Number APIs  
-  Object APIs  
-  Promises  
-  Proxies  
-  Reflect API  
-  RegExp APIs  
-  Sets  
-  Subclassables  
-  Symbols  
-  Tagged templates  
-  Tail calls  
-  Typed arrays  
-  WeakMap  
-  WeakSet  
-  Unicode  
-</div>
 
 =====
 
