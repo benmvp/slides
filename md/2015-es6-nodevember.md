@@ -92,8 +92,66 @@ NOTES:
 - Transpilers work because there's actually a way to write ES6 code in ES5, right?
 - But in all seriousness, I think ES6 is JavaScript putting on its big kid pants and having a syntax more comprable to the other popular programming languages
 - I do think learning ES6 is worthwhile, otherwise I wouldn't be giving this talk
-- While you may not be doing anything particularly new, it will be much easier to do it
-- Speaking of transpilers...
+
+/////
+
+#### Sugar
+
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
+  \_\_proto\_\_  
+  <div class="fragment highlight-blue" data-fragment-index="0">Arrow functions</div>
+  <div class="fragment highlight-blue" data-fragment-index="0">Block scoping</div>
+  Classes  
+  <div class="fragment highlight-blue" data-fragment-index="0">Default parameters</div>
+  <div class="fragment highlight-blue" data-fragment-index="0">Destructuring</div>
+  Enhanced literals  
+  Modules  
+  <div class="fragment highlight-blue" data-fragment-index="0">Rest parameters</div>
+  <div class="fragment highlight-blue" data-fragment-index="0">Spread operator</div>
+  Tagged templates  
+  <div class="fragment highlight-blue" data-fragment-index="0">Template literals</div>
+</div>
+
+#### Spice
+
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
+  <div class="fragment highlight-red" data-fragment-index="0">Array APIs</div>
+  <div class="fragment highlight-red" data-fragment-index="0">`for-of`</div>
+  Generators  
+  Iterators  
+  Maps  
+  Math APIs  
+  Module loaders  
+  Number APIs  
+  Object APIs  
+  Promises  
+  Proxies  
+  Reflect API  
+  RegExp APIs  
+  Sets  
+  <div class="fragment highlight-red" data-fragment-index="0">String APIs</div>
+  Subclassables  
+  Symbols  
+  Tail calls  
+  Typed arrays  
+  Unicode  
+  WeakMaps  
+  WeakSets  
+</div>
+
+NOTES:
+- Here is the full list of features included in the ES6 specification
+- That's 30+ features!
+- I've broken them up into 2 categories: sugar & spice
+  - Hence the name of the talk
+  - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades that make code clearer
+  - SPICE: Spicy new functionality like new operators, objects and APIs
+
+- We'll be covering about ⅓ of the features
+- Because of time constraints, we'll focus more on the sugar features
+- Really would like to talk about spicier features like promises, iterators and generators
+- But not enough time
+- So instead going to focus on features you're more likely to leverage right away and which will help you write clearer code
 
 =====
 
@@ -102,7 +160,7 @@ NOTES:
 Native execution vs. Transpiling
 
 NOTES:
-_[3 minutes]_
+_[4 minutes]_
 
 /////
 
@@ -154,86 +212,20 @@ NOTES:
 
 =====
 
-# ES6 Features
-
-NOTES:
-_[5 minutes]_
-
-/////
-
-#### Sugar
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
-	\_\_proto\_\_  
-	Array APIs  
-	Arrow functions  
-	Block scoping  
-	Classes  
-	Default parameters  
-	Destructuring  
-	Enhanced literals  
-	Modules  
-	Rest parameters  
-	Spread operator  
-	String APIs  
-	Tagged templates  
-	Template literals  
-</div>
-
-#### Spice
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
-  Generators  
-  Iterators  
-  Maps  
-  Math APIs  
-  Module loaders  
-  Number APIs  
-  Object APIs  
-  Promises  
-  Proxies  
-  Reflect API  
-  RegExp APIs  
-  Sets  
-  Subclassables  
-  Symbols  
-  Tail calls  
-  Typed arrays  
-  Unicode  
-  WeakMaps  
-  WeakSets  
-</div>
-
-NOTES:
-- Here is the full list of features included in the ES6 specification
-- That's 30+ features!
-- I've broken them up into 2 categories: sugar & spice
-  - Hence the name of the talk
-  - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades that make code clearer
-  - SPICE: Spicy new functionality like new operators, objects and APIs
-
-/////
-
 ## Agenda
 
-Block scoping  
-Default parameters  
-Destructuring  
-Rest parameters  
-Spread operator  
-`for-of` operator  
-Template literals  
-Arrow functions  
-Enhanced object literals  
-String APIs  
-Array APIs   
+1. Block scoping <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->  
+1. Default parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Destructuring <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Spread operator <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. `for-of` <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
-- We'll be covering about ⅓ of the features
-- Because of time constraints, we'll focus more on the sugar features
-- Really would like to talk about spicier features like promises, iterators and generators
-- But not enough time
-- So instead going to focus on features you're more likely to leverage right away and which will help you write clearer code
 - Buckle up your seat belts, we're going to cover 10+ features in less than 25 minutes
 
 =====
@@ -271,6 +263,7 @@ _[6 minutes]_
 - The first issue is the separate declarations from assignments
 - Ideally we'd move the declarations to after we default `options`
   - But we need to keep `var` declarations on top to be safe from `var` hoisting
+  - The JS interpreter essentially moves all `var` declarations to the top of the function
 - What we need is for a variable declaration that does __not__ hoist
 - There's an ES6 feature for that!
 
@@ -302,6 +295,8 @@ notify('Hi!');
 notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
+
+-----
 
 #### Before
 
@@ -357,6 +352,8 @@ notify('Hi!');
 notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
+
+-----
 
 #### Before  
 
@@ -462,6 +459,8 @@ function notify(msg, options = {}) {
 }
 ```
 
+-----
+
 #### Before
 
 ```js
@@ -493,6 +492,8 @@ notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
 
+-----
+
 #### Before
 
 ```js
@@ -519,7 +520,9 @@ function notify(msg, {type='info', timeout, close:canClose=true} = {}){
 }
 ```
 
-### Original
+-----
+
+### Before
 
 ```js
 function notify(msg, options) {
@@ -576,6 +579,35 @@ NOTES:
   - Don't need to maintain the intermediate array
 - The final example shows how you can destructure an array parameter similar to what we did with object destructuring for named parameters
 
+/////
+
+```js
+let {
+    name,
+    nicknames: [primaryNick],
+    misc: {
+      netWorth: netWorthThousands = 0
+    }
+  } = {
+    name: 'Sean Combs',
+    nicknames: ['Puffy', 'Puff Daddy', 'Diddy'],
+    misc: {
+      netWorth: 735000,
+      birthdate: '1969-11-04'
+    }
+  };
+```
+
+Object + array + nested destructuring!
+
+NOTES:
+- You thought destructuring was unreadable
+- What about when you combine object & array destructuring?
+- And what about when you also leverage nested destructuring?
+- Your brain explodes! That's what.
+- This conveys the point that just because you _can_ do it doesn't mean you _should_
+- You can revisit this slide if you really want to try and understand what's going on
+
 - Now let's move on to a new problem...
 
 =====
@@ -586,7 +618,7 @@ NOTES:
 - Let's quickly look at some other ES6 features
 - We're going to move pretty quickly through the rest of these
 
-===== <!-- .slide: data-transition="fade" -->
+=====
 
 ```js
 function join(separator) {
@@ -635,6 +667,8 @@ function join(separator, ...values) {
 join('-', 'tic', 'tac', 'toe');
 ```
 
+-----
+
 #### Before
 
 ```js
@@ -656,6 +690,7 @@ NOTES:
   - The rest parameter is an Array containing the rest of the parameters
   - Hence the name!
 - Because `values` is a true array in the example, we can call join on it
+- JavaScript ninjas would probably have done `Array.prototype.slice.call(arguments, 1)`, but that's funky and still doesn't solve the problem about a readable function header
 - It’s also much clearer to see that `join()` takes an infinite number of parameters
 - Rest parameter should pretty much replace all uses of the `arguments` keyword!
 
@@ -670,6 +705,8 @@ let [first, ...rest] = list;
 // output: 9  [8, 7, 6, 5]
 console.log(first, rest);
 ```
+
+-----
 
 #### Old way
 ```js
@@ -728,7 +765,9 @@ let maxValueFromArray = Math.max(...arrayOfValues);
 console.log(maxValueFromArray);
 ```
 
-#### Before
+-----
+
+#### Old way
 
 ```js
 var arrayOfValues = [33, 2, 9],
@@ -745,6 +784,36 @@ NOTES:
 
 /////
 
+## To be clear...
+
+Spread operator
+
+```js
+let arrayOfValues = [33, 2, 9];
+let maxValueFromArray = Math.max(...arrayOfValues);
+    // like: Math.max(33, 2, 9)
+```
+
+Rest operator
+
+```js
+function join(separator, ...values) {
+  // values = ['tic', 'tac', 'toe']
+}
+
+join('-', 'tic', 'tac', 'toe');
+```
+
+NOTES:
+- Spread operator & rest operator look the exact same
+- The spread operator works w/ function _call_ parameters
+  - Takes an array literal and converts each element to individual parameters
+- The rest operator works w/ function _header_ parameters
+  - Takes individual parameters and puts them together into an array
+- They are opposites of each other
+
+/////
+
 No more `concat`! 
 
 ```js
@@ -756,6 +825,8 @@ let scaleFromLiteral = [...start, ...middle, ...end];
 // output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
 console.log(scaleFromLiteral);
 ```
+
+-----
 
 #### Old way
 
@@ -781,9 +852,10 @@ NOTES:
 ES3: `for` loop
 
 ```js
-var list = [8, 3, 11, 9, 6];
+var list = [8, 3, 11, 9, 6],
+    i;
 
-for (var i = 0; i < list.length; i++) {
+for (i = 0; i < list.length; i++) {
   console.log(list[i]);
 }
 ```
@@ -793,16 +865,19 @@ _[20 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
 - You have to keep track of the counter variable `i` AND control when the loop ends
+- Also since `i` is hoisted, you technically should define it at the top of the function
+- The `length` of `list` gets retrieved w/ every iteration
 
 /////
 
 `for-in` does not work with arrays!
 
 ```js
-var list = [8, 3, 11, 9, 6];
+var list = [8, 3, 11, 9, 6],
+    i;
 
 // DON'T DO THIS!!!!
-for (var i in list) {
+for (i in list) {
   console.log(list[i]);
 }
 ```
@@ -830,7 +905,7 @@ list.forEach(function(value, i)) {
 
 What about `break`, `continue` & `return`?
 
-<!-- .element: class="fragment" data-fragment-index="0" -->
+<!-- .element: class="fragment" -->
 
 NOTES:
 - ES5 introduced the `forEach` method
@@ -861,12 +936,15 @@ for (let value of list) {
 }
 ```
 
+-----
+
 #### Before
 
 ```js
-var list = [8, 3, 11, 9, 6];
+var list = [8, 3, 11, 9, 6],
+    i;
 
-for (var i = 0; i < list.length; i++) {
+for (i = 0; i < list.length; i++) {
   console.log(list[i]);
 }
 ```
@@ -883,7 +961,7 @@ NOTES:
 var first = 'Ben',
 	last = 'Ilegbodu';
 
-// output: He said, "It's your fault!
+// output: He said, "It's your fault!"
 console.log('He said, "It\'s your fault!"');
 
 // output: Name: Ilegbodu, 31
@@ -920,7 +998,7 @@ String interpolation + multi-line!
 ```js
 let first = 'Ben', last = `Ilegbodu`;
 
-// output: He said, "It's your fault!
+// output: He said, "It's your fault!"
 console.log(`He said, "It's your fault!"`);
 
 // output: Name: Ilegbodu, 31
@@ -932,7 +1010,9 @@ console.log(`This is multi-line text, so
 `);
 ```
 
-#### Before
+-----
+
+#### Old way
 
 ```js
 var first = 'Ben', last = 'Ilegbodu';
@@ -1057,7 +1137,9 @@ MyObj.prototype.update = function() {
 };
 ```
 
-#### Before
+-----
+
+#### Old way
 
 ```js
 'use strict';
@@ -1079,117 +1161,6 @@ NOTES:
 - You’ll find that arrow functions come in handy most when used as a callback function. 
   - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
   - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc),
-
-=====
-
-```js
-var MyView = Backbone.ItemView.extend({
-    serializeData: function() {
-        var quantity = this._calculateQuantity(),
-            canChange = this._canChangeQuantity();
-        return {
-            quantity: quantity,
-            canChange: canChange
-        };
-    },
-    _calculateQuantity: function() { return 7; },
-    _canChangeQuantity: function() { return true; }
-});
-```
-
-NOTES:
-_[26 minutes]_
-
-- Take a look at this code
-- It's extending a `Backbone.ItemView` by passing additional methods to be defined on the new class in an object literal
-- There are 4 methods. The methods themselves aren't all that important
-- Now take a look at the `serializeData` method.
-  - It returns an object literal where the keys and variable names match
-- There's actually nothing really wrong with this code, but...
-- There's still an ES6 feature for that! :)
-
-/////
-
-# Enhanced object literals
-
-Write less code in object literals
-
-/////
-
-Object literal shorthand!
-
-```js
-const MyView = Backbone.View.extend({
-    serializeData() {
-        let quantity = this._calculateQuantity(),
-            canChange = this._canChangeQuantity();
-
-        // {quantity: 7, canChange: true}
-        return {quantity, canChange};
-    },
-    _calculateQuantity() { return 7; },
-    _canChangeQuantity() { return true; }
-});
-```
-
-#### Before
-
-```js
-var MyView = Backbone.ItemView.extend({
-    serializeData: function() {
-        var quantity = this._calculateQuantity(),
-            canChange = this._canChangeQuantity();
-
-        return {quantity: quantity, canChange: canChange};
-    },
-    _calculateQuantity: function() { return 7; },
-    _canChangeQuantity: function() { return true; }
-});
-```
-
-NOTES:
-- Those with a keen eye will notice that the methods look a little different
-  - They are missing the colon and `function` keyword
-  - This is method shorthand syntax with enhanced object literals
-  - Whenever you're adding a function to an object literal you can omit `:function`
-  - Just the name and the parameters are needed
-- You might also notice the returned object literal in `serializeData`
-  - It looks like we're creating an object literal with keys but no values
-  - What the interpreter is doing is looking in the scope for a variable with the same name
-  - If it finds it, its variable becomes the value of the key
-  - If it doesn't find one, it's a ReferenceError
-  - This is property value shorthand syntax with enhanced object literals
-- Simple enough, right?
-
-/////
-
-```js
-function predictChampion(league, year) {
-    // output: league WNBA year 2016
-    console.log('league', league, 'year', year);
-
-    // output: league=WNBA  year=2016
-    console.log(`league=${league}`, `year=${year}`);
-
-    // output: {league: 'WNBA', year: 2016}
-    console.log({league, year});
-}
-
-predictChampion('WNBA', 2016);
-```
-
-Pro tip!
-
-NOTES:
-- Quick tip!
-- I don't really use the JavaScript debugger much
-- I prefer to do `console.log` debugging for an array of reasons
-- Sometimes when I want to log the value of multiple variables at the same time but also include a label
-- Here are 3 different ways it can be accomplished
-  - The first way is the old-school way
-  - The second way leverages template literals
-  - But my favorite is the 3rd way that uses property value shorthand for object literals
-  - Super short to write and is basically just wrapping in `{}`
 
 =====
 
@@ -1263,38 +1234,39 @@ NOTES:
 
 ## Review
 
-Block scoping  
-Default parameters  
-Destructuring  
-Rest parameters  
-Spread operator  
-`for-of` operator  
-Template literals  
-Arrow functions  
-Enhanced object literals  
-String APIs  
-Array APIs   
+- Block scoping <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->  
+- Default parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+- Destructuring <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+- Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+- Spread operator <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+- `for-of` <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+- Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+- Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+- String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+- Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+  
 
 NOTES:
 _[29 minutes]_
 
-- As a reminder, here's what we covered to make our code clearer or shorter
+- As a reminder, here's what we covered to make our code clearer and more succint
+- I know I went through it pretty quickly, so if you didn't get it at all, they're recording this talk so you can always revisit later
 
 =====
 
 ## Additional Resources
 
-* [*Learning ES6*](http://www.benmvp.com/2015/08/the-learning-es6-series.html) by [Ben Ilegbodu](https://twitter.com/benmvp)
-* [ES6 Katas](http://es6katas.org/) by [Wolfram Kriesing](https://twitter.com/wolframkriesing)
-* [*Exploring ES6*](http://exploringjs.com/es6/) by [Axel Rauschmayer](https://twitter.com/rauschma)
-* [*Understanding ECMAScript 6*](https://leanpub.com/understandinges6/) by [Nicholas C. Zakas](https://twitter.com/slicknet)
-* [*ES6 in Depth*](https://hacks.mozilla.org/category/es6-in-depth/) by [Jason Orendorff](https://twitter.com/jorendorff)
-* [*ES6 in Depth*](http://ponyfoo.com/articles/tagged/es6-in-depth) by [Nicolas Bevacqua](https://twitter.com/nzgb)
+* [*Learning ES6*](http://www.benmvp.com/2015/08/the-learning-es6-series.html) by Ben Ilegbodu
+* [ES6 Katas](http://es6katas.org/) by Wolfram Kriesing
+* [*Exploring ES6*](http://exploringjs.com/es6/) by Axel Rauschmayer
+* [*Understanding ECMAScript 6*](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
+* [*ES6 in Depth*](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
+* [*ES6 in Depth*](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
 
 NOTES:
 _[29.5 minutes]_
 
-- If you didn't catch all that I covered, you can check out my blog where I go into detail about every feature I covered
+- You can also check out my blog where I go into detail about every feature I covered
 - Other great books & blogs about ES6 too!
 
 =====
@@ -1314,6 +1286,9 @@ _[29.5 minutes]_
 /////
 
 # YOU!
+
+NOTES:
+- It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code
 
 =====
 
