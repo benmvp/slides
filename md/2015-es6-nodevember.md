@@ -246,7 +246,7 @@ NOTES:
   <div style="flex:0 0 25%">
     [![TypeScript Logo](img/typescript-logo-square.png)](http://www.typescriptlang.org/)  
     [TypeScript](http://www.typescriptlang.org/)  
-    59%
+    51%
   </div>
 </div>
 
@@ -1021,10 +1021,9 @@ NOTES:
 ES3: `for` loop
 
 ```js
-var list = [8, 3, 11, 9, 6],
-    i;
+var list = [8, 3, 11, 9, 6];
 
-for (i = 0; i < list.length; i++) {
+for (var i = 0; i < list.length; i++) {
   console.log(list[i]);
 }
 ```
@@ -1034,8 +1033,25 @@ _[20 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
 - You have to keep track of the counter variable `i` AND control when the loop ends
-- Also since `i` is hoisted, you technically should define it at the top of the function
-- The `length` of `list` gets retrieved w/ every iteration
+
+/////  
+
+
+ES3: `for` loop (revised)
+
+```js
+var list = [8, 3, 11, 9, 6],
+    length = list.length,
+    i;
+
+for (i = 0; i < length; i++) {
+  console.log(list[i]);
+}
+```
+
+NOTES:
+- Technically, since `i` is hoisted, you technically should define it at the top of the function
+- The `length` of `list` gets retrieved w/ every iteration so we should store it
 
 /////
 
@@ -1051,7 +1067,7 @@ for (i in list) {
 }
 ```
 
-![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) 
+![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
@@ -1117,9 +1133,10 @@ for (let value of list) {
 
 ```js
 var list = [8, 3, 11, 9, 6],
+    length = list.length,
     i;
 
-for (i = 0; i < list.length; i++) {
+for (i = 0; i < length; i++) {
   console.log(list[i]);
 }
 ```
