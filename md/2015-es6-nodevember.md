@@ -371,8 +371,60 @@ NOTES:
 
 - Now with `let` we can safely move the declarations down w/ the assignments
 - No more worries about variable hoisting
-- `const` works similarly except you cannot change the value of a variable declared `const`
 
+/////
+
+<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- But really this is pretty unimpressive
+- More so fixing a deficiency rather than supplying new functionality
+
+/////
+
+`const`
+
+```js
+const NAME_KEY = 'name';
+const data = {key: 'adam', value: 'eve'};
+const token;  // ReferenceError for not assigning a value
+
+NAME_KEY = 'key'; // TypeError for trying to change a const value
+
+data.key = 'moses'; // not an error updating const object's properties
+```
+
+Use `Object.freeze()` for objects!
+
+<!-- .element: class="fragment" -->
+
+NOTES:
+- `const` is pretty straightforward
+- Can’t change a value that is declared `const`
+- Must assign an initial value if declared `const`
+- One interesting thing is that if an object is `const` its properties are not
+  - You can still assign to them
+  - Need to use `Object.freeze`
+
+/////
+
+```js
+function notify(msg, options) {
+  if (!options)
+    options = {};
+
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
+}
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
+```
+
+NOTES:
+- Back to our code...
 - One problem down, a few more to go
 - It'd be nice if we didn't have to default `options` in code
 - It'd also be nice if it were clear to function callers that `options` does get defaulted
@@ -439,8 +491,9 @@ function getWidth() {
   console.log('getWidth');
   return 7;
 }
-function drawRect(width = getWidth(), height = width * 2,
-  options = {color:'red'}) {
+function drawRect(width = getWidth(), height = width * 2, options = {color:'red'}) {
+  console.log(width, height, options);
+
   // draw rectangle
 }
 ```
@@ -468,6 +521,13 @@ NOTES:
   - As you can see in the sample terminal on the right, `getWidth` isn’t called when a value for `width` is specified
 - Another thing to note, is that the default value for `height` is an expression that uses the `width` parameter
   - You’re free to use the value of any parameter that comes before
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I dunno about you, but I find that quite... interesting
 
 /////
 
@@ -503,6 +563,14 @@ _[11 minutes]_
 - With destructuring we can reduce multiple assignments down to one
 - Be advised, destructuring is probably the most "out there" syntax addition
 - It's ok if you don't understand it at first
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I'm afraid that after we cover destructuring, you'll feel like this...
+- But stick with me...
 
 /////
 
@@ -612,6 +680,12 @@ function notify(msg, options) {
 
 NOTES:
 - All of our code has moved into the function header!
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
 - How many people find destructuring to actually make the code _less_ readable?
   - You're not alone!
   - I feel the same way too!
@@ -644,11 +718,9 @@ NOTES:
 - The main difference is:
   - Array destructuring uses an array literal pattern on the left hand side of the assignment
   - And the order in the pattern determines the assignment matching
-- The first example maps all the entries into variables
-- Second example shows how defaulting works with array destructuring
-- Third example is a real-world use case with regular expression matches
+- Focus on the third example which is a real-world use case with regular expression matches
   - Don't need to maintain the intermediate array
-- The final example shows how you can destructure an array parameter similar to what we did with object destructuring for named parameters
+- Works kind of how tuples work in Python
 
 /////
 
@@ -679,7 +751,13 @@ NOTES:
 - This conveys the point that just because you _can_ do it doesn't mean you _should_
 - You can revisit this slide if you really want to try and understand what's going on
 
-- Now let's move on to a new problem...
+/////
+
+<!-- .slide: data-background="url(img/giphy/confused-urkel.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- Now we're all sorts of confused...
+- Let's just move on to a new problem...
 
 =====
 
@@ -870,7 +948,8 @@ NOTES:
 ## To be clear...
 <br />
 
-Spread operator (function call)
+Spread operator  
+Array &#8594; multiple parameters (function call) 
 
 ```js
 let arrayOfValues = [33, 2, 9];
@@ -880,7 +959,8 @@ let maxValueFromArray = Math.max(...arrayOfValues);
 
 <br />
 
-Rest operator (function header) 
+Rest operator  
+Multiple parameters &#8594; array (function header) 
 
 ```js
 function join(separator, ...values) {
@@ -970,6 +1050,8 @@ for (i in list) {
   console.log(list[i]);
 }
 ```
+
+![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) 
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
@@ -1128,7 +1210,7 @@ NOTES:
 - Multi-line strings are now supported as well
   - Any whitespace you put will be in the string, including tabs and newlines
 - One of the few features supported by all modern browsers
-- We’ll see more examples of template literals as we look at other features
+- You can actually always use template literals, but I tend to only use them when interpolating
 
 ===== <!-- .slide: data-transition="fade" -->
 
@@ -1250,7 +1332,6 @@ NOTES:
   - It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
   - Essentially arrow functions work how you would expect it to
 
-
 /////
 
 ### Arrow functions
@@ -1338,7 +1419,7 @@ Enable complex asynchronous programming with `function*` and `yield`
 
 `async` / `await` (ES2016)
 
-<!-- .element: class="fragment" data-fragment-index="0" -->
+<!-- .element: class="fragment" -->
 
 NOTES:
 _[28.5 minutes]_
@@ -1418,9 +1499,11 @@ _[29.5 minutes]_
 # YOU!
 
 NOTES:
-- It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code
+- It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succint
 
 =====
+
+<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
 
 # THANKS!
 
