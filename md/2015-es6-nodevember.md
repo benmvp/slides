@@ -50,7 +50,7 @@ _[1 minute]_
 
 /////
 
-<!-- .slide: data-background="url(img/eventbrite-logo.png) no-repeat center" data-background-size="contain"-->
+![Eventbrite logo](img/eventbrite-logo.png)
 
 NOTES:
 - Any of you who registered for Nodevember used Eventbrite to buy your ticket
@@ -100,11 +100,10 @@ NOTES:
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
   \_\_proto\_\_  
   <div class="fragment highlight-blue" data-fragment-index="0">Arrow functions</div>
-  <div class="fragment highlight-blue" data-fragment-index="0">Block scoping</div>
   Classes  
   <div class="fragment highlight-blue" data-fragment-index="0">Default parameters</div>
   <div class="fragment highlight-blue" data-fragment-index="0">Destructuring</div>
-  Enhanced literals  
+  Enhanced object literals  
   Modules  
   <div class="fragment highlight-blue" data-fragment-index="0">Rest parameters</div>
   <div class="fragment highlight-blue" data-fragment-index="0">Spread operator</div>
@@ -116,6 +115,7 @@ NOTES:
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
   <div class="fragment highlight-red" data-fragment-index="0">Array APIs</div>
+  <div class="fragment highlight-red" data-fragment-index="0">Block scoping</div>
   <div class="fragment highlight-red" data-fragment-index="0">`for-of`</div>
   Generators  
   Iterators  
@@ -130,7 +130,7 @@ NOTES:
   RegExp APIs  
   Sets  
   <div class="fragment highlight-red" data-fragment-index="0">String APIs</div>
-  Subclassables  
+  Subclassable built-ins  
   Symbols  
   Tail calls  
   Typed arrays  
@@ -148,10 +148,7 @@ NOTES:
   - SPICE: Spicy new functionality like new operators, objects and APIs
 
 - We'll be covering about ⅓ of the features
-- Because of time constraints, we'll focus more on the sugar features
-- Really would like to talk about spicier features like promises, iterators and generators
-- But not enough time
-- So instead going to focus on features you're more likely to leverage right away and which will help you write clearer code
+- I decided on these 10 because they are the ones you're most likely to leverage right away and which will help you write clearer code
 
 =====
 
@@ -166,14 +163,46 @@ _[4 minutes]_
 
 ## Native JavaScript engine support
 
-- Google Chrome - 65%
-- Mozilla Firefox - 72%
-- Microsoft Edge - 84%  <!-- .element: class="fragment highlight-green" -->
-- Safari 9 - 54%
-- Opera - 65%
-- Webkit - 71%
-- Node 5 - 59%
-- iOS 9 - 54%
+<br />
+<br />
+
+<div style="display:flex; align-items:flex-end; justify-content: space-between;">
+  <div style="flex:0 0 10%;">
+    ![Google Chrome Logo](img/google-chrome-logo.png)
+    65%
+  </div>
+  <div style="flex:0 0 10%">
+    ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
+    72%
+  </div>
+  <div style="flex:0 0 10%">
+    ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
+    84%
+  </div>
+  <div style="flex:0 0 10%">
+    ![Apple Safari Logo](img/apple-safari-logo.png)
+    54%
+  </div>
+  <div style="flex:0 0 10%">
+    ![Opera Logo](img/opera-logo.png)
+    65%
+  </div>
+  <div style="flex:0 0 10%">
+    ![Webkit Logo](img/webkit-logo.png)
+    71%
+  </div>
+  <div style="flex:0 0 10%">
+    ![NodeJS Logo](img/nodejs-logo.png)
+    59%
+  </div>
+  <div style="flex:0 0 10%">
+    ![iOS 9 Logo](img/ios9-logo.png)
+    54%
+  </div>
+</div>
+
+<br />
+<br />
 
 [ECMAScript 6 Compatibility Table](http://kangax.github.io/compat-table/es6/)
 
@@ -187,34 +216,55 @@ NOTES:
 
 /////
 
-## Transpiling
+### Transpiling ES6 &#8594; ES3/ES5
 
-### ES6 &#8594; ES3/ES5
-
-- [Traceur](https://github.com/google/traceur-compiler) - 59%
-- [Babel](https://babeljs.io/) - 71%   <!-- .element: class="fragment highlight-green" -->
-- [TypeScript](http://www.typescriptlang.org/) - 51%
+![Babel ES6 Live Transpiling](img/babel-es6-transpile.gif)
 
 NOTES:
-- “Transpilers” let you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
+- Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
 - ES5 is the JavaScript that is supported in all major browsers. It was released in 2009
 - However IE8 doesn’t support ES5. It only supports ES3, which was released in 1999
+- So basically what you would do is write your code in ES6
+  - Then in your build step when converting SASS to vanilla CSS, minifying and so forth
+  - You would also run the transpiler to convert your ES6 code to ES5
+
+/////
+
+## Transpilers
+
+<div style="display:flex; align-items:flex-end; justify-content:space-between;">
+  <div style="flex:0 0 25%">
+    [![Traceur Logo](img/traceur-logo.png)](https://github.com/google/traceur-compiler) 
+    [Traceur](https://github.com/google/traceur-compiler)  
+    59%
+  </div>
+  <div style="flex:0 0 25%">
+    [![Babel Logo](img/babel-logo.png)](https://babeljs.io/)   
+    [Babel](https://babeljs.io/)   
+    71%
+  </div>
+  <div style="flex:0 0 25%">
+    [![TypeScript Logo](img/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+    [TypeScript](http://www.typescriptlang.org/)  
+    59%
+  </div>
+</div>
+
+NOTES:
 - There are 3 major ES6 transpilers
   - Traceur
   - Babel
   - TypeScript
 - As you can see, Babel has the most support
 - I actually prefer it over the others, but they more or less accomplish the same tasks
-- So basically what you would do is write your code in ES6
-  - Then in your build step when converting SASS to vanilla CSS, minifying and so forth
-  - You would also run the transpiler to convert your ES6 code to ES5
 - If you visit the websites they have interactive transpilers you can play around with
+  - The previous animation was the Babel online REPL
 
 =====
 
 ## Agenda
 
-1. Block scoping <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->  
+1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
 1. Default parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Destructuring <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
@@ -226,7 +276,8 @@ NOTES:
 1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
-- Buckle up your seat belts, we're going to cover 10+ features in less than 25 minutes
+- As a reminder, here's what we'll be covering
+- Buckle up your seat belts, we're going to cover these 10 features in less than 25 minutes
 
 =====
 
@@ -296,6 +347,9 @@ notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
 
+<br />
+<br />
+
 -----
 
 #### Before
@@ -352,6 +406,9 @@ notify('Hi!');
 notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
+
+<br />
+<br />
 
 -----
 
@@ -459,6 +516,9 @@ function notify(msg, options = {}) {
 }
 ```
 
+<br />
+<br />
+
 -----
 
 #### Before
@@ -483,7 +543,7 @@ NOTES:
 Named parameters!
 
 ```js
-function notify(msg, {type='info', timeout, close:canClose=true} = {}){
+function notify(msg, {type='info', timeout, close:canClose=true} = {}) {
   // display notification
 }
 
@@ -491,6 +551,9 @@ notify('Hi!');
 notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
+
+<br />
+<br />
 
 -----
 
@@ -502,6 +565,10 @@ function notify(msg, options = {}) {
 
   // display notification
 }
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
 
 NOTES:
@@ -515,12 +582,16 @@ NOTES:
 ### After
 
 ```js
-function notify(msg, {type='info', timeout, close:canClose=true} = {}){
+function notify(msg, {type='info', timeout, close:canClose=true} = {}) {
   // display notification
 }
 ```
 
+<br />
+
 -----
+
+<br />
 
 ### Before
 
@@ -540,8 +611,8 @@ function notify(msg, options) {
 ```
 
 NOTES:
-- All of ur code has moved into the function header!
-- How many people find destructuring to make the code less readable?
+- All of our code has moved into the function header!
+- How many people find destructuring to actually make the code _less_ readable?
   - You're not alone!
   - I feel the same way too!
   - Of all the ES6 syntactic sugar features, destructuring seems the least readable to me
@@ -586,7 +657,7 @@ let {
     name,
     nicknames: [primaryNick],
     misc: {
-      netWorth: netWorthThousands = 0
+      netWorth: netWorthThousands=0
     }
   } = {
     name: 'Sean Combs',
@@ -667,6 +738,9 @@ function join(separator, ...values) {
 join('-', 'tic', 'tac', 'toe');
 ```
 
+<br />
+<br />
+
 -----
 
 #### Before
@@ -682,6 +756,9 @@ function join(separator) {
 
   return values.join(separator);
 }
+
+// output: tic-tac-toe
+join('-', 'tic', 'tac', 'toe');
 ```
 
 NOTES:
@@ -706,9 +783,12 @@ let [first, ...rest] = list;
 console.log(first, rest);
 ```
 
+<br />
+<br />
+
 -----
 
-#### Old way
+#### ES5 way
 ```js
 var list = [9, 8, 7, 6, 5],
     first = list[0],
@@ -761,13 +841,16 @@ No more `apply`!
 let arrayOfValues = [33, 2, 9];
 let maxValueFromArray = Math.max(...arrayOfValues);
 
-// output: 33  33
+// output: 33
 console.log(maxValueFromArray);
 ```
 
+<br />
+<br />
+
 -----
 
-#### Old way
+#### ES5 way
 
 ```js
 var arrayOfValues = [33, 2, 9],
@@ -785,16 +868,19 @@ NOTES:
 /////
 
 ## To be clear...
+<br />
 
-Spread operator
+Spread operator (function call)
 
 ```js
 let arrayOfValues = [33, 2, 9];
 let maxValueFromArray = Math.max(...arrayOfValues);
-    // like: Math.max(33, 2, 9)
+    // just like: Math.max(33, 2, 9)
 ```
 
-Rest operator
+<br />
+
+Rest operator (function header) 
 
 ```js
 function join(separator, ...values) {
@@ -826,9 +912,12 @@ let scaleFromLiteral = [...start, ...middle, ...end];
 console.log(scaleFromLiteral);
 ```
 
+<br />
+<br />
+
 -----
 
-#### Old way
+#### ES5 way
 
 ```js
 let start = ['do', 're'];
@@ -883,7 +972,8 @@ for (i in list) {
 ```
 
 NOTES:
-- You may be tempted to use the `for-in` loop to iterate over an array, but it has problems
+- You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
+- But it has problems
 - `for-in` can iterate in an arbitrary order
 - The values on the iteration variable are actually strings not numbers!
   - So adding numbers to them results in concatenation not addition
@@ -936,6 +1026,9 @@ for (let value of list) {
 }
 ```
 
+<br />
+<br />
+
 -----
 
 #### Before
@@ -958,14 +1051,11 @@ NOTES:
 =====
 
 ```js
-var first = 'Ben',
-	last = 'Ilegbodu';
+var first = 'Ben', last = 'Ilegbodu';
 
-// output: He said, "It's your fault!"
-console.log('He said, "It\'s your fault!"');
+console.log('He said, "It\'s your fault!"'); // output: He said, "It's your fault!"
 
-// output: Name: Ilegbodu, 31
-console.log('Name: ' + last + ', ' + (15 + 16));
+console.log('Name: ' + last + ', ' + (15 + 16));  // output: Name: Ilegbodu, 31
     
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
@@ -998,11 +1088,9 @@ String interpolation + multi-line!
 ```js
 let first = 'Ben', last = `Ilegbodu`;
 
-// output: He said, "It's your fault!"
-console.log(`He said, "It's your fault!"`);
+console.log(`He said, "It's your fault!"`); // output: He said, "It's your fault!"
 
-// output: Name: Ilegbodu, 31
-console.log(`Name: ${last}, ${15 + 16}`);
+console.log(`Name: ${last}, ${15 + 16}`); // output: Name: Ilegbodu, 31
 
 console.log(`This is multi-line text, so
     that newline characters are not
@@ -1010,16 +1098,19 @@ console.log(`This is multi-line text, so
 `);
 ```
 
+<br />
+<br />
+
 -----
 
-#### Old way
+#### Before
 
 ```js
 var first = 'Ben', last = 'Ilegbodu';
 
-console.log('He said, "It\'s your fault!"');
+console.log('He said, "It\'s your fault!"'); // output: He said, "It's your fault!"
 
-console.log('Name: ' + last + ', ' + (15 + 16));
+console.log('Name: ' + last + ', ' + (15 + 16));  // output: Name: Ilegbodu, 31
     
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
@@ -1137,18 +1228,18 @@ MyObj.prototype.update = function() {
 };
 ```
 
+<br />
+<br />
+
 -----
 
-#### Old way
+#### ES5 way
 
 ```js
-'use strict';
-
 MyObj.prototype.update = function() {
-  $.get(this._url).done(function(responseData) {
-    // `this` is undefined!
+  $.get(this._url).done((function(responseData) {
     this._data = responseData;
-  });
+  }).bind(this)); // pass in proper `this` context
 };
 ```
 
@@ -1158,9 +1249,48 @@ NOTES:
 - Arrow functions use what’s called “lexical scoping” for `this`
   - It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
   - Essentially arrow functions work how you would expect it to
+
+
+/////
+
+### Arrow functions
+
+```js
+let squares = [1, 2, 3].map(value => value * value);
+```
+
+```js
+let sum = [9, 8, 7, 6].reduce((value, memo) => memo + value, 0);
+```
+
+```js
+$('button').click(e => {
+  alert('Hello world!');
+});
+```
+
+```js
+setTimeout(() => {
+  console.log('delayed for 1 second');
+  console.log('using arrow function');
+}, 1000);
+```
+
+```js
+$.ajax({
+  url: 'test.html',
+  cache: false
+}).done(html => {
+  $('#results').append(html);
+  console.log(html);
+})
+```
+
+
+NOTES:
 - You’ll find that arrow functions come in handy most when used as a callback function. 
   - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
-  - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc),
+  - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
 
 =====
 
@@ -1206,7 +1336,7 @@ NOTES:
 
 Enable complex asynchronous programming with `function*` and `yield`
 
-`async` / `await`
+`async` / `await` (ES2016)
 
 <!-- .element: class="fragment" data-fragment-index="0" -->
 
@@ -1234,7 +1364,7 @@ NOTES:
 
 ## Review
 
-- Block scoping <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->  
+- Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
 - Default parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 - Destructuring <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 - Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
@@ -1256,12 +1386,12 @@ _[29 minutes]_
 
 ## Additional Resources
 
-* [*Learning ES6*](http://www.benmvp.com/2015/08/the-learning-es6-series.html) by Ben Ilegbodu
+* __[_Learning ES6_](http://www.benmvp.com/2015/08/the-learning-es6-series.html) by Ben Ilegbodu__
 * [ES6 Katas](http://es6katas.org/) by Wolfram Kriesing
-* [*Exploring ES6*](http://exploringjs.com/es6/) by Axel Rauschmayer
-* [*Understanding ECMAScript 6*](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
-* [*ES6 in Depth*](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
-* [*ES6 in Depth*](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
+* [_Exploring ES6_](http://exploringjs.com/es6/) by Axel Rauschmayer
+* [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
+* [_ES6 in Depth_](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
+* [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
 
 NOTES:
 _[29.5 minutes]_
