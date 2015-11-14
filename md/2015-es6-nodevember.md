@@ -2,7 +2,9 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](http://www.benmvp.com/) | [#nodevember](https://twitter.com/hashtag/nodevember)
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](http://www.benmvp.com/) | [#nodevember](https://twitter.com/hashtag/nodevember)  
+<br />
+November 14, 2015  
 
 NOTES:
 - ES6 is the latest version of JavaScript
@@ -98,7 +100,7 @@ NOTES:
 #### Sugar
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
-  \_\_proto\_\_  
+  <code>\_\_proto\_\_</code>  
   <div class="fragment highlight-blue" data-fragment-index="0">Arrow functions</div>
   Classes  
   <div class="fragment highlight-blue" data-fragment-index="0">Default parameters</div>
@@ -166,14 +168,14 @@ _[4 minutes]_
 <br />
 <br />
 
-<div style="display:flex; align-items:flex-end; justify-content: space-between;">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;">
   <div style="flex:0 0 10%;">
     ![Google Chrome Logo](img/google-chrome-logo.png)
     65%
   </div>
   <div style="flex:0 0 10%">
     ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
-    72%
+    74%
   </div>
   <div style="flex:0 0 10%">
     ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
