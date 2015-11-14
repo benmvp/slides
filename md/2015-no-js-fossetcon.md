@@ -5,7 +5,9 @@
 [@benmvp](https://twitter.com/benmvp) | [benmvp.com](http://www.benmvp.com/) | [#fossetcon](https://twitter.com/hashtag/fossetcon)
 
 NOTES:
-
+- How many folks here would call themselves web developers?
+- How many of you use toolkits/libraries like jQuery?
+- The goal of this talk is to highlight ways that you can use HTML & CSS to replace functionality we previously could only accomplish w/ JavaScript
 
 =====
 
@@ -38,13 +40,13 @@ _[1 minute]_
 
 /////
 
-<!-- .slide: data-background="url(img/eventbrite-logo.png) no-repeat center" data-background-size="contain"-->
+![Eventbrite logo](img/eventbrite-logo.png)
 
 NOTES:
-- How many of you have heard of Eventbrite?
-  - I sure hope so! We're sponsoring the event
-  - Any of you who registered for Nodevember used Eventbrite to buy your ticket
-  - I work on the team that’s actual rebuilding that page you used to buy your tickets into something beautiful & responsive
+- Currently a Senior UI Engineer at Eventbrite
+- Eventbrite is an online ticketing & events platform
+- Many conferences use it for registration
+- I work on the team that’s actual rebuilding that page you used to buy your tickets into something beautiful & responsive
 
 =====
 
@@ -60,7 +62,8 @@ _[2 minutes]_
 
 - Here's what we'll be talking about today in our session
 - We'll look at how we can implement interactivity, functionality, layout & animation
-- Without using any JavaScript!
+- Without using any JavaScript! (or at least very little)
+- The rationale being that if we use HTML/CSS, the browser executes the interaction which will typically be more performant
 
 =====
 
@@ -77,6 +80,8 @@ _[3 minutes]_
 
 /////
 
+###### Interactivity
+
 ## Header navigation example
 
 <iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
@@ -90,6 +95,8 @@ NOTES:
 - Normally you would use `<img>` for images or `background-image` for image sprite
 
 /////
+
+###### Interactivity
 
 <iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
 
@@ -106,6 +113,8 @@ _[4 minutes]_
   - Can easily change their size, color and any other text property.
 
 /////
+
+###### Interactivity
 
 <iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
 
@@ -139,6 +148,8 @@ _[5 minutes]_
 - Generic class for all of the items + unique class for each item
 
 /////
+
+###### Interactivity
 
 <iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
 
@@ -186,6 +197,8 @@ _[6 minutes]_
 
 /////
 
+###### Interactivity
+
 ## Hover support
 
 <iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
@@ -214,6 +227,8 @@ _[7 minutes]_
 - There's a better way!
 
 /////
+
+###### Interactivity
 
 ## Hover support
 
@@ -254,11 +269,15 @@ _[8 minutes]_
 
 /////
 
+###### Interactivity
+
 ## `@font-face` Browser support
 
-![@font-face web fonts support](img/font-face-support.png)
+[![@font-face web fonts support](img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
 
 IE8+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
+
+http://caniuse.com/#feat=fontface
 
 
 NOTES:
@@ -266,7 +285,9 @@ _[9 minutes]_
 
 /////
 
-![HTML for Font Icon Usage by CSS Tricks](img/css-tricks-html-for-font-icon-usage.png)
+###### Interactivity
+
+[![HTML for Font Icon Usage by CSS Tricks](img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
 
 https://css-tricks.com/html-for-icon-font-usage/
 
@@ -277,17 +298,419 @@ NOTES:
 
 # Functionality
 
-with HTML5 `<input>`
+with new HTML5 `<input>` types
 
 NOTES:
 _[10 minutes]_
 
+/////
+
+###### Functionality
+
+<iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+
+NOTES:
+- We'll be working off of this beautiful form example
+- Clicking labels focuses field
+- Placeholder text where appropriate
+- Fancy new fields like date picker, slider, color picker & auto-suggest
+- Ability to style required vs. optional fields
+- Ability to style valid vs invalid fields
+
+/////
+
+###### Functionality
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
+  <div style="flex:0 0 45%;">
+
+    <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+
+  </div>
+  <div style="flex:0 0 52%;">
+    
+    <code>&lt;label&gt;</code> &amp; <code>for</code> attribute
+
+    <pre><code class="lang-html">
+<label for="name">Full Name\*:</label>
+<input id="name" type="text" />
+
+<label for="email">Email\*:</label>
+<input id="email" type="email" />
+      </code></pre>
+
+<br />
+Equivalent JavaScript
+    <pre><code class="lang-js">
+$('label').click(function() {
+  var inputId = $(this).attr('for');
+
+  $('#' + inputId).focus();
+});
+      </code></pre>
+
+  </div>
+</div>
+
+<p class="fragment">Doesn't even require HTML5 support!</p>
+
+NOTES:
+_[11 minutes]_
+
+- Using the `<label>` tag with the `for` attribute automatically focus field when clicked
+- The equivalent JavaScript is simple enough, but unnecessary!
+- This doesn't require any HTML5 support, you can use this in any browser!
+
+/////
+
+###### Functionality
+
+HTML5 `placeholder` attribute
+
+<input type="url" class="input-example" placeholder="Enter URL" />
+
+```html
+<input type="url" placeholder="Enter URL" />
+```
+<br />
+<br />
+Equivalent JavaScript
+
+- `onload`: `placeholder` &#8594; `value` if `value` is empty
+- `onfocus`: Clear `value` if it equals `placeholder`
+- `onblur`: `placeholder` &#8594; `value` if `value` is empty
+
+NOTES:
+- Trying to build a robust JS implementation is tricky
+- There have been times I've used sites that have built it themselves and I'll click in and the placeholder text doesn't go away
+
+/////
+
+###### Functionality
+
+`<input>` type `email` 
+
+<input class="input-example" type="email" placeholder="Enter email" required />
+
+```html
+<input type="email" placeholder="Enter email" required />
+```
+<br />
+<img src="img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
+special email-focused software keyboard!
+
+NOTES:
+_[12 minutes]_
+
+- Instead of `type="text"`, it's `type="email"`
+- Provides email-focused software keyboard where applicable
+- Default email validation (more on that later)
+
+/////
+
+###### Functionality
+
+`<input>` type `url` 
+
+<input class="input-example" type="url" placeholder="Enter URL" />
+
+```html
+<input type="url" placeholder="Enter url" />
+```
+<br />
+<img src="img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
+special URL-focused software keyboard!
+
+NOTES:
+_[13 minutes]_
+
+- Instead of `type="text"`, it's `type="url"`
+- Provides url-focused software keyboard where applicable
+- Default url validation (more on that later)
+
+/////
+
+###### Functionality
+
+`<input>` type `number` 
+
+<input class="input-example" type="number" min="10" max="48" step="2" />
+
+```html
+<input type="number" step="2" min="10" max="48" />
+```
+<br />
+<img src="img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
+special number-focused software keyboard!
+
+NOTES:
+_[14 minutes]_
+
+- Instead of `type="text"`, it's `type="number"`
+- Provides number-focused software keyboard where applicable
+- `min` & `max` dictate bounds
+- `step` dictates up/down arrows as well as validation (no decimals)
+- Can't type in non numbers
+- Default number validation (more on that later)
+
+/////
+
+###### Functionality
+
+`<input>` type `tel` 
+
+<input class="input-example" type="tel" placeholder="###-###-####" />
+
+```html
+<input type="tel" placeholder="###-###-####" />
+```
+<br />
+<img src="img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
+special telephone-focused software keyboard!
+
+NOTES:
+_[15 minutes]_
+
+- Instead of `type="text"`, it's `type="telephone"`
+- Provides telephone-focused software keyboard where applicable
+- No validation or character prevention
+
+/////
+
+###### Functionality
+
+`<input>` type `range` 
+<br />
+<br />
+<input type="range" placeholder="0 - 10" min="0" max="10" step="1" style="width:650px" />
+<br />
+<br />
+```html
+<input type="range" placeholder="0 - 10" min="0" max="10" step="1" />
+```
+<br />
+native slider UI!
+
+NOTES:
+- Instead of `type="text"`, it's `type="range"`
+- Provides native slider UI where applicable
+
+/////
+
+###### Functionality
+
+`<input>` type `date` 
+
+<input class="input-example" type="date" placeholder="MM/DD/YYYY" pattern="^\d{2}/\d{2}/\d{4}$" />
+
+```html
+<input type="date" placeholder="MM/DD/YYYY" pattern="^\d{2}/\d{2}/\d{4}$" />
+```
+<br />
+<img src="img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
+native date picker UI!
+
+NOTES:
+_[16 minutes]_
+
+- Instead of `type="text"`, it's `type="date"`
+- Provides native date picker UI where applicable
+- Use `pattern` & `placeholder` as fallback since not all browsers support
+
+/////
+
+###### Functionality
+
+`<input>` type `color` 
+
+<input type="color" class="input-example" placeholder="#XXXXXX" value="#00008b" style="width:250px;height:100px" pattern="#[0-9a-fA-F]{6}" />
+
+```html
+<input type="color" placeholder="#XXXXXX" value="#00008b" pattern="#[0-9a-fA-F]{6}" />
+```
+<br />
+native color picker UI!
+
+NOTES:
+_[17 minutes]_
+
+- Instead of `type="text"`, it's `type="color"`
+- Provides native color picker UI where applicable
+- Use `pattern` w/ `placeholder` as a fallback since not all browsers support
+
+/////
+
+###### Functionality
+
+`<input>` & `<datalist>`
+
+<input type="text" class="input-example" list="suggested-names" />
+<datalist id="suggested-names">
+  <option>Simone</option>
+  <option>Suzie</option>
+  <option>Susane</option>
+  <option>Scott</option>
+  <option>Simon<option>
+  <option>Sully</option>
+  <option>Stephanie</option>
+  <option>Shelly</option>
+</datalist>
+
+```html
+<input type="number" list="suggested-names" />
+<datalist id="suggested-names">
+  <option>Simone</option>
+  <option>Suzie</option>
+  <option>Susane</option>
+  <option>Scott</option>
+  <option>Simon<option>
+  <option>Sully</option>
+  <option>Stephanie</option>
+  <option>Shelly</option>
+</datalist>
+```
+<br />
+native auto-suggest UI!
+
+NOTES:
+_[18 minutes]_
+
+- Create a `<datalist>` with 0 or more `<option>`s and `id` attribute
+- Reference in `<input>` with `list` attribute
+- Drop down for all suggestions
+- Start typing for matches
+
+/////
+
+###### Functionality
+
+### Validation
+
+<div style="display:flex;justify-content:space-between;">
+  <div style="flex:0 0 48%;">
+
+<h4>HTML attributes</h4>
+
+<ul>
+  <li><code>type</code></li>
+  <li><code>required</code></li>
+  <li><code>minlength</code></li>
+  <li><code>min</code></li>
+  <li><code>max</code></li>
+  <li><code>step</code></li>
+  <li><code>pattern</code> (regex)</li>
+</ul>  
+
+  </div>
+  <div style="flex:0 0 48%;">
+    
+<h4>CSS psuedo selectors</h4>
+
+<ul>
+  <li><code>:required</code></li>
+  <li><code>:optional</code></li>
+  <li><code>:valid</code></li>
+  <li><code>:invalid</code></li>
+  <li><code>:in-range</code></li>
+  <li><code>:out-of-range</code></li>
+</ul>
+
+  </div>
+</div>
+
+NOTES:
+_[19 minutes]_
+
+/////
+
+###### Functionality
+
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
+  <div style="flex:0 0 48%;">
+    <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+  </div>
+  <div class="fragment" style="flex:0 0 48%;">
+    <h4>JavaScript</h4>
+    <pre><code>$('.form').submit(function(e) {
+  $(this).addClass('form-submitted');
+  if (!this.checkValidity()) {
+    e.preventDefault();
+  }
+});</code></pre>
+
+    <h4>CSS</h4>
+    <pre><code>.form-submitted input:valid {
+  background: #ccff90;
+}
+.form-submitted input:invalid {
+  background: #ff8a80;
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+_[20 minutes]_
+
+- Put everything together and we get our original form
+- Confession: I'm using a little bit of JS
+  - `:valid` and `:invalid` selectors apply even before first form submit
+  - Using JS to add a class to the form after first submit so form doesn't load w/ errors
+  - Essentially applying CSS state via JavaScript
+  - Going to cover this concept in detail in our next section
+
+/////
+
+###### Functionality
+
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
+  <div style="flex:0 0 48%;">
+    <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+  </div>
+  <div style="flex:0 0 48%;">
+    <h4>Pros</h4>
+
+    <ul>
+      <li>Native UI elements</li>
+      <li>Type-focused software keyboards</li>
+      <li>Form element validation for _free_</li>
+    </ul>
+
+    <br /><br />
+    <h4>Cons</h4>
+
+    <ul>
+      <li>Minimal style control of UI elements</li>
+      <li>Not supported in old browsers</li>
+      <li>Cross-element validation</li>
+    </ul>
+  </div>
+</div>
+
+NOTES:
+_[21 minutes]_
+
+/////
+
+###### Functionality
+
+[![Wufoo - The Current State of HTML5 Forms](img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
+
+http://www.wufoo.com/html5/
+
+NOTES:
+- Wufoo has a extremely detailed posts about all of the HTML5 input types and attributes
+  - Browser support too
 
 =====
 
 # Layout
 
 with CSS3 `display:flex`
+
+NOTES:
+_[22 minutes]_
 
 =====
 
