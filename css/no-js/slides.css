@@ -1,0 +1,12 @@
+.input-example {
+  font-size:72px;
+  margin:50px 0;
+  padding:10px;
+  border:1px solid #000;
+}
+.input-example:valid {
+  background: #ccff90;
+}
+.input-example:invalid {
+  background: #ff8a80;
+}

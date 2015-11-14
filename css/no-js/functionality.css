@@ -1,0 +1,46 @@
+body {
+	font-size: 36px;
+}
+.input-group {
+	margin-top: 10px;
+}
+.main-label {
+	display: inline-block;
+	width: 300px;
+}
+.input-text {
+	font-size: 36px;
+	height: 36px;
+	padding: 5px;
+}
+.input-text:required {
+	border: 2px solid black;
+}
+.input-text:optional {
+	border: 1px solid silver;
+}
+.form-submitted .input-text:valid {
+	background: #ccff90;
+}
+.form-submitted .input-text:invalid {
+	background: #ff8a80;
+}
+.areacode,
+.prefix {
+	width: 75px;
+}
+.line {
+	width: 100px;
+}
+.expertise {
+	width: 300px;
+}
+.fav-color {
+	font-size: 36px;
+	width: 200px;
+	height: 36px;
+}
+.submit {
+	font-size: 36px;
+	margin-top: 20px;
+}
