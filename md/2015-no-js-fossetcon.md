@@ -176,12 +176,6 @@ _[5 minutes]_
 .header-nav-item--search:before {
   content: "\f002"; /* search icon */
 }
-.header-nav-item--cart:before {
-  content: "\f07a"; /* shopping-cart icon */
-}
-.header-nav-item--me:before {
-  content: "\f007"; /* user icon */
-}
 ```
 
 NOTES:
@@ -328,7 +322,7 @@ NOTES:
 
   </div>
   <div style="flex:0 0 52%;">
-    
+
     <code>&lt;label&gt;</code> &amp; <code>for</code> attribute
 
     <pre><code class="lang-html">
@@ -372,6 +366,7 @@ HTML5 `placeholder` attribute
 ```html
 <input type="url" placeholder="Enter URL" />
 ```
+<!-- .element: class="large" -->
 <br />
 <br />
 Equivalent JavaScript
@@ -388,13 +383,14 @@ NOTES:
 
 ###### Functionality
 
-`<input>` type `email` 
+`<input>` type `email`
 
 <input class="input-example" type="email" placeholder="Enter email" required />
 
 ```html
 <input type="email" placeholder="Enter email" required />
 ```
+<!-- .element: class="large" -->
 <br />
 <img src="img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
 special email-focused software keyboard!
@@ -410,13 +406,14 @@ _[12 minutes]_
 
 ###### Functionality
 
-`<input>` type `url` 
+`<input>` type `url`
 
 <input class="input-example" type="url" placeholder="Enter URL" />
 
 ```html
 <input type="url" placeholder="Enter url" />
 ```
+<!-- .element: class="large" -->
 <br />
 <img src="img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
 special URL-focused software keyboard!
@@ -432,13 +429,14 @@ _[13 minutes]_
 
 ###### Functionality
 
-`<input>` type `number` 
+`<input>` type `number`
 
 <input class="input-example" type="number" min="10" max="48" step="2" />
 
 ```html
 <input type="number" step="2" min="10" max="48" />
 ```
+<!-- .element: class="large" -->
 <br />
 <img src="img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
 special number-focused software keyboard!
@@ -457,13 +455,14 @@ _[14 minutes]_
 
 ###### Functionality
 
-`<input>` type `tel` 
+`<input>` type `tel`
 
 <input class="input-example" type="tel" placeholder="###-###-####" />
 
 ```html
 <input type="tel" placeholder="###-###-####" />
 ```
+<!-- .element: class="large" -->
 <br />
 <img src="img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
 special telephone-focused software keyboard!
@@ -479,7 +478,7 @@ _[15 minutes]_
 
 ###### Functionality
 
-`<input>` type `range` 
+`<input>` type `range`
 <br />
 <br />
 <input type="range" placeholder="0 - 10" min="0" max="10" step="1" style="width:650px" />
@@ -488,6 +487,7 @@ _[15 minutes]_
 ```html
 <input type="range" placeholder="0 - 10" min="0" max="10" step="1" />
 ```
+<!-- .element: class="large" -->
 <br />
 native slider UI!
 
@@ -499,13 +499,14 @@ NOTES:
 
 ###### Functionality
 
-`<input>` type `date` 
+`<input>` type `date`
 
 <input class="input-example" type="date" placeholder="MM/DD/YYYY" pattern="^\d{2}/\d{2}/\d{4}$" />
 
 ```html
 <input type="date" placeholder="MM/DD/YYYY" pattern="^\d{2}/\d{2}/\d{4}$" />
 ```
+<!-- .element: class="large" -->
 <br />
 <img src="img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
 native date picker UI!
@@ -521,13 +522,14 @@ _[16 minutes]_
 
 ###### Functionality
 
-`<input>` type `color` 
+`<input>` type `color`
 
 <input type="color" class="input-example" placeholder="#XXXXXX" value="#00008b" style="width:250px;height:100px" pattern="#[0-9a-fA-F]{6}" />
 
 ```html
 <input type="color" placeholder="#XXXXXX" value="#00008b" pattern="#[0-9a-fA-F]{6}" />
 ```
+<!-- .element: class="large" -->
 <br />
 native color picker UI!
 
@@ -603,7 +605,7 @@ _[18 minutes]_
 
   </div>
   <div style="flex:0 0 48%;">
-    
+
 <h4>CSS psuedo selectors</h4>
 
 <ul>

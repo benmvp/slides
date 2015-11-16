@@ -15,6 +15,22 @@
 	}
 }( this, function( marked ) {
 
+	if( typeof marked === 'undefined' ) {
+		throw 'The reveal.js Markdown plugin requires marked to be loaded';
+	}
+
+	marked.setOptions({
+		smartypants: true
+	});
+
+	if( typeof hljs !== 'undefined' ) {
+		marked.setOptions({
+			highlight: function( lang, code ) {
+				return hljs.highlightAuto( lang, code ).value;
+			}
+		});
+	}
+
 	var DEFAULT_SLIDE_SEPARATOR = '^\r?\n---\r?\n$',
 		DEFAULT_NOTES_SEPARATOR = 'notes?:',
 		DEFAULT_ELEMENT_ATTRIBUTES_SEPARATOR = '\\\.element\\\s*?(.+?)$',

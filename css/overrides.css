@@ -7,8 +7,15 @@
 	text-align: right;
 	top: -1.5em;
 }
+.reveal pre {
+	font-size: .75em;
+	white-space: pre-wrap;
+}
+.reveal pre.large {
+	font-size: 1em;
+}
+/** add class that has smaller font by default and bigger when it's an important code **/
 .reveal pre code {
-	font-size: larger;
 	max-height: none;
 	padding: 15px;
 }

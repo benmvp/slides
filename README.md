@@ -8,7 +8,7 @@ You can also check out my [Lanyrd profile](http://lanyrd.com/profile/benmvp/) fo
 
 ### [Nodevember 2015](http://nodevember.org/index.html)
 _Sugar & Spice and everything nice about ES6_  
-November 14th @ 1p in Ezel 301  
+November 14th @ 1p in Ezell 301  
 [Slides](http://benmvp.github.io/slides/nodevember2015-es6.html) | [Code examples](https://github.com/benmvp/learning-es6)  
 
 ----------
