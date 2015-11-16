@@ -714,6 +714,82 @@ with CSS3 `display:flex`
 NOTES:
 _[22 minutes]_
 
+/////
+
+###### Layout
+
+<div class="collection-example" style="justify-content:space-between;align-items:flex-end;margin-bottom:80px">
+	<div class="item-example item-example-1" style="order:3">11111111111</div>
+	<div class="item-example item-example-2" style="order:1">22222222</div>
+	<div class="item-example item-example-3" style="order:4">3333333333333333333</div>
+	<div class="item-example item-example-4" style="order:2">4444444444444</div>
+</div>
+
+```html
+<div class="collection">
+	<div class="item item-1">11111111111</div>
+	<div class="item item-2">22222222</div>
+	<div class="item item-3">3333333333333333333</div>
+	<div class="item item-4">4444444444444</div>
+</div>
+```
+
+`display:flex` to the rescue!
+
+<!-- .element class="fragment" -->
+
+NOTES:
+- In this section we want to build the following horizontal layout given this HTML markup
+  - Items are evenly spaced
+  - Bottom aligned
+  - Reordered
+- HTML was originally designed for displaying text-based documents like papers or articles
+- Wasn't made for advanced layout
+- We've had CSS positioning, but that assumes that you have fixed dimensions or locations
+- Prior to CSS3 all we've had to use is `display:float` or `display:inline-block`
+- Now we have `display:flex`
+
+/////
+
+> The main idea behind the **flex layout** is to give the container the ability to alter its items' width/height (and order) to best fill the available space (mostly to accommodate to all kind of display devices and screen sizes). A flex container expands items to fill available free space, or shrinks them to prevent overflow.
+
+Chris Coyer ([Css-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/))
+
+/////
+
+###### Layout
+
+<div class="collection-example" style="justify-content:space-between;align-items:flex-end;margin-bottom:80px">
+	<div class="item-example item-example-1" style="order:3">11111111111</div>
+	<div class="item-example item-example-2" style="order:1">22222222</div>
+	<div class="item-example item-example-3" style="order:4">3333333333333333333</div>
+	<div class="item-example item-example-4" style="order:2">4444444444444</div>
+</div>
+
+```css
+.collection {
+	display: flex; /* or display:inline-flex */
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'block')">
+	<code>display:block</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'flex')">
+	<code>display:flex</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'inline-flex')">
+	<code>display:inline-flex</code></a>
+
+NOTES:
+- It all starts with `display:flex` (or `display:inline-flex`) on the container
+- It enables a flex context for all its direct children.
+
+/////
+
+###### Layout
+
+[![CSS Tricks - A Complete Guide to Flexbox](img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
 =====
 
 # Animation
