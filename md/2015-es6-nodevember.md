@@ -344,12 +344,8 @@ function notify(msg, options) {
   let timeout = options.timeout;
   let canClose = options.close === undefined ? true : options.close;
 }
-notify('Hi!');
-notify('Hi!', {type:'error'});
-notify('Hi!', {type:'warn', canClose:false});
 ```
 
-<br />
 <br />
 
 -----
@@ -456,12 +452,8 @@ function notify(msg, options = {}) {
 
   // display notification
 }
-notify('Hi!');
-notify('Hi!', {type:'error'});
-notify('Hi!', {type:'warn', canClose:false});
 ```
 
-<br />
 <br />
 
 -----
@@ -493,7 +485,7 @@ function getWidth() {
   console.log('getWidth');
   return 7;
 }
-function drawRect(width = getWidth(), height = width * 2, options = {color:'red'}) {
+function drawRect(width=getWidth(), height=width*2, options={color:'red'}) {
   console.log(width, height, options);
 
   // draw rectangle
@@ -587,7 +579,6 @@ function notify(msg, options = {}) {
 ```
 
 <br />
-<br />
 
 -----
 
@@ -622,7 +613,6 @@ notify('Hi!', {type:'error'});
 notify('Hi!', {type:'warn', canClose:false});
 ```
 
-<br />
 <br />
 
 -----
@@ -661,7 +651,6 @@ function notify(msg, {type='info', timeout, close:canClose=true} = {}) {
 
 -----
 
-<br />
 
 ### Before
 
@@ -818,8 +807,6 @@ function join(separator, ...values) {
 join('-', 'tic', 'tac', 'toe');
 ```
 
-<br />
-<br />
 
 -----
 
@@ -863,7 +850,6 @@ let [first, ...rest] = list;
 console.log(first, rest);
 ```
 
-<br />
 <br />
 
 -----
@@ -926,7 +912,6 @@ console.log(maxValueFromArray);
 ```
 
 <br />
-<br />
 
 -----
 
@@ -959,7 +944,7 @@ let maxValueFromArray = Math.max(...arrayOfValues);
     // just like: Math.max(33, 2, 9)
 ```
 
-<br />
+-----
 
 Rest operator  
 Multiple parameters &#8594; array (function header) 
@@ -994,7 +979,6 @@ let scaleFromLiteral = [...start, ...middle, ...end];
 console.log(scaleFromLiteral);
 ```
 
-<br />
 <br />
 
 -----
@@ -1127,7 +1111,6 @@ for (let value of list) {
 ```
 
 <br />
-<br />
 
 -----
 
@@ -1154,10 +1137,8 @@ NOTES:
 ```js
 var first = 'Ben', last = 'Ilegbodu';
 
-console.log('He said, "It\'s your fault!"'); // output: He said, "It's your fault!"
-
-console.log('Name: ' + last + ', ' + (15 + 16));  // output: Name: Ilegbodu, 31
-    
+console.log('He said, "It\'s your fault!"'); // He said, "It's your fault!"
+console.log('Name: ' + last + ', ' + (15 + 16));  // Name: Ilegbodu, 31
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
     'needed. Whitespace is respected\n');
@@ -1189,18 +1170,13 @@ String interpolation + multi-line!
 ```js
 let first = 'Ben', last = `Ilegbodu`;
 
-console.log(`He said, "It's your fault!"`); // output: He said, "It's your fault!"
-
-console.log(`Name: ${last}, ${15 + 16}`); // output: Name: Ilegbodu, 31
-
+console.log(`He said, "It's your fault!"`); // He said, "It's your fault!"
+console.log(`Name: ${last}, ${15 + 16}`); // Name: Ilegbodu, 31
 console.log(`This is multi-line text, so
     that newline characters are not
     needed. Whitespace is respected
 `);
 ```
-
-<br />
-<br />
 
 -----
 
@@ -1209,10 +1185,8 @@ console.log(`This is multi-line text, so
 ```js
 var first = 'Ben', last = 'Ilegbodu';
 
-console.log('He said, "It\'s your fault!"'); // output: He said, "It's your fault!"
-
-console.log('Name: ' + last + ', ' + (15 + 16));  // output: Name: Ilegbodu, 31
-    
+console.log('He said, "It\'s your fault!"'); // He said, "It's your fault!"
+console.log('Name: ' + last + ', ' + (15 + 16));  // Name: Ilegbodu, 31
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
     'needed. Whitespace is respected\n');
@@ -1329,7 +1303,6 @@ MyObj.prototype.update = function() {
 };
 ```
 
-<br />
 <br />
 
 -----
