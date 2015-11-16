@@ -10,3 +10,31 @@
 .input-example:invalid {
   background: #ff8a80;
 }
+
+.reveal .collection-example {
+    align-items: center;
+    background: #00a8f2;
+    border-radius: 5px;
+    display: flex;
+    height: 400px;
+}
+.reveal .item-example {
+    background: #00cc52;
+    border-radius: 5px;
+    color: #000;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.reveal .item-example-1 {
+    height:35%;
+}
+.reveal .item-example-2 {
+    height:65%;
+}
+.reveal .item-example-3 {
+    height:83%;
+}
+.reveal .item-example-4 {
+    height:57%;
+}
