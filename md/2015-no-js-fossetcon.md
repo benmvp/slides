@@ -273,7 +273,6 @@ IE8+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
 http://caniuse.com/#feat=fontface
 
-
 NOTES:
 _[9 minutes]_
 
@@ -718,19 +717,21 @@ _[22 minutes]_
 
 ###### Layout
 
+## Linear layout
+
 <div class="collection-example" style="justify-content:space-between;align-items:flex-end;margin-bottom:80px">
-	<div class="item-example item-example-1" style="order:3">11111111111</div>
-	<div class="item-example item-example-2" style="order:1">22222222</div>
-	<div class="item-example item-example-3" style="order:4">3333333333333333333</div>
-	<div class="item-example item-example-4" style="order:2">4444444444444</div>
+	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
+	<div class="item-example item-example-4" style="order:2">4444444444444<br>4444444444444</div>
 </div>
 
 ```html
 <div class="collection">
-	<div class="item item-1">11111111111</div>
-	<div class="item item-2">22222222</div>
-	<div class="item item-3">3333333333333333333</div>
-	<div class="item item-4">4444444444444</div>
+	<div class="item item-1">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item item-2">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item item-3">333333333333333333</div>
+	<div class="item item-4">4444444444444<br>4444444444444</div>
 </div>
 ```
 
@@ -741,48 +742,277 @@ _[22 minutes]_
 NOTES:
 - In this section we want to build the following horizontal layout given this HTML markup
   - Items are evenly spaced
-  - Bottom aligned
+  - Bottom-aligned, except for last which is top-aligned
   - Reordered
 - HTML was originally designed for displaying text-based documents like papers or articles
 - Wasn't made for advanced layout
 - We've had CSS positioning, but that assumes that you have fixed dimensions or locations
 - Prior to CSS3 all we've had to use is `display:float` or `display:inline-block`
+- So we'd have to result to some amount of JavaScript to get this sort of layout
 - Now we have `display:flex`
 
 /////
 
 > The main idea behind the **flex layout** is to give the container the ability to alter its items' width/height (and order) to best fill the available space (mostly to accommodate to all kind of display devices and screen sizes). A flex container expands items to fill available free space, or shrinks them to prevent overflow.
 
-Chris Coyer ([Css-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/))
+~Chris Coyer ([Css-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/))
 
 /////
 
 ###### Layout
 
-<div class="collection-example" style="justify-content:space-between;align-items:flex-end;margin-bottom:80px">
-	<div class="item-example item-example-1" style="order:3">11111111111</div>
-	<div class="item-example item-example-2" style="order:1">22222222</div>
-	<div class="item-example item-example-3" style="order:4">3333333333333333333</div>
-	<div class="item-example item-example-4" style="order:2">4444444444444</div>
+### `display` (container)
+
+<div class="collection-example" style="margin-bottom:80px">
+	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3">333333333333333333</div>
+	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
 </div>
 
 ```css
 .collection {
-	display: flex; /* or display:inline-flex */
+	display: flex;
 }
 ```
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'block')">
-	<code>display:block</code></a> |
+	<code>block</code></a> |
 <a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'flex')">
-	<code>display:flex</code></a> |
+	<code>flex</code></a> |
 <a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'inline-flex')">
-	<code>display:inline-flex</code></a>
+	<code>inline-flex</code></a>
 
 NOTES:
+_[24 minutes]_
+
 - It all starts with `display:flex` (or `display:inline-flex`) on the container
 - It enables a flex context for all its direct children.
+
+/////
+
+###### Layout
+
+### `justify-content` (container)
+
+<div class="collection-example" style="margin-bottom:80px;justify-content:space-between">
+	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3">333333333333333333</div>
+	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
+</div>
+
+```css
+.collection {
+	justify-content: space-between;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'center')">
+	<code>center</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'flex-end')">
+	<code>flex-end</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'flex-start')">
+	<code>flex-start</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'space-around')">
+	<code>space-around</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'space-between')">
+	<code>space-between</code></a>
+
+NOTES:
+_[25 minutes]_
+
+- We can then set `justify-content: space-between` to evenly space
+- `justify-content` helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.
+- Options:
+  - `center`: items are centered along the line
+  - `flex-end`: items are packed toward to end line
+  - `flex-start`: (default) items are packed toward the start line
+  - `space-around`: items are evenly distributed in the line with equal space around them.
+  - `space-between`: items are evenly distributed in the line; first item is on the start line, last item on the end line
+
+/////
+
+###### Layout
+
+### `align-items` (container)
+
+<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3">333333333333333333</div>
+	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
+</div>
+
+```css
+.collection {
+	align-items: flex-end;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'baseline')">
+	<code>baseline</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'center')">
+	<code>center</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'flex-end')">
+	<code>flex-end</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'flex-start')">
+	<code>flex-start</code></a> |
+<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'stretch')">
+	<code>stretch</code></a>
+
+NOTES:
+_[26 minutes]_
+
+- We can then set `align-items: flex-end` to align at the bottom
+- `align-items` defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the `justify-content` version for the cross-axis (perpendicular to the main-axis).
+- Options:
+  - `baseline`: items are aligned such as their baselines align
+  - `center`: items are centered in the cross-axis
+  - `flex-end`: cross-end margin edge of the items is placed on the cross-end line
+  - `flex-start`: cross-start margin edge of the items is placed on the cross-start line
+  - `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+
+/////
+
+###### Layout
+
+### `align-self` (items)
+
+<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3" style="align-self:stretch">333333333333333333</div>
+	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
+</div>
+
+```css
+.item-3 {
+	align-self: stretch;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .item-example-3).css('align-self', 'baseline')">
+	<code>baseline</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'center')">
+	<code>center</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-end')">
+	<code>flex-end</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-start')">
+	<code>flex-start</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'stretch')">
+	<code>stretch</code></a>
+
+NOTES:
+_[27 minutes]_
+
+- We can then set `align-self: stretch` to align the individual item at the top
+- `align-self` allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.
+- Options:
+  - `baseline`: item is aligned such as their baselines align
+  - `center`: item is centered in the cross-axis
+  - `flex-end`: cross-end margin edge of the item is placed on the cross-end line
+  - `flex-start`: cross-start margin edge of the item is placed on the cross-start line
+  - `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+
+/////
+
+###### Layout
+
+### `order` (items)
+
+<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
+	<div class="item-example item-example-4" style="order:2">4444444444444<br>4444444444444</div>
+</div>
+
+```css
+.item-1 { order: 3; }
+.item-2 { order: 1; }
+.item-3 { order: 4; }
+.item-4 { order: 2; }
+```
+
+NOTES:
+_[28 minutes]_
+
+- By default, flex items are laid out in the source order.
+- `order` controls the order in which they appear in the flex container.
+- The value can be any integer (including negative numbers)
+
+/////
+
+###### Layout
+
+## Flexbox layout module
+
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<h3>Container</h3>
+
+		<ul>
+			<li>__<code>display</code>__</li>
+			<li>__<code>justify-content</code>__</li>
+			<li>__<code>align-items</code>__</li>
+			<li><code>flex-direction</code></li>
+			<li><code>flex-wrap</code></li>
+			<li><code>align-content</code></li>
+		</ul>
+	</div>
+	<div style="flex:0 0 50%;">
+		<h3>Items</h3>
+
+		<ul>
+			<li>__<code>align-self</code>__</li>
+			<li>__<code>order</code>__</li>
+			<li><code>flex-grow</code></li>
+			<li><code>flex-shrink</code></li>
+			<li><code>flex-basis</code></li>
+		</ul>
+	</div>
+</div>
+
+NOTES:
+_[28 minutes]_
+
+- Here's the full list of flexbox-related styles
+- We covered about half of them
+- They all can be useful in different cases
+
+/////
+
+###### Layout
+
+## Linear layout
+
+<div class="collection-example" style="justify-content:space-between;align-items:flex-end">
+	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
+	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
+	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
+	<div class="item-example item-example-4" style="order:2">4444444444444<br>4444444444444</div>
+</div>
+
+NOTES:
+
+- Once again here's the result of all of our work to make a linear layout!
+
+/////
+
+###### Layout
+
+## Flexbox Browser support
+
+[![@font-face web fonts support](img/no-js/flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
+
+IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
+
+http://caniuse.com/#feat=flexbox
 
 /////
 
@@ -795,6 +1025,9 @@ NOTES:
 # Animation
 
 with CSS3 `transition` & `animation`
+
+NOTES:
+_[29 minutes]_
 
 =====
 
@@ -834,7 +1067,7 @@ NOTES:
 # THANKS!
 
 NOTES:
-_[30 minutes]_
+_[38 minutes]_
 
 /////
 
@@ -842,5 +1075,7 @@ _[30 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github.com/benmvp](https://github.com/benmvp/)
+
+Code examples: [benmvp.github.io/you-dont-need-js-for-that/](http://benmvp.github.io/you-dont-need-js-for-that/)
