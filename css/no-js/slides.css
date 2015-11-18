@@ -1,29 +1,73 @@
-.input-example {
-  font-size:72px;
-  margin:50px 0;
-  padding:10px;
-  border:1px solid #000;
-}
-.input-example:valid {
-  background: #ccff90;
-}
-.input-example:invalid {
-  background: #ff8a80;
-}
+/*** Functionality ***/
+    .reveal .input-example {
+      font-size:72px;
+      margin:50px 0;
+      padding:10px;
+      border:1px solid #000;
+    }
+    .reveal .input-example:valid {
+      background: #ccff90;
+    }
+    .reveal .input-example:invalid {
+      background: #ff8a80;
+    }
 
-.reveal .collection-example {
-    background: #00a8f2;
-    border-radius: 5px;
-    display: flex;
-    height: 400px;
-    padding: 10px;
-    overflow: hidden;
-}
-.reveal .item-example {
-    background: #00cc52;
-    border: 1px solid #222;
-    border-radius: 5px;
-    color: #000;
-    padding: 10px;
-    text-align: center;
-}
+/*** Layout ***/
+    .reveal .collection-example {
+        display: flex;
+
+        background: #00a8f2;
+        border-radius: 5px;
+        height: 400px;
+        padding: 10px;
+        overflow: hidden;
+    }
+    .reveal .item-example {
+        background: #00cc52;
+        border: 1px solid #222;
+        border-radius: 5px;
+        color: #000;
+        padding: 10px;
+        text-align: center;
+    }
+
+/*** Animation ***/
+    .reveal .canvas {
+        background: #ccc;
+        border: 10px solid black;
+        box-sizing: border-box;
+        display: flex;
+        height: 400px;
+        width: 100%;
+
+        transition: all 1s;
+    }
+    .reveal .canvas:hover {
+        background: #222;
+    }
+
+    .reveal .square {
+        background: #f00;
+        border: 3px solid #00f;
+        box-sizing: border-box;
+        color: #000;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+        width: 200px;
+
+        transition: all 5s ease-in-out 1s;
+    }
+    .reveal .square:hover {
+        background: #008b00;
+        border: 30px solid #ff0;
+        border-radius: 50%;
+        color: #ddd;
+        font-size: 100px;
+        height: 350px;
+        width: calc(100% - 20px);
+    }

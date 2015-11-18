@@ -153,7 +153,7 @@ _[5 minutes]_
 
 <iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
 
-```css
+```
 .header-nav-item {
   background: #ddd;
   float: left;
@@ -164,7 +164,7 @@ _[5 minutes]_
 .header-nav-item__link { color: #222; }
 ```
 
-```css
+```
 .header-nav-item:before {
   color: #222;
   font-family: FontAwesome;
@@ -230,12 +230,12 @@ _[7 minutes]_
 
 The CSS way:
 
-```css
+```
 .header-nav-item:hover { background: #222; }
 .header-nav-item:hover .header-nav-item__link { color: #00a8f2; }
 ```
 
-```css
+```
 .header-nav-item:hover:before { color: #ff8000; }
 .header-nav-item--home:hover:before {
   content: "\f1ad"; /* building icon */
@@ -633,20 +633,24 @@ _[19 minutes]_
   </div>
   <div class="fragment" style="flex:0 0 48%;">
     <h4>JavaScript</h4>
-    <pre><code>$('.form').submit(function(e) {
+    <pre><code data-trim>
+$('.form').submit(function(e) {
   $(this).addClass('form-submitted');
   if (!this.checkValidity()) {
     e.preventDefault();
   }
-});</code></pre>
+});
+	</code></pre>
 
     <h4>CSS</h4>
-    <pre><code>.form-submitted input:valid {
+    <pre><code data-trim>
+.form-submitted input:valid {
   background: #ccff90;
 }
 .form-submitted input:invalid {
   background: #ff8a80;
-}</code></pre>
+}
+	</code></pre>
   </div>
 </div>
 
@@ -726,7 +730,7 @@ _[22 minutes]_
 	<div class="item-example item-example-4" style="order:2">4444444444444<br>4444444444444</div>
 </div>
 
-```html
+```
 <div class="collection">
 	<div class="item item-1">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item item-2">2222222<br>2222222<br>2222222<br>2222222</div>
@@ -770,7 +774,7 @@ NOTES:
 	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
 </div>
 
-```css
+```
 .collection {
 	display: flex;
 }
@@ -803,7 +807,7 @@ _[24 minutes]_
 	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
 </div>
 
-```css
+```
 .collection {
 	justify-content: space-between;
 }
@@ -846,7 +850,7 @@ _[25 minutes]_
 	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
 </div>
 
-```css
+```
 .collection {
 	align-items: flex-end;
 }
@@ -889,7 +893,7 @@ _[26 minutes]_
 	<div class="item-example item-example-4">4444444444444<br>4444444444444</div>
 </div>
 
-```css
+```
 .item-3 {
 	align-self: stretch;
 }
@@ -932,7 +936,7 @@ _[27 minutes]_
 	<div class="item-example item-example-4" style="order:2">4444444444444<br>4444444444444</div>
 </div>
 
-```css
+```
 .item-1 { order: 3; }
 .item-2 { order: 1; }
 .item-3 { order: 4; }
@@ -991,11 +995,33 @@ _[28 minutes]_
 
 ## Linear layout
 
-<div class="collection-example" style="justify-content:space-between;align-items:flex-end">
+<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
 	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
 	<div class="item-example item-example-4" style="order:2">4444444444444<br>4444444444444</div>
+</div>
+
+<div style="display:flex;">
+	<div style="flex:0 0 45%;">
+		<h3>Collection</h3>
+		<pre><code data-trim>
+.collection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+		</code></pre>
+	</div>
+	<div style="flex:0 0 55%;">
+		<h3>Items</h3>
+		<pre><code data-trim>
+.item-1 { order: 3; }
+.item-2 { order: 1; }
+.item-3 { order: 4; align-self: stretch; }
+.item-4 { order: 2; }
+		</code></pre>
+	</div>
 </div>
 
 NOTES:
@@ -1006,9 +1032,9 @@ NOTES:
 
 ###### Layout
 
-## Flexbox Browser support
+## CSS3 Flexbox Browser support
 
-[![@font-face web fonts support](img/no-js/flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
+[![CSS3 Flexbox browser support](img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1024,10 +1050,298 @@ http://caniuse.com/#feat=flexbox
 
 # Animation
 
-with CSS3 `transition` & `animation`
+with CSS3 `transition`
 
 NOTES:
 _[29 minutes]_
+
+/////
+
+###### Animation
+
+<div class="canvas">
+	<div class="square">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+```js
+$('.canvas').hover(
+	function() { $(this).animate({backgroundColor:'#222'}, 1000) },
+	function() { $(this).animate({backgroundColor:'#ddd'}, 1000) }
+)
+$('.square').hover(
+	function() { $(this).delay(1000).animate(newStyles, 5000) },
+	function() { $(this).delay(1000).animate(oldStyles, 5000) }
+)
+```
+
+<!-- .element class="fragment" -->
+
+Don't need JavaScript, just CSS3 `transition`!
+
+<!-- .element class="fragment" -->
+
+NOTES:
+- Canvas has its background animated over 1s from grey -> black
+- After a delay of 2s & over 5s:
+  - Square grows in size
+  - Border color, width & radius change
+  - Font size & color change
+  - Background color changes
+  - Opacity changes to 50%
+- The delay is both on-enter & on-leave
+- Sample jQuery would use `animate` method after `hover` w/ `delay`
+
+/////
+
+###### Animation
+
+<div class="canvas" style="transition:none">
+	<div class="square" style="transition:none">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+<div style="display:flex;">
+	<div style="flex:0 0 45%;">
+		<pre><code data-trim>
+<div class="canvas">
+  <div class="square">
+	<span>SQUARE</span>
+  </div>
+</div>
+		</code></pre>
+		<pre><code data-trim>
+.canvas {
+  background: #ccc;
+  border: 10px solid black;
+}
+.canvas:hover {
+  background: #222;
+}
+		</code></pre>
+	</div>
+	<div style="flex:0 0 55%;">
+		<pre><code data-trim>
+.square {
+  background: #f00;
+  border: 3px solid #00f;
+  color: #000;
+  cursor: pointer;
+}
+.square:hover {
+  background: #008b00;
+  border: 30px solid #ff0;
+  border-radius: 50%;
+  color: #ddd;
+  font-size: 100px;
+  height: 350px;
+  width: calc(100% - 20px);
+}
+		</code></pre>
+	</div>
+</div>
+
+NOTES:
+- Before we look at how `transition` works, lets look at our HTML/CSS
+- Want to point out `calc()` which is a way to do math in CSS so we don't need JS
+- So we define the begin & end states and we'll use CSS3 `transition` to handle "tweening"
+
+/////
+
+###### Animation
+
+### `transition-property`
+
+<div class="canvas">
+	<div class="square" style="transition-delay:0s">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+```
+.square {
+	transition-property: all;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'none')">
+	<code>none</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'border-radius')">
+	<code>border-radius</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'width,height')">
+	<code>width,height</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'all')">
+	<code>all</code></a>
+
+NOTES:
+- `none` means no animation, just regular hover
+- Only "range" style properties can be animated (like numbers & colors)
+- You can set an individual property, so the others change immediately, but `border-radius` animates
+- Multiple properties are separated by comma, others changed immediately
+- There's the special `all` value, which will animate any properties that change (and can be animated)
+- I try to avoid using `all` but prefer listing properties so that I don't accidentally transition a property I don't intend (especially w/ cascading)
+
+/////
+
+###### Animation
+
+### `transition-duration`
+
+<div class="canvas">
+	<div class="square" style="transition-delay:0s">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+```
+.square {
+	transition-duration: 5s;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '0s')">
+	<code>0</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '200ms')">
+	<code>200ms</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '0.5s')">
+	<code>0.5s</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '1s')">
+	<code>1s</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '5s')">
+	<code>5s</code></a>
+
+NOTES:
+- `0s` means no transition should take place (default)
+- Values can be specified in seconds (`s`) or milliseconds (`ms`)
+- Values can also be decimals
+- Anything under about 300ms is quick enough to not feel laggy while still provided smoothness
+
+/////
+
+###### Animation
+
+<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+
+```
+.header-nav-item {
+  trandition-property: background-color;
+  transition-duration: 200ms;
+}
+.header-nav-item__link {
+  trandition-property: color;
+  transition-duration: 200ms;
+}
+.header-nav-item:before {
+  trandition-property: color;
+  transition-duration: 200ms;
+}
+```
+
+NOTES:
+- Remember are header menu example from the Interactivity section?
+- Not sure if you noticed, but we had transitions on hover for smoother transitions
+- Here's what the code would look like
+
+/////
+
+###### Animation
+
+### `transition-delay`
+
+<div class="canvas">
+	<div class="square">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+```
+.square {
+	transition-delay: 1s;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '0s')">
+	<code>0s</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '200ms')">
+	<code>200ms</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '0.5s')">
+	<code>0.5s</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '1s')">
+	<code>1s</code></a> |
+<a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '5s')">
+	<code>5s</code></a>
+
+NOTES:
+- `0s` means no transition delay (defualt)
+- Values can be specified in seconds (`s`) or milliseconds (`ms`)
+- Values can also be decimals
+
+/////
+
+###### Animation
+
+### `transition-timing-function`
+
+/////
+
+###### Animation
+
+### Putting it together
+
+/////
+
+###### Animation
+
+## Keyframe animation demo
+
+[Scene animation with CSS3](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
+
+/////
+
+###### Animation
+
+### Pros & Cons
+
+/////
+
+###### Animation
+
+## CSS3 Transition Browser support
+
+[![CSS3 transition browser support](img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
+
+IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
+
+http://caniuse.com/#feat=css-transitions
+
+/////
+
+###### Animation
+
+[![CSS Tricks - CSS3 transition](img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
+
+/////
+
+###### Animation
+
+## CSS3 Animation Browser support
+
+[![CSS3 animation browser support](img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
+
+IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
+
+http://caniuse.com/#feat=css-animation
+
+/////
+
+###### Animation
+
+[![CSS Tricks - CSS3 animation](img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
 
 =====
 
