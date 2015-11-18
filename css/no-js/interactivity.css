@@ -30,16 +30,22 @@ body {
 	text-align: center;
 	white-space: nowrap;
 	width: 25%;
+
+	transition: background-color 200ms;
 }
 .header-nav-item__link {
 	color: #222;
 	text-decoration: none;
+
+	transition: color 200ms;
 }
 .header-nav-item:before {
 	color: #222;
 	display: inline-block;
 	font-family: FontAwesome;
 	font-size: 25px;
+
+	transition: color 200ms;
 }
 .header-nav-item--home:before {
 	content: "\f015"; 	/* home */
