@@ -84,7 +84,7 @@ _[3 minutes]_
 
 ## Header navigation example
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 NOTES:
 - Header navigation menu that enables interactivity using the `:hover` CSS pseudo selector.- On hover of a menu item:
@@ -98,7 +98,7 @@ NOTES:
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 Uses an icon font!
 
@@ -116,7 +116,7 @@ _[4 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```html
 <header class="global-header">
@@ -151,7 +151,7 @@ _[5 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -195,19 +195,17 @@ _[6 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The JavaScript way:
 
 ```js
 $('.header-nav-item').hover(
-  function(e) {
-    if (e.type == 'mouseover') {
-      // change background to dark, text to light & image to "active"
-    }
-    else {
+  function() {
+	  // change background to dark, text to light & image to "active"
+  },
+  function() {
       // revert background to light, text to dark & image to "dormant"
-    }
   }
 );
 ```
@@ -226,7 +224,7 @@ _[7 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The CSS way:
 
@@ -1144,6 +1142,8 @@ NOTES:
 </div>
 
 NOTES:
+_[30 minutes]_
+
 - Before we look at how `transition` works, lets look at our HTML/CSS
 - Want to point out `calc()` which is a way to do math in CSS so we don't need JS
 - So we define the begin & end states and we'll use CSS3 `transition` to handle "tweening"
@@ -1177,6 +1177,8 @@ NOTES:
 	<code>all</code></a>
 
 NOTES:
+_[31 minutes]_
+
 - `none` means no animation, just regular hover
 - Only "range" style properties can be animated (like numbers & colors)
 - You can set an individual property, so the others change immediately, but `border-radius` animates
@@ -1215,6 +1217,8 @@ NOTES:
 	<code>5s</code></a>
 
 NOTES:
+_[32 minutes]_
+
 - `0s` means no transition should take place (default)
 - Values can be specified in seconds (`s`) or milliseconds (`ms`)
 - Values can also be decimals
@@ -1224,7 +1228,7 @@ NOTES:
 
 ###### Animation
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:60px;"></iframe>
+<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -1242,6 +1246,8 @@ NOTES:
 ```
 
 NOTES:
+_[33 minutes]_
+
 - Remember are header menu example from the Interactivity section?
 - Not sure if you noticed, but we had transitions on hover for smoother transitions
 - Here's what the code would look like
@@ -1277,6 +1283,8 @@ NOTES:
 	<code>5s</code></a>
 
 NOTES:
+_[34 minutes]_
+
 - `0s` means no transition delay (defualt)
 - Values can be specified in seconds (`s`) or milliseconds (`ms`)
 - Values can also be decimals
@@ -1287,25 +1295,217 @@ NOTES:
 
 ### `transition-timing-function`
 
+<div class="track-shell">
+	<div class="track-name">
+		<code>linear</code>
+	</div>
+	<div class="track">
+		<span class="ball" style="transition-timing-function:linear"></span>
+	</div>
+</div>
+<div class="track-shell">
+	<div class="track-name">
+		<code>ease</code>
+	</div>
+	<div class="track">
+		<span class="ball" style="transition-timing-function:ease"></span>
+	</div>
+</div>
+<div class="track-shell">
+	<div class="track-name">
+		<code>ease-in</code>
+	</div>
+	<div class="track">
+		<span class="ball" style="transition-timing-function:ease-in"></span>
+	</div>
+</div>
+<div class="track-shell">
+	<div class="track-name">
+		<code>ease-out</code>
+	</div>
+	<div class="track">
+		<span class="ball" style="transition-timing-function:ease-out"></span>
+	</div>
+</div>
+<div class="track-shell">
+	<div class="track-name">
+		<code>ease-in-out</code>
+	</div>
+	<div class="track">
+		<span class="ball" style="transition-timing-function:ease-in-out"></span>
+	</div>
+</div>
+
+<a href="javascript:$('section.stack.present section.present .track').addClass('active')">
+	Forward &rarr;</a> |
+<a href="javascript:$('section.stack.present section.present .track').removeClass('active')">
+	&larr; Backward</a>
+
+NOTES:
+_[35 minutes]_
+
+- The last `transition` attribute is `transition-timing-function`
+- The easiest way to show it is by transitioning the position of an element so you can see how it changes over time
+- Valid values are:
+  - linear
+  - ease (default)
+  - ease-in
+  - ease-out
+  - ease-in-out
+
+/////
+
+###### Animation
+
+### `transition-timing-function`
+
+<div class="canvas">
+	<div class="square">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+```
+.square {
+	transition-timing-function: ease-in-out;
+}
+```
+
 /////
 
 ###### Animation
 
 ### Putting it together
 
+<div class="canvas">
+	<div class="square">
+		<span>SQUARE</span>
+	</div>
+</div>
+
+```
+.canvas {
+	transition: all 1s;
+}
+.square {
+	transition: all 5s ease-in-out 1s;
+}
+```
+
+NOTES:
+_[36 minutes]_
+
+- Instead of specifying each transition-based property you can group them together w/ `transition` shorthand
+
 /////
 
 ###### Animation
 
-## Keyframe animation demo
+### Using (a little) JavaScript
 
-[Scene animation with CSS3](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
+<div style="display:flex;">
+	<div style="flex:0 0 28%;">
+		<iframe src="no-js/animation.html" style="width:475px;height:800px"></iframe>
+	</div>
+	<div style="flex:0 0 70%;">
+		<pre><code data-trim>
+.mobile-page {
+    display: flex;
+    width: 469px; height: 783px;
+}
+.mobile-page-nav {
+    flex-grow: 0; flex-basis: 0;
+    transition: flex-basis 500ms;
+}
+.mobile-page.active .mobile-page-nav {
+    flex-basis: 250px;
+}
+.mobile-page-content {
+    flex-grow: 0; flex-basis: 100%;
+}
+		</code></pre>
+		<pre><code data-trim>
+$('.menu-toggle').click(function() {
+	$('.mobile-page').toggleClass('active');
+});
+		</code></pre>
+
+	</div>
+</div>
+
+NOTES:
+_[37 minutes]_
+
+- Most of the time you need a different interaction than hover
+- Most of the time you want to click something to trigger a transition
+- That's when JavaScript comes in
+- But all the JavaScript needs to do is set a class which will ultimately cause the transition to happen
+- There's so no need to use `jQuery.animate()`
 
 /////
 
 ###### Animation
 
-### Pros & Cons
+## Keyframe `animation` demo
+
+[![Keyframe animation demo](img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
+
+NOTES:
+_[38 minutes]_
+
+
+/////
+
+###### Animation
+
+## Pros
+
+- Faster than jQuery
+- Progresive enhancement
+
+NOTES:
+_[39 minutes]_
+
+- Browser can optimize the handling of transitions by doing animation calculations in separate process
+- Animation can be added for those browsers that support it, older browsers will just get immediate jump
+  - Don't make older/slower browsers even older
+
+/////
+
+###### Animation
+
+## Cons
+
+- Event-handling
+- `transition-property` overwrites
+
+NOTES:
+_[40 minutes]_
+
+- Event-handling is tricky
+  - There is `transitionend` event for when transition is done
+  - But no progress interface
+  - Trickier to sequence animations
+- `transition-property` overwrites, so if a later style rule wants to add an additional property to transition it must reduplicate all the existing ones
+
+/////
+
+###### Animation
+
+## Javascript libraries
+
+- [Web Animations API](https://w3c.github.io/web-animations/)
+- [GASP](http://greensock.com/gsap)
+
+NOTES:
+_[41 minutes]_
+
+- Web Animations API is a new standard that will be the best of both worlds
+  - Speed of CSS (native implementation)
+  - Event-handling of JavaScript
+  - Browser support is very minimal
+- GASP is a proprietary library available for purchase which is super-fast alternative to jQuery
+  - In some benchmarks it's somehow faster than CSS3 animations
 
 /////
 
@@ -1353,6 +1553,8 @@ http://caniuse.com/#feat=css-animation
 1. Animation
 
 NOTES:
+_[42 minutes]_
+
 - Interactivity with :hover
 - Functionality with HTML5 input
 - Layout with CSS3 flexbox
@@ -1381,7 +1583,7 @@ NOTES:
 # THANKS!
 
 NOTES:
-_[38 minutes]_
+_[43 minutes]_
 
 /////
 
