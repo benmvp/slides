@@ -42,7 +42,7 @@ Date & location TBD
 ### [Nodevember 2015](http://nodevember.org/index.html)
 _Sugar & Spice and everything nice about ES6_  
 November 14th @ 1p in Ezell 301  
-[Slides](http://benmvp.github.io/slides/nodevember2015-es6.html) | [Code examples](https://github.com/benmvp/learning-es6)  
+[Video](https://www.youtube.com/watch?v=x1BvUqmn8xA) | [Slides](http://benmvp.github.io/slides/nodevember2015-es6.html) | [Code examples](https://github.com/benmvp/learning-es6)  
 
 ----------
 
