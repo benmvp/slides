@@ -13,6 +13,13 @@ November 20th @ 2p in Palm 3
 
 ----------
 
+### [Sacramento JavaScript Meetup](http://www.meetup.com/The-Sacramento-Javascript-Meetup/)
+[_You don't need JavaScript for that!_](http://www.meetup.com/The-Sacramento-Javascript-Meetup/events/226841739/)  
+November 24th @ 7p at The Urban Hive  
+[Code examples](http://benmvp.github.io/you-dont-need-js-for-that)  
+
+----------
+
 ### [ConFoo 2016](http://confoo.ca/en/2016/)
 [_You don't need JavaScript for that!_](http://confoo.ca/en/2016/session/you-don-t-need-javascript-for-that)  
 February 24th @ 3p in Hampstead  
