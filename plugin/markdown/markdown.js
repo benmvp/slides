@@ -18,10 +18,6 @@
 		throw 'The reveal.js Markdown plugin requires marked to be loaded';
 	}
 
-	marked.setOptions({
-		smartypants: true
-	});
-
 	if( typeof hljs !== 'undefined' ) {
 		marked.setOptions({
 			highlight: function( lang, code ) {
