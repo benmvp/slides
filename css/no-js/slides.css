@@ -1,9 +1,16 @@
+.reveal section[data-background] h1,
+.reveal section[data-background] h2,
+.reveal section[data-background] h1 {
+    color: #bbb;
+    text-shadow: 2px 2px 2px #000;
+}
+
 /*** Functionality ***/
     .reveal .input-example {
-      font-size:72px;
-      margin:50px 0;
-      padding:10px;
-      border:1px solid #000;
+      font-size: 72px;
+      margin: 50px 0;
+      padding: 10px;
+      border: 1px solid #000;
     }
     .reveal .input-example:valid {
       background: #ccff90;
@@ -13,7 +20,7 @@
     }
 
 /*** Layout ***/
-    .reveal .collection-example {
+    .reveal .container-example {
         display: flex;
 
         background: #00a8f2;
