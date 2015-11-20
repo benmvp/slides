@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Functionality - You don't need JavaScript for that!</title>
-      
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="initial-scale=1, width=device-width">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/no-js/functionality.css">
   </head>
   <body>
-    <form class="form" method="GET" action="" novalidate>
+    <form class="form" method="GET" action="" autocomplete="off" novalidate>
       <fieldset>
         <legend>No JavaScript form</legend>
 
@@ -48,7 +48,7 @@
 
         <div class="input-group">
           <label class="main-label" for="fav-color">Favorite Color*:</label>
-          <input id="fav-color" name="favcolor" type="color" class="fav-color" placeholder="#0fe48d" required pattern="#[0-9a-fA-F]{6}" />
+          <input id="fav-color" name="favcolor" type="color" class="fav-color" placeholder="#0fe48d" value="#0fe48d" required pattern="#[0-9a-fA-F]{6}" />
         </div>
 
         <div class="input-group">

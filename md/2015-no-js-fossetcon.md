@@ -1,3 +1,5 @@
+<!-- .slide: data-background="url(img/giphy/no-no-no-mutombo.gif) no-repeat center" data-background-size="contain" style="background-color:rgba(0,0,0,.25);bottom:0;" -->
+
 # You don't need JavaScript for that!
 
 ## Ben Ilegbodu
@@ -5,9 +7,16 @@
 [@benmvp](https://twitter.com/benmvp) | [benmvp.com](http://www.benmvp.com/) | [#fossetcon](https://twitter.com/hashtag/fossetcon)
 
 NOTES:
+- The goal of this talk is to highlight ways that you can use HTML & CSS to replace functionality we previously could only accomplish w/ JavaScript
+- I'm not hating on JavaScript
+  - Just gave a talk about new functionality added to JS with ES6
+  - But each piece of technology has its place and the cases we'll talk about will showcase where HTML/CSS are better suited
 - How many folks here would call themselves web developers?
 - How many of you use toolkits/libraries like jQuery?
-- The goal of this talk is to highlight ways that you can use HTML & CSS to replace functionality we previously could only accomplish w/ JavaScript
+- So in this case,
+  - You guys are the workers behind the desk
+  - I am Dikembe Mutombo
+  - And that balled up paper is you using JavaScript when you shouldn't
 
 =====
 
@@ -48,6 +57,10 @@ NOTES:
 - Many conferences use it for registration
 - I work on the team that’s actual rebuilding that page you used to buy your tickets into something beautiful & responsive
 
+/////
+
+<!-- .slide: data-background="url(img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
+
 =====
 
 # Agenda
@@ -65,6 +78,13 @@ _[2 minutes]_
 - Without using any JavaScript! (or at least very little)
 - The rationale being that if we use HTML/CSS, the browser executes the interaction which will typically be more performant
 
+/////
+
+<!-- .slide: data-background="url(img/giphy/lost-dont-tell-me-what-i-cant-do.gif) no-repeat center" data-background-size="contain" -->
+
+NOTES:
+- Now I know the title of my talk is a bit bold & some people respond differently to suggestions, but I'm hoping you're coming with an open mind
+
 =====
 
 # Interactivity
@@ -74,7 +94,7 @@ with CSS `:hover`
 NOTES:
 _[3 minutes]_
 
-- Let's start simple looking at iteractivity with `:hover`
+- Let's start simple looking at interactivity with `:hover`
 - This doesn't require any HTML5 or CSS3 fanciness
 - Just some fun CSS pseudo-class code
 
@@ -87,12 +107,12 @@ _[3 minutes]_
 <iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 NOTES:
-- Header navigation menu that enables interactivity using the `:hover` CSS pseudo selector.- On hover of a menu item:
+- Header navigation menu that enables interactivity using the `:hover` CSS pseudo selector.
+- On hover of a menu item:
   - the text goes from dark to light
   - the item background image goes from light to dark
+  - the icon color goes from black to orange
   - the icon goes from a "dormant" to "active" state.
-- Use an icon font from Font Awesome instead of traditional image
-- Normally you would use `<img>` for images or `background-image` for image sprite
 
 /////
 
@@ -109,7 +129,7 @@ _[4 minutes]_
 - Normally you would use `<img>` for images or `background-image` for image sprite
 - Icon fonts are fonts just like Arial or Comic Sans, but instead of comprising text characters, they contain custom monochrome image glyphs.
 - Icon fonts are awesome because:
-  - Super lightweight compared to traditional images
+  - Super lightweight compared to traditional images (63kb)
   - Can easily change their size, color and any other text property.
 
 /////
@@ -145,7 +165,10 @@ _[5 minutes]_
 
 - Using semantic HTML5 `<header>` tag & `<ul>` + `<li>`
 - Also using SMACSS + BEM CSS class naming
-- Generic class for all of the items + unique class for each item
+  - SMACSS: Scalable and Modular Architecture for CSS
+  - BEM: Block, Element, Modifier
+  - a way to organize CSS and prevent class name collisions
+- Element class for all of the items + modifier class for each item
 
 /////
 
@@ -177,6 +200,8 @@ _[5 minutes]_
   content: "\f002"; /* search icon */
 }
 ```
+
+Custom font via [`@font-face`](https://css-tricks.com/html-for-icon-font-usage/)
 
 NOTES:
 _[6 minutes]_
@@ -214,8 +239,8 @@ NOTES:
 _[7 minutes]_
 
 - Not sure why you would use JS/jquery but if you're unaware of how to use `:hover` pseudo-class, this might be the only other way
-- There's nothing functionally wrong with this approach, but you have to write code to do what the browser can do for you
-- Plus there's now styling in the JS, which really should be separate
+- There's nothing functionally wrong with this approach, but you have to write code to do what the browser can easily do for you
+- Plus there's now styling in the JS, which we like to keep separate
 - There's a better way!
 
 /////
@@ -254,7 +279,7 @@ _[8 minutes]_
 
 - The key is the `:hover` pseudo-class
 - We set the background of the item to black on hover
-- When we hover over the item we set the color of the link to black
+- When we hover over the item we set the color of the link to blue
 - We change the color of the icons to orange on hover
   - Notice the double pseuo-classes: `:hover` & `:before`
   - Also change the icons to + versions
@@ -274,6 +299,9 @@ http://caniuse.com/#feat=fontface
 NOTES:
 _[9 minutes]_
 
+- Mentioned that it uses `@font-face` for custom fonts
+- Here is the current browser support
+
 /////
 
 ###### Interactivity
@@ -282,8 +310,17 @@ _[9 minutes]_
 
 https://css-tricks.com/html-for-icon-font-usage/
 
+NOTES:
+- If you want to learn more about the ins & outs of how font icons work, check out this article on CSS-Tricks
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
+- Outside of the icon font stuff there was nothing really new here
+- It's all vanilla HTML & CSS
+- Some let's jump into some HTML5
 
 =====
 
@@ -307,6 +344,7 @@ NOTES:
 - Fancy new fields like date picker, slider, color picker & auto-suggest
 - Ability to style required vs. optional fields
 - Ability to style valid vs invalid fields
+- Spending the rest of our time in this section dissecting this form
 
 /////
 
@@ -556,7 +594,7 @@ _[17 minutes]_
 </datalist>
 
 ```html
-<input type="number" list="suggested-names" />
+<input type="text" list="suggested-names" />
 <datalist id="suggested-names">
   <option>Simone</option>
   <option>Suzie</option>
@@ -578,6 +616,14 @@ _[18 minutes]_
 - Reference in `<input>` with `list` attribute
 - Drop down for all suggestions
 - Start typing for matches
+- Different than list of suggestions the browser suggests based on forms you've submitted
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I dunno about you, but I find being able to use those native UIs quite... interesting
 
 /////
 
@@ -624,7 +670,6 @@ _[19 minutes]_
 
 ###### Functionality
 
-
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
     <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
@@ -660,7 +705,7 @@ _[20 minutes]_
   - `:valid` and `:invalid` selectors apply even before first form submit
   - Using JS to add a class to the form after first submit so form doesn't load w/ errors
   - Essentially applying CSS state via JavaScript
-  - Going to cover this concept in detail in our next section
+  - Going to cover this concept in detail in the Animation section
 
 /////
 
@@ -675,7 +720,7 @@ _[20 minutes]_
     <h4>Pros</h4>
 
     <ul>
-      <li>Native UI elements</li>
+      <li>Native UIs</li>
       <li>Type-focused software keyboards</li>
       <li>Form element validation for _free_</li>
     </ul>
@@ -721,7 +766,7 @@ _[22 minutes]_
 
 ## Linear layout
 
-<div class="collection-example" style="justify-content:space-between;align-items:flex-end;margin-bottom:80px">
+<div class="container-example" style="justify-content:space-between;align-items:flex-end;margin-bottom:80px">
 	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
@@ -729,7 +774,7 @@ _[22 minutes]_
 </div>
 
 ```
-<div class="collection">
+<div class="container">
 	<div class="item item-1">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item item-2">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item item-3">333333333333333333</div>
@@ -737,23 +782,29 @@ _[22 minutes]_
 </div>
 ```
 
-`display:flex` to the rescue!
-
-<!-- .element class="fragment" -->
-
 NOTES:
 - In this section we want to build the following horizontal layout given this HTML markup
   - Items are evenly spaced
-  - Bottom-aligned, except for last which is top-aligned
+  - Bottom-aligned, except for last which is stretched top to bottom
   - Reordered
 - HTML was originally designed for displaying text-based documents like papers or articles
 - Wasn't made for advanced layout
 - We've had CSS positioning, but that assumes that you have fixed dimensions or locations
-- Prior to CSS3 all we've had to use is `display:float` or `display:inline-block`
+- Prior to CSS3 all we've had to use is `float:left` or `display:inline-block`
 - So we'd have to result to some amount of JavaScript to get this sort of layout
-- Now we have `display:flex`
 
 /////
+
+<!-- .slide: data-background="url(img/giphy/taylor-swift-problems.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- And now we got all kinds of problems
+- But luckily we have CSS3 flexbox to come to the rescue
+
+/////
+
+
+## Flexbox
 
 > The main idea behind the **flex layout** is to give the container the ability to alter its items' width/height (and order) to best fill the available space (mostly to accommodate to all kind of display devices and screen sizes). A flex container expands items to fill available free space, or shrinks them to prevent overflow.
 
@@ -765,7 +816,7 @@ NOTES:
 
 ### `display` (container)
 
-<div class="collection-example" style="margin-bottom:80px">
+<div class="container-example" style="margin-bottom:80px">
 	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3">333333333333333333</div>
@@ -773,17 +824,17 @@ NOTES:
 </div>
 
 ```
-.collection {
+.container {
 	display: flex;
 }
 ```
 <!-- .element class="larger" -->
 
-<a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'block')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'block')">
 	<code>block</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'flex')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'flex')">
 	<code>flex</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('display', 'inline-flex')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline-flex')">
 	<code>inline-flex</code></a>
 
 NOTES:
@@ -798,7 +849,7 @@ _[24 minutes]_
 
 ### `justify-content` (container)
 
-<div class="collection-example" style="margin-bottom:80px;justify-content:space-between">
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between">
 	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3">333333333333333333</div>
@@ -806,21 +857,21 @@ _[24 minutes]_
 </div>
 
 ```
-.collection {
+.container {
 	justify-content: space-between;
 }
 ```
 <!-- .element class="larger" -->
 
-<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'center')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'center')">
 	<code>center</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'flex-end')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-end')">
 	<code>flex-end</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'flex-start')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-start')">
 	<code>flex-start</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'space-around')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-around')">
 	<code>space-around</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('justify-content', 'space-between')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-between')">
 	<code>space-between</code></a>
 
 NOTES:
@@ -841,7 +892,7 @@ _[25 minutes]_
 
 ### `align-items` (container)
 
-<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
 	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3">333333333333333333</div>
@@ -849,21 +900,21 @@ _[25 minutes]_
 </div>
 
 ```
-.collection {
+.container {
 	align-items: flex-end;
 }
 ```
 <!-- .element class="larger" -->
 
-<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'baseline')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'baseline')">
 	<code>baseline</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'center')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'center')">
 	<code>center</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'flex-end')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-end')">
 	<code>flex-end</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'flex-start')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-start')">
 	<code>flex-start</code></a> |
-<a href="javascript:$('section.stack.present section.present .collection-example').css('align-items', 'stretch')">
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'stretch')">
 	<code>stretch</code></a>
 
 NOTES:
@@ -884,7 +935,7 @@ _[26 minutes]_
 
 ### `align-self` (items)
 
-<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
 	<div class="item-example item-example-1">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3" style="align-self:stretch">333333333333333333</div>
@@ -927,7 +978,7 @@ _[27 minutes]_
 
 ### `order` (items)
 
-<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
 	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
@@ -993,7 +1044,7 @@ _[28 minutes]_
 
 ## Linear layout
 
-<div class="collection-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
 	<div class="item-example item-example-1" style="order:3">11111111111<br>11111111111<br>11111111111</div>
 	<div class="item-example item-example-2" style="order:1">2222222<br>2222222<br>2222222<br>2222222</div>
 	<div class="item-example item-example-3" style="order:4;align-self:stretch">333333333333333333</div>
@@ -1002,9 +1053,9 @@ _[28 minutes]_
 
 <div style="display:flex;">
 	<div style="flex:0 0 45%;">
-		<h3>Collection</h3>
+		<h3>container</h3>
 		<pre><code data-trim>
-.collection {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -1076,10 +1127,6 @@ $('.square').hover(
 
 <!-- .element class="fragment" -->
 
-Don't need JavaScript, just CSS3 `transition`!
-
-<!-- .element class="fragment" -->
-
 NOTES:
 - Canvas has its background animated over 1s from grey -> black
 - After a delay of 2s & over 5s:
@@ -1089,7 +1136,15 @@ NOTES:
   - Background color changes
   - Opacity changes to 50%
 - The delay is both on-enter & on-leave
-- Sample jQuery would use `animate` method after `hover` w/ `delay`
+- You're going to be tempted to want to use the jQuery `animate` method after `hover` w/ `delay`...
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/fallon-please-do-not-do-that.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- But please do not do that!
+- Instead we can use CSS3 `transition`
 
 /////
 
@@ -1152,6 +1207,15 @@ _[30 minutes]_
 
 ###### Animation
 
+[![Keyframe animation demo](img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc/)
+
+NOTES:
+- Vincent Pickering wrote a helpful blog posts on real-world use cases for `calc()`
+
+/////
+
+###### Animation
+
 ### `transition-property`
 
 <div class="canvas">
@@ -1179,6 +1243,7 @@ _[30 minutes]_
 NOTES:
 _[31 minutes]_
 
+- Used to define what property, or properties, you want to apply a transition effect to.
 - `none` means no animation, just regular hover
 - Only "range" style properties can be animated (like numbers & colors)
 - You can set an individual property, so the others change immediately, but `border-radius` animates
@@ -1453,6 +1518,8 @@ _[37 minutes]_
 NOTES:
 _[38 minutes]_
 
+- The `transition` property is good for simple animations where you're going from beginning to end
+- There's another animation-related CSS3 property called `animation` that allows for keyframe animations
 
 /////
 
@@ -1460,7 +1527,7 @@ _[38 minutes]_
 
 ## Pros
 
-- Faster than jQuery
+- Faster than JavaScript*
 - Progresive enhancement
 
 NOTES:
@@ -1492,7 +1559,7 @@ _[40 minutes]_
 
 ###### Animation
 
-## Javascript libraries
+## \*Javascript libraries
 
 - [Web Animations API](https://w3c.github.io/web-animations/)
 - [GASP](http://greensock.com/gsap)
@@ -1511,7 +1578,7 @@ _[41 minutes]_
 
 ###### Animation
 
-## CSS3 Transition Browser support
+## CSS3 `transition` Browser support
 
 [![CSS3 transition browser support](img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
 
@@ -1529,7 +1596,7 @@ http://caniuse.com/#feat=css-transitions
 
 ###### Animation
 
-## CSS3 Animation Browser support
+## CSS3 `animation` Browser support
 
 [![CSS3 animation browser support](img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
 
@@ -1560,6 +1627,10 @@ _[42 minutes]_
 - Layout with CSS3 flexbox
 - Animation with CSS3 transition & animation
 
+/////
+
+<!-- .slide: data-background="url(img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
+
 =====
 
 # Shoutouts
@@ -1579,6 +1650,8 @@ _[42 minutes]_
 # YOU!
 
 =====
+
+<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
 
 # THANKS!
 
