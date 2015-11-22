@@ -335,7 +335,7 @@ _[10 minutes]_
 
 ###### Functionality
 
-<iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+<iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
 NOTES:
 - We'll be working off of this beautiful form example
@@ -353,7 +353,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 45%;">
 
-    <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
   </div>
   <div style="flex:0 0 52%;">
@@ -516,7 +516,7 @@ _[15 minutes]_
 `<input>` type `range`
 <br />
 <br />
-<input type="range" placeholder="0 - 10" min="0" max="10" step="1" style="width:650px" />
+<input type="range" placeholder="0 - 10" min="0" max="10" step="1" style="width:660px" />
 <br />
 <br />
 ```html
@@ -672,7 +672,7 @@ _[19 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div class="fragment" style="flex:0 0 48%;">
     <h4>JavaScript</h4>
@@ -714,7 +714,7 @@ _[20 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:640px;"></iframe>
+    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div style="flex:0 0 48%;">
     <h4>Pros</h4>
