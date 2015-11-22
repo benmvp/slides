@@ -6,13 +6,6 @@ You can also check out my [Lanyrd profile](http://lanyrd.com/profile/benmvp/) fo
 
 ## Upcoming
 
-### [Fossetcon 2015](http://fossetcon.org/2015/)
-[_You don't need JavaScript for that!_](http://fossetcon.org/2015/sessions/you-don%E2%80%99t-need-javascript)  
-November 20th @ 2p in Palm 3  
-[Slides](http://benmvp.github.io/slides/fossetcon2015-no-js.html) | [Code examples](http://benmvp.github.io/you-dont-need-js-for-that)  
-
-----------
-
 ### [Sacramento JavaScript Meetup](http://www.meetup.com/The-Sacramento-Javascript-Meetup/)
 [_You don't need JavaScript for that!_](http://www.meetup.com/The-Sacramento-Javascript-Meetup/events/226841739/)  
 November 24th @ 7p at The Urban Hive  
@@ -38,6 +31,13 @@ Date & location TBD
 
 
 ## Past
+
+### [Fossetcon 2015](http://fossetcon.org/2015/)
+[_You don't need JavaScript for that!_](http://fossetcon.org/2015/sessions/you-don%E2%80%99t-need-javascript)  
+November 20th @ 2p in Palm 3  
+[Slides](http://benmvp.github.io/slides/fossetcon2015-no-js.html) | [Code examples](http://benmvp.github.io/you-dont-need-js-for-that)  
+
+----------
 
 ### [Nodevember 2015](http://nodevember.org/index.html)
 _Sugar & Spice and everything nice about ES6_  
