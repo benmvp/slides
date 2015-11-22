@@ -220,7 +220,7 @@ NOTES:
 
 ### Transpiling ES6 &#8594; ES3/ES5
 
-![Babel ES6 Live Transpiling](img/babel-es6-transpile.gif)
+![Babel ES6 Live Transpiling](img/es6/babel-es6-transpile.gif)
 
 NOTES:
 - Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
@@ -236,17 +236,17 @@ NOTES:
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between;">
   <div style="flex:0 0 25%">
-    [![Traceur Logo](img/traceur-logo.png)](https://github.com/google/traceur-compiler) 
+    [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
     [Traceur](https://github.com/google/traceur-compiler)  
     59%
   </div>
   <div style="flex:0 0 25%">
-    [![Babel Logo](img/babel-logo.png)](https://babeljs.io/)   
+    [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
     [Babel](https://babeljs.io/)   
     71%
   </div>
   <div style="flex:0 0 25%">
-    [![TypeScript Logo](img/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+    [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
     [TypeScript](http://www.typescriptlang.org/)  
     51%
   </div>
@@ -936,7 +936,7 @@ NOTES:
 <br />
 
 Spread operator  
-Array &#8594; multiple parameters (function call) 
+Array &#8594; multiple parameters (function call)
 
 ```js
 let arrayOfValues = [33, 2, 9];
@@ -947,7 +947,7 @@ let maxValueFromArray = Math.max(...arrayOfValues);
 -----
 
 Rest operator  
-Multiple parameters &#8594; array (function header) 
+Multiple parameters &#8594; array (function header)
 
 ```js
 function join(separator, ...values) {
@@ -967,7 +967,7 @@ NOTES:
 
 /////
 
-No more `concat`! 
+No more `concat`!
 
 ```js
 let start = ['do', 're'];
@@ -1361,7 +1361,7 @@ $.ajax({
 
 
 NOTES:
-- You’ll find that arrow functions come in handy most when used as a callback function. 
+- You’ll find that arrow functions come in handy most when used as a callback function.
   - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
   - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
 
@@ -1423,7 +1423,7 @@ _[28.5 minutes]_
 
 /////
 
-![Nicholas Young](img/nicholas-young-callbackless-asynchrony.jpg)
+![Nicholas Young](img/es6/nicholas-young-callbackless-asynchrony.jpg)
 
 ## Nicholas Young
 
@@ -1447,7 +1447,7 @@ NOTES:
 - Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 - String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 - Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-  
+
 
 NOTES:
 _[29 minutes]_
