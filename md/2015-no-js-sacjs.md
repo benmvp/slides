@@ -30,7 +30,7 @@ ben-ilegbodu.json
   "priorities": [
     "Jesus", "family", "work"
   ],
-  "location": "SF Bay Area",
+  "location": "Pittsburg, CA",
   "work": "@Eventbrite",
   "role": "Sr. UI Engineer",
   "hobbies": [
