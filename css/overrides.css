@@ -14,6 +14,9 @@
 .reveal pre.large {
 	font-size: 1em;
 }
+.reveal pre.small {
+	font-size: .65em;
+}
 /** add class that has smaller font by default and bigger when it's an important code **/
 .reveal pre code {
 	max-height: none;
