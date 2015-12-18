@@ -10,7 +10,7 @@ You can also check out my [Lanyrd profile](http://lanyrd.com/profile/benmvp/) fo
 
 ### [DeveloperWeek 2016](http://developerweek.com/)
 _Sugar & spice and everything nice about ES6_  
-February 16th
+February 16th @ 4p
 [Code examples](https://github.com/benmvp/learning-es6)   
 
 ----------
