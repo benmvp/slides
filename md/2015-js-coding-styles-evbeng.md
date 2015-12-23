@@ -114,7 +114,7 @@ function(arg1, arg2) {
 ### vs
 
 ```js
-function (arg1, arg2){
+function (arg1, arg2) {
 
 }
 ```
