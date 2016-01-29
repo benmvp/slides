@@ -26,6 +26,13 @@ February 25, 2016 @ 3p in Fontaine F
 
 ----------
 
+### [NationJS Node Day Conference](http://nationjs.com/)
+_Sweet ES6_  
+March 11, 2016  
+[Code examples](https://github.com/benmvp/learning-es6)
+
+----------
+
 ### [Prairie Dev Con 2016](http://www.prairiedevcon.com/)
 _You don't need JavaScript for that!_  
 April 11/12, 2016  
