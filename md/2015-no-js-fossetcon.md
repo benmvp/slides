@@ -4,7 +4,7 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](http://www.benmvp.com/) | [#fossetcon](https://twitter.com/hashtag/fossetcon)
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#fossetcon](https://twitter.com/hashtag/fossetcon)
 
 NOTES:
 - The goal of this talk is to highlight ways that you can use HTML & CSS to replace functionality we previously could only accomplish w/ JavaScript
@@ -1664,7 +1664,7 @@ _[43 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github.com/benmvp](https://github.com/benmvp/)
 
-Code examples: [benmvp.github.io/you-dont-need-js-for-that/](http://benmvp.github.io/you-dont-need-js-for-that/)
+Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)

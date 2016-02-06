@@ -2,7 +2,7 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](http://www.benmvp.com/) | [#nodevember](https://twitter.com/hashtag/nodevember)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#nodevember](https://twitter.com/hashtag/nodevember)  
 <br />
 November 14, 2015  
 
@@ -85,7 +85,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp/)
 
 NOTES:
@@ -1459,7 +1459,7 @@ _[29 minutes]_
 
 ## Additional Resources
 
-* __[_Learning ES6_](http://www.benmvp.com/2015/08/the-learning-es6-series.html) by Ben Ilegbodu__
+* __[_Learning ES6_](/learning-es6-series/) by Ben Ilegbodu__
 * [ES6 Katas](http://es6katas.org/) by Wolfram Kriesing
 * [_Exploring ES6_](http://exploringjs.com/es6/) by Axel Rauschmayer
 * [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
@@ -1508,5 +1508,5 @@ _[30 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](http://www.benmvp.com/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp/)
