@@ -150,7 +150,7 @@ Created JavaScript **_in 10 days_**
 
 <br />
 
-##### Mocha ➜ LiveScript ➜ JavaScript
+##### Mocha (May) ➜ LiveScript (Sep) ➜ JavaScript (Dec)
 
 NOTES:
 
@@ -158,9 +158,10 @@ NOTES:
 - He reportedly developed it in 10 days
   * I find that hard to believe
   * But when you look at some of JavaScript's quirks maybe he really did?
+  * Turns out he did a lot of planning before the 10 days of **implementation**
 - Originally named Mocha (chosen by Netscape founder Marc Andressen)
-- Renamed to LiveScript 4 months later
-- In December 1995, Netscape renamed it to JavaScript because Java was popular at the time
+- In September 1995, shipped in beta version of Netscape Navigator 2.0 & renamed to LiveScript
+- In December 1995, Netscape renamed it to JavaScript (with NN 2.0b3) because Java was popular at the time
 
 /////
 
@@ -173,13 +174,16 @@ NOTES:
 TC39 started work on ECMA-262 (ECMAScript)
 
 NOTES:
-_[6 minutes]_
+_[5 minutes]_
 
+- August 1996, Microsoft cloned JavaScript in IE 3.0 and called it JScript
+- A standard was needed
 - Netscape took JavaScript to Ecma standards organization to maintain language spec
 - The Ecma Technical Committee 39 (aka TC39) began work on ECMA-262 (aka ECMAScript) in November 1996
 - ECMAScript is the name of the official standard
 - JavaScript is the most well-known implementation
 - There's also ActionScript (Macromedia/Adobe) and JScript (Microsoft)
+- But pretty much ECMAScript == JavaScript
 
 /////
 
@@ -190,13 +194,14 @@ _[6 minutes]_
 ## 🗓 Dec 1999 — **ES3**  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
 
 NOTES:
-_[8 minutes]_
+_[6 minutes]_
 
 - First version of ECMAScript spec was released in June 1997
 - ECMAScript 2 was released a year later with only minor changes
 - 18 months later ECMAScript 3 was released
   * Included features like regular expressions, try/catch & numeric formatting
 - ES3 is the version of JavaScript in IE8
+- ES3 is the modern JavaScript baseline
 
 /////
 
@@ -210,7 +215,7 @@ _[8 minutes]_
 ### ES3.1 vs ES4
 
 NOTES:
-_[9 minutes]_
+_[7 minutes]_
 
 - And then there was a 10 year absence
 - ES4 was going to be a massive upgrade
@@ -237,7 +242,7 @@ _[9 minutes]_
 strict mode | JSON | `.map()`/`.forEach()` | `O.keys()` | accessors
 
 NOTES:
-_[11 minutes]_
+_[8 minutes]_
 
 - Essentially what was ECMAScript 3.1 became ECMAScript 5
 - ES5 is basically the JavaScript that most developers these days are familiar with
@@ -260,7 +265,7 @@ _[11 minutes]_
 ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
 
 NOTES:
-_[13 minutes]_
+_[9 minutes]_
 
 - That brings us to ECMAScript 6! What we all came to learn about.
 - It was officially released in `June 2015`
@@ -270,12 +275,13 @@ _[13 minutes]_
 - "ECMAScript.next" became "ECMAScript 6" as the features matured
 - But then TC39 to move to a yearly cadence so they renamed it to "ECMAScript 2015"
 - But it was called ES6 for so long that lots of people still call it that
+- Spec is 566 pages (compared to 252 for ES5)
 
 /////
 
 ###### History
 
-## 🗓 June(?) 2016
+## 🗓 June 2016
 
 <br />
 
@@ -290,7 +296,7 @@ _[13 minutes]_
 [ECMAScript current proposals](https://github.com/tc39/ecma262)
 
 NOTES:
-_[15 minutes]_
+_[10 minutes]_
 
 - With the move to yearly cadence, new ES features have to be in the 4th proposal stage by at a cut off date to be included in the next version
 - The cutoff date for ECMAScript 2016 (formerly known as ES7) was `January 28, 2016` and only 2 features were in that stage
@@ -299,13 +305,14 @@ _[15 minutes]_
 - It should be officially released in `June 2016`
 - Until a feature is in Stage 4 we cannot assume it will be in a specific version
   * We all thought `async` & `await` would be in ECMAScript 2016
+- Pretty much the cut-off will be late January every year
 
 =====
 
 # ES6 Features
 
 NOTES:
-_[16 minutes]_
+_[11 minutes]_
 
 /////
 
@@ -360,7 +367,7 @@ NOTES:
   - Hence the name of the talk
   - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
-- But before we talking about the features let's start with a history lesson
+- Focusing on the syntactic sugar features because they are the ones your more likely to use immediately to make your code clearer
 
 /////
 
@@ -376,12 +383,10 @@ NOTES:
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Enhanced object literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we'll be covering
-- Buckle up your seat belts, we're going to cover these 12 features in less than 40 minutes
+- Buckle up your seat belts, we're going to cover these 10 features in less than 40 minutes
 
 =====
 
@@ -407,7 +412,7 @@ notify('Hi!', {type:'warn', canClose:false});
 How can we clean/shorten this code up?
 
 NOTES:
-_[18 minutes]_
+_[13 minutes]_
 
 - Take a look at this code for a bit while I talk
 - It's a function that will display a notification message
@@ -537,7 +542,7 @@ NOTES:
 Replace function body code with function header defaults
 
 NOTES:
-_[21 minutes]_
+_[16 minutes]_
 
 - It's called default parameters
 - With default parameters we can move our defaulting logic into the function header
@@ -653,7 +658,7 @@ NOTES:
 Replace multiple assignments with a single one
 
 NOTES:
-_[23 minutes]_
+_[18 minutes]_
 
 - It's called Destructuring
 - With destructuring we can reduce multiple assignments down to one
@@ -881,7 +886,7 @@ join('-', 'tic', 'tac', 'toe');
 Parameters list is unclear
 
 NOTES:
-_[27 minutes]_
+_[22 minutes]_
 
 - We have here a `join` method that takes a separator string followed by an unlimitted number of parameters to join
 - The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
@@ -986,7 +991,7 @@ console.log(maxValueNormal, maxValueFromArray);
 `Math.max.apply`???
 
 NOTES:
-_[29 minutes]_
+_[24 minutes]_
 
 - `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
 - If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
@@ -1117,7 +1122,7 @@ for (var i = 0; i < list.length; i++) {
 ```
 
 NOTES:
-_[32 minutes]_
+_[27 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
 - You have to keep track of the counter variable `i` AND control when the loop ends
@@ -1249,7 +1254,7 @@ console.log('This is multi-line text, so\n' +
 Good ol' string concatenation
 
 NOTES:
-_[34 minutes]_
+_[29 minutes]_
 
 - We usually don’t build string in JS anymore
 - But we do sometimes have to provide messages to the user that have dynamic data
@@ -1322,7 +1327,7 @@ MyObj.prototype.update = function() {
 Where's the bug?
 
 NOTES:
-_[36 minutes]_
+_[31 minutes]_
 
 - Can anyone spot the mistake in this code?
 - We're passing a callback to `done` of the `get` ajax request
@@ -1468,51 +1473,314 @@ NOTES:
 
 =====
 
+```js
+function Todo(content, completed) {
+    this.content = content;
+    this.completed = completed;
+}
+Todo.prototype.toString = function() {
+    return 'Content: ' + this.content +
+        '\nCompleted: ' + this.completed;
+};
+
+var myTodo = new Todo('Learn ES6', true);
+console.log(myTodo.toString());
+```
+
+Create classes via constructor functions
+
 NOTES:
-_[36 minutes]_
+_[35 minutes]_
+
+- Does anybody these days create "classes" using vanilla JavaScript these days?
+- Only done them as interview questions
+
+/////
+
+```js
+var Todo = Backbone.Model.extend({
+    toString: function() {
+        return 'Content: ' + this.get('content') +
+            '\nCompleted: ' + this.get('completed');
+    }
+});
+
+var myTodo = new Todo({content: 'Learning ES6', completed: true});
+console.log(myTodo.toString());
+```
+
+Create classes via class factories
+
+NOTES:
+- Instead we create classes using class factories provided by our favorite library
+- Here's an example in Backbone
+- We create a class by calling the `extend` static method on `Backbone.Model`
+- We pass an object literal that has all the methods or properties to define
+- Typically these methods will do more work than just create the class
+- In the case of `Backbone.Model.extend()` it creates a bucket of attributes you can set on the model
+
+/////
+
+# Classes
+
+Replace class factories with `class` syntax
+
+NOTES:
+
+/////
+
+New ES6 `class` keyword
+
+```js
+class Todo {
+    constructor(content, completed) {
+        this.content = content;
+        this.completed = completed;
+    }
+    toString() {
+        return `Content: ${this.content}
+            Completed: ${this.completed}`;
+    }
+}
+```
 
 
+-----
+
+#### ES5 way
+
+```js
+function Todo(content, completed) {
+    this.content = content;
+    this.completed = completed;
+}
+Todo.prototype.toString = function() {
+    return 'Content: ' + this.content +
+        '\nCompleted: ' + this.completed;
+};
+```
+
+NOTES:
+- ES6 introduces the `class` keyword that defines a JavaScript "class"
+- Technically, it's not a class, because it's just syntactic sugar over the ES5 constructor function
+- But I feel like it's way more syntax friendly
+- Methods within a class are just the name followed by parentheses. No need for `function`
+- The constructor is a special named method called `constructor`
+
+/////
+
+```js
+function ColorTodo(content, completed, color) {
+    Todo.call(this, content, completed);
+    this.color = color;
+}
+ColorTodo.prototype = new Todo();
+
+ColorTodo.prototype.toString = function() {
+    return Todo.prototype.toString.call(this) +
+        '\nColor: ' + this.color;
+};
+
+let myColorTodo = new ColorTodo('Learning ES6', true, 'red');
+console.log(myColorTodo.toString());
+```
+
+Extending classes with **ES3**
+
+NOTES:
+- This is how you extend classes in ES3
+- I'm assuming no one here has done this
+- And this is actually the simplistic version without safety checks in ES5
+- Just looking at the code it's hard to reason about what's going on here
+- Just that we're defining a `ColorTodo` class to inherit from `Todo`
+
+/////
+
+```js
+class ColorTodo extends Todo {
+    constructor(content, completed, color) {
+        super(content, completed);
+        this.color = color;
+    }
+    toString() {
+        return `${super.toString()}
+			Color: ${this.color}`;
+    }
+}
+
+let myColorTodo = new ColorTodo('Learning ES6', true, 'red');
+console.log(myColorTodo.toString());
+```
+
+Extending classes with **ES6**
+
+NOTES:
+- The ES6 class syntax also supports extending or inheriting classes using the `extends` keyword
+- Within the constructor, you can just call `super()` to call the base class' constructor
+- You **must** call `super()` before you can access `this` in the constructor
+- Similarly you can override methods in inherited classes and call base methods by calling `super.` as we have in the `toString()` method
+- To me, this is far clearer than the ES5 approach
+
+/////
+
+ES6 static methods
+
+```js
+class Todo {
+    ...
+
+    static add() {
+
+    }
+}
+```
+
+<br />
+
+-----
+
+#### ES5 way
+
+```js
+function Todo(content, completed) {
+    this.content = content;
+    this.completed = completed;
+}
+Todo.add = function() {
+
+}
+```
+
+NOTES:
+- ES6 class syntax also supports static methods with the `static` keyword
+- The static method is defined within the `class` container
+- In ES5 you would just add a named function directly to the constructor function
+
+/////
+
+ES6 class structure
+
+```js
+class MyClass extends BaseClass {
+    constructor() { }
+    toString() { }
+    static add() { }
+}
+```
+
+<br />
+
+-----
+
+#### Class factories <!-- .element: class="fragment" data-fragment-index="0" -->  
+
+```js
+var MyClass = BaseClass.extend({
+    toString: function() { }
+});
+MyClass.add = function() { };
+```
+<!-- .element: class="fragment" data-fragment-index="0" -->  
+
+NOTES:
+- Here's the complete structure of ES6 classes
+- I really like the new syntax & try to use it all the time
+- But there seems to be a lot of folks in the community who don't like them
+- They prefer to still use the class factories provided by their library
+- This because classes as defined by ES6 spec are incomplete
+- Despite deficiencies, I still feel classes are worthwhile
+- It's clear that there was a need to make them easier because every library has its own abstraction
+- Class syntax provides a standard that we can then improve on
+
+/////
+
+## ES6 class drawbacks
+
+<br />
+
+No properties support!
+
+<br />
+
+```js
+class Todo {
+    static todoCount = 0;
+    completed = false;
+
+    constructor() {
+        console.log(this.completed);
+        console.log(Todo.todoCount);
+    }
+}
+```
+
+[ES Class Fields & Static Properties](https://github.com/jeffmo/es-class-fields-and-static-properties) (Stage 1)
+
+<!-- .element: style="font-size:smaller" -->
+
+NOTES:
+- Static & instance properties aren't supported in ES6
+- In our previous examples we assigned properties in the `constructor`
+- It's the only way to know that certain properties are defined
+- Defining properties makes it clear what properties are supported and allows us to provide defaults
+- There is a proposal to add support that's currently only in Stage 1
+
+/////
+
+## ES6 class drawbacks
+
+<br />
+
+No mix-ins support!
+
+<br />
+
+```js
+class Person {
+    @readonly
+    name() { return `${this.first} ${this.last}` }
+}
+```
+
+[Class & Property Decorators](https://github.com/wycats/javascript-decorators) (Stage 1)
+
+<!-- .element: style="font-size:smaller" -->
+
+NOTES:
+- With class factories we can use mix-ins to mix in other helpers methods into a class
+- This is because the class was defined from an object literal
+- With mix-ins we just add more functions to the literal before the class is actually created
+- ES6 classes don't support this in their syntax
+- However, there is a spec proposal for decorators which currently sits at Stage 1 so they are very experimental
+
+/////
+
+## ES6 class drawbacks
+
+<br />
+
+Interoperability challenges!
+
+<br />
+
+```js
+class Todo extends Backbone.Model {
+
+}
+```
+
+NOTES:
+- Because ES6 classes are just syntactic sugar of constructor functions they are interoperable in theory
+- You should technically be able to use `extends` with a JavaScript class defined using constructor functions like in our example above
+- However, most class factory functions (i.e. `Backbone.Model.extends()`) do a lot more processing before creating the derived class so it doesn't always work
+- React has a class factory function for creating its components in ES5, but they've also put a lot of work in also making it ES6 class friendly. Other libraries need to follow suit
+- Ember & Angular 2 have done the same
 
 =====
 
-
-=====
-
-## String API
-
-`str.startsWith`
-
-`str.endsWith`
-
-`str.includes`
-
-`str.repeat`
-
-`String.raw`
 
 NOTES:
 _[42 minutes]_
-
-- Just want to alert you to some new methods introduce with ES6 for `String`
-
-=====
-
-## Array API
-
-`Array.from`
-
-`Array.of`
-
-`arr.find`
-
-`arr.findIndex`
-
-`arr.copyWithin`
-
-`arr.fill`
-
-NOTES:
-- Also some useful methods for `Array` too
 
 =====
 
@@ -1528,9 +1796,6 @@ NOTES:
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Enhanced object literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-
 
 NOTES:
 _[44 minutes]_
@@ -1690,7 +1955,7 @@ NOTES:
 
 <!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
 
-# THANKS!
+# THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
 
 NOTES:
 _[50 minutes]_
@@ -1699,7 +1964,9 @@ _[50 minutes]_
 
 # Questions?
 
+<br />
+
 ## Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github/benmvp](https://github.com/benmvp/)
+[github/benmvp](https://github.com/benmvp)
