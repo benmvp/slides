@@ -80,7 +80,7 @@ _[3 minutes]_
   Classes  
   Default parameters  
   Destructuring  
-  Enhanced object literals  
+  Object literal shorthand  
   Modules  
   Rest parameters  
   Spread operator  
@@ -324,7 +324,7 @@ _[11 minutes]_
   Classes  
   Default parameters  
   Destructuring  
-  Enhanced object literals  
+  Object literal shorthand  
   Modules  
   Rest parameters  
   Spread operator  
@@ -382,7 +382,7 @@ NOTES:
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. Enhanced object literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we'll be covering
@@ -1796,13 +1796,13 @@ _[42 minutes]_
 
 /////
 
-# Enhanced object literals
+# Object literal shorthand
 
 Write less code than before
 
 /////
 
-Object literals shorthands
+Object literals shorthand
 
 ```js
 const Car = Backbone.Model.extend({
@@ -1817,16 +1817,14 @@ const Car = Backbone.Model.extend({
 });
 ```
 
-<br />
-
 -----
 
 #### ES5 way
 
 ```js
 var Car = Backbone.Model.extend({
-    evaluate: function() {
-        var value, condition;
+    evaluate: function(condition) {
+        var value;
 
         return {
             value: value,
@@ -1837,7 +1835,7 @@ var Car = Backbone.Model.extend({
 ```
 
 NOTES:
-- With ES6 we have enhanced object literals
+- With ES6 we have object literal shorthand
 - Remember we're passing a big object literal to `Backbone.Model.extend()`
 - When specify methods we can get rid of `: function` using method shorthand
   * Just have method name and parameters
@@ -1858,7 +1856,7 @@ NOTES:
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. Enhanced object literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 
 NOTES:
 _[44 minutes]_
@@ -1926,6 +1924,7 @@ _[45 minutes]_
 
 NOTES:
 - ES6 support is pretty mixed. Chrome/Opera are at 91% while Safari is only at 54%
+- Node is lagging behind
 - It's February of 2016 and the official ES2016 spec is coming soon
 - I think this is why they decided to go to a yearly cadence to keep specs from being too big
 - You may notice IE missing from the list. None of them support ES6
