@@ -859,14 +859,6 @@ NOTES:
 
 =====
 
-# Quick Hits
-
-NOTES:
-- Let's quickly look at some other ES6 features
-- We're going to move pretty quickly through the rest of these
-
-=====
-
 ```js
 function join(separator) {
   var values = [];
@@ -888,7 +880,7 @@ Parameters list is unclear
 NOTES:
 _[22 minutes]_
 
-- We have here a `join` method that takes a separator string followed by an unlimitted number of parameters to join
+- We have here a `join` method that takes a separator string followed by an unlimited number of parameters to join
 - The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
 - Because `join` uses the `separator` parameter the implementation has to start at index `1` of `arguments`
 - And even if it could start at 0, arguments is only array-like so it doesn't have the `join` method that arrays have
@@ -1300,7 +1292,7 @@ console.log('This is multi-line text, so\n' +
 ```
 
 NOTES:
-- ES6 template literals are a brand new type of string literal, delimited by backticks (`)
+- ES6 template literals are a brand new type of string literal, delimited by backticks (`` ` ``)
   - That’s not a typo!
   - That character to the left of the 1 key
   - Because of backticks, you no longer need to escape single or double quotes
@@ -1778,9 +1770,80 @@ NOTES:
 
 =====
 
+```js
+var Car = Backbone.Model.extend({
+    evaluate: function(condition) {
+        var value;
+
+        ...
+
+        return {
+            value: value,
+            condition: condition
+        };
+    }
+});
+```
 
 NOTES:
 _[42 minutes]_
+
+- For our final feature, let's revisit class factories
+- Remember we're passing a big object literal that contains the class configuration
+- Defining a `Car` class that has an `evaluate` method
+- Within the method we define `value` & `condition` variables and some computation to determine their values
+- The result of `evaluate` is returning an object literal with keys the same as the variable name
+
+/////
+
+# Enhanced object literals
+
+Write less code than before
+
+/////
+
+Object literals shorthands
+
+```js
+const Car = Backbone.Model.extend({
+    evaluate(condition) {
+        let value;
+
+        return {
+            value,
+            condition
+        };
+    }
+});
+```
+
+<br />
+
+-----
+
+#### ES5 way
+
+```js
+var Car = Backbone.Model.extend({
+    evaluate: function() {
+        var value, condition;
+
+        return {
+            value: value,
+            condition: condition
+        };
+    }
+});
+```
+
+NOTES:
+- With ES6 we have enhanced object literals
+- Remember we're passing a big object literal to `Backbone.Model.extend()`
+- When specify methods we can get rid of `: function` using method shorthand
+  * Just have method name and parameters
+- Within `evaluate`, because the object literal has keys that match the variables, we can just list the keys using property value shorthand
+- This applies to **all** object literals, not just when they're used with class factories
+- But if you either can't or don't want to use ES6 classes, you can still benefit from more succinct syntax
 
 =====
 
@@ -1885,21 +1948,21 @@ NOTES:
 ## Transpilers
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between;">
-<div style="flex:0 0 25%">
-  [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
-  [Traceur](https://github.com/google/traceur-compiler)  
-  61%
-</div>
-<div style="flex:0 0 25%">
-  [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
-  [Babel](https://babeljs.io/)   
-  76%
-</div>
-<div style="flex:0 0 25%">
-  [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
-  [TypeScript](http://www.typescriptlang.org/)  
-  56%
-</div>
+    <div style="flex:0 0 25%">
+      [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
+      [Traceur](https://github.com/google/traceur-compiler)  
+      61%
+    </div>
+    <div style="flex:0 0 25%">
+      [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
+      [Babel](https://babeljs.io/)   
+      76%
+    </div>
+    <div style="flex:0 0 25%">
+      [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+      [TypeScript](http://www.typescriptlang.org/)  
+      56%
+    </div>
 </div>
 
 NOTES:
@@ -1917,12 +1980,12 @@ NOTES:
 
 ## Additional Resources
 
-* __[_Learning ES6_](/learning-es6-series/) by Ben Ilegbodu__
-* [ES6 Katas](http://es6katas.org/) by Wolfram Kriesing
-* [_Exploring ES6_](http://exploringjs.com/es6/) by Axel Rauschmayer
-* [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
-* [_ES6 in Depth_](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
-* [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
+- **[_Learning ES6_](/learning-es6-series/) by Ben Ilegbodu**
+- [ES6 Katas](http://es6katas.org/) by Wolfram Kriesing
+- [_Exploring ES6_](http://exploringjs.com/es6/) by Axel Rauschmayer
+- [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
+- [_ES6 in Depth_](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
+- [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
 
 NOTES:
 _[48 minutes]_
