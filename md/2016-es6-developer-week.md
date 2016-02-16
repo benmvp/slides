@@ -1,5 +1,7 @@
 # Sweet ES6
 
+<br />
+
 ## Ben Ilegbodu
 
 [@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DeveloperWeek](https://twitter.com/hashtag/developerweek)  
