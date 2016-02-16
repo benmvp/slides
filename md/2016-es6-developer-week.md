@@ -1,4 +1,4 @@
-# Sugar & Spice and everything nice about ES6
+# Sweet ES6
 
 ## Ben Ilegbodu
 
