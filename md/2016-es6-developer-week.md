@@ -209,8 +209,8 @@ _[6 minutes]_
 
 - First version of ECMAScript spec was released in June 1997
 - ECMAScript 2 was released a year later with only minor changes
-- 18 months later ECMAScript 3 was released
-  * Included features like regular expressions, try/catch & numeric formatting
+- 18 months later ECMAScript 3 (**[NEXT]**) was released
+  - Included features like regular expressions, try/catch & numeric formatting
 - ES3 is the version of JavaScript in IE8
 - ES3 is the modern JavaScript baseline
 
@@ -226,15 +226,13 @@ _[6 minutes]_
 ### ES3.1 vs ES4
 
 NOTES:
-_[7 minutes]_
-
 - And then there was a 10 year absence
 - ES4 was going to be a massive upgrade
 - Work on the spec stopped in `2003`
 - In `Feb 2005` Jesse James Garrett coined AJAX in a white paper
 - Work resumed in `Fall 2005`
-- Split between ES 3.1 camp (Microsoft & Yahoo) & ES4 camp (Google, Adobe, Mozilla & Opera)
-- Microsoft & Yahoo wanted an incremental upgrade
+- Split between ES 3.1 (Microsoft & Yahoo) & ES4 (Google, Adobe, Mozilla & Opera)
+- Microsoft/Yahoo wanted an incremental upgrade
 - Others still wanted the massive upgrade
 - Deep rift formed, but was finally resolved in `June 2008`
 
@@ -261,7 +259,7 @@ _[8 minutes]_
 - ES5 is the version of JavaScript that most developers are familiar with
   - It's in all of our modern browsers
   - Features: strict mode, JSON, `.map()/.forEach()`, `O.keys()`, property accessors
-- Rest of ES4 features: "Harmony"
+- Rest of ES4 features: "ECMAScript Harmony"
 
 /////
 
@@ -280,13 +278,11 @@ ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
 NOTES:
 _[9 minutes]_
 
-- That brings us to ECMAScript 6! What we all came to learn about.
-- It was officially released in `June 2015`
-- ECMAScript 6 started out as "ECMAScript Harmony"
-- But TC39 quickly realized that it was _still_ too big so they broke it up into 2 pieces
+- TC39 quickly realized that it was _still_ too big so they broke it up into 2 pieces
 - The high priority features would be in "ECMAScript.next" and the rest would be in a follow-up version
 - "ECMAScript.next" became "ECMAScript 6" as the features matured
-- But then TC39 to move to a yearly cadence so they renamed it to "ECMAScript 2015"
+- It was officially released in `June 2015`
+- But then TC39 to move to a yearly cadence w/ formalized proposal process so they renamed it to "ECMAScript 2015"
 - But it was called ES6 for so long that lots of people still call it that
 - Spec is 566 pages (compared to 252 for ES5)
 
@@ -329,61 +325,6 @@ _[11 minutes]_
 
 /////
 
-#### Sugar <!-- .element: style="color:blue;" -->  
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
-  <code>\_\_proto\_\_</code>  
-  Arrow functions  
-  Classes  
-  Default parameters  
-  Destructuring  
-  Object literal shorthand  
-  Modules  
-  Rest parameters  
-  Spread operator  
-  Tagged templates  
-  Template literals  
-</div>
-
-#### Spice <!-- .element: style="color:red;" -->  
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
-  Array APIs  
-  Block scoping  
-  `for-of`  
-  Generators  
-  Iterators  
-  Maps  
-  Math APIs  
-  Module loaders  
-  Number APIs  
-  Object APIs  
-  Promises  
-  Proxies  
-  Reflect API  
-  RegExp APIs  
-  Sets  
-  String APIs  
-  Subclassable built-ins  
-  Symbols  
-  Tail calls  
-  Typed arrays  
-  Unicode  
-  WeakMaps  
-  WeakSets  
-</div>
-
-NOTES:
-- Here is the full list of features included in the ES6 specification
-- That's 30+ features!
-- I've broken them up into 2 categories: sugar & spice
-  - Hence the name of the talk
-  - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades that make code clearer
-  - SPICE: Spicy new functionality like new operators, objects and APIs
-- Focusing on the syntactic sugar features because they are the ones your more likely to use immediately to make your code clearer
-
-/////
-
 ## Agenda
 
 1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
@@ -399,6 +340,7 @@ NOTES:
 
 NOTES:
 - As a reminder, here's what we'll be covering
+- Focusing on the syntactic sugar features **[NEXT]** because they are the ones your more likely to use immediately to make your code clearer
 - We're going to cover these 10 features in less than 40 minutes
   - Buckle your seat belts!
 
@@ -621,10 +563,10 @@ function drawRect(width=getWidth(), height=width*2, options={color:'red'}) {
 > drawRect(17)
  17  34  {color:'red'}
 
-> drawRect(4,11)
+> drawRect(4, 11)
  4  11  {color:'red'}
 
-> drawRect(2,1,{color:'blue'})
+> drawRect(2, 1, {color:'blue'})
  2  1  {color:'blue'}
 ```
 
@@ -813,7 +755,7 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('206-02-16');
+let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2016-02-16');
     // yr='2015', mo='11', day='14'
 ```
 
@@ -894,8 +836,6 @@ join('-', 'tic', 'tac', 'toe');
 Parameters list is unclear
 
 NOTES:
-_[22 minutes]_
-
 - We have here a `join` method that takes a separator string followed by an unlimited number of parameters to join
 - The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
 - Because `join` uses the `separator` parameter the implementation has to start at index `1` of `arguments`
@@ -949,7 +889,6 @@ NOTES:
   - The rest parameter is an `Array` containing the rest of the parameters
   - Hence the name!
 - Because `values` is a true array in the example, we can call join on it
-- JavaScript ninjas would probably have done `Array.prototype.slice.call(arguments, 1)`, but that's funky and still doesn't solve the problem about a readable function header
 - It’s also much **clearer** to see that `join()` takes an infinite number of parameters
 - Rest parameter should pretty much replace all uses of the `arguments` keyword!
 
