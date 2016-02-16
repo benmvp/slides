@@ -7,18 +7,11 @@
 February 16, 2015  
 
 NOTES:
-- Posted link to slides on twitter
-- ES6 is the latest version of JavaScript
-- Before we dive in quick show of hands:
-  * How many people have heard of ECMAScript 6 before today?
-  * How many have played around with it?
-  * How many people are using it now in live code?
-- Giving a talk to an audience w/ diverse knowledge is a fun challenge
-- For the newbies who are afraid to admit they thought ECMAScript was a skin disease, this will be a good ES6 primer for you
-- For the intermediate folks, I'm hoping I'll fill in any gaps in knowledge you may have
-- For the advanced folks who may know ES6 more than me, feel free to zone out on Slack
-  * J/K! Hopefully there'll be a nugget or 3 that you can take away
-  * Also, my blog goes into the nitty gritty details for all of the features
+- Hello, everyone! I'm going to get started
+- Posted link to slides on twitter if you want to follow along
+- This is Sugar & Spice and everything nice about ECMAScript 6 aka ES6, the latest version of JavaScript
+- Technically it's called ES2015, but we'll get into why in a little bit
+- But first, a little about myself
 
 =====
 
@@ -47,7 +40,7 @@ ben-ilegbodu.json
 </div>
 
 NOTES:
-_[2 minute]_
+_[1 minute]_
 
 /////
 
@@ -63,16 +56,32 @@ NOTES:
 
 <!-- .slide: data-background="url(img/giphy/steph-curry-chris-paul-ankles.gif) no-repeat center" data-background-size="contain"-->
 
+NOTES:
+- I also absolutely love basketball - both playing & watching
+- But you didn't come to hear about me. At least I hope not
+- You came to here about...
+
 =====
 
 # ECMAScript 6
 
 NOTES:
-_[3 minutes]_
+_[2 minutes]_
+
+- So let's talk about it
+- Show of hands:
+  1. JavaScript Developers?
+  1. Heard of ECMAScript 6 before today?
+  1. Played around with it?
+  1. Using in live code?
+- Got a pretty diverse audience
+- Newbies: nice intro
+- Experienced: nugget or 2
+- Blog has details
 
 /////
 
-#### Sugar
+#### Sugar <!-- .element: style="color:blue;" -->  
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
   <code>\_\_proto\_\_</code>  
@@ -88,7 +97,7 @@ _[3 minutes]_
   Template literals  
 </div>
 
-#### Spice
+#### Spice <!-- .element: style="color:red;" -->  
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
   Array APIs  
@@ -117,11 +126,11 @@ _[3 minutes]_
 </div>
 
 NOTES:
-- Here is the full list of features included in the ES6 specification
+- Full list of features included in the ES6 specification
 - That's 30+ features!
-- I've broken them up into 2 categories: sugar & spice
+- 2 categories: sugar & spice
   - Hence the name of the talk
-  - SUGAR: New functionality is syntactic sugar. Mostly minor syntax upgrades that make code clearer
+  - SUGAR: Syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
 - But before we talking about the features let's start with a history lesson
 
@@ -156,11 +165,11 @@ NOTES:
 
 - JavaScript was created in May 1995 by Brendan Eich while at Netscape
 - He reportedly developed it in 10 days
-  * I find that hard to believe
-  * But when you look at some of JavaScript's quirks maybe he really did?
-  * Turns out he did a lot of planning before the 10 days of **implementation**
+  - I find that hard to believe
+  - But when you look at some of JavaScript's quirks maybe he really did?
+  - Turns out he did a lot of planning before the 10 days of **implementation**
 - Originally named Mocha (chosen by Netscape founder Marc Andressen)
-- In September 1995, shipped in beta version of Netscape Navigator 2.0 & renamed to LiveScript
+- In September 1995, a beta version of Netscape Navigator 2.0 & renamed to LiveScript
 - In December 1995, Netscape renamed it to JavaScript (with NN 2.0b3) because Java was popular at the time
 
 /////
@@ -244,11 +253,13 @@ strict mode | JSON | `.map()`/`.forEach()` | `O.keys()` | accessors
 NOTES:
 _[8 minutes]_
 
+- Scrapped ES4, and released ES5 in `December 2009`
+  - ECMAScript 4 became the lost version
 - Essentially what was ECMAScript 3.1 became ECMAScript 5
-- ES5 is basically the JavaScript that most developers these days are familiar with
-- It's in all of our modern browsers
-- ECMAScript 4 became the lost version
-- The rest of ES4 features would be a follow up major release codenamed "Harmony" (due to the circumstances)
+- ES5 is the version of JavaScript that most developers are familiar with
+  - It's in all of our modern browsers
+  - Features: strict mode, JSON, `.map()/.forEach()`, `O.keys()`, property accessors
+- Rest of ES4 features: "Harmony"
 
 /////
 
@@ -298,13 +309,13 @@ _[9 minutes]_
 NOTES:
 _[10 minutes]_
 
-- With the move to yearly cadence, new ES features have to be in the 4th proposal stage by at a cut off date to be included in the next version
+- New ECMAScript features have to be in Stage 4 by at a cut off date to be included in the next version
 - The cutoff date for ECMAScript 2016 (formerly known as ES7) was `January 28, 2016` and only 2 features were in that stage
 - `Array.prototype.includes`
 - Exponentiation operator (`**`)
 - It should be officially released in `June 2016`
 - Until a feature is in Stage 4 we cannot assume it will be in a specific version
-  * We all thought `async` & `await` would be in ECMAScript 2016
+  - We all thought `async` & `await` would be in ECMAScript 2016
 - Pretty much the cut-off will be late January every year
 
 =====
@@ -316,7 +327,7 @@ _[11 minutes]_
 
 /////
 
-#### Sugar
+#### Sugar <!-- .element: style="color:blue;" -->  
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
   <code>\_\_proto\_\_</code>  
@@ -332,7 +343,7 @@ _[11 minutes]_
   Template literals  
 </div>
 
-#### Spice
+#### Spice <!-- .element: style="color:red;" -->  
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
   Array APIs  
@@ -386,7 +397,8 @@ NOTES:
 
 NOTES:
 - As a reminder, here's what we'll be covering
-- Buckle up your seat belts, we're going to cover these 10 features in less than 40 minutes
+- We're going to cover these 10 features in less than 40 minutes
+  - Buckle your seat belts!
 
 =====
 
@@ -703,6 +715,7 @@ function notify(msg, options = {}) {
 
 NOTES:
 - So now with object destructuring, we can collapse multiple assignments in to one
+- Uses an object literal pattern to map properties of an object into multiple variables
 - But we still have the problem of not knowing what properties in `options` are supported without looking at the function body
 - There's an ES6 feature for that!
 
@@ -798,7 +811,7 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2015-11-14');
+let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('206-02-16');
     // yr='2015', mo='11', day='14'
 ```
 
@@ -819,6 +832,7 @@ NOTES:
 - Focus on the third example which is a real-world use case with regular expression matches
   - Don't need to maintain the intermediate array
 - Works kind of how tuples work in Python
+- Work in function headers too!
 
 /////
 
@@ -883,8 +897,8 @@ _[22 minutes]_
 - We have here a `join` method that takes a separator string followed by an unlimited number of parameters to join
 - The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
 - Because `join` uses the `separator` parameter the implementation has to start at index `1` of `arguments`
-- And even if it could start at 0, arguments is only array-like so it doesn't have the `join` method that arrays have
-- What we need is an easy way to get an array of the parameters after `separator`
+- And even if it could start at 0, `arguments` is only array-like so it doesn't have the `join` method that arrays have
+- **NEED:** is an easy way to get an array of the parameters after `separator`
 - And guess what? There's an ES6 feature for that
 
 /////
@@ -930,11 +944,11 @@ join('-', 'tic', 'tac', 'toe');
 NOTES:
 - That's it!
 - The three dots, called the rest operator, before the parameter make it a rest parameter
-  - The rest parameter is an Array containing the rest of the parameters
+  - The rest parameter is an `Array` containing the rest of the parameters
   - Hence the name!
 - Because `values` is a true array in the example, we can call join on it
 - JavaScript ninjas would probably have done `Array.prototype.slice.call(arguments, 1)`, but that's funky and still doesn't solve the problem about a readable function header
-- It’s also much clearer to see that `join()` takes an infinite number of parameters
+- It’s also much **clearer** to see that `join()` takes an infinite number of parameters
 - Rest parameter should pretty much replace all uses of the `arguments` keyword!
 
 /////
@@ -1117,7 +1131,9 @@ NOTES:
 _[27 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
-- You have to keep track of the counter variable `i` AND control when the loop ends
+- You have to:
+  - Keep track of the counter variable `i`
+  - Control when the loop ends
 
 /////  
 
@@ -1135,8 +1151,9 @@ for (i = 0; i < length; i++) {
 ```
 
 NOTES:
-- Technically, since `i` is hoisted, you technically should define it at the top of the function
+- Technically, since `i` is hoisted, you should define it at the top of the function
 - The `length` of `list` gets retrieved w/ every iteration so we should store it
+- No one wants to write loops like this!
 
 /////
 
@@ -1163,6 +1180,7 @@ NOTES:
 - Any enumerable keys on the array will also be iterated over
 - `for-in` was designed to iterate over regular objects with string keys only
   - Not arrays
+- Don't do it!!!
 
 /////
 
@@ -1181,7 +1199,7 @@ What about `break`, `continue` & `return`?
 <!-- .element: class="fragment" -->
 
 NOTES:
-- ES5 introduced the `forEach` method
+- ES5 introduced the `forEach` method on arrays
 - It’s a more succinct syntax.
   - You no longer need the counter variable and it will read all values until the end
 - But what if you want to `break` out of the loop or `continue` to the next value?
@@ -1189,7 +1207,7 @@ NOTES:
 - What if you want to `return`?
   - You’d be returning from the `forEach` callback function, not stopping iteration
 - So basically we'd like to combine the benefits of `for` and `forEach` together
-- There's an ES6 feaure for that!
+- There's an ES6 feature for that!
 
 /////
 
@@ -1248,6 +1266,7 @@ Good ol' string concatenation
 NOTES:
 _[29 minutes]_
 
+- Let's jump to another issue
 - We usually don’t build string in JS anymore
 - But we do sometimes have to provide messages to the user that have dynamic data
 
@@ -1301,7 +1320,6 @@ NOTES:
   - It will ultimately be coerced into a string
 - Multi-line strings are now supported as well
   - Any whitespace you put will be in the string, including tabs and newlines
-- One of the few features supported by all modern browsers
 - You can actually always use template literals, but I tend to only use them when interpolating
 
 ===== <!-- .slide: data-transition="fade" -->
@@ -1311,6 +1329,7 @@ NOTES:
 
 MyObj.prototype.update = function() {
 	$.get(this._url).done(function(responseData) {
+
 		this._data = responseData;
 	});
 };
@@ -1342,6 +1361,8 @@ Undefined `this`!
 NOTES:
 - `this` is `undefined` in the callback function in strict mode
 - `this` is the global scope (window) in loose mode
+- Something that newbies scratch their head about
+- Experienced JavaScript developers still run into it
 - _[Water break]_
 
 /////
@@ -1377,8 +1398,9 @@ ES5 fix
 
 NOTES:
 - `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
-- Underscore and other libraries have a bind method so it can work with ES3
+- Underscore and other shim have a bind method so it can work with ES3 browsers
 - Works, but messy syntax
+- We need something better!
 
 /////
 
@@ -1422,6 +1444,7 @@ NOTES:
 - Arrow functions use what’s called “lexical scoping” for `this`
   - It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
   - Essentially arrow functions work how you would expect it to
+- An arrow function is literally an arrow (fat arrow) between parameters and body
 
 /////
 
@@ -1455,13 +1478,17 @@ $.ajax({
 }).done(html => {
   $('#results').append(html);
   console.log(html);
-})
+});
 ```
 
 NOTES:
 - You’ll find that arrow functions come in handy most when used as a callback function.
   - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
   - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
+- This also shows the different formats of arrow functions
+  - Perentheses can be omitted if there is one parameter
+  - Curly braces can be omitted if there's just a single `return` line
+
 
 =====
 
@@ -1484,7 +1511,9 @@ Create classes via constructor functions
 NOTES:
 _[35 minutes]_
 
+- Hitting the home stretch now
 - Does anybody these days create "classes" using vanilla JavaScript these days?
+- I think Angular 1 code might have
 - Only done them as interview questions
 
 /////
@@ -1504,12 +1533,13 @@ console.log(myTodo.toString());
 Create classes via class factories
 
 NOTES:
-- Instead we create classes using class factories provided by our favorite library
+- Instead we create classes using class factory methods provided by our favorite library
 - Here's an example in Backbone
 - We create a class by calling the `extend` static method on `Backbone.Model`
-- We pass an object literal that has all the methods or properties to define
+- We pass a giant object literal that has all the methods or properties to define
 - Typically these methods will do more work than just create the class
-- In the case of `Backbone.Model.extend()` it creates a bucket of attributes you can set on the model
+  - They'll do some processing of the data prior to creating the class
+- In the case of `Backbone.Model.extend()` it sets up a bucket of attributes you can set on the model
 
 /////
 
@@ -1518,6 +1548,7 @@ NOTES:
 Replace class factories with `class` syntax
 
 NOTES:
+- Now we can replace assigning to the prototype or using custom class factories with native class syntax
 
 /////
 
@@ -1554,9 +1585,9 @@ Todo.prototype.toString = function() {
 
 NOTES:
 - ES6 introduces the `class` keyword that defines a JavaScript "class"
-- Technically, it's not a class, because it's just syntactic sugar over the ES5 constructor function
+- This isn't something new; it's just syntactic sugar over the ES5 constructor function
 - But I feel like it's way more syntax friendly
-- Methods within a class are just the name followed by parentheses. No need for `function`
+- Methods within a class are just the name followed by parentheses. No need for `function` keyword
 - The constructor is a special named method called `constructor`
 
 /////
@@ -1577,14 +1608,14 @@ let myColorTodo = new ColorTodo('Learning ES6', true, 'red');
 console.log(myColorTodo.toString());
 ```
 
-Extending classes with **ES3**
+Extending classes with **ES3/ES5**
 
 NOTES:
 - This is how you extend classes in ES3
 - I'm assuming no one here has done this
 - And this is actually the simplistic version without safety checks in ES5
 - Just looking at the code it's hard to reason about what's going on here
-- Just that we're defining a `ColorTodo` class to inherit from `Todo`
+- It's not all that clear that we're defining a `ColorTodo` class to inherit from `Todo`
 
 /////
 
@@ -1655,8 +1686,10 @@ ES6 class structure
 ```js
 class MyClass extends BaseClass {
     constructor() { }
-    toString() { }
-    static add() { }
+    methodOne() { }
+    methodTwo() { }
+    static staticMethodA() { }
+    static staticMethodB() { }
 }
 ```
 
@@ -1678,11 +1711,11 @@ NOTES:
 - Here's the complete structure of ES6 classes
 - I really like the new syntax & try to use it all the time
 - But there seems to be a lot of folks in the community who don't like them
-- They prefer to still use the class factories provided by their library
+- They prefer to still use the class factories **[NEXT]** provided by their favorite library
 - This because classes as defined by ES6 spec are incomplete
-- Despite deficiencies, I still feel classes are worthwhile
+- But despite deficiencies, I still feel classes are worthwhile
 - It's clear that there was a need to make them easier because every library has its own abstraction
-- Class syntax provides a standard that we can then improve on
+- Class syntax provides a single standard that we can then improve on
 
 /////
 
@@ -1743,7 +1776,7 @@ NOTES:
 - This is because the class was defined from an object literal
 - With mix-ins we just add more functions to the literal before the class is actually created
 - ES6 classes don't support this in their syntax
-- However, there is a spec proposal for decorators which currently sits at Stage 1 so they are very experimental
+- However, there is a spec proposal for decorators that can solve similar problems & also currently sits at Stage 1
 
 /////
 
@@ -1762,9 +1795,10 @@ class Todo extends Backbone.Model {
 ```
 
 NOTES:
-- Because ES6 classes are just syntactic sugar of constructor functions they are interoperable in theory
+- Because ES6 classes are just syntactic sugar of constructor functions they _should_ be interoperable with ES5 clases
 - You should technically be able to use `extends` with a JavaScript class defined using constructor functions like in our example above
 - However, most class factory functions (i.e. `Backbone.Model.extends()`) do a lot more processing before creating the derived class so it doesn't always work
+- Depends on the library
 - React has a class factory function for creating its components in ES5, but they've also put a lot of work in also making it ES6 class friendly. Other libraries need to follow suit
 - Ember & Angular 2 have done the same
 
@@ -1791,8 +1825,10 @@ _[42 minutes]_
 - For our final feature, let's revisit class factories
 - Remember we're passing a big object literal that contains the class configuration
 - Defining a `Car` class that has an `evaluate` method
-- Within the method we define `value` & `condition` variables and some computation to determine their values
+- Within the method we pass in `condition` & define the `value` variable
+- There is some computation to determine `value`
 - The result of `evaluate` is returning an object literal with keys the same as the variable name
+- There's nothing _really_ wrong with this but...
 
 /////
 
@@ -1838,10 +1874,10 @@ NOTES:
 - With ES6 we have object literal shorthand
 - Remember we're passing a big object literal to `Backbone.Model.extend()`
 - When specify methods we can get rid of `: function` using method shorthand
-  * Just have method name and parameters
+  - Just have method name and parameters (like `class` syntax)
 - Within `evaluate`, because the object literal has keys that match the variables, we can just list the keys using property value shorthand
 - This applies to **all** object literals, not just when they're used with class factories
-- But if you either can't or don't want to use ES6 classes, you can still benefit from more succinct syntax
+- But if you either can't or don't want to use ES6 classes, you can still benefit from more succinct syntax with class factories
 
 =====
 
@@ -1873,7 +1909,7 @@ Native execution vs. Transpiling
 NOTES:
 _[45 minutes]_
 
-- Before we wrap up, let's talk about how we can use these features now
+- Before we wrap up, let's quickly talk about how we can use these features now
 
 /////
 
@@ -1923,9 +1959,10 @@ _[45 minutes]_
 [ECMAScript 6 Compatibility Table](http://kangax.github.io/compat-table/es6/)
 
 NOTES:
-- ES6 support is pretty mixed. Chrome/Opera are at 91% while Safari is only at 54%
-- Node is lagging behind
-- It's February of 2016 and the official ES2016 spec is coming soon
+- ES6 support is pretty mixed. Chrome Canary is at 91% while Safari is at an abysmal 54%
+- Node 5 is lagging behind, although Node 6 should have significantly more features
+- It's already February of 2016 and ES2016 spec is coming soon
+  - They haven't even finished ES2015 yet!
 - I think this is why they decided to go to a yearly cadence to keep specs from being too big
 - You may notice IE missing from the list. None of them support ES6
 - Only option is transpiling
@@ -1973,7 +2010,7 @@ NOTES:
 - I actually prefer it over the others, but they more or less accomplish the same tasks
 - If you visit the websites they have interactive transpilers you can play around with
 - The previous animation was the Babel online REPL
-- Babel is super popular because it supports React's JSX
+- Babel is super popular because it also supports React's JSX syntax
 
 =====
 
