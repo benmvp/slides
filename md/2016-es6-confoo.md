@@ -1921,3 +1921,6 @@ _[50 minutes]_
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp)
+
+NOTES:
+- Slides are on my Twitter profile and blog
