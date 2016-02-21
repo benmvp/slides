@@ -665,7 +665,7 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2016-02-16');
+let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2016-02-25');
     // yr='2015', mo='11', day='14'
 ```
 

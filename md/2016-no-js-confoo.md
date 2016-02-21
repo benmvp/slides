@@ -1687,5 +1687,12 @@ _[43 minutes]_
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github.com/benmvp](https://github.com/benmvp/)  
 
-<br >
+<br />
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)
+
+<br />
+
+### _Demistifying ES6_, Tomorrow @ 3pm in Fontaine F
+
+NOTES:
+- I'll be speaking tomorrow at the same time in Fontaine F on ES6
