@@ -1695,4 +1695,5 @@ Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-tha
 ### _Demistifying ES6_, Tomorrow @ 3pm in Fontaine F
 
 NOTES:
+- Slides are on my Twitter profile and blog
 - I'll be speaking tomorrow at the same time in Fontaine F on ES6
