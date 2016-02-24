@@ -38,6 +38,14 @@
         text-align: center;
     }
 
+    .reveal .item-example-2 {
+        font-size: smaller;
+    }
+
+    .reveal .item-example-4 {
+        font-size: larger;
+    }
+
 /*** Animation ***/
     .reveal .canvas {
         background: #ccc;
