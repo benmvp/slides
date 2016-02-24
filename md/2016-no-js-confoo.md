@@ -51,6 +51,21 @@ _[1 minute]_
 
 /////
 
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<img src="img/confoo2016/montreal-weather-2016-02-24.png" style="width:50%;height:auto" alt="Weather in Montreal on February 24, 2016" />
+
+        <p style="text-align:center">Montreal, QB</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="img/confoo2016/pittsburg-weather-2016-02-24.png" style="width:50%;height:auto" alt="Weather in Pittsburg on February 24, 2016" />
+
+        <p style="text-align: center">Pittsburg, CA</p>
+	</div>
+</div>
+
+/////
+
 ![Eventbrite logo](img/eventbrite-logo.png)
 
 NOTES:
@@ -642,7 +657,7 @@ _[18 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - I dunno about you, but I find being able to use those native UIs quite... interesting
@@ -760,6 +775,14 @@ _[20 minutes]_
 
 NOTES:
 _[21 minutes]_
+
+/////
+
+![Myriam Jessier](img/confoo2016/myriam-jessier.jpg)  <!-- .element: style="width: 300px" -->
+
+[<h2>HTML5 for SEO and accessibility</h2>](https://confoo.ca/en/2016/session/html5-for-seo-and-accessibility)
+
+Earlier today @ 10AM in Fontaine H
 
 /////
 
@@ -1123,6 +1146,22 @@ http://caniuse.com/#feat=flexbox
 NOTES:
 - Not supported in IE8 or IE9
 - But those should be dead or dying soon
+
+/////
+
+![Rachel Andrew](img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->
+
+[<h2>Making Sense of CSS Layout</h2>](https://confoo.ca/en/2016/session/making-sense-of-css-layout)
+
+Tomorrow @ 13:00 in Hampstead
+
+/////
+
+![Jen Kramer](img/confoo2016/jen-kramer.jpg)  <!-- .element: style="width: 300px" -->
+
+[<h2>Flexbox: Coming to a browser near you</h2>](https://confoo.ca/en/2016/session/flexbox-coming-to-a-browser-near-you)
+
+Tomorrow @ 16:00 in Hampstead
 
 /////
 
@@ -1612,6 +1651,14 @@ _[41 minutes]_
   - Browser support is very minimal
 - GASP is a proprietary library available for purchase which is super-fast alternative to jQuery
   - In some benchmarks it's somehow faster than CSS3 animations
+
+/////
+
+![Sarah Etter](img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->
+
+[<h2>CSS Performance & What is the Browser doing?</h2>](https://confoo.ca/en/2016/session/css-performance-what-is-the-browser-doing)
+
+Friday @ 13:00 in Hampstead
 
 /////
 
