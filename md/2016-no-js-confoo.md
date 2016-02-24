@@ -63,6 +63,10 @@ NOTES:
 
 <!-- .slide: data-background="url(img/giphy/aaron-gordon-dunk-contest.gif) no-repeat center" data-background-size="contain"-->
 
+NOTES:
+- I also absolutely love basketball - both playing & watching
+- But enough about me, let's dive into our topic
+
 =====
 
 # Agenda
@@ -86,7 +90,10 @@ _[2 minutes]_
 <!-- .slide: data-background="url(img/giphy/lost-dont-tell-me-what-i-cant-do.gif) no-repeat center" data-background-size="contain" -->
 
 NOTES:
-- Now I know the title of my talk is a bit bold & some people respond differently to suggestions, but I'm hoping you're coming with an open mind
+- Now I know the title of my talk is a bit bold
+- Some people respond differently to suggestions
+- But I'm hoping you're coming with an open mind
+- Unlike Mr. John Locke
 
 =====
 
@@ -94,7 +101,7 @@ NOTES:
 
 with CSS `:hover`
 
-![CSS wife pun](img/puns/css-leaning-tower-of-pisa.jpg)
+![CSS Leaning Tower of Pisa pun](img/puns/css-leaning-tower-of-pisa.jpg)
 
 NOTES:
 _[3 minutes]_
@@ -102,6 +109,8 @@ _[3 minutes]_
 - Let's start simple looking at interactivity with `:hover`
 - This doesn't require any HTML5 or CSS3 fanciness
 - Just some fun CSS pseudo-class code
+- By the way this pun has nothing to do with our topic. Just fun!
+- **_[WATER BREAK]_**
 
 /////
 
@@ -136,6 +145,9 @@ _[4 minutes]_
 - Icon fonts are awesome because:
   - Super lightweight compared to traditional images (63kb)
   - Can easily change their size, color and any other text property.
+- SVG is also making its way to the web with the best of both worlds
+  - Full color
+  - Still lightweight
 
 /////
 
@@ -162,7 +174,8 @@ _[4 minutes]_
 </header>
 ```
 
-[SMACSS](https://smacss.com/) + [BEM](https://css-tricks.com/bem-101/) CSS class naming
+[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS  
+[BEM](https://css-tricks.com/bem-101/): Block, Element, Modifier
 
 
 NOTES:
@@ -333,7 +346,7 @@ NOTES:
 
 with new HTML5 `<input>` types
 
-![CSS Moses parts red sea pun](img/puns/css-rappers-word-spacing.jpg)
+![CSS Rapers word spacing pun](img/puns/css-rappers-word-spacing.jpg)
 
 NOTES:
 _[10 minutes]_
@@ -395,7 +408,8 @@ _[11 minutes]_
 
 - Using the `<label>` tag with the `for` attribute automatically focus field when clicked
 - The equivalent JavaScript is simple enough, but unnecessary!
-- This doesn't require any HTML5 support, you can use this in any browser!
+- This doesn't require any HTML5 support **[NEXT]**, you can use this in any browser!
+- Personally hate it when I have a tiny checkbox and a long label and i **have** to click the checkbox
 
 /////
 
@@ -512,7 +526,7 @@ special telephone-focused software keyboard!
 NOTES:
 _[15 minutes]_
 
-- Instead of `type="text"`, it's `type="telephone"`
+- Instead of `type="text"`, it's `type="tel"`
 - Provides telephone-focused software keyboard where applicable
 - No validation or character prevention
 
@@ -536,6 +550,7 @@ native slider UI!
 NOTES:
 - Instead of `type="text"`, it's `type="range"`
 - Provides native slider UI where applicable
+- Default to a text field
 
 /////
 
@@ -558,7 +573,7 @@ _[16 minutes]_
 
 - Instead of `type="text"`, it's `type="date"`
 - Provides native date picker UI where applicable
-- Use `pattern` & `placeholder` as fallback since not all browsers support
+- Use `pattern` & `placeholder` as fallback since not all browsers support the UI
 
 /////
 
@@ -764,7 +779,7 @@ NOTES:
 
 with CSS3 `display:flex`
 
-![CSS titanic doesn't float pun](img/puns/css-transformers.jpg)
+![CSS transformers pun](img/puns/css-transformers.jpg)
 
 NOTES:
 _[22 minutes]_
@@ -819,6 +834,10 @@ NOTES:
 
 ~Chris Coyer ([Css-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/))
 
+NOTES:
+
+The main idea behind flexbox is to give the container the ability to alter its items' dimensions to best fill the available space in responsive design. A flex container expands items to fill available free space, or shrinks them to prevent overflow.
+
 /////
 
 ###### Layout
@@ -840,9 +859,9 @@ NOTES:
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'block')">
-	<code>block</code></a> |
+	<em><code>block</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'flex')">
-	<code>flex</code></a> |
+	<strong><code>flex</code></strong></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline-flex')">
 	<code>inline-flex</code></a>
 
@@ -878,11 +897,11 @@ _[24 minutes]_
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-end')">
 	<code>flex-end</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-start')">
-	<code>flex-start</code></a> |
+	<em><code>flex-start</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-around')">
 	<code>space-around</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-between')">
-	<code>space-between</code></a>
+	<code><strong>space-between</strong></code></a>
 
 NOTES:
 _[25 minutes]_
@@ -921,11 +940,11 @@ _[25 minutes]_
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'center')">
 	<code>center</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-end')">
-	<code>flex-end</code></a> |
+	<strong><code>flex-end</code></strong></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-start')">
 	<code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'stretch')">
-	<code>stretch</code></a>
+	<em><code>stretch</code></em></a>
 
 NOTES:
 _[26 minutes]_
@@ -968,7 +987,7 @@ _[26 minutes]_
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-start')">
 	<code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'stretch')">
-	<code>stretch</code></a>
+	<em><strong><code>stretch</code></strong></em></a>
 
 NOTES:
 _[27 minutes]_
@@ -1087,6 +1106,7 @@ _[28 minutes]_
 NOTES:
 
 - Once again here's the result of all of our work to make a linear layout!
+- So simple!
 
 /////
 
@@ -1116,7 +1136,7 @@ NOTES:
 
 with CSS3 `transition`
 
-![CSS The Hulk pun](img/puns/css-mario-mushroom.jpg)
+![CSS Mario Bros pun](img/puns/css-mario-mushroom.jpg)
 
 NOTES:
 _[29 minutes]_
@@ -1161,7 +1181,7 @@ NOTES:
 
 NOTES:
 - But please do not do that!
-- The code may be simple, but there's **sooo** JavaScript in jQuery
+- The code may be simple, but there's **sooo** much JavaScript in jQuery
 - Instead we can use CSS3 `transition`
 
 /////
@@ -1219,6 +1239,7 @@ _[30 minutes]_
 
 - Before we look at how `transition` works, lets look at our HTML/CSS
 - Want to point out `calc()` which is a way to do math in CSS so we don't need JS
+  - Different than math in preprocessors like SASS because it's based on calculated values
 - So we define the begin & end states and we'll use CSS3 `transition` to handle "tweening"
 
 /////
@@ -1250,13 +1271,13 @@ NOTES:
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'none')">
-	<code>none</code></a> |
+	<em><code>none</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'border-radius')">
 	<code>border-radius</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'width,height')">
 	<code>width,height</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'all')">
-	<code>all</code></a>
+	<strong><code>all</code></strong></a>
 
 NOTES:
 _[31 minutes]_
@@ -1289,7 +1310,7 @@ _[31 minutes]_
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '0s')">
-	<code>0</code></a> |
+	<em><code>0s</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '200ms')">
 	<code>200ms</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '0.5s')">
@@ -1297,7 +1318,7 @@ _[31 minutes]_
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '1s')">
 	<code>1s</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '5s')">
-	<code>5s</code></a>
+	<strong><code>5s</code></strong></a>
 
 NOTES:
 _[32 minutes]_
@@ -1331,7 +1352,7 @@ _[32 minutes]_
 NOTES:
 _[33 minutes]_
 
-- Remember are header menu example from the Interactivity section?
+- Remember our header menu example from the Interactivity section?
 - Not sure if you noticed, but we had transitions on hover for smoother transitions
 - Here's what the code would look like
 
@@ -1355,13 +1376,13 @@ _[33 minutes]_
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '0s')">
-	<code>0s</code></a> |
+	<em><code>0s</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '200ms')">
 	<code>200ms</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '0.5s')">
 	<code>0.5s</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '1s')">
-	<code>1s</code></a> |
+	<strong><code>1s</code></strong></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '5s')">
 	<code>5s</code></a>
 
@@ -1640,10 +1661,10 @@ http://caniuse.com/#feat=css-animation
 NOTES:
 _[42 minutes]_
 
-- Interactivity with :hover
-- Functionality with HTML5 input
-- Layout with CSS3 flexbox
-- Animation with CSS3 transition & animation
+- Interactivity with `:hover`
+- Functionality with HTML5 `<input>`
+- Layout with CSS3 `flexbox`
+- Animation with CSS3 `transition` & `animation`
 
 /////
 
