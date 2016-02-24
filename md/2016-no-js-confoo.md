@@ -55,12 +55,12 @@ _[1 minute]_
 	<div style="flex:0 0 50%;">
 		<img src="img/confoo2016/montreal-weather-2016-02-24.png" style="width:50%;height:auto" alt="Weather in Montreal on February 24, 2016" />
 
-        <p style="text-align:center">Montreal, QB</p>
+        <p style="text-align:center">Montreal, QC, Canada</p>
 	</div>
 	<div style="flex:0 0 50%;">
 		<img src="img/confoo2016/pittsburg-weather-2016-02-24.png" style="width:50%;height:auto" alt="Weather in Pittsburg on February 24, 2016" />
 
-        <p style="text-align: center">Pittsburg, CA</p>
+        <p style="text-align: center">Pittsburg, CA, USA</p>
 	</div>
 </div>
 
@@ -115,6 +115,8 @@ NOTES:
 # Interactivity
 
 with CSS `:hover`
+
+<br />
 
 ![CSS Leaning Tower of Pisa pun](img/puns/css-leaning-tower-of-pisa.jpg)
 
@@ -361,6 +363,8 @@ NOTES:
 
 with new HTML5 `<input>` types
 
+<br />
+
 ![CSS Rapers word spacing pun](img/puns/css-rappers-word-spacing.jpg)
 
 NOTES:
@@ -432,10 +436,10 @@ _[11 minutes]_
 
 HTML5 `placeholder` attribute
 
-<input type="url" class="input-example" placeholder="Enter URL" />
+<input type="text" class="input-example" placeholder="Enter URL" />
 
 ```html
-<input type="url" placeholder="Enter URL" />
+<input type="text" placeholder="Enter URL" />
 ```
 <!-- .element: class="large" -->
 <br />
@@ -778,7 +782,10 @@ _[21 minutes]_
 
 /////
 
-![Myriam Jessier](img/confoo2016/myriam-jessier.jpg)  <!-- .element: style="width: 300px" -->
+![Myriam Jessier](img/confoo2016/myriam-jessier.jpg)  <!-- .element: style="width: 300px" -->  
+Myriam Jessier
+
+<br />
 
 [<h2>HTML5 for SEO and accessibility</h2>](https://confoo.ca/en/2016/session/html5-for-seo-and-accessibility)
 
@@ -801,6 +808,8 @@ NOTES:
 # Layout
 
 with CSS3 `display:flex`
+
+<br />
 
 ![CSS transformers pun](img/puns/css-transformers.jpg)
 
@@ -1149,7 +1158,10 @@ NOTES:
 
 /////
 
-![Rachel Andrew](img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->
+![Rachel Andrew](img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->  
+Rachel Andrew
+
+<br />
 
 [<h2>Making Sense of CSS Layout</h2>](https://confoo.ca/en/2016/session/making-sense-of-css-layout)
 
@@ -1157,7 +1169,10 @@ Tomorrow @ 13:00 in Hampstead
 
 /////
 
-![Jen Kramer](img/confoo2016/jen-kramer.jpg)  <!-- .element: style="width: 300px" -->
+![Jen Kramer](img/confoo2016/jen-kramer.jpg)  <!-- .element: style="width: 300px" -->  
+Jen Kramer
+
+<br />
 
 [<h2>Flexbox: Coming to a browser near you</h2>](https://confoo.ca/en/2016/session/flexbox-coming-to-a-browser-near-you)
 
@@ -1174,6 +1189,8 @@ Tomorrow @ 16:00 in Hampstead
 # Animation
 
 with CSS3 `transition`
+
+<br />
 
 ![CSS Mario Bros pun](img/puns/css-mario-mushroom.jpg)
 
@@ -1654,7 +1671,10 @@ _[41 minutes]_
 
 /////
 
-![Sarah Etter](img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->
+![Sarah Etter](img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->  
+Sarah Etter
+
+<br />
 
 [<h2>CSS Performance & What is the Browser doing?</h2>](https://confoo.ca/en/2016/session/css-performance-what-is-the-browser-doing)
 
