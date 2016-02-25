@@ -363,6 +363,8 @@ NOTES:
 
 NOTES:
 - But really this is pretty unimpressive
+- Bug fix masquerading as a feature
+- It's really how `var` should've worked all along
 - More so fixing a deficiency rather than supplying new functionality
 
 /////
@@ -1043,9 +1045,9 @@ ES5: `forEach` method
 ```js
 var list = [8, 3, 11, 9, 6];
 
-list.forEach(function(value, i)) {
+list.forEach(function(value, i) {
   console.log(value);
-};
+});
 ```
 
 What about `break`, `continue` & `return`?
