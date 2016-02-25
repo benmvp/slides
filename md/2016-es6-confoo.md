@@ -46,6 +46,21 @@ _[1 minute]_
 
 /////
 
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<img src="img/confoo2016/montreal-weather-2016-02-25.png" style="width:50%;height:auto" alt="Weather in Montreal on February 25, 2016" />
+
+        <p style="text-align:center">Montreal, QC, Canada</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="img/confoo2016/pittsburg-weather-2016-02-25.png" style="width:50%;height:auto" alt="Weather in Pittsburg on February 25, 2016" />
+
+        <p style="text-align: center">Pittsburg, CA, USA</p>
+	</div>
+</div>
+
+/////
+
 ![Eventbrite logo](img/eventbrite-logo.png)
 
 NOTES:
@@ -131,7 +146,6 @@ NOTES:
 - Full list of features included in the ES6 specification
 - That's 30+ features!
 - 2 categories: sugar & spice
-  - Hence the name of the talk
   - SUGAR: Syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
 - But before we talking about the features let's start with a history lesson
@@ -231,7 +245,7 @@ _[6 minutes]_
 # ES6 Features
 
 NOTES:
-_[11 minutes]_
+_[8 minutes]_
 
 /////
 
@@ -278,7 +292,7 @@ notify('Hi!', {type:'warn', canClose:false});
 How can we clean/shorten this code up?
 
 NOTES:
-_[13 minutes]_
+_[10 minutes]_
 
 - Take a look at this code for a bit while I talk
 - It's a function that will display a notification message
@@ -376,6 +390,7 @@ NOTES:
 - One interesting thing is that if an object is `const` its properties are not
   - You can still assign to them
   - Need to use `Object.freeze`
+  - Or immutable.js from Facebook
 
 /////
 
@@ -408,7 +423,7 @@ NOTES:
 Replace function body code with function header defaults
 
 NOTES:
-_[16 minutes]_
+_[13 minutes]_
 
 - It's called default parameters
 - With default parameters we can move our defaulting logic into the function header
@@ -491,13 +506,6 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- I dunno about you, but I find that quite... interesting
-
-/////
-
 ```js
 function notify(msg, options = {}) {
   let type = options.type || 'info';
@@ -524,7 +532,7 @@ NOTES:
 Replace multiple assignments with a single one
 
 NOTES:
-_[18 minutes]_
+_[15 minutes]_
 
 - It's called Destructuring
 - With destructuring we can reduce multiple assignments down to one
@@ -717,13 +725,9 @@ NOTES:
 - This conveys the point that just because you _can_ do it doesn't mean you _should_
 - You can revisit this slide if you really want to try and understand what's going on
 
-/////
+=====
 
-<!-- .slide: data-background="url(img/giphy/confused-urkel.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- Now we're all sorts of confused...
-- Let's just move on to a new problem...
+# Quick Hits
 
 =====
 
@@ -831,7 +835,6 @@ console.log(first, rest);
 NOTES:
 - One last thing with rest parameters
 - They can be combined with array destructuring to replace `slice`
-
 - Now, let's take a look at yet another problem
 
 =====
@@ -848,7 +851,7 @@ console.log(maxValueNormal, maxValueFromArray);
 `Math.max.apply`???
 
 NOTES:
-_[24 minutes]_
+_[21 minutes]_
 
 - `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
 - If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
@@ -979,7 +982,7 @@ for (var i = 0; i < list.length; i++) {
 ```
 
 NOTES:
-_[27 minutes]_
+_[24 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
 - You have to:
@@ -1115,7 +1118,7 @@ console.log('This is multi-line text, so\n' +
 Good ol' string concatenation
 
 NOTES:
-_[29 minutes]_
+_[26 minutes]_
 
 - Let's jump to another issue
 - We usually don’t build string in JS anymore
@@ -1189,7 +1192,7 @@ MyObj.prototype.update = function() {
 Where's the bug?
 
 NOTES:
-_[31 minutes]_
+_[28 minutes]_
 
 - Can anyone spot the mistake in this code?
 - We're passing a callback to `done` of the `get` ajax request
@@ -1360,7 +1363,7 @@ console.log(myTodo.toString());
 Create classes via constructor functions
 
 NOTES:
-_[35 minutes]_
+_[32 minutes]_
 
 - Hitting the home stretch now
 - Does anybody these days create "classes" using vanilla JavaScript these days?
@@ -1517,8 +1520,7 @@ class Todo {
 
 ```js
 function Todo(content, completed) {
-    this.content = content;
-    this.completed = completed;
+    ...
 }
 Todo.add = function() {
 
@@ -1671,7 +1673,7 @@ var Car = Backbone.Model.extend({
 ```
 
 NOTES:
-_[42 minutes]_
+_[39 minutes]_
 
 - For our final feature, let's revisit class factories
 - Remember we're passing a big object literal that contains the class configuration
@@ -1746,7 +1748,7 @@ NOTES:
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 
 NOTES:
-_[44 minutes]_
+_[41 minutes]_
 
 - As a reminder, here's what we covered to make our code clearer and more succinct
 - I know I went through it pretty quickly, so if you didn't get it at all, they're recording this talk so you can always revisit later
@@ -1758,7 +1760,7 @@ _[44 minutes]_
 Native execution vs. Transpiling
 
 NOTES:
-_[45 minutes]_
+_[42 minutes]_
 
 - Before we wrap up, let's quickly talk about how we can use these features now
 
@@ -1780,11 +1782,11 @@ _[45 minutes]_
 </div>
 <div style="flex:0 0 10%">
   ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
-  82%
+  83%
 </div>
 <div style="flex:0 0 10%">
   ![Apple Safari Logo](img/apple-safari-logo.png)
-  54%
+  56%
 </div>
 <div style="flex:0 0 10%">
   ![Opera Logo](img/opera-logo.png)
@@ -1792,15 +1794,15 @@ _[45 minutes]_
 </div>
 <div style="flex:0 0 10%">
   ![Webkit Logo](img/webkit-logo.png)
-  82%
+  83%
 </div>
 <div style="flex:0 0 10%">
   ![NodeJS Logo](img/nodejs-logo.png)
-  57%
+  59%
 </div>
 <div style="flex:0 0 10%">
   ![iOS 9 Logo](img/ios9-logo.png)
-  54%
+  56%
 </div>
 </div>
 
@@ -1848,7 +1850,7 @@ NOTES:
     <div style="flex:0 0 25%">
       [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
       [TypeScript](http://www.typescriptlang.org/)  
-      56%
+      57%
     </div>
 </div>
 
@@ -1875,7 +1877,7 @@ NOTES:
 - [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
 
 NOTES:
-_[48 minutes]_
+_[45 minutes]_
 
 - Shameless plug!
 - You can also check out my blog where I go into detail about every feature I covered
@@ -1909,7 +1911,7 @@ NOTES:
 # THANKS!     <!-- .element: style="-webkit-text-stroke: black 2px" -->
 
 NOTES:
-_[50 minutes]_
+_[47 minutes]_
 
 /////
 
