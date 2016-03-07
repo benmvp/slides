@@ -47,7 +47,7 @@ April 11/12, 2016
 
 [_Sweet ES6_](http://nationjs.com/program#ben_ilegbodu)  
 Friday, March 11, 2016  
-[Code examples](https://github.com/benmvp/learning-es6)
+[Slides](http://www.benmvp.com/slides/nationjs2016-es6.html) | [Code examples](https://github.com/benmvp/learning-es6)
 
 ----------
 
