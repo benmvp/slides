@@ -4,7 +4,7 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NationJS](https://twitter.com/hashtag/nationjs)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NodeDay](https://twitter.com/hashtag/nodeday)  
 <br />
 March 11, 2016  
 
