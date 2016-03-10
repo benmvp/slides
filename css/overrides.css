@@ -10,6 +10,7 @@
 .reveal pre {
 	font-size: .75em;
 	white-space: pre-wrap;
+	width: 100%;
 }
 .reveal pre.large {
 	font-size: 1em;
