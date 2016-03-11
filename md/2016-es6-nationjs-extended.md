@@ -12,17 +12,73 @@ NOTES:
 - Posted link to slides on twitter if you want to follow along
 - This is Sweet ECMAScript 6 aka ES6, the latest version of JavaScript
 - Technically it's called ES2015, because the spec was released last year in 2015
+
+=====
+
+ben-ilegbodu.json
+
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<pre><code class="lang-json">
+{
+  "name": "Ben Ilegbodu",
+  "priorities": [
+    "Jesus", "family", "work"
+  ],
+  "location": "SF Bay Area",
+  "work": "@Eventbrite",
+  "role": "Sr. UI Engineer",
+  "hobbies": [
+    "basketball", "movies"
+  ]
+}
+			</code></pre>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+	</div>
+</div>
+
+NOTES:
+_[1 minute]_
+
+/////
+
+![Eventbrite logo](img/eventbrite-logo.png)
+
+NOTES:
+- Currently a Senior UI Engineer at Eventbrite
+- Eventbrite is an online ticketing & events platform
+- Many conferences use it for registration
+- I work on the Frontend Architecture team and right now we're in the midst of a transition from Backbone/Marionette to React
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I also absolutely love basketball - both playing & watching
+- But you didn't come to hear about me. At least I hope not
+- You came to here about...
+
+=====
+
+# ECMAScript 6
+
+NOTES:
+_[2 minutes]_
+
+- So let's talk about it
 - Show of hands:
   1. Heard of ECMAScript 6 before today?
   1. Played around with it?
   1. Using in live code?
 - Got a pretty diverse audience
-  - Newbies: nice intro
-  - Experienced: nugget or 2
-  - Blog has details
-- So I've got an interesting challenge
+- Newbies: nice intro
+- Experienced: nugget or 2
+- Blog has details
 
-=====
+/////
 
 #### Sugar <!-- .element: style="color:blue;" -->  
 
@@ -69,20 +125,115 @@ NOTES:
 </div>
 
 NOTES:
-_[1 minute]_
-
-- There are 30+ features in ES6 spec
-- Only have 25 minutes!
-- Other times I've given this talk I've had 45+ minutes
+- Full list of features included in the ES6 specification
+- That's 30+ features!
 - 2 categories: sugar & spice
   - SUGAR: Syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
-- Struggling to figure out which features to cover
+- But before we talking about the features let's start with a history lesson
+
+=====
+
+# ECMAScript History
+
+Looking back on two decades of JavaScript
+
+NOTES:
+_[4 minutes]_
+
+/////
+
+###### History
+
+## May 1995
+
+<img src="img/es6/brendan-eich.jpg" style="height: 450px" />
+
+### Brendan Eich
+
+<br />
+
+Created JavaScript **_in 10 days_**
+
+<br />
+
+##### Mocha (May) ➜ LiveScript (Sep) ➜ JavaScript (Dec)
+
+NOTES:
+
+- JavaScript was created in May 1995 by Brendan Eich while at Netscape
+- He reportedly developed it in 10 days
+  - I find that hard to believe
+  - But when you look at some of JavaScript's quirks maybe he really did?
+  - Turns out he did a lot of planning before the 10 days of **implementation**
+- Originally named Mocha (chosen by Netscape founder Marc Andressen)
+- In September 1995, a beta version of Netscape Navigator 2.0 & renamed to LiveScript
+- In December 1995, Netscape renamed it to JavaScript (with NN 2.0b3) because Java was popular at the time
+
+/////
+
+###### History
+
+## November 1996
+
+<br />
+
+TC39 started work on ECMA-262 (ECMAScript)
+
+NOTES:
+_[5 minutes]_
+
+- August 1996, Microsoft cloned JavaScript in IE 3.0 and called it JScript
+- A standard was needed
+- Netscape took JavaScript to Ecma standards organization to maintain language spec
+- The Ecma Technical Committee 39 (aka TC39) began work on ECMA-262 (aka ECMAScript) in November 1996
+- ECMAScript is the name of the official standard
+- JavaScript is the most well-known implementation
+- There's also ActionScript (Macromedia/Adobe) and JScript (Microsoft)
+- But pretty much ECMAScript == JavaScript
+
+/////
+
+###### History
+
+## Jun 1997 — **ES1**
+## Jun 1998 — **ES2**
+## Dec 1999 — **ES3**  <!-- .element: class="fragment highlight-green" data-fragment-index="0" -->  
+## Dec 2009 — **ES5**  <!-- .element: class="fragment highlight-blue" data-fragment-index="1" -->  
+## Jun 2015 — **ES6**  <!-- .element: class="fragment highlight-red" data-fragment-index="2" -->  
+## Jun 2016 — **ES7**
+
+NOTES:
+_[6 minutes]_
+
+- First version of ECMAScript spec was released in `June 1997`
+- ECMAScript 2 was released a year later with only minor changes
+- 18 months later ECMAScript 3 (**[NEXT]**) was released
+  - Included features like regular expressions, try/catch & numeric formatting
+  - ES3 is the version of JavaScript in IE8
+- ES5 was released in `December 2009` (**[NEXT]**)
+  - It's in all of our modern browsers
+  - Features: strict mode, JSON, `.map()/.forEach()`, `O.keys()`, property accessors
+  - 10 year difference was rift which caused ES4 to be lost spec
+- ES6, what we're here for, released in `June 2015` (**[NEXT]**)
+  - Another big gap because spec is so big
+  - ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
+  - Yearly cadence
+- ES7 will be released in `June 2016`
+  - Only will have 2 features
+
+=====
+
+# ES6 Features
+
+NOTES:
+_[8 minutes]_
 
 /////
 
 ## Agenda
 
+1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
 1. Default parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Destructuring <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
@@ -90,55 +241,15 @@ _[1 minute]_
 1. `for-of` <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 
 NOTES:
+- Here's what we'll be covering
 - Focusing on the syntactic sugar features **[NEXT]** because they are the ones your more likely to use immediately to make your code clearer
-- We're going to cover these 7 features in about 20 minutes
-- First, to introduce myself
-
-=====
-
-ben-ilegbodu.json
-
-<div style="display:flex">
-	<div style="flex:0 0 50%;">
-		<pre><code class="lang-json">
-{
-  "name": "Ben Ilegbodu",
-  "priorities": [
-    "Jesus", "family", "work"
-  ],
-  "location": "SF Bay Area",
-  "work": "@Eventbrite",
-  "role": "Sr. UI Engineer",
-  "hobbies": [
-    "basketball", "movies"
-  ]
-}
-			</code></pre>
-	</div>
-	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
-	</div>
-</div>
-
-NOTES:
-_[2 minute]_
-
-- My name is Ben Ilegbodu
-- I'm a Christian, husband and a father
-- Picture of my wife Rashida and our 2 year old daughter Simone
-- We live in SF Bay Area in a suburb called Pittsburg
-- I'm currently a Senior UI Engineer at Eventbrite
-  - I assume everyone here has heard of Eventbrite since you purchased tickets
-  - I work on the Frontend Architecture team - transitioning to React
-
-=====
-
-# ES6 Features
-
-NOTES:
-- Buckle your seat belts!
+- Spicy features -> whole talk about generators
+- We're going to cover these 10 features in less than 40 minutes
+  - Buckle your seat belts!
 
 =====
 
@@ -173,11 +284,137 @@ _[3 minutes]_
 - I'm sure we've all written code like this
 - It's not bad but it feels like it could be cleaner.
 - Let's try to fix these problems with some ES6 features
+- The first issue is the separate declarations from assignments
+- Ideally we'd move the declarations to after we default `options`
+  - But we need to keep `var` declarations on top to be safe from `var` hoisting
+  - The JS interpreter essentially moves all `var` declarations to the top of the function
+- What we need is for a variable declaration that does __not__ hoist
+- There's an ES6 feature for that!
+
+/////
+
+# Block scoping
+
+Replace `var` with `let` & `const`
+
+<br />
+<br />
+
+[benmvp.com/learning-es6-block-level-scoping-let-const/](http://www.benmvp.com/learning-es6-block-level-scoping-let-const/)
+
+NOTES:
+- In fact there are two: `let` & `const`
+- Together they're called Block scoping
+- With block scoping we can replace `var` with `let` & `const`
+
+/////
+
+Unified declarations with assignments!
+
+```js
+function log(msg, opts) {
+  if (!options)
+    options = {};
+
+  let type = opts.type || 'info';
+  let delay = opts.delay;
+  let useColor = opts.color === undefined ? true : opts.color;
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### Before
+
+```js
+function log(msg, opts) {
+  var type, delay, useColor;
+
+  if (!opts)
+    opts = {};
+
+  type = opts.type || 'info';
+  delay = opts.delay;
+  useColor = opts.color === undefined ? true : opts.color;
+}
+```
+
+NOTES:
+
+- Now with `let` we can safely move the declarations down w/ the assignments
+- No more worries about variable hoisting
+
+/////
+
+<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- But really this is pretty unimpressive
+- Bug fix masquerading as a feature
+- It's really how `var` should've worked all along
+- More so fixing a deficiency rather than supplying new functionality
+
+/////
+
+`const`
+
+```js
+const NAME_KEY = 'name';
+const data = {key: 'adam', value: 'eve'};
+const token;  // ReferenceError for not assigning a value
+
+NAME_KEY = 'key'; // TypeError for changing a const value
+
+data.key = 'moses'; // mutations are not an error!
+```
+<!-- .element: class="large" -->
+
+Use `Object.freeze()` for objects!
+
+<!-- .element: class="fragment" -->
+
+Use [Immutable.js](https://facebook.github.io/immutable-js/)!
+
+<!-- .element: class="fragment" -->
+
+NOTES:
+- `const` is pretty straightforward
+- Can’t change a value that is declared `const`
+- Must assign an initial value if declared `const`
+- One interesting thing is that if an object is `const` its properties are not
+  - You can still assign to them
+  - Need to use `Object.freeze`
+  - Or Immutable.js from Facebook
+
+/////
+
+```js
+function log(msg, opts) {
+  if (!options)
+    options = {};
+
+  let type = opts.type || 'info';
+  let delay = opts.delay;
+  let useColor = opts.color === undefined ? true : opts.color;
+
+  // log message
+}
+
+log('Hi!');
+log('Hi!', {type: 'error'});
+log('Hi!', {type: 'warn', color: false});
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Back to our code...
+- One problem down, a few more to go
 - It'd be nice if we didn't have to default `opts` in code
 - It'd also be nice if it were clear to function callers that `opts` does get defaulted
 - There's an ES6 feature for that!
 
-/////
+=====
 
 # Default parameters
 
@@ -203,8 +440,6 @@ function log(msg, opts = {}) {
   let type = opts.type || 'info';
   let delay = opts.delay;
   let useColor = opts.color === undefined ? true : opts.color;
-
-  // log message
 }
 ```
 <!-- .element: class="large" -->
@@ -215,18 +450,15 @@ function log(msg, opts = {}) {
 
 ```js
 function log(msg, opts) {
-  var type, delay, useColor;
+  if (!options)
+    options = {};
 
-  if (!opts)
-    opts = {};
-
-  type = opts.type || 'info';
-  delay = opts.delay;
-  useColor = opts.color === undefined ? true : opts.color;
-
-  // log message
+  let type = opts.type || 'info';
+  let delay = opts.delay;
+  let useColor = opts.color === undefined ? true : opts.color;
 }
 ```
+<!-- .element: class="large" -->
 
 NOTES:
 _[5 minutes]_
@@ -1171,17 +1403,413 @@ NOTES:
   - Any whitespace you put will be in the string, including tabs and newlines
 - You can actually always use template literals, but I tend to only use them when interpolating
 
+
+=====
+
+```js
+function Todo(content, completed) {
+    this.content = content;
+    this.completed = completed;
+}
+Todo.prototype.toString = function() {
+    return 'Content: ' + this.content +
+        '\nCompleted: ' + this.completed;
+};
+
+var myTodo = new Todo('Learn ES6', true);
+console.log(myTodo.toString());
+```
+<!-- .element: class="large" -->
+
+Create classes via constructor functions
+
+NOTES:
+_[32 minutes]_
+
+- Hitting the home stretch now
+- Does anybody these days create "classes" using vanilla JavaScript these days?
+- I think Angular 1 code might have
+- Only done them as interview questions
+
+/////
+
+```js
+var Todo = Backbone.Model.extend({
+    toString: function() {
+        return 'Content: ' + this.get('content') +
+            '\nCompleted: ' + this.get('completed');
+    }
+});
+
+var myTodo = new Todo({content: 'Learn ES6', completed: true});
+console.log(myTodo.toString());
+```
+<!-- .element: class="large" -->
+
+Create classes via class factories
+
+NOTES:
+- Instead we create classes using class factory methods provided by our favorite library
+- Here's an example in Backbone
+- We create a class by calling the `extend` static method on `Backbone.Model`
+- We pass a giant object literal that has all the methods or properties to define
+- Typically these methods will do more work than just create the class
+  - They'll do some processing of the data prior to creating the class
+- In the case of `Backbone.Model.extend()` it sets up a bucket of attributes you can set on the model
+
+/////
+
+# Classes
+
+Replace class factories with `class` syntax
+
+<br />
+<br />
+
+[benmvp.com/learning-es6-classes/](http://www.benmvp.com/learning-es6-classes/)
+
+NOTES:
+- Now we can replace assigning to the prototype or using custom class factories with native class syntax
+
+/////
+
+New ES6 `class` keyword
+
+```js
+class Todo {
+    constructor(content, completed) {
+        this.content = content;
+        this.completed = completed;
+    }
+    toString() {
+        return `Content: ${this.content}
+            Completed: ${this.completed}`;
+    }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- ES6 introduces the `class` keyword that defines a JavaScript "class"
+- This isn't something new; it's just syntactic sugar over the ES5 constructor function
+- But I feel like it's way more syntax friendly
+- Methods within a class are just the name followed by parentheses. No need for `function` keyword
+- The constructor is a special named method called `constructor`
+
+/////
+
+```js
+function ColorTodo(content, completed, color) {
+    Todo.call(this, content, completed);
+    this.color = color;
+}
+ColorTodo.prototype = new Todo();
+
+ColorTodo.prototype.toString = function() {
+    return Todo.prototype.toString.call(this) +
+        '\nColor: ' + this.color;
+};
+
+let myColorTodo = new ColorTodo('Learn ES6', true, 'red');
+console.log(myColorTodo.toString());
+```
+<!-- .element: class="large" -->
+
+Extending classes with **ES3/ES5**
+
+NOTES:
+- This is how you extend classes in ES3
+- I'm assuming no one here has done this
+- And this is actually the simplistic version without safety checks in ES5
+- Just looking at the code it's hard to reason about what's going on here
+- It's not all that clear that we're defining a `ColorTodo` class to inherit from `Todo`
+
+/////
+
+```js
+class ColorTodo extends Todo {
+    constructor(content, completed, color) {
+        super(content, completed);
+        this.color = color;
+    }
+    toString() {
+        return `${super.toString()}
+			Color: ${this.color}`;
+    }
+}
+
+let myColorTodo = new ColorTodo('Learn ES6', true, 'red');
+console.log(myColorTodo.toString());
+```
+<!-- .element: class="large" -->
+
+Extending classes with **ES6**
+
+NOTES:
+- The ES6 class syntax also supports extending or inheriting classes using the `extends` keyword
+- Within the constructor, you can just call `super()` to call the base class' constructor
+- You **must** call `super()` before you can access `this` in the constructor
+- Similarly you can override methods in inherited classes and call base methods by calling `super.` as we have in the `toString()` method
+- To me, this is far clearer than the ES5 approach
+
+/////
+
+ES6 static methods
+
+```js
+class Todo {
+    ...
+
+    static add() {
+
+    }
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+function Todo(content, completed) {
+    ...
+}
+Todo.add = function() {
+
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- ES6 class syntax also supports static methods with the `static` keyword
+- The static method is defined within the `class` container
+- In ES5 you would just add a named function directly to the constructor function
+
+/////
+
+ES6 class structure
+
+```js
+class MyClass extends BaseClass {
+    constructor() { }
+    methodOne() { }
+    methodTwo() { }
+    static staticMethodA() { }
+    static staticMethodB() { }
+}
+```
+<!-- .element: class="large" -->
+
+<br />
+
+-----
+
+#### Class factories <!-- .element: class="fragment" data-fragment-index="0" -->  
+
+```js
+var MyClass = BaseClass.extend({
+    toString: function() { }
+});
+MyClass.add = function() { };
+```
+<!-- .element: class="fragment large" data-fragment-index="0" -->  
+
+NOTES:
+- Here's the complete structure of ES6 classes
+- I really like the new syntax & try to use it all the time
+- But there seems to be a lot of folks in the community who don't like them
+- They prefer to still use the class factories **[NEXT]** provided by their favorite library
+- This because classes as defined by ES6 spec are incomplete
+- But despite deficiencies, I still feel classes are worthwhile
+- It's clear that there was a need to make them easier because every library has its own abstraction
+- Class syntax provides a single standard that we can then improve on
+
+/////
+
+## ES6 class drawbacks
+
+<br />
+
+No properties support!
+
+<br />
+
+```js
+class Todo {
+    static todoCount = 0;
+    completed = false;
+
+    constructor() {
+        console.log(this.completed);
+        console.log(Todo.todoCount);
+    }
+}
+```
+<!-- .element: class="large" -->
+
+[ES Class Fields & Static Properties](https://github.com/jeffmo/es-class-fields-and-static-properties) (Stage 1)
+
+<!-- .element: style="font-size:smaller" -->
+
+NOTES:
+- Static & instance properties aren't supported in ES6
+- In our previous examples we assigned properties in the `constructor`
+- It's the only way to know that certain properties are defined
+- Defining properties makes it clear what properties are supported and allows us to provide defaults
+- There is a proposal to add support that's currently only in Stage 1
+
+/////
+
+## ES6 class drawbacks
+
+<br />
+
+No mix-ins support!
+
+<br />
+
+```js
+class Person {
+    @readonly
+    name() { return `${this.first} ${this.last}` }
+}
+```
+<!-- .element: class="large" -->
+
+[Class & Property Decorators](https://github.com/wycats/javascript-decorators) (Stage 1)
+
+<!-- .element: style="font-size:smaller" -->
+
+NOTES:
+- With class factories we can use mix-ins to mix in other helpers methods into a class
+- This is because the class was defined from an object literal
+- With mix-ins we just add more functions to the literal before the class is actually created
+- ES6 classes don't support this in their syntax
+- However, there is a spec proposal for decorators that can solve similar problems & also currently sits at Stage 1
+
+/////
+
+## ES6 class drawbacks
+
+<br />
+
+Interoperability challenges!
+
+<br />
+
+```js
+class Todo extends Backbone.Model {
+
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Because ES6 classes are just syntactic sugar of constructor functions they _should_ be interoperable with ES5 clases
+- You should technically be able to use `extends` with a JavaScript class defined using constructor functions like in our example above
+- However, most class factory functions (i.e. `Backbone.Model.extends()`) do a lot more processing before creating the derived class so it doesn't always work
+- Depends on the library
+- React has a class factory function for creating its components in ES5, but they've also put a lot of work in also making it ES6 class friendly. Other libraries need to follow suit
+- Ember & Angular 2 have done the same
+
+=====
+
+```js
+var Car = Backbone.Model.extend({
+    evaluate: function(condition) {
+        var value;
+
+        ...
+
+        return {
+            value: value,
+            condition: condition
+        };
+    }
+});
+```
+<!-- .element: class="large" -->
+
+NOTES:
+_[39 minutes]_
+
+- For our final feature, let's revisit class factories
+- Remember we're passing a big object literal that contains the class configuration
+- Defining a `Car` class that has an `evaluate` method
+- Within the method we pass in `condition` & define the `value` variable
+- There is some computation to determine `value`
+- The result of `evaluate` is returning an object literal with keys the same as the variable name
+- There's nothing _really_ wrong with this but...
+
+/////
+
+# Object literal shorthand
+
+Write less code than before
+
+<br />
+<br />
+
+[benmvp.com/learning-es6-enhanced-object-literals/](http://www.benmvp.com/learning-es6-enhanced-object-literals/)
+
+/////
+
+Object literals shorthand
+
+```js
+const Car = Backbone.Model.extend({
+    evaluate(condition) {
+        let value;
+
+        return {
+            value,
+            condition
+        };
+    }
+});
+```
+
+-----
+
+#### ES5 way
+
+```js
+var Car = Backbone.Model.extend({
+    evaluate: function(condition) {
+        var value;
+
+        return {
+            value: value,
+            condition: condition
+        };
+    }
+});
+```
+
+NOTES:
+- With ES6 we have object literal shorthand
+- Remember we're passing a big object literal to `Backbone.Model.extend()`
+- When specify methods we can get rid of `: function` using method shorthand
+  - Just have method name and parameters (like `class` syntax)
+- Within `evaluate`, because the object literal has keys that match the variables, we can just list the keys using property value shorthand
+- This applies to **all** object literals, not just when they're used with class factories
+- But if you either can't or don't want to use ES6 classes, you can still benefit from more succinct syntax with class factories
+
 =====
 
 ## Review
 
+1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
 1. Default parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Destructuring <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Spread operator <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. `for-of` <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we covered to make our code clearer and more succinct
