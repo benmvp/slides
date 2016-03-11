@@ -480,7 +480,6 @@ NOTES:
 _[5 minutes]_
 
 - `opts` is now defaulted to an empty object in the function header
-- I've also changed the `var` declarations to use `let`
 - Nothing earth-shattering. We're used to this from other programming languages
 - However...
 
