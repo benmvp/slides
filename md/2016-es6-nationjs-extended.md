@@ -237,6 +237,11 @@ _[6 minutes]_
 
 # ES6 Features
 
+<br />
+<br />
+
+[benmvp.com/learning-es6-goals-features-ecmascript-6/](http://www.benmvp.com/learning-es6-goals-features-ecmascript-6/)
+
 NOTES:
 _[8 minutes]_
 
