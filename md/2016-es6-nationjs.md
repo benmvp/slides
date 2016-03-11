@@ -94,7 +94,6 @@ _[1 minute]_
 NOTES:
 - Focusing on the syntactic sugar features **[NEXT]** because they are the ones your more likely to use immediately to make your code clearer
 - We're going to cover these 7 features in about 20 minutes
-- Buckle your seat belts!
 - First, to introduce myself
 
 =====
@@ -131,10 +130,15 @@ _[2 minute]_
 - Picture of my wife Rashida and our 2 year old daughter Simone
 - We live in SF Bay Area in a suburb called Pittsburg
 - I'm currently a Senior UI Engineer at Eventbrite
+  - I assume everyone here has heard of Eventbrite since you purchased tickets
+  - I work on the Frontend Architecture team - transitioning to React
 
 =====
 
 # ES6 Features
+
+NOTES:
+- Buckle your seat belts!
 
 =====
 
@@ -358,7 +362,10 @@ _[8 minutes]_
 
 - So now with object destructuring, we can collapse multiple assignments in to one
 - Uses an object literal pattern to map properties of an object into multiple variables
-- Using default values with destructuring!
+- Doing 3 things here!
+  1. Declaring 3 variables
+  2. Assigning variables from object properties
+  3. Defaulting when `undefined`
 - But we still have the problem of not knowing what properties in `opts` are supported without looking at the function body
 - There's an ES6 feature for that!
 
@@ -1247,6 +1254,15 @@ NOTES:
 - I think this is why they decided to go to a yearly cadence to keep specs from being too big
 - You may notice IE missing from the list. None of them support ES6
 - Only option is transpiling
+
+/////
+
+![Node ES6 support](img/es6/node-es6-support.png) <!-- .element: style="width: 100%" -->
+
+<br />
+<br />
+
+[Node.js ES2015 Support](http://williamkapke.github.io/node-compat-table/)
 
 /////
 
