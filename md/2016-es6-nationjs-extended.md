@@ -50,7 +50,8 @@ NOTES:
 - Currently a Senior UI Engineer at Eventbrite
 - Eventbrite is an online ticketing & events platform
 - Many conferences use it for registration
-- I work on the Frontend Architecture team and right now we're in the midst of a transition from Backbone/Marionette to React
+- I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
+- Python/Django backend, but using a Node daemon to render React components server-side
 
 /////
 
@@ -64,6 +65,11 @@ NOTES:
 =====
 
 # ECMAScript 6
+
+<br />
+<br />
+
+[benmvp.com/learning-es6-series](http://www.benmvp.com/learning-es6-series)
 
 NOTES:
 _[2 minutes]_
@@ -137,6 +143,11 @@ NOTES:
 # ECMAScript History
 
 Looking back on two decades of JavaScript
+
+<br />
+<br />
+
+[benmvp.com/learning-es6-history-of-ecmascript/](http://www.benmvp.com/learning-es6-history-of-ecmascript/)
 
 NOTES:
 _[4 minutes]_
