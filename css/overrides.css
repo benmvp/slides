@@ -9,7 +9,7 @@
 }
 .reveal pre {
 	font-size: .75em;
-	white-space: pre-wrap;
+	white-space: pre;
 	width: 100%;
 }
 .reveal pre.large {
@@ -22,4 +22,17 @@
 .reveal pre code {
 	max-height: none;
 	padding: 15px;
+}
+
+.reveal .mainFooter {
+	bottom: 5px;
+	border-top: solid 1px #d3d3d3;
+	display: flex;
+	font-size: 18px;
+	left: 2%;
+	justify-content: space-between;;
+	padding: 5px;
+	position: absolute;
+	text-align: center;
+	width: 96%;
 }
