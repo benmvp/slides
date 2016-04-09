@@ -6,7 +6,7 @@
 
 [@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#PrairieDevCon](https://twitter.com/hashtag/prairedevcon)  
 <br />
-April 11, 2016  
+April 12, 2016  
 
 NOTES:
 - Posted link to slides on twitter if you want to follow along
@@ -166,8 +166,6 @@ _[4 minutes]_
 
 Created JavaScript **_in 10 days_**
 
-<br />
-
 ##### Mocha (May) ➜ LiveScript (Sep) ➜ JavaScript (Dec)
 
 NOTES:
@@ -259,6 +257,8 @@ _[8 minutes]_
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - Here's what we'll be covering
@@ -268,6 +268,8 @@ NOTES:
   - Buckle your seat belts!
 
 =====
+
+How can we clean/shorten this code up?
 
 ```js
 function log(msg, opts) {
@@ -288,8 +290,6 @@ log('Hi!', {type: 'error'});
 log('Hi!', {type: 'warn', color: false});
 ```
 <!-- .element: class="large" -->
-
-How can we clean/shorten this code up?
 
 NOTES:
 _[3 minutes]_
@@ -948,9 +948,6 @@ NOTES:
 
 /////
 
-## To be clear...
-<br />
-
 Spread operator  
 Array &#8594; multiple parameters (function call)
 
@@ -1309,7 +1306,7 @@ let squares = [1, 2, 3].map(value => value * value);
 <!-- .element: class="large" -->
 
 ```js
-let sum = [9, 8, 7, 6].reduce((value, memo) => memo + value, 0);
+let sum = [9, 8, 7, 6].reduce((prev, value) => prev + value, 0);
 ```
 <!-- .element: class="large" -->
 
@@ -1813,6 +1810,46 @@ NOTES:
 
 =====
 
+# Just for fun!
+
+/////
+
+## String API
+
+`String.prototype.startsWith`
+
+`String.prototype.endsWith`
+
+`String.prototype.includes`
+
+`String.prototype.repeat`
+
+`String.raw`
+
+NOTES:
+- Just want to alert you to some new methods introduce with ES6 for `String`
+
+/////
+
+## Array API
+
+`Array.from`
+
+`Array.of`
+
+`Array.prototype.find`
+
+`Array.prototype.findIndex`
+
+`Array.prototype.copyWithin`
+
+`Array.prototype.fill`
+
+NOTES:
+- Also some useful methods for `Array` too
+
+=====
+
 ## Review
 
 1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
@@ -1825,6 +1862,8 @@ NOTES:
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we covered to make our code clearer and more succinct
@@ -1894,20 +1933,11 @@ NOTES:
 NOTES:
 - ES6 support is pretty mixed. Chrome Canary is at 97% while Safari is at an abysmal 54%
 - Node 5 is lagging behind, although Node 6 should have significantly more features
-- It's already March of 2016 and ES2016 spec is coming soon
+- It's already April of 2016 and ES2016 spec is coming soon
   - They haven't even finished ES2015 yet!
 - I think this is why they decided to go to a yearly cadence to keep specs from being too big
 - You may notice IE missing from the list. None of them support ES6
 - Only option is transpiling
-
-/////
-
-![Node ES6 support](img/es6/node-es6-support.png) <!-- .element: style="width: 100%" -->
-
-<br />
-<br />
-
-[Node.js ES2015 Support](http://williamkapke.github.io/node-compat-table/)
 
 /////
 
