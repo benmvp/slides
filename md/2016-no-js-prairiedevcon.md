@@ -18,10 +18,6 @@ NOTES:
 - I'm not hating on JavaScript
   - Giving a talk tomorrow on new functionality added to JS with ES6
   - JavaScript doesn't need to be the hammer for _every_ nail
-- So in this case,
-  - You guys are the workers behind the desk
-  - I am Dikembe Mutombo
-  - And that balled up paper is you using JavaScript when you shouldn't
 
 =====
 
@@ -29,7 +25,7 @@ ben-ilegbodu.json
 
 <div style="display:flex">
 	<div style="flex:0 0 50%;">
-		<pre><code class="lang-json">
+		<pre class="large"><code class="lang-json">
 {
   "name": "Ben Ilegbodu",
   "priorities": [

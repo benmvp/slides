@@ -1,12 +1,15 @@
 # Sweet ES6
 
-<br />
-
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#PrairieDevCon](https://twitter.com/hashtag/prairedevcon)  
-<br />
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#PrDC16](https://twitter.com/hashtag/PrDC16)  
+
 April 12, 2016  
+
+<div style="display:flex;justify-content:space-around">
+    <img src="img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
+    <img src="img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
+</div>
 
 NOTES:
 - Posted link to slides on twitter if you want to follow along
@@ -19,7 +22,7 @@ ben-ilegbodu.json
 
 <div style="display:flex">
 	<div style="flex:0 0 50%;">
-		<pre><code class="lang-json">
+		<pre class="large"><code class="lang-json">
 {
   "name": "Ben Ilegbodu",
   "priorities": [
@@ -259,6 +262,7 @@ _[8 minutes]_
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. Object APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - Here's what we'll be covering
@@ -402,6 +406,7 @@ NOTES:
   - You can still assign to them
   - Need to use `Object.freeze`
   - Or Immutable.js from Facebook
+  - This probably why other type-safe languages prevent `const` objects
 
 /////
 
@@ -706,8 +711,8 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('03-11-16');
-    // mo='03', day='11', yr='16'
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('04-12-16');
+    // mo='04', day='12', yr='16'
 ```
 <!-- .element: class="large" -->
 
@@ -1812,19 +1817,18 @@ NOTES:
 
 # Just for fun!
 
+NOTES:
+- Since we've got extra time let's quickly talk about some new APIs
+
 /////
 
 ## String API
 
-`String.prototype.startsWith`
-
-`String.prototype.endsWith`
-
-`String.prototype.includes`
-
-`String.prototype.repeat`
-
-`String.raw`
+- [**`String.prototype.endsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+- [**`String.prototype.includes`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
+- [**`String.prototype.startsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+- [`String.prototype.repeat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
+- [`String.raw`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
 
 NOTES:
 - Just want to alert you to some new methods introduce with ES6 for `String`
@@ -1833,20 +1837,26 @@ NOTES:
 
 ## Array API
 
-`Array.from`
-
-`Array.of`
-
-`Array.prototype.find`
-
-`Array.prototype.findIndex`
-
-`Array.prototype.copyWithin`
-
-`Array.prototype.fill`
+- [**`Array.from`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+- [`Array.of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
+- [`Array.prototype.copyWithin`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
+- [`Array.prototype.fill`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+- [**`Array.prototype.find`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- [`Array.prototype.findIndex`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
 
 NOTES:
 - Also some useful methods for `Array` too
+
+/////
+
+## Object API
+
+- [**`Object.assign`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+- [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+- [`Object.setPrototypeOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
+
+NOTES:
+- Also some useful methods for `Object` too
 
 =====
 
@@ -1864,6 +1874,7 @@ NOTES:
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. Object APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we covered to make our code clearer and more succinct
@@ -1893,35 +1904,35 @@ NOTES:
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
 	<div style="flex:0 0 10%;">
 	  ![Google Chrome Logo](img/google-chrome-logo.png)
-	  97%
+	  96%
 	</div>
 	<div style="flex:0 0 10%">
 	  ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
-	  85%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
-	  83%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Apple Safari Logo](img/apple-safari-logo.png)
-	  56%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Opera Logo](img/opera-logo.png)
-	  97%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Webkit Logo](img/webkit-logo.png)
 	  90%
 	</div>
 	<div style="flex:0 0 10%">
+	  ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
+	  85%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Apple Safari Logo](img/apple-safari-logo.png)
+	  53%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Opera Logo](img/opera-logo.png)
+	  96%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Webkit Logo](img/webkit-logo.png)
+	  98%
+	</div>
+	<div style="flex:0 0 10%">
 	  ![NodeJS Logo](img/nodejs-logo.png)
-	  58%
+	  56%
 	</div>
 	<div style="flex:0 0 10%">
 	  ![iOS 9 Logo](img/ios9-logo.png)
-	  56%
+	  53%
 	</div>
 </div>
 
@@ -1959,17 +1970,17 @@ NOTES:
     <div style="flex:0 0 25%">
       [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
       [Traceur](https://github.com/google/traceur-compiler)  
-      60%
+      58%
     </div>
     <div style="flex:0 0 25%">
       [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
       [Babel](https://babeljs.io/)   
-      73%
+      74%
     </div>
     <div style="flex:0 0 25%">
       [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
       [TypeScript](http://www.typescriptlang.org/)  
-      59%
+      60%
     </div>
 </div>
 
@@ -1994,6 +2005,7 @@ NOTES:
 - [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
 - [_ES6 in Depth_](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
 - [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
+- [_Setting up ES6_](https://leanpub.com/setting-up-es6/read) by Axel Rauschmayer
 
 NOTES:
 _[45 minutes]_
@@ -2008,7 +2020,7 @@ _[45 minutes]_
 
 /////
 
-![Nation JS Node Day](img/nationjs-logo.jpg)   <!-- .element: style="width: 50%;height: 50%" -->
+![Prairie Dev Con logo](img/prdc2016/prdc-logo.png)   <!-- .element: style="width: 50%" -->
 
 /////
 
