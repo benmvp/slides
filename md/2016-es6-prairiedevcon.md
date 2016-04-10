@@ -6,7 +6,7 @@
 
 April 12, 2016  
 
-<div style="display:flex;justify-content:space-around">
+<div style="display:flex;justify-content:space-around;align-items:center;">
     <img src="img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
     <img src="img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
 </div>
@@ -44,6 +44,21 @@ ben-ilegbodu.json
 
 NOTES:
 _[1 minute]_
+
+/////
+
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<img src="img/prdc2016/winnipeg-weather-2016-04-09.png" style="width:50%;height:auto" alt="Weather in Winnipeg on April 9, 2016" />
+
+        <p style="text-align:center">Winnipeg, MB, Canada</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="img/prdc2016/pittsburg-weather-2016-04-09.png" style="width:50%;height:auto" alt="Weather in Pittsburg on April 9, 2016" />
+
+        <p style="text-align: center">Pittsburg, CA, USA</p>
+	</div>
+</div>
 
 /////
 
