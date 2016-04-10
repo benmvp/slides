@@ -6,7 +6,7 @@
 
 April 12, 2016  
 
-<div style="display:flex;justify-content:space-around">
+<div style="display:flex;justify-content:space-around;align-items:center;">
     <img src="img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
     <img src="img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
 </div>
