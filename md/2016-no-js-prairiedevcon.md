@@ -1133,7 +1133,7 @@ NOTES:
 
 [![Flexbox defense](img/no-js/flexbox-defense.png)](http://www.flexboxdefense.com/)
 
-[Flexbox froggy](http://www.flexboxdefense.com/)
+[Flexbox defense](http://www.flexboxdefense.com/)
 
 =====
 
@@ -1564,7 +1564,7 @@ _[38 minutes]_
 ## Pros
 
 - Faster than JavaScript*
-- Progresive enhancement
+- Progressive enhancement
 
 NOTES:
 _[39 minutes]_
