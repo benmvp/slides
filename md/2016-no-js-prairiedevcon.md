@@ -202,8 +202,8 @@ _[5 minutes]_
 
 ```
 .header-nav-item {
-  background: #ddd;  float: left;
-  font-size: 28px;  list-style: none;  width: 25%;
+  list-style: none;  float: left;
+  background: #ddd;  font-size: 28px;  width: 25%;
 }
 .header-nav-item__link { color: #222; }
 ```
@@ -211,7 +211,7 @@ _[5 minutes]_
 
 ```
 .header-nav-item:before {
-  color: #222;  font-family: FontAwesome;  font-size: 25px;
+  font-family: FontAwesome;  font-size: 25px;  color: #222;
 }
 .header-nav-item--home:before { content: "\f015"; }
 .header-nav-item--search:before { content: "\f002"; }
@@ -786,10 +786,10 @@ _[22 minutes]_
 
 ```
 <div class="container">
-	<div class="item item-1">11111111111<br>11111111111<br>11111111111</div>
-	<div class="item item-2">2222222<br>2222222<br>2222222<br>2222222</div>
-	<div class="item item-3">333333333333333333</div>
-	<div class="item item-4">4444444444444<br>4444444444444</div>
+  <div class="item item-1">11111111111<br>11111111111<br>11111111111</div>
+  <div class="item item-2">2222222<br>2222222<br>2222222<br>2222222</div>
+  <div class="item item-3">333333333333333333</div>
+  <div class="item item-4">4444444444444<br>4444444444444</div>
 </div>
 ```
 <!-- .element: class="large" -->
@@ -1160,12 +1160,12 @@ _[29 minutes]_
 
 ```js
 $('.canvas').hover(
-	function() { $(this).animate({backgroundColor:'#222'}, 1000) },
-	function() { $(this).animate({backgroundColor:'#ddd'}, 1000) }
+  function() { $(this).animate({backgroundColor:'#222'}, 1000) },
+  function() { $(this).animate({backgroundColor:'#ddd'}, 1000) }
 );
 $('.square').hover(
-	function() { $(this).delay(1000).animate(newStyles, 5000) },
-	function() { $(this).delay(1000).animate(oldStyles, 5000) }
+  function() { $(this).delay(1000).animate(newStyles, 5000) },
+  function() { $(this).delay(1000).animate(oldStyles, 5000) }
 );
 ```
 
