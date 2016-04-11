@@ -1,6 +1,9 @@
 .reveal {
 	font-size: 48px;
 }
+.reveal .slides {
+	z-index: 20;
+}
 .reveal h6 {
 	position: absolute;
 	right: 0;
@@ -35,4 +38,5 @@
 	position: absolute;
 	text-align: center;
 	width: 96%;
+	z-index: 11;
 }
