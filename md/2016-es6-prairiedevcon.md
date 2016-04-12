@@ -275,9 +275,7 @@ _[8 minutes]_
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Object APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. New APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - Here's what we'll be covering
@@ -1370,8 +1368,8 @@ var first = 'Ben', last = 'Ilegbodu';
 console.log('He said, "It\'s your fault!"');
     // He said, "It's your fault!"
 
-console.log('Name: ' + last + ', ' + (15 + 16));
-    // Name: Ilegbodu, 31
+console.log('Name: ' + last + ', ' + (14 + 18));
+    // Name: Ilegbodu, 32
 
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
@@ -1413,8 +1411,8 @@ let first = 'Ben', last = `Ilegbodu`;
 console.log(`He said, "It's your fault!"`);
     // He said, "It's your fault!"
 
-console.log(`Name: ${last}, ${15 + 16}`);
-    // Name: Ilegbodu, 31
+console.log(`Name: ${last}, ${14 + 18}`);
+    // Name: Ilegbodu, 32
 
 console.log(`This is multi-line text, so
     that newline characters are not
@@ -1830,7 +1828,7 @@ NOTES:
 
 =====
 
-# Just for fun!
+# New APIs
 
 NOTES:
 - Since we've got extra time let's quickly talk about some new APIs
@@ -1887,9 +1885,7 @@ NOTES:
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. String APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Array APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Object APIs  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
+1. New APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we covered to make our code clearer and more succinct
