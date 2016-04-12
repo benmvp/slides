@@ -1,12 +1,15 @@
 # Sweet ES6
 
-<br />
-
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NodeDay](https://twitter.com/hashtag/nodeday)  
-<br />
-March 11, 2016  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#PrDC16](https://twitter.com/hashtag/PrDC16)  
+
+April 12, 2016  
+
+<div style="display:flex;justify-content:space-around;align-items:center;">
+    <img src="../../img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
+    <img src="../../img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
+</div>
 
 NOTES:
 - Posted link to slides on twitter if you want to follow along
@@ -19,7 +22,7 @@ ben-ilegbodu.json
 
 <div style="display:flex">
 	<div style="flex:0 0 50%;">
-		<pre><code class="lang-json">
+		<pre class="large"><code class="lang-json">
 {
   "name": "Ben Ilegbodu",
   "priorities": [
@@ -35,7 +38,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -44,7 +47,22 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/prdc2016/winnipeg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Winnipeg on April 10, 2016" />
+
+        <p style="text-align:center">Winnipeg, MB, Canada</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="../../img/prdc2016/pittsburg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Pittsburg on April 10, 2016" />
+
+        <p style="text-align: center">Pittsburg, CA, USA</p>
+	</div>
+</div>
+
+/////
+
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
@@ -55,7 +73,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I also absolutely love basketball - both playing & watching
@@ -158,15 +176,13 @@ _[4 minutes]_
 
 ## May 1995
 
-<img src="img/es6/brendan-eich.jpg" style="height: 450px" />
+<img src="../../img/es6/brendan-eich.jpg" style="height: 450px" />
 
 ### Brendan Eich
 
 <br />
 
 Created JavaScript **_in 10 days_**
-
-<br />
 
 ##### Mocha (May) ➜ LiveScript (Sep) ➜ JavaScript (Dec)
 
@@ -259,6 +275,7 @@ _[8 minutes]_
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. New APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - Here's what we'll be covering
@@ -268,6 +285,8 @@ NOTES:
   - Buckle your seat belts!
 
 =====
+
+How can we clean/shorten this code up?
 
 ```js
 function log(msg, opts) {
@@ -288,8 +307,6 @@ log('Hi!', {type: 'error'});
 log('Hi!', {type: 'warn', color: false});
 ```
 <!-- .element: class="large" -->
-
-How can we clean/shorten this code up?
 
 NOTES:
 _[3 minutes]_
@@ -363,7 +380,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - But really this is pretty unimpressive
@@ -402,6 +419,7 @@ NOTES:
   - You can still assign to them
   - Need to use `Object.freeze`
   - Or Immutable.js from Facebook
+  - This probably why other type-safe languages prevent `const` objects
 
 /////
 
@@ -569,7 +587,7 @@ _[7 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I'm afraid that after we cover destructuring, you'll feel like this...
@@ -622,7 +640,7 @@ _[8 minutes]_
 Named parameters!
 
 ```js
-function log(msg, {type='info', delay, color:useColor=true}={}) {
+function log(msg, {type='info', delay, color: useColor=true} = {}) {
   // log message
 }
 ```
@@ -656,7 +674,7 @@ _[10 minutes]_
 ### After
 
 ```js
-function log(msg, {type='info', delay, color:useColor=true}={}) {
+function log(msg, {type='info', delay, color: useColor=true} = {}) {
   // log message
 }
 ```
@@ -689,7 +707,7 @@ _[11 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - How many people find destructuring to actually make the code _less_ readable?
@@ -706,8 +724,8 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('03-11-16');
-    // mo='03', day='11', yr='16'
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('04-12-16');
+    // mo='04', day='12', yr='16'
 ```
 <!-- .element: class="large" -->
 
@@ -948,9 +966,6 @@ NOTES:
 
 /////
 
-## To be clear...
-<br />
-
 Spread operator  
 Array &#8594; multiple parameters (function call)
 
@@ -1077,7 +1092,7 @@ for (i in list) {
 ```
 <!-- .element: class="large" -->
 
-![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
+![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
@@ -1309,7 +1324,7 @@ let squares = [1, 2, 3].map(value => value * value);
 <!-- .element: class="large" -->
 
 ```js
-let sum = [9, 8, 7, 6].reduce((value, memo) => memo + value, 0);
+let sum = [9, 8, 7, 6].reduce((prev, value) => prev + value, 0);
 ```
 <!-- .element: class="large" -->
 
@@ -1353,8 +1368,8 @@ var first = 'Ben', last = 'Ilegbodu';
 console.log('He said, "It\'s your fault!"');
     // He said, "It's your fault!"
 
-console.log('Name: ' + last + ', ' + (15 + 16));
-    // Name: Ilegbodu, 31
+console.log('Name: ' + last + ', ' + (14 + 18));
+    // Name: Ilegbodu, 32
 
 console.log('This is multi-line text, so\n' +
     'that newline characters are not\n' +
@@ -1396,8 +1411,8 @@ let first = 'Ben', last = `Ilegbodu`;
 console.log(`He said, "It's your fault!"`);
     // He said, "It's your fault!"
 
-console.log(`Name: ${last}, ${15 + 16}`);
-    // Name: Ilegbodu, 31
+console.log(`Name: ${last}, ${14 + 18}`);
+    // Name: Ilegbodu, 32
 
 console.log(`This is multi-line text, so
     that newline characters are not
@@ -1813,6 +1828,51 @@ NOTES:
 
 =====
 
+# New APIs
+
+NOTES:
+- Since we've got extra time let's quickly talk about some new APIs
+
+/////
+
+## String API
+
+- [**`String.prototype.endsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+- [**`String.prototype.includes`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
+- [**`String.prototype.startsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+- [`String.prototype.repeat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
+- [`String.raw`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
+
+NOTES:
+- Just want to alert you to some new methods introduce with ES6 for `String`
+
+/////
+
+## Array API
+
+- [**`Array.from`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+- [`Array.of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
+- [`Array.prototype.copyWithin`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
+- [`Array.prototype.fill`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+- [**`Array.prototype.find`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- [`Array.prototype.findIndex`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+
+NOTES:
+- Also some useful methods for `Array` too
+
+/////
+
+## Object API
+
+- [**`Object.assign`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+- [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+- [`Object.setPrototypeOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
+
+NOTES:
+- Also some useful methods for `Object` too
+
+=====
+
 ## Review
 
 1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
@@ -1825,6 +1885,7 @@ NOTES:
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. New APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
 - As a reminder, here's what we covered to make our code clearer and more succinct
@@ -1853,36 +1914,36 @@ NOTES:
 
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
 	<div style="flex:0 0 10%;">
-	  ![Google Chrome Logo](img/google-chrome-logo.png)
-	  97%
+	  ![Google Chrome Logo](../../img/google-chrome-logo.png)
+	  96%
 	</div>
 	<div style="flex:0 0 10%">
-	  ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
-	  85%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
-	  83%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Apple Safari Logo](img/apple-safari-logo.png)
-	  56%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Opera Logo](img/opera-logo.png)
-	  97%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Webkit Logo](img/webkit-logo.png)
+	  ![Mozilla Firefox Logo](../../img/mozilla-firefox-logo.png)
 	  90%
 	</div>
 	<div style="flex:0 0 10%">
-	  ![NodeJS Logo](img/nodejs-logo.png)
-	  58%
+	  ![Microsoft Edge Logo](../../img/microsoft-edge-logo.png)
+	  85%
 	</div>
 	<div style="flex:0 0 10%">
-	  ![iOS 9 Logo](img/ios9-logo.png)
+	  ![Apple Safari Logo](../../img/apple-safari-logo.png)
+	  53%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Opera Logo](../../img/opera-logo.png)
+	  96%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Webkit Logo](../../img/webkit-logo.png)
+	  98%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![NodeJS Logo](../../img/nodejs-logo.png)
 	  56%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![iOS 9 Logo](../../img/ios9-logo.png)
+	  53%
 	</div>
 </div>
 
@@ -1894,7 +1955,7 @@ NOTES:
 NOTES:
 - ES6 support is pretty mixed. Chrome Canary is at 97% while Safari is at an abysmal 54%
 - Node 5 is lagging behind, although Node 6 should have significantly more features
-- It's already March of 2016 and ES2016 spec is coming soon
+- It's already April of 2016 and ES2016 spec is coming soon
   - They haven't even finished ES2015 yet!
 - I think this is why they decided to go to a yearly cadence to keep specs from being too big
 - You may notice IE missing from the list. None of them support ES6
@@ -1902,18 +1963,9 @@ NOTES:
 
 /////
 
-![Node ES6 support](img/es6/node-es6-support.png) <!-- .element: style="width: 100%" -->
-
-<br />
-<br />
-
-[Node.js ES2015 Support](http://williamkapke.github.io/node-compat-table/)
-
-/////
-
 ### Transpiling ES6 &#8594; ES3/ES5
 
-![Babel ES6 Live Transpiling](img/es6/babel-es6-transpile.gif)
+![Babel ES6 Live Transpiling](../../img/es6/babel-es6-transpile.gif)
 
 NOTES:
 - Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
@@ -1927,19 +1979,19 @@ NOTES:
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between;">
     <div style="flex:0 0 25%">
-      [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
+      [![Traceur Logo](../../img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
       [Traceur](https://github.com/google/traceur-compiler)  
-      60%
+      58%
     </div>
     <div style="flex:0 0 25%">
-      [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
+      [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
       [Babel](https://babeljs.io/)   
-      73%
+      74%
     </div>
     <div style="flex:0 0 25%">
-      [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+      [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
       [TypeScript](http://www.typescriptlang.org/)  
-      59%
+      60%
     </div>
 </div>
 
@@ -1964,6 +2016,7 @@ NOTES:
 - [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
 - [_ES6 in Depth_](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
 - [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
+- [_Setting up ES6_](https://leanpub.com/setting-up-es6/read) by Axel Rauschmayer
 
 NOTES:
 _[45 minutes]_
@@ -1978,11 +2031,11 @@ _[45 minutes]_
 
 /////
 
-![Nation JS Node Day](img/nationjs-logo.jpg)   <!-- .element: style="width: 50%;height: 50%" -->
+![Prairie Dev Con logo](../../img/prdc2016/prdc-logo.png)   <!-- .element: style="width: 50%" -->
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1995,7 +2048,7 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
 
 # THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
 

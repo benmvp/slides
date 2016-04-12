@@ -1,20 +1,19 @@
 # Sweet ES6
 
+<br />
+
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#PrDC16](https://twitter.com/hashtag/PrDC16)  
-
-April 12, 2016  
-
-<div style="display:flex;justify-content:space-around;align-items:center;">
-    <img src="img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
-    <img src="img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
-</div>
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DevWeek16](https://twitter.com/hashtag/devweek16)  
+<br />
+February 16, 2016  
 
 NOTES:
+- Hello, everyone! I'm going to get started
 - Posted link to slides on twitter if you want to follow along
-- This is Sweet ECMAScript 6 aka ES6, the latest version of JavaScript
-- Technically it's called ES2015, because the spec was released last year in 2015
+- This is Sugar & Spice and everything nice about ECMAScript 6 aka ES6, the latest version of JavaScript
+- Technically it's called ES2015, but we'll get into why in a little bit
+- But first, a little about myself
 
 =====
 
@@ -22,7 +21,7 @@ ben-ilegbodu.json
 
 <div style="display:flex">
 	<div style="flex:0 0 50%;">
-		<pre class="large"><code class="lang-json">
+		<pre><code class="lang-json">
 {
   "name": "Ben Ilegbodu",
   "priorities": [
@@ -38,7 +37,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -47,33 +46,17 @@ _[1 minute]_
 
 /////
 
-<div style="display:flex">
-	<div style="flex:0 0 50%;">
-		<img src="img/prdc2016/winnipeg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Winnipeg on April 10, 2016" />
-
-        <p style="text-align:center">Winnipeg, MB, Canada</p>
-	</div>
-	<div style="flex:0 0 50%;">
-		<img src="img/prdc2016/pittsburg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Pittsburg on April 10, 2016" />
-
-        <p style="text-align: center">Pittsburg, CA, USA</p>
-	</div>
-</div>
-
-/////
-
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
 - Eventbrite is an online ticketing & events platform
 - Many conferences use it for registration
-- I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
-- Python/Django backend, but using a Node daemon to render React components server-side
+- I work on the Frontend Architecture team and right now we're in the midst of a transition from Backbone/Marionette to React
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/steph-curry-chris-paul-ankles.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I also absolutely love basketball - both playing & watching
@@ -84,16 +67,12 @@ NOTES:
 
 # ECMAScript 6
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-series](http://www.benmvp.com/learning-es6-series)
-
 NOTES:
 _[2 minutes]_
 
 - So let's talk about it
 - Show of hands:
+  1. JavaScript Developers?
   1. Heard of ECMAScript 6 before today?
   1. Played around with it?
   1. Using in live code?
@@ -152,6 +131,7 @@ NOTES:
 - Full list of features included in the ES6 specification
 - That's 30+ features!
 - 2 categories: sugar & spice
+  - Hence the name of the talk
   - SUGAR: Syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
 - But before we talking about the features let's start with a history lesson
@@ -162,11 +142,6 @@ NOTES:
 
 Looking back on two decades of JavaScript
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-history-of-ecmascript/](http://www.benmvp.com/learning-es6-history-of-ecmascript/)
-
 NOTES:
 _[4 minutes]_
 
@@ -174,15 +149,17 @@ _[4 minutes]_
 
 ###### History
 
-## May 1995
+## 🗓 May 1995
 
-<img src="img/es6/brendan-eich.jpg" style="height: 450px" />
+<img src="../../img/es6/brendan-eich.jpg" style="height: 450px" />
 
 ### Brendan Eich
 
 <br />
 
 Created JavaScript **_in 10 days_**
+
+<br />
 
 ##### Mocha (May) ➜ LiveScript (Sep) ➜ JavaScript (Dec)
 
@@ -201,7 +178,7 @@ NOTES:
 
 ###### History
 
-## November 1996
+## 🗓 November 1996
 
 <br />
 
@@ -223,43 +200,128 @@ _[5 minutes]_
 
 ###### History
 
-## Jun 1997 — **ES1**
-## Jun 1998 — **ES2**
-## Dec 1999 — **ES3**  <!-- .element: class="fragment highlight-green" data-fragment-index="0" -->  
-## Dec 2009 — **ES5**  <!-- .element: class="fragment highlight-blue" data-fragment-index="1" -->  
-## Jun 2015 — **ES6**  <!-- .element: class="fragment highlight-red" data-fragment-index="2" -->  
-## Jun 2016 — **ES7**
+## 🗓 Jun 1997 — **ES1**
+## 🗓 Jun 1998 — **ES2**
+## 🗓 Dec 1999 — **ES3**  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
 
 NOTES:
 _[6 minutes]_
 
-- First version of ECMAScript spec was released in `June 1997`
+- First version of ECMAScript spec was released in June 1997
 - ECMAScript 2 was released a year later with only minor changes
 - 18 months later ECMAScript 3 (**[NEXT]**) was released
   - Included features like regular expressions, try/catch & numeric formatting
-  - ES3 is the version of JavaScript in IE8
-- ES5 was released in `December 2009` (**[NEXT]**)
+- ES3 is the version of JavaScript in IE8
+- ES3 is the modern JavaScript baseline
+
+/////
+
+###### History
+
+# 🕙
+## 10 year absence!
+
+<br />
+
+### ES3.1 vs ES4
+
+NOTES:
+- And then there was a 10 year absence
+- ES4 was going to be a massive upgrade
+- Work on the spec stopped in `2003`
+- In `Feb 2005` Jesse James Garrett coined AJAX in a white paper
+- Work resumed in `Fall 2005`
+- Split between ES 3.1 (Microsoft & Yahoo) & ES4 (Google, Adobe, Mozilla & Opera)
+- Microsoft/Yahoo wanted an incremental upgrade
+- Others still wanted the massive upgrade
+- Deep rift formed, but was finally resolved in `June 2008`
+
+/////
+
+###### History
+
+## 🗓 December 2009
+
+<br />
+
+### ECMAScript 5
+
+<br />
+
+strict mode | JSON | `.map()`/`.forEach()` | `O.keys()` | accessors
+
+NOTES:
+_[8 minutes]_
+
+- Scrapped ES4, and released ES5 in `December 2009`
+  - ECMAScript 4 became the lost version
+- Essentially what was ECMAScript 3.1 became ECMAScript 5
+- ES5 is the version of JavaScript that most developers are familiar with
   - It's in all of our modern browsers
   - Features: strict mode, JSON, `.map()/.forEach()`, `O.keys()`, property accessors
-  - 10 year difference was rift which caused ES4 to be lost spec
-- ES6, what we're here for, released in `June 2015` (**[NEXT]**)
-  - Another big gap because spec is so big
-  - ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
-  - Yearly cadence
-- ES7 will be released in `June 2016`
-  - Only will have 2 features
+- Rest of ES4 features: "ECMAScript Harmony"
+
+/////
+
+###### History
+
+## 🗓 June 2015
+
+<br />
+
+### ECMAScript 6!
+
+<br />
+
+ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
+
+NOTES:
+_[9 minutes]_
+
+- TC39 quickly realized that it was _still_ too big so they broke it up into 2 pieces
+- The high priority features would be in "ECMAScript.next" and the rest would be in a follow-up version
+- "ECMAScript.next" became "ECMAScript 6" as the features matured
+- It was officially released in `June 2015`
+- But then TC39 to move to a yearly cadence w/ formalized proposal process so they renamed it to "ECMAScript 2015"
+- But it was called ES6 for so long that lots of people still call it that
+- Spec is 566 pages (compared to 252 for ES5)
+
+/////
+
+###### History
+
+## 🗓 June 2016
+
+<br />
+
+### ECMAScript 2016
+
+<br />
+
+`Array.prototype.includes` | `x ** y`
+
+<br />
+
+[ECMAScript current proposals](https://github.com/tc39/ecma262)
+
+NOTES:
+_[10 minutes]_
+
+- New ECMAScript features have to be in Stage 4 by at a cut off date to be included in the next version
+- The cutoff date for ECMAScript 2016 (formerly known as ES7) was `January 28, 2016` and only 2 features were in that stage
+- `Array.prototype.includes`
+- Exponentiation operator (`**`)
+- It should be officially released in `June 2016`
+- Until a feature is in Stage 4 we cannot assume it will be in a specific version
+  - We all thought `async` & `await` would be in ECMAScript 2016
+- Pretty much the cut-off will be late January every year
 
 =====
 
 # ES6 Features
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-goals-features-ecmascript-6/](http://www.benmvp.com/learning-es6-goals-features-ecmascript-6/)
-
 NOTES:
-_[8 minutes]_
+_[11 minutes]_
 
 /////
 
@@ -271,49 +333,46 @@ _[8 minutes]_
 1. Rest parameters <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Spread operator <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. `for-of` <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
-1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Template literals <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
+1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. New APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
-- Here's what we'll be covering
+- As a reminder, here's what we'll be covering
 - Focusing on the syntactic sugar features **[NEXT]** because they are the ones your more likely to use immediately to make your code clearer
-- Spicy features -> whole talk about generators
 - We're going to cover these 10 features in less than 40 minutes
   - Buckle your seat belts!
 
 =====
 
-How can we clean/shorten this code up?
-
 ```js
-function log(msg, opts) {
-  var type, delay, useColor;
+function notify(msg, options) {
+  var type, timeout, canClose;
 
-  if (!opts)
-    opts = {};
+  if (!options)
+    options = {};
 
-  type = opts.type || 'info';
-  delay = opts.delay;
-  useColor = opts.color === undefined ? true : opts.color;
+  type = options.type || 'info';
+  timeout = options.timeout;
+  canClose = options.close === undefined ? true : options.close;
 
-  // log message
+  // display notification
 }
 
-log('Hi!');
-log('Hi!', {type: 'error'});
-log('Hi!', {type: 'warn', color: false});
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
-<!-- .element: class="large" -->
+
+How can we clean/shorten this code up?
 
 NOTES:
-_[3 minutes]_
+_[13 minutes]_
 
 - Take a look at this code for a bit while I talk
-- It's a function that will log a message
-  - There are a few options on how the message will be logged
+- It's a function that will display a notification message
+  - There are a few options on how the message will be displayed
 - I'm sure we've all written code like this
 - It's not bad but it feels like it could be cleaner.
 - Let's try to fix these problems with some ES6 features
@@ -330,11 +389,6 @@ _[3 minutes]_
 
 Replace `var` with `let` & `const`
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-block-level-scoping-let-const/](http://www.benmvp.com/learning-es6-block-level-scoping-let-const/)
-
 NOTES:
 - In fact there are two: `let` & `const`
 - Together they're called Block scoping
@@ -345,31 +399,32 @@ NOTES:
 Unified declarations with assignments!
 
 ```js
-function log(msg, opts) {
+function notify(msg, options) {
   if (!options)
     options = {};
 
-  let type = opts.type || 'info';
-  let delay = opts.delay;
-  let useColor = opts.color === undefined ? true : opts.color;
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
 }
 ```
-<!-- .element: class="large" -->
+
+<br />
 
 -----
 
 #### Before
 
 ```js
-function log(msg, opts) {
-  var type, delay, useColor;
+function notify(msg, options) {
+  var type, timeout, canClose;
 
-  if (!opts)
-    opts = {};
+  if (!options)
+    options = {};
 
-  type = opts.type || 'info';
-  delay = opts.delay;
-  useColor = opts.color === undefined ? true : opts.color;
+  type = options.type || 'info';
+  timeout = options.timeout;
+  canClose = options.close === undefined ? true : options.close;
 }
 ```
 
@@ -380,12 +435,10 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - But really this is pretty unimpressive
-- Bug fix masquerading as a feature
-- It's really how `var` should've worked all along
 - More so fixing a deficiency rather than supplying new functionality
 
 /////
@@ -397,17 +450,12 @@ const NAME_KEY = 'name';
 const data = {key: 'adam', value: 'eve'};
 const token;  // ReferenceError for not assigning a value
 
-NAME_KEY = 'key'; // TypeError for changing a const value
+NAME_KEY = 'key'; // TypeError for trying to change a const value
 
-data.key = 'moses'; // mutations are not an error!
+data.key = 'moses'; // not an error updating const object's properties
 ```
-<!-- .element: class="large" -->
 
 Use `Object.freeze()` for objects!
-
-<!-- .element: class="fragment" -->
-
-Use [Immutable.js](https://facebook.github.io/immutable-js/)!
 
 <!-- .element: class="fragment" -->
 
@@ -418,34 +466,29 @@ NOTES:
 - One interesting thing is that if an object is `const` its properties are not
   - You can still assign to them
   - Need to use `Object.freeze`
-  - Or Immutable.js from Facebook
-  - This probably why other type-safe languages prevent `const` objects
 
 /////
 
 ```js
-function log(msg, opts) {
+function notify(msg, options) {
   if (!options)
     options = {};
 
-  let type = opts.type || 'info';
-  let delay = opts.delay;
-  let useColor = opts.color === undefined ? true : opts.color;
-
-  // log message
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
 }
 
-log('Hi!');
-log('Hi!', {type: 'error'});
-log('Hi!', {type: 'warn', color: false});
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - Back to our code...
 - One problem down, a few more to go
-- It'd be nice if we didn't have to default `opts` in code
-- It'd also be nice if it were clear to function callers that `opts` does get defaulted
+- It'd be nice if we didn't have to default `options` in code
+- It'd also be nice if it were clear to function callers that `options` does get defaulted
 - There's an ES6 feature for that!
 
 =====
@@ -454,13 +497,8 @@ NOTES:
 
 Replace function body code with function header defaults
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-parameter-handling/](http://www.benmvp.com/learning-es6-parameter-handling/#default-parameters)
-
 NOTES:
-_[4 minutes]_
+_[16 minutes]_
 
 - It's called default parameters
 - With default parameters we can move our defaulting logic into the function header
@@ -470,34 +508,36 @@ _[4 minutes]_
 Defaulting logic in header!
 
 ```js
-function log(msg, opts = {}) {
-  let type = opts.type || 'info';
-  let delay = opts.delay;
-  let useColor = opts.color === undefined ? true : opts.color;
+function notify(msg, options = {}) {
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
+
+  // display notification
 }
 ```
-<!-- .element: class="large" -->
+
+<br />
 
 -----
 
 #### Before  
 
 ```js
-function log(msg, opts) {
+function notify(msg, options) {
   if (!options)
     options = {};
 
-  let type = opts.type || 'info';
-  let delay = opts.delay;
-  let useColor = opts.color === undefined ? true : opts.color;
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
+
+  // display notification
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
-_[5 minutes]_
-
-- `opts` is now defaulted to an empty object in the function header
+- `options` is now defaulted to an empty object in the function header
 - Nothing earth-shattering. We're used to this from other programming languages
 - However...
 
@@ -508,32 +548,29 @@ function getWidth() {
   console.log('getWidth');
   return 7;
 }
-function makeRect(w=getWidth(), h=w*2, opts={color:'red'}) {
-  console.log(w, h, opts);
+function drawRect(width=getWidth(), height=width*2, options={color:'red'}) {
+  console.log(width, height, options);
 
-  // create rectangle
+  // draw rectangle
 }
 ```
-<!-- .element: class="large" -->
 
 ```
-> makeRect()
-getWidth
-7  14  {color:'red'}
+> drawRect()
+ getWidth
+ 7  14  {color:'red'}
 
-> makeRect(17)
-17  34  {color:'red'}
+> drawRect(17)
+ 17  34  {color:'red'}
 
-> makeRect(4, 11)
-4  11  {color:'red'}
+> drawRect(4, 11)
+ 4  11  {color:'red'}
 
-> makeRect(2, 1, {color:'blue'})
-2  1  {color:'blue'}
+> drawRect(2, 1, {color:'blue'})
+ 2  1  {color:'blue'}
 ```
 
 NOTES:
-_[6 minutes]_
-
 - ...take a look at this code and corresponding console output
 - Unlike other programming languages that support default values (like C#), a default value in ES6 does not have to be a primitive value
   - It can be an `Object`, expression or even a functional call
@@ -541,27 +578,31 @@ _[6 minutes]_
   - As you can see in the sample terminal on the right, `getWidth` isn’t called when a value for `width` is specified
 - Another thing to note, is that the default value for `height` is an expression that uses the `width` parameter
   - You’re free to use the value of any parameter that comes before
-- Lastly, you can have non defaults after default parameters
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I dunno about you, but I find that quite... interesting
 
 /////
 
 ```js
-function log(msg, opts = {}) {
-  let type = opts.type || 'info';
-  let delay = opts.delay;
-  let useColor = opts.color === undefined ? true : opts.color;
+function notify(msg, options = {}) {
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
 
-  // log message
+  // display notification
 }
 
-log('Hi!');
-log('Hi!', {type: 'error'});
-log('Hi!', {type: 'warn', color: false});
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
-<!-- .element: class="large" -->
 
 NOTES:
-
 - But back to the code we're trying to fix
 - With the multiple assignments we're essentially mapping object property values that may or may not exist to variables
 - There's an ES6 feature for that!
@@ -572,13 +613,8 @@ NOTES:
 
 Replace multiple assignments with a single one
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-destructuring/](http://www.benmvp.com/learning-es6-destructuring/)
-
 NOTES:
-_[7 minutes]_
+_[18 minutes]_
 
 - It's called Destructuring
 - With destructuring we can reduce multiple assignments down to one
@@ -587,7 +623,7 @@ _[7 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I'm afraid that after we cover destructuring, you'll feel like this...
@@ -598,13 +634,12 @@ NOTES:
 Single assignment statement!
 
 ```js
-function log(msg, opts = {}) {
-  let {type='info', delay, color: useColor=true} = opts;
+function notify(msg, options = {}) {
+  let {type='info', timeout, close: canClose=true} = options;
 
-  // log message
+  // display notification
 }
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -613,26 +648,19 @@ function log(msg, opts = {}) {
 #### Before
 
 ```js
-function log(msg, opts = {}) {
-  let type = opts.type || 'info';
-  let delay = opts.delay;
-  let useColor = opts.color === undefined ? true : opts.color;
+function notify(msg, options = {}) {
+  let type = options.type || 'info';
+  let timeout = options.timeout;
+  let canClose = options.close === undefined ? true : options.close;
 
-  // log message
+  // display notification
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
-_[8 minutes]_
-
 - So now with object destructuring, we can collapse multiple assignments in to one
 - Uses an object literal pattern to map properties of an object into multiple variables
-- Doing 3 things here!
-  1. Declaring 3 variables
-  2. Assigning variables from object properties
-  3. Defaulting when `undefined`
-- But we still have the problem of not knowing what properties in `opts` are supported without looking at the function body
+- But we still have the problem of not knowing what properties in `options` are supported without looking at the function body
 - There's an ES6 feature for that!
 
 /////
@@ -640,11 +668,14 @@ _[8 minutes]_
 Named parameters!
 
 ```js
-function log(msg, {type='info', delay, color: useColor=true} = {}) {
-  // log message
+function notify(msg, {type='info', timeout, close:canClose=true} = {}) {
+  // display notification
 }
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -653,20 +684,21 @@ function log(msg, {type='info', delay, color: useColor=true} = {}) {
 #### Before
 
 ```js
-function log(msg, opts = {}) {
-  let {type='info', delay, color: useColor=true} = opts;
+function notify(msg, options = {}) {
+  let {type='info', timeout, close: canClose=true} = options;
 
-  // log message
+  // display notification
 }
+
+notify('Hi!');
+notify('Hi!', {type:'error'});
+notify('Hi!', {type:'warn', canClose:false});
 ```
-<!-- .element: class="large" -->
 
 NOTES:
-_[10 minutes]_
-
 - It's called object destructuring again! lol
 - Object destructuring can also be done in function headers to simulate named parameters
-- Now, not only is `opts` defaulted in the function header, but it's immediately destructured into the variables the function cares about
+- Now, not only is `options` defaulted in the function header, but it's immediately destructured into the variables the function cares about
 - And now anyone looking at the function header can tell what properties matter
 
 /////
@@ -674,11 +706,12 @@ _[10 minutes]_
 ### After
 
 ```js
-function log(msg, {type='info', delay, color: useColor=true} = {}) {
-  // log message
+function notify(msg, {type='info', timeout, close:canClose=true} = {}) {
+  // display notification
 }
 ```
-<!-- .element: class="large" -->
+
+<br />
 
 -----
 
@@ -686,28 +719,26 @@ function log(msg, {type='info', delay, color: useColor=true} = {}) {
 ### Before
 
 ```js
-function log(msg, opts) {
-  var type, delay, useColor;
+function notify(msg, options) {
+  var type, timeout, canClose;
 
-  if (!opts)
-    opts = {};
+  if (!options)
+    options = {};
 
-  type = opts.type || 'info';
-  delay = opts.delay;
-  useColor = opts.color === undefined ? true : opts.color;
+  type = options.type || 'info';
+  timeout = options.timeout;
+  canClose = options.close === undefined ? true : options.close;
 
-  // log message
+  // display notification
 }
 ```
 
 NOTES:
-_[11 minutes]_
-
 - All of our code has moved into the function header!
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - How many people find destructuring to actually make the code _less_ readable?
@@ -724,10 +755,9 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('04-12-16');
-    // mo='04', day='12', yr='16'
+let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2016-02-16');
+    // yr='2015', mo='11', day='14'
 ```
-<!-- .element: class="large" -->
 
 ```js
 function hi(a, [b, , d]) {
@@ -735,7 +765,6 @@ function hi(a, [b, , d]) {
 }
 hi('hello', [1, 2, 3]);
 ```
-<!-- .element: class="large" -->
 
 ### Array destructuring
 
@@ -767,7 +796,6 @@ let {
     }
   };
 ```
-<!-- .element: class="large" -->
 
 Object + array + nested destructuring!
 
@@ -779,9 +807,13 @@ NOTES:
 - This conveys the point that just because you _can_ do it doesn't mean you _should_
 - You can revisit this slide if you really want to try and understand what's going on
 
-=====
+/////
 
-# Quick Hits
+<!-- .slide: data-background="url(../../img/giphy/confused-urkel.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- Now we're all sorts of confused...
+- Let's just move on to a new problem...
 
 =====
 
@@ -800,7 +832,6 @@ function join(separator) {
 // output: tic-tac-toe
 join('-', 'tic', 'tac', 'toe');
 ```
-<!-- .element: class="large" -->
 
 Parameters list is unclear
 
@@ -818,11 +849,6 @@ NOTES:
 
 Replace `arguments` with an array
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-parameter-handling/](http://www.benmvp.com/learning-es6-parameter-handling/#rest-parameters)
-
 /////
 
 Clearer function signature!
@@ -835,7 +861,7 @@ function join(separator, ...values) {
 // output: tic-tac-toe
 join('-', 'tic', 'tac', 'toe');
 ```
-<!-- .element: class="large" -->
+
 
 -----
 
@@ -852,6 +878,9 @@ function join(separator) {
 
   return values.join(separator);
 }
+
+// output: tic-tac-toe
+join('-', 'tic', 'tac', 'toe');
 ```
 
 NOTES:
@@ -874,7 +903,6 @@ let [first, ...rest] = list;
 // output: 9  [8, 7, 6, 5]
 console.log(first, rest);
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -889,11 +917,11 @@ var list = [9, 8, 7, 6, 5],
 // output: 9  [8, 7, 6, 5]
 console.log(first, rest);
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - One last thing with rest parameters
 - They can be combined with array destructuring to replace `slice`
+
 - Now, let's take a look at yet another problem
 
 =====
@@ -906,12 +934,11 @@ var maxValueNormal = Math.max(33, 2, 9),
 // output: 33  33
 console.log(maxValueNormal, maxValueFromArray);
 ```
-<!-- .element: class="large" -->
 
 `Math.max.apply`???
 
 NOTES:
-_[21 minutes]_
+_[24 minutes]_
 
 - `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
 - If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
@@ -926,11 +953,6 @@ _[21 minutes]_
 
 Replace `apply` with the spread operator
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-parameter-handling/](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator)
-
 /////
 
 No more `apply`!
@@ -942,7 +964,6 @@ let maxValueFromArray = Math.max(...arrayOfValues);
 // output: 33
 console.log(maxValueFromArray);
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -957,7 +978,6 @@ var arrayOfValues = [33, 2, 9],
 // output: 33
 console.log(maxValueFromArray);
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - Instead of calling `apply` we can use the spread operator
@@ -965,6 +985,9 @@ NOTES:
 - The spread operator _spreads_ out the array into individual parameters
 
 /////
+
+## To be clear...
+<br />
 
 Spread operator  
 Array &#8594; multiple parameters (function call)
@@ -974,7 +997,6 @@ let arrayOfValues = [33, 2, 9];
 let maxValueFromArray = Math.max(...arrayOfValues);
     // just like: Math.max(33, 2, 9)
 ```
-<!-- .element: class="large" -->
 
 -----
 
@@ -988,7 +1010,6 @@ function join(separator, ...values) {
 
 join('-', 'tic', 'tac', 'toe');
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - Spread operator & rest operator look the exact same
@@ -1011,7 +1032,8 @@ let scaleFromLiteral = [...start, ...middle, ...end];
 // output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
 console.log(scaleFromLiteral);
 ```
-<!-- .element: class="large" -->
+
+<br />
 
 -----
 
@@ -1026,7 +1048,6 @@ let scaleFromConcat = start.concat(middle).concat(end);
 // output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
 console.log(scaleFromConcat);
 ```
-<!-- .element: class="large" -->
 
 
 NOTES:
@@ -1046,10 +1067,9 @@ for (var i = 0; i < list.length; i++) {
   console.log(list[i]);
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
-_[24 minutes]_
+_[27 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
 - You have to:
@@ -1070,7 +1090,6 @@ for (i = 0; i < length; i++) {
   console.log(list[i]);
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - Technically, since `i` is hoisted, you should define it at the top of the function
@@ -1090,9 +1109,8 @@ for (i in list) {
   console.log(list[i]);
 }
 ```
-<!-- .element: class="large" -->
 
-![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
+![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
@@ -1112,11 +1130,10 @@ ES5: `forEach` method
 ```js
 var list = [8, 3, 11, 9, 6];
 
-list.forEach(function(value, i) {
+list.forEach(function(value, i)) {
   console.log(value);
-});
+};
 ```
-<!-- .element: class="large" -->
 
 What about `break`, `continue` & `return`?
 
@@ -1139,11 +1156,6 @@ NOTES:
 
 Replace `for` and `forEach` with `for-of`
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-for-of-loop/](http://www.benmvp.com/learning-es6-for-of-loop/)
-
 /////
 
 ES6: `for-of`
@@ -1155,7 +1167,6 @@ for (let value of list) {
   console.log(value);
 }
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -1172,13 +1183,85 @@ for (i = 0; i < length; i++) {
   console.log(list[i]);
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - It’s still succinct because it doesn’t need a counter variable and reads to the end just like `forEach`
 - It also supports `break`, `continue` and `return` unlike `forEach`
 - `for-of` is for arrays and `for-in` is for objects
 - Now JavaScript has a similar loop control structure that mirrors what you’d see in C#, Python or Java
+
+=====
+
+```js
+var first = 'Ben', last = 'Ilegbodu';
+
+console.log('He said, "It\'s your fault!"'); // He said, "It's your fault!"
+console.log('Name: ' + last + ', ' + (15 + 16));  // Name: Ilegbodu, 31
+console.log('This is multi-line text, so\n' +
+    'that newline characters are not\n' +
+    'needed. Whitespace is respected\n');
+```
+
+Good ol' string concatenation
+
+NOTES:
+_[29 minutes]_
+
+- Let's jump to another issue
+- We usually don’t build string in JS anymore
+- But we do sometimes have to provide messages to the user that have dynamic data
+
+To make this easier, ES6 introduces...
+
+/////
+
+# Template literals
+
+Replace string concatenation with template literals
+
+NOTES:
+- With template literals, we can stop using string concatenation
+
+/////
+
+String interpolation + multi-line!
+
+```js
+let first = 'Ben', last = `Ilegbodu`;
+
+console.log(`He said, "It's your fault!"`); // He said, "It's your fault!"
+console.log(`Name: ${last}, ${15 + 16}`); // Name: Ilegbodu, 31
+console.log(`This is multi-line text, so
+    that newline characters are not
+    needed. Whitespace is respected
+`);
+```
+
+-----
+
+#### Before
+
+```js
+var first = 'Ben', last = 'Ilegbodu';
+
+console.log('He said, "It\'s your fault!"'); // He said, "It's your fault!"
+console.log('Name: ' + last + ', ' + (15 + 16));  // Name: Ilegbodu, 31
+console.log('This is multi-line text, so\n' +
+    'that newline characters are not\n' +
+    'needed. Whitespace is respected\n');
+```
+
+NOTES:
+- ES6 template literals are a brand new type of string literal, delimited by backticks (`` ` ``)
+  - That’s not a typo!
+  - That character to the left of the 1 key
+  - Because of backticks, you no longer need to escape single or double quotes
+- Template literals natively support string interpolation (token substitution)
+  - Any JavaScript expression can be substituted inside ${ }
+  - It will ultimately be coerced into a string
+- Multi-line strings are now supported as well
+  - Any whitespace you put will be in the string, including tabs and newlines
+- You can actually always use template literals, but I tend to only use them when interpolating
 
 ===== <!-- .slide: data-transition="fade" -->
 
@@ -1192,11 +1275,11 @@ MyObj.prototype.update = function() {
 	});
 };
 ```
-<!-- .element: class="large" -->
 
 Where's the bug?
 
 NOTES:
+_[31 minutes]_
 
 - Can anyone spot the mistake in this code?
 - We're passing a callback to `done` of the `get` ajax request
@@ -1213,7 +1296,6 @@ MyObj.prototype.update = function() {
 	});
 };
 ```
-<!-- .element: class="large" -->
 
 Undefined `this`!
 
@@ -1236,7 +1318,6 @@ MyObj.prototype.update = function() {
 	});
 };
 ```
-<!-- .element: class="large" -->
 
 ES3 fix
 
@@ -1253,7 +1334,6 @@ MyObj.prototype.update = function() {
 	}).bind(this)); // pass in proper `this` context
 };
 ```
-<!-- .element: class="large" -->
 
 ES5 fix
 
@@ -1268,11 +1348,6 @@ NOTES:
 # Arrow functions
 
 Replace anonymous functions with arrow functions
-
-<br />
-<br />
-
-[benmvp.com/learning-es6-arrow-functions/](http://www.benmvp.com/learning-es6-arrow-functions/)
 
 NOTES:
 - With arrow functions we can stop using anonymous functions
@@ -1289,7 +1364,6 @@ MyObj.prototype.update = function() {
 	});
 };
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -1304,7 +1378,6 @@ MyObj.prototype.update = function() {
   }).bind(this)); // pass in proper `this` context
 };
 ```
-<!-- .element: class="large" -->
 
 
 NOTES:
@@ -1316,24 +1389,21 @@ NOTES:
 
 /////
 
-###### Arrow functions
+### Arrow functions
 
 ```js
 let squares = [1, 2, 3].map(value => value * value);
 ```
-<!-- .element: class="large" -->
 
 ```js
-let sum = [9, 8, 7, 6].reduce((prev, value) => prev + value, 0);
+let sum = [9, 8, 7, 6].reduce((value, memo) => memo + value, 0);
 ```
-<!-- .element: class="large" -->
 
 ```js
 $('button').click(e => {
   alert('Hello world!');
 });
 ```
-<!-- .element: class="large" -->
 
 ```js
 setTimeout(() => {
@@ -1341,16 +1411,16 @@ setTimeout(() => {
   console.log('using arrow function');
 }, 1000);
 ```
-<!-- .element: class="large" -->
 
 ```js
-$.ajax({url: 'test.html', cache: false})
-    .done(html => {
-        $('#results').append(html);
-        console.log(html);
-    });
+$.ajax({
+  url: 'test.html',
+  cache: false
+}).done(html => {
+  $('#results').append(html);
+  console.log(html);
+});
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - You’ll find that arrow functions come in handy most when used as a callback function.
@@ -1359,79 +1429,6 @@ NOTES:
 - This also shows the different formats of arrow functions
   - Perentheses can be omitted if there is one parameter
   - Curly braces can be omitted if there's just a single `return` line
-
-=====
-
-```js
-var first = 'Ben', last = 'Ilegbodu';
-
-console.log('He said, "It\'s your fault!"');
-    // He said, "It's your fault!"
-
-console.log('Name: ' + last + ', ' + (14 + 18));
-    // Name: Ilegbodu, 32
-
-console.log('This is multi-line text, so\n' +
-    'that newline characters are not\n' +
-    'needed. Whitespace is respected\n');
-```
-<!-- .element: class="large" -->
-
-Good ol' string concatenation
-
-NOTES:
-
-- Let's jump to another issue
-- We usually don’t build string in JS anymore
-- But we do sometimes have to provide messages to the user that have dynamic data
-
-To make this easier, ES6 introduces...
-
-/////
-
-# Template literals
-
-Replace string concatenation with template literals
-
-<br />
-<br />
-
-[benmvp.com/learning-es6-template-literals-tagged-templates/](http://www.benmvp.com/learning-es6-template-literals-tagged-templates/)
-
-NOTES:
-- With template literals, we can stop using string concatenation
-
-/////
-
-String interpolation + multi-line!
-
-```js
-let first = 'Ben', last = `Ilegbodu`;
-
-console.log(`He said, "It's your fault!"`);
-    // He said, "It's your fault!"
-
-console.log(`Name: ${last}, ${14 + 18}`);
-    // Name: Ilegbodu, 32
-
-console.log(`This is multi-line text, so
-    that newline characters are not
-    needed. Whitespace is respected
-`);
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- ES6 template literals are a brand new type of string literal, delimited by backticks (`` ` ``)
-  - That’s not a typo!
-  - That character to the left of the 1 key
-  - Because of backticks, you no longer need to escape single or double quotes
-- Template literals natively support string interpolation (token substitution)
-  - Any JavaScript expression can be substituted inside ${ }
-  - It will ultimately be coerced into a string
-- Multi-line strings are now supported as well
-  - Any whitespace you put will be in the string, including tabs and newlines
-- You can actually always use template literals, but I tend to only use them when interpolating
 
 
 =====
@@ -1449,12 +1446,11 @@ Todo.prototype.toString = function() {
 var myTodo = new Todo('Learn ES6', true);
 console.log(myTodo.toString());
 ```
-<!-- .element: class="large" -->
 
 Create classes via constructor functions
 
 NOTES:
-_[32 minutes]_
+_[35 minutes]_
 
 - Hitting the home stretch now
 - Does anybody these days create "classes" using vanilla JavaScript these days?
@@ -1471,10 +1467,9 @@ var Todo = Backbone.Model.extend({
     }
 });
 
-var myTodo = new Todo({content: 'Learn ES6', completed: true});
+var myTodo = new Todo({content: 'Learning ES6', completed: true});
 console.log(myTodo.toString());
 ```
-<!-- .element: class="large" -->
 
 Create classes via class factories
 
@@ -1492,11 +1487,6 @@ NOTES:
 # Classes
 
 Replace class factories with `class` syntax
-
-<br />
-<br />
-
-[benmvp.com/learning-es6-classes/](http://www.benmvp.com/learning-es6-classes/)
 
 NOTES:
 - Now we can replace assigning to the prototype or using custom class factories with native class syntax
@@ -1517,7 +1507,22 @@ class Todo {
     }
 }
 ```
-<!-- .element: class="large" -->
+
+
+-----
+
+#### ES5 way
+
+```js
+function Todo(content, completed) {
+    this.content = content;
+    this.completed = completed;
+}
+Todo.prototype.toString = function() {
+    return 'Content: ' + this.content +
+        '\nCompleted: ' + this.completed;
+};
+```
 
 NOTES:
 - ES6 introduces the `class` keyword that defines a JavaScript "class"
@@ -1540,10 +1545,9 @@ ColorTodo.prototype.toString = function() {
         '\nColor: ' + this.color;
 };
 
-let myColorTodo = new ColorTodo('Learn ES6', true, 'red');
+let myColorTodo = new ColorTodo('Learning ES6', true, 'red');
 console.log(myColorTodo.toString());
 ```
-<!-- .element: class="large" -->
 
 Extending classes with **ES3/ES5**
 
@@ -1568,10 +1572,9 @@ class ColorTodo extends Todo {
     }
 }
 
-let myColorTodo = new ColorTodo('Learn ES6', true, 'red');
+let myColorTodo = new ColorTodo('Learning ES6', true, 'red');
 console.log(myColorTodo.toString());
 ```
-<!-- .element: class="large" -->
 
 Extending classes with **ES6**
 
@@ -1595,7 +1598,8 @@ class Todo {
     }
 }
 ```
-<!-- .element: class="large" -->
+
+<br />
 
 -----
 
@@ -1603,13 +1607,13 @@ class Todo {
 
 ```js
 function Todo(content, completed) {
-    ...
+    this.content = content;
+    this.completed = completed;
 }
 Todo.add = function() {
 
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - ES6 class syntax also supports static methods with the `static` keyword
@@ -1629,7 +1633,6 @@ class MyClass extends BaseClass {
     static staticMethodB() { }
 }
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -1643,7 +1646,7 @@ var MyClass = BaseClass.extend({
 });
 MyClass.add = function() { };
 ```
-<!-- .element: class="fragment large" data-fragment-index="0" -->  
+<!-- .element: class="fragment" data-fragment-index="0" -->  
 
 NOTES:
 - Here's the complete structure of ES6 classes
@@ -1676,7 +1679,6 @@ class Todo {
     }
 }
 ```
-<!-- .element: class="large" -->
 
 [ES Class Fields & Static Properties](https://github.com/jeffmo/es-class-fields-and-static-properties) (Stage 1)
 
@@ -1705,7 +1707,6 @@ class Person {
     name() { return `${this.first} ${this.last}` }
 }
 ```
-<!-- .element: class="large" -->
 
 [Class & Property Decorators](https://github.com/wycats/javascript-decorators) (Stage 1)
 
@@ -1733,7 +1734,6 @@ class Todo extends Backbone.Model {
 
 }
 ```
-<!-- .element: class="large" -->
 
 NOTES:
 - Because ES6 classes are just syntactic sugar of constructor functions they _should_ be interoperable with ES5 clases
@@ -1759,10 +1759,9 @@ var Car = Backbone.Model.extend({
     }
 });
 ```
-<!-- .element: class="large" -->
 
 NOTES:
-_[39 minutes]_
+_[42 minutes]_
 
 - For our final feature, let's revisit class factories
 - Remember we're passing a big object literal that contains the class configuration
@@ -1777,11 +1776,6 @@ _[39 minutes]_
 # Object literal shorthand
 
 Write less code than before
-
-<br />
-<br />
-
-[benmvp.com/learning-es6-enhanced-object-literals/](http://www.benmvp.com/learning-es6-enhanced-object-literals/)
 
 /////
 
@@ -1828,51 +1822,6 @@ NOTES:
 
 =====
 
-# New APIs
-
-NOTES:
-- Since we've got extra time let's quickly talk about some new APIs
-
-/////
-
-## String API
-
-- [**`String.prototype.endsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
-- [**`String.prototype.includes`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
-- [**`String.prototype.startsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
-- [`String.prototype.repeat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
-- [`String.raw`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
-
-NOTES:
-- Just want to alert you to some new methods introduce with ES6 for `String`
-
-/////
-
-## Array API
-
-- [**`Array.from`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
-- [`Array.of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
-- [`Array.prototype.copyWithin`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
-- [`Array.prototype.fill`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
-- [**`Array.prototype.find`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-- [`Array.prototype.findIndex`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
-
-NOTES:
-- Also some useful methods for `Array` too
-
-/////
-
-## Object API
-
-- [**`Object.assign`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-- [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
-- [`Object.setPrototypeOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
-
-NOTES:
-- Also some useful methods for `Object` too
-
-=====
-
 ## Review
 
 1. Block scoping <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
@@ -1885,9 +1834,10 @@ NOTES:
 1. Arrow functions <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Classes <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
-1. New APIs <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->
 
 NOTES:
+_[44 minutes]_
+
 - As a reminder, here's what we covered to make our code clearer and more succinct
 - I know I went through it pretty quickly, so if you didn't get it at all, they're recording this talk so you can always revisit later
 
@@ -1897,12 +1847,9 @@ NOTES:
 
 Native execution vs. Transpiling
 
-<br />
-<br />
-
-[benmvp.com/learning-es6-using-es6-right-now/](http://www.benmvp.com/learning-es6-using-es6-right-now/)
-
 NOTES:
+_[45 minutes]_
+
 - Before we wrap up, let's quickly talk about how we can use these features now
 
 /////
@@ -1913,38 +1860,38 @@ NOTES:
 <br />
 
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
-	<div style="flex:0 0 10%;">
-	  ![Google Chrome Logo](img/google-chrome-logo.png)
-	  96%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
-	  90%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
-	  85%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Apple Safari Logo](img/apple-safari-logo.png)
-	  53%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Opera Logo](img/opera-logo.png)
-	  96%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Webkit Logo](img/webkit-logo.png)
-	  98%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![NodeJS Logo](img/nodejs-logo.png)
-	  56%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![iOS 9 Logo](img/ios9-logo.png)
-	  53%
-	</div>
+<div style="flex:0 0 10%;">
+  ![Google Chrome Logo](../../img/google-chrome-logo.png)
+  91%
+</div>
+<div style="flex:0 0 10%">
+  ![Mozilla Firefox Logo](../../img/mozilla-firefox-logo.png)
+  85%
+</div>
+<div style="flex:0 0 10%">
+  ![Microsoft Edge Logo](../../img/microsoft-edge-logo.png)
+  83%
+</div>
+<div style="flex:0 0 10%">
+  ![Apple Safari Logo](../../img/apple-safari-logo.png)
+  54%
+</div>
+<div style="flex:0 0 10%">
+  ![Opera Logo](../../img/opera-logo.png)
+  91%
+</div>
+<div style="flex:0 0 10%">
+  ![Webkit Logo](../../img/webkit-logo.png)
+  83%
+</div>
+<div style="flex:0 0 10%">
+  ![NodeJS Logo](../../img/nodejs-logo.png)
+  57%
+</div>
+<div style="flex:0 0 10%">
+  ![iOS 9 Logo](../../img/ios9-logo.png)
+  54%
+</div>
 </div>
 
 <br />
@@ -1953,9 +1900,9 @@ NOTES:
 [ECMAScript 6 Compatibility Table](http://kangax.github.io/compat-table/es6/)
 
 NOTES:
-- ES6 support is pretty mixed. Chrome Canary is at 97% while Safari is at an abysmal 54%
+- ES6 support is pretty mixed. Chrome Canary is at 91% while Safari is at an abysmal 54%
 - Node 5 is lagging behind, although Node 6 should have significantly more features
-- It's already April of 2016 and ES2016 spec is coming soon
+- It's already February of 2016 and ES2016 spec is coming soon
   - They haven't even finished ES2015 yet!
 - I think this is why they decided to go to a yearly cadence to keep specs from being too big
 - You may notice IE missing from the list. None of them support ES6
@@ -1965,7 +1912,7 @@ NOTES:
 
 ### Transpiling ES6 &#8594; ES3/ES5
 
-![Babel ES6 Live Transpiling](img/es6/babel-es6-transpile.gif)
+![Babel ES6 Live Transpiling](../../img/es6/babel-es6-transpile.gif)
 
 NOTES:
 - Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
@@ -1979,19 +1926,19 @@ NOTES:
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between;">
     <div style="flex:0 0 25%">
-      [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
+      [![Traceur Logo](../../img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
       [Traceur](https://github.com/google/traceur-compiler)  
-      58%
+      61%
     </div>
     <div style="flex:0 0 25%">
-      [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
+      [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
       [Babel](https://babeljs.io/)   
-      74%
+      76%
     </div>
     <div style="flex:0 0 25%">
-      [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+      [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
       [TypeScript](http://www.typescriptlang.org/)  
-      60%
+      56%
     </div>
 </div>
 
@@ -2016,12 +1963,10 @@ NOTES:
 - [_Understanding ECMAScript 6_](https://leanpub.com/understandinges6/) by Nicholas C. Zakas
 - [_ES6 in Depth_](https://hacks.mozilla.org/category/es6-in-depth/) by Jason Orendorff
 - [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
-- [_Setting up ES6_](https://leanpub.com/setting-up-es6/read) by Axel Rauschmayer
 
 NOTES:
-_[45 minutes]_
+_[48 minutes]_
 
-- Shameless plug!
 - You can also check out my blog where I go into detail about every feature I covered
 - Other great books & blogs about ES6 too!
 
@@ -2031,11 +1976,11 @@ _[45 minutes]_
 
 /////
 
-![Prairie Dev Con logo](img/prdc2016/prdc-logo.png)   <!-- .element: style="width: 50%" -->
+![DeveloperWeek 2016 logo](../../img/developer-week-2016-logo.png)
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -2048,11 +1993,12 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
 
 # THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
 
 NOTES:
+_[50 minutes]_
 
 /////
 
@@ -2064,6 +2010,3 @@ NOTES:
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp)
-
-NOTES:
-- Slides are on my Twitter profile and blog

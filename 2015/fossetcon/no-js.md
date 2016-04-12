@@ -1,20 +1,18 @@
-<!-- .slide: data-background="url(img/giphy/no-no-no-mutombo.gif) no-repeat center" data-background-size="contain" style="background-color:rgba(0,0,0,.25);bottom:0;" -->
+<!-- .slide: data-background="url(../../img/giphy/no-no-no-mutombo.gif) no-repeat center" data-background-size="contain" style="background-color:rgba(0,0,0,.25);bottom:0;" -->
 
 # You don't need JavaScript for that!
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ConFoo](https://twitter.com/hashtag/confoo)  
-
-February 24, 2016  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#fossetcon](https://twitter.com/hashtag/fossetcon)
 
 NOTES:
-- How many folks here would call themselves web developers?
-- How many of you use toolkits/libraries like jQuery?
 - The goal of this talk is to highlight ways that you can use HTML & CSS to replace functionality we previously could only accomplish w/ JavaScript
 - I'm not hating on JavaScript
-  - Giving a talk tomorrow on new functionality added to JS with ES6
-  - JavaScript doesn't need to be the hammer for _every_ nail
+  - Just gave a talk about new functionality added to JS with ES6
+  - But each piece of technology has its place and the cases we'll talk about will showcase where HTML/CSS are better suited
+- How many folks here would call themselves web developers?
+- How many of you use toolkits/libraries like jQuery?
 - So in this case,
   - You guys are the workers behind the desk
   - I am Dikembe Mutombo
@@ -32,7 +30,7 @@ ben-ilegbodu.json
   "priorities": [
     "Jesus", "family", "work"
   ],
-  "location": "Pittsburg, CA",
+  "location": "SF Bay Area",
   "work": "@Eventbrite",
   "role": "Sr. UI Engineer",
   "hobbies": [
@@ -42,7 +40,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -51,36 +49,17 @@ _[1 minute]_
 
 /////
 
-<div style="display:flex">
-	<div style="flex:0 0 50%;">
-		<img src="img/confoo2016/montreal-weather-2016-02-24.png" style="width:50%;height:auto" alt="Weather in Montreal on February 24, 2016" />
-
-        <p style="text-align:center">Montreal, QC, Canada</p>
-	</div>
-	<div style="flex:0 0 50%;">
-		<img src="img/confoo2016/pittsburg-weather-2016-02-24.png" style="width:50%;height:auto" alt="Weather in Pittsburg on February 24, 2016" />
-
-        <p style="text-align: center">Pittsburg, CA, USA</p>
-	</div>
-</div>
-
-/////
-
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
 - Eventbrite is an online ticketing & events platform
 - Many conferences use it for registration
-- I work on the Frontend Architecture team and right now we're in the midst of a transition from Backbone/Marionette to React
+- I work on the team that’s actual rebuilding that page you used to buy your tickets into something beautiful & responsive
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/aaron-gordon-dunk-contest.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- I also absolutely love basketball - both playing & watching
-- But enough about me, let's dive into our topic
+<!-- .slide: data-background="url(../../img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -98,17 +77,13 @@ _[2 minutes]_
 - We'll look at how we can implement interactivity, functionality, layout & animation
 - Without using any JavaScript! (or at least very little)
 - The rationale being that if we use HTML/CSS, the browser executes the interaction which will typically be more performant
-- This is a lot to cover in less than an hour, so this will be an overview and I'll provide links for more details
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/lost-dont-tell-me-what-i-cant-do.gif) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/giphy/lost-dont-tell-me-what-i-cant-do.gif) no-repeat center" data-background-size="contain" -->
 
 NOTES:
-- Now I know the title of my talk is a bit bold
-- Some people respond differently to suggestions
-- But I'm hoping you're coming with an open mind
-- Unlike Mr. John Locke
+- Now I know the title of my talk is a bit bold & some people respond differently to suggestions, but I'm hoping you're coming with an open mind
 
 =====
 
@@ -116,18 +91,12 @@ NOTES:
 
 with CSS `:hover`
 
-<br />
-
-![CSS Leaning Tower of Pisa pun](img/puns/css-leaning-tower-of-pisa.jpg)
-
 NOTES:
 _[3 minutes]_
 
 - Let's start simple looking at interactivity with `:hover`
 - This doesn't require any HTML5 or CSS3 fanciness
 - Just some fun CSS pseudo-class code
-- By the way this pun has nothing to do with our topic. Just fun!
-- **_[WATER BREAK]_**
 
 /////
 
@@ -135,7 +104,7 @@ _[3 minutes]_
 
 ## Header navigation example
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 NOTES:
 - Header navigation menu that enables interactivity using the `:hover` CSS pseudo selector.
@@ -149,7 +118,7 @@ NOTES:
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 Uses an icon font!
 
@@ -162,15 +131,12 @@ _[4 minutes]_
 - Icon fonts are awesome because:
   - Super lightweight compared to traditional images (63kb)
   - Can easily change their size, color and any other text property.
-- SVG is also making its way to the web with the best of both worlds
-  - Full color
-  - Still lightweight
 
 /////
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```html
 <header class="global-header">
@@ -191,8 +157,7 @@ _[4 minutes]_
 </header>
 ```
 
-[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS  
-[BEM](https://css-tricks.com/bem-101/): Block, Element, Modifier
+[SMACSS](https://smacss.com/) + [BEM](https://css-tricks.com/bem-101/) CSS class naming
 
 
 NOTES:
@@ -209,7 +174,7 @@ _[5 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -255,7 +220,7 @@ _[6 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The JavaScript way:
 
@@ -284,7 +249,7 @@ _[7 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The CSS way:
 
@@ -325,7 +290,7 @@ _[8 minutes]_
 
 ## `@font-face` Browser support
 
-[![@font-face web fonts support](img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
+[![@font-face web fonts support](../../img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
 
 IE8+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -341,7 +306,7 @@ _[9 minutes]_
 
 ###### Interactivity
 
-[![HTML for Font Icon Usage by CSS Tricks](img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
+[![HTML for Font Icon Usage by CSS Tricks](../../img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
 
 https://css-tricks.com/html-for-icon-font-usage/
 
@@ -350,7 +315,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - Outside of the icon font stuff there was nothing really new here
@@ -363,10 +328,6 @@ NOTES:
 
 with new HTML5 `<input>` types
 
-<br />
-
-![CSS Rapers word spacing pun](img/puns/css-rappers-word-spacing.jpg)
-
 NOTES:
 _[10 minutes]_
 
@@ -374,7 +335,7 @@ _[10 minutes]_
 
 ###### Functionality
 
-<iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+<iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
 NOTES:
 - We'll be working off of this beautiful form example
@@ -392,7 +353,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 45%;">
 
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
   </div>
   <div style="flex:0 0 52%;">
@@ -427,8 +388,7 @@ _[11 minutes]_
 
 - Using the `<label>` tag with the `for` attribute automatically focus field when clicked
 - The equivalent JavaScript is simple enough, but unnecessary!
-- This doesn't require any HTML5 support **[NEXT]**, you can use this in any browser!
-- Personally hate it when I have a tiny checkbox and a long label and i **have** to click the checkbox
+- This doesn't require any HTML5 support, you can use this in any browser!
 
 /////
 
@@ -436,10 +396,10 @@ _[11 minutes]_
 
 HTML5 `placeholder` attribute
 
-<input type="text" class="input-example" placeholder="Enter URL" />
+<input type="url" class="input-example" placeholder="Enter URL" />
 
 ```html
-<input type="text" placeholder="Enter URL" />
+<input type="url" placeholder="Enter URL" />
 ```
 <!-- .element: class="large" -->
 <br />
@@ -467,7 +427,7 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
+<img src="../../img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
 special email-focused software keyboard!
 
 NOTES:
@@ -490,7 +450,7 @@ _[12 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
+<img src="../../img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
 special URL-focused software keyboard!
 
 NOTES:
@@ -513,7 +473,7 @@ _[13 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
+<img src="../../img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
 special number-focused software keyboard!
 
 NOTES:
@@ -539,13 +499,13 @@ _[14 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
+<img src="../../img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
 special telephone-focused software keyboard!
 
 NOTES:
 _[15 minutes]_
 
-- Instead of `type="text"`, it's `type="tel"`
+- Instead of `type="text"`, it's `type="telephone"`
 - Provides telephone-focused software keyboard where applicable
 - No validation or character prevention
 
@@ -569,7 +529,6 @@ native slider UI!
 NOTES:
 - Instead of `type="text"`, it's `type="range"`
 - Provides native slider UI where applicable
-- Default to a text field
 
 /////
 
@@ -584,7 +543,7 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
+<img src="../../img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
 native date picker UI!
 
 NOTES:
@@ -592,7 +551,7 @@ _[16 minutes]_
 
 - Instead of `type="text"`, it's `type="date"`
 - Provides native date picker UI where applicable
-- Use `pattern` & `placeholder` as fallback since not all browsers support the UI
+- Use `pattern` & `placeholder` as fallback since not all browsers support
 
 /////
 
@@ -661,7 +620,7 @@ _[18 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I dunno about you, but I find being able to use those native UIs quite... interesting
@@ -685,7 +644,7 @@ NOTES:
   <li><code>max</code></li>
   <li><code>step</code></li>
   <li><code>pattern</code> (regex)</li>
-</ul>
+</ul>  
 
   </div>
   <div style="flex:0 0 48%;">
@@ -713,7 +672,7 @@ _[19 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div class="fragment" style="flex:0 0 48%;">
     <h4>JavaScript</h4>
@@ -755,7 +714,7 @@ _[20 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div style="flex:0 0 48%;">
     <h4>Pros</h4>
@@ -782,20 +741,9 @@ _[21 minutes]_
 
 /////
 
-![Myriam Jessier](img/confoo2016/myriam-jessier.jpg)  <!-- .element: style="width: 300px" -->  
-Myriam Jessier
-
-<br />
-
-[<h2>HTML5 for SEO and accessibility</h2>](https://confoo.ca/en/2016/session/html5-for-seo-and-accessibility)
-
-Earlier today @ 10AM in Fontaine H
-
-/////
-
 ###### Functionality
 
-[![Wufoo - The Current State of HTML5 Forms](img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
+[![Wufoo - The Current State of HTML5 Forms](../../img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
 
 http://www.wufoo.com/html5/
 
@@ -808,10 +756,6 @@ NOTES:
 # Layout
 
 with CSS3 `display:flex`
-
-<br />
-
-![CSS transformers pun](img/puns/css-transformers.jpg)
 
 NOTES:
 _[22 minutes]_
@@ -851,7 +795,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/taylor-swift-problems.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/taylor-swift-problems.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - And now we got all kinds of problems
@@ -865,10 +809,6 @@ NOTES:
 > The main idea behind the **flex layout** is to give the container the ability to alter its items' width/height (and order) to best fill the available space (mostly to accommodate to all kind of display devices and screen sizes). A flex container expands items to fill available free space, or shrinks them to prevent overflow.
 
 ~Chris Coyer ([Css-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/))
-
-NOTES:
-
-The main idea behind flexbox is to give the container the ability to alter its items' dimensions to best fill the available space in responsive design. A flex container expands items to fill available free space, or shrinks them to prevent overflow.
 
 /////
 
@@ -891,16 +831,15 @@ The main idea behind flexbox is to give the container the ability to alter its i
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'block')">
-	<em><code>block</code></em></a> |
+	<code>block</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'flex')">
-	<strong><code>flex</code></strong></a> |
+	<code>flex</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline-flex')">
 	<code>inline-flex</code></a>
 
 NOTES:
 _[24 minutes]_
 
-- So let's go through all of the flexbox properties
 - It all starts with `display:flex` (or `display:inline-flex`) on the container
 - It enables a flex context for all its direct children.
 
@@ -929,11 +868,11 @@ _[24 minutes]_
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-end')">
 	<code>flex-end</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-start')">
-	<em><code>flex-start</code></em></a> |
+	<code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-around')">
 	<code>space-around</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-between')">
-	<code><strong>space-between</strong></code></a>
+	<code>space-between</code></a>
 
 NOTES:
 _[25 minutes]_
@@ -972,11 +911,11 @@ _[25 minutes]_
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'center')">
 	<code>center</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-end')">
-	<strong><code>flex-end</code></strong></a> |
+	<code>flex-end</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-start')">
 	<code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'stretch')">
-	<em><code>stretch</code></em></a>
+	<code>stretch</code></a>
 
 NOTES:
 _[26 minutes]_
@@ -984,7 +923,7 @@ _[26 minutes]_
 - We can then set `align-items: flex-end` to align at the bottom
 - `align-items` defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the `justify-content` version for the cross-axis (perpendicular to the main-axis).
 - Options:
-  - `baseline`: items are aligned such as the first line is aligned (useful for titles)
+  - `baseline`: items are aligned such as their baselines align
   - `center`: items are centered in the cross-axis
   - `flex-end`: cross-end margin edge of the items is placed on the cross-end line
   - `flex-start`: cross-start margin edge of the items is placed on the cross-start line
@@ -1019,7 +958,7 @@ _[26 minutes]_
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-start')">
 	<code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'stretch')">
-	<em><strong><code>stretch</code></strong></em></a>
+	<code>stretch</code></a>
 
 NOTES:
 _[27 minutes]_
@@ -1059,7 +998,6 @@ _[28 minutes]_
 - By default, flex items are laid out in the source order.
 - `order` controls the order in which they appear in the flex container.
 - The value can be any integer (including negative numbers)
-- `order` is really useful when you want to change the display order depending on media queries
 
 /////
 
@@ -1072,9 +1010,9 @@ _[28 minutes]_
 		<h3>Container</h3>
 
 		<ul>
-			<li>**<code>display</code>**</li>
-			<li>**<code>justify-content</code>**</li>
-			<li>**<code>align-items</code>**</li>
+			<li>__<code>display</code>__</li>
+			<li>__<code>justify-content</code>__</li>
+			<li>__<code>align-items</code>__</li>
 			<li><code>flex-direction</code></li>
 			<li><code>flex-wrap</code></li>
 			<li><code>align-content</code></li>
@@ -1084,8 +1022,8 @@ _[28 minutes]_
 		<h3>Items</h3>
 
 		<ul>
-			<li>**<code>align-self</code>**</li>
-			<li>**<code>order</code>**</li>
+			<li>__<code>align-self</code>__</li>
+			<li>__<code>order</code>__</li>
 			<li><code>flex-grow</code></li>
 			<li><code>flex-shrink</code></li>
 			<li><code>flex-basis</code></li>
@@ -1138,7 +1076,6 @@ _[28 minutes]_
 NOTES:
 
 - Once again here's the result of all of our work to make a linear layout!
-- So simple!
 
 /////
 
@@ -1146,53 +1083,23 @@ NOTES:
 
 ## CSS3 Flexbox Browser support
 
-[![CSS3 Flexbox browser support](img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
+[![CSS3 Flexbox browser support](../../img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
 http://caniuse.com/#feat=flexbox
 
-NOTES:
-- Not supported in IE8 or IE9
-- But those should be dead or dying soon
-
-/////
-
-![Rachel Andrew](img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->  
-Rachel Andrew
-
-<br />
-
-[<h2>Making Sense of CSS Layout</h2>](https://confoo.ca/en/2016/session/making-sense-of-css-layout)
-
-Tomorrow @ 13:00 in Hampstead
-
-/////
-
-![Jen Kramer](img/confoo2016/jen-kramer.jpg)  <!-- .element: style="width: 300px" -->  
-Jen Kramer
-
-<br />
-
-[<h2>Flexbox: Coming to a browser near you</h2>](https://confoo.ca/en/2016/session/flexbox-coming-to-a-browser-near-you)
-
-Tomorrow @ 16:00 in Hampstead
-
 /////
 
 ###### Layout
 
-[![CSS Tricks - A Complete Guide to Flexbox](img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[![CSS Tricks - A Complete Guide to Flexbox](../../img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 =====
 
 # Animation
 
 with CSS3 `transition`
-
-<br />
-
-![CSS Mario Bros pun](img/puns/css-mario-mushroom.jpg)
 
 NOTES:
 _[29 minutes]_
@@ -1233,11 +1140,10 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/fallon-please-do-not-do-that.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/fallon-please-do-not-do-that.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - But please do not do that!
-- The code may be simple, but there's **sooo** much JavaScript in jQuery
 - Instead we can use CSS3 `transition`
 
 /////
@@ -1295,14 +1201,13 @@ _[30 minutes]_
 
 - Before we look at how `transition` works, lets look at our HTML/CSS
 - Want to point out `calc()` which is a way to do math in CSS so we don't need JS
-  - Different than math in preprocessors like SASS because it's based on calculated values
 - So we define the begin & end states and we'll use CSS3 `transition` to handle "tweening"
 
 /////
 
 ###### Animation
 
-[![Keyframe animation demo](img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc/)
+[![Keyframe animation demo](../../img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc/)
 
 NOTES:
 - Vincent Pickering wrote a helpful blog posts on real-world use cases for `calc()`
@@ -1327,13 +1232,13 @@ NOTES:
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'none')">
-	<em><code>none</code></em></a> |
+	<code>none</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'border-radius')">
 	<code>border-radius</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'width,height')">
 	<code>width,height</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-property', 'all')">
-	<strong><code>all</code></strong></a>
+	<code>all</code></a>
 
 NOTES:
 _[31 minutes]_
@@ -1366,7 +1271,7 @@ _[31 minutes]_
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '0s')">
-	<em><code>0s</code></em></a> |
+	<code>0</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '200ms')">
 	<code>200ms</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '0.5s')">
@@ -1374,7 +1279,7 @@ _[31 minutes]_
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '1s')">
 	<code>1s</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-duration', '5s')">
-	<strong><code>5s</code></strong></a>
+	<code>5s</code></a>
 
 NOTES:
 _[32 minutes]_
@@ -1388,7 +1293,7 @@ _[32 minutes]_
 
 ###### Animation
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -1408,7 +1313,7 @@ _[32 minutes]_
 NOTES:
 _[33 minutes]_
 
-- Remember our header menu example from the Interactivity section?
+- Remember are header menu example from the Interactivity section?
 - Not sure if you noticed, but we had transitions on hover for smoother transitions
 - Here's what the code would look like
 
@@ -1432,13 +1337,13 @@ _[33 minutes]_
 <!-- .element class="larger" -->
 
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '0s')">
-	<em><code>0s</code></em></a> |
+	<code>0s</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '200ms')">
 	<code>200ms</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '0.5s')">
 	<code>0.5s</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '1s')">
-	<strong><code>1s</code></strong></a> |
+	<code>1s</code></a> |
 <a href="javascript:$('section.stack.present section.present .square').css('transition-delay', '5s')">
 	<code>5s</code></a>
 
@@ -1565,7 +1470,7 @@ _[36 minutes]_
 
 <div style="display:flex;">
 	<div style="flex:0 0 28%;">
-		<iframe src="no-js/animation.html" style="width:475px;height:800px"></iframe>
+		<iframe src="../../no-js/animation.html" style="width:475px;height:800px"></iframe>
 	</div>
 	<div style="flex:0 0 70%;">
 		<pre><code data-trim>
@@ -1608,7 +1513,7 @@ _[37 minutes]_
 
 ## Keyframe `animation` demo
 
-[![Keyframe animation demo](img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
+[![Keyframe animation demo](../../img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
 
 NOTES:
 _[38 minutes]_
@@ -1671,22 +1576,11 @@ _[41 minutes]_
 
 /////
 
-![Sarah Etter](img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->  
-Sarah Etter
-
-<br />
-
-[<h2>CSS Performance & What is the Browser doing?</h2>](https://confoo.ca/en/2016/session/css-performance-what-is-the-browser-doing)
-
-Friday @ 13:00 in Hampstead
-
-/////
-
 ###### Animation
 
 ## CSS3 `transition` Browser support
 
-[![CSS3 transition browser support](img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
+[![CSS3 transition browser support](../../img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1696,7 +1590,7 @@ http://caniuse.com/#feat=css-transitions
 
 ###### Animation
 
-[![CSS Tricks - CSS3 transition](img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
+[![CSS Tricks - CSS3 transition](../../img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
 
 /////
 
@@ -1704,7 +1598,7 @@ http://caniuse.com/#feat=css-transitions
 
 ## CSS3 `animation` Browser support
 
-[![CSS3 animation browser support](img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
+[![CSS3 animation browser support](../../img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1714,7 +1608,7 @@ http://caniuse.com/#feat=css-animation
 
 ###### Animation
 
-[![CSS Tricks - CSS3 animation](img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
+[![CSS Tricks - CSS3 animation](../../img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
 
 =====
 
@@ -1728,14 +1622,14 @@ http://caniuse.com/#feat=css-animation
 NOTES:
 _[42 minutes]_
 
-- Interactivity with `:hover`
-- Functionality with HTML5 `<input>`
-- Layout with CSS3 `flexbox`
-- Animation with CSS3 `transition` & `animation`
+- Interactivity with :hover
+- Functionality with HTML5 input
+- Layout with CSS3 flexbox
+- Animation with CSS3 transition & animation
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -1743,11 +1637,11 @@ _[42 minutes]_
 
 /////
 
-![ConFoo logo](img/confoo-logo.png)   <!-- .element: style="background: #fff; padding: 20px" -->
+![Fossetcon logo](../../img/fossetcon-logo-dark.jpg)
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1757,9 +1651,9 @@ _[42 minutes]_
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
 
-# THANKS!     <!-- .element: style="-webkit-text-stroke: black 2px" -->
+# THANKS!
 
 NOTES:
 _[43 minutes]_
@@ -1768,20 +1662,9 @@ _[43 minutes]_
 
 # Questions?
 
-<br />
-
 ## Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github.com/benmvp](https://github.com/benmvp/)  
+[github.com/benmvp](https://github.com/benmvp/)
 
-<br />
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)
-
-<br />
-
-### _Demistifying ES6_, Tomorrow @ 3pm in Fontaine F
-
-NOTES:
-- Slides are on my Twitter profile and blog
-- I'll be speaking tomorrow at the same time in Fontaine F on ES6
