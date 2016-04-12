@@ -28,10 +28,10 @@
 }
 
 .reveal .mainFooter {
-	bottom: 5px;
+	bottom: 0;
 	border-top: solid 1px #d3d3d3;
 	display: flex;
-	font-size: 18px;
+	font-size: 23px;
 	left: 2%;
 	justify-content: space-between;;
 	padding: 5px;
