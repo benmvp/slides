@@ -104,41 +104,41 @@ _[2 minutes]_
 
 /////
 
-#### Sugar <!-- .element: style="color:blue;" -->  
+#### Sugar
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
-  <code>\_\_proto\_\_</code>  
-  Arrow functions  
-  Classes  
-  Default parameters  
-  Destructuring  
-  Object literal shorthand  
-  Modules  
-  Rest parameters  
-  Spread operator  
-  Tagged templates  
-  Template literals  
+    <code>\_\_proto\_\_</code>  
+    <div class="fragment highlight-blue" data-fragment-index="0">Arrow functions</div>
+    <div class="fragment highlight-blue" data-fragment-index="0">Classes</div>
+    <div class="fragment highlight-blue" data-fragment-index="0">Default parameters</div>
+    <div class="fragment highlight-blue" data-fragment-index="0">Destructuring</div>
+    <div class="fragment highlight-blue" data-fragment-index="0">Enhanced object literals</div>
+    Modules  
+    <div class="fragment highlight-blue" data-fragment-index="0">Rest parameters</div>
+    <div class="fragment highlight-blue" data-fragment-index="0">Spread operator</div>
+    Tagged templates  
+    <div class="fragment highlight-blue" data-fragment-index="0">Template literals</div>
 </div>
 
-#### Spice <!-- .element: style="color:red;" -->  
+#### Spice
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
-  Array APIs  
-  Block scoping  
-  `for-of`  
+  <div class="fragment highlight-red" data-fragment-index="0">Array APIs</div>
+  <div class="fragment highlight-red" data-fragment-index="0">Block scoping</div>
+  <div class="fragment highlight-red" data-fragment-index="0">`for-of`</div>
   Generators  
   Iterators  
   Maps  
   Math APIs  
   Module loaders  
   Number APIs  
-  Object APIs  
+  <div class="fragment highlight-red" data-fragment-index="0">Object APIs</div>
   Promises  
   Proxies  
   Reflect API  
   RegExp APIs  
   Sets  
-  String APIs  
+  <div class="fragment highlight-red" data-fragment-index="0">String APIs</div>
   Subclassable built-ins  
   Symbols  
   Tail calls  
