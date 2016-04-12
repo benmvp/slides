@@ -43,7 +43,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -52,7 +52,7 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Any of you who registered for Nodevember used Eventbrite to buy your ticket
@@ -170,35 +170,35 @@ _[4 minutes]_
 
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
   <div style="flex:0 0 10%;">
-    ![Google Chrome Logo](img/google-chrome-logo.png)
+    ![Google Chrome Logo](../../img/google-chrome-logo.png)
     65%
   </div>
   <div style="flex:0 0 10%">
-    ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
+    ![Mozilla Firefox Logo](../../img/mozilla-firefox-logo.png)
     74%
   </div>
   <div style="flex:0 0 10%">
-    ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
+    ![Microsoft Edge Logo](../../img/microsoft-edge-logo.png)
     84%
   </div>
   <div style="flex:0 0 10%">
-    ![Apple Safari Logo](img/apple-safari-logo.png)
+    ![Apple Safari Logo](../../img/apple-safari-logo.png)
     54%
   </div>
   <div style="flex:0 0 10%">
-    ![Opera Logo](img/opera-logo.png)
+    ![Opera Logo](../../img/opera-logo.png)
     65%
   </div>
   <div style="flex:0 0 10%">
-    ![Webkit Logo](img/webkit-logo.png)
+    ![Webkit Logo](../../img/webkit-logo.png)
     71%
   </div>
   <div style="flex:0 0 10%">
-    ![NodeJS Logo](img/nodejs-logo.png)
+    ![NodeJS Logo](../../img/nodejs-logo.png)
     59%
   </div>
   <div style="flex:0 0 10%">
-    ![iOS 9 Logo](img/ios9-logo.png)
+    ![iOS 9 Logo](../../img/ios9-logo.png)
     54%
   </div>
 </div>
@@ -220,7 +220,7 @@ NOTES:
 
 ### Transpiling ES6 &#8594; ES3/ES5
 
-![Babel ES6 Live Transpiling](img/es6/babel-es6-transpile.gif)
+![Babel ES6 Live Transpiling](../../img/es6/babel-es6-transpile.gif)
 
 NOTES:
 - Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
@@ -236,17 +236,17 @@ NOTES:
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between;">
   <div style="flex:0 0 25%">
-    [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
+    [![Traceur Logo](../../img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
     [Traceur](https://github.com/google/traceur-compiler)  
     59%
   </div>
   <div style="flex:0 0 25%">
-    [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
+    [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
     [Babel](https://babeljs.io/)   
     71%
   </div>
   <div style="flex:0 0 25%">
-    [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+    [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
     [TypeScript](http://www.typescriptlang.org/)  
     51%
   </div>
@@ -372,7 +372,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - But really this is pretty unimpressive
@@ -518,7 +518,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I dunno about you, but I find that quite... interesting
@@ -560,7 +560,7 @@ _[11 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I'm afraid that after we cover destructuring, you'll feel like this...
@@ -674,7 +674,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - How many people find destructuring to actually make the code _less_ readable?
@@ -744,7 +744,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/confused-urkel.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/confused-urkel.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - Now we're all sorts of confused...
@@ -1053,7 +1053,7 @@ for (i in list) {
 }
 ```
 
-![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
+![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
@@ -1423,7 +1423,7 @@ _[28.5 minutes]_
 
 /////
 
-![Nicholas Young](img/es6/nicholas-young-callbackless-asynchrony.jpg)
+![Nicholas Young](../../img/es6/nicholas-young-callbackless-asynchrony.jpg)
 
 ## Nicholas Young
 
@@ -1478,11 +1478,11 @@ _[29.5 minutes]_
 
 /////
 
-![Nodevember flyer](img/nodevember.png)
+![Nodevember flyer](../../img/nodevember.png)
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1495,7 +1495,7 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
 
 # THANKS!
 

@@ -7,8 +7,8 @@
 April 12, 2016  
 
 <div style="display:flex;justify-content:space-around;align-items:center;">
-    <img src="img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
-    <img src="img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
+    <img src="../../img/prdc2016/prdc-logo.png" alt="Prairie Dev Con Logo" />
+    <img src="../../img/prdc2016/sponsors.jpg" alt="Prairie Dev Con 2016 Sponsors" />
 </div>
 
 NOTES:
@@ -41,7 +41,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -52,12 +52,12 @@ _[1 minute]_
 
 <div style="display:flex">
 	<div style="flex:0 0 50%;">
-		<img src="img/prdc2016/winnipeg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Winnipeg on April 10, 2016" />
+		<img src="../../img/prdc2016/winnipeg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Winnipeg on April 10, 2016" />
 
         <p style="text-align:center">Winnipeg, MB, Canada</p>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/prdc2016/pittsburg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Pittsburg on April 10, 2016" />
+		<img src="../../img/prdc2016/pittsburg-weather-2016-04-10.png" style="width:50%;height:auto" alt="Weather in Pittsburg on April 10, 2016" />
 
         <p style="text-align: center">Pittsburg, CA, USA</p>
 	</div>
@@ -65,7 +65,7 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
@@ -75,7 +75,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/steph-curry-chris-paul-ankles.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/steph-curry-chris-paul-ankles.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I also absolutely love basketball - both playing & watching
@@ -107,7 +107,7 @@ with CSS `:hover`
 
 <br />
 
-![CSS Ikea table pun](img/puns/css-ikea.jpg)
+![CSS Ikea table pun](../../img/puns/css-ikea.jpg)
 
 NOTES:
 _[3 minutes]_
@@ -124,7 +124,7 @@ _[3 minutes]_
 
 ## Header navigation example
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 NOTES:
 - Header navigation menu that enables interactivity using the `:hover` CSS pseudo selector.
@@ -138,7 +138,7 @@ NOTES:
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 Uses an icon font!
 
@@ -159,7 +159,7 @@ _[4 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```html
 <header class="global-header">
@@ -198,7 +198,7 @@ _[5 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -237,7 +237,7 @@ _[6 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The JavaScript way:
 
@@ -267,7 +267,7 @@ _[7 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The CSS way:
 
@@ -302,7 +302,7 @@ _[8 minutes]_
 
 ## `@font-face` Browser support
 
-[![@font-face web fonts support](img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
+[![@font-face web fonts support](../../img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
 
 IE8+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -318,7 +318,7 @@ _[9 minutes]_
 
 ###### Interactivity
 
-[![HTML for Font Icon Usage by CSS Tricks](img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
+[![HTML for Font Icon Usage by CSS Tricks](../../img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
 
 https://css-tricks.com/html-for-icon-font-usage/
 
@@ -327,7 +327,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - Outside of the icon font stuff there was nothing really new here
@@ -342,7 +342,7 @@ with new HTML5 `<input>` types
 
 <br />
 
-![CSS Hobbit pun](img/puns/general-seo-expert-bar.jpg)
+![CSS Hobbit pun](../../img/puns/general-seo-expert-bar.jpg)
 
 NOTES:
 _[10 minutes]_
@@ -351,7 +351,7 @@ _[10 minutes]_
 
 ###### Functionality
 
-<iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+<iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
 NOTES:
 - We'll be working off of this beautiful form example
@@ -369,7 +369,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 45%;">
 
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
     <p class="fragment">Doesn't even require HTML5 support!</p>
 
@@ -443,7 +443,7 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
+<img src="../../img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
 special email-focused software keyboard!
 
 NOTES:
@@ -466,7 +466,7 @@ _[12 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
+<img src="../../img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
 special URL-focused software keyboard!
 
 NOTES:
@@ -489,7 +489,7 @@ _[13 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
+<img src="../../img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
 special number-focused software keyboard!
 
 NOTES:
@@ -515,7 +515,7 @@ _[14 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
+<img src="../../img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
 special telephone-focused software keyboard!
 
 NOTES:
@@ -560,7 +560,7 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
+<img src="../../img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
 native date picker UI!
 
 NOTES:
@@ -679,7 +679,7 @@ _[19 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div class="fragment" style="flex:0 0 48%;">
     <h4>JavaScript</h4>
@@ -721,7 +721,7 @@ _[20 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div style="flex:0 0 48%;">
     <h4>Pros</h4>
@@ -750,7 +750,7 @@ _[21 minutes]_
 
 ###### Functionality
 
-[![Wufoo - The Current State of HTML5 Forms](img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
+[![Wufoo - The Current State of HTML5 Forms](../../img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
 
 http://www.wufoo.com/html5/
 
@@ -766,7 +766,7 @@ with CSS3 `display:flex`
 
 <br />
 
-![CSS Hobbit pun](img/puns/css-hobbit.jpg)
+![CSS Hobbit pun](../../img/puns/css-hobbit.jpg)
 
 NOTES:
 _[22 minutes]_
@@ -1095,7 +1095,7 @@ NOTES:
 
 ## CSS3 Flexbox Browser support
 
-[![CSS3 Flexbox browser support](img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
+[![CSS3 Flexbox browser support](../../img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1109,13 +1109,13 @@ NOTES:
 
 ###### Layout
 
-[![CSS Tricks - A Complete Guide to Flexbox](img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[![CSS Tricks - A Complete Guide to Flexbox](../../img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 /////
 
 ###### Layout
 
-[![Solved by Flexbox](img/no-js/solved-by-flexbox.png)](http://philipwalton.github.io/solved-by-flexbox/)
+[![Solved by Flexbox](../../img/no-js/solved-by-flexbox.png)](http://philipwalton.github.io/solved-by-flexbox/)
 
 [Solved by Flexbox](http://philipwalton.github.io/solved-by-flexbox/)
 
@@ -1123,7 +1123,7 @@ NOTES:
 
 ###### Layout
 
-[![Flexbox froggy](img/no-js/flexbox-froggy.png)](http://flexboxfroggy.com/)
+[![Flexbox froggy](../../img/no-js/flexbox-froggy.png)](http://flexboxfroggy.com/)
 
 [Flexbox froggy](http://flexboxfroggy.com/)
 
@@ -1131,7 +1131,7 @@ NOTES:
 
 ###### Layout
 
-[![Flexbox defense](img/no-js/flexbox-defense.png)](http://www.flexboxdefense.com/)
+[![Flexbox defense](../../img/no-js/flexbox-defense.png)](http://www.flexboxdefense.com/)
 
 [Flexbox defense](http://www.flexboxdefense.com/)
 
@@ -1143,7 +1143,7 @@ with CSS3 `transition`
 
 <br />
 
-![CSS Wife pun](img/puns/css-wife.jpg)
+![CSS Wife pun](../../img/puns/css-wife.jpg)
 
 NOTES:
 _[29 minutes]_
@@ -1244,7 +1244,7 @@ _[30 minutes]_
 
 ###### Animation
 
-[![Use cases for CSS calc](img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc)
+[![Use cases for CSS calc](../../img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc)
 
 NOTES:
 - Vincent Pickering wrote a helpful blog posts on real-world use cases for `calc()`
@@ -1330,7 +1330,7 @@ _[32 minutes]_
 
 ###### Animation
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -1510,7 +1510,7 @@ _[36 minutes]_
 
 <div style="display:flex;">
 	<div style="flex:0 0 28%;">
-		<iframe src="no-js/animation.html" style="width:475px;height:800px"></iframe>
+		<iframe src="../../no-js/animation.html" style="width:475px;height:800px"></iframe>
 	</div>
 	<div style="flex:0 0 70%;">
 		<pre class="large"><code data-trim>
@@ -1549,7 +1549,7 @@ _[37 minutes]_
 
 ## Keyframe `animation` demo
 
-[![Keyframe animation demo](img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
+[![Keyframe animation demo](../../img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
 
 NOTES:
 _[38 minutes]_
@@ -1612,7 +1612,7 @@ _[41 minutes]_
 
 /////
 
-![Sarah Etter](img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->  
+![Sarah Etter](../../img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->  
 [Sarah Etter](https://twitter.com/SarahEtter_)
 
 <br />
@@ -1627,7 +1627,7 @@ Today @ 3:30p in Ambassador 2
 
 ## CSS3 `transition` Browser support
 
-[![CSS3 transition browser support](img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
+[![CSS3 transition browser support](../../img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1637,7 +1637,7 @@ http://caniuse.com/#feat=css-transitions
 
 ###### Animation
 
-[![CSS Tricks - CSS3 transition](img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
+[![CSS Tricks - CSS3 transition](../../img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
 
 /////
 
@@ -1645,7 +1645,7 @@ http://caniuse.com/#feat=css-transitions
 
 ## CSS3 `animation` Browser support
 
-[![CSS3 animation browser support](img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
+[![CSS3 animation browser support](../../img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1655,7 +1655,7 @@ http://caniuse.com/#feat=css-animation
 
 ###### Animation
 
-[![CSS Tricks - CSS3 animation](img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
+[![CSS Tricks - CSS3 animation](../../img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
 
 =====
 
@@ -1676,7 +1676,7 @@ _[42 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -1684,11 +1684,11 @@ _[42 minutes]_
 
 /////
 
-![Prairie Dev Con logo](img/prdc2016/prdc-logo.png)   <!-- .element: style="width: 50%" -->
+![Prairie Dev Con logo](../../img/prdc2016/prdc-logo.png)   <!-- .element: style="width: 50%" -->
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1698,7 +1698,7 @@ _[42 minutes]_
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
 
 # THANKS!     <!-- .element: style="-webkit-text-stroke: black 2px" -->
 

@@ -1,12 +1,12 @@
-# Sweet ES6
+# Demystifying ES6
 
 <br />
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DevWeek16](https://twitter.com/hashtag/devweek16)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ConFoo](https://twitter.com/hashtag/confoo)  
 <br />
-February 16, 2016  
+February 25, 2016  
 
 NOTES:
 - Hello, everyone! I'm going to get started
@@ -37,7 +37,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -46,7 +46,22 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/confoo2016/montreal-weather-2016-02-25.png" style="width:50%;height:auto" alt="Weather in Montreal on February 25, 2016" />
+
+        <p style="text-align:center">Montreal, QC, Canada</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="../../img/confoo2016/pittsburg-weather-2016-02-25.png" style="width:50%;height:auto" alt="Weather in Pittsburg on February 25, 2016" />
+
+        <p style="text-align: center">Pittsburg, CA, USA</p>
+	</div>
+</div>
+
+/////
+
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
@@ -56,7 +71,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/steph-curry-chris-paul-ankles.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/lebron-celebration.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I also absolutely love basketball - both playing & watching
@@ -131,7 +146,6 @@ NOTES:
 - Full list of features included in the ES6 specification
 - That's 30+ features!
 - 2 categories: sugar & spice
-  - Hence the name of the talk
   - SUGAR: Syntactic sugar. Mostly minor syntax upgrades that make code clearer
   - SPICE: Spicy new functionality like new operators, objects and APIs
 - But before we talking about the features let's start with a history lesson
@@ -149,9 +163,9 @@ _[4 minutes]_
 
 ###### History
 
-## 🗓 May 1995
+## May 1995
 
-<img src="img/es6/brendan-eich.jpg" style="height: 450px" />
+<img src="../../img/es6/brendan-eich.jpg" style="height: 450px" />
 
 ### Brendan Eich
 
@@ -178,7 +192,7 @@ NOTES:
 
 ###### History
 
-## 🗓 November 1996
+## November 1996
 
 <br />
 
@@ -200,128 +214,38 @@ _[5 minutes]_
 
 ###### History
 
-## 🗓 Jun 1997 — **ES1**
-## 🗓 Jun 1998 — **ES2**
-## 🗓 Dec 1999 — **ES3**  <!-- .element: class="fragment highlight-red" data-fragment-index="0" -->  
+## Jun 1997 — **ES1**
+## Jun 1998 — **ES2**
+## Dec 1999 — **ES3**  <!-- .element: class="fragment highlight-green" data-fragment-index="0" -->  
+## Dec 2009 — **ES5**  <!-- .element: class="fragment highlight-blue" data-fragment-index="1" -->  
+## Jun 2015 — **ES6**  <!-- .element: class="fragment highlight-red" data-fragment-index="2" -->  
+## Jun 2016 — **ES7**
 
 NOTES:
 _[6 minutes]_
 
-- First version of ECMAScript spec was released in June 1997
+- First version of ECMAScript spec was released in `June 1997`
 - ECMAScript 2 was released a year later with only minor changes
 - 18 months later ECMAScript 3 (**[NEXT]**) was released
   - Included features like regular expressions, try/catch & numeric formatting
-- ES3 is the version of JavaScript in IE8
-- ES3 is the modern JavaScript baseline
-
-/////
-
-###### History
-
-# 🕙
-## 10 year absence!
-
-<br />
-
-### ES3.1 vs ES4
-
-NOTES:
-- And then there was a 10 year absence
-- ES4 was going to be a massive upgrade
-- Work on the spec stopped in `2003`
-- In `Feb 2005` Jesse James Garrett coined AJAX in a white paper
-- Work resumed in `Fall 2005`
-- Split between ES 3.1 (Microsoft & Yahoo) & ES4 (Google, Adobe, Mozilla & Opera)
-- Microsoft/Yahoo wanted an incremental upgrade
-- Others still wanted the massive upgrade
-- Deep rift formed, but was finally resolved in `June 2008`
-
-/////
-
-###### History
-
-## 🗓 December 2009
-
-<br />
-
-### ECMAScript 5
-
-<br />
-
-strict mode | JSON | `.map()`/`.forEach()` | `O.keys()` | accessors
-
-NOTES:
-_[8 minutes]_
-
-- Scrapped ES4, and released ES5 in `December 2009`
-  - ECMAScript 4 became the lost version
-- Essentially what was ECMAScript 3.1 became ECMAScript 5
-- ES5 is the version of JavaScript that most developers are familiar with
+  - ES3 is the version of JavaScript in IE8
+- ES5 was released in `December 2009` (**[NEXT]**)
   - It's in all of our modern browsers
   - Features: strict mode, JSON, `.map()/.forEach()`, `O.keys()`, property accessors
-- Rest of ES4 features: "ECMAScript Harmony"
-
-/////
-
-###### History
-
-## 🗓 June 2015
-
-<br />
-
-### ECMAScript 6!
-
-<br />
-
-ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
-
-NOTES:
-_[9 minutes]_
-
-- TC39 quickly realized that it was _still_ too big so they broke it up into 2 pieces
-- The high priority features would be in "ECMAScript.next" and the rest would be in a follow-up version
-- "ECMAScript.next" became "ECMAScript 6" as the features matured
-- It was officially released in `June 2015`
-- But then TC39 to move to a yearly cadence w/ formalized proposal process so they renamed it to "ECMAScript 2015"
-- But it was called ES6 for so long that lots of people still call it that
-- Spec is 566 pages (compared to 252 for ES5)
-
-/////
-
-###### History
-
-## 🗓 June 2016
-
-<br />
-
-### ECMAScript 2016
-
-<br />
-
-`Array.prototype.includes` | `x ** y`
-
-<br />
-
-[ECMAScript current proposals](https://github.com/tc39/ecma262)
-
-NOTES:
-_[10 minutes]_
-
-- New ECMAScript features have to be in Stage 4 by at a cut off date to be included in the next version
-- The cutoff date for ECMAScript 2016 (formerly known as ES7) was `January 28, 2016` and only 2 features were in that stage
-- `Array.prototype.includes`
-- Exponentiation operator (`**`)
-- It should be officially released in `June 2016`
-- Until a feature is in Stage 4 we cannot assume it will be in a specific version
-  - We all thought `async` & `await` would be in ECMAScript 2016
-- Pretty much the cut-off will be late January every year
+  - 10 year difference was rift which caused ES4 to be lost spec
+- ES6, what we're here for, released in `June 2015` (**[NEXT]**)
+  - Another big gap because spec is so big
+  - ES Harmony ➜ ES.next ➜ ES6 ➜ ES2015
+  - Yearly cadence
+- ES7 will be released in `June 2016`
+  - Only will have 2 features
 
 =====
 
 # ES6 Features
 
 NOTES:
-_[11 minutes]_
+_[8 minutes]_
 
 /////
 
@@ -368,7 +292,7 @@ notify('Hi!', {type:'warn', canClose:false});
 How can we clean/shorten this code up?
 
 NOTES:
-_[13 minutes]_
+_[10 minutes]_
 
 - Take a look at this code for a bit while I talk
 - It's a function that will display a notification message
@@ -435,10 +359,12 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - But really this is pretty unimpressive
+- Bug fix masquerading as a feature
+- It's really how `var` should've worked all along
 - More so fixing a deficiency rather than supplying new functionality
 
 /////
@@ -466,6 +392,7 @@ NOTES:
 - One interesting thing is that if an object is `const` its properties are not
   - You can still assign to them
   - Need to use `Object.freeze`
+  - Or immutable.js from Facebook
 
 /////
 
@@ -498,7 +425,7 @@ NOTES:
 Replace function body code with function header defaults
 
 NOTES:
-_[16 minutes]_
+_[13 minutes]_
 
 - It's called default parameters
 - With default parameters we can move our defaulting logic into the function header
@@ -581,13 +508,6 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- I dunno about you, but I find that quite... interesting
-
-/////
-
 ```js
 function notify(msg, options = {}) {
   let type = options.type || 'info';
@@ -614,7 +534,7 @@ NOTES:
 Replace multiple assignments with a single one
 
 NOTES:
-_[18 minutes]_
+_[15 minutes]_
 
 - It's called Destructuring
 - With destructuring we can reduce multiple assignments down to one
@@ -623,7 +543,7 @@ _[18 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I'm afraid that after we cover destructuring, you'll feel like this...
@@ -738,7 +658,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/no-way-mickey-mouse.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - How many people find destructuring to actually make the code _less_ readable?
@@ -755,7 +675,7 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2016-02-16');
+let [, yr, mo, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec('2016-02-25');
     // yr='2015', mo='11', day='14'
 ```
 
@@ -807,13 +727,9 @@ NOTES:
 - This conveys the point that just because you _can_ do it doesn't mean you _should_
 - You can revisit this slide if you really want to try and understand what's going on
 
-/////
+=====
 
-<!-- .slide: data-background="url(img/giphy/confused-urkel.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- Now we're all sorts of confused...
-- Let's just move on to a new problem...
+# Quick Hits
 
 =====
 
@@ -921,7 +837,6 @@ console.log(first, rest);
 NOTES:
 - One last thing with rest parameters
 - They can be combined with array destructuring to replace `slice`
-
 - Now, let's take a look at yet another problem
 
 =====
@@ -938,7 +853,7 @@ console.log(maxValueNormal, maxValueFromArray);
 `Math.max.apply`???
 
 NOTES:
-_[24 minutes]_
+_[21 minutes]_
 
 - `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
 - If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
@@ -1069,7 +984,7 @@ for (var i = 0; i < list.length; i++) {
 ```
 
 NOTES:
-_[27 minutes]_
+_[24 minutes]_
 
 - Over the last 2 decades of JavaScript, developers have iterated over array elements using the basic `for` loop
 - You have to:
@@ -1110,7 +1025,7 @@ for (i in list) {
 }
 ```
 
-![Dikembe Mutombo No No No](img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
+![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
 
 NOTES:
 - You may be tempted to use the `for-in` loop to iterate over an array because it exists in other languages like Python
@@ -1130,9 +1045,9 @@ ES5: `forEach` method
 ```js
 var list = [8, 3, 11, 9, 6];
 
-list.forEach(function(value, i)) {
+list.forEach(function(value, i) {
   console.log(value);
-};
+});
 ```
 
 What about `break`, `continue` & `return`?
@@ -1205,7 +1120,7 @@ console.log('This is multi-line text, so\n' +
 Good ol' string concatenation
 
 NOTES:
-_[29 minutes]_
+_[26 minutes]_
 
 - Let's jump to another issue
 - We usually don’t build string in JS anymore
@@ -1279,7 +1194,7 @@ MyObj.prototype.update = function() {
 Where's the bug?
 
 NOTES:
-_[31 minutes]_
+_[28 minutes]_
 
 - Can anyone spot the mistake in this code?
 - We're passing a callback to `done` of the `get` ajax request
@@ -1450,7 +1365,7 @@ console.log(myTodo.toString());
 Create classes via constructor functions
 
 NOTES:
-_[35 minutes]_
+_[32 minutes]_
 
 - Hitting the home stretch now
 - Does anybody these days create "classes" using vanilla JavaScript these days?
@@ -1607,8 +1522,7 @@ class Todo {
 
 ```js
 function Todo(content, completed) {
-    this.content = content;
-    this.completed = completed;
+    ...
 }
 Todo.add = function() {
 
@@ -1761,7 +1675,7 @@ var Car = Backbone.Model.extend({
 ```
 
 NOTES:
-_[42 minutes]_
+_[39 minutes]_
 
 - For our final feature, let's revisit class factories
 - Remember we're passing a big object literal that contains the class configuration
@@ -1836,7 +1750,7 @@ NOTES:
 1. Object literal shorthand <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->
 
 NOTES:
-_[44 minutes]_
+_[41 minutes]_
 
 - As a reminder, here's what we covered to make our code clearer and more succinct
 - I know I went through it pretty quickly, so if you didn't get it at all, they're recording this talk so you can always revisit later
@@ -1848,7 +1762,7 @@ _[44 minutes]_
 Native execution vs. Transpiling
 
 NOTES:
-_[45 minutes]_
+_[42 minutes]_
 
 - Before we wrap up, let's quickly talk about how we can use these features now
 
@@ -1861,36 +1775,36 @@ _[45 minutes]_
 
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
 <div style="flex:0 0 10%;">
-  ![Google Chrome Logo](img/google-chrome-logo.png)
+  ![Google Chrome Logo](../../img/google-chrome-logo.png)
   91%
 </div>
 <div style="flex:0 0 10%">
-  ![Mozilla Firefox Logo](img/mozilla-firefox-logo.png)
+  ![Mozilla Firefox Logo](../../img/mozilla-firefox-logo.png)
   85%
 </div>
 <div style="flex:0 0 10%">
-  ![Microsoft Edge Logo](img/microsoft-edge-logo.png)
+  ![Microsoft Edge Logo](../../img/microsoft-edge-logo.png)
   83%
 </div>
 <div style="flex:0 0 10%">
-  ![Apple Safari Logo](img/apple-safari-logo.png)
-  54%
+  ![Apple Safari Logo](../../img/apple-safari-logo.png)
+  56%
 </div>
 <div style="flex:0 0 10%">
-  ![Opera Logo](img/opera-logo.png)
+  ![Opera Logo](../../img/opera-logo.png)
   91%
 </div>
 <div style="flex:0 0 10%">
-  ![Webkit Logo](img/webkit-logo.png)
+  ![Webkit Logo](../../img/webkit-logo.png)
   83%
 </div>
 <div style="flex:0 0 10%">
-  ![NodeJS Logo](img/nodejs-logo.png)
-  57%
+  ![NodeJS Logo](../../img/nodejs-logo.png)
+  59%
 </div>
 <div style="flex:0 0 10%">
-  ![iOS 9 Logo](img/ios9-logo.png)
-  54%
+  ![iOS 9 Logo](../../img/ios9-logo.png)
+  56%
 </div>
 </div>
 
@@ -1912,7 +1826,7 @@ NOTES:
 
 ### Transpiling ES6 &#8594; ES3/ES5
 
-![Babel ES6 Live Transpiling](img/es6/babel-es6-transpile.gif)
+![Babel ES6 Live Transpiling](../../img/es6/babel-es6-transpile.gif)
 
 NOTES:
 - Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
@@ -1926,19 +1840,19 @@ NOTES:
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between;">
     <div style="flex:0 0 25%">
-      [![Traceur Logo](img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
+      [![Traceur Logo](../../img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
       [Traceur](https://github.com/google/traceur-compiler)  
-      61%
+      60%
     </div>
     <div style="flex:0 0 25%">
-      [![Babel Logo](img/es6/babel-logo.png)](https://babeljs.io/)   
+      [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
       [Babel](https://babeljs.io/)   
-      76%
+      73%
     </div>
     <div style="flex:0 0 25%">
-      [![TypeScript Logo](img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+      [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
       [TypeScript](http://www.typescriptlang.org/)  
-      56%
+      57%
     </div>
 </div>
 
@@ -1965,8 +1879,9 @@ NOTES:
 - [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
 
 NOTES:
-_[48 minutes]_
+_[45 minutes]_
 
+- Shameless plug!
 - You can also check out my blog where I go into detail about every feature I covered
 - Other great books & blogs about ES6 too!
 
@@ -1976,11 +1891,11 @@ _[48 minutes]_
 
 /////
 
-![DeveloperWeek 2016 logo](img/developer-week-2016-logo.png)
+![ConFoo logo](../../img/confoo-logo.png)   <!-- .element: style="background: #fff; padding: 20px" -->
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1993,12 +1908,12 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain"-->
 
-# THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
+# THANKS!     <!-- .element: style="-webkit-text-stroke: black 2px" -->
 
 NOTES:
-_[50 minutes]_
+_[47 minutes]_
 
 /////
 
@@ -2010,3 +1925,6 @@ _[50 minutes]_
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp)
+
+NOTES:
+- Slides are on my Twitter profile and blog

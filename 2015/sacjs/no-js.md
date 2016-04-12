@@ -1,4 +1,4 @@
-<!-- .slide: data-background="url(img/giphy/no-no-no-mutombo.gif) no-repeat center" data-background-size="contain" style="background-color:rgba(0,0,0,.25);bottom:0;" -->
+<!-- .slide: data-background="url(../../img/giphy/no-no-no-mutombo.gif) no-repeat center" data-background-size="contain" style="background-color:rgba(0,0,0,.25);bottom:0;" -->
 
 # You don't need JavaScript for that!
 
@@ -40,7 +40,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
+		<img src="../../img/family-nyc.jpg" style="width:100%;height:auto" alt="Family in NYC" />
 	</div>
 </div>
 
@@ -49,7 +49,7 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
@@ -59,7 +59,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -80,7 +80,7 @@ _[2 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/lost-dont-tell-me-what-i-cant-do.gif) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/giphy/lost-dont-tell-me-what-i-cant-do.gif) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - Now I know the title of my talk is a bit bold & some people respond differently to suggestions, but I'm hoping you're coming with an open mind
@@ -91,7 +91,7 @@ NOTES:
 
 with CSS `:hover`
 
-![CSS wife pun](img/puns/css-wife.jpg)
+![CSS wife pun](../../img/puns/css-wife.jpg)
 
 NOTES:
 _[3 minutes]_
@@ -106,7 +106,7 @@ _[3 minutes]_
 
 ## Header navigation example
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 NOTES:
 - Header navigation menu that enables interactivity using the `:hover` CSS pseudo selector.
@@ -120,7 +120,7 @@ NOTES:
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 Uses an icon font!
 
@@ -138,7 +138,7 @@ _[4 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```html
 <header class="global-header">
@@ -176,7 +176,7 @@ _[5 minutes]_
 
 ###### Interactivity
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -222,7 +222,7 @@ _[6 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The JavaScript way:
 
@@ -251,7 +251,7 @@ _[7 minutes]_
 
 ## Hover support
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 The CSS way:
 
@@ -292,7 +292,7 @@ _[8 minutes]_
 
 ## `@font-face` Browser support
 
-[![@font-face web fonts support](img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
+[![@font-face web fonts support](../../img/no-js/font-face-support.png)](http://caniuse.com/#feat=fontface)
 
 IE8+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -308,7 +308,7 @@ _[9 minutes]_
 
 ###### Interactivity
 
-[![HTML for Font Icon Usage by CSS Tricks](img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
+[![HTML for Font Icon Usage by CSS Tricks](../../img/no-js/css-tricks-html-for-font-icon-usage.png)](https://css-tricks.com/html-for-icon-font-usage/)
 
 https://css-tricks.com/html-for-icon-font-usage/
 
@@ -317,7 +317,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - Outside of the icon font stuff there was nothing really new here
@@ -330,7 +330,7 @@ NOTES:
 
 with new HTML5 `<input>` types
 
-![CSS Moses parts red sea pun](img/puns/css-moses-red-sea.jpg)
+![CSS Moses parts red sea pun](../../img/puns/css-moses-red-sea.jpg)
 
 NOTES:
 _[10 minutes]_
@@ -339,7 +339,7 @@ _[10 minutes]_
 
 ###### Functionality
 
-<iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+<iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
 NOTES:
 - We'll be working off of this beautiful form example
@@ -357,7 +357,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 45%;">
 
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
 
   </div>
   <div style="flex:0 0 52%;">
@@ -431,7 +431,7 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
+<img src="../../img/no-js/ios-email-keyboard.png" style="width:600px;" alt="iOS email software keyboard" /><br />
 special email-focused software keyboard!
 
 NOTES:
@@ -454,7 +454,7 @@ _[12 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
+<img src="../../img/no-js/ios-url-keyboard.png" style="width:600px;" alt="iOS url software keyboard" /><br />
 special URL-focused software keyboard!
 
 NOTES:
@@ -477,7 +477,7 @@ _[13 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
+<img src="../../img/no-js/ios-number-keyboard.png" style="width:600px;" alt="iOS number software keyboard" /><br />
 special number-focused software keyboard!
 
 NOTES:
@@ -503,7 +503,7 @@ _[14 minutes]_
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
+<img src="../../img/no-js/ios-telephone-keyboard.png" style="width:600px;" alt="iOS telephone software keyboard" /><br />
 special telephone-focused software keyboard!
 
 NOTES:
@@ -547,7 +547,7 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 <br />
-<img src="img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
+<img src="../../img/no-js/ios-date-keyboard.png" style="width:600px;" alt="iOS date software keyboard" /><br />
 native date picker UI!
 
 NOTES:
@@ -624,7 +624,7 @@ _[18 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/interesting-spock.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I dunno about you, but I find being able to use those native UIs quite... interesting
@@ -676,7 +676,7 @@ _[19 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div class="fragment" style="flex:0 0 48%;">
     <h4>JavaScript</h4>
@@ -718,7 +718,7 @@ _[20 minutes]_
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div style="flex:0 0 48%;">
-    <iframe src="no-js/functionality.html" style="width:100%;height:660px;"></iframe>
+    <iframe src="../../no-js/functionality.html" style="width:100%;height:660px;"></iframe>
   </div>
   <div style="flex:0 0 48%;">
     <h4>Pros</h4>
@@ -747,7 +747,7 @@ _[21 minutes]_
 
 ###### Functionality
 
-[![Wufoo - The Current State of HTML5 Forms](img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
+[![Wufoo - The Current State of HTML5 Forms](../../img/no-js/wufoo-html5-forms.png)](http://www.wufoo.com/html5/)
 
 http://www.wufoo.com/html5/
 
@@ -761,7 +761,7 @@ NOTES:
 
 with CSS3 `display:flex`
 
-![CSS titanic doesn't float pun](img/puns/css-titanic.jpg)
+![CSS titanic doesn't float pun](../../img/puns/css-titanic.jpg)
 
 NOTES:
 _[22 minutes]_
@@ -801,7 +801,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/taylor-swift-problems.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/taylor-swift-problems.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - And now we got all kinds of problems
@@ -1089,7 +1089,7 @@ NOTES:
 
 ## CSS3 Flexbox Browser support
 
-[![CSS3 Flexbox browser support](img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
+[![CSS3 Flexbox browser support](../../img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1099,7 +1099,7 @@ http://caniuse.com/#feat=flexbox
 
 ###### Layout
 
-[![CSS Tricks - A Complete Guide to Flexbox](img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+[![CSS Tricks - A Complete Guide to Flexbox](../../img/no-js/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 =====
 
@@ -1107,7 +1107,7 @@ http://caniuse.com/#feat=flexbox
 
 with CSS3 `transition`
 
-![CSS The Hulk pun](img/puns/css-the-hulk.jpg)
+![CSS The Hulk pun](../../img/puns/css-the-hulk.jpg)
 
 NOTES:
 _[29 minutes]_
@@ -1148,7 +1148,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/fallon-please-do-not-do-that.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/fallon-please-do-not-do-that.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - But please do not do that!
@@ -1215,7 +1215,7 @@ _[30 minutes]_
 
 ###### Animation
 
-[![Keyframe animation demo](img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc/)
+[![Keyframe animation demo](../../img/no-js/vincent-pickering-use-cases-for-calc.png)](http://vincentp.me/blog/use-cases-for-calc/)
 
 NOTES:
 - Vincent Pickering wrote a helpful blog posts on real-world use cases for `calc()`
@@ -1301,7 +1301,7 @@ _[32 minutes]_
 
 ###### Animation
 
-<iframe src="no-js/interactivity.html" style="width:100%;height:82px"></iframe>
+<iframe src="../../no-js/interactivity.html" style="width:100%;height:82px"></iframe>
 
 ```
 .header-nav-item {
@@ -1478,7 +1478,7 @@ _[36 minutes]_
 
 <div style="display:flex;">
 	<div style="flex:0 0 28%;">
-		<iframe src="no-js/animation.html" style="width:475px;height:800px"></iframe>
+		<iframe src="../../no-js/animation.html" style="width:475px;height:800px"></iframe>
 	</div>
 	<div style="flex:0 0 70%;">
 		<pre><code data-trim>
@@ -1521,7 +1521,7 @@ _[37 minutes]_
 
 ## Keyframe `animation` demo
 
-[![Keyframe animation demo](img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
+[![Keyframe animation demo](../../img/no-js/keyframe-animation-demo.png)](http://www.impressivewebs.com/demo-files/css3-animated-scene/)
 
 NOTES:
 _[38 minutes]_
@@ -1588,7 +1588,7 @@ _[41 minutes]_
 
 ## CSS3 `transition` Browser support
 
-[![CSS3 transition browser support](img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
+[![CSS3 transition browser support](../../img/no-js/css3-transition-browser-support.png)](http://caniuse.com/#feat=css-transitions)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1598,7 +1598,7 @@ http://caniuse.com/#feat=css-transitions
 
 ###### Animation
 
-[![CSS Tricks - CSS3 transition](img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
+[![CSS Tricks - CSS3 transition](../../img/no-js/css-tricks-transition-guide.png)](https://css-tricks.com/almanac/properties/t/transition/)
 
 /////
 
@@ -1606,7 +1606,7 @@ http://caniuse.com/#feat=css-transitions
 
 ## CSS3 `animation` Browser support
 
-[![CSS3 animation browser support](img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
+[![CSS3 animation browser support](../../img/no-js/css3-animation-browser-support.png)](http://caniuse.com/#feat=css-animation)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1616,7 +1616,7 @@ http://caniuse.com/#feat=css-animation
 
 ###### Animation
 
-[![CSS Tricks - CSS3 animation](img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
+[![CSS Tricks - CSS3 animation](../../img/no-js/css-tricks-animation-guide.png)](https://css-tricks.com/almanac/properties/a/animation/)
 
 =====
 
@@ -1637,7 +1637,7 @@ _[42 minutes]_
 
 /////
 
-<!-- .slide: data-background="url(img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/that-wasnt-so-bad.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -1645,11 +1645,11 @@ _[42 minutes]_
 
 /////
 
-![Sacramento JS logo](img/sacjs-logo.jpeg)
+![Sacramento JS logo](../../img/sacjs-logo.jpeg)
 
 /////
 
-![Eventbrite logo](img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite-logo.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1659,7 +1659,7 @@ _[42 minutes]_
 
 =====
 
-<!-- .slide: data-background="url(img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
+<!-- .slide: data-background="url(../../img/giphy/thanks-jack-sparrow.gif) no-repeat center" data-background-size="contain" class="thanks-slide"-->
 
 # THANKS!
 
