@@ -966,7 +966,7 @@ NOTES:
 
 /////
 
-Spread operator  
+### Spread operator
 Array &#8594; multiple parameters (function call)
 
 ```js
@@ -978,7 +978,7 @@ let maxValueFromArray = Math.max(...arrayOfValues);
 
 -----
 
-Rest operator  
+### Rest operator
 Multiple parameters &#8594; array (function header)
 
 ```js
@@ -1965,7 +1965,7 @@ NOTES:
 
 ### Transpiling ES6 &#8594; ES3/ES5
 
-![Babel ES6 Live Transpiling](../../img/es6/babel-es6-transpile.gif)
+[![Babel ES6 Live Transpiling](../../img/es6/babel-es6-transpile.gif)](https://babeljs.io/repl/)
 
 NOTES:
 - Transpiling lets you compile your ES6 code down to ES3/ES5 code for cross-browser compatibility
