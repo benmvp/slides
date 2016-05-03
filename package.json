@@ -1,22 +1,15 @@
 {
-  "name": "reveal.js",
+  "private": true,
   "version": "3.2.0",
-  "description": "The HTML Presentation Framework",
-  "homepage": "http://lab.hakim.se/reveal-js",
-  "subdomain": "revealjs",
+  "description": "Ben Ilegbodu's Speaking engagements",
   "main": "js/reveal.js",
   "scripts": {
     "test": "grunt test",
     "start": "grunt serve"
   },
-  "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "git://github.com/benmvp/slides.git"
   },
   "engines": {
     "node": "~4.1.1"
@@ -40,6 +33,6 @@
     "grunt": "~0.4.5",
     "node-sass": "~3.3.3"
   },
-  
+
   "license": "MIT"
 }
