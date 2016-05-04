@@ -37,7 +37,7 @@ Friday, May 6, 2016 @ 9:30a (Front-End)
 
 [_You don't need JavaScript for that!_](https://2016.syntaxcon.com/session/you-dont-need-javascript-for-that/)  
 Saturday, May 7, 2016 @ 10:30a (Front-End II)  
-[Code examples](/you-dont-need-js-for-that)  
+[Slides](http://www.benmvp.com/slides/2016/syntaxcon/no-js.html) | [Code examples](/you-dont-need-js-for-that)  
 
 ----------
 
