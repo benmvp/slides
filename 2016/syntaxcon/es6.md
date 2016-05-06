@@ -42,7 +42,7 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](../../img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
@@ -1874,7 +1874,7 @@ Tomorrow @ 1:30p in Front-End I
 
 /////
 
-![Eventbrite logo](../../img/eventbrite-logo.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
