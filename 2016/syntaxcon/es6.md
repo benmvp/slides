@@ -1742,35 +1742,35 @@ NOTES:
 
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
 	<div style="flex:0 0 10%;">
-	  ![Google Chrome Logo](../../img/google-chrome-logo.png)
-	  96%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Mozilla Firefox Logo](../../img/mozilla-firefox-logo.png)
-	  90%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Microsoft Edge Logo](../../img/microsoft-edge-logo.png)
-	  85%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Apple Safari Logo](../../img/apple-safari-logo.png)
-	  53%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Opera Logo](../../img/opera-logo.png)
-	  96%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Webkit Logo](../../img/webkit-logo.png)
+	  ![Google Chrome Logo](../../img/browsers/google-chrome-logo.png)
 	  98%
 	</div>
 	<div style="flex:0 0 10%">
-	  ![NodeJS Logo](../../img/nodejs-logo.png)
-	  56%
+	  ![Mozilla Firefox Logo](../../img/browsers/mozilla-firefox-logo.png)
+	  93%
 	</div>
 	<div style="flex:0 0 10%">
-	  ![iOS 9 Logo](../../img/ios9-logo.png)
+	  ![Microsoft Edge Logo](../../img/browsers/microsoft-edge-logo.png)
+	  90%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Apple Safari Technology Preview Logo](../../img/browsers/safari-technology-preview-logo.png)
+	  99%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Opera Logo](../../img/browsers/opera-logo.png)
+	  98%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Webkit Logo](../../img/browsers/webkit-logo.png)
+	  99%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![NodeJS Logo](../../img/browsers/nodejs-logo.png)
+	  93%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![iOS 9 Logo](../../img/browsers/ios9-logo.png)
 	  53%
 	</div>
 </div>
@@ -1781,11 +1781,8 @@ NOTES:
 [ECMAScript 6 Compatibility Table](http://kangax.github.io/compat-table/es6/)
 
 NOTES:
-- ES6 support is pretty mixed. Chrome Canary is at 97% while Safari is at an abysmal 54%
-- Node 5 is lagging behind, although Node 6 should have significantly more features
-- It's already April of 2016 and ES2016 spec is coming soon
-  - They haven't even finished ES2015 yet!
-- I think this is why they decided to go to a yearly cadence to keep specs from being too big
+- ES6 support is pretty good now.
+- iOS is still lagging behind
 - You may notice IE missing from the list. None of them support ES6
 - Only option is transpiling
 
