@@ -45,6 +45,36 @@ _[1 minute]_
 
 /////
 
+<div style="display:flex;align-items:flex-end">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/ndcoslo2016/oslo-945pm.jpg" alt="Oslo, Norway @ 9:45PM" />
+
+        <p style="text-align:center">Oslo @ 9:45PM</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="../../img/ndcoslo2016/oslo-330am.jpg" alt="Oslo, Norway @ 3:30AM" />
+
+        <p style="text-align: center">Oslo @ 3:30AM</p>
+	</div>
+</div>
+
+/////
+
+<div style="display:flex">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/ndcoslo2016/oslo-weather-2016-06-09.png" style="width:50%;height:auto" alt="Weather in Oslo, Norway on June 9, 2016" />
+
+        <p style="text-align:center">Oslo, Norway</p>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="../../img/ndcoslo2016/pittsburg-weather-2016-06-09.png" style="width:50%;height:auto" alt="Weather in Pittsburg, CA on June 9, 2016" />
+
+        <p style="text-align: center">Pittsburg, CA, USA</p>
+	</div>
+</div>
+
+/////
+
 ![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
 
 NOTES:
