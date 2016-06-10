@@ -1,6 +1,10 @@
 # You don't need JavaScript for that!
 
+<br />
+
 ## Ben Ilegbodu
+
+<br />
 
 [@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ndcoslo](https://twitter.com/hashtag/ndcoslo)  
 
@@ -9,6 +13,7 @@ June 10, 2016
 NOTES:
 - How many folks here would call themselves web developers?
 - How many of you use toolkits/libraries like jQuery?
+- This talk is geared towards fringe front-end developers
 - The goal of this talk is to highlight ways that you can use HTML & CSS to replace functionality we previously could only accomplish w/ JavaScript
 - I'm not hating on JavaScript
   - Giving a talk tomorrow on new functionality added to JS with ES6
