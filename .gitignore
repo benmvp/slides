@@ -1,3 +1,8 @@
+.idea/
+*.iml
+*.iws
+*.eml
+out/
 .DS_Store
 .svn
 log/*.log
@@ -6,5 +11,3 @@ node_modules/
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
-*.sublime-project
-*.sublime-workspace
