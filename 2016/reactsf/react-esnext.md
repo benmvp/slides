@@ -184,6 +184,38 @@ NOTES:
 
 =====
 
+How can we modularize this code?
+
+```js
+var Comment = React.createClass({
+    // code using Remarkable dependency
+});
+var CommentList = React.createClass({
+    // code using Comment
+});
+var CommentForm = React.createClass({
+    // code
+});
+var App = React.createClass({
+    // code using CommentForm & CommentList
+});
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Start with birds-eye view
+- One big JS file
+- Relying on `React`, `ReactDOM` & other dependencies being include by `<script>` tags in global scope
+- React is all about reusable & composable components, but these aren't really reusable
+- Also going to need data/API/utility libraries
+- This obviously isn't scalable
+
+/////
+
 # Modules
 
 Replace one file with many files
@@ -193,7 +225,111 @@ Replace one file with many files
 
 [2ality.com/2014/09/es6-modules-final.html](http://www.2ality.com/2014/09/es6-modules-final.html)
 
+/////
+
+`/components/Comment.js`
+```js
+import React from 'react';
+import Remarkable from 'remarkable';
+
+var Comment = React.createClass({
+    // code using Remarkable module
+});
+
+export default Comment;
+```
+
+`/components/CommentList.js`
+```js
+import React from 'react';
+import Comment from './Comment';
+
+var CommentList = React.createClass({
+    // code using Comment
+});
+
+export default CommentList;
+```
+
+NOTES:
+- After some Babel & Webpack magic...
+- We have separate files that use ES6 `import` & `export`
+- Explicitly using `React` & `Remarkable`
+- `Comment.js` exports `Comment` as default `export`, so...
+- `CommentList` component can `import` as default
+- Exporting implicitly makes the file a module enabling it be reused
+
+/////
+
+`/containers/App.js`
+```js
+import React from 'react';
+import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
+
+var App = React.createClass({
+    // code using CommentForm & CommentList
+});
+
+export default App;
+```
+
+`/index.js`
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './containers/App';
+
+ReactDOM.render(
+    <App url="//localhost:3000/api/comments" pollInterval={2000} />,
+    document.getElementById('app')
+);
+```
+
+NOTES:
+- Skipping `CommentForm` - nothing special
+- `App.js` is similar to `CommentList.js`. It imports both `CommentList` & `CommentForm`
+- `index.js` is now its own file pulling in `React`, `ReactDOM` and `App`. It's the only file that's not a module
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- Chances are if you're using React, you're already modularizing your code, so this is nothing new
+- Starting slow, trying to tackle the overall structure first before delving into smaller features
+
 =====
+
+Class factory creates component
+
+```js
+var CommentForm = React.createClass({
+    propTypes: {
+        onCommentSubmit: React.PropTypes.func.isRequired
+    },
+    _handleSubmit: function() {
+        // form submission handling
+    },
+    getInitialState: function() {
+        return {author: '', text: ''};
+    },
+    render: function() {
+        <form onSubmit={this._handleSubmit} />
+    }
+});
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Now lets take a look at `CommentForm`
+- The React component is a JS "class" with static properties & methods
+- `React.createClass` is a class factory function that takes a huge object literal and creates the class
+- This is certainly better than creating a class "manually" via constructor functions
+- It basically allows for a lot of "magic" to happen before the class is actually created
+- Callback handlers are auto-bound
+
+/////
 
 # Classes
 
@@ -206,6 +342,111 @@ Replace class factories with `class` syntax
 
 NOTES:
 - Now we can replace assigning to the prototype or using custom class factories with native class syntax
+
+/////
+
+ES6 classes!
+
+```js
+class CommentForm extends React.Component {
+    getInitialState() {
+        return {author: '', text: ''};
+    }
+    _handleSubmit() {
+        // form submission handling
+    }
+    render() {
+        <form onSubmit={this._handleSubmit.bind(this)} />
+    }
+}
+CommentForm.propTypes = {
+    onCommentSubmit: React.PropTypes.func.isRequired
+};
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `class` keyword
+- `extends` `React.Component`
+- `propTypes` now added afterwards as static properties
+- Methods don't have `function` keyword
+- Have to `.bind(this)` (no more auto-binding)
+- React had to do a lot of work to make this all work
+- Annoying that static properties have to be defined after
+
+/////
+
+```js
+class CommentForm extends React.Component {
+    static propTypes = {
+        onCommentSubmit: React.PropTypes.func.isRequired
+    }
+    state = {author: '', text: ''}
+
+    _handleSubmit() {
+        // form submission handling
+    }
+    render() {
+        <form onSubmit={this._handleSubmit.bind(this)} />
+    }
+}
+```
+<!-- .element: class="large" -->
+
+[ES Class Fields & Static Properties](https://github.com/jeffmo/es-class-fields-and-static-properties) (Stage 1)
+
+NOTES:
+- Using class property declarations we can bring everything within the `class` definition
+
+/////
+
+Named imports + immediate export!
+
+```js
+import React, {Component, PropTypes} from 'react';
+
+export default class CommentForm extends Component {
+    static propTypes = {
+        onCommentSubmit: PropTypes.func.isRequired
+    }
+    state = {author: '', text: ''}
+
+    render() {
+        <form onSubmit={this._handleSubmit.bind(this)} />
+    }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- We can pull out the named imports, `Component` & `PropTypes`
+- Can also immediately export the class as `default`
+
+/////
+
+Pull out `INITIAL_STATE` as a constant
+
+```js
+import React, {Component, PropTypes} from 'react';
+
+var INITIAL_STATE = {author: '', text: ''};
+
+export default class CommentForm extends Component {
+    static propTypes = {
+        onCommentSubmit: PropTypes.func.isRequired
+    }
+    state = INITIAL_STATE
+
+    render() {
+        <form onSubmit={this._handleSubmit.bind(this)} />
+    }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- One last thing, is to pull out the initial state into a constant variable so that later you can reset the state when the form is submitted
+- But what if there was a way to really make it a constant...
 
 =====
 
@@ -222,6 +463,109 @@ NOTES:
 - In fact there are two: `let` & `const`
 - Together they're called Block scoping
 - With block scoping we can replace `var` with `let` & `const`
+
+/////
+
+Real constants!
+
+```js
+import React, {Component, PropTypes} from 'react';
+
+const INITIAL_STATE = {author: '', text: ''};
+
+export default class CommentForm extends Component {
+    static propTypes = {
+        onCommentSubmit: PropTypes.func.isRequired
+    }
+    state = INITIAL_STATE
+
+    render() {
+        <form onSubmit={this._handleSubmit.bind(this)} />
+    }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- We use `const` because it's a constant! Finally!
+- Variable declared `const` cannot be reassigned
+- Also a variable declared `const` must be initialized
+
+/////
+
+```js
+_handleSubmit(e) {
+    e.preventDefault();
+
+    var author = this.state.author;
+    var text = this.state.text;
+
+    if (!text || !author) {
+        return;
+    }
+
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState(INITIAL_STATE);
+}
+```
+<!-- .element: class="large" -->
+
+[`var` hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
+
+NOTES:
+- Let's zoom into the `_handleSubmit` method
+- We've got a couple of `var` declarations up top
+- We really want to call `e.preventDefault()` immediately, but `var` declarations need to be first because of variable hoisting
+- No time to explain variable hoisting
+
+/////
+
+```js
+_handleSubmit(e) {
+    e.preventDefault();
+
+    let author = this.state.author;
+    let text = this.state.text;
+
+    if (!text || !author) {
+        return;
+    }
+
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState(INITIAL_STATE);
+}
+```
+<!-- .element: class="large" -->
+
+No more variable hoisting!
+
+/////
+
+```js
+_handleSubmit(e) {
+    e.preventDefault();
+
+    const author = this.state.author;
+    const text = this.state.text;
+
+    if (!text || !author) {
+        return;
+    }
+
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState(INITIAL_STATE);
+}
+```
+<!-- .element: class="large" -->
+
+Don't [`prefer-const`](http://eslint.org/docs/rules/prefer-const)!
+
+NOTES:
+- There's a popular trend to always use `const` when you can and only use `let` when you need to reassign
+- I'm personally against this trend because it dilutes what `const` means
+- I believe it's kind of a way to simulate immutability, but it's not at all
+- We don't do this in other programming languages
+- Plus, just because a variable is `const`, doesn't mean it can't be changed. If it's an object, properties cn be changed
 
 =====
 
@@ -387,6 +731,7 @@ https://github.com/benmvp/react-esnext
 - [_Learning ES6_](/learning-es6-series/)
 - [Eventbrite React styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [`eslint-config-eventbrite-react`](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
+- [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
 
 =====
 
