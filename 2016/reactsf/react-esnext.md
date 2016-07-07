@@ -227,6 +227,8 @@ Replace one file with many files
 
 /////
 
+###### Modules
+
 `/components/Comment.js`
 ```js
 import React from 'react';
@@ -260,6 +262,8 @@ NOTES:
 - Exporting implicitly makes the file a module enabling it be reused
 
 /////
+
+###### Modules
 
 `/containers/App.js`
 ```js
@@ -345,6 +349,8 @@ NOTES:
 
 /////
 
+###### Classes
+
 ES6 classes!
 
 ```js
@@ -376,6 +382,8 @@ NOTES:
 
 /////
 
+###### Classes
+
 ```js
 class CommentForm extends React.Component {
     static propTypes = {
@@ -400,6 +408,8 @@ NOTES:
 
 /////
 
+###### Classes
+
 Named imports + immediate export!
 
 ```js
@@ -423,6 +433,8 @@ NOTES:
 - Can also immediately export the class as `default`
 
 /////
+
+###### Classes
 
 Pull out `INITIAL_STATE` as a constant
 
@@ -466,6 +478,8 @@ NOTES:
 
 /////
 
+###### Block scoping
+
 Real constants!
 
 ```js
@@ -493,6 +507,10 @@ NOTES:
 
 /////
 
+###### Block scoping
+
+[`var` hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
+
 ```js
 _handleSubmit(e) {
     e.preventDefault();
@@ -510,8 +528,6 @@ _handleSubmit(e) {
 ```
 <!-- .element: class="large" -->
 
-[`var` hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
-
 NOTES:
 - Let's zoom into the `_handleSubmit` method
 - We've got a couple of `var` declarations up top
@@ -519,6 +535,10 @@ NOTES:
 - No time to explain variable hoisting
 
 /////
+
+###### Block scoping
+
+No more variable hoisting!
 
 ```js
 _handleSubmit(e) {
@@ -537,9 +557,11 @@ _handleSubmit(e) {
 ```
 <!-- .element: class="large" -->
 
-No more variable hoisting!
-
 /////
+
+###### Block scoping
+
+Don't [`prefer-const`](http://eslint.org/docs/rules/prefer-const)!
 
 ```js
 _handleSubmit(e) {
@@ -558,8 +580,6 @@ _handleSubmit(e) {
 ```
 <!-- .element: class="large" -->
 
-Don't [`prefer-const`](http://eslint.org/docs/rules/prefer-const)!
-
 NOTES:
 - There's a popular trend to always use `const` when you can and only use `let` when you need to reassign
 - I'm personally against this trend because it dilutes what `const` means
@@ -568,6 +588,29 @@ NOTES:
 - Plus, just because a variable is `const`, doesn't mean it can't be changed. If it's an object, properties cn be changed
 
 =====
+
+```js
+_handleSubmit(e) {
+    e.preventDefault();
+
+    let author = this.state.author;
+    let text = this.state.text;
+
+    if (!text || !author) {
+        return;
+    }
+
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState(INITIAL_STATE);
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Back to our code using `let`
+- You will see that we're pulling out `author` & `text` from `this.state` and assigning to variables of the same name
+
+/////
 
 # Destructuring
 
@@ -592,7 +635,247 @@ NOTES:
 - I'm afraid that after we cover destructuring, you'll feel like this...
 - But stick with me...
 
-=====
+/////
+
+###### Destructuring
+
+Single assignment statement!
+
+```js
+_handleSubmit(e) {
+    e.preventDefault();
+
+    let {author, text} = this.state;
+
+    if (!text || !author) {
+        return;
+    }
+
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState(INITIAL_STATE);
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- With destructuring we can combine the two statements into one
+
+/////
+
+###### Destructuring
+
+Object destructuring!
+
+```js
+// before
+let author = this.state.author;
+let text = this.state.text;
+
+// after
+let {author, text} = this.state;
+```
+<!-- .element: class="large" -->
+
+```js
+// before
+let authorName = this.state.author;
+let fullText = this.state.text;
+
+// after
+let {author: authorName, text: fullText} = this.state;
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- We can also create a differently named variable
+
+/////
+
+###### Destructuring
+
+Named parameters!
+
+```js
+// before
+function MyComponent(props) {
+    return (
+        <div style={props.style}>{props.content}</div>
+    );
+}
+
+// after
+function MyComponent({style, content}) {
+    return (
+        <div style={style}>{content}</div>
+    );
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- If you've got a stateless function you can immediately destructure `props` into the properties you need
+
+/////
+
+###### Destructuring
+
+Array destructuring
+
+```js
+let [first, second, third] = [8, true, 11];
+    // first=8, second=true, third=11
+let [first, second, third] = ['no'];
+    // first='no', second=undefined, third=undefined
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('05-06-16');
+    // mo='05', day='06', yr='16'
+```
+<!-- .element: class="large" -->
+
+```js
+function hi(greeting, [first, , third]) {
+    // greeting='hello', first=1, third=3
+}
+hi('hello', [1, 2, 3]);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Array destructuring works much the same way as object destructuring
+- The main difference is:
+  - Array destructuring uses an array literal pattern on the left hand side of the assignment
+  - And the order in the pattern determines the assignment matching
+- Focus on the third example which is a real-world use case with regular expression matches
+  - Don't need to maintain the intermediate array
+- Works kind of how tuples work in Python
+- Work in function headers too!
+
+/////
+
+###### Destructuring
+
+```js
+let {
+    name,
+    nicknames: [primaryNick],
+    misc: {
+      netWorth: netWorthThousands
+    }
+  } = {
+    name: 'Sean Combs',
+    nicknames: ['Puffy', 'Puff Daddy', 'Diddy'],
+    misc: {
+      netWorth: 735000,
+      birthdate: '1969-11-04'
+    }
+  };
+```
+<!-- .element: class="large" -->
+
+Object + array + nested destructuring!
+
+NOTES:
+- You thought destructuring was unreadable
+- What about when you combine object & array destructuring?
+- And what about when you also leverage nested destructuring?
+- Your brain explodes! That's what.
+- This conveys the point that just because you _can_ do it doesn't mean you _should_
+- You can revisit this slide if you really want to try and understand what's going on
+
+===== <!-- .slide: data-transition="fade" -->
+
+Where's the bug?
+
+```js
+_loadCommentsFromServer() {
+    $.ajax({
+        url: this.props.url,
+        success: function(comments) {
+            this.setState({comments: comments});
+        }
+    });
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+
+- Let's take jump to a different piece of code
+- `_loadCommentsFromServer` method in App.js
+- Can anyone spot the mistake in this code?
+- We're passing a callback to `success` of the `ajax` request
+- The callback calls `this.setState` with the returned data
+
+///// <!-- .slide: data-transition="fade" -->
+
+Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
+
+```js
+_loadCommentsFromServer() {
+    $.ajax({
+        url: this.props.url,
+        success: function(comments) {
+            // `this` is undefined!
+            this.setState({comments: comments});
+        }
+    });
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `this` is `undefined` in the callback function in strict mode
+- `this` is the global scope (window) in loose mode
+- Something that newbies scratch their head about
+- Experienced JavaScript developers still run into it
+- _[Water break]_
+
+/////
+
+ES3 fix
+
+```js
+_loadCommentsFromServer: function() {
+    var self = this; // store reference to `this`
+
+    $.ajax({
+        url: this.props.url,
+        success: function(comments) {
+            // `self` is available in scope
+            self.setState({comments: comments});
+        }
+    });
+};
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- In ES3, we solved this by storing a reference to `this` in a variable so that it’s available in the scope of the anonymous function
+- Works, but pretty much every method has to assign `self` variable
+
+/////
+
+ES5 fix
+
+```js
+_loadCommentsFromServer: function() {
+    $.ajax({
+        url: this.props.url,
+        success: function(comments) {
+            this.setState({comments: comments});
+        }
+    }).bind(this); // pass in proper `this` context
+};
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
+- Underscore and other shim have a bind method so it can work with ES3 browsers
+- This is what the React tutorial does
+- Works, but messy syntax
+- We need something better!
+
+/////
 
 # Arrow functions
 
@@ -601,10 +884,96 @@ Replace anonymous functions with arrow functions
 <br />
 <br />
 
-[benmvp.com/learning-es6-arrow-functions](http://www.benmvp.com/learning-es6-arrow-functions/)
+[benmvp.com/learning-es6-arrow-functions/](http://www.benmvp.com/learning-es6-arrow-functions/)
 
 NOTES:
 - With arrow functions we can stop using anonymous functions
+
+/////
+
+###### Arrow functions
+
+Arrow functions works how you would expect!
+
+```js
+$.ajax({
+    url: this.props.url,
+    success: (comments) => {
+        this.setState({comments: comments});
+    }
+});
+```
+<!-- .element: class="large" -->
+
+<br />
+
+-----
+
+#### ES5 way
+
+```js
+$.ajax({
+    url: this.props.url,
+    success: function(comments) {
+        this.setState({comments: comments});
+    }
+}).bind(this); // pass in proper `this` context
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- Arrow functions in ES6 solve this problem
+- Arrow functions use what’s called “lexical scoping” for `this`
+  - It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
+  - Essentially arrow functions work how you would expect it to
+- An arrow function is literally an arrow (fat arrow) between parameters and body
+
+/////
+
+###### Arrow functions
+
+```js
+let squares = [1, 2, 3].map(value => value * value);
+```
+<!-- .element: class="large" -->
+
+```js
+let sum = [9, 8, 7, 6].reduce((prev, value) => prev + value, 0);
+```
+<!-- .element: class="large" -->
+
+```js
+$('button').click(e => {
+  alert('Hello world!');
+});
+```
+<!-- .element: class="large" -->
+
+```js
+setTimeout(() => {
+  console.log('delayed for 1 second');
+  console.log('using arrow function');
+}, 1000);
+```
+<!-- .element: class="large" -->
+
+```js
+const MyComponent = ({style, content}) => {
+    return (
+        <div style={style}>{content}</div>
+    );
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- You’ll find that arrow functions come in handy most when used as a callback function.
+  - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
+  - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
+- This also shows the different formats of arrow functions
+  - Perentheses can be omitted if there is one parameter
+  - Curly braces can be omitted if there's just a single `return` line
 
 =====
 
