@@ -800,7 +800,7 @@ _loadCommentsFromServer() {
 NOTES:
 
 - Let's take jump to a different piece of code
-- `_loadCommentsFromServer` method in App.js
+- `_loadCommentsFromServer` method in `App.js`
 - Can anyone spot the mistake in this code?
 - We're passing a callback to `success` of the `ajax` request
 - The callback calls `this.setState` with the returned data
@@ -977,6 +977,30 @@ NOTES:
 
 =====
 
+```js
+_handleSubmit(e) {
+    e.preventDefault();
+
+    let {author, text} = this.state;
+
+    if (!text || !author) {
+        return;
+    }
+
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState(INITIAL_STATE);
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's pick on `CommentForm` and its `_handleSubmit()` method
+- If you recall with destructuring we combined the declarations of `author` & `text` into one to reduce duplication
+- But now there's duplication in the call to `this.props.onCommentSubmit`
+- The name of the key matches the name of the variable
+
+/////
+
 # Enhanced object literals
 
 Write less code than before
@@ -986,16 +1010,237 @@ Write less code than before
 
 [benmvp.com/learning-es6-enhanced-object-literals](http://www.benmvp.com/learning-es6-enhanced-object-literals)
 
+/////
+
+###### Enhanced object literals
+
+Object literal shorthand
+
+```js
+_handleSubmit() {
+    let {author, text} = this.state;
+
+    this.props.onCommentSubmit({author, text});
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### Before
+
+```js
+_handleSubmit() {
+    let {author, text} = this.state;
+
+    this.props.onCommentSubmit({author: author, text: text});
+}
+```
+
+NOTES:
+- Now we can just omit the `: value` when the variable name & key match
+- Just a little bit of shorthand
+
+/////
+
+###### Enhanced object literals
+
+```js
+_updateFormFieldState(name, e) {
+    let newState = {};
+
+    newState[name] = e.target.value;
+
+    this.setState(newState);
+}
+```
+<!-- .element: class="large" -->
+
+Variable object literal keys haven't been possible...
+
+NOTES:
+- There's this other helper method in `CommentForm` called `_updateFormFieldState`
+- It basically wants to dynamically set state based on the passed in `name`
+- But to create the object, we first have to create the empty object and then mutate the object to index into it
+- This has always been a minor pet peeve of mine, until now...
+
+/////
+
+###### Enhanced object literals
+
+...until object literal computed keys!
+
+```js
+_updateFormFieldState(name, e) {
+    let newState = {
+        [name]: e.target.value
+    };
+
+    this.setState(newState);
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### Before
+
+```js
+_updateFormFieldState(name, e) {
+    let newState = {};
+
+    newState[name] = e.target.value;
+
+    this.setState(newState);
+}
+```
+
+NOTES:
+- ES6 introduces object literal computed keys so that you can have a dynamic key right in the object literal definition!
+
 =====
+
+Parameters list is unclear
+
+```js
+function join(separator) {
+  var values = [];
+
+  // arguments is not an array, just "array-like"
+  for (var i = 1; i < arguments.length; i++) {
+      values.push(arguments[i]);
+  }
+
+  return values.join(separator);
+}
+
+// output: tic-tac-toe
+join('-', 'tic', 'tac', 'toe');
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Ok this next ES6 feature wasn't present in any of my conversion code, but it's come up a lot in my usual React development
+- Let me set the stage
+- We have here a `join` method that takes a separator string followed by an unlimited number of parameters to join
+- The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
+- Because `join` uses the `separator` parameter the implementation has to start at index `1` of `arguments`
+- And even if it could start at 0, `arguments` is only array-like so it doesn't have the `join` method that arrays have
+- **NEED:** is an easy way to get an array of the parameters after `separator`
+- And guess what? There's an ES6 feature for that
+
+/////
 
 # Rest operator
 
-Replace lodash with vanilla JavaScript
+Replace `arguments` with an array
 
 <br />
 <br />
 
 [benmvp.com/learning-es6-parameter-handling](http://www.benmvp.com/learning-es6-parameter-handling/#rest-parameters/)
+
+/////
+
+###### Rest operator
+
+Clearer function signature!
+
+```js
+function join(separator, ...values) {
+  return values.join(separator);
+}
+
+// output: tic-tac-toe
+join('-', 'tic', 'tac', 'toe');
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### Before
+
+```js
+function join(separator) {
+  var values = [];
+
+  // arguments is not an array, just "array-like"
+  for (var i = 1; i < arguments.length; i++) {
+      values.push(arguments[i]);
+  }
+
+  return values.join(separator);
+}
+```
+
+NOTES:
+- That's it!
+- The three dots, called the rest operator, before the parameter make it a rest parameter
+  - The rest parameter is an `Array` containing the rest of the parameters
+  - Hence the name!
+- Because `values` is a true array in the example, we can call join on it
+- It’s also much **clearer** to see that `join()` takes an infinite number of parameters
+- Rest parameter should pretty much replace all uses of the `arguments` keyword!
+
+/////
+
+###### Rest operator
+
+Array destructuring + rest operator!
+
+```js
+let list = [9, 8, 7, 6, 5];
+let [first, ...rest] = list;
+
+// output: 9  [8, 7, 6, 5]
+console.log(first, rest);
+```
+<!-- .element: class="large" -->
+
+<br />
+
+-----
+
+#### ES5 way
+```js
+var list = [9, 8, 7, 6, 5],
+    first = list[0],
+    rest = list.slice(1);
+
+// output: 9  [8, 7, 6, 5]
+console.log(first, rest);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Another thing with rest operator
+- They can be combined with array destructuring to replace `slice`
+- So we can do array destructuring w/ the rest operator and we can do object destructuring, so how about...
+
+/////
+
+###### Rest operator
+
+Object destructuring + rest operator!
+
+```js
+export default class TextInput extends React.Component {
+    render() {
+        let {type, defaultValue, ...inputProps} = this.props;
+        // `inputProps` has everything in `this.props`
+        // except `type` & `defaultValue`
+
+        /* render stuff */
+    }
+}
+```
+<!-- .element: class="large" -->
+
+[Rest/Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 2)
+
+NOTES:
+- Rest properties are coming in soon to ECMAScript. They're in Stage 2
+- Not in ES2015, not ES2016, but future JavaScript
 
 =====
 
@@ -1003,14 +1248,209 @@ Replace lodash with vanilla JavaScript
 
 =====
 
+`Math.max.apply`???
+
+```js
+var maxValueNormal = Math.max(33, 2, 9),
+    arrayOfValues = [33, 2, 9],
+    maxValueFromArray = Math.max.apply(null, arrayOfValues);
+
+// output: 33  33
+console.log(maxValueNormal, maxValueFromArray);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+_[21 minutes]_
+
+- `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
+- If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
+- `apply` converts the array of values into a sequence of parameters
+- But it's kind of esoteric
+  - Plus you have to specify `null` as the context
+- Maybe there's an ES6 feature for this?
+
+/////
+
 # Spread operator
 
-Replace lodash with vanilla JavaScript
+Replace `apply` with the spread operator
 
 <br />
 <br />
 
-[benmvp.com/learning-es6-parameter-handling](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator/)
+[benmvp.com/learning-es6-parameter-handling/](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator)
+
+/////
+
+###### Spread operator
+
+No more `apply`!
+
+```js
+let arrayOfValues = [33, 2, 9];
+let maxValueFromArray = Math.max(...arrayOfValues);
+
+// output: 33
+console.log(maxValueFromArray);
+```
+<!-- .element: class="large" -->
+
+<br />
+
+-----
+
+#### ES5 way
+
+```js
+var arrayOfValues = [33, 2, 9],
+    maxValueFromArray = Math.max.apply(null, arrayOfValues);
+
+// output: 33
+console.log(maxValueFromArray);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Instead of calling `apply` we can use the spread operator
+- It's 3 dots preceding a parameter in a function call
+- The spread operator _spreads_ out the array into individual parameters
+
+/////
+
+###### Spread operator
+
+### Spread operator
+Array &#8594; multiple parameters (function call)
+
+```js
+let arrayOfValues = [33, 2, 9];
+let maxValueFromArray = Math.max(...arrayOfValues);
+    // just like: Math.max(33, 2, 9)
+```
+<!-- .element: class="large" -->
+
+-----
+
+### Rest operator
+Multiple parameters &#8594; array (function header)
+
+```js
+function join(separator, ...values) {
+  // values = ['tic', 'tac', 'toe']
+}
+
+join('-', 'tic', 'tac', 'toe');
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Spread operator & rest operator look the exact same
+- The spread operator works w/ function _call_ parameters
+  - Takes an array literal and converts each element to individual parameters
+- The rest operator works w/ function _header_ parameters
+  - Takes individual parameters and puts them together into an array
+- They are opposites of each other
+
+/////
+
+###### Spread operator
+
+No more `concat`!
+
+```js
+let start = ['do', 're'];
+let middle = ['mi', 'fa', 'so'];
+let end = ['la', 'ti'];
+let scaleFromLiteral = [...start, ...middle, ...end];
+
+// output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
+console.log(scaleFromLiteral);
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+let start = ['do', 're'];
+let middle = ['mi', 'fa', 'so'];
+let end = ['la', 'ti'];
+let scaleFromConcat = start.concat(middle).concat(end);
+
+// output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
+console.log(scaleFromConcat);
+```
+
+
+NOTES:
+- When we spread multiple arrays into an array literal we're constructing a new array with all of those values
+- Therefore using the spread operator within an array literal can replace using `concat`
+- We can use the spread operator to maintain immutability by cloning an array before adding to it all in one statement
+- It'd be nice if we could that with objects
+
+/////
+
+###### Spread operator
+
+Spread operator with object literals!
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79};
+let newWarriors = {
+    ...warriors,
+    Kevin: 97
+};
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79};
+let newWarriors = _.assign({}, warriors, {
+    Kevin: 97
+});
+```
+
+[Rest/Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 2)
+
+NOTES:
+- Now we copy objects while adding new properties in one object literal definition
+- It's a Stage 2 ES feature
+- The ES5 way was to use `_.assign()`
+- ES6 did introduce Object.assign() to handle this as well, but I'll always prefer syntax
+
+/////
+
+###### Spread operator
+
+[JSX spread attributes](https://facebook.github.io/react/docs/jsx-spread.html)!
+
+```js
+export default class TextInput extends React.Component {
+    render() {
+        let {type, defaultValue, ...inputProps} = this.props;
+
+        return (
+            <input
+                type={type}
+                defaultValue={defaultValue}
+                {...inputProps}
+            />
+        );
+    }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Similar to object spread, are JSX spread attributes
+- It allows you to take an object and make all of its properties attributes on a component
+- I tend to avoid it in favor of being explicit about the attributes I'm setting
 
 =====
 
