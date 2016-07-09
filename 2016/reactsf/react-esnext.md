@@ -1,5 +1,7 @@
 # React + ES.next = ♥
 
+<br />
+
 ## Ben Ilegbodu
 
 [@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ReactSF](https://twitter.com/hashtag/ReactSF)  
@@ -7,23 +9,43 @@
 July 14, 2016  
 
 NOTES:
+- My name is Ben Ilegbodu
+- Here to talk about React, what I'm calling ES.next and how they make a great pairing
 - Posted link to slides on twitter if you want to follow along
 
 =====
 
-# React
+![React logo](../../img/react/react-logo.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+
+NOTES:
+- How many folks have developed in React before?
+- React has many features that makes developing in it really nice
+- Not going to go into any detail about them because I'm assuming you already know about React
+- But I'm totally drinking the React kool-aid
+- I'm really excited about it
+- But I rarely show outward I'm a pretty chill guy.
 
 /////
 
+<!-- .slide: data-background="url(../../img/giphy/kool-aid-man.gif) no-repeat center" data-background-size="contain"-->
 
+NOTES:
+- So I'll let the Kool-aid man show my excitement!
 
 /////
 
-# ECMAScript
+![ES6 logo](../../img/es6/es6-logo.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
-/////
-
-
+NOTES:
+- How many folks have code in ES6+/ES2015+?
+- ECMAScript is the standard
+- JavaScript is the implementation (there was also JScript & ActionScript)
+- JavaScript is 21 years old
+- ES6/ES2015 released last year
+- ES7/ES2016 releasing in August
+- Features are in a proposal process (don't know when exactly they'll be released)
 
 /////
 
@@ -81,19 +103,24 @@ NOTES:
 
 ## ES2016
 
+<br />
 
+- [`Array.prototype.includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+- [Exponentiation operator (`**`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation_(**)
 
+<br />
 
-http://www.2ality.com/2016/01/ecmascript-2016.html
+[2ality.com/2016/01/ecmascript-2016.html](http://www.2ality.com/2016/01/ecmascript-2016.html)
+
+NOTES:
+- Just 2 features made it to the final stage 4 by the January 2016 cut-off date to make it into ES2016
+- So _all_ those features we called ES7 features are still in the proposal process
 
 /////
 
-## ECMAScript Proposals
+[![ECMAScript Proposals](../../img/react-esnext/ecmascript-proposals.png)](https://github.com/tc39/proposals)
 
-
-
-
-https://github.com/tc39/proposals
+[github/tc39/proposals](https://github.com/tc39/proposals)
 
 =====
 
@@ -1454,31 +1481,71 @@ NOTES:
 
 =====
 
-# Promises
+![Out of time](../../img/giphy/out-of-time-krusty.gif)
+<!-- .element: style="width:70%" -->
 
-Replace callbacks with promises
-
-<br />
-<br />
-
-[benmvp.com/learning-es6-promises](http://www.benmvp.com/learning-es6-promises/)
+NOTES:
+- Unfortunately there isn't too much time left...
 
 =====
 
-# Default parameters
+## [Fetch API / Promises](http://www.benmvp.com/learning-es6-promises/)
 
-Replace function body code with function header defaults
+```js
+fetch(this.props.url)
+    .then((res) => res.json())
+    .then((comments) => this.setState({comments}))
+    .catch((ex) => console.error(this.props.url, ex));
+```
+<!-- .element: class="large" -->
 
-<br />
-<br />
+-----
 
-[benmvp.com/learning-es6-parameter-handling](http://www.benmvp.com/learning-es6-parameter-handling/#default-parameters)
+#### jQuery way
+
+```js
+$.ajax({
+    url: this.props.url,
+    dataType: 'json',
+    success: (comments) => this.setState({comments}),
+    error: (xhr, status, err) => console.error(this.props.url, status, err.toString())
+});
+```
 
 NOTES:
-_[4 minutes]_
+- I'd love to talk in detail about the new Fetch API and how it uses ES6 promises to completely rid our need for jQuery
 
-- It's called default parameters
-- With default parameters we can move our defaulting logic into the function header
+=====
+
+## [Default Parameters](http://www.benmvp.com/learning-es6-parameter-handling/#default-parameters)
+
+```js
+function getWidth() {
+  console.log('getWidth');
+  return 7;
+}
+function makeRect(w=getWidth(), h=w*2, opts={color:'red'}) {
+  console.log(w, h, opts);
+}
+```
+
+```
+> makeRect()
+getWidth
+7  14  {color:'red'}
+
+> makeRect(17)
+17  34  {color:'red'}
+
+> makeRect(4, 11)
+4  11  {color:'red'}
+
+> makeRect(2, 1, {color:'blue'})
+2  1  {color:'blue'}
+```
+
+NOTES:
+- Or how default parameters can save us from defaulting logic in our code
 
 =====
 
@@ -1525,13 +1592,19 @@ NOTES:
 0. String APIs <!-- .element: class="fragment highlight-blue" data-fragment-index="0" -->  
 
 NOTES:
-- Covered a lot so get the slides and follow the links for more details
+- So here's what we discussed
+- I kind of cheated and only talked about the first 8, but I have helpful links for the others
+- Feel free to grab the slides
 
 =====
 
+[![react-esnext Gitub repo](../../img/react-esnext/repo.png)](https://github.com/benmvp/react-esnext)
 
+[github/benmvp/react-esnext](https://github.com/benmvp/react-esnext)
 
-https://github.com/benmvp/react-esnext
+NOTES:
+- And to be even more helpful I crated a repo where I take the ES5 React tutorial and go step-by-step converting it to ES2015+
+- Feel free to star the repo 😉
 
 =====
 
@@ -1547,6 +1620,9 @@ https://github.com/benmvp/react-esnext
 # Shoutouts
 
 /////
+
+![Devon Lindsey](../../img/react-esnext/devon-lindsey.jpg)
+<!-- .element: style="width: 33%" -->
 
 Devon Lindsey
 
