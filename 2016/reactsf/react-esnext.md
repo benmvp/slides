@@ -28,13 +28,6 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(../../img/giphy/kool-aid-man.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- So I'll let the Kool-aid man show my excitement!
-
-/////
-
 ![ES6 logo](../../img/es6/es6-logo.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
@@ -124,15 +117,23 @@ NOTES:
 
 =====
 
-## What this talk is about!
+## What this talk is about! 😄
 
+<br />
 
+- Learning ES2015+ ➜ ➜ ➜ applying in React
+- Lots of code
 
 /////
 
-## What this talk is **not** about...
+## What this talk is **not** about... 😐
 
+<br />
 
+- Why to use React
+- How to develop in React
+- Every detail about ES2015+
+- How to transpile ES2015+
 
 =====
 
@@ -205,6 +206,16 @@ NOTES:
 - Green for Components
 - Blue for Data APIs
 
+/////
+
+![ECMAScript Proposals](../../img/react-esnext/react-esnext-app.png)
+
+[React official tutorial](https://facebook.github.io/react/docs/tutorial.html) app
+
+NOTES:
+- The official React tutorial is written in ES5, presumably to make it easy to develop
+- We'll be transforming it to ES2015+
+
 =====
 
 # Components
@@ -214,6 +225,8 @@ NOTES:
 How can we modularize this code?
 
 ```js
+// globals: React, ReactDOM, Remarkable, jQuery
+
 var Comment = React.createClass({
     // code using Remarkable dependency
 });
@@ -221,15 +234,13 @@ var CommentList = React.createClass({
     // code using Comment
 });
 var CommentForm = React.createClass({
-    // code
+    // code w/ no dependencies
 });
 var App = React.createClass({
     // code using CommentForm & CommentList
 });
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
+ReactDOM.render(<App url="/api/comments" pollInterval={2000} />,
+    document.getElementById('app'));
 ```
 <!-- .element: class="large" -->
 
@@ -312,7 +323,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 
 ReactDOM.render(
-    <App url="//localhost:3000/api/comments" pollInterval={2000} />,
+    <App url="/api/comments" pollInterval={2000} />,
     document.getElementById('app')
 );
 ```
@@ -339,11 +350,11 @@ var CommentForm = React.createClass({
     propTypes: {
         onCommentSubmit: React.PropTypes.func.isRequired
     },
-    _handleSubmit: function() {
-        // form submission handling
-    },
     getInitialState: function() {
         return {author: '', text: ''};
+    },
+    _handleSubmit: function() {
+        // form submission handling
     },
     render: function() {
         <form onSubmit={this._handleSubmit} />
@@ -753,8 +764,8 @@ let [first, second, third] = [8, true, 11];
     // first=8, second=true, third=11
 let [first, second, third] = ['no'];
     // first='no', second=undefined, third=undefined
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('05-06-16');
-    // mo='05', day='06', yr='16'
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('06-14-16');
+    // mo='06', day='14', yr='16'
 ```
 <!-- .element: class="large" -->
 
@@ -1386,10 +1397,9 @@ NOTES:
 No more `concat`!
 
 ```js
-let start = ['do', 're'];
-let middle = ['mi', 'fa', 'so'];
+let start = ['do', 're', 'mi'];
 let end = ['la', 'ti'];
-let scaleFromLiteral = [...start, ...middle, ...end];
+let scaleFromLiteral = [...start, 'fa', 'so', ...end];
 
 // output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
 console.log(scaleFromLiteral);
@@ -1401,10 +1411,9 @@ console.log(scaleFromLiteral);
 #### ES5 way
 
 ```js
-let start = ['do', 're'];
-let middle = ['mi', 'fa', 'so'];
+let start = ['do', 're', 'mi'];
 let end = ['la', 'ti'];
-let scaleFromConcat = start.concat(middle).concat(end);
+let scaleFromConcat = start.concat(['fa', 'so']).concat(end);
 
 // output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
 console.log(scaleFromConcat);
@@ -1464,9 +1473,9 @@ export default class TextInput extends React.Component {
 
         return (
             <input
+                {...inputProps}
                 type={type}
                 defaultValue={defaultValue}
-                {...inputProps}
             />
         );
     }
@@ -1481,15 +1490,15 @@ NOTES:
 
 =====
 
-![Out of time](../../img/giphy/out-of-time-krusty.gif)
-<!-- .element: style="width:70%" -->
+<!-- .slide: data-background="url(../../img/giphy/mario-out-of-time.gif) no-repeat center" data-background-size="contain"-->
+
 
 NOTES:
 - Unfortunately there isn't too much time left...
 
 =====
 
-## [Fetch API / Promises](http://www.benmvp.com/learning-es6-promises/)
+## [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) / [Promises](http://www.benmvp.com/learning-es6-promises/)
 
 ```js
 fetch(this.props.url)
