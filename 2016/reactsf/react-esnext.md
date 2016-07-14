@@ -117,15 +117,6 @@ NOTES:
 
 =====
 
-## What this talk is about! 😄
-
-<br />
-
-- Learning ES2015+ ➜ ➜ ➜ applying in React
-- Lots of code
-
-/////
-
 ## What this talk is **not** about... 😐
 
 <br />
@@ -134,6 +125,16 @@ NOTES:
 - How to develop in React
 - Every detail about ES2015+
 - How to transpile ES2015+
+
+/////
+
+## What this talk is about! 😄
+
+<br />
+
+- Learning ES2015+ ➜ ➜ ➜ applying in React
+- Lots of code
+- Fast-paced!
 
 =====
 
@@ -387,9 +388,24 @@ NOTES:
 
 /////
 
+ES6 class structure
+
+```js
+class MyClass extends BaseClass {
+    constructor() { }
+    static staticMethodA() { }
+    static staticMethodB() { }
+    methodOne() { }
+    methodTwo() { }
+}
+```
+<!-- .element: class="large" -->
+
+/////
+
 ###### Classes
 
-ES6 classes!
+React with ES6 classes!
 
 ```js
 class CommentForm extends React.Component {
@@ -1620,13 +1636,18 @@ NOTES:
 ## Additional resources
 
 - [_Learning ES6_](/learning-es6-series/)
-- [Eventbrite React styleguide](https://github.com/eventbrite/javascript/tree/master/react)
+- [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [`eslint-config-eventbrite-react`](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
 - [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
 
 =====
 
 # Shoutouts
+
+/////
+
+![Bleacher Report](../../img/react-esnext/bleacher-report-logo-square.png)
+<!-- .element: style="width: 40%" -->
 
 /////
 
