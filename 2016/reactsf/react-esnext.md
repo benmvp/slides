@@ -401,6 +401,12 @@ class MyClass extends BaseClass {
 ```
 <!-- .element: class="large" -->
 
+NOTES:
+- `class` keyword
+- `extends` base class
+- supports instance & `static` methods
+- doesn't support properties (yet)
+
 /////
 
 ###### Classes
@@ -409,8 +415,8 @@ React with ES6 classes!
 
 ```js
 class CommentForm extends React.Component {
-    getInitialState() {
-        return {author: '', text: ''};
+    constructor() {
+        this.state = {author: '', text: ''};
     }
     _handleSubmit() {
         // form submission handling
