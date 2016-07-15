@@ -1672,6 +1672,9 @@ Devon Lindsey
 
 # YOU!
 
+![Bleacher Report crowd](../../img/react-esnext/bleacher-report-crowd.jpg)
+<!-- .element: style="width:50%" -->
+
 NOTES:
 - It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
 
