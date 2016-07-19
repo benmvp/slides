@@ -1683,9 +1683,6 @@ NOTES:
 
 # YOU!
 
-![Front Porch Conf crowd](../../img/react-esnext/front-porch-crowd.jpg)
-<!-- .element: style="width:50%" -->
-
 NOTES:
 - It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
 
