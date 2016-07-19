@@ -4,9 +4,13 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ReactSF](https://twitter.com/hashtag/ReactSF)  
+<br />
 
-July 14, 2016  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@FrontPorchIO](https://twitter.com/FrontPorchIO)  
+
+<br />
+
+July 19, 2016  
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -167,7 +171,8 @@ _[1 minute]_
 
 /////
 
-![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
 - Currently a Senior UI Engineer at Eventbrite
@@ -178,7 +183,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(../../img/giphy/lebron-block.gif) no-repeat center" data-background-size="contain"-->
+<!-- .slide: data-background="url(../../img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
 - I also absolutely love basketball - both playing & watching
@@ -798,8 +803,8 @@ let [first, second, third] = [8, true, 11];
     // first=8, second=true, third=11
 let [first, second, third] = ['no'];
     // first='no', second=undefined, third=undefined
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('07-14-16');
-    // mo='07', day='14', yr='16'
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('07-19-16');
+    // mo='07', day='19', yr='16'
 ```
 <!-- .element: class="large" -->
 
@@ -1308,7 +1313,7 @@ export default class TextInput extends React.Component {
 ```
 <!-- .element: class="large" -->
 
-[Rest/Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 2)
+[Rest Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 2)
 
 NOTES:
 - Rest properties are coming in soon to ECMAScript. They're in Stage 2
@@ -1486,7 +1491,7 @@ let newWarriors = _.assign({}, warriors, {
 });
 ```
 
-[Rest/Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 2)
+[Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 2)
 
 NOTES:
 - Now we copy objects while adding new properties in one object literal definition
@@ -1664,19 +1669,13 @@ NOTES:
 
 /////
 
-![Bleacher Report](../../img/react-esnext/bleacher-report-logo-square.png)
-<!-- .element: style="width: 40%" -->
+![Front Porch Conf](../../img/react-esnext/front-porch.svg)
+<!-- .element: style="width: 40%;border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 /////
 
-![Devon Lindsey](../../img/react-esnext/devon-lindsey.jpg)
-<!-- .element: style="width: 33%" -->
-
-Devon Lindsey
-
-/////
-
-![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 ## We're hiring!   <!-- .element: class="fragment" -->
 
@@ -1684,7 +1683,7 @@ Devon Lindsey
 
 # YOU!
 
-![Bleacher Report crowd](../../img/react-esnext/bleacher-report-crowd.jpg)
+![Front Porch Conf crowd](../../img/react-esnext/front-porch-crowd.jpg)
 <!-- .element: style="width:50%" -->
 
 NOTES:
@@ -1705,6 +1704,8 @@ NOTES:
 <br />
 
 ## Ben Ilegbodu
+
+<br />
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp)
