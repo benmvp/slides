@@ -6,7 +6,7 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@FrontPorchIO](https://twitter.com/FrontPorchIO)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#FrontPorchIO](https://twitter.com/hashtag/FrontPorchIO)  
 
 <br />
 
