@@ -18,7 +18,7 @@ NOTES:
 
 =====
 
-## What this talk is **not** about... 😐
+## What this talk is **not** about... 😞
 
 <br />
 
@@ -54,7 +54,7 @@ ben-ilegbodu.json
   ],
   "location": "Pittsburg, CA",
   "work": "@Eventbrite",
-  "role": "Sr. UI Engineer",
+  "role": "Frontend Eng Mgr",
   "hobbies": [
     "basketball", "DIY", "movies"
   ]
@@ -94,11 +94,11 @@ NOTES:
 
 NOTES:
 - Transitioned to React
-- Isomorphic JavaScript is the concept of using the same templates rendered in the browser on the server for initial load
-- Server-side rendering is important
+- Isomorphic JavaScript is the concept of sharing the same templates rendered in the browser on the server for initial load
+- Server-side rendering is important & critical for the transition to be viable
   - SEO
   - Performance
-- React, unlike other JS frameworks/libraries, is setup to render server-side
+- React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
 
 /////
 
@@ -109,8 +109,8 @@ NOTES:
 - Node is needed to render React components server-side because we need a full-fledged JS interpreter
 - Typically, with "Isomorphic React" you would have a Node/Express web server
   * With help of routing lib like `react-router`, render components to a string included in HTML response
-  * Normally components are efficiently rendered to the DOM client-side
-- Because Eventbrite has existed for a decade, our backend isn’t Node
+  * Normally components are just (efficiently) rendered to the DOM client-side
+- BUT Because Eventbrite has existed for a decade, our backend isn’t Node
 
 /////
 
@@ -120,7 +120,9 @@ NOTES:
 ### (python)
 
 NOTES:
-- We use Python/Django (_anybody else?_)
+- We use Python/Django for our back-end web server
+- And it obviously can't interpret JS, so the obvious issue is how do we render React components?
+- _Anybody else use Python/Django?_
 - This problem isn't just for Python/Django, it exists for all non-Node back-ends
 
 /////
@@ -154,19 +156,20 @@ NOTES:
 <!-- .element: style="width: 33%" -->
 
 NOTES:
+- Answer: switch to Node!
 - OPS would've immediately shot down any notion of replacing Django w/ a Node/Express web server
 - Not because Node/Express is bad
-- Unfamiliar for Ops. They'd actually have to maintain these servers for critical pages
-- We still have the typical ball-of-mud huge app in our Django layer
-- Working on factoring out things to services, but it's a lot!
+- Unfamiliar for Ops. Frontend developers are familiar, but they'd actually have to maintain these servers for critical pages
+- We still have the typical legacy ball-of-mud huge app in our Django layer
+- Working on factoring out things to SOA, but it's a lot! Long process
 - Would have to replicate a lot of legacy logic in our Node server that's in Django
 - Already making a huge “gamble” with React
 
 /////
 
-# Pybars
+# gif of shim/hack
 
-(gif of shim/hack)
+### ([Pybars](https://github.com/wbond/pybars3))
 
 NOTES:
 - Currently solved the “dual rendering issue” using a lib called Pybars
@@ -182,8 +185,8 @@ NOTES:
 <!-- .element: style="width: 75%" -->
 
 NOTES:
-- Web server **must** be Django
-- Server-side rendering of React **must** be Node
+- Web server **must** be Django (for OPS)
+- Server-side rendering of React **must** be Node (for JS)
 
 /////
 
@@ -241,29 +244,46 @@ REQUEST:
 - URL endpoint
     ex. http://localhost:9009/render
 - Path to React component
-    ex. /js/react/example/HelloWorld.jsx
+    ex. /js/react/HelloWorld.jsx
 - Component props
-    ex. {name: 'Ben Ilegbodu'}
+    ex. {name: 'Ben'}
 
 RESPONSE:
-Rendered markup
-    ex. <div data-reactid="1">Hello Ben Ilegbodu!</div>
+- Rendered markup
+    ex. <div data-reactid="1">Hello Ben!</div>
 ```
 <!-- .element: class="large" -->
 
 NOTES:
-- It's a service that given a React component and its props it'll return a string of rendered markup
+- It's an internal service that given a React component and its props it'll return a string of rendered markup
 - "Stateless" because the server has access to the file system of all React components which _is_ state
 
 /////
 
-## "Stateless" Render Server
+## React Component
+
+```js
+// /js/react/HelloWorld.jsx
+
+const HelloWorld = ({name}) => (
+    <div>Hello {name}!</div>
+);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Say for example we had this sample React `HelloWorld` component
+- It takes a `name` prop and renders a `<div>` with some text
+
+/////
+
+## cURL Request
 
 `````sh
 > curl \
 >   -H "Content-Type: application/json" \
 >   -X POST \
->   -d '{"path":"/js/react/example/HelloWorld.jsx"}' \
+>   -d '{"path":"/js/react/HelloWorld.jsx",props:{name:"Ben"}}' \
 >   http://localhost:9009/render
 
 <div data-reactid="1">Hello Ben Ilegbodu!</div>
@@ -272,29 +292,63 @@ NOTES:
 
 NOTES:
 - If reading cURL requests are your thing...
+- Here's what the request/response looks like
 
 /////
 
-## "Stateless" Render Server
+## Express Server
 
 ```js
 app.post('/render', (req, res) => {
     Component = require(req.body.path)
-    element = createElement(Component, req.body.props)
-    markup = renderToString(element)
+    element = React.createElement(Component, req.body.props)
+    markup = ReactDomServer.renderToString(element)
 
     res.send(markup)
 })
 ```
 <!-- .element: class="large" -->
 
+Leverages React's [`renderToString`](https://facebook.github.io/react/docs/top-level-api.html#reactdomserver.rendertostring)
+
 NOTES:
 - Digging deeper here's the super simple Express app
 - Create the Component class from the specified component path by using `require()`
 - Create an element applying the props to the Component class
-- Leveraging React's [`renderToString`](https://facebook.github.io/react/docs/top-level-api.html#reactdomserver.rendertostring), get the markup
+- Leveraging React's [`renderToString`](https://facebook.github.io/react/docs/top-level-api.html#reactdomserver.rendertostring) to get the markup
+- Because React is a declarative tree, we can turn our JS into a string! Most previous libs couldn't do this
 - Return it as the response
 - Of course there are many more implementation details (some of which I'll mention). But that's the gist
+
+/////
+
+## Django View
+
+```python
+component_props = {
+    # Data coalesced from DB / SOA calls
+    # Data coalesced from Django request params
+    # Data coalesced from environment params
+}
+
+response = requests.post(
+    render_server_url,
+    headers={'Content-Type': 'application/json'},
+    data=json_encoder({
+        'props': component_props,
+        'path': component_path,
+    }))
+
+context['react_page_markup'] = response.text
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- The Python/Django code that renders the template makes the POST with the path & props
+- Coalesce data directly from DB/SOA calls, Django request / environment params
+- EVERYTHING must be passed because it's "statless"
+- Again this is a simplification of what's going on
+- It gets the markup response and adds it to the context for the template to render
 
 /////
 
@@ -314,62 +368,44 @@ NOTES:
 <!-- .element: class="large" -->
 
 NOTES:
-- The server can render any component, but it's intended to render the entire (visible) page
-- So the HTML template for a given page, may look something like this
+- While the server can render any component, but it's intended to render the entire (visible) page
+- So the HTML template page scaffolding may look something like this
 - Take the string of markup rendered and inject it into the page template
-- We still have to rely on server template (Mako) to render the page scaffolding
+- We still have to rely on server template (Mako) to render the page scaffolding (unavoidable)
 - EB is made up of multiple SPAs so the template is a bit more complicated, but this is idea
 
 /////
 
-## Django View
+## Network overhead?
 
-```python
-# POST to http://localhost:9009/render
-#   - path
-#   - props
-# context['react_page_markup'] = response.body
-# render template
-```
-<!-- .element: class="large" -->
+Yes. 😞
 
-NOTES
-- The Python/Django code that renders the template makes the POST with the path & props
-- It gets the markup response and adds it to the context for the template to render
-- Again this is a simplification of what's going on
-- The actual code is actually factored out into a response helper so that any page can easily use it
+<br /><br />
 
-/////
+### However...
 
-## Setup
-
-- On same machine
-- Behind firewall
-- Single React render per page render
+- Django + render servers on same machine
+- Single React render per Django render
+- `renderToString` ≪ Pybars
 
 NOTES:
 - There is a network overhead
+- Instead of rendering all in Django/Mako, we're making a roundtrip to render
 - Latency is limited by having both servers on the same machine
 - Found that the overhead + React rendering was faster than Pybars
-- One react render per page render
-
-
-/////
-
-# Framework
-
-NOTES:
-- Have narrow scaffolding in Django for each page that would make a request to render server given app + props
-
+- And we had actually already forked it to spead it up
+- Single React render per Django render to limit requests
+- Instead of rendering a bunch of tiny components sprinkled, we render the entire page
 
 =====
 
 ## Additional resources
+- [Airbnb Hypernova](https://github.com/airbnb/hypernova)
 
-- [_Learning ES6_](/learning-es6-series/)
-- [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
-- [`eslint-config-eventbrite-react`](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
-- [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
+- [`python-react`](https://github.com/markfinger/python-react)
+- [`react-render`](https://github.com/markfinger/react-render)
+- ReactJS.NET
+- Nashorn
 
 =====
 
