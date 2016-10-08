@@ -126,9 +126,25 @@ NOTES:
 
 /////
 
-## Python + Handlebars logo
+<div style="display:flex;align-items:center;justify-content:space-between;margin-top:5%">
+    <div style="flex:0 0 40%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+    </div>
+    <div style="flex: 0 0 5%;text-align:center">
+        <h1>+</h1>
+    </div>
+    <div style="flex:0 0 45%;">
+        <img
+            src="../../img/react-sans-node/handlebars.png"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        />
+    </div>
+</div>
 
-### ([Pybars](https://github.com/wbond/pybars3))
+([pybars](https://github.com/wbond/pybars3))
 
 NOTES:
 - Currently solved the “dual rendering issue” using a lib called Pybars
@@ -281,11 +297,11 @@ NOTES:
 ## cURL Request
 
 `````sh
-> curl \
->   -H "Content-Type: application/json" \
->   -X POST \
->   -d '{"path":"/js/react/HelloWorld.jsx",props:{name:"Ben"}}' \
->   http://localhost:9009/render
+curl \
+    -H "Content-Type: application/json" \
+    -X POST \
+    -d '{"path":"/js/react/HelloWorld.jsx",props:{name:"Ben"}}' \
+    http://localhost:9009/render
 
 <div data-reactid="1">Hello Ben!</div>
 `````
@@ -411,9 +427,67 @@ NOTES:
 <!-- .element: style="width: 65%" -->
 
 NOTES:
-- So hopefully if you are in the same situation we were, why I've presented thus far is pretty compelling
+- So hopefully if you are in the same situation we were, what I've presented thus far is pretty compelling
 - No doubt you've got your own legacy code, and there'll be lots of different implementation details for you
 - But I did want to highlight a few gotchas/pitfalls that we ran into so hopefully you can learn from us
+- The initial proof-of-concept was easy, it was getting it production-ready that was the “fun” part
+
+/////
+
+## Running Render Server
+
+<br /><br />
+
+```sh
+node server.js
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- With the initial proof-of-concept running the render server was this simple
+
+/////
+
+## On-Demand Transpilation (DEV)
+
+<br /><br />
+
+```sh
+babel-node server.js
+```
+<!-- .element: class="large" -->
+
+<br />
+
+([`babel-node`](https://babeljs.io/docs/usage/cli#babel-node))
+
+NOTES:
+- In DEV we don't want to have to compile JS each time we make a change so server can pick it up
+- We need the React component and all its dependencies, all written in ES6, transpiled
+- We need "live" transpilation
+- First thought was to use `babel-node`
+- Alternate node CLI which will compile ES6 code before script runs
+- However, `babel-node` became a problem with the next issue
+
+/////
+
+## Server restart (DEV)
+
+```sh
+supervisor
+    --watch js/react \
+    --exec babel-node \
+    server.js
+```
+<!-- .element: class="large" -->
+
+<br />
+
+([`node-supervisor`](https://github.com/petruisfan/node-supervisor))
+
+NOTES:
+- Once a node module is loaded it’s “cached” for the lifetime of program execution (w/o hackery)
+- In order to see file updates, we needed to watch for changes and restart the server via `node-supervisor`
 
 =====
 
@@ -425,7 +499,8 @@ NOTES:
 
 =====
 
-## (gif of thumbs up)
+![Aladdin Thanks](../../img/giphy/usain-bolt-thumbs-up.gif)
+<!-- .element: style="width: 60%" -->
 
 /////
 
@@ -455,9 +530,10 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(../../img/giphy/thanks-aladdin.gif) no-repeat center" data-background-size="contain"-->
+# THANKS!
 
-# THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
+![Aladdin Thanks](../../img/giphy/thanks-aladdin.gif)
+<!-- .element: style="width: 60%" -->
 
 NOTES:
 
