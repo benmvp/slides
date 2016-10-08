@@ -203,6 +203,7 @@ NOTES:
 NOTES:
 - Web server **must** be Django (for OPS)
 - Server-side rendering of React **must** be Node (for JS)
+- Discussed maybe running the components through V8 binary, but seemed to unstable
 
 /////
 
@@ -249,7 +250,7 @@ NOTES:
 
 NOTES:
 - Really this should be the diagram because the Node/Express server is tiny because it's really a rendering service
-- Gonna walk through some pseudocode to explain the architecture at a high level
+- Lemme walk through some pseudocode to explain the architecture at a high level
 
 =====
 
@@ -297,10 +298,10 @@ NOTES:
 ## cURL Request
 
 `````sh
-curl \
-    -H "Content-Type: application/json" \
-    -X POST \
-    -d '{"path":"/js/react/HelloWorld.jsx",props:{name:"Ben"}}' \
+> curl
+    -H "Content-Type: application/json"
+    -X POST
+    -d '{"path":"/js/react/HelloWorld.jsx",props:{name:"Ben"}}'
     http://localhost:9009/render
 
 <div data-reactid="1">Hello Ben!</div>
@@ -316,6 +317,7 @@ NOTES:
 ## Express Server
 
 ```js
+// server.js
 app.post('/render', (req, res) => {
     let params = req.body;
 
@@ -328,7 +330,6 @@ app.post('/render', (req, res) => {
     // Render element to a markup string
     let markup = ReactDomServer.renderToString(element);
 
-    // return rendered markup
     res.send(markup);
 });
 ```
@@ -342,6 +343,23 @@ NOTES:
 - Because React is a declarative tree, we can turn our JS into a string! Most previous libs couldn't do this
 - Return it as the response
 - Of course there are many more implementation details (some of which I'll mention). But that's the gist
+
+/////
+
+## Running Render Server
+
+```sh
+> node server.js --verbose
+
+[2016-10-18T21:39:55.475Z] Started server at http://127.0.0.1:9009
+[2016-10-18T21:40:23.123Z] Request for /js/react/HelloWorld.jsx
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- With the initial proof-of-concept running the render server was this simple
+- Message would be written to console that said when the server started up
+- We'd run that cURL script from before in another terminal and we'd get back the response
 
 /////
 
@@ -430,44 +448,85 @@ NOTES:
 - So hopefully if you are in the same situation we were, what I've presented thus far is pretty compelling
 - No doubt you've got your own legacy code, and there'll be lots of different implementation details for you
 - But I did want to highlight a few gotchas/pitfalls that we ran into so hopefully you can learn from us
-- The initial proof-of-concept was easy, it was getting it production-ready that was the “fun” part
+- The initial proof-of-concept was easy, it was handling all of the use-cases that was the “fun” part
 
-/////
+=====
 
-## Running Render Server
-
-<br /><br />
+## On-Demand Transpilation (DEV)
 
 ```sh
-node server.js
+node server.js --verbose
+```
+<!-- .element: class="large" -->
+
+```sh
+[2016-10-18T21:39:55.475Z] Started server at http://127.0.0.1:9009
+Unexpected reserved word
 ```
 <!-- .element: class="large" -->
 
 NOTES:
-- With the initial proof-of-concept running the render server was this simple
+- As we saw before this is how we run the server
+- But in DEV we don't want to have to compile JS each time we make a change so server can pick it up
+- We need the React component and all its dependencies, all written in ES6, transpiled
+- Otherwise we get this sort of error when trying to request a component's markup
+- We need "live" transpilation
 
 /////
 
 ## On-Demand Transpilation (DEV)
 
-<br /><br />
-
 ```sh
-babel-node server.js
+babel-node server.js --verbose
 ```
 <!-- .element: class="large" -->
 
-<br />
+```sh
+[2016-10-18T21:39:55.475Z] Started server at http://127.0.0.1:9009
+[2016-10-18T21:40:23.123Z] Request for /js/react/HelloWorld.jsx
+```
+<!-- .element: class="large" -->
 
 ([`babel-node`](https://babeljs.io/docs/usage/cli#babel-node))
 
 NOTES:
-- In DEV we don't want to have to compile JS each time we make a change so server can pick it up
-- We need the React component and all its dependencies, all written in ES6, transpiled
-- We need "live" transpilation
-- First thought was to use `babel-node`
+- `babel-node` was the obvious choice
 - Alternate node CLI which will compile ES6 code before script runs
-- However, `babel-node` became a problem with the next issue
+- Only run in DEV!!!
+- `babel-node` was fine until I tackled the next issue
+- Once a node module is loaded it’s “cached” for the lifetime of program execution (w/o hackery)
+- In order to see file updates, we needed to watch for changes and restart the server
+
+=====
+
+## Server restart (DEV)
+
+```sh
+supervisor
+    --watch js/react
+    --extensions jsx
+    --exec babel-node
+    -- server.js --verbose
+```
+<!-- .element: class="large" -->
+
+```sh
+Starting child process with 'babel-node server.js --verbose'
+Watching directory '/js/react' for changes.
+Press rs for restarting the process.
+[2016-10-18T21:39:55.475Z] Started server at http://127.0.0.1:9009
+crashing child
+Starting child process with 'babel-node server.js --verbose'
+Error: listen EADDRINUSE 127.0.0.1:9009
+```
+<!-- .element: class="large" -->
+
+([`node-supervisor`](https://github.com/petruisfan/node-supervisor))
+
+NOTES:
+- Used the library `node-supervisor` for this
+- But when I modified a file the server would crash with an address-in-use error
+- As it turns out the problem was with `babel-node`. It didn't coexist well with `node-supervisor`
 
 /////
 
@@ -475,19 +534,52 @@ NOTES:
 
 ```sh
 supervisor
-    --watch js/react \
-    --exec babel-node \
-    server.js
+    --watch js/react
+    --extensions jsx
+    -- --require babel-register -- server.js --verbose
 ```
 <!-- .element: class="large" -->
 
-<br />
+```sh
+Starting child process with 'node --require babel-register -- server.js --verbose'
+Watching directory '/js/react' for changes.
+Press rs for restarting the process.
+[2016-10-18T21:39:55.475Z] Started server at http://127.0.0.1:9009
+crashing child
+Starting child process with 'node --require babel-register -- server.js --verbose'
+[2016-10-18T21:41:55.475Z] Started server at http://127.0.0.1:9009
+```
+<!-- .element: class="large" -->
 
-([`node-supervisor`](https://github.com/petruisfan/node-supervisor))
+([`babel-register`](https://babeljs.io/docs/usage/require/) require hook)
 
 NOTES:
-- Once a node module is loaded it’s “cached” for the lifetime of program execution (w/o hackery)
-- In order to see file updates, we needed to watch for changes and restart the server via `node-supervisor`
+- After much googling & StackOverflow-ing, found the `--require` flag on node CLI
+- Could use it to require `babel-register` which is a require hook for transpiling everything that gets `require`d
+- It worked beautifully
+- But then there was _another_ problem...
+
+/////
+
+## Server restart (DEV)
+
+```sh
+supervisor
+    --watch js/react
+    --extensions jsx
+    --poll-interval 5000
+    -- --require babel-register -- server.js --verbose
+```
+<!-- .element: class="large" -->
+
+Long-polling needed for NFS in Vagrant Docker
+
+NOTES:
+- Everything worked great when I was developing the server locally on my Mac
+- But once I ran it in our Vagrant Docker environment the server wasn't restarting on file changes
+- This is because the file system was NFS and doesn't support file modified event
+- So we had to resort to long polling
+- Really unfortunate because it's hard to know when the server will restart
 
 =====
 
