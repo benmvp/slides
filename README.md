@@ -12,11 +12,15 @@ You can also check out my [Speaking Videos](http://www.benmvp.com/speaking-video
 
 ##### San Francisco, California (Eventbrite)
 
-#### [TBD](http://www.meetup.com/ReactJS-San-Francisco/events/232284872/)
+#### [React exposed! 😮](http://www.meetup.com/ReactJS-San-Francisco/events/232284872/)
 
 Thursday, February 9, 2017  
 
-> TBD
+> React’s seemingly “magical” features make developing sophisticated web UIs easy by doing so much heavy lifting for us. Unfortunately, without knowing how certain parts of the “magic” work, we run into confusing React warnings/errors.
+>
+> Why can’t we have “if blocks” in our JSX code? Why do we need to wrap multiple sibling components in a container component? Why do we need to include a “key” attribute on components that are in an array?
+>
+> In this session geared towards those familiar with React, let’s answer these questions by digging deeper into JSX syntax, virtual DOM diffing and other “magical” features. Not only will we be able to prevent errors with a clearer understanding of the “magic,” but we can potentially boost rendering performance as well.
 
 ## 2016
 
@@ -24,18 +28,18 @@ Thursday, February 9, 2017
 
 ##### Montreal, Canada (Sheraton Vancouver Wall Centre)
 
+#### [Flexing your Flexbox muscles](https://confoo.ca/en/yvr2016/session/flexing-your-flexbox-muscles)
+
+Tuesday, December 6, 2016 @ 4p (Pavilion A)  
+
+> Building linear layouts in CSS has been hard. Tables are bad, inline-block has quirks, and floats are insufficient. Thankfully CSS Flexbox enables us to elegantly solve our layout problems. While the specification has been around for over four years, increased browser support has finally pushed Flexbox mainstream. Let’s deep dive into Flexbox: what it is, why you should use it, how it’s configured, and where it’s most useful.
+
 #### [Sweet ES6](https://confoo.ca/en/yvr2016/session/sweet-es6)
 
 Monday, December 5, 2016 @ 10a (Pavilion B)  
 🖥 [Code examples](https://github.com/benmvp/learning-es6)
 
 > ECMAScript 6 is the new version of JavaScript available in the engines of our modern browsers and servers. Many of its features are just a little syntactic sugar to help make our code clearer and more concise. Learn how to use arrow functions, destructuring, rest parameters, and other sweet ES6 features.
-
-#### [Flexing your Flexbox muscles](https://confoo.ca/en/yvr2016/session/flexing-your-flexbox-muscles)
-
-Tuesday, December 6, 2016 @ 4p (Pavilion A)  
-
-> Building linear layouts in CSS has been hard. Tables are bad, inline-block has quirks, and floats are insufficient. Thankfully CSS Flexbox enables us to elegantly solve our layout problems. While the specification has been around for over four years, increased browser support has finally pushed Flexbox mainstream. Let’s deep dive into Flexbox: what it is, why you should use it, how it’s configured, and where it’s most useful.
 
 ----------
 
