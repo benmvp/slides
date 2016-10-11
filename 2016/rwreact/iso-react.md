@@ -767,7 +767,7 @@ NOTES:
 
 =====
 
-![Aladdin Thanks](../../img/giphy/usain-bolt-thumbs-up.gif)
+![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
 /////
