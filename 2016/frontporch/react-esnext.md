@@ -214,7 +214,7 @@ NOTES:
 
 /////
 
-![ECMAScript Proposals](../../img/react-esnext/react-esnext-app.png)
+![React tutorial in ES.next screenshot](../../img/react-esnext/react-esnext-app.png)
 
 [React official tutorial](https://facebook.github.io/react/docs/tutorial.html) app
 
