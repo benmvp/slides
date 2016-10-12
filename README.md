@@ -8,7 +8,21 @@ You can also check out my [Speaking Videos](http://www.benmvp.com/speaking-video
 
 ## 2017
 
-### [ReactJS San Francisco Bay Area Meetup ](http://www.meetup.com/ReactJS-San-Francisco/)
+### [DeveloperWeek JavaScript Conference 2017](http://www.developerweek.com/javascript-conference/)
+
+##### San Francisco, California (Pier 27)
+
+#### Navigating the React Ecosystem
+
+February 13/14, 2017 @ TBD (TBD)  
+
+> React just exploded in popularity. But it’s only a UI library, not a full-fledged framework like Angular, Ember or _[insert latest JS framework]_. We need to create our own “framework” by picking from the plethora of libraries in the React ecosystem. But which ones should we choose? Or better yet, which ones do we actually need? Do we need a Flux implementation? What about handling ES6+, bundling and routing? How does it all come together?!1?!
+>
+> Let’s walk through the tools and helper libraries that surround React. You’ll get the most out of the session with familiarity with React and its concepts, but you don’t need to be an expert. By the end of the session, you’ll  have a solid understanding of the ecosystem, know which libraries you should prioritize learning first, and confidently build your own React-based stack.
+
+----------
+
+### [ReactJS San Francisco Bay Area Meetup](http://www.meetup.com/ReactJS-San-Francisco/)
 
 ##### San Francisco, California (Eventbrite)
 
@@ -84,7 +98,7 @@ Friday, October 21, 2016 @ 11:20a (React.JS track)
 
 #### [Isomorphic React w/o Node??](http://www.meetup.com/Real-World-React/events/232638998/)
 
-Tuesday, October 18, 2016  
+Tuesday, October 18, 2016 @ 6:45p  
 
 > React is JavaScript library for building user interfaces that has taken the web development industry by storm. Its declarative syntax and DOM abstraction for components not only make client-side development simple, but also enables server-side rendering of those same components, which enables improved SEO and initial browser load time. But how do you render JavaScript React components server-side if your backend doesn’t run on Node? Learn how Eventbrite successfully integrated React with their Python/Django backend so that you can do the same in yours.
 
@@ -96,7 +110,7 @@ Tuesday, October 18, 2016
 
 #### [Evolution of Javascript IV](http://nodesummit.com/agenda/#day-two)
 
-Thursday, July 28, 2016 on Main Stage  
+Thursday, July 28, 2016 @ 9:30a (Main Stage)  
 🎥 [Video](https://vimeo.com/album/4104052/video/180426378) | 📝 [Blog post](http://www.benmvp.com/nodesummit-2016/)
 
 > One of the most popular sessions from each of the past three Node Summit events is back for episode four.
@@ -244,7 +258,7 @@ Wednesday, February 24, 2016 @ 3p in Hampstead
 
 ----------
 
-### [DeveloperWeek 2016](http://developerweek.com/)
+### [DeveloperWeek JavaScript Conference 2016](http://www.developerweek.com/javascript-conference/)
 
 ##### San Francisco, California (Pier 27)
 
