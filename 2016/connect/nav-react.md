@@ -427,7 +427,7 @@ NOTES:
 
 ## React Dev Tools
 
-For debugging React props & state
+Help debug React props & state
 
 # SCREENSHOT
 
@@ -443,10 +443,24 @@ NOTES:
 
 ## Package managers
 
-Helps you include & manage helper libraries
+Help include & manage helper libraries
 
-# [NPM logo](https://www.npmjs.com)
-# [Bower logo](https://bower.io)
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 30%;border:5px solid white;border-radius:25%">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="https://www.npmjs.com">NPM</a>
+    </div>
+	<div style="flex:0 0 30%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="hhttps://bower.io">Bower</a>
+    </div>
+</div>
 
 NOTES:
 - Two major players are NPM & Bower
@@ -456,28 +470,184 @@ NOTES:
 
 /////
 
-## NPM resources
+## Bundlers
 
-- [Node Version Manager](https://github.com/creationix/nvm)
-- [Awesome npm resources and tips](https://github.com/sindresorhus/awesome-npm)
+Help gather dependencies, transpile ES6+, etc.
+
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 18%;border:5px solid white;border-radius:25%">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="https://webpack.github.io/">Webpack</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://browserify.org/">Browserify</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://rollupjs.org/">Rollup</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://jspm.io/">JSPM</a>
+    </div>
+    <div style="flex:0 0 18%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://requirejs.org/">RequireJS</a> (no!)
+    </div>
+</div>
 
 NOTES:
-- If you decide to go the npm route (you should) here are some resources
+- This is space has a lot of players
+- Webpack is the prevailing bundler right now; it just came on the same 2 years ago w/ much fanfare
+- Browserify came before and was the main bundler, but as it's name states, it focused on the browser
+- Rollup seems to be the up-and-comer that lots of folks are excited about now. I think it has to do w/ "Webpack fatigue"
+- JSPM is another option that...
+- RequireJS is the original, but just isn't well suited at all for modern web development practices
+- Haven't used Browserify or Rollup, used Webpack & RequirejS heavily, used JSPM once in a workshop
+- I'd say go with Webpack, espeically because of `webpack-dev-server`
+- It's at this step where the "JavaScript fatigue" really kicks in. Your typical JS developer doesn't want to or know how to configure these bundlers
 
 /////
 
-## Bundler
+## Simple Webpack Configuration
 
-Helps gather all the various dependencies & transpile ES6+
+```js
+// webpack.config.js
+module.exports = {
+	entry: [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        './src/index'
+    ],
+    output: {
+        path: path.join(__dirname, 'src/dist'),
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js?$/,
+                loader: 'babel',
+                include: path.join(__dirname, 'src')
+            }
+        ]
+    }
+}
+```
 
-- Webpack
-- Browserify
-- Rollup
-- JSPM
-- RequireJS (don’t use!)
+/////
+
+## Task runners
+
+Help execute shell commands, generate files, etc.
+
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 20%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://gruntjs.com/">Grunt</a>
+    </div>
+	<div style="flex:0 0 20%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://gulpjs.com/">Gulp</a>
+    </div>
+	<div style="flex:0 0 20%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="http://www.benmvp.com">Burp</a>
+    </div>
+	<div style="flex:0 0 20%;border:5px solid white;border-radius:25%">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<a href="https://docs.npmjs.com/misc/scripts">NPM</a>
+    </div>
+</div>
+
+NOTES:
+- Build files, run shell scripts, etc.
+- Grunt was the original & dominant
+- Then because grunt files were unmanageable
+- So gulp approached it with streams in a functional way
+- But with "building fatigue" and the fact that webpack could do so much of this for us
+- NPM scripts have lately become the rage. Essentially wrappers around command line calls
+- If things are simple, use npm scripts.
+- If things are complex, use gulp since it's functional
+
+/////
+
+## NPM Scripts
+
+```json
+{
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline --open",
+    "build": "webpack --progress --colors",
+    "eslint": "eslint .",
+    "lint": "npm run scss-lint && npm run eslint",
+    "scss-lint": "scss-lint .",
+	"test": "mocha tests/*.spec.js",
+	"validate": "npm run lint && npm run test"
+  }
+}
+```
+<!-- .element: class="large" -->
+
+```
+> npm run validate
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- For something simple like this, NPM scripts are great!
+- But I have some package.json files that have 25+ scripts that generate files, etc
+- In that case, and actual build system like gulp makes sense
+- Speaking of linting...
+
+/////
+
+## ESLint
+
+# ESLint logo
 
 NOTES:
 - 
+
+/////
+
+## Tooling resources
+
+- [Node Version Manager](https://github.com/creationix/nvm)
+- [Awesome npm resources and tips](https://github.com/sindresorhus/awesome-npm)
+- [JSPM vs Webpack](http://ilikekillnerds.com/2015/07/jspm-vs-webpack/)
+- [webpack dev server](https://webpack.github.io/docs/webpack-dev-server.html)
+
+NOTES:
+- If you decide to go the npm route (you should) here are some resources
 
 =====
 
