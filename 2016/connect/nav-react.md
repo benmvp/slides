@@ -59,12 +59,14 @@ NOTES:
 
 =====
 
+## In the beginning...
+
 ```html
 <html>
     <head>
         <title>My Awesome site!</title>
         <link rel="styles.css" />
-        <script src="script.js"></script>
+        <script src="script.js"></script> <!-- in the <head>! -->
     </head>
     <body>
         <!-- Lots o' markup -->
@@ -80,14 +82,18 @@ NOTES:
 
 /////
 
-## image of "best view in IE 5"
+![Best Viewed in IE4](../../img/nav-react/best-viewed-ie4.gif)
+<!-- .element: style="width: 75%;background:white;" -->
 
 NOTES:
 - And we could get away with targeting specific versions of specific browsers
 
 /////
 
-## image of old Yahoo!
+![Yahoo Homepage in 2001](../../img/nav-react/yahoo-2001.jpg)
+<!-- .element: style="width: 75%;" -->
+
+Yahoo!, 2001
 
 NOTES:
 - And for the most part, company websites were built the same way
@@ -97,7 +103,10 @@ NOTES:
 
 /////
 
-## screenshot of latest Yahoo!
+![Yahoo Homepage in 2016](../../img/nav-react/yahoo-2016.png)
+<!-- .element: style="width: 75%;" -->
+
+Yahoo!, 2016
 
 NOTES:
 - Company websites started getting more complex as browsers got more advanced
@@ -106,7 +115,8 @@ NOTES:
 
 /////
 
-## image of jQuery logo
+![jQuery Logo](../../img/nav-react/jquery-logo.png)
+<!-- .element: style="width: 75%;border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
 
@@ -115,11 +125,28 @@ NOTES:
 
 /////
 
-## YUI logo
-## Angular logo
-## Ember logo
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5%">
+	<div style="flex:0 0 33%;">
+        <img
+            src="../../img/nav-react/yui-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+    </div>
+	<div style="flex:0 0 33%;">
+        <img
+            src="../../img/nav-react/angular-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+    </div>
+	<div style="flex:0 0 33%;">
+        <img
+            src="../../img/nav-react/ember-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+    </div>
+</div>
 
-"walled gardens" ~[Nicholas C. Zakas](https://twitter.com/slicknet)
+["walled gardens"](https://www.nczonline.net/newsletter/archive/fcdd7d1cc5/) ~Nicholas C. Zakas
 
 NOTES:
 - First came the full-fledged JavaScript frameworks
@@ -188,12 +215,68 @@ NOTES:
 
 /////
 
+## Imperative jQuery
+
+```html
+<div>
+	<input type="text" class="valueBox" value="0" />
+	<button class="btnUp">+</button>
+</div>
+```
+<!-- .element: class="large" -->
+
+```js
+$('.btnUp').click(function() {
+	var $valueBox = $('.valueBox'),
+		currentValue = parseInt($valueBox.val(), 10);
+
+	$valueBox.value(currentValue + 1);
+});
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- For simple task, imperative code is easy to follow
+
+/////
+
+## Declarative React
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick() {
+	this.setState({value: this.state.value + 1});
+  }
+
+  render() {
+	return (
+	  <div>
+		<input type="text" value={this.state.value} />
+		<button onClick={this._handleClick.bind(this)}>+</button>
+	  </div>
+    );
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Combining the markup with the JavaScript
+- Updating state causes an optimized re-render via Virtual DOM
+- As the UI gets more sophisticated React will scale much better
+
+/////
+
 ![React tutorial in ES.next screenshot](../../img/react-esnext/react-esnext-app.png)
+<!-- .element: style="width: 75%;" -->
 
 [React official tutorial](https://facebook.github.io/react/docs/tutorial.html) app
 
 NOTES:
 - With the official React tutorial you can learn how to use React by including a couple of script tags
+- It teaches all the core concepts
 - It's written in ES5, so you don't even have to worry about having to transpile ES6
 - However...
 
@@ -246,23 +329,6 @@ _handleSubmit(e) {
 NOTES:
 - Back to our code using `let`
 - You will see that we're pulling out `author` & `text` from `this.state` and assigning to variables of the same name
-
-/////
-
-# Destructuring
-
-Replace multiple assignments with a single one
-
-<br />
-<br />
-
-[benmvp.com/learning-es6-destructuring](http://www.benmvp.com/learning-es6-destructuring/)
-
-NOTES:
-- It's called Destructuring
-- With destructuring we can reduce multiple assignments down to one
-- Be advised, destructuring is probably the most "out there" syntax addition
-- It's ok if you don't understand it at first
 
 /////
 
@@ -339,68 +405,6 @@ NOTES:
 
 /////
 
-Array destructuring
-
-```js
-let [first, second, third] = [8, true, 11];
-    // first=8, second=true, third=11
-let [first, second, third] = ['no'];
-    // first='no', second=undefined, third=undefined
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('10-18-16');
-    // mo='10', day='28', yr='16'
-```
-<!-- .element: class="large" -->
-
-```js
-function hi(greeting, [first, , third]) {
-    // greeting='hello', first=1, third=3
-}
-hi('hello', [1, 2, 3]);
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Array destructuring works much the same way as object destructuring
-- The main difference is:
-  - Array destructuring uses an array literal pattern on the left hand side of the assignment
-  - And the order in the pattern determines the assignment matching
-- Focus on the third example which is a real-world use case with regular expression matches
-  - Don't need to maintain the intermediate array
-- Works kind of how tuples work in Python
-- Work in function headers too!
-
-/////
-
-```js
-let {
-    name,
-    nicknames: [primaryNick],
-    misc: {
-      netWorth: netWorthThousands
-    }
-  } = {
-    name: 'Sean Combs',
-    nicknames: ['Puffy', 'Puff Daddy', 'Diddy'],
-    misc: {
-      netWorth: 735000,
-      birthdate: '1969-11-04'
-    }
-  };
-```
-<!-- .element: class="large" -->
-
-Object + array + nested destructuring!
-
-NOTES:
-- You thought destructuring was unreadable
-- What about when you combine object & array destructuring?
-- And what about when you also leverage nested destructuring?
-- Your brain explodes! That's what.
-- This conveys the point that just because you _can_ do it doesn't mean you _should_
-- You can revisit this slide if you really want to try and understand what's going on
-
-/////
-
 ## [React + ES.next = ♥](https://www.youtube.com/watch?v=Fs4bJr1b7UU&list=PLQ0rErbcJANon4Dyy32o2EZnhHr-VWqhL&index=3)
 
 <iframe width="1333" height="750" src="https://www.youtube.com/embed/Fs4bJr1b7UU?list=PLQ0rErbcJANon4Dyy32o2EZnhHr-VWqhL" frameborder="0" allowfullscreen></iframe>
@@ -429,9 +433,10 @@ NOTES:
 
 Help debug React props & state
 
-# SCREENSHOT
+![React Dev Tools](../../img/nav-react/react-dev-tools.png)
+<!-- .element: style="width: 75%;" -->
 
-[Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+Available for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 NOTES:
 - Let's start easy
@@ -445,20 +450,27 @@ NOTES:
 
 Help include & manage helper libraries
 
-<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 30%;border:5px solid white;border-radius:25%">
-        <img
-            src="../../img/react-sans-node/python.png"
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:5%">
+	<div style="flex:0 0 30%;">
+        <a href="https://www.npmjs.com"><img
+            src="../../img/nav-react/npm-logo.png"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="https://www.npmjs.com">NPM</a>
     </div>
 	<div style="flex:0 0 30%;">
-        <img
-            src="../../img/react-sans-node/python.png"
+        <a href="https://bower.io"><img
+            src="../../img/nav-react/bower-logo.png"
             style="background:none;box-shadow:none;border:none;"
-        />
-		<a href="hhttps://bower.io">Bower</a>
+        /></a>
+		<a href="https://bower.io">Bower</a>
+    </div>
+	<div style="flex:0 0 30%;" class="fragment">
+        <a href="https://yarnpkg.com/"><img
+            src="../../img/nav-react/yarn-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://yarnpkg.com/">Yarn</a> (NEW!)
     </div>
 </div>
 
@@ -470,44 +482,68 @@ NOTES:
 
 /////
 
+<div style="display:flex;align-items:center;justify-content:space-around;margin-bottom: 5%">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/nav-react/yarn-logo.png" style="background:none;box-shadow:none;border:none;"/>
+	</div>
+    <div style="flex:0 0 45%;">
+        <h2>Offline Mode</h2>
+        <h2>Deterministic</h2>
+        <h2>Network Performance</h2>
+        <h2>Multiple Registries</h2>
+        <h2>Network Resilience</h2>
+        <h2>Flat Mode</h2>
+    </div>
+</div>
+
+NOTES:
+- Offline Mode: If you've installed a package before, you can install it again without any internet connection.
+- Deterministic: The same dependencies will be installed the same exact way across every machine regardless of install order.
+- Network Performance: Yarn efficiently queues up requests and avoids request waterfalls in order to maximize network utilization.
+- Multiple Registries: Install any package from either npm or Bower and keep your package workflow the same.
+- Network Resilience: A single request failing won't cause an install to fail. Requests are retried upon failure.
+- Flat Mode: Resolve mismatching versions of dependencies to a single version to avoid creating duplicates.
+
+/////
+
 ## Bundlers
 
 Help gather dependencies, transpile ES6+, etc.
 
-<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 18%;border:5px solid white;border-radius:25%">
-        <img
-            src="../../img/react-sans-node/python.png"
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 18%;">
+        <a href="https://webpack.github.io/"><img
+            src="../../img/nav-react/webpack-logo.png"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="https://webpack.github.io/">Webpack</a>
     </div>
 	<div style="flex:0 0 18%;">
-        <img
-            src="../../img/react-sans-node/python.png"
+        <a href="http://browserify.org/"><img
+            src="../../img/nav-react/browserify-logo.png"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="http://browserify.org/">Browserify</a>
     </div>
 	<div style="flex:0 0 18%;">
-        <img
-            src="../../img/react-sans-node/python.png"
+        <a href="http://rollupjs.org/"><img
+            src="../../img/nav-react/rollup-logo.svg"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="http://rollupjs.org/">Rollup</a>
     </div>
 	<div style="flex:0 0 18%;">
-        <img
-            src="../../img/react-sans-node/python.png"
+        <a href="http://jspm.io/"><img
+            src="../../img/nav-react/jspm-logo.svg"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="http://jspm.io/">JSPM</a>
     </div>
     <div style="flex:0 0 18%;">
-        <img
-            src="../../img/react-sans-node/python.png"
+        <a href="http://requirejs.org/"><img
+            src="../../img/nav-react/requirejs-logo.png"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="http://requirejs.org/">RequireJS</a> (no!)
     </div>
 </div>
@@ -517,6 +553,7 @@ NOTES:
 - Webpack is the prevailing bundler right now; it just came on the same 2 years ago w/ much fanfare
 - Browserify came before and was the main bundler, but as it's name states, it focused on the browser
 - Rollup seems to be the up-and-comer that lots of folks are excited about now. I think it has to do w/ "Webpack fatigue"
+- It works specifically with ES6 modules and has a "tree-shaking" feature that results in less generated code
 - JSPM is another option that...
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - Haven't used Browserify or Rollup, used Webpack & RequirejS heavily, used JSPM once in a workshop
@@ -557,33 +594,33 @@ module.exports = {
 
 Help execute shell commands, generate files, etc.
 
-<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
 	<div style="flex:0 0 20%;">
-        <img
-            src="../../img/react-sans-node/python.png"
-            style="background:none;box-shadow:none;border:none;"
-        />
+        <a href="http://gruntjs.com/"><img
+            src="../../img/nav-react/grunt-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
 		<a href="http://gruntjs.com/">Grunt</a>
     </div>
 	<div style="flex:0 0 20%;">
-        <img
-            src="../../img/react-sans-node/python.png"
-            style="background:none;box-shadow:none;border:none;"
-        />
+        <a href="http://gulpjs.com/" style="display:block"><img
+            src="../../img/nav-react/gulp-logo.svg"
+            style="background:none;box-shadow:none;border:none;max-width:100%"
+        /></a>
 		<a href="http://gulpjs.com/">Gulp</a>
     </div>
 	<div style="flex:0 0 20%;">
-        <img
-            src="../../img/react-sans-node/python.png"
+        <a href="nav-react.html"><img
+            src="../../img/nav-react/burp.png"
             style="background:none;box-shadow:none;border:none;"
-        />
-		<a href="http://www.benmvp.com">Burp</a>
+        /></a>
+		<a href="nav-react.html">Burp</a>
     </div>
-	<div style="flex:0 0 20%;border:5px solid white;border-radius:25%">
-        <img
-            src="../../img/react-sans-node/python.png"
+	<div style="flex:0 0 20%">
+        <a href="http://www.benmvp.com"><img
+            src="../../img/nav-react/npm-logo.png"
             style="background:none;box-shadow:none;border:none;"
-        />
+        /></a>
 		<a href="https://docs.npmjs.com/misc/scripts">NPM</a>
     </div>
 </div>
@@ -626,16 +663,33 @@ NOTES:
 - For something simple like this, NPM scripts are great!
 - But I have some package.json files that have 25+ scripts that generate files, etc
 - In that case, and actual build system like gulp makes sense
+- But it's good to always have NPM scripts to abstract the build system
+- So if things change underneath the commands the user calls stay the same
 - Speaking of linting...
 
 /////
 
-## ESLint
+## Static Analyzers
 
-# ESLint logo
+- ESLint
+- Flow
+- TypeScript
+
+![ESLint](../../img/nav-react/eslint-logo.svg)
+<!-- .element: style="width: 40%;background:none;box-shadow:none;border:none;" -->
 
 NOTES:
-- 
+-
+
+/////
+
+## Tooling Recap
+
+- React Dev Tools
+- Package Managers
+- Bundlers
+- Task Runners
+- Static Analyzers
 
 /////
 
@@ -643,11 +697,12 @@ NOTES:
 
 - [Node Version Manager](https://github.com/creationix/nvm)
 - [Awesome npm resources and tips](https://github.com/sindresorhus/awesome-npm)
+- [Introducing Yarn](https://code.facebook.com/posts/1840075619545360)
 - [JSPM vs Webpack](http://ilikekillnerds.com/2015/07/jspm-vs-webpack/)
 - [webpack dev server](https://webpack.github.io/docs/webpack-dev-server.html)
 
 NOTES:
-- If you decide to go the npm route (you should) here are some resources
+- Here are some miscellaneous resources regarding the tools we talked about
 
 =====
 
