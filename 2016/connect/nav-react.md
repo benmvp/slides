@@ -867,6 +867,238 @@ NOTES:
 
 =====
 
+## image/diagram of ecosystem
+
+## Level 3 - Styling
+
+NOTES:
+- Let's talking about styling because visuals are just as important as interaction
+- There are _at least_ 4 ways to tackle the styling problem
+
+/////
+
+## Global CSS
+
+Use CSS that exists on the page outside of React
+
+```js
+export default class Card extends React.Component {
+  render() {
+	let {title, imageUrl, message} = this.props;
+	return (
+	  <div className="card">
+	    <h2 className="card__title">{title}</h2>
+		<img src={imageUrl} className="card__image" />
+		<p className="card_message">{message}</p>
+	  </div>
+    );
+  }
+}
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- You'd use the Global CSS option if you are transitioning to React and already have your CSS being built by some other process
+- You probably already have components that you're transitioning to React so you keep the same "global" CSS classes
+
+
+/////
+
+## Global CSS
+
+Use CSS that exists on the page outside of React
+
+```css
+/* global.scss */
+
+/* lots of other styles before */
+
+.card { }
+.card__tile { }
+.card__image { }
+.card__message { }
+
+/* lots of other styles after */
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- Use BEM syntax as a convention to prevent name collisions
+
+/////
+
+## Component CSS
+
+Associate React components with CSS snippet
+
+```js
+import './Card.scss';
+export default class Card extends React.Component {
+  render() {
+	let {title, imageUrl, message} = this.props;
+	return (
+	  <div className="card">
+	    <h2 className="card__title">{title}</h2>
+		<img src={imageUrl} className="card__image" />
+		<p className="card_message">{message}</p>
+	  </div>
+    );
+  }
+}
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- This is the exact same as Global CSS except the CSS is imported by the Component
+- Therefore if the Component isn't used the CSS won't be included in the bundle
+
+/////
+
+## Component CSS
+
+Associate React components with CSS snippet
+
+```css
+/* Card.scss */
+
+.card { }
+.card__tile { }
+.card__image { }
+.card__message { }
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- Same BEM style CSS class names convention because eventually it'll all be merged
+- If the convention is broken you could still have collisions
+
+/////
+
+## CSS Modules
+
+Automatically scope CSS class names to the component
+
+```js
+import css from './Card.scss';
+export default class Card extends React.Component {
+  render() {
+	let {title, imageUrl, message} = this.props;
+	return (
+	  <div className={css.root}>
+	    <h2 className={css.title}>{title}</h2>
+		<img src={imageUrl} className={css.image} />
+		<p className={css.message}>{message}</p>
+	  </div>
+    );
+  }
+}
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- Similar to Component CSS except the import of the CSS will return an object lookup with a generated class name
+
+/////
+
+## CSS Modules
+
+Automatically scope CSS class names to the component
+
+```css
+/* Card.scss (source) */
+
+.root { }
+.tile { }
+.image { }
+.message { }
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- No need for naming conventions
+- Just name the classes what they are w/o worry about collision
+
+/////
+
+## CSS Modules
+
+Automatically scope CSS class names to the component
+
+```css
+/* Card.scss (generated) */
+
+.Card__root___d74hQ { }
+.Card__tile___37fhU { }
+.Card__image___ndh2e { }
+.Card__message___84QQj { }
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- The generated CSS classes will be unique so there's no way they can collide
+- The generated markup will also have the same class names
+
+/////
+
+## Inline styles
+
+Forgo CSS classes in favor of inline styles
+
+```js
+const styles = { /* */ };
+export default class Card extends React.Component {
+  render() {
+	let {title, imageUrl, message} = this.props;
+	return (
+	  <div style={styles.root}>
+	    <h2 style={styles.title}>{title}</h2>
+		<img src={imageUrl} style={styles.image} />
+		<p style={styles.message}>{message}</p>
+	  </div>
+    );
+  }
+}
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- The last option is to just go with inline styles
+- As a result there's no chance of class name collisions or unexpected CSS cascade
+- There's been a big huge for this in React mainly because of React Native because it doesn't support CSS
+- If you want to share components across React & React Native you can't use CSS
+
+/////
+
+## Inline styles
+
+Forgo CSS classes in favor of inline styles
+<!-- .element: style="margin-bottom:5%" -->
+
+- Pseudo-classes (i.e. `:hover`)
+- Media queries
+- Keyframe animations
+
+NOTES:
+- Inline styles do have drawbacks
+- Things that are pretty simple in CSS become work in JS
+
+/////
+
+## Styling resources
+
+- [CSS Modules](https://github.com/css-modules/css-modules) & [React CSS Modules](https://github.com/gajus/react-css-modules)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
+- [Material UI](http://www.material-ui.com/#/)
+- [React + Foundation](https://react.foundation/)
+- [Classnames](https://github.com/JedWatson/classnames)
+- [PostCSS](http://postcss.org/) & [`postcss-loader`](https://github.com/postcss/postcss-loader)
+- [`style-loader`](https://github.com/webpack/style-loader), [`css-loader`](https://github.com/webpack/css-loader) & [`sass-loader`](https://github.com/jtangelder/sass-loader)
+
+NOTES:
+- Here are some miscellaneous resources regarding styling
+
+=====
+
 ![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
