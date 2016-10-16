@@ -298,7 +298,7 @@ NOTES:
 ## cURL Request
 
 `````sh
-> curl
+$> curl
   -H "Content-Type: application/json"
   -X POST
   -d '{"path":"/www/js/react/HelloWorld.jsx",props:{name:"Ben"}}'
@@ -349,7 +349,7 @@ NOTES:
 ## Running Render Server
 
 ```sh
-> node server.js --verbose
+$> node server.js --verbose
 
 [2016-10-18T21:39:55] Started server at http://127.0.0.1:9009
 [2016-10-18T21:40:23] Request for /www/js/react/HelloWorld.jsx
@@ -455,7 +455,7 @@ NOTES:
 ## On-Demand Transpilation (DEV)
 
 ```sh
-> node server.js --verbose
+$> node server.js --verbose
 ```
 <!-- .element: class="large" -->
 
@@ -477,7 +477,7 @@ NOTES:
 ## On-Demand Transpilation (DEV)
 
 ```sh
-> babel-node server.js --verbose
+$> babel-node server.js --verbose
 ```
 <!-- .element: class="large" -->
 
@@ -510,7 +510,7 @@ var Component = require(params.path);
 <br />
 
 ```sh
-> supervisor --watch js/react --extensions jsx --exec babel-node
+$> supervisor --watch js/react --extensions jsx --exec babel-node
     -- server.js --verbose
 ```
 <!-- .element: class="large" -->
@@ -537,7 +537,7 @@ NOTES:
 ## Server restart (DEV)
 
 ```sh
-> supervisor --watch /www/js/react --extensions jsx
+$> supervisor --watch /www/js/react --extensions jsx
     -- --require babel-register -- server.js --verbose
 ```
 <!-- .element: class="large" -->
@@ -565,7 +565,7 @@ NOTES:
 ## Server restart (DEV)
 
 ```sh
-> supervisor
+$> supervisor
     --watch /www/js/react
     --extensions jsx
     --poll-interval 5000
