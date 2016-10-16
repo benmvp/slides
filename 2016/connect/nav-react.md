@@ -195,11 +195,11 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
     <div>
-        <h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
         <h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
     </div>
 </div>
 
@@ -243,7 +243,7 @@ NOTES:
 ## Declarative React
 
 ```js
-class Incrementer extends React.Component {
+export default class Incrementer extends React.Component {
   state = {value: 0}
 
   _handleClick() {
@@ -562,6 +562,51 @@ NOTES:
 
 /////
 
+## Rollup Tree-Shaking
+
+<div style="display:flex;justify-content:space-between;margin-top:1%">
+	<div style="flex:0 0 48%;">
+		ES2015 modules go in...
+		<pre><code class="lang-js">// math.js
+
+// This function isn't used anywhere, so
+// Rollup excludes it from the bundle...
+export function square(x) {
+	return x \* x;
+}
+
+// This function gets included
+export function cube(x) {
+	return x \* x \* x;
+}
+		</code></pre>
+
+		<pre><code class="lang-js">// main.js
+import {cube} from './maths.js';
+
+console.log(cube(5)); // 125
+		</code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		...bundle comes out
+		<pre><code class="lang-js">// This function isn't used anywhere, so
+// Rollup excludes it from the bundle...
+
+// This function gets included
+function cube(x) {
+	return x \* x \* x;
+}
+
+console.log(cube(5)); // 125
+		</pre>
+	</div>
+</div>
+
+NOTES:
+- With Rollup's tree-shaking functions in a reference module that aren't used don't get bundled
+
+/////
+
 ## Simple Webpack Configuration
 
 ```js
@@ -587,6 +632,11 @@ module.exports = {
     }
 }
 ```
+
+NOTES:
+- Here's an example webpack config
+- It will transpile ES2015+ and bundle into `bundle.js`
+- But I'm also running a webpack dev server with hot reloading
 
 /////
 
@@ -655,7 +705,7 @@ NOTES:
 <!-- .element: class="large" -->
 
 ```
-> npm run validate
+$> npm run validate
 ```
 <!-- .element: class="large" -->
 
@@ -671,25 +721,134 @@ NOTES:
 
 ## Static Analyzers
 
-- ESLint
-- Flow
-- TypeScript
+Help catch errors in written code before runtime
 
-![ESLint](../../img/nav-react/eslint-logo.svg)
-<!-- .element: style="width: 40%;background:none;box-shadow:none;border:none;" -->
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 30%;">
+        <a href="http://eslint.org/"><img
+            src="../../img/nav-react/eslint-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
+		<a href="http://eslint.org/">ESLint</a>
+    </div>
+	<div style="flex:0 0 30%;">
+        <a href="https://flowtype.org/" style="display:block"><img
+            src="../../img/nav-react/flow-logo.png"
+            style="background:none;box-shadow:none;border:none;max-width:100%"
+        /></a>
+		<a href="https://flowtype.org/">Flow</a>
+    </div>
+	<div style="flex:0 0 30%;">
+        <a href="https://www.typescriptlang.org/"><img
+            src="../../img/nav-react/typescript-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://www.typescriptlang.org/">TypeScript</a>
+    </div>
+</div>
 
 NOTES:
--
+- The static analyzers help you catch errors in your code before it ever executes
+- ESLint: originally just for stylistic code preferences but can catch common errors including in JSX
+- Flow & Typescript are both static type checkers
+- Flow is exclusively for type checking
+- TypeScript is a superset of JavaScript that includes type checking plus future language constructs
+- It introduced classes before they were in ES2015. It has interfaces with JS does not
+- I like the idea of static type-checking, but TypeScript might be too far into the C#/Java realm
+- I haven't used Flow yet, but hoping it can be happy medium
+
+/////
+
+## Flow type inference
+
+```js
+/* @flow */
+const foo = (x) => (
+  x * 10
+);
+foo('Hello, world!');
+```
+<!-- .element: class="large" -->
+
+```
+$> flow
+3:   x * 10
+     ^ string. This type is incompatible with
+3:   x * 10     
+     ^ number
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Flow supports type inference
+- So without even changing the code, it can start providing helpful feedback
+- In this case we're trying to multiple a passed string by `10` which is obviously wrong
+
+/////
+
+## Flow type assertions
+
+```js
+/* @flow */
+const foo = (x: ?number): string => {
+  if (x) {
+    return x;
+  }
+  return "default string";
+}
+```
+<!-- .element: class="large" -->
+
+```
+$> flow
+4:  return x;
+           ^ number. Incompatible with the expected return type of
+2: const foo = (x: ?number): string => {
+                             ^ string
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- If you decide to add type assertions, it can get even smarter
 
 /////
 
 ## Tooling Recap
 
 - React Dev Tools
-- Package Managers
-- Bundlers
-- Task Runners
-- Static Analyzers
+- Package Managers (npm)
+- Bundlers (webpack)
+- Task Runners (npm)
+- Static Analyzers (eslint)
+
+NOTES:
+- So this is everything you need to set up your React app
+- And I didn't even go into a bunch of nitty gritty details
+- This has been the biggest complaint about React. How to get started
+- So the fine folks at Facebook did something about it...
+
+/////
+
+## React Create App
+
+Create React apps with no build configuration
+
+```
+$> npm install -g create-react-app
+
+$> create-react-app awesome-app
+
+$> cd awesome-app
+
+$> npm start
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NPM, Webpack, ESLint, and more!
+
+NOTES:
+- They created React Create App
+- Allows you to bootstrap super quick
 
 /////
 
@@ -700,6 +859,8 @@ NOTES:
 - [Introducing Yarn](https://code.facebook.com/posts/1840075619545360)
 - [JSPM vs Webpack](http://ilikekillnerds.com/2015/07/jspm-vs-webpack/)
 - [webpack dev server](https://webpack.github.io/docs/webpack-dev-server.html)
+- [Flow + React](https://flowtype.org/docs/react.html)
+- [React Create App](https://github.com/facebookincubator/create-react-app)
 
 NOTES:
 - Here are some miscellaneous resources regarding the tools we talked about
