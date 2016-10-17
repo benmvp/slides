@@ -120,7 +120,7 @@ $('.btnUp').click(function() {
 	var $valueBox = $('.valueBox'),
 		currentValue = parseInt($valueBox.val(), 10);
 
-	$valueBox.value(currentValue + 1);
+	$valueBox.val(currentValue + 1);
 });
 ```
 <!-- .element: class="large" -->
@@ -1197,6 +1197,7 @@ NOTES:
 - Only used it a bit, but found the API a bit cumbersome and then I was constantly going to and from Immutable objects. Don't _really_ want my React components to have to care, just Redux
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
 - The work just like Arrays or Objects except they don't mutate and have extra functionality
+- A lot lighter than Immutable
 
 /////
 
