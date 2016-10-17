@@ -1101,7 +1101,7 @@ NOTES:
 
 ## image/diagram of ecosystem
 
-## Level 4 - SPAs
+## Level 4 - Single-Page Apps (SPAs)
 
 NOTES:
 - Moving along to libraries needed for Single Page Apps
@@ -1188,7 +1188,6 @@ NOTES:
 
 ```js
 // modules/App.js
-import React from 'react';
 import {Link} from 'react-router';
 
 export default class App extends React.Component {
@@ -1201,16 +1200,142 @@ export default class App extends React.Component {
           <li><Link to="/repos">Repos</Link></li>
         </ul>
       </div>
-    )
+    );
   }
 }
 ```
-<!-- .element: style="margin:5% 0" -->
+<!-- .element: class="large" -->
 
 NOTES:
 - Then replace `<a>` tags with special `<Link>` tags
 
 =====
+
+## image/diagram of ecosystem
+
+## Level 5 - Testing
+
+NOTES:
+- Now the TDD proponents are prolly shaking their fists at me that this is Level 5!
+
+/////
+
+## Testing Frameworks
+
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 30%;">
+        <a href="https://mochajs.org"><img
+            src="../../img/nav-react/mocha-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:45%;"
+        /></a>
+        <a href="http://chaijs.com/"><img
+            src="../../img/nav-react/chai-logo.png"
+            style="background:none;box-shadow:none;border:none;width:38%;"
+        /></a>
+		<a href="https://mochajs.org">Mocha</a> + <a href="http://chaijs.com/">Chai</a>
+    </div>
+	<div style="flex:0 0 30%;">
+        <a href="https://facebook.github.io/jest/"><img
+            src="../../img/nav-react/jest-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:40%"
+        /></a>
+		<a href="https://facebook.github.io/jest/" style="display:block">Jest</a>
+    </div>
+	<div style="flex:0 0 30%;">
+        <a href="https://github.com/avajs/ava"><img
+            src="../../img/nav-react/ava-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://github.com/avajs/ava">Ava</a>
+    </div>
+</div>
+
+NOTES:
+- Much like how there are many options for JS frameworks, there are many for JS testing frameworks
+- Some are micro libraries like Mocha & Chai that do specific things (Chai is just for assertions)
+- Others are like Jest (built on Jasmine) that do it all
+- Jest also has auto-mocking so dependencies are mocked by default
+- There's also Ava that had some buzz around it, but it seems like for React testing it hasn't caught on
+
+/////
+
+## React Renderers
+
+Render React components in an isolated environment
+
+<!-- .element style="margin-bottom:5%" -->
+
+- [`ReactTestUtils`](https://facebook.github.io/react/docs/test-utils.html)
+- [**Enzyme**](https://github.com/airbnb/enzyme)
+- [`react-test-renderer`](https://github.com/facebook/react/tree/master/packages/react-test-renderer)
+
+NOTES:
+- `ReactTestUtils` came first but pretty sad
+- Enzyme from Airbnb makes it easy to assert, manipulate, and traverse your React Components' output
+- `react-test-renderer` is an experimental React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment
+- Combining it with Jest you're able to take a "snapshot" of the render and compare it previous snapshots
+
+/////
+
+## Mocha + Chai + Enzyme
+
+```js
+it('should render a checked checkbox if it is selected', () => {
+    let wrapper = mount(<Component isSelected={true} />);
+    let checkboxWrapper = wrapper.find(Checkbox);
+
+    expect(checkboxWrapper).to.have.prop('isChecked', true);
+});
+```
+<!-- .element class="large" style="margin:5% 0" -->
+
+(See: [`chai-enzyme`](https://github.com/producthunt/chai-enzyme))
+
+/////
+
+## Testing Resources
+
+- [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
+- [Jest 14.0: React Tree Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
+- [Ava + React](https://github.com/avajs/ava/blob/master/docs/recipes/react.md)
+
+=====
+
+## image/diagram of ecosystem
+
+## Level 6 - Performance & SEO
+
+NOTES:
+- Chances are if you're building an app of significant size SEO & initial render speed will matter
+- Rendering server-side can help both
+- This is called "Isomorphic/Universal React"
+- Rendering the same components server-side improves initial startup performance because content is already there
+- Google includes rendering speed in their ranking algorithm which affects SEO
+
+/////
+
+## Server-side Rendering
+<!-- .element style="margin-bottom: 5%" -->
+
+### With a Node back-end...
+<!-- .element style="margin-bottom: 2.5%" -->
+
+- [Express](https://expressjs.com/) server
+- [`node-fetch`](https://github.com/bitinn/node-fetch) or [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch)
+- React Router
+
+/////
+
+## Server-side Rendering
+<!-- .element style="margin-bottom: 5%" -->
+
+### Without a Node back-end...
+<!-- .element style="margin-bottom: 2.5%" -->
+
+- Django / Rails / .NET server
+- Watch _"Isomorphic React w/o Node??"_ talk for details! 😉
+
+NOTES:
 
 =====
 
@@ -1226,9 +1351,6 @@ NOTES:
 
 ![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-## We're [hiring](https://www.eventbrite.com/careers/)!
-<!-- .element: class="fragment" -->
 
 NOTES:
 
