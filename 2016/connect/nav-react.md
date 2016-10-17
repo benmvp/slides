@@ -1341,7 +1341,7 @@ NOTES:
 
 ## image/diagram of ecosystem
 
-## Level Level 7 - App Data Management
+## Level 7 - App Data Management
 
 NOTES:
 - We're starting to get further out from the center
@@ -1422,13 +1422,71 @@ NOTES:
 
 =====
 
-![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
+## image/diagram of ecosystem
+
+## Level 8 - API Optimization
+
+NOTES:
+
+- As your app grows larger you may find that you're making lots of API requests
+- A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
+- There are cutting-edge technologies to tackle this problem
+
+/////
+
+## API Optimization
+
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 45%;">
+        <a href="http://graphql.org/"><img
+            src="../../img/nav-react/graphql-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:45%;"
+        /></a>
+        <a href="https://facebook.github.io/relay/"><img
+            src="../../img/nav-react/relay-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:45%;"
+        /></a>
+		<a href="http://graphql.org/">GraphQL</a> + <a href="https://facebook.github.io/relay/">Relay</a>
+    </div>
+	<div style="flex:0 0 45%;">
+        <a href="http://netflix.github.io/falcor/"><img
+            src="../../img/nav-react/falcor-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
+		<a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
+    </div>
+</div>
+
+NOTES:
+- Facebook & Netflix tackled the same problem with different approaches
+- Facebook came up with GraphQL, a generic query language for APIs
+- Relay is a connection of React to GraphQL
+- Falcor models all backend data as a single Virtual JSON object & clients request a subset of the model on-demand
+- In both cases you get only the data you want, nothing more, nothing less
+
+=====
+
+## Review
+
+- React
+- JavaScript
+- Tooling
+- Styling
+- Single-Page Apps
+- Testing
+- Performance & SEO
+- App Data Management
+- API Optimization
+
+=====
+
+![Julian Edelman Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
 /////
 
-![Real World React logo](../../img/react-sans-node/real-world-react.jpg)
-<!-- .element: style="width: 50%;border: 0; background: none; margin: 0; box-shadow: none;" -->
+![Real World React logo](../../img/nav-react/connect-tech-banner.jpeg)
+<!-- .element: style="width: 100%;border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 /////
 
@@ -1448,7 +1506,7 @@ NOTES:
 
 # THANKS!
 
-![Aladdin Thanks](../../img/giphy/thanks-aladdin.gif)
+![Animated take a bow](../../img/giphy/animated-take-a-bow.gif)
 <!-- .element: style="width: 60%" -->
 
 NOTES:
@@ -1468,4 +1526,8 @@ NOTES:
 
 <br />
 
-[#RWReact](https://twitter.com/hashtag/RWReact)  
+[@connect_js](https://twitter.com/connect_js)  
+
+<br />
+
+### _Isomorphic React w/o Node??_, Today @ 5:10pm in React.JS
