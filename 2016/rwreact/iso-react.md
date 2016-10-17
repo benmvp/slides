@@ -44,7 +44,7 @@ NOTES:
 
 ben-ilegbodu.json
 
-<div style="display:flex">
+<div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
 		<pre class="large"><code class="lang-json">
 {
