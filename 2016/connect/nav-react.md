@@ -1,4 +1,4 @@
-# Navigating the React Ecosystem
+# Navigating the React Solar System
 
 <br />
 
@@ -20,7 +20,7 @@ NOTES:
 
 ben-ilegbodu.json
 
-<div style="display:flex">
+<div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
 		<pre class="large"><code class="lang-json">
 {
@@ -59,136 +59,27 @@ NOTES:
 
 =====
 
-## In the beginning...
+## React solar system
 
-```html
-<html>
-    <head>
-        <title>My Awesome site!</title>
-        <link rel="styles.css" />
-        <script src="script.js"></script> <!-- in the <head>! -->
-    </head>
-    <body>
-        <!-- Lots o' markup -->
-    </body>
-</html>
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- When I first started building websites they looked much like this
-- Pretty much all markup with a little bit of CSS and even less JavaScript
-- Scripts were vanilla JS (no `jQuery`) and were still in the `<head>`
-
-/////
-
-![Best Viewed in IE4](../../img/nav-react/best-viewed-ie4.gif)
-<!-- .element: style="width: 75%;background:white;" -->
-
-NOTES:
-- And we could get away with targeting specific versions of specific browsers
-
-/////
-
-![Yahoo Homepage in 2001](../../img/nav-react/yahoo-2001.jpg)
-<!-- .element: style="width: 75%;" -->
-
-Yahoo!, 2001
-
-NOTES:
-- And for the most part, company websites were built the same way
-- You could actually read their source and understand
-- No minification nor obfuscation
-- No DevTools so it was the primary way of learning
-
-/////
-
-![Yahoo Homepage in 2016](../../img/nav-react/yahoo-2016.png)
-<!-- .element: style="width: 75%;" -->
-
-Yahoo!, 2016
-
-NOTES:
-- Company websites started getting more complex as browsers got more advanced
-- We realized we could replace Flash w/ web code
-- Started building SPAs w/ AJAX; whole Web 2.0 craze
-
-/////
-
-![jQuery Logo](../../img/nav-react/jquery-logo.png)
-<!-- .element: style="width: 75%;border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-NOTES:
-
-- At first we used used jQuery, but we quickly realized that wasn't enough for our needs
-- Still had to write a lot of JS
-
-/////
-
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5%">
-	<div style="flex:0 0 33%;">
-        <img
-            src="../../img/nav-react/yui-logo.png"
-            style="background:none;box-shadow:none;border:none;"
-        />
-    </div>
-	<div style="flex:0 0 33%;">
-        <img
-            src="../../img/nav-react/angular-logo.png"
-            style="background:none;box-shadow:none;border:none;"
-        />
-    </div>
-	<div style="flex:0 0 33%;">
-        <img
-            src="../../img/nav-react/ember-logo.png"
-            style="background:none;box-shadow:none;border:none;"
-        />
-    </div>
-</div>
-
-["walled gardens"](https://www.nczonline.net/newsletter/archive/fcdd7d1cc5/) ~Nicholas C. Zakas
-
-NOTES:
-- First came the full-fledged JavaScript frameworks
-- Nicholas C. Zakas calls them “walled gardens”
-- Back then: YUI
-- Now: Angular & Ember
-- But folks started feeling like this frameworks were too large & inflexible
-- They were easy to get started with, but hard to configure to suite your needs
-
-/////
-
-## Micro Libraries
-
-![React logo](../../img/react/react-logo.png)
-<!-- .element: style="width: 45%;border: 0; background: none; margin: 0; box-shadow: none;" class="fragment" -->
-
-NOTES:
-- A huge movement towards micro libraries instead
-- Instead of a full framework, have micro-libraries that are added together to create the architecture you need
-- Positives: Get a lot of control, so you can pick and choose different pieces suited specifically to your needs.
-- Negatives: Big upfront cost of evaluating each of the pieces. You need to know the pieces in the first place!
-- React is such a micro-library.
-
-=====
-
-## React ecosystem
-
-## image/diagram of ecosystem
+![Solar System](../../img/nav-react/solar-system.jpg)
+<!-- .element style="width:80%" -->
 
 NOTES:
 - If you're new to React you might hear that on top of learning React, you need to know ES6, Redux, inline styles, server-side rendering, etc.
 - It can be so overwhelming
-- So I want to walk through the different "levels" in the React ecosystem so you can get an idea of how to prioritize what to learn
+- So I want to walk through the different "planets" in the React solar system so you can get an idea of how to prioritize what to learn
 
 =====
 
-## image/diagram of ecosystem
+## The Sun: React
 
-## Level 0 - React
+![The Sun](../../img/nav-react/sun.jpg)
+<!-- .element style="width:65%" -->
+
 
 NOTES:
-- At the core of this ecosystem obviously is React
+- At the core of this solar system obviously is React
+- Make sense that it'd be the sun because React is on fire right now!
 
 /////
 
@@ -282,9 +173,10 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Mercury: JavaScript
 
-## Level 1 - JavaScript
+![Mercury](../../img/nav-react/mercury.jpg)
+<!-- .element style="width:60%" -->
 
 NOTES:
 - React IMO is even easier to write with ES6+
@@ -418,9 +310,10 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Venus: Tooling
 
-## Level 2 - Tooling
+![Venus](../../img/nav-react/venus.jpg)
+<!-- .element style="width:60%" -->
 
 NOTES:
 - Here's where things start getting a bit gnarly
@@ -772,6 +665,7 @@ foo('Hello, world!');
 
 ```
 $> flow
+
 3:   x * 10
      ^ string. This type is incompatible with
 3:   x * 10     
@@ -801,6 +695,7 @@ const foo = (x: ?number): string => {
 
 ```
 $> flow
+
 4:  return x;
            ^ number. Incompatible with the expected return type of
 2: const foo = (x: ?number): string => {
@@ -867,9 +762,10 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Earth: Styling
 
-## Level 3 - Styling
+![Earth](../../img/nav-react/earth.jpg)
+<!-- .element style="width:75%" -->
 
 NOTES:
 - Let's talking about styling because visuals are just as important as interaction
@@ -1099,9 +995,10 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Mars: Single-Page Apps
 
-## Level 4 - Single-Page Apps (SPAs)
+![Mars](../../img/nav-react/mars.jpg)
+<!-- .element style="width:70%" -->
 
 NOTES:
 - Moving along to libraries needed for Single Page Apps
@@ -1211,9 +1108,21 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Asteroid Belt
 
-## Level 5 - Testing
+![Asteroid Belt](../../img/nav-react/asteroid-belt.jpg)
+<!-- .element style="width:70%" -->
+
+NOTES:
+- At this point we've hit the asteroid belt
+- We actually have everything we need to build apps, but there's more to cover
+
+=====
+
+## Jupiter: Testing
+
+![Jupiter](../../img/nav-react/jupiter.jpg)
+<!-- .element style="width:85%" -->
 
 NOTES:
 - Now the TDD proponents are prolly shaking their fists at me that this is Level 5!
@@ -1301,9 +1210,10 @@ it('should render a checked checkbox if it is selected', () => {
 
 =====
 
-## image/diagram of ecosystem
+## Saturn: Performance & SEO
 
-## Level 6 - Performance & SEO
+![Saturn](../../img/nav-react/saturn.jpg)
+<!-- .element style="width:100%" -->
 
 NOTES:
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
@@ -1339,12 +1249,14 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Uranus: App Data Management
 
-## Level 7 - App Data Management
+![Uranus](../../img/nav-react/uranus.jpg)
+<!-- .element style="width:40%" -->
 
 NOTES:
 - We're starting to get further out from the center
+- Gonna call it Uranus, but as we'll see learning these libraries can be a pain in the Uranus
 - Starting to use libraries that work well with React, but not exclusively
 - Up until this point, the data for the app probably just was in `state` of top-level component
 - Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
@@ -1422,9 +1334,10 @@ NOTES:
 
 =====
 
-## image/diagram of ecosystem
+## Neptune: API Optimization
 
-## Level 8 - API Optimization
+![Neptune](../../img/nav-react/neptune.jpg)
+<!-- .element style="width:40%" -->
 
 NOTES:
 
