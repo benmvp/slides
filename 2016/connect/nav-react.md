@@ -1099,6 +1099,121 @@ NOTES:
 
 =====
 
+## image/diagram of ecosystem
+
+## Level 4 - SPAs
+
+NOTES:
+- Moving along to libraries needed for Single Page Apps
+
+/////
+
+## Fetch API
+
+Handle AJAX natively
+
+```js
+fetch('http://www.benmvp.com/speaking-engagements.html', {
+	method: 'get'
+}).then((response) => {
+	// do something w/ response
+}).catch((err) => {
+	// handle error
+});
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- Your favorite "walled garden" JS framework had a mechanism for making AJAX requests
+- React does not come with a way because it's just the UI side
+- You could use jQuery, but that could lead you to to using it improperly with React
+- Instead we're going to a native AJAX implementation, new Fetch API
+- Works with ES2015 Promises
+
+/////
+
+## Fetch API
+
+Handle AJAX natively
+<!-- .element: style="margin-bottom:5%" -->
+
+- [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [ES6 Promises](http://www.benmvp.com/learning-es6-promises/)
+- [`window.fetch` polyfill](https://github.com/github/fetch)
+- [Load Initial Data via AJAX](https://facebook.github.io/react/tips/initial-ajax.html)
+
+NOTES:
+-
+
+/////
+
+## Routing
+
+Keep your UI in sync with the URL
+<!-- .element: style="margin-bottom:5%" -->
+
+- [**React Router**](https://github.com/ReactTraining/react-router)
+- [uniloc](http://unicornstandard.com/packages/uniloc.html)
+- [Aviator](https://github.com/swipely/aviator)
+- [...and more](https://github.com/facebook/react/wiki/Complementary-Tools#routing)
+
+NOTES:
+- React Router is the obvious choice. Major player
+
+/////
+
+## React Router
+
+```js
+// index.js
+import About from './modules/About'
+import Repos from './modules/Repos'
+
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    <Route path="/repos" component={Repos}/>
+    <Route path="/about" component={About}/>
+  </Router>
+), document.getElementById('app'));
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+NOTES:
+- Can set up your routes with the same JSX syntax pointing to components
+
+/////
+
+## React Router
+
+```js
+// modules/App.js
+import React from 'react';
+import {Link} from 'react-router';
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>React Router Tutorial</h1>
+        <ul role="nav">
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/repos">Repos</Link></li>
+        </ul>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: style="margin:5% 0" -->
+
+NOTES:
+- Then replace `<a>` tags with special `<Link>` tags
+
+=====
+
+=====
+
 ![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
