@@ -55,7 +55,6 @@ NOTES:
 - Eventbrite is an online ticketing & events platform
 - Many conferences & events use it for registration
 - I work on our Frontend Platform team and we're wrapping up a huge push to transition from Backbone/Marionette to React
-- But I've been in the industry for a while now
 
 =====
 
@@ -77,7 +76,7 @@ NOTES:
 <!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
-- At the core of this solar system obviously is React
+- At the center of this solar system obviously is React
 - Make sense that it'd be the sun because React is on fire right now!
 
 /////
@@ -200,102 +199,6 @@ NOTES:
 
 /////
 
-```js
-_handleSubmit(e) {
-    e.preventDefault();
-
-    let author = this.state.author;
-    let text = this.state.text;
-
-    if (!text || !author) {
-        return;
-    }
-
-    this.props.onCommentSubmit({author: author, text: text});
-    this.setState(INITIAL_STATE);
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Back to our code using `let`
-- You will see that we're pulling out `author` & `text` from `this.state` and assigning to variables of the same name
-
-/////
-
-Single assignment statement + object literal shorthand!
-
-```js
-_handleSubmit(e) {
-    e.preventDefault();
-
-    let {author, text} = this.state;
-
-    if (!text || !author) {
-        return;
-    }
-
-    this.props.onCommentSubmit({author, text});
-    this.setState(INITIAL_STATE);
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- With destructuring we can combine the two statements into one
-- Also using object literal shorthand!
-
-/////
-
-Object destructuring!
-
-```js
-// before
-let author = this.state.author;
-let text = this.state.text;
-
-// after
-let {author, text} = this.state;
-```
-<!-- .element: class="large" -->
-
-```js
-// before
-let authorName = this.state.author;
-let fullText = this.state.text;
-
-// after
-let {author: authorName, text: fullText} = this.state;
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- We can also create a differently named variable
-
-/////
-
-Named parameters + arrow functions!
-
-```js
-// before
-function MyComponent(props) {
-    return (
-        <div style={props.style}>{props.content}</div>
-    );
-}
-
-// after
-const MyComponent = ({style, content}) => (
-    <div style={style}>{content}</div>
-);
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- If you've got a stateless function you can immediately destructure `props` into the properties you need
-
-/////
-
 ## [React + ES.next = ♥](https://www.youtube.com/watch?v=Fs4bJr1b7UU&list=PLQ0rErbcJANon4Dyy32o2EZnhHr-VWqhL&index=3)
 
 <iframe width="1333" height="750" src="https://www.youtube.com/embed/Fs4bJr1b7UU?list=PLQ0rErbcJANon4Dyy32o2EZnhHr-VWqhL" frameborder="0" allowfullscreen></iframe>
@@ -316,7 +219,7 @@ NOTES:
 
 NOTES:
 - Here's where things start getting a bit gnarly
-- There's been a lot of talk about "JavaScript Fatigue" and a lot of it is aimed at the tooling challenge
+- Probably the biggest complaint w/ React isn't React itself, but the tooling needed to get setup
 - I think there problem is that there's so much choice and you need to know how the tools work before you can get up and running
 
 /////
@@ -371,6 +274,7 @@ NOTES:
 - But pretty much everyone uses NPM
 - Never used Bower before, but have seen some older packages that area available on both
 - Funniest thing: you install Bower with NPM!
+- But Facebook just released Yarn last week!
 
 /////
 
@@ -444,7 +348,7 @@ NOTES:
 - This is space has a lot of players
 - Webpack is the prevailing bundler right now; it just came on the same 2 years ago w/ much fanfare
 - Browserify came before and was the main bundler, but as it's name states, it focused on the browser
-- Rollup seems to be the up-and-comer that lots of folks are excited about now. I think it has to do w/ "Webpack fatigue"
+- Rollup seems to be the up-and-comer that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
 - It works specifically with ES6 modules and has a "tree-shaking" feature that results in less generated code
 - JSPM is another option that...
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
@@ -496,39 +400,6 @@ console.log(cube(5)); // 125
 
 NOTES:
 - With Rollup's tree-shaking functions in a reference module that aren't used don't get bundled
-
-/////
-
-## Simple Webpack Configuration
-
-```js
-// webpack.config.js
-module.exports = {
-	entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
-        './src/index'
-    ],
-    output: {
-        path: path.join(__dirname, 'src/dist'),
-        filename: 'bundle.js'
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.js?$/,
-                loader: 'babel',
-                include: path.join(__dirname, 'src')
-            }
-        ]
-    }
-}
-```
-
-NOTES:
-- Here's an example webpack config
-- It will transpile ES2015+ and bundle into `bundle.js`
-- But I'm also running a webpack dev server with hot reloading
 
 /////
 
@@ -645,7 +516,7 @@ NOTES:
 - Flow & Typescript are both static type checkers
 - Flow is exclusively for type checking
 - TypeScript is a superset of JavaScript that includes type checking plus future language constructs
-- It introduced classes before they were in ES2015. It has interfaces with JS does not
+- It introduced classes before they were in ES2015. It has interfaces which JS does not
 - I like the idea of static type-checking, but TypeScript might be too far into the C#/Java realm
 - I haven't used Flow yet, but hoping it can be happy medium
 
@@ -743,6 +614,7 @@ NPM, Webpack, ESLint, and more!
 NOTES:
 - They created React Create App
 - Allows you to bootstrap super quick
+- Folks familiar with Ember are probably laughing at how excited the React community is with this
 
 /////
 
@@ -866,6 +738,7 @@ Associate React components with CSS snippet
 NOTES:
 - Same BEM style CSS class names convention because eventually it'll all be merged
 - If the convention is broken you could still have collisions
+- Hopefully your global CSS was already modularized, so this transition shouldn't be tough
 
 /////
 
@@ -975,6 +848,7 @@ Forgo CSS classes in favor of inline styles
 
 NOTES:
 - Inline styles do have drawbacks
+- Only works w/ styling you can stick in the `style` attribute
 - Things that are pretty simple in CSS become work in JS
 
 /////
@@ -991,6 +865,7 @@ NOTES:
 
 NOTES:
 - Here are some miscellaneous resources regarding styling
+- React CSS Modules is cool because you don't even have to use the css object, but use special `styleName` attribute and it figures it all out for you
 
 =====
 
@@ -1009,7 +884,7 @@ NOTES:
 Handle AJAX natively
 
 ```js
-fetch('http://www.benmvp.com/speaking-engagements.html', {
+fetch('http://www.benmvp.com/', {
 	method: 'get'
 }).then((response) => {
 	// do something w/ response
@@ -1115,6 +990,7 @@ NOTES:
 NOTES:
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build apps, but there's more to cover
+- Moving into the needs of large-scale apps
 
 =====
 
@@ -1124,11 +1000,11 @@ NOTES:
 <!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
-- Now the TDD proponents are prolly shaking their fists at me that this is Level 5!
+- Now the TDD proponents are prolly shaking their fists at me that this is all the way at Jupiter!
 
 /////
 
-## Testing Frameworks
+## Testing Stacks
 
 <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
 	<div style="flex:0 0 30%;">
@@ -1220,6 +1096,7 @@ NOTES:
 - This is called "Isomorphic/Universal React"
 - Rendering the same components server-side improves initial startup performance because content is already there
 - Google includes rendering speed in their ranking algorithm which affects SEO
+- React provides a method that will render the component tree to a string which you can include in server response
 
 /////
 
@@ -1233,6 +1110,9 @@ NOTES:
 - [`node-fetch`](https://github.com/bitinn/node-fetch) or [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch)
 - React Router
 
+NOTES:
+- If your back-end is on Node, the solution is pretty easy
+
 /////
 
 ## Server-side Rendering
@@ -1245,6 +1125,8 @@ NOTES:
 - Watch _"Isomorphic React w/o Node??"_ talk for details! 😉
 
 NOTES:
+- If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
+- But I have a talk that explains it all!
 
 =====
 
@@ -1256,8 +1138,7 @@ NOTES:
 NOTES:
 - We're starting to get further out from the center
 - Gonna call it Uranus, but as we'll see learning these libraries can be a pain in the Uranus
-- Starting to use libraries that work well with React, but not exclusively
-- Up until this point, the data for the app probably just was in `state` of top-level component
+- Up until this point, we've been using React to store application data
 - Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
 
 /////
@@ -1268,12 +1149,13 @@ NOTES:
 <!-- .element style="width:90%" -->
 
 NOTES:
+- Enter the Flux design pattern
 - If you've seen anything about Flux, no doubt you've seen this diagram
 - And if you're like me, the first time it was explained to you, it didn't make sense
 - And if you're like me, it didn't make sense the second time either
 - I think I had to see it at least 3 or four times until I really got it
 - And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
-- That's why I think it's so bad that workshops try to teach React AND Redux at the same time!
+- That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Flux at the same time
 
 /////
 
@@ -1288,7 +1170,11 @@ Make application state mutations predictable
 - [Fluxxor](http://fluxxor.com/)
 
 NOTES:
+- Number of implementations of Flux
+- Originally there was just the pattern and we're on our own
 - At Eventbrite we created our own Flux implementation using Backbone (not that great)
+- The Facebook came out with Flux due to demand
+- Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
 
 /////
 
@@ -1304,11 +1190,12 @@ NOTES:
 - By default, JavaScript arrays, objects and other collections are mutable
 - Normally you would just enforce a standard that data cannot be mutated. That's how React works
 - This leads to a lot of defensive copying with the spread operator
+- Making lots of copies can hurt performance
 - Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
-- Immutable is the big player, another library from Facebook
+- Immutable is the big player, yet another library from Facebook
 - Only used it a bit, but found the API a bit cumbersome and then I was constantly going to and from Immutable objects. Don't _really_ want my React components to have to care, just Redux
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
-- The work just like Arrays or Objects except throws errors when you try to mutate and have extra functionality
+- The work just like Arrays or Objects except they don't mutate and have extra functionality
 
 /////
 
@@ -1340,7 +1227,7 @@ NOTES:
 
 NOTES:
 
-- As your app grows larger you may find that you're making lots of API requests
+- As your app grows larger you may find that you're making lots of Rest API requests
 - A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
 - There are cutting-edge technologies to tackle this problem
 
@@ -1374,7 +1261,9 @@ NOTES:
 - Facebook came up with GraphQL, a generic query language for APIs
 - Relay is a connection of React to GraphQL
 - Falcor models all backend data as a single Virtual JSON object & clients request a subset of the model on-demand
+- It has a JavaScript API
 - In both cases you get only the data you want, nothing more, nothing less
+- Gotta change your traditional REST API to be compatible
 
 =====
 
