@@ -85,7 +85,6 @@ Friday, October 21, 2016 @ 5:10p (React.JS track)
 #### Navigating the React Ecosystem
 
 Friday, October 21, 2016 @ 11:20a (React.JS track)  
-🎞 [Slides](http://www.benmvp.com/slides/2016/connect/nav-react.html)
 
 > React just exploded in popularity. But it’s only a UI library, not a full-fledged framework like Angular, Ember or _[insert latest JS framework]_. We need to create our own “framework” by picking from the plethora of libraries in the React ecosystem. But which ones should we choose? Or better yet, which ones do we actually need? Do we need a Flux implementation? What about handling ES6+, bundling and routing? How does it all come together?!1?!
 >
