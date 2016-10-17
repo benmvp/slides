@@ -14,6 +14,7 @@ October 21, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
+- Why I'm calling it the "React Solar System" will make sense in a sec
 - Posted link to slides on twitter if you want to follow along
 
 =====
@@ -94,12 +95,12 @@ NOTES:
 
 NOTES:
 - Learn React and learn it _really_ well
+- Don't have time to explain it
 - React is highly functional & reactive with a uni-directional data flow
 - If you're used to MVC with Backbone or Ember, it'll take some time to wrap your head around the concepts
 - Then of course there's JSX syntax
 - Ensuring that you're fully leveraging the Virtual DOM and not directly manipulating DOM nodes takes time
 - But thankfully the API is really narrow so there's not that much learn
-- More about _how_ as opposed to _what_
 - You can build a lot of great UIs with just JSX & the React API
 
 /////
