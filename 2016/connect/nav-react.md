@@ -1339,6 +1339,89 @@ NOTES:
 
 =====
 
+## image/diagram of ecosystem
+
+## Level Level 7 - App Data Management
+
+NOTES:
+- We're starting to get further out from the center
+- Starting to use libraries that work well with React, but not exclusively
+- Up until this point, the data for the app probably just was in `state` of top-level component
+- Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
+
+/////
+
+## Flux Design pattern
+
+![Flux Diagram](../../img/nav-react/flux-diagram.png)
+<!-- .element style="width:90%" -->
+
+NOTES:
+- If you've seen anything about Flux, no doubt you've seen this diagram
+- And if you're like me, the first time it was explained to you, it didn't make sense
+- And if you're like me, it didn't make sense the second time either
+- I think I had to see it at least 3 or four times until I really got it
+- And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
+- That's why I think it's so bad that workshops try to teach React AND Redux at the same time!
+
+/////
+
+## Flux Implementations
+
+Make application state mutations predictable
+
+- [Flux](http://facebook.github.io/flux/)
+- [**Redux**](http://redux.js.org/) (+ [`react-redux`](http://redux.js.org/docs/basics/UsageWithReact.html))
+- [Reflux](https://github.com/reflux/refluxjs)
+- [Alt](http://alt.js.org/)
+- [Fluxxor](http://fluxxor.com/)
+
+NOTES:
+- At Eventbrite we created our own Flux implementation using Backbone (not that great)
+
+/////
+
+## Immutability
+Provide immutable collections for JavaScript
+
+- [Immutable](https://facebook.github.io/immutable-js/)
+- [`seamless-immutable`](https://github.com/rtfeldman/seamless-immutable)
+
+<!-- .element="margin-top:5%" -->
+
+NOTES:
+- By default, JavaScript arrays, objects and other collections are mutable
+- Normally you would just enforce a standard that data cannot be mutated. That's how React works
+- This leads to a lot of defensive copying with the spread operator
+- Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
+- Immutable is the big player, another library from Facebook
+- Only used it a bit, but found the API a bit cumbersome and then I was constantly going to and from Immutable objects. Don't _really_ want my React components to have to care, just Redux
+- `seamless-immutable` is an alternative that has data structures that are backwards-compatible
+- The work just like Arrays or Objects except throws errors when you try to mutate and have extra functionality
+
+/////
+
+## `seamless-immutable`
+
+```js
+var array = Immutable(["totally", "immutable", {hammer: "no!"}]);
+
+array[1] = "I'm going to mutate you!";
+console.log(array[1]); // "immutable"
+
+array[2].hammer = "hm, surely I can mutate this nested object...";
+console.log(array[2].hammer); // "no!"
+
+console.log(JSON.stringify(array));
+// '["totally", "immutable", {"hammer":"no!"}]'
+```
+<!-- .element class="large" -->
+
+NOTES:
+- Looks and acts just like arrays and objects and can pass to libraries like underscore or lodash
+
+=====
+
 ![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
