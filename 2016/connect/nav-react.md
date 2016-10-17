@@ -59,10 +59,10 @@ NOTES:
 
 =====
 
-## React solar system
+<!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
-![Solar System](../../img/nav-react/solar-system.jpg)
-<!-- .element style="width:80%" -->
+## React solar system
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - If you're new to React you might hear that on top of learning React, you need to know ES6, Redux, inline styles, server-side rendering, etc.
@@ -71,11 +71,10 @@ NOTES:
 
 =====
 
+<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
+
 ## The Sun: React
-
-![The Sun](../../img/nav-react/sun.jpg)
-<!-- .element style="width:65%" -->
-
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - At the core of this solar system obviously is React
@@ -173,10 +172,10 @@ NOTES:
 
 =====
 
-## Mercury: JavaScript
+<!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-![Mercury](../../img/nav-react/mercury.jpg)
-<!-- .element style="width:60%" -->
+## Mercury: JavaScript
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - React IMO is even easier to write with ES6+
@@ -310,10 +309,10 @@ NOTES:
 
 =====
 
-## Venus: Tooling
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-![Venus](../../img/nav-react/venus.jpg)
-<!-- .element style="width:60%" -->
+## Venus: Tooling
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - Here's where things start getting a bit gnarly
@@ -762,10 +761,10 @@ NOTES:
 
 =====
 
-## Earth: Styling
+<!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-![Earth](../../img/nav-react/earth.jpg)
-<!-- .element style="width:75%" -->
+## Earth: Styling
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - Let's talking about styling because visuals are just as important as interaction
@@ -995,10 +994,10 @@ NOTES:
 
 =====
 
-## Mars: Single-Page Apps
+<!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
-![Mars](../../img/nav-react/mars.jpg)
-<!-- .element style="width:70%" -->
+## Mars: Single-Page Apps
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - Moving along to libraries needed for Single Page Apps
@@ -1108,10 +1107,10 @@ NOTES:
 
 =====
 
-## Asteroid Belt
+<!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
 
-![Asteroid Belt](../../img/nav-react/asteroid-belt.jpg)
-<!-- .element style="width:70%" -->
+## Asteroid Belt
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - At this point we've hit the asteroid belt
@@ -1119,10 +1118,10 @@ NOTES:
 
 =====
 
-## Jupiter: Testing
+<!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-![Jupiter](../../img/nav-react/jupiter.jpg)
-<!-- .element style="width:85%" -->
+## Jupiter: Testing
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - Now the TDD proponents are prolly shaking their fists at me that this is Level 5!
@@ -1210,10 +1209,10 @@ it('should render a checked checkbox if it is selected', () => {
 
 =====
 
-## Saturn: Performance & SEO
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
 
-![Saturn](../../img/nav-react/saturn.jpg)
-<!-- .element style="width:100%" -->
+## Saturn: Performance & SEO
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
@@ -1249,10 +1248,10 @@ NOTES:
 
 =====
 
-## Uranus: App Data Management
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-![Uranus](../../img/nav-react/uranus.jpg)
-<!-- .element style="width:40%" -->
+## Uranus: App Data Management
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 - We're starting to get further out from the center
@@ -1334,10 +1333,10 @@ NOTES:
 
 =====
 
-## Neptune: API Optimization
+<!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
 
-![Neptune](../../img/nav-react/neptune.jpg)
-<!-- .element style="width:40%" -->
+## Neptune: API Optimization
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
 
 NOTES:
 
@@ -1399,7 +1398,7 @@ NOTES:
 /////
 
 ![Real World React logo](../../img/nav-react/connect-tech-banner.jpeg)
-<!-- .element: style="width: 100%;border: 0; background: none; margin: 0; box-shadow: none;" -->
+<!-- .element: style="width: 100%;" -->
 
 /////
 
