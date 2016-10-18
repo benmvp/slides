@@ -14,6 +14,7 @@ October 18, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
+- Talking about how we can accomplish isomorphic/universal react w/o a Node backend
 - Posted link to slides on twitter if you want to follow along
 
 =====
@@ -25,6 +26,9 @@ NOTES:
 - Why to use React
 - How to build a React app
 - Implementation details in code
+
+NOTES:
+- Focusing mainly on high-level implementation instead of all of the implementation details
 
 /////
 
@@ -87,17 +91,18 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
     <div>
+		<h2>Performance</h2>
         <h2>SEO</h2>
-        <h2>Performance</h2>
     </div>
 </div>
 
 NOTES:
 - Transitioned to React
 - Isomorphic JavaScript is the concept of sharing the same templates rendered in the browser on the server for initial load
+- Isomorphic React is rendering our React app components server-side
 - Server-side rendering is important & critical for the transition to be viable
-  - SEO
-  - Performance
+- Performance: initial page render
+- SEO: google includes page render speed in ranking algorithm
 - React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
 
 /////
@@ -108,8 +113,8 @@ NOTES:
 NOTES:
 - Node is needed to render React components server-side because we need a full-fledged JS interpreter
 - Typically, with "Isomorphic React" you would have a Node/Express web server
-  * With help of routing lib like `react-router`, render components to a string included in HTML response
-  * Normally components are just (efficiently) rendered to the DOM client-side
+- With help of routing lib like `react-router`, render components to a string included in HTML response
+- Normally components are just (efficiently) rendered to the DOM client-side
 - BUT Because Eventbrite has existed for a decade, our backend isn’t Node
 
 /////
@@ -121,7 +126,8 @@ NOTES:
 
 NOTES:
 - We use Python/Django for our back-end web server
-- And it obviously can't interpret JS, so the obvious issue is how do we render React components?
+- And it obviously can't interpret JS
+- Question: how do we render React components?
 - _Anybody else use Python/Django?_
 
 /////
@@ -148,11 +154,11 @@ NOTES:
 
 NOTES:
 - Currently solved the “dual rendering issue” using a lib called Pybars
-- Our templates are written in Handlebars & Pybars converts the Handlebars into Python functions that return a string
-  * It's like what happens in the original JS
-  * Except it's super-duper slow because it was poorly written
+- Our JS templates are written in Handlebars & Pybars converts the Handlebars into Python functions that return a string
+- It's like what happens in the original JS
+- Except it's super-duper slow because it was poorly written
 - Same solution wouldn’t work for React; you’d essentially need to recreate Node in Python
-  * Although we did consider it for a few seconds
+- Although we did consider it for a few seconds
 - This problem isn't just for Python/Django, it exists for all non-Node back-ends
 
 /////
@@ -193,7 +199,7 @@ NOTES:
 - We still have the typical legacy ball-of-mud huge app in our Django layer
 - Working on factoring out things to SOA, but it's a lot! Long process
 - Would have to replicate a lot of legacy logic in our Node server that's in Django
-- Already making a huge “gamble” with React
+- Already making a huge “gamble” with React in general
 
 /////
 
@@ -203,7 +209,6 @@ NOTES:
 NOTES:
 - Web server **must** be Django (for OPS)
 - Server-side rendering of React **must** be Node (for JS)
-- Discussed maybe running the components through V8 binary, but seemed to unstable
 
 /////
 
@@ -273,8 +278,9 @@ RESPONSE:
 
 NOTES:
 - It's an internal service that given a React component and its props it'll return a string of rendered markup
-- "Stateless" because the server has access to the file system of all React components which _is_ state
 - No AJAX, on DB calls, no environment lookup, etc.
+- Everything must be passed in
+- "Stateless" because the server has access to the file system of all React components which _is_ state
 
 /////
 
@@ -337,6 +343,7 @@ app.post('/render', (req, res) => {
 
 NOTES:
 - Digging deeper here's the super simple Express app
+- Has a `/render` route
 - Create the Component class from the specified component path by using `require()`
 - Create an element applying the props to the Component class
 - Leveraging React's [`renderToString`](https://facebook.github.io/react/docs/top-level-api.html#reactdomserver.rendertostring) to get the markup
@@ -445,6 +452,7 @@ NOTES:
 <!-- .element: style="width: 65%" -->
 
 NOTES:
+- That's it!
 - So hopefully if you are in the same situation we were, what I've presented thus far is pretty compelling
 - No doubt you've got your own legacy code, and there'll be lots of different implementation details for you
 - But I did want to highlight a few gotchas/pitfalls that we ran into so hopefully you can learn from us
@@ -494,8 +502,6 @@ NOTES:
 - Alternate node CLI which will compile ES6 code before script runs
 - Only run in DEV!!!
 - `babel-node` was fine until I tackled the next issue
-- Once a node module is loaded it’s “cached” for the lifetime of program execution (w/o hackery)
-- In order to see file updates, we needed to watch for changes and restart the server
 
 =====
 
@@ -528,6 +534,8 @@ Error: listen EADDRINUSE 127.0.0.1:9009
 ([`node-supervisor`](https://github.com/petruisfan/node-supervisor))
 
 NOTES:
+- Once a node module is `require`d it’s “cached” for the lifetime of program execution (w/o hackery)
+- In order to see file updates, we needed to watch for changes and restart the server
 - Used the library `node-supervisor` for this
 - But when I modified a file the server would crash with an address-in-use error
 - As it turns out the problem was with `babel-node`. It didn't coexist well with `node-supervisor`
@@ -578,10 +586,10 @@ Long-polling needed for NFS in Vagrant Docker
 NOTES:
 - Everything worked great when I was developing the server locally on my Mac
 - But once I ran it in our Vagrant Docker environment the server wasn't restarting on file changes
-- This is because the file system was NFS and doesn't support file modified event
+- This is because the file system was NFS and doesn't support file modified event (`inotify`)
 - So we had to resort to long polling
 - Really unfortunate because it's hard to know when the server will restart
-- Will be fixed once we switch over to Docker for Mac
+- Will be fixed once we switch away to Docker Machine
 
 =====
 
@@ -593,13 +601,13 @@ NOTES:
 `node_modules` added 1GB+ on servers!
 
 NOTES:
-- With require.js we created app bundles so we never needed `node_modules` on our production servers.
+- With require.js we pre-built app JS bundles so we never needed `node_modules` on our production servers.
 - App bundles got built on build servers and we deleted `node_modules` before copying files over to production
 - This obviously broke server-side rendering
 - First attempt was to just let all the `node_modules` through, and OPS complained about 1GB+ additional size.
 - Mainly a problem because the file transfer would take much longer.
 - Eventbrite’s package.json has 75+ dependencies which all have dependencies
-- NPM 3 de-duping would fix that
+- NPM 3 / Yarn de-duping would fix that
 - Second attempt was to whitelist the few packages we need we needed for server-side rendering. Of course that whitelist continued to grow.
 
 =====
@@ -642,7 +650,7 @@ NOTES:
 - So the code would look more like this using a `gettext` helper
 - `gettext` is a unix command that's been ported to other languages
 - It's in our python code and we've written our own version in JavaScript
-- `gettext` was assigned to global scope by a <script> that actually hit a Django view that returned back JS containing translation strings for the appropriate locale
+- `gettext` was assigned to global scope by a `<script>` that actually hit a Django view that returned back JS containing translation strings for the appropriate locale
 - So it actually relied on the language context in Django
 - Need to keep the call exactly the same so it can coexist with all the other JS code
 - The render server is "stateless" so it needs everything passed in for server rendering
@@ -780,9 +788,6 @@ NOTES:
 ![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
-## We're [hiring](https://www.eventbrite.com/careers/)!
-<!-- .element: class="fragment" -->
-
 NOTES:
 - Thanks to Eventbrite for hosting and in general being willing to host
 - Meetups lose momentum because organizers can't find venues
@@ -794,7 +799,6 @@ NOTES:
 # YOU!
 
 NOTES:
-- It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
 
 =====
 
