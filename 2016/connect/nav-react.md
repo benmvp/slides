@@ -1065,6 +1065,9 @@ NOTES:
 ## Mocha + Chai + Enzyme
 
 ```js
+import {mount} from 'enzyme';
+import Checkbox from '../components/Checkbox';
+
 it('should render a checked checkbox if it is selected', () => {
     let wrapper = mount(<Component isSelected={true} />);
     let checkboxWrapper = wrapper.find(Checkbox);
@@ -1280,6 +1283,9 @@ NOTES:
 - Performance & SEO
 - App Data Management
 - API Optimization
+
+NOTES:
+- Excited that there are now only 8 planets. If Pluto was still a planet I would've had to develop a new set of libraries just to make my metaphor work
 
 =====
 
