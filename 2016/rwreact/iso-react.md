@@ -6,7 +6,7 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#RWReact](https://twitter.com/hashtag/RWReact)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@rwreact](https://twitter.com/rwreact)  
 
 <br />
 
@@ -14,8 +14,25 @@ October 18, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
-- Talking about how we can accomplish isomorphic/universal react w/o a Node backend
 - Posted link to slides on twitter if you want to follow along
+- Talking about Isomorphic React w/o Node back-end
+- Technically it should be called "Universal React"
+
+/////
+
+## "Isomorphic" vs. "Universal"
+
+![React tutorial in ES.next screenshot](../../img/react-sans-node/isomorphic-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+![React tutorial in ES.next screenshot](../../img/react-sans-node/universal-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+NOTES:
+- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
+- _Universal_ basically means that it works everywhere
+- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
+- But I actually still prefer "Isomorphic React" because it sounds cooler
 
 =====
 
@@ -824,4 +841,4 @@ NOTES:
 
 <br />
 
-[#RWReact](https://twitter.com/hashtag/RWReact)  
+[@rwreact](https://twitter.com/rwreact)  
