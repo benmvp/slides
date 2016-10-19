@@ -16,23 +16,6 @@ NOTES:
 - My name is Ben Ilegbodu
 - Posted link to slides on twitter if you want to follow along
 - Talking about Isomorphic React w/o Node back-end
-- Technically it should be called "Universal React"
-
-/////
-
-## "Isomorphic" vs. "Universal"
-
-![React tutorial in ES.next screenshot](../../img/react-sans-node/isomorphic-definition.png)
-<!-- .element: style="width: 65%;" -->
-
-![React tutorial in ES.next screenshot](../../img/react-sans-node/universal-definition.png)
-<!-- .element: style="width: 65%;" -->
-
-NOTES:
-- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
-- _Universal_ basically means that it works everywhere
-- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
-- But I actually still prefer "Isomorphic React" because it sounds cooler
 
 =====
 
@@ -60,6 +43,23 @@ NOTES:
 - "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on the server
 - Eventbrite had to solve the problem of rendering React components server-side on non-Node web server
 - Hoping our experiences, both good & bad, will help you if you find yourself in the same boat
+
+/////
+
+## "Isomorphic" vs. "Universal"
+
+![Definition of isomorphic](../../img/react-sans-node/isomorphic-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+![Definition of universal](../../img/react-sans-node/universal-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+NOTES:
+- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
+- _Universal_ basically means that it works everywhere
+- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
+- But I actually still prefer "Isomorphic React" because it sounds cooler
+- I feel like I sound smarter saying it
 
 =====
 
@@ -114,10 +114,8 @@ NOTES:
 </div>
 
 NOTES:
-- Transitioned to React
-- Isomorphic JavaScript is the concept of sharing the same templates rendered in the browser on the server for initial load
 - Isomorphic React is rendering our React app components server-side
-- Server-side rendering is important & critical for the transition to be viable
+- Server-side rendering was important & critical for the transition to be viable
 - Performance: initial page render
 - SEO: google includes page render speed in ranking algorithm
 - React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
@@ -131,7 +129,6 @@ NOTES:
 - Node is needed to render React components server-side because we need a full-fledged JS interpreter
 - Typically, with "Isomorphic React" you would have a Node/Express web server
 - With help of routing lib like `react-router`, render components to a string included in HTML response
-- Normally components are just (efficiently) rendered to the DOM client-side
 - BUT Because Eventbrite has existed for a decade, our backend isn’t Node
 
 /////
@@ -209,11 +206,11 @@ NOTES:
 <!-- .element: style="width: 33%" -->
 
 NOTES:
-- Answer: switch to Node!
-- OPS would've immediately shot down any notion of replacing Django w/ a Node/Express web server
+- We've tried to switch to Node a couple of times now
+- But OPS would've immediately shot down any notion of replacing Django w/ a Node/Express web server
 - Not because Node/Express is bad
 - Unfamiliar for Ops. Frontend developers are familiar, but they'd actually have to maintain these servers for critical pages
-- We still have the typical legacy ball-of-mud huge app in our Django layer
+- We still have the typical legacy ball-of-mud huge app in our Django middle-tier
 - Working on factoring out things to SOA, but it's a lot! Long process
 - Would have to replicate a lot of legacy logic in our Node server that's in Django
 - Already making a huge “gamble” with React in general
@@ -224,7 +221,7 @@ NOTES:
 <!-- .element: style="width: 75%" -->
 
 NOTES:
-- Web server **must** be Django (for OPS)
+- Web server **cannot** change from being Django (for OPS)
 - Server-side rendering of React **must** be Node (for JS)
 
 /////
@@ -396,7 +393,7 @@ component_props = {
     # Data coalesced from environment params
 }
 
-react_response = requests.post(
+response = requests.post(
     render_server_url,
     headers={'Content-Type': 'application/json'},
     data=json_encoder({
@@ -404,7 +401,7 @@ react_response = requests.post(
         'path': component_path,
     }))
 
-context['react_page_markup'] = react_response.text
+context['react_page_markup'] = response.text
 ```
 <!-- .element: class="large" -->
 
@@ -458,10 +455,10 @@ NOTES:
 
 NOTES:
 - Latency is limited by having both servers on the same machine
-- Found that the overhead + React rendering was faster than Pybars
-- And we had actually already forked it to speed it up
 - Single React render per Django render to limit requests
 - Instead of rendering a bunch of tiny components sprinkled, we render the entire page
+- Found that the overhead + React rendering was faster than Pybars
+- And we had actually already forked it to speed it up
 
 =====
 
@@ -626,136 +623,6 @@ NOTES:
 - Eventbrite’s package.json has 75+ dependencies which all have dependencies
 - NPM 3 / Yarn de-duping would fix that
 - Second attempt was to whitelist the few packages we need we needed for server-side rendering. Of course that whitelist continued to grow.
-
-=====
-
-## `gettext` Translations
-
-```js
-// www/js/react/HelloWorld.jsx
-
-const HelloWorld = ({name}) => (
-    <div>Hello {name}!</div>
-);
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- As a reminder, this is what our Component looked like
-- But Eventbrite is a global company and we support languages other than English
-
-/////
-
-## `gettext` Translations
-
-```js
-// www/js/react/HelloWorld.jsx
-
-import gettext from 'gettext';
-
-const HelloWorld = ({name}) => {
-    let message = gettext('Hello %(name)s!', {name});
-
-    return (<div>{message}</div>);
-};
-```
-<!-- .element: class="large" -->
-
-([`gettext`](https://www.gnu.org/software/gettext/manual/gettext.html))
-
-NOTES:
-- So the code would look more like this using a `gettext` helper
-- `gettext` is a unix command that's been ported to other languages
-- It's in our python code and we've written our own version in JavaScript
-- `gettext` was assigned to global scope by a `<script>` that actually hit a Django view that returned back JS containing translation strings for the appropriate locale
-- So it actually relied on the language context in Django
-- Need to keep the call exactly the same so it can coexist with all the other JS code
-- The render server is "stateless" so it needs everything passed in for server rendering
-
-/////
-
-## `gettext` Translations
-
-```python
-component_props = { }
-
-react_response = requests.post(
-    render_server_url,
-    headers={
-        'Content-Type': 'application/json',
-        'Accept-Language': get_language(),
-    },
-    data=json_encoder({
-        'props': component_props,
-        'path': component_path,
-    }))
-
-context['react_page_markup'] = react_response.text
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- First step was to pass the language from Django via `Accept-Language` header
-
-/////
-
-## `gettext` Translations
-
-```js
-app.post('/render', (req, res) => {
-    addTranslationHelpers(req);
-    // retrieve component & return markup
-});
-```
-<!-- .element: class="large" -->
-
-```js
-function addTranslationHelpers(req) {
-    var language = /* from req */,
-        translations = getTranslations();
-
-    requestContext.set(
-        'request:gettext',
-        translations['dgettext'].bind(translations, language)
-    );
-}
-```
-<!-- .element: class="large" -->
-
-([`node-gettext`](https://github.com/alexanderwallin/node-gettext) | [`request-context`](https://github.com/michaelkrone/request-context))
-
-NOTES:
-- Using the `node-gettext` library we pull in all the translations from `*.mo` files on the file system
-- Then using the `request-context` library we add a curried `gettext` function (from `node-gettext`) that has the language baked in
-- Need to use `requestContext` because we want the function to be global, but only for the request
-
-/////
-
-## `gettext` Translations
-
-```js
-(function(global) {
-  if (typeof define === 'function' && define.amd) {
-    define(function() { return global.gettext; });
-  } else if (typeof module === 'object' &&& module.export) {
-    var requestContext = require('request-context');
-
-    // server-side uses gettext stored in request context
-    module.exports = function gettext(msgId) {
-      var gettextHelper = requestContext.get('request:gettext');
-      return gettextHelper(msgId);
-    }
-  }
-})(this);
-```
-<!-- .element: class="large" -->
-
-([UMD - Universal Module Definition](https://github.com/umdjs/umd))
-
-NOTES:
-- Finally converted our `gettext` shim to be UMD
-- The AMD case (which requirejs uses) pulls from `window.gettext`
-- Now the CommonJS format (which Node uses) pulls from the `reqest-context`
 
 =====
 
