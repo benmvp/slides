@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@rwreact](https://twitter.com/rwreact)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@connect_js](https://twitter.com/connect_js)  
 
 <br />
 
-October 18, 2016  
+October 21, 2016  
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -293,7 +293,7 @@ RESPONSE:
 NOTES:
 - It's an internal service that given a React component and its props it'll return a string of rendered markup
 - No AJAX, on DB calls, no environment lookup, etc.
-- Everything must be passed in
+- Everything must be passed in for initial render
 - "Stateless" because the server has access to the file system of all React components which _is_ state
 
 /////
@@ -372,8 +372,8 @@ NOTES:
 ```sh
 $> node server.js --verbose
 
-[2016-10-18T21:39:55] Started server at http://127.0.0.1:9009
-[2016-10-18T21:40:23] Request for /www/js/react/HelloWorld.jsx
+[2016-10-21T21:39:55] Started server at http://127.0.0.1:9009
+[2016-10-21T21:40:23] Request for /www/js/react/HelloWorld.jsx
 ```
 <!-- .element: class="large" -->
 
@@ -482,7 +482,7 @@ $> node server.js --verbose
 <!-- .element: class="large" -->
 
 ```sh
-[2016-10-18T21:39:55] Started server at http://127.0.0.1:9009
+[2016-10-21T21:39:55] Started server at http://127.0.0.1:9009
 SyntaxError: Unexpected reserved word import
 ```
 <!-- .element: class="large" -->
@@ -504,8 +504,8 @@ $> babel-node server.js --verbose
 <!-- .element: class="large" -->
 
 ```sh
-[2016-10-18T21:39:55] Started server at http://127.0.0.1:9009
-[2016-10-18T21:40:23] Request for /www/js/react/HelloWorld.jsx
+[2016-10-21T21:39:55] Started server at http://127.0.0.1:9009
+[2016-10-21T21:40:23] Request for /www/js/react/HelloWorld.jsx
 ```
 <!-- .element: class="large" -->
 
@@ -538,7 +538,7 @@ $> supervisor --watch js/react --extensions jsx --exec babel-node
 ```sh
 Starting child process with 'babel-node server.js --verbose'
 Watching directory '/www/js/react' for changes.
-[2016-10-18T21:39:55] Started server at http://127.0.0.1:9009
+[2016-10-21T21:39:55] Started server at http://127.0.0.1:9009
 crashing child
 Starting child process with 'babel-node server.js --verbose'
 Error: listen EADDRINUSE 127.0.0.1:9009
@@ -567,10 +567,10 @@ $> supervisor --watch /www/js/react --extensions jsx
 ```sh
 Starting child process with 'node --require babel-register -- server.js --verbose'
 Watching directory '/www/js/react' for changes.
-[2016-10-18T21:39:55] Started server at http://127.0.0.1:9009
+[2016-10-21T21:39:55] Started server at http://127.0.0.1:9009
 crashing child
 Starting child process with 'node --require babel-register -- server.js --verbose'
-[2016-10-18T21:41:55] Started server at http://127.0.0.1:9009
+[2016-10-21T21:41:55] Started server at http://127.0.0.1:9009
 ```
 <!-- .element: class="large" -->
 
@@ -656,6 +656,7 @@ NOTES:
 - They open-sourced Hypernova which is basically all that I described in late May. We started in late January
 - Creating the server isn't complicated at all, but it's a bit complex with little details here in there
 - If you don't want to go through the hassle, I'd recommending checking out Hypernova
+- The sped up `renderToString` by 3x!
 
 =====
 
@@ -664,8 +665,8 @@ NOTES:
 
 /////
 
-![Real World React logo](../../img/react-sans-node/real-world-react.jpg)
-<!-- .element: style="width: 50%;border: 0; background: none; margin: 0; box-shadow: none;" -->
+![Real World React logo](../../img/nav-react/connect-tech-banner.jpeg)
+<!-- .element: style="width: 100%;" -->
 
 /////
 
@@ -708,4 +709,4 @@ NOTES:
 
 <br />
 
-[@rwreact](https://twitter.com/rwreact)  
+[@connect_js](https://twitter.com/connect_js)  
