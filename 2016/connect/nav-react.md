@@ -1171,11 +1171,16 @@ NOTES:
 
 Make application state mutations predictable
 
-- [Flux](http://facebook.github.io/flux/)
-- [**Redux**](http://redux.js.org/) (+ [`react-redux`](http://redux.js.org/docs/basics/UsageWithReact.html))
-- [Reflux](https://github.com/reflux/refluxjs)
-- [Alt](http://alt.js.org/)
-- [Fluxxor](http://fluxxor.com/)
+<ul>
+	<li style="font-size: 150%"><a href="http://facebook.github.io/flux/">Flux</a></li>
+	<li style="font-size: 200%">
+		<a href="http://redux.js.org/">Redux</a>
+		(+ <a href="http://redux.js.org/docs/basics/UsageWithReact.html"><code>react-redux</code></a>)
+	</li>
+	<li><a href="https://github.com/reflux/refluxjs">Reflux</a></li>
+	<li><a href="http://alt.js.org/">Alt</a></li>
+	<li><a href="http://fluxxor.com/">Fluxxor</a></li>
+</ul>
 
 NOTES:
 - Number of implementations of Flux
@@ -1292,6 +1297,73 @@ NOTES:
 
 NOTES:
 - Excited that there are now only 8 planets. If Pluto was still a planet I would've had to develop a new set of libraries just to make my metaphor work
+
+/////
+
+## Facebook Libraries
+
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center">
+	<div style="flex:0 0 20%">
+		<a href="https://facebook.github.io/react/"><img
+			src="../../img/react/react-logo.png"
+			style="background:none;box-shadow:none;border:none;"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="https://yarnpkg.com/"><img
+			src="../../img/nav-react/yarn-logo.png"
+			style="background:none;box-shadow:none;border:none;"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="https://flowtype.org/" style="display:block"><img
+			src="../../img/nav-react/flow-logo.png"
+			style="background:none;box-shadow:none;border:none;max-width:100%"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="https://facebook.github.io/jest/"><img
+			src="../../img/nav-react/jest-logo.svg"
+			style="background:none;box-shadow:none;border:none;width:40%"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="https://facebook.github.io/immutable-js/"><img
+			src="../../img/nav-react/immutable-logo.png"
+			style="background:none;box-shadow:none;border:none;width:100%"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="http://redux.js.org/"><img
+			src="../../img/nav-react/redux-logo.png"
+			style="background:none;box-shadow:none;border:none;width:50%"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="http://facebook.github.io/flux/"><img
+			src="../../img/nav-react/flux-logo.svg"
+			style="background:none;box-shadow:none;border:none;width:50%"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="http://graphql.org/"><img
+			src="../../img/nav-react/graphql-logo.svg"
+			style="background:none;box-shadow:none;border:none;width:50%;"
+		/></a>
+	</div>
+	<div style="flex:0 0 20%">
+		<a href="https://facebook.github.io/relay/"><img
+			src="../../img/nav-react/relay-logo.svg"
+			style="background:none;box-shadow:none;border:none;width:50%;"
+		/></a>
+	</div>
+</div>
+
+NOTES:
+
+- So here are ALL the open-source libraries Facebook has put out
+- I think all that's missing is routing (react-router) & bundling (Webpack)
+- Makes me wonder if Facebook is a social networking company or an OSS company
 
 =====
 
