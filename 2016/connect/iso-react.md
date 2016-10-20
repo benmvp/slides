@@ -110,6 +110,7 @@ NOTES:
     <div>
 		<h2>Performance</h2>
         <h2>SEO</h2>
+        <h2>Open Graph</h2>
     </div>
 </div>
 
@@ -118,6 +119,7 @@ NOTES:
 - Server-side rendering was important & critical for the transition to be viable
 - Performance: initial page render
 - SEO: google includes page render speed in ranking algorithm
+- Open Graph: media previews
 - React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
 
 /////

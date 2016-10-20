@@ -14,7 +14,9 @@ October 21, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
-- Why I'm calling it the "React Solar System" will make sense in a sec
+- This talk was originally called "Navigating the React Ecosystem"
+- But as I thought about it more an ecosystem is too small. It's really a SOLAR SYSTEM
+- Further more all of these additional libraries are revolving around React so the metaphor just makes more sense
 - Posted link to slides on twitter if you want to follow along
 
 =====
@@ -355,6 +357,7 @@ NOTES:
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - Haven't used Browserify or Rollup, used Webpack & RequirejS heavily, used JSPM once in a workshop
 - I'd say go with Webpack, espeically because of `webpack-dev-server`
+- Webpack 2.0 will have "tree-shaking"
 - It's at this step where the "JavaScript fatigue" really kicks in. Your typical JS developer doesn't want to or know how to configure these bundlers
 
 /////
@@ -1100,6 +1103,7 @@ NOTES:
 - This is called "Isomorphic/Universal React"
 - Rendering the same components server-side improves initial startup performance because content is already there
 - Google includes rendering speed in their ranking algorithm which affects SEO
+- There's also Open Graph previews as well
 - React provides a method that will render the component tree to a string which you can include in server response
 
 /////
@@ -1179,10 +1183,12 @@ NOTES:
 - At Eventbrite we created our own Flux implementation using Backbone (not that great)
 - The Facebook came out with Flux due to demand
 - Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
+- Look we're talking about Redux wayyyy later!
 
 /////
 
 ## Immutability
+
 Provide immutable collections for JavaScript
 
 - [Immutable](https://facebook.github.io/immutable-js/)
@@ -1207,12 +1213,12 @@ NOTES:
 ## `seamless-immutable`
 
 ```js
-var array = Immutable(["totally", "immutable", {hammer: "no!"}]);
+var array = Immutable(['totally', 'immutable', {hammer: 'no!'}]);
 
-array[1] = "I'm going to mutate you!";
+array[1] = `I'm going to mutate you!`;
 console.log(array[1]); // "immutable"
 
-array[2].hammer = "hm, surely I can mutate this nested object...";
+array[2].hammer = 'hm, surely I can mutate this nested object...';
 console.log(array[2].hammer); // "no!"
 
 console.log(JSON.stringify(array));
