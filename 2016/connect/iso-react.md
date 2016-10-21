@@ -13,6 +13,7 @@
 October 21, 2016  
 
 NOTES:
+- Anyone attend my talk earlier today?
 - My name is Ben Ilegbodu
 - Posted link to slides on twitter if you want to follow along
 - Talking about Isomorphic React w/o Node back-end
@@ -55,6 +56,7 @@ NOTES:
 <!-- .element: style="width: 65%;" -->
 
 NOTES:
+- Michael Jackson had a post of Medium...
 - _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
 - _Universal_ basically means that it works everywhere
 - So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
@@ -295,7 +297,7 @@ RESPONSE:
 NOTES:
 - It's an internal service that given a React component and its props it'll return a string of rendered markup
 - No AJAX, on DB calls, no environment lookup, etc.
-- Everything must be passed in for initial render
+- Everything must be passed in for _initial render_
 - "Stateless" because the server has access to the file system of all React components which _is_ state
 
 /////
@@ -410,7 +412,7 @@ context['react_page_markup'] = response.text
 NOTES:
 - The Python/Django code that renders the template makes the POST with the path & props
 - Coalesce data directly from DB/SOA calls, Django request / environment params
-- EVERYTHING must be passed because it's "statless"
+- EVERYTHING must be passed because it's "stateless"
 - Again this is a simplification of what's going on
 - It gets the markup response and adds it to the context for the template to render
 
@@ -444,7 +446,7 @@ NOTES:
 Yes. 😞
 
 NOTES:
-- There is a network overhead
+- Hopefully you're thinking: "Isn't there network overhead?"
 - Instead of rendering all in Django/Mako, we're making a roundtrip to render
 
 /////
@@ -667,7 +669,7 @@ NOTES:
 
 /////
 
-![Real World React logo](../../img/nav-react/connect-tech-banner.jpeg)
+![Connect.Tech Logo](../../img/nav-react/connect-tech-banner.jpeg)
 <!-- .element: style="width: 100%;" -->
 
 /////
@@ -676,10 +678,6 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
-- Thanks to Eventbrite for hosting and in general being willing to host
-- Meetups lose momentum because organizers can't find venues
-- Want to call out Hillary & Deniz particularly for all of the efforts
-- They go to so many conferences that they know all the buzzwords
 
 /////
 
