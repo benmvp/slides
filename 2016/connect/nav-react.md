@@ -841,9 +841,8 @@ NOTES:
 
 /////
 
-## Inline styles
+## Inline styles drawbacks
 
-Forgo CSS classes in favor of inline styles
 <!-- .element: style="margin-bottom:5%" -->
 
 - Pseudo-classes (i.e. `:hover`)
@@ -913,7 +912,7 @@ Handle AJAX natively
 <!-- .element: style="margin-bottom:5%" -->
 
 - [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-- [ES6 Promises](http://www.benmvp.com/learning-es6-promises/)
+- [Learning ES6: Promises](http://www.benmvp.com/learning-es6-promises/)
 - [`window.fetch` polyfill](https://github.com/github/fetch)
 - [Load Initial Data via AJAX](https://facebook.github.io/react/tips/initial-ajax.html)
 
@@ -925,15 +924,27 @@ NOTES:
 ## Routing
 
 Keep your UI in sync with the URL
-<!-- .element: style="margin-bottom:5%" -->
 
-- [**React Router**](https://github.com/ReactTraining/react-router)
-- [uniloc](http://unicornstandard.com/packages/uniloc.html)
-- [Aviator](https://github.com/swipely/aviator)
-- [...and more](https://github.com/facebook/react/wiki/Complementary-Tools#routing)
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 45%;">
+        <a href="https://github.com/ReactTraining/react-router"><img
+            src="../../img/nav-react/react-router-logo.png"
+            style="background:none;box-shadow:none;border:none;width:100%;"
+        /></a>
+		<a href="https://github.com/ReactTraining/react-router">React Router</a>
+    </div>
+	<div style="flex:0 0 45%;text-align:center">
+        <a href="https://github.com/swipely/aviator"><img
+            src="../../img/nav-react/aviator-logo.png"
+            style="background:none;box-shadow:none;border:none;width:50%"
+        /></a>
+		<a href="https://github.com/swipely/aviator" style="display:block">Aviator</a>
+    </div>
+</div>
 
 NOTES:
 - React Router is the obvious choice. Major player
+- There are many others but most aren't actively developed anymore
 
 /////
 
@@ -984,6 +995,19 @@ export default class App extends React.Component {
 NOTES:
 - Then replace `<a>` tags with special `<Link>` tags
 
+/////
+
+![Tim Dorr](../../img/nav-react/tim-dorr.jpg)
+<!-- .element: style="width: 400px" -->  
+
+Tim Dorr
+
+<br />
+
+## React Router 4.0: What's New
+
+Tomorrow @ 11:20a in Room C (React.JS)
+
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
@@ -993,7 +1017,8 @@ NOTES:
 
 NOTES:
 - At this point we've hit the asteroid belt
-- We actually have everything we need to build apps, but there's more to cover
+- We actually have everything we need to build apps
+- But there's more to cover
 - Moving into the needs of large-scale apps
 
 =====
@@ -1043,6 +1068,7 @@ NOTES:
 - Some are micro libraries like Mocha & Chai that do specific things (Chai is just for assertions)
 - Others are like Jest (built on Jasmine) that do it all
 - Jest also has auto-mocking so dependencies are mocked by default
+- Makes life easy if you have a lot of dependencies you don't want executed while testing
 - There's also Ava that had some buzz around it, but it seems like for React testing it hasn't caught on
 
 /////
@@ -1069,6 +1095,7 @@ NOTES:
 
 ```js
 import {mount} from 'enzyme';
+import Component from './Component';
 import Checkbox from '../components/Checkbox';
 
 it('should render a checked checkbox if it is selected', () => {
@@ -1089,6 +1116,19 @@ it('should render a checked checkbox if it is selected', () => {
 - [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
 - [Jest 14.0: React Tree Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
 - [Ava + React](https://github.com/avajs/ava/blob/master/docs/recipes/react.md)
+
+/////
+
+![Kent C. Dodds](../../img/nav-react/kent-dodds.jpg)
+<!-- .element: style="width: 400px" -->  
+
+Kent C. Dodds
+
+<br />
+
+## Testing React
+
+Today @ 2:30p in Room C (React.JS)
 
 =====
 
@@ -1130,11 +1170,24 @@ NOTES:
 <!-- .element style="margin-bottom: 2.5%" -->
 
 - Django / Rails / .NET server
-- Watch _"Isomorphic React w/o Node??"_ talk for details! 😉
+- Attend _"Isomorphic React w/o Node??"_ talk for details! 😉
 
 NOTES:
 - If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
 - But I have a talk that explains it all!
+
+/////
+
+![Ben Ilegbodu](../../img/headshot.jpg)
+<!-- .element: style="width: 400px" -->  
+
+Ben Ilegbodu
+
+<br />
+
+## Isomorphic React w/o Node??
+
+Today @ 5:10p in Room C (React.JS)
 
 =====
 
@@ -1164,6 +1217,7 @@ NOTES:
 - I think I had to see it at least 3 or four times until I really got it
 - And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
 - That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Flux at the same time
+- The Flux pattern is basically about making application state mutations predictable
 
 /////
 
@@ -1171,16 +1225,39 @@ NOTES:
 
 Make application state mutations predictable
 
-<ul>
-	<li style="font-size: 150%"><a href="http://facebook.github.io/flux/">Flux</a></li>
-	<li style="font-size: 200%">
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 18%;">
+        <a href="http://facebook.github.io/flux/"><img
+            src="../../img/nav-react/flux-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
+		<a href="http://facebook.github.io/flux/">Flux</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <a href="http://redux.js.org/"><img
+            src="../../img/nav-react/redux-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
 		<a href="http://redux.js.org/">Redux</a>
-		(+ <a href="http://redux.js.org/docs/basics/UsageWithReact.html"><code>react-redux</code></a>)
-	</li>
-	<li><a href="https://github.com/reflux/refluxjs">Reflux</a></li>
-	<li><a href="http://alt.js.org/">Alt</a></li>
-	<li><a href="http://fluxxor.com/">Fluxxor</a></li>
-</ul>
+    </div>
+	<div style="flex:0 0 18%;">
+        <a href="http://alt.js.org/"><img
+            src="../../img/nav-react/alt-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://alt.js.org/">Alt</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <a href="http://fluxxor.com/"><img
+            src="../../img/nav-react/fluxxor-logo.svg"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://fluxxor.com/">Fluxxor</a>
+    </div>
+    <div style="flex:0 0 18%;">
+		<a href="https://github.com/reflux/refluxjs">Reflux</a>
+    </div>
+</div>
 
 NOTES:
 - Number of implementations of Flux
@@ -1196,12 +1273,20 @@ NOTES:
 
 Provide immutable collections for JavaScript
 
-- [Immutable](https://facebook.github.io/immutable-js/)
-- [`seamless-immutable`](https://github.com/rtfeldman/seamless-immutable)
-
-<!-- .element="margin-top:5%" -->
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 45%;">
+        <a href="https://facebook.github.io/immutable-js/"><img
+            src="../../img/nav-react/immutable-logo.png"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
+    </div>
+    <div style="flex:0 0 45%;">
+		<a href="https://github.com/rtfeldman/seamless-immutable"><code>seamless-immutable</code></a>
+    </div>
+</div>
 
 NOTES:
+- While on the subject of mutating state...
 - By default, JavaScript arrays, objects and other collections are mutable
 - Normally you would just enforce a standard that data cannot be mutated. That's how React works
 - This leads to a lot of defensive copying with the spread operator
@@ -1233,6 +1318,32 @@ console.log(JSON.stringify(array));
 
 NOTES:
 - Looks and acts just like arrays and objects and can pass to libraries like underscore or lodash
+
+/////
+
+![Clint Ayres](../../img/nav-react/clint-ayres.jpg)
+<!-- .element: style="width: 400px" -->  
+
+Clint Ayres
+
+<br />
+
+## Building distributed systems with Redux
+
+Today @ 4p in Room C (React.JS)
+
+/////
+
+![Jonathan Kemp](../../img/nav-react/jonathan-kemp.jpg)
+<!-- .element: style="width: 400px" -->  
+
+Jonathan Kemp
+
+<br />
+
+## Re-energize Your Workflow with React and Redux
+
+Tomorrow @ 2:30p in Room C (React.JS)
 
 =====
 
@@ -1281,6 +1392,19 @@ NOTES:
 - In both cases you get only the data you want, nothing more, nothing less
 - Gotta change your traditional REST API to be compatible
 
+/////
+
+![Kevin Old](../../img/nav-react/kevin-old.jpeg)
+<!-- .element: style="width: 400px" -->  
+
+Kevin Old
+
+<br />
+
+## Deploying GraphQL in a Serverless Architecture
+
+Tomorrow @ 3:40p in Room C (React.JS)
+
 =====
 
 ## Review
@@ -1296,7 +1420,8 @@ NOTES:
 - API Optimization
 
 NOTES:
-- Excited that there are now only 8 planets. If Pluto was still a planet I would've had to develop a new set of libraries just to make my metaphor work
+- Excited that there are now only 8 planets.
+- If Pluto was still a planet I would've had to develop a new set of libraries just to make my metaphor work
 
 /////
 
@@ -1360,12 +1485,11 @@ NOTES:
 </div>
 
 NOTES:
-
 - So here are ALL the open-source libraries Facebook has put out
 - I think all that's missing is routing (react-router) & bundling (Webpack)
 - Makes me wonder if Facebook is a social networking company or an OSS company
 
-=====
+/////
 
 ![Julian Edelman Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
