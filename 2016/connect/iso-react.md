@@ -321,7 +321,7 @@ NOTES:
 
 ## cURL Request
 
-`````sh
+```sh
 $> curl
   -H "Content-Type: application/json"
   -X POST
@@ -329,7 +329,7 @@ $> curl
   http://localhost:9009/render
 
 <div data-reactid="1">Hello Ben!</div>
-`````
+```
 <!-- .element: class="large" -->
 
 NOTES:
