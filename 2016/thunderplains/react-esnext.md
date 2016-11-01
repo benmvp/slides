@@ -14,7 +14,9 @@ November 3, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
-- Here to talk about React, what I'm calling ES.next and how they make a great pairing
+- Excited to talk about my two favorite things
+- React and what I'm calling ES.next
+- And how they go so well together
 - Posted link to slides on twitter if you want to follow along
 
 /////
@@ -38,26 +40,47 @@ NOTES:
 
 =====
 
-![React logo](../../img/react/react-logo.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
+    <div>
+		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
+        <h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
+    </div>
+</div>
 
 NOTES:
 - How many folks have developed in React before?
 - React has many features that makes developing in it really nice
-- Not going to go into any detail about them because I'm assuming you already know about React
-- I'm really excited about it
-- But I rarely show outward I'm a pretty chill guy.
+- React is highly functional & reactive with a uni-directional data flow
+- If you're used to MVC with Backbone or Ember, it'll take some time to wrap your head around the concepts
+- Then of course there's JSX syntax
+- Ensuring that you're fully leveraging the Virtual DOM and not directly manipulating DOM nodes takes time
+- But thankfully the API is really narrow so there's not that much learn
 
 /////
 
-![ES6 logo](../../img/es6/es6-logo.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <img src="../../img/es6/es6-logo.png" style="background:none;box-shadow:none;border:none"/>
+    <div>
+		<h2>May 1995 — <strong>JavaScript</strong></h2>
+		<h2>Jun 1997 — <strong>ES1</strong></h2>
+		<h2>Jun 1998 — <strong>ES2</strong></h2>
+		<h2>Dec 1999 — <strong>ES3</strong></h2>
+		<h2>Dec 2009 — <strong>ES5</strong></h2>
+		<h2>Jun 2015 — <strong>ES6/ES2015</strong></h2>
+		<h2>Jun 2016 — <strong>ES7/ES2016</strong></h2>
+    </div>
+</div>
 
 NOTES:
-- How many folks have code in ES6+/ES2015+?
+- How many folks have coded in ES6+/ES2015+?
 - ECMAScript is the standard
 - JavaScript is the implementation (there was also JScript & ActionScript)
-- JavaScript is 21 years old
+- JavaScript is now 21 years old
+- Brendan Eich created it back in '95; added to Netscape Navigator 2.0
 - ES6/ES2015 released last year
 - ES7/ES2016 released this August
 - Features are in a yearly proposal process (don't know when exactly they'll be released)
@@ -116,7 +139,7 @@ NOTES:
 
 /////
 
-## ES2016
+## ES7/ES2016
 
 <br />
 
@@ -129,7 +152,7 @@ NOTES:
 
 NOTES:
 - Just 2 features made it to the final stage 4 by the January 2016 cut-off date to make it into ES2016
-- So _all_ those features we called ES7 features are still in the proposal process
+- So _all_ those features we called ES7 features were still in the proposal process
 
 /////
 
@@ -147,11 +170,18 @@ NOTES:
 
 [TC39 Finished Proposals](https://github.com/tc39/proposals/blob/master/finished-proposals.md)
 
+NOTES:
+- Here are the features that have already reached Stage 4 and are all but assured to be in ES2017
+
 /////
 
-[github/tc39/proposals](https://github.com/tc39/proposals)
+[TC39 Active Proposals](https://github.com/tc39/proposals)
 
 [![ECMAScript Proposals](../../img/react-esnext/ecmascript-proposals.png)](https://github.com/tc39/proposals)
+
+NOTES:
+- There are still some features in Stage 3 that could make it before the end-of-January cut-off
+- Particularly interested in Rest/Spread properties as we'll see
 
 =====
 
@@ -164,6 +194,9 @@ NOTES:
 - Every detail about ES2015+
 - How to transpile ES2015+
 
+NOTES:
+- Just so we're clear...
+
 /////
 
 ## What this talk is about! 😄
@@ -173,6 +206,9 @@ NOTES:
 - Learning ES2015+ ➜ ➜ ➜ applying in React
 - Lots of code
 - Fast-paced!
+
+NOTES:
+- However!
 
 =====
 
@@ -209,7 +245,7 @@ _[1 minute]_
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
-- Currently a Senior UI Engineer at Eventbrite
+- Currently a Senior UI Engineer and Frontend Platform Manager at Eventbrite
 - Eventbrite is an online ticketing & events platform
 - Many conferences use it for registration
 - I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
@@ -245,8 +281,8 @@ NOTES:
 [React official tutorial](https://facebook.github.io/react/docs/tutorial.html) app
 
 NOTES:
-- The official React tutorial is written in ES5, presumably to make it easy to develop
-- We'll be transforming it to ES2015+
+- The original official React tutorial was written in ES5, presumably to make it easy to develop
+- We'll be transforming it to ES2015+/ES.next
 
 =====
 
@@ -279,7 +315,7 @@ ReactDOM.render(<App url="/api/comments" pollInterval={2000} />,
 NOTES:
 - Start with birds-eye view
 - One big JS file
-- Relying on `React`, `ReactDOM` & other dependencies being include by `<script>` tags in global scope
+- Relying on `React`, `ReactDOM` & other dependencies being included by `<script>` tags in global scope
 - React is all about reusable & composable components, but these aren't really reusable
 - Also going to need data/API/utility libraries
 - This obviously isn't scalable
@@ -437,7 +473,7 @@ class MyClass extends BaseClass {
 NOTES:
 - `class` keyword
 - `extends` base class
-- supports instance & `static` methods
+- supports `constructor`, instance & `static` methods
 - doesn't support properties (yet)
 
 /////
@@ -473,6 +509,7 @@ NOTES:
 - Methods don't have `function` keyword
 - Have to `.bind(this)` (no more auto-binding)
 - React had to do a lot of work to make this all work
+- `this.state` in `constructor` instead of `getInitialState`
 - Annoying that static properties have to be defined after
 
 /////
@@ -688,7 +725,8 @@ NOTES:
 - I'm personally against this trend because it dilutes what `const` means
 - I believe it's kind of a way to simulate immutability, but it's not at all
 - We don't do this in other programming languages
-- Plus, just because a variable is `const`, doesn't mean it can't be changed. If it's an object, properties cn be changed
+- Plus, just because a variable is `const`, doesn't mean it can't be changed. If it's an object, properties can be changed
+- It's all because of one person at Airbnb
 
 =====
 
@@ -762,6 +800,8 @@ _handleSubmit(e) {
 
 NOTES:
 - With destructuring we can combine the two statements into one
+- Uses object literal pattern
+- Since this one is a bit tricky, let's look at some examples
 
 /////
 
@@ -799,24 +839,25 @@ NOTES:
 Named parameters!
 
 ```js
-// before
-function MyComponent(props) {
-    return (
-        <div style={props.style}>{props.content}</div>
-    );
-}
-
 // after
 function MyComponent({style, content}) {
     return (
         <div style={style}>{content}</div>
     );
 }
+
+// before
+function MyComponent(props) {
+    return (
+        <div style={props.style}>{props.content}</div>
+    );
+}
 ```
 <!-- .element: class="large" -->
 
 NOTES:
-- If you've got a stateless function you can immediately destructure `props` into the properties you need
+- React supports stateless functions which receive the `props` as a parameter
+- You can immediately destructure `props` into the properties you need
 
 /////
 
@@ -889,6 +930,8 @@ NOTES:
 Where's the bug?
 
 ```js
+// in App.js
+
 _loadCommentsFromServer() {
     $.ajax({
         url: this.props.url,
@@ -913,6 +956,8 @@ NOTES:
 Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
 
 ```js
+// in App.js
+
 _loadCommentsFromServer() {
     $.ajax({
         url: this.props.url,
@@ -937,6 +982,8 @@ NOTES:
 ES3 fix
 
 ```js
+// in App.js
+
 _loadCommentsFromServer: function() {
     var self = this; // store reference to `this`
 
@@ -960,6 +1007,8 @@ NOTES:
 ES5 fix
 
 ```js
+// in App.js
+
 _loadCommentsFromServer: function() {
     $.ajax({
         url: this.props.url,
@@ -1143,6 +1192,7 @@ _handleSubmit() {
 NOTES:
 - Now we can just omit the `: value` when the variable name & key match
 - Just a little bit of shorthand
+- It's interesting that both literals look the exact same, but do different things
 
 /////
 
@@ -1459,7 +1509,7 @@ NOTES:
 
 ###### Spread operator
 
-No more `concat`!
+Maintain immutability!
 
 ```js
 let start = ['do', 're', 'mi'];
@@ -1731,11 +1781,12 @@ NOTES:
 
 ## Ben Ilegbodu
 
-<br />
-
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github/benmvp](https://github.com/benmvp)
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 
 <br />
 
 Code examples: [github/benmvp/react-esnext](https://github.com/benmvp/react-esnext)
+
+<br />
+
+Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
