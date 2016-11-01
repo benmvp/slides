@@ -251,6 +251,15 @@ NOTES:
 - I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
 - Python/Django backend, but using a Node daemon to render React components server-side
 
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/westbrook-dancing.gif) no-repeat center" data-background-size="cover"-->
+
+NOTES:
+- I also absolutely love basketball - both playing & watching
+- But you didn't come to hear about me. At least I hope not
+- You came to here about...
+
 =====
 
 ## Agenda
@@ -272,6 +281,7 @@ NOTES:
 
 - Green for Components
 - Blue for Data APIs
+- Highly suggest you just sit back and take it all in
 
 /////
 
