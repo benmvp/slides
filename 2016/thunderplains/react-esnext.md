@@ -14,7 +14,7 @@ November 3, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
-- Excited to talk about my two favorite things
+- Super excited to talk about my two favorite things
 - React and what I'm calling ES.next
 - And how they go so well together
 - Posted link to slides on twitter if you want to follow along
@@ -663,10 +663,10 @@ NOTES:
 
 ```js
 _handleSubmit(e) {
-    e.preventDefault();
-
     var author = this.state.author;
     var text = this.state.text;
+
+    e.preventDefault();
 
     if (!text || !author) {
         return;
@@ -1121,11 +1121,9 @@ setTimeout(() => {
 <!-- .element: class="large" -->
 
 ```js
-const MyComponent = ({style, content}) => {
-    return (
-        <div style={style}>{content}</div>
-    );
-}
+const MyComponent = ({style, content}) => (
+    <div style={style}>{content}</div>
+);
 ```
 <!-- .element: class="large" -->
 
@@ -1134,8 +1132,9 @@ NOTES:
   - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
   - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
 - This also shows the different formats of arrow functions
-  - Perentheses can be omitted if there is one parameter
+  - Parentheses can be omitted if there is one parameter
   - Curly braces can be omitted if there's just a single `return` line
+- The last example is a stateless function using arrow functions with header destructuring
 
 =====
 
@@ -1409,6 +1408,13 @@ NOTES:
 
 # Data APIs
 
+NOTES:
+- So that was all the features used in Components
+- But it's only part of the story
+- React's API is very narrow
+- Most of the code you write will be in helper methods
+- So let's look at some of that functionality
+
 =====
 
 `Math.max.apply`???
@@ -1484,7 +1490,7 @@ NOTES:
 ###### Spread operator
 
 ### Spread operator
-Array &#8594; multiple parameters (function call)
+Array ➞ multiple parameters (function call)
 
 ```js
 let arrayOfValues = [33, 2, 9];
@@ -1496,7 +1502,7 @@ let maxValueFromArray = Math.max(...arrayOfValues);
 -----
 
 ### Rest operator
-Multiple parameters &#8594; array (function header)
+Multiple parameters ➞ array (function header)
 
 ```js
 function join(separator, ...values) {
@@ -1762,6 +1768,11 @@ NOTES:
 ![Thunder Plains](../../img/react-esnext/thunder-plains.png)
 <!-- .element: style="width: 100%;border: 0; background: none; margin: 0; box-shadow: none;" -->
 
+NOTES:
+- Vance
+- Jesse
+- Amanda
+
 /////
 
 ![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
@@ -1773,6 +1784,7 @@ NOTES:
 
 NOTES:
 - It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
+- Any feedback would be appreciated!
 
 =====
 
@@ -1800,3 +1812,8 @@ Code examples: [github/benmvp/react-esnext](https://github.com/benmvp/react-esne
 <br />
 
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
+
+NOTES:
+- Slides are available on Twitter
+- Github repo
+- Ask questions on Twitter, via email or AMA!
