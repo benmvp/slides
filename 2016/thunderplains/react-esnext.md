@@ -41,7 +41,9 @@ NOTES:
 =====
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
-    <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
+    <a href="https://facebook.github.io/react/">
+        <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
+    </a>
     <div>
 		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
 		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
@@ -63,7 +65,9 @@ NOTES:
 /////
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
-    <img src="../../img/es6/es6-logo.png" style="background:none;box-shadow:none;border:none"/>
+    <a href="http://www.benmvp.com/learning-es6-series/">
+        <img src="../../img/es6/es6-logo.png" style="background:none;box-shadow:none;border:none"/>
+    </a>
     <div>
 		<h2>May 1995 — <strong>JavaScript</strong></h2>
 		<h2>Jun 1997 — <strong>ES1</strong></h2>
@@ -161,8 +165,8 @@ NOTES:
 <br />
 
 - [`Object.values` / `Object.entries`](https://github.com/tc39/proposal-object-values-entries)
-- [`Object.getOwnPropertyDescriptors`](https://gitub.om/ljharb/proposal-object-getownpropertydescriptiors)
-- [Trailing function commas](https://jeffmo.github.io/es-trailing-function-commas)
+- [`Object.getOwnPropertyDescriptors`](https://github.com/tc39/proposal-object-getownpropertydescriptors)
+- [Trailing function commas](https://github.com/tc39/proposal-trailing-function-commas)
 - [String padding](https://github.com/tc39/proposal-string-pad-start-end)
 - [`async` / `await`](https://github.com/tc39/ecmascript-asyncawait)
 
@@ -288,11 +292,12 @@ NOTES:
 ![React tutorial in ES.next screenshot](../../img/react-esnext/react-esnext-app.png)
 <!-- .element: style="width: 75%"-->
 
-[React official tutorial](https://facebook.github.io/react/docs/tutorial.html) app
+[React official tutorial](https://facebook.github.io/react/tutorial/tutorial.html) app
 
 NOTES:
 - The original official React tutorial was written in ES5, presumably to make it easy to develop
 - We'll be transforming it to ES2015+/ES.next
+- There's a Comment Form, Comment List, Comment & App
 
 =====
 
@@ -1693,10 +1698,10 @@ NOTES:
 
 - [**`String.prototype.endsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
 - [**`String.prototype.includes`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
-- [**`String.prototype.startsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
 - [`String.prototype.repeat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
-- [`String.prototype.padStart`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
 - [`String.prototype.padEnd`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd)
+- [`String.prototype.padStart`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
+- [**`String.prototype.startsWith`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
 - [`String.raw`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
 
 NOTES:
@@ -1753,9 +1758,11 @@ NOTES:
 
 ## Additional resources
 
-- [_Learning ES6_](/learning-es6-series/)
+- [React official tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
+- [_Learning ES6_ series](/learning-es6-series/)
+- [ECMAScript 6 Compatibility Table](http://kangax.github.io/compat-table/es6/)
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
-- [`eslint-config-eventbrite-react`](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
+- [Eventbrite React ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
 - [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
 
 =====
