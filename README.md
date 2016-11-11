@@ -99,6 +99,7 @@ Tuesday, December 6, 2016 @ 4p (Pavilion A)
 #### [Flexing your Flexbox muscles](http://www.benmvp.com/talks/#flexing-your-flexbox-muscles)
 
 Monday, December 5, 2016 @ 10a (Pavilion B)  
+🎞 [Slides](http://www.benmvp.com/slides/2016/confoo/flexbox.html)
 
 ----------
 

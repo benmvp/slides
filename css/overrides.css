@@ -4,6 +4,10 @@
 .reveal .slides {
 	z-index: 20;
 }
+.reveal h1.statement {
+	font-size: 4em;
+	text-transform: none;
+}
 .reveal h6 {
 	position: absolute;
 	right: 0;
