@@ -1797,7 +1797,7 @@ NOTES:
 
 # THANKS!
 
-![Aladdin Thanks](../../img/giphy/thanks-jack-sparrow.gif)
+![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
 <!-- .element: style="width: 75%" -->
 
 NOTES:

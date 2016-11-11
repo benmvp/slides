@@ -214,7 +214,7 @@ NOTES:
 - But OPS would've immediately shot down any notion of replacing Django w/ a Node/Express web server
 - Not because Node/Express is bad
 - Unfamiliar for Ops. Frontend developers are familiar, but they'd actually have to maintain these servers for critical pages
-- We still have the typical legacy ball-of-mud huge app in our Django middle-tier
+- We still have the typical legacy monolith app in our Django middle-tier
 - Working on factoring out things to SOA, but it's a lot! Long process
 - Would have to replicate a lot of legacy logic in our Node server that's in Django
 - Already making a huge “gamble” with React in general
