@@ -93,7 +93,6 @@ ben-ilegbodu.json
 </div>
 
 NOTES:
-_[1 minute]_
 
 /////
 
@@ -123,9 +122,215 @@ The main idea behind flexbox is to give the container the ability to alter its i
 
 # Containers
 
+![Flex Container](../../img/flexbox/flex-container.svg)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
+
+/////
+
+###### Containers
+
+### `display`
+
+<div class="container-example" style="margin-bottom:80px">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+</div>
+
+```
+.container {
+	display: flex;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline')">
+	<code>inline</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'block')">
+	<em><code>block</code></em></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline-block')">
+	<code>inline-block</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'flex')">
+	<strong><code>flex</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline-flex')">
+	<code>inline-flex</code></a>
+
+NOTES:
+
+- So let's go through all of the flexbox properties
+- It all starts with `display:flex` (or `display:inline-flex`) on the container
+- It enables a flex context for all its direct children.
+
+/////
+
+###### Containers
+
+### `justify-content`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+</div>
+
+```
+.container {
+	justify-content: space-between;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'center')">
+	<code>center</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-end')">
+	<code>flex-end</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'flex-start')">
+	<em><code>flex-start</code></em></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-around')">
+	<code>space-around</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'space-between')">
+	<code><strong>space-between</strong></code></a>
+
+NOTES:
+
+- We can then set `justify-content: space-between` to evenly space
+- `justify-content` helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.
+- Options:
+  - `center`: items are centered along the line
+  - `flex-end`: items are packed toward to end line
+  - `flex-start`: (default) items are packed toward the start line
+  - `space-around`: items are evenly distributed in the line with equal space around them.
+  - `space-between`: items are evenly distributed in the line; first item is on the start line, last item on the end line
+
+/////
+
+###### Containers
+
+### `align-items`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+</div>
+
+```
+.container {
+	align-items: flex-end;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'baseline')">
+	<code>baseline</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'center')">
+	<code>center</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-end')">
+	<strong><code>flex-end</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'flex-start')">
+	<code>flex-start</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'stretch')">
+	<em><code>stretch</code></em></a>
+
+NOTES:
+
+- We can then set `align-items: flex-end` to align at the bottom
+- `align-items` defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the `justify-content` version for the cross-axis (perpendicular to the main-axis).
+- Options:
+  - `baseline`: items are aligned such as the first line is aligned (useful for titles)
+  - `center`: items are centered in the cross-axis
+  - `flex-end`: cross-end margin edge of the items is placed on the cross-end line
+  - `flex-start`: cross-start margin edge of the items is placed on the cross-start line
+  - `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+
+/////
+
+###### Containers
+
+### `flex-direction`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;flex-direction:row">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+</div>
+
+```
+.container {
+	flex-direction: row;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column')">
+	<code>column</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column-reverse')">
+	<code>column-reverse</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'row')">
+	<strong><em><code>row</code></em></strong></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'row-reverse')">
+	<code>row-reverse</code></a>
+
+NOTES:
+- We are using the default `flex-direction: row` to set the primary axis
+- `flex-direction` defines the primary axis for how the items are laid out
+- Options:
+  - `column`: items are laid out vertically top to bottom
+  - `column-reverse`: items are laid out vertically bottom to top
+  - `row`: (default) items are laid out horizontally left to right
+  - `row-reverse`: items are laid out horizontally right to left
+
 =====
 
 # Items
+
+![Flex Items](../../img/flexbox/flex-items.svg)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
+
+/////
+
+###### Items
+
+### `align-self`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3" style="align-self:stretch">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+</div>
+
+```
+.item-3 {
+  align-self: stretch;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .item-example-3).css('align-self', 'baseline')">
+  <code>baseline</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'center')">
+  <code>center</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-end')">
+  <code>flex-end</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-start')">
+  <code>flex-start</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'stretch')">
+  <em><strong><code>stretch</code></strong></em></a>
+
+NOTES:
+- We can then set `align-self: stretch` to align the individual item at the top
+- `align-self` allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.
+- Options:
+- `baseline`: item is aligned such as their baselines align
+- `center`: item is centered in the cross-axis
+- `flex-end`: cross-end margin edge of the item is placed on the cross-end line
+- `flex-start`: cross-start margin edge of the item is placed on the cross-start line
+- `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
 
 =====
 
