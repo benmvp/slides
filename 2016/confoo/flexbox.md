@@ -118,16 +118,44 @@ NOTES:
 
 The main idea behind flexbox is to give the container the ability to alter its items' dimensions to best fill the available space in responsive design. A flex container expands items to fill available free space, or shrinks them to prevent overflow.
 
-=====
+/////
 
-# Containers
+# Flexbox layout module
+
+<div style="display:flex;margin-top:2em">
+	<div style="flex:0 0 50%;">
+		<h3>Container</h3>
+
+		<ul>
+			<li><code>display</code></li>
+			<li><code>justify-content</code></li>
+			<li><code>align-items</code></li>
+			<li><code>flex-direction</code></li>
+			<li><code>flex-wrap</code></li>
+			<li><code>align-content</code></li>
+		</ul>
+	</div>
+	<div style="flex:0 0 50%;">
+		<h3>Items</h3>
+
+		<ul>
+			<li><code>align-self</code></li>
+			<li><code>order</code></li>
+			<li><code>flex-grow</code></li>
+			<li><code>flex-shrink</code></li>
+			<li><code>flex-basis</code></li>
+		</ul>
+	</div>
+</div>
+
+=====
 
 ![Flex Container](../../img/flexbox/flex-container.svg)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
 
 /////
 
-###### Containers
+###### Container
 
 ### `display`
 
@@ -164,7 +192,7 @@ NOTES:
 
 /////
 
-###### Containers
+###### Container
 
 ### `justify-content`
 
@@ -206,7 +234,7 @@ NOTES:
 
 /////
 
-###### Containers
+###### Container
 
 ### `align-items`
 
@@ -248,7 +276,7 @@ NOTES:
 
 /////
 
-###### Containers
+###### Container
 
 ### `flex-direction`
 
@@ -284,9 +312,98 @@ NOTES:
   - `row`: (default) items are laid out horizontally left to right
   - `row-reverse`: items are laid out horizontally right to left
 
-=====
+/////
 
-# Items
+###### Container
+
+### `flex-wrap`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+	<div class="item-example item-example-5">five five</div>
+	<div class="item-example item-example-6">six six six</div>
+	<div class="item-example item-example-7">seven</div>
+	<div class="item-example item-example-8">eight eight eight eight</div>
+	<div class="item-example item-example-9">nine nine nine</div>
+	<div class="item-example item-example-10">ten</div>
+</div>
+
+```
+.container {
+	flex-wrap: wrap;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-wrap', 'nowrap')">
+	<code><em>nowrap</em></code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-wrap', 'wrap')">
+	<strong><code>wrap</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-wrap', 'wrap-reverse')">
+	<code>wrap-reverse</code></a>
+
+NOTES:
+- We are using the default `flex-wrap: nowrap` to set the primary axis
+- `flex-wrap` allows items to wrap as needed
+- Options:
+  - `nowrap`: (default) single line
+  - `wrap`: multi-line
+  - `wrap-reverse`: multi-line right to left
+
+/////
+
+###### Container
+
+### `align-content`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;align-content:center;">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+	<div class="item-example item-example-5">five five</div>
+	<div class="item-example item-example-6">six six six</div>
+	<div class="item-example item-example-7">seven</div>
+	<div class="item-example item-example-8">eight eight eight eight</div>
+	<div class="item-example item-example-9">nine nine nine</div>
+	<div class="item-example item-example-10">ten</div>
+</div>
+
+```
+.container {
+	align-content: center;
+}
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'center')">
+	<strong><code>center</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'flex-end')">
+	<code>flex-end</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'flex-start')">
+	<code>flex-start</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'space-around')">
+	<code>space-around</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'space-between')">
+	<code>space-between</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'stretch')">
+	<em><code><strong>stretch</strong></em></code></a>
+
+NOTES:
+- We are setting `align-content: center`
+- `align-content` aligns container's lines when there's extra space in cross axis
+- Options:
+  - `center`: lines are packed to center of container
+  - `flex-end`: lines are packed toward to end of container
+  - `flex-start`: lines are packed to the start of container
+  - `space-around`: lines are evenly distributed in the container with equal space around them.
+  - `space-between`: lines are evenly distributed in the container; first line is at container start, last item at container end
+  - `stretch`: (default) lines are stretched to take up remaining space
+
+=====
 
 ![Flex Items](../../img/flexbox/flex-items.svg)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
@@ -297,11 +414,17 @@ NOTES:
 
 ### `align-self`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
 	<div class="item-example item-example-1">one</div>
 	<div class="item-example item-example-2">two two</div>
 	<div class="item-example item-example-3" style="align-self:stretch">three three three</div>
 	<div class="item-example item-example-4">four four four four</div>
+	<div class="item-example item-example-5">five five</div>
+	<div class="item-example item-example-6">six six six</div>
+	<div class="item-example item-example-7">seven</div>
+	<div class="item-example item-example-8">eight eight eight eight</div>
+	<div class="item-example item-example-9">nine nine nine</div>
+	<div class="item-example item-example-10">ten</div>
 </div>
 
 ```
@@ -331,6 +454,71 @@ NOTES:
 - `flex-end`: cross-end margin edge of the item is placed on the cross-end line
 - `flex-start`: cross-start margin edge of the item is placed on the cross-start line
 - `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+
+/////
+
+###### Items
+
+### `order`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+	<div class="item-example item-example-1" style="order:3">one</div>
+	<div class="item-example item-example-2" style="order:10">two two</div>
+	<div class="item-example item-example-3" style="align-self:stretch;order:6">three three three</div>
+	<div class="item-example item-example-4" style="order:1">four four four four</div>
+	<div class="item-example item-example-5" style="order:-1">five five</div>
+	<div class="item-example item-example-6" style="order:2">six six six</div>
+	<div class="item-example item-example-7" style="order:4">seven</div>
+	<div class="item-example item-example-8" style="order:-1">eight eight eight eight</div>
+	<div class="item-example item-example-9" style="order:8">nine nine nine</div>
+	<div class="item-example item-example-10" style="order:7">ten</div>
+</div>
+
+```
+.item-1  { order: 3; }   .item-2 { order: 10; }  .item-3 { order: 6; }
+.item-4  { order: 1; }   .item-5 { order: -1; }  .item-6 { order: 2; }
+.item-7  { order: 4; }   .item-8 { order: -1; }  .item-9 { order: 8; }
+.item-10 { order: 7; }
+```
+
+NOTES:
+_[28 minutes]_
+
+- By default, flex items are laid out in the source order.
+- `order` controls the order in which they appear in the flex container.
+- The value can be any integer (including negative numbers)
+- `order` is really useful when you want to change the display order depending on media queries
+
+/////
+
+###### Items
+
+### `flex-grow`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+	<div class="item-example item-example-1" style="order:3;flex:2">one</div>
+	<div class="item-example item-example-2" style="order:10;flex:1">two two</div>
+	<div class="item-example item-example-3" style="align-self:stretch;order:6;flex:1">three three three</div>
+	<div class="item-example item-example-4" style="order:1;flex:1">four four four four</div>
+</div>
+
+```
+.item-1 { flex-grow: 2; }    .item-2 { flex-grow: 1; }
+.item-3 { flex-grow: 1; }    .item-4 { flex-grow: 1; }
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .item-example-1').css('flex', '0 1 0')">
+  <code><em>&nbsp;&nbsp;0&nbsp;&nbsp;</em></code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-1').css('flex', '1 1 0')">
+  <code>&nbsp;&nbsp;1&nbsp;&nbsp;</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-1').css('flex', '2 1 0')">
+  <strong><code>&nbsp;&nbsp;2&nbsp;&nbsp;</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-1').css('flex', '5 1 0')">
+  <code>&nbsp;&nbsp;5&nbsp;&nbsp;</code></a>
+
+NOTES:
+- `flex-grow` defines the ability for the item to grow if necessary.
 
 =====
 
