@@ -3,23 +3,42 @@
 
     background: #00ab44;
     border-radius: 5px;
+    box-sizing: border-box;
     height: 500px;
     padding: 10px;
     overflow: hidden;
 }
 .reveal .item-example {
     background: #0093d7;
-    border: 1px solid #222;
+    border: 3px solid #222;
     border-radius: 5px;
-    color: #222;
+    box-sizing: border-box;
+    color: #fff;
     padding: 10px;
     text-align: center;
 }
-
-.reveal .item-example-2 {
-    font-size: smaller;
+.reveal .item-example:hover {
+    background: #f6682f
 }
 
-.reveal .item-example-4 {
+.reveal .item-example-2,
+.reveal .item-example-7,
+.reveal .item-example-10 {
+    font-size: smaller;
+}
+.reveal .item-example-4,
+.reveal .item-example-9 {
     font-size: larger;
+}
+
+.reveal .item-example-1,
+.reveal .item-example-5,
+.reveal .item-example-9 {
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+.reveal .item-example-3,
+.reveal .item-example-6 {
+    padding-top: 50px;
+    padding-bottom: 75px;
 }
