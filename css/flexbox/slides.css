@@ -18,7 +18,8 @@
     text-align: center;
 }
 .reveal .item-example:hover {
-    background: #f6682f
+    background: #f6682f;
+    border-width: 6px;
 }
 
 .reveal .item-example-2,
