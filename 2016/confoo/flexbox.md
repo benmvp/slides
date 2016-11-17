@@ -503,8 +503,8 @@ _[28 minutes]_
 </div>
 
 ```
-.item-1 { flex-grow: 2; }    .item-2 { flex-grow: 1; }
-.item-3 { flex-grow: 1; }    .item-4 { flex-grow: 1; }
+.item   { flex-grow: 1; }
+.item-1 { flex-grow: 2; }
 ```
 <!-- .element class="larger" -->
 
@@ -519,6 +519,94 @@ _[28 minutes]_
 
 NOTES:
 - `flex-grow` defines the ability for the item to grow if necessary.
+- Options:
+- 0 is default
+- Positive numbers only
+
+/////
+
+###### Items
+
+### `flex-basis`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+	<div class="item-example item-example-1" style="order:3;flex:2">one</div>
+	<div class="item-example item-example-2" style="order:10;flex:1">two two</div>
+	<div class="item-example item-example-3" style="align-self:stretch;order:6;flex:1">three three three</div>
+	<div class="item-example item-example-4" style="order:1;flex:1 1 30%">four four four four</div>
+</div>
+
+```
+.item   { flex-basis: 0;   }
+.item-4 { flex-basis: 30%; }
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 auto')">
+  <code><em>&nbsp;&nbsp;auto&nbsp;&nbsp;</em></code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 0')">
+  <code>&nbsp;&nbsp;0&nbsp;&nbsp;</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 30%')">
+  <strong><code>&nbsp;&nbsp;30%&nbsp;&nbsp;</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 850px')">
+  <code>&nbsp;&nbsp;850px&nbsp;&nbsp;</code></a>
+
+NOTES:
+- `flex-basis` defines the default size of an element before the remaining space is distributed.
+- It's called "basis" because it's not a fixed size. The size can grow as the remaining space is distributed
+- Also it's not called "width" or "size" since it depends on the `flex-direction`
+- Options:
+- `auto` means "look at my width or height property"
+- Can be any length measurement
+
+/////
+
+###### Items
+
+### `flex-shrink`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+	<div class="item-example item-example-1" style="order:3;flex:2 1 30%">one</div>
+	<div class="item-example item-example-2" style="order:10;flex:1 10 30%">two two</div>
+	<div class="item-example item-example-3" style="align-self:stretch;order:6;flex:1 1 30%;">three three three</div>
+	<div class="item-example item-example-4" style="order:1;flex:1 1 30%">four four four four</div>
+</div>
+
+```
+.item   { flex-basis: 30%; flex-shrink: 1; }
+.item-2 { flex-shrink: 10; }
+```
+<!-- .element class="larger" -->
+
+<a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 0 30%')">
+  <code>&nbsp;&nbsp;0&nbsp;&nbsp;</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 1 30%')">
+  <em><code>&nbsp;&nbsp;1&nbsp;&nbsp;</code></em></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 5 30%')">
+  <code>&nbsp;&nbsp;5&nbsp;&nbsp;</code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 10 30%')">
+  <strong><code>&nbsp;&nbsp;10&nbsp;&nbsp;</code></strong></a>
+
+NOTES:
+- `flex-shrink` defines the ability for the item to shrink if necessary.
+- Options:
+- `1` is the default
+- Positive numbers only
+
+/////
+
+###### Items
+
+### `flex`
+
+```
+.item {
+	flex: <flex-grow> <flex-shrink> <flex-basis>;
+}
+```
+<!-- .element class="larger" -->
+
+Use the shorthand for intelligent defaults!
 
 =====
 
