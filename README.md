@@ -4,6 +4,16 @@ Every opportunity I get to share my knowledge and experience with others is a bl
 
 ## 2017
 
+### [Devoxx US 2017](http://devoxx.us/)
+
+##### San Jose, California (San Jose Convention Center)
+
+#### [Navigating the React Solar System](http://www.benmvp.com/talks/#navigating-the-react-solar-system)
+
+March 21-23, 2017 @ TBD (TBD)   
+
+----------
+
 ### [Mobile+Web DevCon 2017](http://mobilewebdevconference.com/san-francisco-2017/)
 
 ##### San Francisco, California (Marines' Memorial Club & Hotel)
@@ -28,7 +38,7 @@ Wednesday, March 1, 2017 @ TBD (TBD)
 
 ##### Los Angeles, California
 
-#### [ES.Next Fundamentals Workshop](http://www.benmvp.com/talks/#esnext-fundamentals-workshop)
+#### [ES.next Fundamentals Workshop](http://www.benmvp.com/talks/#esnext-fundamentals-workshop)
 
 Tuesday, February 21, 2017 @ 7p (TBD)  
 
@@ -40,7 +50,7 @@ Tuesday, February 21, 2017 @ 7p (TBD)
 
 #### [Navigating the React Solar System](http://www.benmvp.com/talks/#navigating-the-react-solar-system)
 
-February 13/14, 2017 @ 9:20 (DeveloperWeek Main Stage)  
+Tuesday, February 14, 2017 @ 9:20 (DeveloperWeek Main Stage)   
 
 ----------
 
