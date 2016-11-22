@@ -171,7 +171,7 @@ The main idea behind flexbox is to give the container the ability to alter its i
 	display: flex;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('display', 'inline')">
 	<code>inline</code></a> |
@@ -208,7 +208,7 @@ NOTES:
 	justify-content: space-between;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('justify-content', 'center')">
 	<code>center</code></a> |
@@ -250,7 +250,7 @@ NOTES:
 	align-items: flex-end;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-items', 'baseline')">
 	<code>baseline</code></a> |
@@ -292,7 +292,7 @@ NOTES:
 	flex-direction: row;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column')">
 	<code>column</code></a> |
@@ -336,7 +336,7 @@ NOTES:
 	flex-wrap: wrap;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('flex-wrap', 'nowrap')">
 	<code><em>nowrap</em></code></a> |
@@ -377,7 +377,7 @@ NOTES:
 	align-content: center;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .container-example').css('align-content', 'center')">
 	<strong><code>center</code></strong></a> |
@@ -432,7 +432,7 @@ NOTES:
   align-self: stretch;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .item-example-3).css('align-self', 'baseline')">
   <code>baseline</code></a> |
@@ -480,9 +480,9 @@ NOTES:
 .item-7  { order: 4; }   .item-8 { order: -1; }  .item-9 { order: 8; }
 .item-10 { order: 7; }
 ```
+<!-- .element class="large" -->
 
 NOTES:
-_[28 minutes]_
 
 - By default, flex items are laid out in the source order.
 - `order` controls the order in which they appear in the flex container.
@@ -506,7 +506,7 @@ _[28 minutes]_
 .item   { flex-grow: 1; }
 .item-1 { flex-grow: 2; }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .item-example-1').css('flex', '0 1 0')">
   <code><em>&nbsp;&nbsp;0&nbsp;&nbsp;</em></code></a> |
@@ -540,7 +540,7 @@ NOTES:
 .item   { flex-basis: 0;   }
 .item-4 { flex-basis: 30%; }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 auto')">
   <code><em>&nbsp;&nbsp;auto&nbsp;&nbsp;</em></code></a> |
@@ -576,7 +576,7 @@ NOTES:
 .item   { flex-basis: 30%; flex-shrink: 1; }
 .item-2 { flex-shrink: 10; }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 0 30%')">
   <code>&nbsp;&nbsp;0&nbsp;&nbsp;</code></a> |
@@ -604,9 +604,16 @@ NOTES:
 	flex: <flex-grow> <flex-shrink> <flex-basis>;
 }
 ```
-<!-- .element class="larger" -->
+<!-- .element class="large" style="margin:2em 0" -->
 
 Use the shorthand for intelligent defaults!
+
+```
+.item {
+	flex: 1; /* set grow only; default shrink/basis */
+}
+```
+<!-- .element class="large" style="margin-top:2em" -->
 
 =====
 
@@ -632,51 +639,253 @@ Use the shorthand for intelligent defaults!
 			<li><code>align-self</code></li>
 			<li><code>order</code></li>
 			<li><code>flex-grow</code></li>
-			<li><code>flex-shrink</code></li>
 			<li><code>flex-basis</code></li>
+			<li><code>flex-shrink</code></li>
 		</ul>
 	</div>
 </div>
 
 =====
 
-# Solved by Flexbox
+# Flexbox can do what?!?!
 
 > Flexbox just does what I want it to do...
 
 ~Ben Ilegbodu
 
-/////
+=====
 
-# Grid systems
+## Grid system
+
+![Flexbox grid system](../../img/flexbox/grid-system.png)
 
 https://philipwalton.github.io/solved-by-flexbox/demos/grids/
 
 /////
 
+###### Grid System
+
+```
+.grid { display: flex; }     .gcell { flex: 1; }
+```
+<!-- .element class="large" -->
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre><code class="lang-html"><div class="grid">
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid">
+			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
+		</div>
+	</div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre><code class="lang-html"><div class="grid">
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid">
+			<div class="grid-cell"><div class="grid-cell-ex">1/3</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/3</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/3</div></div>
+		</div>
+	</div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre><code class="lang-html"><div class="grid">
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid">
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+		</div>
+	</div>
+</div>
+
+NOTES:
+- Grid systems usually come with a myriad of sizing options
+- But the vast majority of the time you just want two or three elements side-by-side.
+- And we required to put sizing classes on every single cell?
+- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
+- Basically they all size to fit by default.
+- Edge-to-edge w/ no margins
+
+/////
+
+###### Grid System
+
+## Gutters
+
+```
+.grid--gutters { margin: -1em 0 0 -1em; }
+.grid--gutters .gcell { padding: 1em 0 0 1em; }
+```
+<!-- .element class="large" style="margin:1.5em 0" -->
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre><code class="lang-html"><div class="grid grid--gutters">
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid grid--gutters">
+			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
+		</div>
+	</div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre><code class="lang-html"><div class="grid grid--gutters">
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+	<div class="gcell"> ... </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid grid--gutters">
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
+		</div>
+	</div>
+</div>
+
+NOTES:
+- Grid systems usually come with a myriad of sizing options
+- But the vast majority of the time you just want two or three elements side-by-side.
+- And we required to put sizing classes on every single cell?
+- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
+- Basically they all size to fit by default.
+- Edge-to-edge w/ no margins
+
+/////
+
+###### Grid System
+
+## Individual Sizing
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre class="large"><code class="lang-css">.gcell--1of3 {
+  flex: 0 0 auto;
+  width: 33.3333%;
+}
+.gcell--1of4 {
+  flex: 0 0 auto;
+  width: 25%;
+}</code></pre>
+		<pre><code class="lang-html"><div class="grid grid--gutters">
+  <div class="gcell gcell--1of3"> </div>
+  <div class="gcell"> </div>
+  <div class="gcell gcell--1of4"> </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid grid--gutters">
+			<div class="grid-cell grid-cell--1of3"><div class="grid-cell-ex">1/3</div></div>
+			<div class="grid-cell"><div class="grid-cell-ex">auto<br />auto<br />auto<br />auto<br />auto</div></div>
+			<div class="grid-cell grid-cell--1of4"><div class="grid-cell-ex">1/4</div></div>
+		</div>
+	</div>
+</div>
+
+NOTES:
+- Grid systems usually come with a myriad of sizing options
+- But the vast majority of the time you just want two or three elements side-by-side.
+- And we required to put sizing classes on every single cell?
+- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
+- Basically they all size to fit by default.
+- Edge-to-edge w/ no margins
+
+/////
+
+###### Grid System
+
+## Reponsive Sizing
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 48%;">
+		<pre class="large"><code class="lang-css">.gcell--1of2 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+@media (min-width: 48em) {
+  .gcell-small--1of2 {
+    width: 50%;
+  }
+}</code></pre>
+		<pre><code class="lang-html"><div class="grid grid--gutters">
+  <div class="gcell gcell--1of3"> </div>
+  <div class="gcell"> </div>
+  <div class="gcell gcell--1of4"> </div>
+</div></code></pre>
+	</div>
+	<div style="flex:0 0 48%;">
+		<div class="grid grid--gutters">
+			<div class="grid-cell grid-cell-lg--1of2"><div class="grid-cell-ex">Full / Half</div></div>
+			<div class="grid-cell grid-cell-lg--1of2"><div class="grid-cell-ex">Full / Half</div></div>
+		</div>
+	</div>
+</div>
+
+NOTES:
+- Grid systems usually come with a myriad of sizing options
+- But the vast majority of the time you just want two or three elements side-by-side.
+- And we required to put sizing classes on every single cell?
+- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
+- Basically they all size to fit by default.
+- Edge-to-edge w/ no margins
+
+=====
+
 # Vertical centering
 
 https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
 
-/////
+=====
 
 # Sticky footer
 
 https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
-/////
+=====
 
 # Media object
 
 https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
 
-/////
+=====
 
 # Input add-ons
 
 https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/
 
-/////
+=====
 
 # Holy grail layout
 
