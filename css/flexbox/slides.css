@@ -1,7 +1,7 @@
 .reveal .container-example {
     display: flex;
 
-    background: #00ab44;
+    background: whitesmoke;
     border-radius: 5px;
     box-sizing: border-box;
     height: 500px;
@@ -10,16 +10,16 @@
 }
 .reveal .item-example {
     background: #0093d7;
-    border: 3px solid #222;
+    border: 1px solid #222;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #fff;
+    color: #fef;
     padding: 10px;
     text-align: center;
+    transition: background 500ms;
 }
 .reveal .item-example:hover {
-    background: #f6682f;
-    border-width: 6px;
+    background: #008b44;
 }
 
 .reveal .item-example-2,
@@ -42,6 +42,26 @@
 .reveal .item-example-6 {
     padding-top: 50px;
     padding-bottom: 75px;
+}
+
+/* Input Add-ons */
+.reveal .inputAddOn {
+    display: flex;
+    height: 100px;
+    margin-top: 1em;
+}
+.reveal .inputAddOn__field {
+    flex: 1;
+    font-size: 50px;
+}
+.reveal .inputAddOn__item {
+    background: #0093d7;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    color: #fef;
+    font-size: 50px;
+    padding: 10px;
+    text-align: center;
 }
 
 /* Grid */
