@@ -653,6 +653,74 @@ Use the shorthand for intelligent defaults!
 
 ~Ben Ilegbodu
 
+NOTES:
+- Start looking at what it looks like when we combine multiple properties
+
+=====
+
+## Vertical alignment
+
+![Flexbox vertical centering](../../img/flexbox/vertical-centering.png)
+
+https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
+
+NOTES:
+- General lack of sufficient solutions for vertical alignment
+- The obvious `vertical-align` property rarely works!
+
+/////
+
+###### Vertical centering
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 60%;">
+		<pre class="large"><code><div class="container">
+  <div class="item">...</div>
+  <div class="item item--bot">...</div>
+  <div class="item item--top">...</div>
+</div></code></pre>
+		<pre class="large"><code class="lang-html">.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item--top { align-self: flex-start; }
+.item--bot { align-self: flex-end; }</code></pre>
+	</div>
+	<div style="flex:0 0 36%;">
+		<div class="container-example" style="width:100%;height:750px;align-items:center;justify-content:center">
+			<div class="item-example">Centered</div>
+			<div class="item-example" style="align-self:flex-end">Bottom</div>
+			<div class="item-example" style="align-self:flex-start">Top</div>
+		</div>
+	</div>
+</div>
+
+NOTES:
+- The items are still horizontally aligned in the center
+- That's what "Centered" is first, then "Bottom", and "Top"
+- Remember default for `align-items` is `stretch`
+- Default for `justify-content` is `flex-start`
+- If you remove the `align-self` they'd all be vertically-centered
+
+=====
+
+## Sticky footer
+
+https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+
+=====
+
+## Media object
+
+https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+
+=====
+
+## Input add-ons
+
+https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/
+
 =====
 
 ## Grid system
@@ -860,30 +928,6 @@ NOTES:
 - With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
 - Basically they all size to fit by default.
 - Edge-to-edge w/ no margins
-
-=====
-
-# Vertical centering
-
-https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
-
-=====
-
-# Sticky footer
-
-https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-
-=====
-
-# Media object
-
-https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
-
-=====
-
-# Input add-ons
-
-https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/
 
 =====
 
