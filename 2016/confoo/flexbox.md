@@ -654,15 +654,36 @@ Use the shorthand for intelligent defaults!
 ~Ben Ilegbodu
 
 NOTES:
+- Start applying Flexbox in real-world use cases
 - Start looking at what it looks like when we combine multiple properties
 
-=====
+/////
 
-## Vertical alignment
+## Vertical centering
 
-![Flexbox vertical centering](../../img/flexbox/vertical-centering.png)
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 60%;">
+		<pre class="large"><code><div class="container">
+  <h1>Welcome!</h1>
+  <p>Thanks for...</p>
+  <button>Start tour</button>
+</div></code></pre>
+		<pre class="large"><code class="lang-css">.container {
+  display: flex;
+  flex-direction: column;  // y-axis
+  justify-content: center; // v-center
+  align-items: center;     // h-center
+}</code></pre>
+	</div>
+	<div style="flex:0 0 36%;">
+		<div class="container-example" style="width:100%;height:650px;align-items:center;justify-content:center;flex-direction:column;color:#222;font-size:smaller">
+			<h3 style="color:#222">Welcome!</h3>
+			<p>Thanks for signing up. Let's take a look around...</p>
+			<button class="inputAddOn__item" style="font-size:30px">Start tour</button>
+		</div>
+	</div>
+</div>
 
-https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
 
 NOTES:
 - General lack of sufficient solutions for vertical alignment
@@ -670,270 +691,75 @@ NOTES:
 
 /////
 
-###### Vertical centering
+## Input add-ons
 
 <div style="display:flex;align-items:center;justify-content:space-between">
 	<div style="flex:0 0 60%;">
-		<pre class="large"><code><div class="container">
-  <div class="item">...</div>
-  <div class="item item--bot">...</div>
-  <div class="item item--top">...</div>
+		<pre class="large"><code><div class="ioa">
+  <input class="ioa__field" />
+  <button class="ioa__item"></button>
+</div>
+
+<div class="ioa">
+  <span class="ioa__item"></span>
+  <input class="ioa__field" />
+</div>
+
+<div class="ioa">
+  <span class="ioa__item"></span>
+  <input class="ioa__field" />
+  <button class="ioa__item"></button>
 </div></code></pre>
-		<pre class="large"><code class="lang-html">.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.item--top { align-self: flex-start; }
-.item--bot { align-self: flex-end; }</code></pre>
 	</div>
 	<div style="flex:0 0 36%;">
-		<div class="container-example" style="width:100%;height:750px;align-items:center;justify-content:center">
-			<div class="item-example">Centered</div>
-			<div class="item-example" style="align-self:flex-end">Bottom</div>
-			<div class="item-example" style="align-self:flex-start">Top</div>
+			<pre class="large" style="margin-bottom:2em"><code class="lang-css">.ioa { display: flex; }
+.ioa\__field { flex: 1; }</code></pre>
+		<div>
+			<div class="inputAddOn">
+				<input class="inputAddOn__field" type="text" />
+				<button class="inputAddOn__item">GO</button>
+			</div>
+			<div class="inputAddOn">
+				<span class="inputAddOn__item">😀</span>
+				<input class="inputAddOn__field" type="text" />
+			</div>
+			<div class="inputAddOn">
+				<span class="inputAddOn__item">✉️</span>
+				<input class="inputAddOn__field" type="text" />
+				<button class="inputAddOn__item">Send</button>
+			</div>
 		</div>
 	</div>
 </div>
 
 NOTES:
-- The items are still horizontally aligned in the center
-- That's what "Centered" is first, then "Bottom", and "Top"
-- Remember default for `align-items` is `stretch`
-- Default for `justify-content` is `flex-start`
-- If you remove the `align-self` they'd all be vertically-centered
+- Not that easy to append/prepend an item to an input and have input take up remaining space
+- Flexbox solves this problem
+- Get same height of input & item for free (cuz of `align-items: stretch`)
 
-=====
-
-## Sticky footer
-
-https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-
-=====
+/////
 
 ## Media object
 
 https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
 
-=====
+/////
 
-## Input add-ons
+## Sticky footer
 
-https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/
+https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
-=====
+/////
 
 ## Grid system
 
 ![Flexbox grid system](../../img/flexbox/grid-system.png)
 
-https://philipwalton.github.io/solved-by-flexbox/demos/grids/
-
 /////
-
-###### Grid System
-
-```
-.grid { display: flex; }     .gcell { flex: 1; }
-```
-<!-- .element class="large" -->
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre><code class="lang-html"><div class="grid">
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid">
-			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
-		</div>
-	</div>
-</div>
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre><code class="lang-html"><div class="grid">
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid">
-			<div class="grid-cell"><div class="grid-cell-ex">1/3</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/3</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/3</div></div>
-		</div>
-	</div>
-</div>
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre><code class="lang-html"><div class="grid">
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid">
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-		</div>
-	</div>
-</div>
-
-NOTES:
-- Grid systems usually come with a myriad of sizing options
-- But the vast majority of the time you just want two or three elements side-by-side.
-- And we required to put sizing classes on every single cell?
-- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
-- Basically they all size to fit by default.
-- Edge-to-edge w/ no margins
-
-/////
-
-###### Grid System
-
-## Gutters
-
-```
-.grid--gutters { margin: -1em 0 0 -1em; }
-.grid--gutters .gcell { padding: 1em 0 0 1em; }
-```
-<!-- .element class="large" style="margin:1.5em 0" -->
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre><code class="lang-html"><div class="grid grid--gutters">
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid grid--gutters">
-			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/2</div></div>
-		</div>
-	</div>
-</div>
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre><code class="lang-html"><div class="grid grid--gutters">
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-	<div class="gcell"> ... </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid grid--gutters">
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">1/4</div></div>
-		</div>
-	</div>
-</div>
-
-NOTES:
-- Grid systems usually come with a myriad of sizing options
-- But the vast majority of the time you just want two or three elements side-by-side.
-- And we required to put sizing classes on every single cell?
-- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
-- Basically they all size to fit by default.
-- Edge-to-edge w/ no margins
-
-/////
-
-###### Grid System
-
-## Individual Sizing
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre class="large"><code class="lang-css">.gcell--1of3 {
-  flex: 0 0 auto;
-  width: 33.3333%;
-}
-.gcell--1of4 {
-  flex: 0 0 auto;
-  width: 25%;
-}</code></pre>
-		<pre><code class="lang-html"><div class="grid grid--gutters">
-  <div class="gcell gcell--1of3"> </div>
-  <div class="gcell"> </div>
-  <div class="gcell gcell--1of4"> </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid grid--gutters">
-			<div class="grid-cell grid-cell--1of3"><div class="grid-cell-ex">1/3</div></div>
-			<div class="grid-cell"><div class="grid-cell-ex">auto<br />auto<br />auto<br />auto<br />auto</div></div>
-			<div class="grid-cell grid-cell--1of4"><div class="grid-cell-ex">1/4</div></div>
-		</div>
-	</div>
-</div>
-
-NOTES:
-- Grid systems usually come with a myriad of sizing options
-- But the vast majority of the time you just want two or three elements side-by-side.
-- And we required to put sizing classes on every single cell?
-- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
-- Basically they all size to fit by default.
-- Edge-to-edge w/ no margins
-
-/////
-
-###### Grid System
-
-## Reponsive Sizing
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 48%;">
-		<pre class="large"><code class="lang-css">.gcell--1of2 {
-  flex: 0 0 auto;
-  width: 50%;
-}
-@media (min-width: 48em) {
-  .gcell-small--1of2 {
-    width: 50%;
-  }
-}</code></pre>
-		<pre><code class="lang-html"><div class="grid grid--gutters">
-  <div class="gcell gcell--1of3"> </div>
-  <div class="gcell"> </div>
-  <div class="gcell gcell--1of4"> </div>
-</div></code></pre>
-	</div>
-	<div style="flex:0 0 48%;">
-		<div class="grid grid--gutters">
-			<div class="grid-cell grid-cell-lg--1of2"><div class="grid-cell-ex">Full / Half</div></div>
-			<div class="grid-cell grid-cell-lg--1of2"><div class="grid-cell-ex">Full / Half</div></div>
-		</div>
-	</div>
-</div>
-
-NOTES:
-- Grid systems usually come with a myriad of sizing options
-- But the vast majority of the time you just want two or three elements side-by-side.
-- And we required to put sizing classes on every single cell?
-- With Flexbox, by default, each grid cell is the same width and height as every other cell in the row.
-- Basically they all size to fit by default.
-- Edge-to-edge w/ no margins
-
-=====
 
 # Holy grail layout
 
-https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/
+![Flexbox holy grail layout](../../img/flexbox/holy-grail-layout.png)
 
 =====
 
