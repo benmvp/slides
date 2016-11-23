@@ -741,7 +741,36 @@ NOTES:
 
 ## Media object
 
-https://philipwalton.github.io/solved-by-flexbox/demos/media-object/
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 60%;">
+		<pre class="large"><code><div class="media">
+  <img class="media__image" src="" />
+  <div class="media__body"> </div>
+</div></code></pre>
+		<pre class="large"><code class="lang-css">.media {
+  display: flex;
+  align-items: flex-start;
+  padding: .5em;
+}
+.media\__image { margin-right: 1em; }
+.media\__body { flex: 1; }</code></pre>
+	</div>
+	<div style="flex:0 0 36%;">
+		<div style="display:flex;align-items:flex-start;background:whitesmoke;border-radius:5px;padding:.5em">
+			<img src="../../img/headshot.jpg" alt="Ben Ilegbodu" style="margin-right:1em;width:200px" />
+			<div>
+				<h4 style="color:#222;text-align:left;text-transform:none">Media Title</h4>
+				<p style="color:#222;font-size:25px;text-align:left;">Bacon ipsum dolor amet alcatra laborum kevin, consequat consectetur labore ribeye officia ullamco ut laboris in in fatback excepteur. Dolore strip steak duis jerky exercitation anim. Sunt pork belly laboris elit labore. Fugiat ribeye eiusmod tempor do sirloin.</p>
+				<p style="color:#222;font-size:25px;text-align:left;">Duis rump venison, consectetur mollit meatloaf reprehenderit velit pariatur non. Pariatur sed irure, pig strip steak laborum alcatra salami. Aliquip qui meatloaf, aute drumstick ut sausage capicola jerky prosciutto exercitation rump adipisicing deserunt.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+NOTES:
+- `align-items` to `flex-start` instead of default `stretch` in cross-axis
+- `flex: 1` for the body means it'll stretch to fill whatever remaining space there is
 
 /////
 
