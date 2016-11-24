@@ -649,7 +649,7 @@ Use the shorthand for intelligent defaults!
 
 # Flexbox can do what?!?!
 
-> Flexbox just does what I want it to do...
+> Just a couple of lines of Flexbox solves real-world use cases that we previously could only achieve with hacks on hacks on hacks...
 
 ~Ben Ilegbodu
 
@@ -955,6 +955,7 @@ NOTES:
 /////
 
 # YOU!
+<!-- .element: style="font-size:12em" -->
 
 NOTES:
 - It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
