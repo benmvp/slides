@@ -774,15 +774,57 @@ NOTES:
 
 /////
 
-## Sticky footer
+## Pinned footer
 
-https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+<div style="display:flex;align-items:flex-start;justify-content:space-between">
+	<div style="flex:0 0 60%;">
+		<pre class="large"><code><div class="modal">
+  <header class="modal__header"></header>
+  <main class="modal__body"></main>
+  <footer class="modal__footer"></footer>
+</div></code></pre>
+		<pre class="large"><code class="lang-css">.modal {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+}
+.modal\__body { flex: 1; }</code></pre>
+	</div>
+	<div style="flex:0 0 36%;">
+		<aside id="modal" style="display:flex;flex-direction:column;background:whitesmoke;border-radius:5px;height:750px">
+			<header style="background:#0093d7;padding:0.25em;">
+				<h4>Modal Title</h4>
+			</header>
+			<main style="flex:1;overflow-y:auto;font-size:30px;color:#222;padding:0.25em;text-align:left">
+				<p>Duis rump venison, consectetur mollit meatloaf reprehenderit velit pariatur non. Pariatur sed irure, pig strip steak laborum alcatra salami. Aliquip qui meatloaf, aute drumstick ut sausage capicola jerky prosciutto exercitation rump adipisicing deserunt. Occaecat rump strip steak exercitation short ribs, beef minim fugiat cupidatat ribeye nulla. Tongue drumstick ipsum strip steak fugiat swine. Reprehenderit shoulder pancetta nulla.</p>
+			</main>
+			<footer style="background:#008b44;">
+				<p>This is pinned to the bottom</p>
+			</footer>
+		</aside>
+		<p>
+			<a href="javascript:$('.reveal #modal').height(500)">contract ⬆️</a> |
+			<a href="javascript:$('.reveal #modal').height(750)">expand ⬇️</a>
+		</p>
+	</div>
+</div>
+
+
+NOTES:
+- `flex-direction: column` to get vertical layout
+- `flex: 1` for the body means it'll stretch to fill whatever remaining space there is
+- `align-items` is defaulted to `stretch` in cross (horizontal) axis so fills the width
+- Usually for the pinned footer we'd have to position absolute to the bottom
+- Then add `margin-bottom` to the body so it doesn't scroll underneath
 
 /////
 
 ## Grid system
 
 ![Flexbox grid system](../../img/flexbox/grid-system.png)
+
+NOTES:
+- Foundation & Bootstrap use flexbox in the latest versions of their grids
 
 /////
 
@@ -798,40 +840,67 @@ https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
-http://caniuse.com/#feat=flexbox
+([Flexibility](https://github.com/jonathantneal/flexibility): _a JavaScript polyfill for Flexbox_)
 
 NOTES:
 - Not supported in IE8 or IE9
 - But those should be dead or dying soon
+- There also is Flexibility which uses JavaScript to polyfill Flexbox
 
 =====
 
 # Looking ahead
 
-/////
-
-# Grid
+### Future CSS Layout Features
 
 /////
 
-![Rachel Andrew](../../img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->  
+## CSS Grid Layout
+
+![CSS Grid Layout Template Areas](../../img/flexbox/grid-template-areas.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width:50%" -->
+
+[A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+NOTES:
+- The new CSS Grid Layout is designed to solve overall site layout issues
+- It's basically flexbox but in 2D instead of only a single axis
+- It has even more configuration so it can feel complicated
+- But it's super powerful and makes difficult things easy, and impossible things possible
+
+/////
+
+![Rachel Andrew](../../img/confoo2016/rachel-andrew.jpg)
+
 Rachel Andrew
 
 <br />
 
-[<h2>The New CSS Layout</h2>](/)
+## [The New CSS Layout](https://confoo.ca/en/yvr2016/session/the-new-css-layout-1)
 
 Tomorrow @ 10am in Pavilion A
 
 /////
 
-# Shapes
+## CSS Shapes Module
+
+![CSS Shapes Module](../../img/flexbox/css-shapes.jpg)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width:60%" -->
+
+[Getting Started with CSS Shapes](https://www.html5rocks.com/en/tutorials/shapes/getting-started/)
+
+NOTES:
+- There's also the CSS Shapes Module that'll let you wrap text around shapes
 
 =====
 
-[![Flexbox layout module specification](../../img/flexbox/flexbox-spec.png)](http://www.w3.org/TR/css3-flexbox/)
+# Flexbox Resources
 
-[Flexbox layout module specification](http://www.w3.org/TR/css3-flexbox/)
+/////
+
+[![Flexible box layout module specification](../../img/flexbox/flexbox-spec.png)](http://www.w3.org/TR/css3-flexbox/)
+
+[Flexible box layout module specification](http://www.w3.org/TR/css3-flexbox/)
 
 /////
 
@@ -862,8 +931,6 @@ Tomorrow @ 10am in Pavilion A
 [![Flexbox defense](../../img/no-js/flexbox-defense.png)](http://www.flexboxdefense.com/)
 
 [Flexbox defense](http://www.flexboxdefense.com/)
-
-
 
 =====
 
