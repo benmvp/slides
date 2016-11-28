@@ -6,7 +6,7 @@
     box-sizing: border-box;
     height: 500px;
     padding: 10px;
-    overflow: hidden;
+    overflow: auto;
 }
 .reveal .item-example {
     background: #0093d7;
@@ -64,57 +64,12 @@
     text-align: center;
 }
 
-/* Grid */
-
-.reveal .grid {
-    box-sizing: border-box;
-    display: flex;
+/* Data table */
+.reveal .data-table th,
+.reveal .data-table td {
+    font-size: 35px;
+    vertical-align: middle;
 }
-.reveal .grid--gutters {
-    margin: -1em 0 0 -1em;
-}
-
-
-.reveal .grid-cell {
-    box-sizing: border-box;
-    display: flex;
-    flex: 1;
-}
-.reveal .grid--gutters .grid-cell {
-    padding: 1em 0 0 1em;
-}
-.reveal .grid-cell--1of2 {
-    flex: 0 0 auto;
-    width: 50%;
-}
-.reveal .grid-cell--1of3 {
-    flex: 0 0 auto;
-    width: 33.3333%;
-}
-.reveal .grid-cell--1of4 {
-    flex: 0 0 auto;
-    width: 25%;
-}
-@media (min-width: 500px) {
-    .reveal .grid-cell-lg--1of2 {
-        flex: 0 0 auto;
-        width: 50%;
-    }
-    .reveal .grid-cell-lg--1of3 {
-        flex: 0 0 auto;
-        width: 33.3333%;
-    }
-    .reveal .grid-cell-lg--1of4 {
-        flex: 0 0 auto;
-        width: 25%;
-    }
-}
-
-
-.reveal .grid-cell-ex {
-    background: whitesmoke;
-    border-radius: 15px;
-    color: #333;
-    padding: 0.8em 1em;
-    width: 100%;
+.reveal .data-table th {
+    text-align: center;
 }

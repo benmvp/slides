@@ -45,18 +45,110 @@ NOTES:
 - HTML was originally designed for displaying text-based documents like papers or articles
 - Wasn't made for advanced layout
 - We've had CSS positioning, but that assumes that you have fixed dimensions or locations
+- Trying to solve problem of two things on the same line that won't overlap, but take up only necessary space is challenging
 
 /////
 
-# Tables
+## Tables
+
+<table class="data-table">
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Pavilion A</th>
+			<th>Pavilion B</th>
+			<th>Pavilion C</th>
+			<th>Junior A</th>
+			<th>Junior B</th>
+			<th>Junior D</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>7:30<br />9:00</th>
+			<td colspan="6" align="center">Registration and coffee</td>
+		</tr>
+		<tr>
+			<th>9:00<br />9:45</th>
+			<td colspan="6" align="center">Opening keynote</td>
+		</tr>
+		<tr>
+			<th>10:00<br />10:45</th>
+			<td>Nine New Things in Java 9</td>
+			<td>Foundations of Zend Framework</td>
+			<td>Flexing your Flexbox Muscles 💪🏾</td>
+			<td>7 Steps to Pragmatic Mobile Testing</td>
+			<td>MVC - What Rails and a Mozart Violin Concerto have in Common</td>
+			<td>Know your Enemy - An Introduction to Threat Modeling</td>
+		</tr>
+		<tr>
+			<th>11:00<br />11:45</th>
+			<td>phpdbg for Fun and Profit</td>
+			<td>Massively Scalable .NET Web Services with Project Orleans</td>
+			<td>Learning HTTP</td>
+			<td>Undo for the Rest of Us</td>
+			<td>Outgrowing Spreadsheets, Moving to Rails</td>
+			<td>Five Database Mistakes You Are Making and How to Fix 'em</td>
+		</tr>
+		<tr>
+			<th>11:45<br />13:00</th>
+			<td colspan="6" align="center">Lunch</td>
+		</tr>
+		<tr>
+			<th>13:00<br />13:45</th>
+			<td>What's Happening in PHP?</td>
+			<td>MySQL Performance for Non-DBAs</td>
+			<td>OpenAPI (Swagger) REST Code Generation w/ AutoRest</td>
+			<td>Python for non-Python developers</td>
+			<td>Ruby Can Too Scale: Highly Performant Microservices in Ruby</td>
+			<td>How We Run Successful Web Projects</td>
+		</tr>
+	</tbody>
+</table>
+
+NOTES:
+- Originally we used to use tables for layout
+- Tables were great because they were flexible
+- Vertical alignment is easy and you can align columns
+- But tables are for tabular data; there was public shaming
+- Because of all of the calculations involved in a table, would render all at once
+- Biggest drawback: Not responsive
 
 /////
 
-# Floats
+## Floats
+
+<img src="../../img/headshot.jpg" style="float:left;width:300px;margin-right:1em" />
+
+<p style="text-align:justify;">Bacon ipsum dolor amet alcatra laborum kevin, consequat consectetur labore ribeye officia ullamco ut laboris in in fatback excepteur. Dolore strip steak duis jerky exercitation anim. Sunt pork belly laboris elit labore. Fugiat ribeye eiusmod tempor do sirloin.</p>
+
+<p style="text-align:justify;">Duis rump venison, consectetur mollit meatloaf reprehenderit velit pariatur non. Pariatur sed irure, pig strip steak laborum alcatra salami. Aliquip qui meatloaf, aute drumstick ut sausage capicola jerky prosciutto exercitation rump adipisicing deserunt. Occaecat rump strip steak exercitation short ribs, beef minim fugiat cupidatat ribeye nulla. Tongue drumstick ipsum strip steak fugiat swine. Reprehenderit shoulder pancetta nulla.</p>
+
+<img src="../../img/headshot-2015.jpg" style="float:right;width:150px;margin-left:.5em" />
+
+<p style="text-align:justify;">Veniam short loin lorem salami kevin fatback. Beef ribs turkey irure short loin. Occaecat fatback eu cupidatat nostrud qui meatloaf. Biltong jerky ham, short loin incididunt ham hock ribeye filet mignon occaecat enim et turkey quis.</p>
+
+NOTES:
+- Then w/o tables we resorted to CSS floats
+- But floats were actually intended for wrapping images around text in articles
+- With floats, we ran into the collapsing `<div>` issue
+- Clearing the floats after was also a pain
+- Trying to get items floated left & right but not run into each other
+- Libraries like Bootstrap & Foundation became popular in part because of this need
 
 /////
 
-# Inline-block
+## Inline-block
+
+<p style="text-align:justify;">Duis rump venison, consectetur mollit meatloaf reprehenderit velit pariatur non. Pariatur sed irure, pig strip steak laborum alcatra salami. Aliquip qui meatloaf, aute drumstick ut sausage capicola jerky prosciutto exercitation rump adipisicing deserunt. <img src="../../img/headshot.jpg" style="width:200px;margin:.5em" /> Occaecat rump strip steak exercitation short ribs, beef minim fugiat cupidatat ribeye nulla. Tongue drumstick ipsum strip steak fugiat swine. Reprehenderit shoulder pancetta nulla.</p>
+
+NOTES:
+- Another option has been `display: inline-block`
+- Combination of block-level and inline elements
+- Essentially inline elements that can set vertical dimension and margin/padding
+- Whitespace adds in unwanted built-in horizontal margin
+- Difficult to have two things on the same line coming from different directions
+- Before the setting inline block was just for images
 
 /////
 
@@ -64,7 +156,8 @@ NOTES:
 <!-- .element: class="statement" -->
 
 NOTES:
-- Thankfully the CSS flexible box layout module, aka Flexbox, enables us to elegantly solve our layout problems
+- Thankfully the CSS flexible box layout module, aka Flexbox, enables us to elegantly solve our linear layout problems
+- Gives us a real solution to build linear layouts
 
 =====
 
@@ -104,7 +197,6 @@ NOTES:
 - Eventbrite is an online ticketing & events platform
 - Many conferences use it for registration
 - I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
-- Python/Django backend, but using a Node daemon to render React components server-side
 
 =====
 
@@ -116,7 +208,8 @@ NOTES:
 
 NOTES:
 
-The main idea behind flexbox is to give the container the ability to alter its items' dimensions to best fill the available space in responsive design. A flex container expands items to fill available free space, or shrinks them to prevent overflow.
+- The main idea behind flexbox is to give the container the ability to alter its items' dimensions to best fill the available space in responsive design. A flex container expands items to fill available free space, or shrinks them to prevent overflow.
+- Sounds like exactly what we want
 
 /////
 
@@ -148,10 +241,18 @@ The main idea behind flexbox is to give the container the ability to alter its i
 	</div>
 </div>
 
+NOTES:
+- There are 11 Flexbox-related properties you can set on container & items
+- Wanna walk through all of them and demonstrate how they work
+
 =====
 
 ![Flex Container](../../img/flexbox/flex-container.svg)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
+
+NOTES:
+
+- First we'll start with properties on the entire flex container
 
 /////
 
@@ -189,6 +290,7 @@ NOTES:
 - So let's go through all of the flexbox properties
 - It all starts with `display:flex` (or `display:inline-flex`) on the container
 - It enables a flex context for all its direct children.
+- Since the slides are web-based, we practice Flexbox right in the slides
 
 /////
 
@@ -223,7 +325,6 @@ NOTES:
 
 NOTES:
 
-- We can then set `justify-content: space-between` to evenly space
 - `justify-content` helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.
 - Options:
   - `center`: items are centered along the line
@@ -231,6 +332,8 @@ NOTES:
   - `flex-start`: (default) items are packed toward the start line
   - `space-around`: items are evenly distributed in the line with equal space around them.
   - `space-between`: items are evenly distributed in the line; first item is on the start line, last item on the end line
+- Look at all we can do w/ just one property!
+- Think about how hard it would be to do `space-around` or `space-between`
 
 /////
 
@@ -265,7 +368,6 @@ NOTES:
 
 NOTES:
 
-- We can then set `align-items: flex-end` to align at the bottom
 - `align-items` defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the `justify-content` version for the cross-axis (perpendicular to the main-axis).
 - Options:
   - `baseline`: items are aligned such as the first line is aligned (useful for titles)
@@ -273,6 +375,8 @@ NOTES:
   - `flex-end`: cross-end margin edge of the items is placed on the cross-end line
   - `flex-start`: cross-start margin edge of the items is placed on the cross-start line
   - `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+- Outside of tables vertical alignment is so tough
+- Flexbox makes it dead simple
 
 /////
 
@@ -304,13 +408,16 @@ NOTES:
 	<code>row-reverse</code></a>
 
 NOTES:
-- We are using the default `flex-direction: row` to set the primary axis
+- The items don't have to just go horizontally, they can also go vertically
 - `flex-direction` defines the primary axis for how the items are laid out
 - Options:
   - `column`: items are laid out vertically top to bottom
   - `column-reverse`: items are laid out vertically bottom to top
   - `row`: (default) items are laid out horizontally left to right
   - `row-reverse`: items are laid out horizontally right to left
+- Because we have `align-items: flex-end` they're all right-aligned
+- Can do some interesting things when you combine `flex-direction`, `justify-content` & `align-items`
+- We'll see examples later
 
 /////
 
@@ -346,7 +453,7 @@ NOTES:
 	<code>wrap-reverse</code></a>
 
 NOTES:
-- We are using the default `flex-wrap: nowrap` to set the primary axis
+- Let's talk about a lesser-used property: `flex-wrap`
 - `flex-wrap` allows items to wrap as needed
 - Options:
   - `nowrap`: (default) single line
@@ -393,7 +500,6 @@ NOTES:
 	<em><code><strong>stretch</strong></em></code></a>
 
 NOTES:
-- We are setting `align-content: center`
 - `align-content` aligns container's lines when there's extra space in cross axis
 - Options:
   - `center`: lines are packed to center of container
@@ -407,6 +513,11 @@ NOTES:
 
 ![Flex Items](../../img/flexbox/flex-items.svg)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
+
+NOTES:
+- Those were the 6 properties that let you configure the container
+- Just start thinking about all you can do with those properties
+- Let's look at properties you can set on the flex items
 
 /////
 
@@ -434,7 +545,9 @@ NOTES:
 ```
 <!-- .element class="large" -->
 
-<a href="javascript:$('section.stack.present section.present .item-example-3).css('align-self', 'baseline')">
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'auto')">
+  <em><code>auto</code></em></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'baseline')">
   <code>baseline</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'center')">
   <code>center</code></a> |
@@ -443,17 +556,18 @@ NOTES:
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-start')">
   <code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'stretch')">
-  <em><strong><code>stretch</code></strong></em></a>
+  <strong><code>stretch</code></strong></a>
 
 NOTES:
 - We can then set `align-self: stretch` to align the individual item at the top
 - `align-self` allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.
 - Options:
-- `baseline`: item is aligned such as their baselines align
-- `center`: item is centered in the cross-axis
-- `flex-end`: cross-end margin edge of the item is placed on the cross-end line
-- `flex-start`: cross-start margin edge of the item is placed on the cross-start line
-- `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+  - `baseline`: item is aligned such as their baselines align
+  - `center`: item is centered in the cross-axis
+  - `flex-end`: cross-end margin edge of the item is placed on the cross-end line
+  - `flex-start`: cross-start margin edge of the item is placed on the cross-start line
+  - `stretch`: (default) stretch to fill the container (still respect min-width/max-width)
+- You can set item properties on one, some or all items
 
 /////
 
@@ -488,6 +602,9 @@ NOTES:
 - `order` controls the order in which they appear in the flex container.
 - The value can be any integer (including negative numbers)
 - `order` is really useful when you want to change the display order depending on media queries
+- Or you want something to be earlier in source for SEO, but displayed later
+- Ties go to source order
+- Typically use negative numbers to force something to be first
 
 /////
 
@@ -518,10 +635,14 @@ NOTES:
   <code>&nbsp;&nbsp;5&nbsp;&nbsp;</code></a>
 
 NOTES:
+- Remaining 3 properties are around the size of items
+- How to distribute any remaining space
+- Probably the most confusing parts of flexbox IMO
 - `flex-grow` defines the ability for the item to grow if necessary.
+- Unitless values
 - Options:
-- 0 is default
-- Positive numbers only
+  - 0 is default
+  - Positive numbers only
 
 /////
 
@@ -556,8 +677,12 @@ NOTES:
 - It's called "basis" because it's not a fixed size. The size can grow as the remaining space is distributed
 - Also it's not called "width" or "size" since it depends on the `flex-direction`
 - Options:
-- `auto` means "look at my width or height property"
-- Can be any length measurement
+  - `auto` means "look at my width or height property"
+  - `0` no dimension all size will come back from stretching
+  - Can be any length measurement
+- Setting all the items to `0`, but then making the 4th one 30%
+- Rest of the space is then distributed
+- Remember item #1 has stretch of 2 while the others have 1
 
 /////
 
@@ -590,8 +715,11 @@ NOTES:
 NOTES:
 - `flex-shrink` defines the ability for the item to shrink if necessary.
 - Options:
-- `1` is the default
-- Positive numbers only
+  - `1` is the default
+  - Positive numbers only
+- We have the 4 items that have `flex-basis` of `30%` which is obviously greater than 100%
+- So now the items are going to have to be shrunk to fit in the space
+- By setting #2 to shrink `10` it will shrink 10 times as much
 
 /////
 
@@ -644,6 +772,13 @@ Use the shorthand for intelligent defaults!
 		</ul>
 	</div>
 </div>
+
+/////
+
+![Simone Banjo Dancing](../../img/giphy/simone-banjo-dancing.gif)
+<!-- .element: style="width: 75%" -->
+
+NOTES:
 
 =====
 
@@ -712,7 +847,10 @@ NOTES:
 </div></code></pre>
 	</div>
 	<div style="flex:0 0 36%;">
-			<pre class="large" style="margin-bottom:2em"><code class="lang-css">.ioa { display: flex; }
+			<pre class="large" style="margin-bottom:2em"><code class="lang-css">.ioa {
+  display: flex;
+  align-items: stretch;
+}
 .ioa\__field { flex: 1; }</code></pre>
 		<div>
 			<div class="inputAddOn">
@@ -736,6 +874,7 @@ NOTES:
 - Not that easy to append/prepend an item to an input and have input take up remaining space
 - Flexbox solves this problem
 - Get same height of input & item for free (cuz of `align-items: stretch`)
+- Don't need to do anything fancy with CSS just put the add-ons where you want in HTML
 
 /////
 
@@ -786,6 +925,7 @@ NOTES:
 		<pre class="large"><code class="lang-css">.modal {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   height: 75vh;
 }
 .modal\__body { flex: 1; }</code></pre>
@@ -816,6 +956,7 @@ NOTES:
 - `align-items` is defaulted to `stretch` in cross (horizontal) axis so fills the width
 - Usually for the pinned footer we'd have to position absolute to the bottom
 - Then add `margin-bottom` to the body so it doesn't scroll underneath
+- Don't need to know the size of anything
 
 /////
 
@@ -824,6 +965,7 @@ NOTES:
 ![Flexbox grid system](../../img/flexbox/grid-system.png)
 
 NOTES:
+- Grid systems are used to abstract a lot of the work of aligning items
 - Foundation & Bootstrap use flexbox in the latest versions of their grids
 
 /////
@@ -831,6 +973,12 @@ NOTES:
 # Holy grail layout
 
 ![Flexbox holy grail layout](../../img/flexbox/holy-grail-layout.png)
+
+NOTES:
+- Flexbox _can_ also be used to create the holy grail layout
+- However, it's not really intended to be used for 2-D page layouts
+- Nesting Flexbox at such a high-level can impact rendering because of all the calculations
+- CSS is introducing a new feature to handle this which I'll mention in a second
 
 =====
 
@@ -965,7 +1113,7 @@ NOTES:
 
 # THANKS!
 
-![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
+![Simone Banjo Dancing](../../img/giphy/simone-banjo-dancing.gif)
 <!-- .element: style="width: 75%" -->
 
 NOTES:
