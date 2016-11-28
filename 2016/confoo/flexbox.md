@@ -1042,43 +1042,37 @@ NOTES:
 
 =====
 
-# Flexbox Resources
+## Flexbox Resources
 
-/////
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end">
+	<div style="flex:1 1 33%">
+		<p><a href="http://www.w3.org/TR/css3-flexbox/"><img src="../../img/flexbox/flexbox-spec.png" alt="Flexibile box layout module specification" /></a></p>
+		<p><a href="http://www.w3.org/TR/css3-flexbox/">Flexible Box Layout Module</a></p>
+	</div>
+	<div style="flex:1 1 33%">
+		<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="../../img/flexbox/css-tricks-flexbox-guide.png" alt="CSS Tricks - A Complete Guide to Flexbox" /></a></p>
+		<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
+	</div>
+	<div style="flex:1 1 33%">
+		<p><a href="http://philipwalton.github.io/solved-by-flexbox/"><img src="../../img/no-js/solved-by-flexbox.png" alt="Solved by Flexbox" /></a></p>
+		<p><a href="http://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox</a></p>
+	</div>
+	<div style="flex:1 1 33%">
+		<p><a href="http://www.flexboxpatterns.com/home"><img src="../../img/no-js/flexbox-patterns.png" alt="Flexbox Patterns" /></a></p>
+		<p><a href="http://www.flexboxpatterns.com/home">Flexbox Patterns</a></p>
+	</div>
+	<div style="flex:1 1 33%">
+		<p><a href="http://flexboxfroggy.com/"><img src="../../img/no-js/flexbox-froggy.png" alt="Flexbox froggy" /></a></p>
+		<p><a href="http://flexboxfroggy.com/">Flexbox Froggy</a></p>
+	</div>
+	<div style="flex:1 1 33%">
+		<p><a href="http://www.flexboxdefense.com/"><img src="../../img/no-js/flexbox-defense.png" alt="Flexbox defense" /></a></p>
+		<p><a href="http://www.flexboxdefense.com/">Flexbox Defense</a></p>
+	</div>
+</div>
 
-[![Flexible box layout module specification](../../img/flexbox/flexbox-spec.png)](http://www.w3.org/TR/css3-flexbox/)
-
-[Flexible box layout module specification](http://www.w3.org/TR/css3-flexbox/)
-
-/////
-
-[![CSS Tricks - A Complete Guide to Flexbox](../../img/flexbox/css-tricks-flexbox-guide.png)](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-
-[A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-
-/////
-
-[![Solved by Flexbox](../../img/no-js/solved-by-flexbox.png)](http://philipwalton.github.io/solved-by-flexbox/)
-
-[Solved by Flexbox](http://philipwalton.github.io/solved-by-flexbox/)
-
-/////
-
-[![Flexbox Patterns](../../img/no-js/flexbox-patterns.png)](http://www.flexboxpatterns.com/home)
-
-[Flexbox Patterns](http://www.flexboxpatterns.com/home)
-
-/////
-
-[![Flexbox froggy](../../img/no-js/flexbox-froggy.png)](http://flexboxfroggy.com/)
-
-[Flexbox froggy](http://flexboxfroggy.com/)
-
-/////
-
-[![Flexbox defense](../../img/no-js/flexbox-defense.png)](http://www.flexboxdefense.com/)
-
-[Flexbox defense](http://www.flexboxdefense.com/)
+NOTES:
+- This layout is actually using Flebox with `flex-wrap`!
 
 =====
 
