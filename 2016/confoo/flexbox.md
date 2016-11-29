@@ -111,6 +111,7 @@ NOTES:
 - Tables were great because they were flexible
 - Vertical alignment is easy and you can align columns
 - But tables are for tabular data; there was public shaming
+- Tables mix markup & styling
 - Because of all of the calculations involved in a table, would render all at once
 - Biggest drawback: Not responsive
 
@@ -994,6 +995,7 @@ NOTES:
 - Not supported in IE8 or IE9
 - But those should be dead or dying soon
 - There also is Flexibility which uses JavaScript to polyfill Flexbox
+- Autoprefixer & PostCSS give you vendor prefixes for free
 
 =====
 
