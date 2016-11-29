@@ -297,6 +297,47 @@ NOTES:
 
 ###### Container
 
+### `flex-direction`
+
+<div class="container-example" style="margin-bottom:80px;flex-direction:column">
+	<div class="item-example item-example-1">one</div>
+	<div class="item-example item-example-2">two two</div>
+	<div class="item-example item-example-3">three three three</div>
+	<div class="item-example item-example-4">four four four four</div>
+</div>
+
+```
+.container {
+	flex-direction: column;
+}
+```
+<!-- .element class="large" -->
+
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column')">
+	<strong><code>column</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column-reverse')">
+	<code>column-reverse</code></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'row')">
+	<em><code>row</code></em></a> |
+<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'row-reverse')">
+	<code>row-reverse</code></a>
+
+NOTES:
+- The items don't have to just go horizontally, they can also go vertically
+- `flex-direction` defines the primary axis for how the items are laid out
+- Options:
+  - `column`: items are laid out vertically top to bottom
+  - `column-reverse`: items are laid out vertically bottom to top
+  - `row`: (default) items are laid out horizontally left to right
+  - `row-reverse`: items are laid out horizontally right to left
+- Because we have `align-items: flex-end` they're all right-aligned
+- Can do some interesting things when you combine `flex-direction`, `justify-content` & `align-items`
+- We'll see examples later
+
+/////
+
+###### Container
+
 ### `justify-content`
 
 <div class="container-example" style="margin-bottom:80px;justify-content:space-between">
@@ -342,7 +383,7 @@ NOTES:
 
 ### `align-items`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end">
+<div class="container-example" style="margin-bottom:80px;align-items:flex-end">
 	<div class="item-example item-example-1">one</div>
 	<div class="item-example item-example-2">two two</div>
 	<div class="item-example item-example-3">three three three</div>
@@ -383,50 +424,9 @@ NOTES:
 
 ###### Container
 
-### `flex-direction`
-
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;flex-direction:row">
-	<div class="item-example item-example-1">one</div>
-	<div class="item-example item-example-2">two two</div>
-	<div class="item-example item-example-3">three three three</div>
-	<div class="item-example item-example-4">four four four four</div>
-</div>
-
-```
-.container {
-	flex-direction: row;
-}
-```
-<!-- .element class="large" -->
-
-<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column')">
-	<code>column</code></a> |
-<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'column-reverse')">
-	<code>column-reverse</code></a> |
-<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'row')">
-	<strong><em><code>row</code></em></strong></a> |
-<a href="javascript:$('section.stack.present section.present .container-example').css('flex-direction', 'row-reverse')">
-	<code>row-reverse</code></a>
-
-NOTES:
-- The items don't have to just go horizontally, they can also go vertically
-- `flex-direction` defines the primary axis for how the items are laid out
-- Options:
-  - `column`: items are laid out vertically top to bottom
-  - `column-reverse`: items are laid out vertically bottom to top
-  - `row`: (default) items are laid out horizontally left to right
-  - `row-reverse`: items are laid out horizontally right to left
-- Because we have `align-items: flex-end` they're all right-aligned
-- Can do some interesting things when you combine `flex-direction`, `justify-content` & `align-items`
-- We'll see examples later
-
-/////
-
-###### Container
-
 ### `flex-wrap`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap">
+<div class="container-example" style="margin-bottom:80px;flex-wrap:wrap">
 	<div class="item-example item-example-1">one</div>
 	<div class="item-example item-example-2">two two</div>
 	<div class="item-example item-example-3">three three three</div>
@@ -467,7 +467,7 @@ NOTES:
 
 ### `align-content`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;align-content:center;">
+<div class="container-example" style="margin-bottom:80px;flex-wrap:wrap;align-content:center;">
 	<div class="item-example item-example-1">one</div>
 	<div class="item-example item-example-2">two two</div>
 	<div class="item-example item-example-3">three three three</div>
@@ -590,10 +590,10 @@ NOTES:
 </div>
 
 ```
-.item-1  { order: 3; }   .item-2 { order: 10; }  .item-3 { order: 6; }
-.item-4  { order: 1; }   .item-5 { order: -1; }  .item-6 { order: 2; }
-.item-7  { order: 4; }   .item-8 { order: -1; }  .item-9 { order: 8; }
-.item-10 { order: 7; }
+.item-1  { order: 3 }  .item-2 { order: 10 }  .item-3 { order: 6 }
+.item-4  { order: 1 }  .item-5 { order: -1 }  .item-6 { order: 2 }
+.item-7  { order: 4 }  .item-8 { order: -1 }  .item-9 { order: 8 }
+.item-10 { order: 7 }
 ```
 <!-- .element class="large" -->
 
@@ -773,13 +773,6 @@ Use the shorthand for intelligent defaults!
 		</ul>
 	</div>
 </div>
-
-/////
-
-![Simone Banjo Dancing](../../img/giphy/simone-banjo-dancing.gif)
-<!-- .element: style="width: 75%" -->
-
-NOTES:
 
 =====
 
