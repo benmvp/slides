@@ -524,12 +524,49 @@ NOTES:
 
 ###### Items
 
+### `order`
+
+<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+	<div class="item-example item-example-1" style="order:3">one</div>
+	<div class="item-example item-example-2" style="order:10">two two</div>
+	<div class="item-example item-example-3" style="order:6">three three three</div>
+	<div class="item-example item-example-4" style="order:1">four four four four</div>
+	<div class="item-example item-example-5" style="order:-1">five five</div>
+	<div class="item-example item-example-6" style="order:2">six six six</div>
+	<div class="item-example item-example-7" style="order:4">seven</div>
+	<div class="item-example item-example-8" style="order:-1">eight eight eight eight</div>
+	<div class="item-example item-example-9" style="order:8">nine nine nine</div>
+	<div class="item-example item-example-10" style="order:7">ten</div>
+</div>
+
+```
+.item-1  { order: 3 }  .item-2 { order: 10 }  .item-3 { order: 6 }
+.item-4  { order: 1 }  .item-5 { order: -1 }  .item-6 { order: 2 }
+.item-7  { order: 4 }  .item-8 { order: -1 }  .item-9 { order: 8 }
+.item-10 { order: 7 }
+```
+<!-- .element class="large" -->
+
+NOTES:
+
+- By default, flex items are laid out in the source order.
+- `order` controls the order in which they appear in the flex container.
+- The value can be any integer (including negative numbers)
+- `order` is really useful when you want to change the display order depending on media queries
+- Or you want something to be earlier in source for SEO, but displayed later
+- Ties go to source order
+- Typically use negative numbers to force something to be first
+
+/////
+
+###### Items
+
 ### `align-self`
 
 <div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
 	<div class="item-example item-example-1">one</div>
 	<div class="item-example item-example-2">two two</div>
-	<div class="item-example item-example-3" style="align-self:stretch">three three three</div>
+	<div class="item-example item-example-3" style="align-self:stretch;background:#008b44">three three three</div>
 	<div class="item-example item-example-4">four four four four</div>
 	<div class="item-example item-example-5">five five</div>
 	<div class="item-example item-example-6">six six six</div>
@@ -574,50 +611,13 @@ NOTES:
 
 ###### Items
 
-### `order`
-
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
-	<div class="item-example item-example-1" style="order:3">one</div>
-	<div class="item-example item-example-2" style="order:10">two two</div>
-	<div class="item-example item-example-3" style="align-self:stretch;order:6">three three three</div>
-	<div class="item-example item-example-4" style="order:1">four four four four</div>
-	<div class="item-example item-example-5" style="order:-1">five five</div>
-	<div class="item-example item-example-6" style="order:2">six six six</div>
-	<div class="item-example item-example-7" style="order:4">seven</div>
-	<div class="item-example item-example-8" style="order:-1">eight eight eight eight</div>
-	<div class="item-example item-example-9" style="order:8">nine nine nine</div>
-	<div class="item-example item-example-10" style="order:7">ten</div>
-</div>
-
-```
-.item-1  { order: 3 }  .item-2 { order: 10 }  .item-3 { order: 6 }
-.item-4  { order: 1 }  .item-5 { order: -1 }  .item-6 { order: 2 }
-.item-7  { order: 4 }  .item-8 { order: -1 }  .item-9 { order: 8 }
-.item-10 { order: 7 }
-```
-<!-- .element class="large" -->
-
-NOTES:
-
-- By default, flex items are laid out in the source order.
-- `order` controls the order in which they appear in the flex container.
-- The value can be any integer (including negative numbers)
-- `order` is really useful when you want to change the display order depending on media queries
-- Or you want something to be earlier in source for SEO, but displayed later
-- Ties go to source order
-- Typically use negative numbers to force something to be first
-
-/////
-
-###### Items
-
 ### `flex-grow`
 
 <div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
-	<div class="item-example item-example-1" style="order:3;flex:2">one</div>
-	<div class="item-example item-example-2" style="order:10;flex:1">two two</div>
-	<div class="item-example item-example-3" style="align-self:stretch;order:6;flex:1">three three three</div>
-	<div class="item-example item-example-4" style="order:1;flex:1">four four four four</div>
+	<div class="item-example item-example-1" style="flex:2;background:#008b44">one</div>
+	<div class="item-example item-example-2" style="flex:1">two two</div>
+	<div class="item-example item-example-3" style="flex:1">three three three</div>
+	<div class="item-example item-example-4" style="flex:1">four four four four</div>
 </div>
 
 ```
@@ -652,10 +652,10 @@ NOTES:
 ### `flex-basis`
 
 <div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
-	<div class="item-example item-example-1" style="order:3;flex:2">one</div>
-	<div class="item-example item-example-2" style="order:10;flex:1">two two</div>
-	<div class="item-example item-example-3" style="align-self:stretch;order:6;flex:1">three three three</div>
-	<div class="item-example item-example-4" style="order:1;flex:1 1 30%">four four four four</div>
+	<div class="item-example item-example-1" style="flex:2">one</div>
+	<div class="item-example item-example-2" style="flex:1">two two</div>
+	<div class="item-example item-example-3" style="flex:1">three three three</div>
+	<div class="item-example item-example-4" style="flex:1 1 30%;background:#008b44">four four four four</div>
 </div>
 
 ```
@@ -692,10 +692,10 @@ NOTES:
 ### `flex-shrink`
 
 <div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
-	<div class="item-example item-example-1" style="order:3;flex:2 1 30%">one</div>
-	<div class="item-example item-example-2" style="order:10;flex:1 10 30%">two two</div>
-	<div class="item-example item-example-3" style="align-self:stretch;order:6;flex:1 1 30%;">three three three</div>
-	<div class="item-example item-example-4" style="order:1;flex:1 1 30%">four four four four</div>
+	<div class="item-example item-example-1" style="flex:2 1 30%">one</div>
+	<div class="item-example item-example-2" style="flex:1 10 30%;background:#008b44">two two</div>
+	<div class="item-example item-example-3" style="flex:1 1 30%">three three three</div>
+	<div class="item-example item-example-4" style="flex:1 1 30%">four four four four</div>
 </div>
 
 ```
@@ -956,7 +956,7 @@ NOTES:
 
 ## Left/Right alignment
 
-<div style="display:flex;align-items:center;justify-content:space-between">
+<div style="display:flex;align-items:flex-start;justify-content:space-between">
 	<div style="width: 50%;margin-right:1em">
 		<pre class="large"><code><div class="container">
   <div class="left"> ... </div>
