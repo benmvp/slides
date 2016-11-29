@@ -954,6 +954,72 @@ NOTES:
 
 /////
 
+## Left/Right alignment
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="width: 50%;margin-right:1em">
+		<pre class="large"><code><div class="container">
+  <div class="left"> ... </div>
+  <div class="right"> ... </div>
+</div></code></pre>
+		<pre class="large"><code class="lang-css">.container {
+  display: flex;
+  justify-content: space-between;
+}
+.right {
+  flex: 1;
+  text-align: right;
+}</code></pre>
+	</div>
+	<div style="width:48%">
+		<div class="container-example" style="width:100%;height:auto;justify-content:space-between;color:#222;font-size:smaller">
+			<h3 class="left" style="color:#222;margin-right:1em;text-align:left;box-sizing:border-box">Welcome!</h3>
+			<div class="right" style="flex:1;text-align:right;white-space:nowrap;box-sizing:border-box">
+				<button class="inputAddOn__item" style="font-size:30px">Action #1</button>
+			</div>
+		</div>
+		<div class="container-example" style="width:100%;height:auto;justify-content:space-between;color:#222;font-size:smaller;margin-top:1em">
+			<h3 class="left" style="color:#222;margin-right:1em;text-align:left;box-sizing:border-box">Welcome!</h3>
+			<div class="right" style="flex:1;text-align:right;white-space:nowrap;box-sizing:border-box">
+				<button class="inputAddOn__item" style="font-size:30px">Action #1</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #2</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #3</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #4</button>
+			</div>
+		</div>
+		<div class="container-example" style="width:100%;height:auto;justify-content:space-between;color:#222;font-size:smaller;margin-top:1em">
+			<h3 class="left" style="color:#222;margin-right:1em;text-align:left;box-sizing:border-box">Welcome home, Ben!</h3>
+			<div class="right" style="flex:1;text-align:right;white-space:nowrap;box-sizing:border-box">
+				<button class="inputAddOn__item" style="font-size:30px">Action #1</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #2</button>
+			</div>
+		</div>
+		<div class="container-example" style="width:100%;height:auto;justify-content:space-between;color:#222;font-size:smaller;margin-top:1em">
+			<h3 class="left" style="color:#222;margin-right:1em;text-align:left;box-sizing:border-box">Welcome home, Ben!</h3>
+			<div class="right" style="flex:1;text-align:right;white-space:nowrap;box-sizing:border-box">
+				<button class="inputAddOn__item" style="font-size:30px">Action #1</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #2</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #3</button>
+			</div>
+		</div>
+		<div class="container-example" style="width:100%;height:auto;justify-content:space-between;color:#222;font-size:smaller;margin-top:1em">
+			<h3 class="left" style="color:#222;margin-right:1em;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-sizing:border-box">Welcome home, Ben!</h3>
+			<div class="right" style="flex:1;text-align:right;white-space:nowrap;box-sizing:border-box">
+				<button class="inputAddOn__item" style="font-size:30px">Action #1</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #2</button>
+				<button class="inputAddOn__item" style="font-size:30px">Action #3</button>
+			</div>
+		</div>
+		<p>
+			<strong>Borders:</strong>
+			<a href="javascript:$('.reveal .left,.reveal .right').css('border', 'none')">OFF ❎</a> |
+			<a href="javascript:$('.reveal .left,.reveal .right').css('border', '3px solid black')">ON ✅</a>
+		</p>
+	</div>
+</div>
+
+/////
+
 ## Grid system
 
 ![Flexbox grid system](../../img/flexbox/grid-system.png)
