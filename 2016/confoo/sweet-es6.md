@@ -17,6 +17,25 @@ NOTES:
 - This is Sweet ECMAScript 6 aka ES6, the latest version of JavaScript
 - Technically it's called ES2015, because the spec was released last year in 2015
 
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
+
+# Stand Up!
+<!-- .element: style="-webkit-text-stroke: black 4px" -->
+
+NOTES:
+- But first, would like everyone to stand up!
+- Let's do some wall sits
+- Let's roll our shoulders
+- Let's stretch our arms
+- Now turn to your neighbors, introduce yourself & say hi
+- You don't realize it, but I just tricked you
+- Now you can't say that you didn't get anything out of my talk
+- You at least got two things:
+- Exercise & and met some people you didn't know
+- But hopefully you'll get more out of the talk!
+
 =====
 
 ben-ilegbodu.json
