@@ -60,7 +60,7 @@ Tuesday, February 21, 2017 @ 7p (TBD)
 
 #### [Navigating the React Solar System](http://www.benmvp.com/talks/#navigating-the-react-solar-system)
 
-Tuesday, February 14, 2017 @ 10a (DeveloperWeek Main Stage)   
+Tuesday, February 14, 2017 @ 10a (DeveloperWeek Expo Stage 1)   
 
 ----------
 
@@ -71,6 +71,16 @@ Tuesday, February 14, 2017 @ 10a (DeveloperWeek Main Stage)
 #### [React exposed! 😮](http://www.benmvp.com/#react-exposed-)
 
 Thursday, February 9, 2017  
+
+----------
+
+### [BuzzJS 2017](http://buzzjs.com/)
+
+##### New York City, New York (Microsoft Technology Center)
+
+#### [React + ES.next = ♥](http://www.benmvp.com/talks/#react--esnext--)
+
+Friday, January 27, 2017 @ TBD (TBD)   
 
 ----------
 
