@@ -15,7 +15,8 @@ December 5, 2016
 NOTES:
 - My name is Ben Ilegbodu
 - Excited to share about the Flexbox module introduced in CSS3
-- Posted link to slides on twitter if you want to follow along
+- Posted link to slides on twitter to follow links later
+- How many folks here consider themselves frontend developers?
 
 /////
 
@@ -235,8 +236,8 @@ NOTES:
 		<ul>
 			<li><code>align-self</code></li>
 			<li><code>order</code></li>
-			<li><code>flex-grow</code></li>
 			<li><code>flex-shrink</code></li>
+			<li><code>flex-grow</code></li>
 			<li><code>flex-basis</code></li>
 		</ul>
 	</div>
@@ -526,7 +527,7 @@ NOTES:
 
 ### `order`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+<div class="container-example" style="margin-bottom:80px;">
 	<div class="item-example item-example-1" style="order:3">one</div>
 	<div class="item-example item-example-2" style="order:10">two two</div>
 	<div class="item-example item-example-3" style="order:6">three three three</div>
@@ -563,10 +564,10 @@ NOTES:
 
 ### `align-self`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+<div class="container-example" style="margin-bottom:80px;">
 	<div class="item-example item-example-1">one</div>
 	<div class="item-example item-example-2">two two</div>
-	<div class="item-example item-example-3" style="align-self:stretch;background:#008b44">three three three</div>
+	<div class="item-example item-example-3" style="align-self:center;background:#008b44">three three three</div>
 	<div class="item-example item-example-4">four four four four</div>
 	<div class="item-example item-example-5">five five</div>
 	<div class="item-example item-example-6">six six six</div>
@@ -578,7 +579,7 @@ NOTES:
 
 ```
 .item-3 {
-  align-self: stretch;
+  align-self: center;
 }
 ```
 <!-- .element class="large" -->
@@ -588,13 +589,13 @@ NOTES:
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'baseline')">
   <code>baseline</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'center')">
-  <code>center</code></a> |
+  <strong><code>center</code></strong></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-end')">
   <code>flex-end</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'flex-start')">
   <code>flex-start</code></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-3').css('align-self', 'stretch')">
-  <strong><code>stretch</code></strong></a>
+  <code>stretch</code></a>
 
 NOTES:
 - We can then set `align-self: stretch` to align the individual item at the top
@@ -611,9 +612,49 @@ NOTES:
 
 ###### Items
 
+### `flex-basis`
+
+<div class="container-example" style="margin-bottom:80px;">
+  <div class="item-example item-example-1" style="flex:0 1 auto">one</div>
+  <div class="item-example item-example-2" style="flex:0 1 auto">two two</div>
+  <div class="item-example item-example-3" style="flex:0 1 auto">three three three</div>
+  <div class="item-example item-example-4" style="flex:0 1 30%;background:#008b44">four four four four</div>
+</div>
+
+```
+.item   { flex-basis: auto; }
+.item-4 { flex-basis: 30%;  }
+```
+<!-- .element class="large" -->
+
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '0 1 auto')">
+<code><em>&nbsp;&nbsp;auto&nbsp;&nbsp;</em></code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '0 1 0')">
+<code><em>&nbsp;&nbsp;0&nbsp;&nbsp;</em></code></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '0 1 30%')">
+<strong><code>&nbsp;&nbsp;30%&nbsp;&nbsp;</code></strong></a> |
+<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '0 1 850px')">
+<code>&nbsp;&nbsp;850px&nbsp;&nbsp;</code></a>
+
+NOTES:
+- `flex-basis` defines the default size of an element before the remaining space is distributed.
+- It's called "basis" because it's not a fixed size. The size can grow as the remaining space is distributed
+- Also it's not called "width" or "size" since it depends on the `flex-direction`
+- Options:
+  - `auto` means "look at my width or height property"
+  - `0` no dimension all size will come back from stretching
+  - Both `auto` & `0` can be default
+- Can be any length measurement
+- Setting all the items to `auto`, but then making the 4th one 30%
+- Rest of the space is then distributed
+
+/////
+
+###### Items
+
 ### `flex-grow`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
+<div class="container-example" style="margin-bottom:80px;">
 	<div class="item-example item-example-1" style="flex:2;background:#008b44">one</div>
 	<div class="item-example item-example-2" style="flex:1">two two</div>
 	<div class="item-example item-example-3" style="flex:1">three three three</div>
@@ -642,48 +683,8 @@ NOTES:
 - `flex-grow` defines the ability for the item to grow if necessary.
 - Unitless values
 - Options:
-  - 0 is default
+  - `0` is default
   - Positive numbers only
-
-/////
-
-###### Items
-
-### `flex-basis`
-
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
-	<div class="item-example item-example-1" style="flex:2">one</div>
-	<div class="item-example item-example-2" style="flex:1">two two</div>
-	<div class="item-example item-example-3" style="flex:1">three three three</div>
-	<div class="item-example item-example-4" style="flex:1 1 30%;background:#008b44">four four four four</div>
-</div>
-
-```
-.item   { flex-basis: 0;   }
-.item-4 { flex-basis: 30%; }
-```
-<!-- .element class="large" -->
-
-<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 auto')">
-  <code><em>&nbsp;&nbsp;auto&nbsp;&nbsp;</em></code></a> |
-<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 0')">
-  <code>&nbsp;&nbsp;0&nbsp;&nbsp;</code></a> |
-<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 30%')">
-  <strong><code>&nbsp;&nbsp;30%&nbsp;&nbsp;</code></strong></a> |
-<a href="javascript:$('section.stack.present section.present .item-example-4').css('flex', '1 1 850px')">
-  <code>&nbsp;&nbsp;850px&nbsp;&nbsp;</code></a>
-
-NOTES:
-- `flex-basis` defines the default size of an element before the remaining space is distributed.
-- It's called "basis" because it's not a fixed size. The size can grow as the remaining space is distributed
-- Also it's not called "width" or "size" since it depends on the `flex-direction`
-- Options:
-  - `auto` means "look at my width or height property"
-  - `0` no dimension all size will come back from stretching
-  - Can be any length measurement
-- Setting all the items to `0`, but then making the 4th one 30%
-- Rest of the space is then distributed
-- Remember item #1 has stretch of 2 while the others have 1
 
 /////
 
@@ -691,11 +692,11 @@ NOTES:
 
 ### `flex-shrink`
 
-<div class="container-example" style="margin-bottom:80px;justify-content:space-between;align-items:flex-end;">
-	<div class="item-example item-example-1" style="flex:2 1 30%">one</div>
-	<div class="item-example item-example-2" style="flex:1 10 30%;background:#008b44">two two</div>
-	<div class="item-example item-example-3" style="flex:1 1 30%">three three three</div>
-	<div class="item-example item-example-4" style="flex:1 1 30%">four four four four</div>
+<div class="container-example" style="margin-bottom:80px;">
+	<div class="item-example item-example-1" style="flex:0 1 30%">one</div>
+	<div class="item-example item-example-2" style="flex:0 10 30%;background:#008b44">two two</div>
+	<div class="item-example item-example-3" style="flex:0 1 30%">three three three</div>
+	<div class="item-example item-example-4" style="flex:0 1 30%">four four four four</div>
 </div>
 
 ```
@@ -705,7 +706,7 @@ NOTES:
 <!-- .element class="large" -->
 
 <a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 0 30%')">
-  <code>&nbsp;&nbsp;0&nbsp;&nbsp;</code></a> |
+  <em><code>&nbsp;&nbsp;0&nbsp;&nbsp;</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 1 30%')">
   <em><code>&nbsp;&nbsp;1&nbsp;&nbsp;</code></em></a> |
 <a href="javascript:$('section.stack.present section.present .item-example-2').css('flex', '1 5 30%')">
@@ -716,7 +717,7 @@ NOTES:
 NOTES:
 - `flex-shrink` defines the ability for the item to shrink if necessary.
 - Options:
-  - `1` is the default
+  - Both `0` & `1` can be the default
   - Positive numbers only
 - We have the 4 items that have `flex-basis` of `30%` which is obviously greater than 100%
 - So now the items are going to have to be shrunk to fit in the space
@@ -739,7 +740,9 @@ Use the shorthand for intelligent defaults!
 
 ```
 .item {
-	flex: 1; /* set grow only; default shrink/basis */
+			   /* flex: 0 1 auto; */
+	flex: 1;   /* flex: 1 0 0%    */
+	flex: 1 1; /* flex: 1 1 0%    */
 }
 ```
 <!-- .element class="large" style="margin-top:2em" -->
@@ -767,8 +770,8 @@ Use the shorthand for intelligent defaults!
 		<ul>
 			<li><code>align-self</code></li>
 			<li><code>order</code></li>
-			<li><code>flex-grow</code></li>
 			<li><code>flex-basis</code></li>
+			<li><code>flex-grow</code></li>
 			<li><code>flex-shrink</code></li>
 		</ul>
 	</div>
@@ -1048,7 +1051,7 @@ NOTES:
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
-([Flexibility](https://github.com/jonathantneal/flexibility): _a JavaScript polyfill for Flexbox_)
+(Check out: [Autoprefixer](https://github.com/postcss/autoprefixer) & [Flexibility](https://github.com/jonathantneal/flexibility))
 
 NOTES:
 - Not supported in IE8 or IE9
@@ -1106,27 +1109,27 @@ NOTES:
 ## Flexbox Resources
 
 <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end">
-	<div style="flex:1 1 33%">
+	<div style="flex:1 0 33%">
 		<p><a href="http://www.w3.org/TR/css3-flexbox/"><img src="../../img/flexbox/flexbox-spec.png" alt="Flexibile box layout module specification" /></a></p>
 		<p><a href="http://www.w3.org/TR/css3-flexbox/">Flexible Box Layout Module</a></p>
 	</div>
-	<div style="flex:1 1 33%">
+	<div style="flex:1 0 33%">
 		<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><img src="../../img/flexbox/css-tricks-flexbox-guide.png" alt="CSS Tricks - A Complete Guide to Flexbox" /></a></p>
 		<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></p>
 	</div>
-	<div style="flex:1 1 33%">
+	<div style="flex:1 0 33%">
 		<p><a href="http://philipwalton.github.io/solved-by-flexbox/"><img src="../../img/no-js/solved-by-flexbox.png" alt="Solved by Flexbox" /></a></p>
 		<p><a href="http://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox</a></p>
 	</div>
-	<div style="flex:1 1 33%">
+	<div style="flex:1 0 33%">
 		<p><a href="http://www.flexboxpatterns.com/home"><img src="../../img/no-js/flexbox-patterns.png" alt="Flexbox Patterns" /></a></p>
 		<p><a href="http://www.flexboxpatterns.com/home">Flexbox Patterns</a></p>
 	</div>
-	<div style="flex:1 1 33%">
+	<div style="flex:1 0 33%">
 		<p><a href="http://flexboxfroggy.com/"><img src="../../img/no-js/flexbox-froggy.png" alt="Flexbox froggy" /></a></p>
 		<p><a href="http://flexboxfroggy.com/">Flexbox Froggy</a></p>
 	</div>
-	<div style="flex:1 1 33%">
+	<div style="flex:1 0 33%">
 		<p><a href="http://www.flexboxdefense.com/"><img src="../../img/no-js/flexbox-defense.png" alt="Flexbox defense" /></a></p>
 		<p><a href="http://www.flexboxdefense.com/">Flexbox Defense</a></p>
 	</div>
