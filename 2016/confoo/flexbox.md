@@ -934,14 +934,18 @@ NOTES:
 			</header>
 			<main style="flex:1;overflow-y:auto;font-size:30px;color:#222;padding:0.25em;text-align:left">
 				<p>Duis rump venison, consectetur mollit meatloaf reprehenderit velit pariatur non. Pariatur sed irure, pig strip steak laborum alcatra salami. Aliquip qui meatloaf, aute drumstick ut sausage capicola jerky prosciutto exercitation rump adipisicing deserunt. Occaecat rump strip steak exercitation short ribs, beef minim fugiat cupidatat ribeye nulla. Tongue drumstick ipsum strip steak fugiat swine. Reprehenderit shoulder pancetta nulla.</p>
+
+				<p class="extra">Bacon ipsum dolor amet alcatra laborum kevin, consequat consectetur labore ribeye officia ullamco ut laboris in in fatback excepteur. Dolore strip steak duis jerky exercitation anim. Sunt pork belly laboris elit labore. Fugiat ribeye eiusmod tempor do sirloin.</p>
+
+	            <p class="extra">Veniam short loin lorem salami kevin fatback. Beef ribs turkey irure short loin. Occaecat fatback eu cupidatat nostrud qui meatloaf. Biltong jerky ham, short loin incididunt ham hock ribeye filet mignon occaecat enim et turkey quis.</p>
 			</main>
 			<footer style="background:#008b44;">
 				<p>This is pinned to the bottom</p>
 			</footer>
 		</aside>
 		<p>
-			<a href="javascript:$('.reveal #modal').height(500)">contract ⬆️</a> |
-			<a href="javascript:$('.reveal #modal').height(750)">expand ⬇️</a>
+			<a href="javascript:$('.reveal #modal p.extra').css({display: 'none'})">less ⬆️</a> |
+			<a href="javascript:$('.reveal #modal p.extra').css({display: 'block'})">more ⬇️</a>
 		</p>
 	</div>
 </div>
