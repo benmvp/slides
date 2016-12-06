@@ -615,7 +615,8 @@ function log(msg, opts) {
 NOTES:
 _[11 minutes]_
 
-- All of our code has moved into the function header!
+- Took 6-8 lines of imperative code in the function body and replaced with 0 lines
+- All of our code has moved into declarations in the function header!
 
 /////
 
@@ -1195,7 +1196,7 @@ Arrow functions works how you would expect!
 
 ```js
 MyObj.prototype.update = function() {
-	$.get(this._url).done(responseData => {
+	$.get(this._url).done((responseData) => {
 		// `this` uses "lexical scoping"
 		this._data = responseData;
 	});
@@ -1257,7 +1258,7 @@ setTimeout(() => {
 
 ```js
 $.ajax({url: 'test.html', cache: false})
-    .done(html => {
+    .done((html) => {
         $('#results').append(html);
         console.log(html);
     });
@@ -1781,35 +1782,35 @@ NOTES:
 <div style="display:flex;align-items:flex-end;justify-content:space-between;">
 	<div style="flex:0 0 10%;">
 	  ![Google Chrome Logo](../../img/browsers/google-chrome-logo.png)
-	  98%
+	  97%
 	</div>
 	<div style="flex:0 0 10%">
 	  ![Mozilla Firefox Logo](../../img/browsers/mozilla-firefox-logo.png)
-	  93%
+	  96%
 	</div>
 	<div style="flex:0 0 10%">
 	  ![Microsoft Edge Logo](../../img/browsers/microsoft-edge-logo.png)
-	  90%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Apple Safari Technology Preview Logo](../../img/browsers/safari-technology-preview-logo.png)
-	  99%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Opera Logo](../../img/browsers/opera-logo.png)
-	  98%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![Webkit Logo](../../img/browsers/webkit-logo.png)
-	  99%
-	</div>
-	<div style="flex:0 0 10%">
-	  ![NodeJS Logo](../../img/browsers/nodejs-logo.png)
 	  93%
 	</div>
 	<div style="flex:0 0 10%">
-	  ![iOS 9 Logo](../../img/browsers/ios9-logo.png)
-	  53%
+	  ![Apple Safari Logo](../../img/browsers/apple-safari-10-logo.png)
+	  100%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Opera Logo](../../img/browsers/opera-logo.png)
+	  97%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![Webkit Logo](../../img/browsers/webkit-logo.png)
+	  100%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![NodeJS Logo](../../img/browsers/nodejs-logo.png)
+	  97%
+	</div>
+	<div style="flex:0 0 10%">
+	  ![iOS 10 Logo](../../img/browsers/ios10-logo.png)
+	  100%
 	</div>
 </div>
 
@@ -1844,17 +1845,17 @@ NOTES:
     <div style="flex:0 0 25%">
       [![Traceur Logo](../../img/es6/traceur-logo.png)](https://github.com/google/traceur-compiler)
       [Traceur](https://github.com/google/traceur-compiler)  
-      58%
+      56%
     </div>
     <div style="flex:0 0 25%">
       [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
       [Babel](https://babeljs.io/)   
-      74%
+      71%
     </div>
     <div style="flex:0 0 25%">
       [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
       [TypeScript](http://www.typescriptlang.org/)  
-      60%
+      59%
     </div>
 </div>
 
