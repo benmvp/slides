@@ -14,6 +14,20 @@ Wednesday, May 10, 2017 @ 2:35p (Ballroom F)
 
 ----------
 
+### [JazzCon.Tech 2017](http://jazzcon.tech/)
+
+##### New Orleans, Louisiana (TBD)
+
+#### [Navigating the React Solar System](http://www.benmvp.com/talks/#navigating-the-react-solar-system)
+
+March 23/24, 2017 @ TBD (TBD)   
+
+#### [React Exposed! 😮](http://www.benmvp.com/talks/#react-exposed-)
+
+Wednesday, March 23/24, 2017 @ TBD (TBD)   
+
+----------
+
 ### [Devoxx US 2017](http://devoxx.us/)
 
 ##### San Jose, California (San Jose Convention Center)
