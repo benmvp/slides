@@ -105,6 +105,7 @@ Thursday, February 9, 2017
 #### [React + ES.next = ♥](http://www.benmvp.com/talks/#react--esnext--)
 
 Friday, January 27, 2017 @ 2:50p   
+🎞 [Slides](http://www.benmvp.com/slides/2017/buzzjs/react-esnext.html) | 🖥 [Code examples](https://github.com/benmvp/react-esnext)
 
 ----------
 
