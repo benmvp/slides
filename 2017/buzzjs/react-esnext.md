@@ -40,156 +40,6 @@ NOTES:
 
 =====
 
-<div style="display:flex;align-items:center;justify-content:space-around;">
-    <a href="https://facebook.github.io/react/">
-        <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
-    </a>
-    <div>
-		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
-		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
-		<h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
-		<h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
-    </div>
-</div>
-
-NOTES:
-- How many folks have developed in React before?
-- React has many features that makes developing in it really nice
-- React is highly functional & reactive with a uni-directional data flow
-- If you're used to MVC with Backbone or Ember, it'll take some time to wrap your head around the concepts
-- Then of course there's JSX syntax
-- Ensuring that you're fully leveraging the Virtual DOM and not directly manipulating DOM nodes takes time
-- But thankfully the API is really narrow so there's not that much learn
-
-/////
-
-<div style="display:flex;align-items:center;justify-content:space-around;">
-    <a href="http://www.benmvp.com/learning-es6-series/">
-        <img src="../../img/es6/es6-logo.png" style="background:none;box-shadow:none;border:none"/>
-    </a>
-    <div>
-		<h2>May 1995 — <strong>JavaScript</strong></h2>
-		<h2>Jun 1997 — <strong>ES1</strong></h2>
-		<h2>Jun 1998 — <strong>ES2</strong></h2>
-		<h2>Dec 1999 — <strong>ES3</strong></h2>
-		<h2>Dec 2009 — <strong>ES5</strong></h2>
-		<h2>Jun 2015 — <strong>ES6/ES2015</strong></h2>
-		<h2>Jun 2016 — <strong>ES7/ES2016</strong></h2>
-    </div>
-</div>
-
-NOTES:
-- How many folks have coded in ES6+/ES2015+?
-- ECMAScript is the standard
-- JavaScript is the implementation (there was also JScript & ActionScript)
-- JavaScript is now 21 years old
-- Brendan Eich created it back in '95; added to Netscape Navigator 2.0
-- ES6/ES2015 released in 2015; the big thang
-- ES7/ES2016 released last year
-- ES2017 this year
-- Features are in a yearly proposal process (don't know when exactly they'll be released)
-
-/////
-
-## ES6/ES2015
-
-#### Syntax
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
-    <code>\_\_proto\_\_</code>  
-    Arrow functions  
-    Classes  
-    Default parameters  
-    Destructuring  
-    Enhanced object literals  
-    Modules  
-    Rest parameters  
-    Spread operator  
-    Tagged templates  
-    Template literals  
-</div>
-
-#### Functionality
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
-  Array APIs  
-  Block scoping  
-  `for-of`  
-  Generators  
-  Iterators  
-  Maps  
-  Math APIs  
-  Module loaders  
-  Number APIs  
-  Object APIs  
-  Promises  
-  Proxies  
-  Reflect API  
-  RegExp APIs  
-  Sets  
-  String APIs  
-  Subclassable built-ins  
-  Symbols  
-  Tail calls  
-  Typed arrays  
-  Unicode  
-  WeakMaps  
-  WeakSets  
-</div>
-
-NOTES:
-- Full list of features included in the ES6 specification
-- That's 30+ features!
-
-/////
-
-## ES7/ES2016
-
-<br />
-
-- [`Array.prototype.includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
-- [Exponentiation operator (`**`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation_(**)
-
-<br />
-
-[_Final feature set of ECMAScript 2016_](http://www.2ality.com/2016/01/ecmascript-2016.html)
-
-NOTES:
-- Just 2 features made it to the final stage 4 by the January 2016 cut-off date to make it into ES2016
-- So _all_ those features we called ES7 features were still in the proposal process
-
-/////
-
-## ES2017
-
-<br />
-
-- [`Object.values` / `Object.entries`](https://github.com/tc39/proposal-object-values-entries)
-- [`Object.getOwnPropertyDescriptors`](https://github.com/tc39/proposal-object-getownpropertydescriptors)
-- [Trailing function commas](https://github.com/tc39/proposal-trailing-function-commas)
-- [String padding](https://github.com/tc39/proposal-string-pad-start-end)
-- [`async` / `await`](https://github.com/tc39/ecmascript-asyncawait)
-
-<br />
-
-[TC39 Finished Proposals](https://github.com/tc39/proposals/blob/master/finished-proposals.md)
-
-NOTES:
-- Here are the features that have already reached Stage 4 and are all but assured to be in ES2017
-
-/////
-
-[TC39 Active Proposals](https://github.com/tc39/proposals)
-
-[![ECMAScript Proposals](../../img/react-esnext/ecmascript-proposals.png)](https://github.com/tc39/proposals)
-
-NOTES:
-- There are still some features in Stage 3 that could make it before the end-of-January cut-off
-- Particularly interested in Rest/Spread properties as we'll see
-
-=====
-
 ## What this talk is **not** about... 😐
 
 <br />
@@ -677,10 +527,13 @@ NOTES:
 
 ```js
 _handleSubmit(e) {
-    var author = this.state.author
-    var text = this.state.text
+    var author,
+        text
 
     e.preventDefault()
+
+    author = this.state.author
+    text = this.state.text
 
     if (!text || !author) {
         return
@@ -721,59 +574,9 @@ _handleSubmit(e) {
 ```
 <!-- .element: class="large" -->
 
-/////
-
-###### Block scoping
-
-Don't [`prefer-const`](http://eslint.org/docs/rules/prefer-const)!
-
-```js
-_handleSubmit(e) {
-    e.preventDefault()
-
-    const author = this.state.author
-    const text = this.state.text
-
-    if (!text || !author) {
-        return
-    }
-
-    this.props.onCommentSubmit({author: author, text: text})
-    this.setState(INITIAL_STATE)
-}
-```
-<!-- .element: class="large" -->
-
 NOTES:
-- There's a popular trend to always use `const` when you can and only use `let` when you need to reassign
-- I'm personally against this trend because it dilutes what `const` means
-- I believe it's kind of a way to simulate immutability, but it's not at all
-- We don't do this in other programming languages
-- Plus, just because a variable is `const`, doesn't mean it can't be changed. If it's an object, properties can be changed
-- It's all because of one person at Airbnb
-
-=====
-
-```js
-_handleSubmit(e) {
-    e.preventDefault()
-
-    let author = this.state.author
-    let text = this.state.text
-
-    if (!text || !author) {
-        return
-    }
-
-    this.props.onCommentSubmit({author: author, text: text})
-    this.setState(INITIAL_STATE)
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Back to our code using `let`
-- You will see that we're pulling out `author` & `text` from `this.state` and assigning to variables of the same name
+- No more variable hoisting!
+- But now, you will see that we're pulling out `author` & `text` from `this.state` and assigning to variables of the same name
 
 /////
 
@@ -889,72 +692,6 @@ function MyComponent(props) {
 NOTES:
 - React supports stateless functions which receive the `props` as a parameter
 - You can immediately destructure `props` into the properties you need
-
-/////
-
-###### Destructuring
-
-Array destructuring
-
-```js
-let [first, second, third] = [8, true, 11]
-    // first=8, second=true, third=11
-let [first, second, third] = ['no']
-    // first='no', second=undefined, third=undefined
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('01-27-17')
-    // mo='01', day='27', yr='17'
-```
-<!-- .element: class="large" -->
-
-```js
-function hi(greeting, [first, , third]) {
-    // greeting='hello', first=1, third=3
-}
-hi('hello', [1, 2, 3])
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Array destructuring works much the same way as object destructuring
-- The main difference is:
-  - Array destructuring uses an array literal pattern on the left hand side of the assignment
-  - And the order in the pattern determines the assignment matching
-- Focus on the third example which is a real-world use case with regular expression matches
-  - Don't need to maintain the intermediate array
-- Works kind of how tuples work in Python
-- Work in function headers too!
-
-/////
-
-###### Destructuring
-
-```js
-let {
-    name,
-    nicknames: [primaryNick],
-    misc: {
-      netWorth: netWorthThousands
-    }
-  } = {
-    name: 'Sean Combs',
-    nicknames: ['Puffy', 'Puff Daddy', 'Diddy'],
-    misc: {
-      netWorth: 735000,
-      birthdate: '1969-11-04'
-    }
-  }
-```
-<!-- .element: class="large" -->
-
-Object + array + nested destructuring!
-
-NOTES:
-- You thought destructuring was unreadable
-- What about when you combine object & array destructuring?
-- And what about when you also leverage nested destructuring?
-- Your brain explodes! That's what.
-- This conveys the point that just because you _can_ do it doesn't mean you _should_
-- You can revisit this slide if you really want to try and understand what's going on
 
 ===== <!-- .slide: data-transition="fade" -->
 
@@ -1332,9 +1069,7 @@ Replace `arguments` with an array
 Clearer function signature!
 
 ```js
-function join(separator, ...values) {
-  return values.join(separator)
-}
+const join = (separator, ...values) => values.join(separator)
 
 // output: tic-tac-toe
 join('-', 'tic', 'tac', 'toe')
@@ -1366,41 +1101,6 @@ NOTES:
 - Because `values` is a true array in the example, we can call join on it
 - It’s also much **clearer** to see that `join()` takes an infinite number of parameters
 - Rest parameter should pretty much replace all uses of the `arguments` keyword!
-
-/////
-
-###### Rest operator
-
-Array destructuring + rest operator!
-
-```js
-let list = [9, 8, 7, 6, 5]
-let [first, ...rest] = list
-
-// output: 9  [8, 7, 6, 5]
-console.log(first, rest)
-```
-<!-- .element: class="large" -->
-
-<br />
-
------
-
-#### ES5 way
-```js
-var list = [9, 8, 7, 6, 5],
-    first = list[0],
-    rest = list.slice(1)
-
-// output: 9  [8, 7, 6, 5]
-console.log(first, rest)
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Another thing with rest operator
-- They can be combined with array destructuring to replace `slice`
-- So we can do array destructuring w/ the rest operator and we can do object destructuring, so how about...
 
 /////
 
