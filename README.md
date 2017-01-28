@@ -24,7 +24,7 @@ March 23/24, 2017 @ TBD (TBD)
 
 #### [React Exposed! 😮](http://www.benmvp.com/talks/#react-exposed-)
 
-Wednesday, March 23/24, 2017 @ TBD (TBD)   
+March 23/24, 2017 @ TBD (TBD)   
 
 ----------
 
@@ -34,17 +34,27 @@ Wednesday, March 23/24, 2017 @ TBD (TBD)
 
 #### [Navigating the React Solar System](http://www.benmvp.com/talks/#navigating-the-react-solar-system)
 
-March 21, 2017 @ TBD (TBD)   
+Tuesday, March 21, 2017 @ TBD (TBD)   
+
+----------
+
+### [React Conf 2017](http://conf.reactjs.org/)
+
+##### Santa Clara, California (Marriott Santa Clara)
+
+#### [React + ES.next = ♥](http://www.benmvp.com/talks/#react--esnext--)
+
+March 13/14, 2017 @ TBD (TBD)   
 
 ----------
 
 ### [Reactathon](http://reactathon.com/)
 
-##### San Francisco, California
+##### San Francisco, California (Eventbrite)
 
 #### [ES.next Fundamentals Workshop](http://www.benmvp.com/talks/#esnext-fundamentals-workshop)
 
-Tuesday, March 7, 2017 @ TBD (TBD)  
+Tuesday, March 7, 2017 @ 9am  
 
 ----------
 
