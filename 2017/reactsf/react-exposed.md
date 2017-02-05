@@ -99,19 +99,18 @@ NOTES:
 - Eventbrite is an online ticketing & events platform
 - Many conferences use it for registration
 - We've built up a whole new React-based stack to replace Backbone/Marionette
-- Had the opportunity to teach React both formally (workshop) and informally (helping people)
+- I've had the opportunity to teach React both formally (workshop) and informally (helping people)
 - Found myself explaining core concepts of React even though I didn’t write any of the implementation (only barely looked at the code)
 - Genesis of this talk
 
 /////
 
-![Shia Lebouf Magic](../../img/giphy/shia-magic.gif)
-<!-- .element: style="width:75%" -->
+<!-- .slide: data-background="url(../../img/giphy/shia-magic.gif) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - A good library abstracts away underlying complexity.
 - Don't need to know how implementation works
-- React has a lot of “magic” that makes it powerful
+- React has a lot of “magic” (as Shia puts it) that makes it powerful
 - In general don’t need to know how the magic works
 - However, there are some seemingly counterintuitive parts the make more sense when you understand how React works behind the scenes
 
@@ -135,6 +134,12 @@ const Page = () => (
 <!-- .element: class="large" -->
 
 NOTES:
+- Maybe using some ES6 syntax you're unfamiliar with
+- This is intentional
+- Not to show off, but to expose you to new syntax
+- Might learn something else not even related to the topic
+- If you're coming from a templating background like Handlebars you may try to use JSX like this
+- You know you want to stick the contents of `PageBody` in `Page`
 
 /////
 
@@ -154,6 +159,10 @@ tag (3:2)
 ```
 <!-- .element: class="large" -->
 
+NOTES:
+- However, this results in an error saying you have to wrap in an enclosing tag
+- We'll talk about why that is in a sec, but lets look at another issue...
+
 /////
 
 ## Conditional JSX
@@ -171,6 +180,11 @@ const Section = ({headingText, content}) => (
 <!-- .element: class="large" -->
 
 NOTES:
+- All the string-based templating languages provide some facility for conditionally including markup
+- May be tempted to do something like this
+- Or just wonder how to accomplish conditionally including code
+- This obviously looks like broken syntax
+- Trying to include the `<h1>` only if `headingText` is defined
 
 /////
 
@@ -187,6 +201,10 @@ repl: Unexpected token (3:6)
   6 |     <p>{content}</p>
 ```
 <!-- .element: class="large" -->
+
+NOTES:
+- Naturally this syntax is broken
+- We need a way of handling conditional markup in JSX
 
 /////
 
@@ -206,6 +224,7 @@ const Card = ({line1, line2}) => (
 
 NOTES:
 - JSX looks like HTML, so you might first think you can use HTML comments
+- To comment out attributes or entire pieces of markup
 
 /////
 
@@ -222,6 +241,9 @@ repl: Unexpected token (3:4)
   6 |     <!-- <p>{line2}</p> -->
 ```
 <!-- .element: class="large" -->
+
+NOTES:
+- But you'll quickly find out that this syntax is unsupported & results in an error
 
 /////
 
@@ -240,14 +262,15 @@ const Label = ({children, inputId}) => (
 <!-- .element: class="large" -->
 
 NOTES:
+- And lastly, if you don't know JSX, you would naturally use `class` & `for` for attributes
 - Anybody who's done React knows that `class` & `for` are incorrect
-- But they don't throw any errors!
-- They just simply don't work
+- But interestingly enough they don't throw any errors!
+- They just simply don't work like you'd intend
 - About to explain...
 
 /////
 
-![JSX](../../img/react-exposed/jsx.png)
+![JSX](../../img/react-exposed/jsx.png)   <!-- .element: style="width:75%" -->
 
 NOTES:
 
@@ -263,8 +286,6 @@ NOTES:
 ```
 <!-- .element: class="large" -->
 
-<br />
-
 ```
 React.createElement(
   'span',
@@ -274,9 +295,26 @@ React.createElement(
 ```
 <!-- .element: class="large" -->
 
+<br />
+
+```
+<Selector values={items} />
+```
+<!-- .element: class="large" -->
+
+
+```
+React.createElement(
+  Selector,
+  {values: item}
+)
+```
+<!-- .element: class="large" -->
+
 NOTES:
 - JSX is really just JavaScript like everything else
 - And that's the key to explaining how to properly use JSX
+- JSX gets transpiled into this JS code: both for DOM nodes as well as custom components
 
 /////
 
@@ -302,6 +340,9 @@ const PageBody = () => (
 <!-- .element: class="large" -->
 
 NOTES:
+- So when trying to return back those two DOM nodes
+- We're actually trying to return back to objects, which we know is not possible
+- Only one thing can be returned: one array, object, string, boolean, etc.
 
 /////
 
@@ -330,6 +371,10 @@ const PageBody = () => (
 ```
 <!-- .element: class="large" -->
 
+NOTES:
+- So that's why you end up having to wrap the contents in a `<div>`
+- You'll find that a lot of React apps have lots of "unnecessary" `<div>`s cuz of this
+
 /////
 
 ## Conditional JSX
@@ -353,7 +398,10 @@ const Section = ({headingText, content}) => {
 <!-- .element: class="large" -->
 
 NOTES:
+- This how you can tackle conditional code
 - Naturally JSX is just JS, we can use JS to do conditionals instead of muddying up our JSX
+- Conditionally assign a variable, and put that in our JSX
+- It seems like a lot more code, so...
 
 /////
 
@@ -407,6 +455,7 @@ const Card = ({line1, line2}) => (
 NOTES:
 - Correct way of commenting out JSX
 - Babel transpiler will just omit comments from generated code
+- Have to admit that the syntax is kinda gross to look at
 
 /////
 
@@ -439,11 +488,115 @@ NOTES:
 - It's also why it's `onClick`, etc.
 - You need ESLint rules to guard you from using `class` & `for` accidentally
 
+=====
+
+<!-- .slide: data-background="url(../../img/giphy/clumsy-digging.gif) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- Let's dig deeper by looking at another problem
+
+/////
+
+```
+const Selector = ({values}) => {
+  let options = values.map(({value, display}) => (
+    <option value={value}>{display}</option>
+  ))
+
+  return (<select>{options}</select>)
+}
+```
+<!-- .element: class="large" -->
+
+Can you spot the error?
+
+<br />
+
+```text
+Warning: Each child in an array or iterator should have a unique
+"key" prop. Check the render method of `Selector`. See
+https://fb.me/react-warning-keys for more information.
+```
+<!-- .element: class="large fragment" -->
+
+NOTES:
+- I really like that React actually provides helpful errors
+- Any other library and there'd be some cryptic error pointing to lib code
+- If it's your first time seeing this error then you'll visit the link
+- If you already know what's up, you'll probably do something like...
+
+/////
+
+```
+const Selector = ({values}) => {
+  let options = values.map(({value, display}, index) => (
+    <option key={index} value={value}>{display}</option>
+  ))
+
+  return (<select>{options}</select>)
+}
+```
+<!-- .element: class="large" -->
+
+![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
+
+NOTES:
+- ...this
+- Where you'll use the second argument in the `map` callback which is the `index` and pass as `key`
+- This is super simple & easy, but it's an anti-pattern and you shouldn't do it
+- So y'all are the people behind the desk, balled piece of paper is you using "index as key" and I'm Dikembe Mutombo
+
+/////
+
+```
+const Selector = ({values}) => {
+  let options = values.map(({value, display}) => (
+    <option key={value} value={value}>{display}</option>
+  ))
+
+  return (<select>{options}</select>)
+}
+```
+<!-- .element: class="large" -->
+
+Use a **unique** value as `key`!
+
+NOTES:
+- Instead you should be using a unique value in the data as the key
+- Something that's not order dependent and is tied to the data
+- Here we're reusing the `value` property as the `key` since it's unique
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/house-of-cards-but-why.gif) no-repeat center" data-background-size="contain" -->
+
+NOTES:
+- But you're probably sitting there asking "why???"
+- "Why does it matter?"
+
+/////
+
+![Brace Yourselves - A live demo is coming](../../img/react-exposed/live-demo.jpg) <!-- .element: style="width:70%" -->
+
+NOTES:
+- And that's best explained by a demo
+
+=====
+
+<!-- .slide: data-background="url(../../img/giphy/mario-out-of-time.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I've got a couple of other "exposes" so to speak
+- But unfortunately there isn't too much time left...
 
 =====
 
 ## Additional resources
 
+- [React Exposed Demo](http://www.benmvp.com/react-exposed/)
+- [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
+- [_Index as key is an anti-pattern_](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.1191by53f)
+- [Eventbrite React & JSX Coding Style Guide](https://github.com/eventbrite/javascript/tree/master/react)
 
 =====
 
