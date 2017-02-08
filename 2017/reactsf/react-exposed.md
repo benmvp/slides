@@ -37,7 +37,7 @@ February 9, 2017
 
 NOTES:
 - Was thinking of calling it “10 Revelations about React… Wait until you see #6!!!”
-- But we're no longer fooled by those anymore
+- But we're no longer fooled by such clickbait anymore
 - BTW - Posted link to slides on twitter if you want to follow along
 - Still not gonna tell you what the talk is about, instead let's...
 
@@ -96,8 +96,6 @@ NOTES:
 
 NOTES:
 - Currently a Senior UI Engineer and Frontend Platform Manager at Eventbrite
-- Eventbrite is an online ticketing & events platform
-- Many conferences use it for registration
 - We've built up a whole new React-based stack to replace Backbone/Marionette
 - I've had the opportunity to teach React both formally (workshop) and informally (helping people)
 - Found myself explaining core concepts of React even though I didn’t write any of the implementation (only barely looked at the code)
@@ -108,11 +106,13 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/shia-magic.gif) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- A good library abstracts away underlying complexity.
+- A good library abstracts away underlying complexity/difficulty
 - Don't need to know how implementation works
 - React has a lot of “magic” (as Shia puts it) that makes it powerful
 - In general don’t need to know how the magic works
 - However, there are some seemingly counterintuitive parts the make more sense when you understand how React works behind the scenes
+- I'll explain _how_ React works to explain _why_ they had to do certain things in React
+- Let's take a look at a few examples...
 
 =====
 
@@ -134,11 +134,11 @@ const Page = () => (
 <!-- .element: class="large" -->
 
 NOTES:
-- Maybe using some ES6 syntax you're unfamiliar with
+- **Head up!** Maybe using some ES6 syntax you're unfamiliar with
 - This is intentional
 - Not to show off, but to expose you to new syntax
-- Might learn something else not even related to the topic
-- If you're coming from a templating background like Handlebars you may try to use JSX like this
+- Might learn some ES6 along the way
+- First problem: If you're coming from a templating background like Handlebars you may try to use JSX like this
 - You know you want to stick the contents of `PageBody` in `Page`
 
 /////
@@ -161,6 +161,7 @@ tag (3:2)
 
 NOTES:
 - However, this results in an error saying you have to wrap in an enclosing tag
+- Literally one of the first things you learn/experience in React
 - We'll talk about why that is in a sec, but lets look at another issue...
 
 /////
@@ -181,9 +182,10 @@ const Section = ({headingText, content}) => (
 
 NOTES:
 - All the string-based templating languages provide some facility for conditionally including markup
+- In those cases, you're trying to replicate logic in the template
 - May be tempted to do something like this
-- Or just wonder how to accomplish conditionally including code
-- This obviously looks like broken syntax
+- Or... more likely just wonder how to accomplish conditionally including code
+- Cuz this obviously looks like broken syntax
 - Trying to include the `<h1>` only if `headingText` is defined
 
 /////
@@ -223,7 +225,9 @@ const Card = ({line1, line2}) => (
 <!-- .element: class="large" -->
 
 NOTES:
-- JSX looks like HTML, so you might first think you can use HTML comments
+- Let's look at a 3rd issue
+- JSX is a friendly syntax that looks like HTML
+- So you might first think you can use HTML comments
 - To comment out attributes or entire pieces of markup
 
 /////
@@ -262,11 +266,11 @@ const Label = ({children, inputId}) => (
 <!-- .element: class="large" -->
 
 NOTES:
-- And lastly, if you don't know JSX, you would naturally use `class` & `for` for attributes
+- And lastly, if you assume JSX is just like HTML, you would naturally use `class` & `for` for attributes
 - Anybody who's done React knows that `class` & `for` are incorrect
-- But interestingly enough they don't throw any errors!
-- They just simply don't work like you'd intend
-- About to explain...
+- But they don't throw any errors!
+- The "error" is that it doesn't work
+- Lemme explain...
 
 /////
 
@@ -276,7 +280,7 @@ NOTES:
 
 - Makes React much more approachable IMO
 - Looks like HTML, but not exactly
-- You shouldn't _need_ to learn JSX since it looks like HTML
+- You shouldn't _need_ to **know** JSX since it looks like HTML
 - But as we saw, in certain cases you’re pretty much forced to know
 
 /////
@@ -306,7 +310,7 @@ React.createElement(
 ```
 React.createElement(
   Selector,
-  {values: item}
+  {values: items}
 )
 ```
 <!-- .element: class="large" -->
@@ -341,7 +345,7 @@ const PageBody = () => (
 
 NOTES:
 - So when trying to return back those two DOM nodes
-- We're actually trying to return back to objects, which we know is not possible
+- We're actually trying to return back two objects, which we know is not possible
 - Only one thing can be returned: one array, object, string, boolean, etc.
 
 /////
@@ -373,7 +377,7 @@ const PageBody = () => (
 
 NOTES:
 - So that's why you end up having to wrap the contents in a `<div>`
-- You'll find that a lot of React apps have lots of "unnecessary" `<div>`s cuz of this
+- The HTML source of many React apps have a lot of "unnecessary" `<div>`s cuz of this
 
 /////
 
@@ -399,7 +403,7 @@ const Section = ({headingText, content}) => {
 
 NOTES:
 - This how you can tackle conditional code
-- Naturally JSX is just JS, we can use JS to do conditionals instead of muddying up our JSX
+- We can use JS to do conditionals instead of muddying up our JSX
 - Conditionally assign a variable, and put that in our JSX
 - It seems like a lot more code, so...
 
@@ -417,6 +421,8 @@ const Section = ({headingText, content}) => (
 
 ```
 <!-- .element: class="large" -->
+
+JSX is getting kinda messy!
 
 NOTES:
 - I've seen people use a ternary for this to keep things short
@@ -475,6 +481,8 @@ const Label = ({children, inputId}) => (
 
 <br />
 
+React HTML props mirror HTML DOM properties!
+
 ```
 labelNode.className = 'is-hidden'
 labelNode.htmlFor = inputId
@@ -493,6 +501,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/clumsy-digging.gif) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+- Ok, so we looked a little into JSX
 - Let's dig deeper by looking at another problem
 
 /////
@@ -520,6 +529,8 @@ https://fb.me/react-warning-keys for more information.
 <!-- .element: class="large fragment" -->
 
 NOTES:
+- Can you spot the error??
+
 - I really like that React actually provides helpful errors
 - Any other library and there'd be some cryptic error pointing to lib code
 - If it's your first time seeing this error then you'll visit the link
@@ -538,7 +549,7 @@ const Selector = ({values}) => {
 ```
 <!-- .element: class="large" -->
 
-![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" -->
+![Dikembe Mutombo No No No](../../img/giphy/no-no-no-mutombo.gif) <!-- .element: style="width:50%" class="fragment" -->
 
 NOTES:
 - ...this
@@ -563,7 +574,7 @@ Use a **unique** value as `key`!
 
 NOTES:
 - Instead you should be using a unique value in the data as the key
-- Something that's not order dependent and is tied to the data
+- Something that's not order dependent, but is tied to the data
 - Here we're reusing the `value` property as the `key` since it's unique
 
 /////
@@ -586,8 +597,9 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/mario-out-of-time.gif) no-repeat center" data-background-size="contain"-->
 
 NOTES:
-- I've got a couple of other "exposes" so to speak
+- I've got a couple of other "exposés" so to speak
 - But unfortunately there isn't too much time left...
+- Don't want to keep you from the other 2 wonderful talks coming up next
 
 =====
 
@@ -598,10 +610,16 @@ NOTES:
 - [_Index as key is an anti-pattern_](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.1191by53f)
 - [Eventbrite React & JSX Coding Style Guide](https://github.com/eventbrite/javascript/tree/master/react)
 
+NOTES:
+- Did want to leave you with some resources for further reading if you're interested
+
 =====
 
-![Usain Bolt Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
+![Julian Edelman Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
+
+NOTES:
+- So some quick shoutouts before I wrap
 
 /////
 
@@ -623,7 +641,7 @@ NOTES:
 <!-- .element: style="font-size:12em" -->
 
 NOTES:
-- It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
+- It's my hope that, the main reason I do this, is so you learn something new to make you a better developer
 - Any feedback would be appreciated!
 
 =====
@@ -645,10 +663,13 @@ NOTES:
 
 <br />
 
+Code examples: [github/benmvp/react-exposed](https://github.com/benmvp/react-exposed)
+
+<br />
 
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
-- Slides are available on Twitter
+- Slides are available on Twitter and Blog
 - Github repo
 - Ask questions on Twitter, via email or AMA!
