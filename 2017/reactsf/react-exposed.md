@@ -405,6 +405,31 @@ NOTES:
 - This how you can tackle conditional code
 - We can use JS to do conditionals instead of muddying up our JSX
 - Conditionally assign a variable, and put that in our JSX
+
+/////
+
+## Conditional JSX
+
+```
+const Section = ({headingText, content}) => {
+  let heading
+
+  if (headingText) {
+    heading = (<h1>{headingText}</h1>)
+  }
+
+  return React.createElement(
+    'section',
+    {className: 'section-correct'},
+    heading,
+    React.createElement('p', null, content)
+  )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- This is what the JSX would be transformed into
 - It seems like a lot more code, so...
 
 /////
@@ -530,6 +555,7 @@ https://fb.me/react-warning-keys for more information.
 
 NOTES:
 - Can you spot the error??
+- Looping over an array of objects called `values` to generate `<option>`
 
 - I really like that React actually provides helpful errors
 - Any other library and there'd be some cryptic error pointing to lib code
@@ -606,9 +632,9 @@ NOTES:
 ## Additional resources
 
 - [React Exposed Demo](http://www.benmvp.com/react-exposed/)
-- [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
 - [_Index as key is an anti-pattern_](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.1191by53f)
 - [Eventbrite React & JSX Coding Style Guide](https://github.com/eventbrite/javascript/tree/master/react)
+- [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
 
 NOTES:
 - Did want to leave you with some resources for further reading if you're interested
