@@ -596,7 +596,7 @@ const Selector = ({values}) => {
 ```
 <!-- .element: class="large" -->
 
-Use a **unique** value as `key`!
+Use a **unique, predictable & stable** value as `key`!
 
 NOTES:
 - Instead you should be using a unique value in the data as the key
