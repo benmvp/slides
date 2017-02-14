@@ -14,9 +14,9 @@ February 14, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
-- This talk was originally called "Navigating the React Ecosystem"
-- But as I thought about it more an ecosystem is too small. It's really a SOLAR SYSTEM
-- Further more all of these additional libraries are revolving around React so the metaphor just makes more sense
+- If you're new to React you might hear that on top of learning React, you need to know ES6, Redux, inline styles, server-side rendering, etc.
+- It can be so overwhelming
+- So I want to walk through the different "planets" in the React solar system so you can get an idea of how to prioritize what to learn
 - Posted link to slides on twitter if you want to follow along
 
 /////
@@ -86,9 +86,7 @@ NOTES:
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
-- If you're new to React you might hear that on top of learning React, you need to know ES6, Redux, inline styles, server-side rendering, etc.
-- It can be so overwhelming
-- So I want to walk through the different "planets" in the React solar system so you can get an idea of how to prioritize what to learn
+
 
 =====
 
@@ -106,11 +104,11 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
     <div>
-		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
-		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
-		<h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
 		<h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
     </div>
 </div>
 
@@ -304,22 +302,22 @@ NOTES:
 		<img src="../../img/nav-react/yarn-logo.png" style="background:none;box-shadow:none;border:none;"/>
 	</div>
     <div style="flex:0 0 45%;">
+		<h2>Flat Mode</h2>
         <h2>Offline Mode</h2>
         <h2>Deterministic</h2>
+		<h2>Multiple Registries</h2>
+		<h2>Network Resilience</h2>
         <h2>Network Performance</h2>
-        <h2>Multiple Registries</h2>
-        <h2>Network Resilience</h2>
-        <h2>Flat Mode</h2>
     </div>
 </div>
 
 NOTES:
+- Flat Mode: Resolve mismatching versions of dependencies to a single version to avoid creating duplicates.
 - Offline Mode: If you've installed a package before, you can install it again without any internet connection.
 - Deterministic: The same dependencies will be installed the same exact way across every machine regardless of install order.
-- Network Performance: Yarn efficiently queues up requests and avoids request waterfalls in order to maximize network utilization.
 - Multiple Registries: Install any package from either npm or Bower and keep your package workflow the same.
 - Network Resilience: A single request failing won't cause an install to fail. Requests are retried upon failure.
-- Flat Mode: Resolve mismatching versions of dependencies to a single version to avoid creating duplicates.
+- Network Performance: Yarn efficiently queues up requests and avoids request waterfalls in order to maximize network utilization.
 
 /////
 
@@ -370,15 +368,15 @@ Help gather dependencies, transpile ES6+, etc.
 
 NOTES:
 - This is space has a lot of players
-- Webpack is the prevailing bundler right now; it just came on the same 2 years ago w/ much fanfare
+- Webpack is the prevailing bundler right now; it just came on the scene 2 years ago w/ much fanfare
 - Browserify came before and was the main bundler, but as it's name states, it focused on the browser
-- Rollup & SystemJS seem to be the up-and-comers that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
-- It works specifically with ES6 modules and has a "tree-shaking" feature that results in less generated code
+- Rollup & SystemJS seem to be the new up-and-comers that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
+- Rolup works specifically with ES6 modules and has a "tree-shaking" feature that results in less generated code
 - JSPM is another option that...
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - Haven't used Browserify or Rollup, used Webpack & RequirejS heavily, used JSPM once in a workshop
 - I'd say go with Webpack, espeically because of `webpack-dev-server`
-- Webpack 2.0 has "tree-shaking"
+- Webpack 2.0 has "tree-shaking" too
 - It's at this step where the "JavaScript fatigue" really kicks in. Your typical JS developer doesn't want to or know how to configure these bundlers
 
 /////
@@ -539,7 +537,7 @@ NOTES:
 - TypeScript is a superset of JavaScript that includes type checking plus future language constructs
 - It introduced classes before they were in ES2015. It has interfaces which JS does not
 - I like the idea of static type-checking, but TypeScript might be too far into the C#/Java realm
-- I have used Flow yet, and in practice is not so great
+- I have used Flow, and in practice is not so great
 
 /////
 
@@ -633,7 +631,7 @@ $> npm start
 NPM, Webpack, ESLint, and more!
 
 NOTES:
-- They created React Create App
+- They created Create React App
 - Allows you to bootstrap super quick
 - Folks familiar with Ember are probably laughing at how excited the React community is with this
 
