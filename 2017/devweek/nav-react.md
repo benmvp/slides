@@ -181,9 +181,9 @@ NOTES:
 /////
 
 ![React tutorial screenshot](../../img/nav-react/react-tutorial.png)
-<!-- .element: style="width: 75%;" -->
+<!-- .element: style="width: 85%;" -->
 
-[React official tutorial](https://facebook.github.io/react/docs/tutorial.html) app
+[React official tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
 
 NOTES:
 - With the official React tutorial you can learn how to use React by including a couple of script tags
@@ -1440,8 +1440,8 @@ NOTES:
 
 /////
 
-![DeveloperWeek 2016 logo](../../img/developer-week-2016-logo.png)
-<!-- .element: style="width: 80%" -->
+![DeveloperWeek 2016 logo](../../img/developer-week-2017-logo.png)
+<!-- .element: style="width: 60%; border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
 -
