@@ -65,8 +65,8 @@ Let’s walk through the tools and helper libraries that surround React. You’l
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
-				progress: false,
+				controls: location.hostname !== 'localhost',
+				progress: location.hostname !== 'localhost',
 				history: true,
 				center: true,
 
