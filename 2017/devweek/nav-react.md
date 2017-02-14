@@ -295,7 +295,7 @@ NOTES:
 - But pretty much everyone uses NPM
 - Never used Bower before, but have seen some older packages that area available on both
 - Funniest thing: you install Bower with NPM!
-- But Facebook just released Yarn last week!
+- Facebook just released Yarn last October!
 
 /////
 
@@ -372,13 +372,13 @@ NOTES:
 - This is space has a lot of players
 - Webpack is the prevailing bundler right now; it just came on the same 2 years ago w/ much fanfare
 - Browserify came before and was the main bundler, but as it's name states, it focused on the browser
-- Rollup seems to be the up-and-comer that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
+- Rollup & SystemJS seem to be the up-and-comers that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
 - It works specifically with ES6 modules and has a "tree-shaking" feature that results in less generated code
 - JSPM is another option that...
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - Haven't used Browserify or Rollup, used Webpack & RequirejS heavily, used JSPM once in a workshop
 - I'd say go with Webpack, espeically because of `webpack-dev-server`
-- Webpack 2.0 will have "tree-shaking"
+- Webpack 2.0 has "tree-shaking"
 - It's at this step where the "JavaScript fatigue" really kicks in. Your typical JS developer doesn't want to or know how to configure these bundlers
 
 /////
@@ -539,7 +539,7 @@ NOTES:
 - TypeScript is a superset of JavaScript that includes type checking plus future language constructs
 - It introduced classes before they were in ES2015. It has interfaces which JS does not
 - I like the idea of static type-checking, but TypeScript might be too far into the C#/Java realm
-- I haven't used Flow yet, but hoping it can be happy medium
+- I have used Flow yet, and in practice is not so great
 
 /////
 
@@ -615,7 +615,7 @@ NOTES:
 
 /////
 
-## React Create App
+## Create React App
 
 Create React apps with no build configuration
 
@@ -1221,21 +1221,21 @@ Make application state mutations predictable
 		<a href="http://redux.js.org/">Redux</a>
     </div>
 	<div style="flex:0 0 18%;">
+        <a href="http://mobxjs.github.io/mobx/"><img
+            src="../../img/nav-react/mobx-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://mobxjs.github.io/mobx/">MobX</a>
+    </div>
+    <div style="flex:0 0 18%;">
+		<a href="https://github.com/reflux/refluxjs">Reflux</a>
+    </div>
+	<div style="flex:0 0 18%;">
         <a href="http://alt.js.org/"><img
             src="../../img/nav-react/alt-logo.png"
             style="background:none;box-shadow:none;border:none;"
         /></a>
 		<a href="http://alt.js.org/">Alt</a>
-    </div>
-	<div style="flex:0 0 18%;">
-        <a href="http://fluxxor.com/"><img
-            src="../../img/nav-react/fluxxor-logo.svg"
-            style="background:none;box-shadow:none;border:none;"
-        /></a>
-		<a href="http://fluxxor.com/">Fluxxor</a>
-    </div>
-    <div style="flex:0 0 18%;">
-		<a href="https://github.com/reflux/refluxjs">Reflux</a>
     </div>
 </div>
 
