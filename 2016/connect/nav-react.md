@@ -277,7 +277,7 @@ NOTES:
 - But pretty much everyone uses NPM
 - Never used Bower before, but have seen some older packages that area available on both
 - Funniest thing: you install Bower with NPM!
-- Facebook just released Yarn last October!
+- But Facebook just released Yarn last week!
 
 /////
 
@@ -351,13 +351,13 @@ NOTES:
 - This is space has a lot of players
 - Webpack is the prevailing bundler right now; it just came on the same 2 years ago w/ much fanfare
 - Browserify came before and was the main bundler, but as it's name states, it focused on the browser
-- Rollup & SystemJS seem to be the up-and-comers that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
+- Rollup seems to be the up-and-comer that lots of folks are excited about now. I think it has to do w/ "Webpack config fatigue"
 - It works specifically with ES6 modules and has a "tree-shaking" feature that results in less generated code
 - JSPM is another option that...
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - Haven't used Browserify or Rollup, used Webpack & RequirejS heavily, used JSPM once in a workshop
 - I'd say go with Webpack, espeically because of `webpack-dev-server`
-- Webpack 2.0 has "tree-shaking"
+- Webpack 2.0 will have "tree-shaking"
 - It's at this step where the "JavaScript fatigue" really kicks in. Your typical JS developer doesn't want to or know how to configure these bundlers
 
 /////
@@ -522,7 +522,7 @@ NOTES:
 - TypeScript is a superset of JavaScript that includes type checking plus future language constructs
 - It introduced classes before they were in ES2015. It has interfaces which JS does not
 - I like the idea of static type-checking, but TypeScript might be too far into the C#/Java realm
-- I have used Flow yet, and in practice is not so great
+- I haven't used Flow yet, but hoping it can be happy medium
 
 /////
 
@@ -598,7 +598,7 @@ NOTES:
 
 /////
 
-## Create React App
+## React Create App
 
 Create React apps with no build configuration
 
@@ -616,7 +616,7 @@ $> npm start
 NPM, Webpack, ESLint, and more!
 
 NOTES:
-- They created Create React App
+- They created React Create App
 - Allows you to bootstrap super quick
 - Folks familiar with Ember are probably laughing at how excited the React community is with this
 
