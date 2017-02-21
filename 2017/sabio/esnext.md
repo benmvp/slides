@@ -20,6 +20,7 @@ NOTES:
 /////
 
 ## Agenda
+<!-- .element: style="margin-bottom: 1em" -->
 
 0. ES.next overview
 0. Quizzes
@@ -30,6 +31,8 @@ NOTES:
 - Ask questions as we go!
 - Take a break, then do some quizzes to warm up
 - Then spend the rest of the time working individually on exercises
+- You can listen to me all you want
+- But the best way to learn is by doing
 
 =====
 
@@ -107,7 +110,7 @@ _[2 minutes]_
 - Dec 1999 - ES3
 - Dec 2009 - ES5
 - Jun 2015 - ES6/ES2015
-- Jun 2016 - ES7ES2016
+- Jun 2016 - ES7/ES2016
 - ??? 2017 - ES2017
 
 NOTES:
@@ -233,6 +236,7 @@ NOTES:
 0. Object literal shorthand
 0. String APIs
 0. Array APIs
+0. Object APIs
 
 NOTES:
 - Here's what we'll be covering
@@ -562,7 +566,7 @@ Single assignment statement!
 
 ```js
 function log(msg, opts = {}) {
-  let {type='info', delay, color: useColor=true} = opts;
+  let {type = 'info', delay, color: useColor = true} = opts;
 
   // log message
 }
@@ -688,7 +692,7 @@ NOTES:
 ```js
 let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
-let [a, b, c=9] = ['no'];
+let [a, b, c = 9] = ['no'];
     // a='no', b=undefined, c=9
 let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('02-21-17');
     // mo='02', day='21', yr='17'
@@ -964,7 +968,7 @@ NOTES:
 
 /////
 
-No more `concat`!
+Maintain immutability!
 
 ```js
 let start = ['do', 're'];
@@ -997,7 +1001,38 @@ NOTES:
 - When we spread multiple arrays into an array literal we're constructing a new array with all of those values
 - Therefore using the spread operator within an array literal can replace using `concat`
 
-- All this talk of arrays reminds me of another problem...
+/////
+
+Spread operator with object literals!
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = {
+    ...warriors,
+    Kevin: 97
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = _.assign({}, warriors, {
+    Kevin: 97
+})
+```
+
+[Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+NOTES:
+- Now we copy objects while adding new properties in one object literal definition
+- It's a Stage 3 ES feature
+- The ES5 way was to use `_.assign()`
+- ES6 did introduce Object.assign() to handle this as well, but I'll always prefer syntax
+
 
 ===== <!-- .slide: data-transition="fade" -->
 
@@ -1134,8 +1169,6 @@ NOTES:
 - An arrow function is literally an arrow (fat arrow) between parameters and body
 
 /////
-
-###### Arrow functions
 
 ```js
 let squares = [1, 2, 3].map(value => value * value);
@@ -1450,29 +1483,9 @@ class MyClass extends BaseClass {
 ```
 <!-- .element: class="large" -->
 
-<br />
-
------
-
-#### Class factories <!-- .element: class="fragment" data-fragment-index="0" -->  
-
-```js
-var MyClass = BaseClass.extend({
-  toString: function() { }
-});
-MyClass.add = function() { };
-```
-<!-- .element: class="fragment large" data-fragment-index="0" -->  
-
 NOTES:
 - Here's the complete structure of ES6 classes
 - I really like the new syntax & try to use it all the time
-- But there seems to be a lot of folks in the community who don't like them
-- They prefer to still use the class factories **[NEXT]** provided by their favorite library
-- This because classes as defined by ES6 spec are incomplete
-- But despite deficiencies, I still feel classes are worthwhile
-- It's clear that there was a need to make them easier because every library has its own abstraction
-- Class syntax provides a single standard that we can then improve on
 
 /////
 
@@ -1542,15 +1555,14 @@ Write less code than before
 
 /////
 
-###### Enhanced object literals
 
 Object literal shorthand
 
 ```js
 _handleSubmit() {
-    let {author, text} = this.state
+  let {author, text} = this.state
 
-    this.props.onCommentSubmit({author, text})
+  this.props.onCommentSubmit({author, text})
 }
 ```
 <!-- .element: class="large" -->
@@ -1563,9 +1575,9 @@ _handleSubmit() {
 
 ```js
 _handleSubmit() {
-    let {author, text} = this.state
+  let {author, text} = this.state
 
-    this.props.onCommentSubmit({author: author, text: text})
+  this.props.onCommentSubmit({author: author, text: text})
 }
 ```
 <!-- .element: class="large" -->
@@ -1576,8 +1588,6 @@ NOTES:
 - It's interesting that both literals look the exact same, but do different things
 
 /////
-
-###### Enhanced object literals
 
 ```js
 _updateFormFieldState(name, e) {
@@ -1599,8 +1609,6 @@ NOTES:
 - This has always been a minor pet peeve of mine, until now...
 
 /////
-
-###### Enhanced object literals
 
 ...until object literal computed keys!
 
@@ -1661,6 +1669,19 @@ NOTES:
 NOTES:
 - Also some useful methods for `Array` too
 
+/////
+
+## Object API
+
+- [**`Object.assign`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+- [`Object.entries`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+- [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+- [`Object.setPrototypeOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf)
+- [**`Object.values`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
+
+NOTES:
+- Also some useful methods for `Object` too
+
 =====
 
 ## Review
@@ -1676,6 +1697,7 @@ NOTES:
 0. Object literal shorthand
 0. String APIs
 0. Array APIs
+0. Object APIs
 
 NOTES:
 - As a reminder, here's what we covered to make our code clearer and more succinct
@@ -1815,15 +1837,32 @@ _[45 minutes]_
 
 =====
 
+# Questions?
+
+<br />
+
+## Ben Ilegbodu
+
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+
+<br />
+
+Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
+
+=====
+
 # Quiz Time
 
 =====
 
-# Exersizes Time
+# Exercises Time
+<!-- .element: style="margin-bottom: 1.5em" -->
+
+[github.com/kentcdodds/es6-workshop](https://github.com/kentcdodds/es6-workshop)
 
 =====
 
-![Usain Bolt Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
+![Julian Edelman Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
 /////
@@ -1861,11 +1900,7 @@ NOTES:
 
 /////
 
-# Questions?
-
-<br />
-
-## Ben Ilegbodu
+# Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 
