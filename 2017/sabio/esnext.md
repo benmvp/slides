@@ -80,7 +80,7 @@ NOTES:
 
 =====
 
-# ECMAScript 6
+# ECMAScript.next
 
 <br />
 <br />
