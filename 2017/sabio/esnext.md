@@ -307,8 +307,8 @@ Unified declarations with assignments!
 
 ```js
 function log(msg, opts) {
-  if (!options)
-    options = {};
+  if (!opts)
+    opts = {};
 
   let type = opts.type || 'info';
   let delay = opts.delay;
