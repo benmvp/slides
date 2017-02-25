@@ -100,6 +100,8 @@ NOTES:
 - I've had the opportunity to teach React both formally (workshop) and informally (helping people)
 - Found myself explaining core concepts of React even though I didn’t write any of the implementation (only barely looked at the code)
 - Genesis of this talk
+- My target audience is those who are have just been playing with React for a little bit
+- Although I'm sure if you're experience with React you'll benefit too, particularly in explaining to others
 
 /////
 
