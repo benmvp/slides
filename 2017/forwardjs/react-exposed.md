@@ -140,6 +140,7 @@ NOTES:
 - This is intentional
 - Not to show off, but to expose you to new syntax
 - Might learn some ES6 along the way
+- These are stateless functions written w/ arrow functions
 - First problem: If you're coming from a templating background like Handlebars you may try to use JSX like this
 - You know you want to stick the contents of `PageBody` in `Page`
 
@@ -272,7 +273,14 @@ NOTES:
 - Anybody who's done React knows that `class` & `for` are incorrect
 - But they don't throw any errors!
 - The "error" is that it doesn't work
-- Lemme explain...
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/house-of-cards-but-why.gif) no-repeat center" data-background-size="contain" -->
+
+NOTES:
+- So at this point, you may be asking "why?"
+- Lemme explain
 
 /////
 
@@ -623,10 +631,183 @@ NOTES:
 
 =====
 
+<!-- .slide: data-background="url(../../img/giphy/clumsy-digging.gif) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- Ok, so we looked a little into JSX
+- Let's dig deeper by looking at another problem
+
+/////
+
+```
+const Form = () => (
+  <input type="text" />
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's talk about form inputs now
+- Forms in React are not that straightforward in React
+- While building server-side HTML forms are simple
+- Dynamic client-side forms generally are not
+- And React is no different
+
+/////
+
+```
+const Form = () => (
+  <input type="text" value="incorrect" />
+}
+```
+<!-- .element: class="large" -->
+
+```text
+Warning: Failed form propType: You provided a `value` prop to a
+form field without an `onChange` handler. This will render a
+read-only field. If the field should be mutable use `defaultValue`.
+Otherwise, set either `onChange` or `readOnly`. Check the render
+method of `Form`.
+```
+<!-- .element: class="large fragment" -->
+
+NOTES:
+- If you want to set an initial value, you'll likely set the familiar `value` prop
+- But you get a warning...
+- And you'll actually find that you cannot type in the field!
+- I'll show a demo in a second
+
+/////
+
+```
+const Form = () => (
+  <input type="text" value="incorrect" defaultValue="incorrect" />
+}
+```
+<!-- .element: class="large" -->
+
+```text
+Warning: InputsPage contains an input of type text with both value
+and defaultValue props. Input elements must be either controlled
+or uncontrolled (specify either the value prop, or the
+defaultValue prop, but not both). Decide between using a
+controlled or uncontrolled input element and remove one of these
+props. More info: https://fb.me/react-controlled-components
+```
+<!-- .element: class="large fragment" -->
+
+NOTES:
+- If you get really confused you might add `defaultValue`
+- Now you have both props set
+- And you get an additional warning...
+- It talks about controlled vs. uncontrolled input components
+- But most importantly, provides a URL!
+
+/////
+
+## Uncontrolled input
+
+```
+const Form = () => (
+	<input type="text" defaultValue="correct" />
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- There are two types of inputs: uncontrolled & controlled
+- The type we are used to are uncontrolled inputs
+- You can optionally specify `defaultValue`
+- But the browser is in charge of maintaining the value
+- React knows nothing about its value; uncontrolled by React
+- Probably use this when React is intermingled w/ non-React
+
+/////
+
+## Controlled input (fake)
+
+```
+class Form extends PureComponent {
+  _handleOnChange(value) {
+	console.log(value)
+  }
+
+  render() {
+    return (
+	  <input
+	    type="text"
+		value="fake"
+		onChange={this._handleOnChange.bind(this)}
+	  />
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- However, the "React way" is to make React the source of truth
+- You indicate this by specifying the `value` prop
+- Now "controlled" by React
+- The only way the input updates is if you update its `value`
+- That's why you also need `onChange` so that when the user types you can update the state
+- Updating the state causes a re-render and the `value` is updated
+- Here we have an example "tricking" react
+- What happens? DEMO!
+
+- Shows that React is basically giving you a single keystroke based on where the cursor is at
+- Assuming implementation captures `onkeydown` and `preventDefault` instead of true `onChange`
+- This explains why you cannot type; you haven't provided a new value
+
+/////
+
+## Controlled input
+
+```
+class Form extends PureComponent {
+  state = {value: 'correct'}
+
+  _handleOnChange(value) {
+	this.setState({value})
+  }
+
+  render() {
+    return (
+	  <input
+	    type="text"
+		value={this.state.value}
+		onChange={this._handleOnChange.bind(this)}
+	  />
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- React is expecting you to do something with the additional keystroke
+- And then update the input's `value`
+- Here's the simplest example
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/house-of-cards-but-why.gif) no-repeat center" data-background-size="contain" -->
+
+NOTES:
+- Hopefully you're once again wondering why this works this way
+- Why the difference between controlled & uncontrolled components?
+- If React let you continue to type even though it was supposed to be “in control”
+- You can get into a situation where what React thinks the value is differs from what the DOM thinks
+- So the virtual DOM diffing on re-render would lose what you typed; didn't know changes
+- The way its implemented prevents a worse situation from happening
+
+=====
+
 ## Additional resources
 
 - [React Exposed Demo](http://www.benmvp.com/react-exposed/)
 - [_Index as key is an anti-pattern_](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318#.1191by53f)
+- [_Controlled and uncontrolled form inputs in React don't have to be complicated_](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/)
 - [Eventbrite React & JSX Coding Style Guide](https://github.com/eventbrite/javascript/tree/master/react)
 - [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
 
