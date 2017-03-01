@@ -42,6 +42,27 @@ NOTES:
 
 /////
 
+# React exposed! 😮
+
+<br />
+
+## Ben Ilegbodu
+
+<br />
+
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@forwardjs](https://twitter.com/forwardjs)  
+
+<br />
+
+March 1, 2017  
+
+NOTES:
+- My name is Ben Ilegbodu
+- Talk is called "React exposed!" w/ surprised emoji
+- Title is intentionally hyperbolic to grab attention
+
+/////
+
 <!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
 
 # Stand Up!
