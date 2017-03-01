@@ -171,12 +171,12 @@ NOTES:
 ## Conditional JSX
 
 ```
-const Section = ({headingText, content}) => (
+const Section = ({headingText, children}) => (
   <section>
     { if (headingText) { }
 		<h1>{headingText}</h1>
 	{ } }
-    <p>{content}</p>
+    <p>{children}</p>
   </section>
 )
 ```
@@ -196,13 +196,13 @@ NOTES:
 
 ```
 repl: Unexpected token (3:6)
-  1 | const Section = ({headingText, content}) => (
+  1 | const Section = ({headingText, children}) => (
   2 |   <section>
 > 3 |     { if (headingText) { }
     |       ^
   4 | 		<h1>{headingText}</h1>
   5 | 	{ } }
-  6 |     <p>{content}</p>
+  6 |     <p>{children}</p>
 ```
 <!-- .element: class="large" -->
 
@@ -346,7 +346,7 @@ const PageBody = () => (
 
 ```
 const PageBody = () => (
-  React.createElement('aside', null, ' LEFT NAV '),
+  React.createElement('aside', null, ' LEFT NAV ')
   React.createElement('section', null, ' MAIN BODY ')
 )
 ```
@@ -393,7 +393,7 @@ NOTES:
 ## Conditional JSX
 
 ```
-const Section = ({headingText, content}) => {
+const Section = ({headingText, children}) => {
   let heading
 
   if (headingText) {
@@ -403,7 +403,7 @@ const Section = ({headingText, content}) => {
   return (
     <section className="section-correct">
       {heading}
-	  <p>{content}</p>
+	  <p>{children}</p>
     </section>
   )
 }
@@ -420,7 +420,7 @@ NOTES:
 ## Conditional JSX
 
 ```
-const Section = ({headingText, content}) => {
+const Section = ({headingText, children}) => {
   let heading
 
   if (headingText) {
@@ -431,7 +431,7 @@ const Section = ({headingText, content}) => {
     'section',
     {className: 'section-correct'},
     heading,
-    React.createElement('p', null, content)
+    React.createElement('p', null, children)
   )
 }
 ```
@@ -446,10 +446,10 @@ NOTES:
 ## Conditional JSX
 
 ```
-const Section = ({headingText, content}) => (
+const Section = ({headingText, children}) => (
   <section className="section-correct">
     {headingText ? (<h1>{headingText}</h1>) : null}
-	<p>{content}</p>
+	<p>{children}</p>
   </section>
 )
 
@@ -686,7 +686,7 @@ const Form = () => (
 <!-- .element: class="large" -->
 
 ```text
-Warning: InputsPage contains an input of type text with both value
+Warning: Form contains an input of type text with both value
 and defaultValue props. Input elements must be either controlled
 or uncontrolled (specify either the value prop, or the
 defaultValue prop, but not both). Decide between using a
@@ -708,7 +708,7 @@ NOTES:
 
 ```
 const Form = () => (
-	<input type="text" defaultValue="correct" />
+  <input type="text" defaultValue="correct" />
 )
 ```
 <!-- .element: class="large" -->
