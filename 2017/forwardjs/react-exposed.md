@@ -15,7 +15,6 @@ March 1, 2017
 NOTES:
 - My name is Ben Ilegbodu
 - Talk is called "React exposed!" w/ surprised emoji
-- Realized there was no description for the talk so you have no idea what it's gonna be about
 - Title is intentionally hyperbolic to grab attention
 
 /////
@@ -413,7 +412,7 @@ const Section = ({headingText, content}) => {
 
 NOTES:
 - This how you can tackle conditional code
-- We can use JS to do conditionals instead of muddying up our JSX
+- We can use normal JS to do conditionals instead of muddying up our JSX
 - Conditionally assign a variable, and put that in our JSX
 
 /////
@@ -529,7 +528,7 @@ NOTES:
 - It's the `className` & `htmlFor` prop which make it **really** clear that this isn't HTML
 - React chose to mirror the JS DOM API for its props which are all camelCase
 - And that's why its `className` & `htmlFor` instead of the HTML `class` & `for`
-- It's also why it's `onClick`, etc.
+- It's also why it's `onClick`, `onChange`, etc.
 - You need ESLint rules to guard you from using `class` & `for` accidentally
 
 =====
@@ -755,7 +754,7 @@ NOTES:
 - Here we have an example "tricking" react
 - What happens? DEMO!
 
-- Shows that React is basically giving you a single keystroke based on where the cursor is at
+- Shows that React is basically giving you a single keystroke based on where the cursor is at in `SyntheticEvent`
 - Assuming implementation captures `onkeydown` and `preventDefault` instead of true `onChange`
 - This explains why you cannot type; you haven't provided a new value
 
@@ -767,8 +766,8 @@ NOTES:
 class Form extends PureComponent {
   state = {value: 'correct'}
 
-  _handleOnChange(value) {
-	this.setState({value})
+  _handleOnChange(e) {
+	this.setState({value: e.target.value})
   }
 
   render() {
@@ -800,6 +799,7 @@ NOTES:
 - You can get into a situation where what React thinks the value is differs from what the DOM thinks
 - So the virtual DOM diffing on re-render would lose what you typed; didn't know changes
 - The way its implemented prevents a worse situation from happening
+- When you specify `defaultValue`, it knows not to touch the value
 
 =====
 
@@ -812,6 +812,7 @@ NOTES:
 - [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
 
 NOTES:
+- More details I could go into, but I'll leave it at that
 - Did want to leave you with some resources for further reading if you're interested
 
 =====
