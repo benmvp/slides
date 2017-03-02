@@ -445,7 +445,7 @@ const Section = ({headingText, children}) => {
   let heading
 
   if (headingText) {
-    heading = (<h1>{headingText}</h1>)
+    heading = React.createElement('h1', null, headingText)
   }
 
   return React.createElement(
@@ -808,6 +808,9 @@ NOTES:
 - React is expecting you to do something with the additional keystroke
 - And then update the input's `value`
 - Here's the simplest example
+- You'd do this when you need to use the value in React
+- More performant than using refs and asking the DOM for the value
+- Is more code to write
 
 /////
 
