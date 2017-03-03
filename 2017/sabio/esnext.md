@@ -1669,7 +1669,7 @@ NOTES:
 NOTES:
 - Also some useful methods for `Array` too
 
-/////
+=====
 
 ## Object API
 
