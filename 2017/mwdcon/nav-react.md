@@ -146,6 +146,11 @@ $('.btnUp').click(function() {
 ```
 <!-- .element: class="large" -->
 
+<div>
+	<input type="text" class="valueBox" value="0" size="1" style="font-size: 2em" />
+	<button class="btnUp" style="font-size: 2em" onclick="$('.valueBox').val(+$('.valueBox').val() + 1)">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+</div>
+
 NOTES:
 - For simple task, imperative code is easy to follow
 
@@ -154,7 +159,7 @@ NOTES:
 ## Declarative React
 
 ```js
-export default class Incrementer extends React.Component {
+export default class Incrementer extends React.PureComponent {
   state = {value: 0}
 
   _handleClick() {
@@ -167,7 +172,7 @@ export default class Incrementer extends React.Component {
 		<input type="text" value={this.state.value} />
 		<button onClick={this._handleClick.bind(this)}>+</button>
 	  </div>
-    );
+    )
   }
 }
 ```
@@ -304,38 +309,35 @@ NOTES:
 Help gather dependencies, transpile ES6+, etc.
 
 <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 15%;">
+	<div style="flex:0 0 18%;">
         <a href="https://webpack.github.io/"><img
             src="../../img/nav-react/webpack-logo.png"
             style="background:none;box-shadow:none;border:none;"
         /></a>
 		<a href="https://webpack.github.io/">Webpack</a>
     </div>
-	<div style="flex:0 0 15%;">
-		<a href="https://github.com/systemjs/systemjs">SystemJS</a>
-    </div>
-	<div style="flex:0 0 15%;">
+	<div style="flex:0 0 18%;">
         <a href="http://browserify.org/"><img
             src="../../img/nav-react/browserify-logo.png"
             style="background:none;box-shadow:none;border:none;"
         /></a>
 		<a href="http://browserify.org/">Browserify</a>
     </div>
-	<div style="flex:0 0 15%;">
+	<div style="flex:0 0 18%;">
         <a href="http://rollupjs.org/"><img
             src="../../img/nav-react/rollup-logo.svg"
             style="background:none;box-shadow:none;border:none;"
         /></a>
 		<a href="http://rollupjs.org/">Rollup</a>
     </div>
-	<div style="flex:0 0 15%;">
+	<div style="flex:0 0 18%;">
         <a href="http://jspm.io/"><img
             src="../../img/nav-react/jspm-logo.svg"
             style="background:none;box-shadow:none;border:none;"
         /></a>
 		<a href="http://jspm.io/">JSPM</a>
     </div>
-    <div style="flex:0 0 17%;">
+    <div style="flex:0 0 18%;">
         <a href="http://requirejs.org/"><img
             src="../../img/nav-react/requirejs-logo.png"
             style="background:none;box-shadow:none;border:none;"
@@ -387,10 +389,10 @@ console.log(cube(5)) // 125
 
 // This function gets included
 function cube(x) {
-	return x \* x \* x;
+	return x \* x \* x
 }
 
-console.log(cube(5)); // 125
+console.log(cube(5)) // 125
 		</pre>
 	</div>
 </div>
@@ -405,28 +407,21 @@ NOTES:
 Help execute shell commands, generate files, etc.
 
 <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 20%;">
+	<div style="flex:0 0 25%;">
         <a href="http://gruntjs.com/"><img
             src="../../img/nav-react/grunt-logo.svg"
             style="background:none;box-shadow:none;border:none;width:100%"
         /></a>
 		<a href="http://gruntjs.com/">Grunt</a>
     </div>
-	<div style="flex:0 0 20%;">
+	<div style="flex:0 0 25%;">
         <a href="http://gulpjs.com/" style="display:block"><img
             src="../../img/nav-react/gulp-logo.svg"
             style="background:none;box-shadow:none;border:none;max-width:100%"
         /></a>
 		<a href="http://gulpjs.com/">Gulp</a>
     </div>
-	<div style="flex:0 0 20%;">
-        <a href="nav-react.html"><img
-            src="../../img/nav-react/burp.png"
-            style="background:none;box-shadow:none;border:none;"
-        /></a>
-		<a href="nav-react.html">Burp</a>
-    </div>
-	<div style="flex:0 0 20%">
+	<div style="flex:0 0 25%">
         <a href="http://www.benmvp.com"><img
             src="../../img/nav-react/npm-logo.png"
             style="background:none;box-shadow:none;border:none;"
@@ -617,18 +612,13 @@ NOTES:
 Use CSS that exists on the page outside of React
 
 ```js
-export default class Card extends React.Component {
-  render() {
-	let {title, imageUrl, message} = this.props
-	return (
-	  <div className="card">
-	    <h2 className="card__title">{title}</h2>
-		<img src={imageUrl} className="card__image" />
-		<p className="card__message">{message}</p>
-	  </div>
-    )
-  }
-}
+const Card = ({title, imageUrl, message}) => (
+  <div className="card">
+    <h2 className="card__title">{title}</h2>
+	<img src={imageUrl} className="card__image" />
+	<p className="card__message">{message}</p>
+  </div>
+)
 ```
 <!-- .element: class="large" style="margin:5% 0" -->
 
@@ -668,18 +658,14 @@ Associate React components with CSS snippet
 
 ```js
 import './Card.scss'
-export default class Card extends React.Component {
-  render() {
-	let {title, imageUrl, message} = this.props
-	return (
-	  <div className="card">
-	    <h2 className="card__title">{title}</h2>
-		<img src={imageUrl} className="card__image" />
-		<p className="card__message">{message}</p>
-	  </div>
-    )
-  }
-}
+
+const Card = ({title, imageUrl, message}) => (
+  <div className="card">
+    <h2 className="card__title">{title}</h2>
+	<img src={imageUrl} className="card__image" />
+	<p className="card__message">{message}</p>
+  </div>
+)
 ```
 <!-- .element: class="large" style="margin:5% 0" -->
 
@@ -716,18 +702,14 @@ Automatically scope CSS class names to the component
 
 ```js
 import css from './Card.scss'
-export default class Card extends React.Component {
-  render() {
-	let {title, imageUrl, message} = this.props
-	return (
-	  <div className={css.root}>
-	    <h2 className={css.title}>{title}</h2>
-		<img src={imageUrl} className={css.image} />
-		<p className={css.message}>{message}</p>
-	  </div>
-    )
-  }
-}
+
+const Card = ({title, imageUrl, message}) => (
+  <div className={css.root}>
+    <h2 className={css.title}>{title}</h2>
+	<img src={imageUrl} className={css.image} />
+	<p className={css.message}>{message}</p>
+  </div>
+)
 ```
 <!-- .element: class="large" style="margin:5% 0" -->
 
@@ -782,18 +764,14 @@ Forgo CSS classes in favor of inline styles
 
 ```js
 const styles = { /* */ }
-export default class Card extends React.Component {
-  render() {
-	let {title, imageUrl, message} = this.props
-	return (
-	  <div style={styles.root}>
-	    <h2 style={styles.title}>{title}</h2>
-		<img src={imageUrl} style={styles.image} />
-		<p style={styles.message}>{message}</p>
-	  </div>
-    )
-  }
-}
+
+const Card = ({title, imageUrl, message}) => (
+  <div style={styles.root}>
+    <h2 style={styles.title}>{title}</h2>
+	<img src={imageUrl} style={styles.image} />
+	<p style={styles.message}>{message}</p>
+  </div>
+)
 ```
 <!-- .element: class="large" style="margin:5% 0" -->
 
@@ -853,11 +831,13 @@ Handle AJAX natively
 ```js
 fetch('http://www.benmvp.com/', {
 	method: 'get'
-}).then((response) => {
-	// do something w/ response
-}).catch((err) => {
-	// handle error
 })
+  .then((response) => {
+	// do something w/ response
+  })
+  .catch((err) => {
+	// handle error
+  })
 ```
 <!-- .element: class="large" style="margin:5% 0" -->
 
@@ -981,13 +961,12 @@ NOTES:
 import {mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
 import Component from './Component'
-import Checkbox from '../components/Checkbox'
 
 it('should render a checked checkbox if it is selected', () => {
     let wrapper = mount(<Component isSelected={true} />)
 
     expect(toJson(wrapper)).toMatchSnapshot()
-});
+})
 ```
 <!-- .element class="large" style="margin:5% 0" -->
 
