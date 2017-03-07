@@ -299,13 +299,13 @@ var Comment = React.createClass({
     // code using Remarkable dependency
 })
 var CommentList = React.createClass({
-    // code using Comment
+    // code using Comment component
 })
 var CommentForm = React.createClass({
     // code w/ no dependencies
 })
 var App = React.createClass({
-    // code using CommentForm & CommentList
+    // code using CommentForm & CommentList component
 })
 ReactDOM.render(<App url="/api/comments" pollInterval={2000} />,
     document.getElementById('app'))
@@ -353,7 +353,7 @@ import React from 'react'
 import Comment from './Comment'
 
 var CommentList = React.createClass({
-    // code using Comment
+    // code using Comment component
 })
 
 export default CommentList
@@ -378,7 +378,7 @@ import CommentList from '../components/CommentList'
 import CommentForm from '../components/CommentForm'
 
 var App = React.createClass({
-    // code using CommentForm & CommentList
+    // code using CommentForm & CommentList components
 })
 
 export default App
@@ -661,8 +661,7 @@ NOTES:
 
 ```js
 _handleSubmit(e) {
-    var author,
-        text
+    var author, text
 
     e.preventDefault()
 
@@ -1764,11 +1763,11 @@ Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 =====
 
-# Quiz Time
+# Quiz Time!
 
 =====
 
-# Exercises Time
+# Exercises Time!
 <!-- .element: style="margin-bottom: 1.5em" -->
 
 [github.com/kentcdodds/es6-workshop](https://github.com/kentcdodds/es6-workshop)
