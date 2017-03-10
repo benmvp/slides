@@ -93,8 +93,8 @@ NOTES:
 ## Agenda
 
 0. Destructuring
-0. Arrow functions
 0. Spread operator
+0. Arrow functions
 0. Promises
 0. Async functions
 
@@ -117,35 +117,36 @@ NOTES:
 ## ES5
 
 ```js
+// App.js
 _handleCommentSubmit: function(comment) {
-  var comments = this.state.comments;
-  var newComment = comment;
-  var newComments;
+	var comments = this.state.comments;
+	var newComment = comment;
+	var newComments;
 
-  newComment.id = Date.now();
+	newComment.id = Date.now();
 
-  newComments = comments.concat([newComment]);
-  this.setState({comments: newComments});
+	newComments = comments.concat([newComment]);
+	this.setState({comments: newComments});
 
-  $.ajax({
-	url: this.props.url,
-	type: 'POST',
-	data: comment,
-	success: function(resComments) {
-		this.setState({comments: resComments});
-	}.bind(this),
-	error: function(xhr, status, err) {
-		this.setState({comments: comments});
-		console.error(this.props.url, status, err.toString());
-	}.bind(this)
-  });
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+			this.setState({comments: resComments});
+		}.bind(this),
+		error: function(xhr, status, err) {
+			this.setState({comments: comments});
+			console.error(this.props.url, status, err.toString());
+		}.bind(this)
+	});
 }
 ```
 <!-- .element: class="small" -->
 
 NOTES:
 - Here's just one method in the original ES5 code
-- Handles submission of the form via AJAX (w/ optimistic updates)
+- Handles submission of the form via AJAX (w/ optimistic updates) in top-level App container component
 - Uses `concat` to maintain immutability when adding `newComment`
 - Uses jQuery to make AJAX call
 - Ugly use of `.bind()` in callbacks
@@ -155,35 +156,416 @@ NOTES:
 ## ES.next
 
 ```js
+// App.js
 async _handleCommentSubmit(comment) {
-  let {comments} = this.state
-  let newComment = {...comment, id: Date.now()}
-  let newComments = [...comments, newComment]
+	let {comments} = this.state
+	let newComment = {...comment, id: Date.now()}
+	let newComments = [...comments, newComment]
 
-  this.setState({comments: newComments})
+	this.setState({comments: newComments})
 
-  try {
-    let res = await fetch(this.props.url, {
-      method: 'POST',
-      body: JSON.stringify(comment)
-    })
-    newComments = res.json()
-  } catch(ex) {
-	console.error(this.props.url, ex)
-    newComments = comments
-  }
+	try {
+		let res = await fetch(this.props.url, {
+			method: 'POST',
+			body: JSON.stringify(comment)
+		})
+		newComments = res.json()
+	} catch(ex) {
+		console.error(this.props.url, ex)
+		newComments = comments
+	}
 
-  this.setState({comments: newComments})
+	this.setState({comments: newComments})
 }
 ```
+
+NOTES:
+- This version is a little bit shorter
+- But leverages lots of new ES goodies
+- You may notice the `async` & `await` keywords for async functions
+- Those ellipses are the spread operator
+- All the `var` statements are replaced with `let` (no time to talk about that)
+
+=====
+
+```js
+// App.js
+
+_handleCommentSubmit(comment) {
+	let comments = this.state.comments
+
+	// remaining code
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+
+- Let's jump right in
+- Converted the `let` declarations to `var`, removed those unnecessary semicolons
+- Want to focus on the first statement
+- Pulling out the `comments` property from `this.state` and assigning it to a variable with the same name
+
+/////
+
+# Destructuring
+
+Replace multiple assignments with a single one
+
+<br />
+<br />
+
+[_Learning ES6: Destructuring_](http://www.benmvp.com/learning-es6-destructuring/)
+
+NOTES:
+- It's called Destructuring
+- With destructuring we can reduce multiple assignments down to one
+- Be advised, destructuring is probably the most "out there" syntax addition
+- It's ok if you don't understand it at first
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I'm afraid that after we cover destructuring, you'll feel like this...
+- But stick with me...
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/brad-pitt-dancing.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- Eventually I think you'll be super excited about them
+
+/////
+
+###### Destructuring
+
+"DRY-er" assignment!
+
+```js
+// App.js
+
+_handleCommentSubmit(comment) {
+	let {comments} = this.state
+
+	// remaining code
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+##### Before
+
+```js
+_handleCommentSubmit(comment) {
+	let comments = this.state.comments
+
+	// remaining code
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Uses object literal pattern
+- Removes the duplication of `comments`
+- But we're only seeing one variable declared, so we're not seeing the full power of destructuring
+- So let's look at a different example in `CommentForm` with more properties in `this.state`
+
+/////
+
+###### Destructuring
+
+Object destructuring!
+
+```js
+// before
+let author = this.state.author
+let text = this.state.text
+
+// after
+let {author, text} = this.state
+```
+<!-- .element: class="large" -->
+
+<br />
+
+```js
+// before
+let authorName = this.state.author
+let fullText = this.state.text
+
+// after
+let {author: authorName, text: fullText} = this.state
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- We can also create a differently named variable
+
+/////
+
+###### Destructuring
+
+Named parameters!
+
+```js
+// after
+function MyComponent({style, content}) {
+    return (
+        <div style={style}>{content}</div>
+    )
+}
+
+// before
+function MyComponent(props) {
+    return (
+        <div style={props.style}>{props.content}</div>
+    )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- React supports stateless functions which receive the `props` as a parameter
+- You can immediately destructure `props` into the properties you need
+
+=====
+
+```js
+// App.js
+
+_handleCommentSubmit(comment) {
+	let {comments} = this.state
+
+	// assignment, not a copy!
+	let newComment = comment
+
+	// also mutating `comment` param!
+	newComment.id = Date.now()
+
+	// clone `comments` + append `newComment`
+	let newComments = comments.concat([newComment])
+
+	// state setting + ajax stuffs
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Here's more of our code, annotated a bit
+- Adding `id` property to `comment` to create `newComment` (except we're mutating)
+- Then appending `newComment` to `comments` via `concat` to maintain immutability
+
+/////
+
+# Spread operator
+
+Maintain immutability with the spread operator
+
+<br />
+<br />
+
+[_Learning ES6: Parameter handling_](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator)
+
+/////
+
+###### Spread operator
+
+Maintain immutability!
+
+```js
+_handleCommentSubmit(comment) {
+	let {comments} = this.state
+	let newComment = {...comment, id: Date.now()}
+	let newComments = [...comments, newComment]
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+##### Before
+
+```js
+_handleCommentSubmit(comment) {
+	let {comments} = this.state
+	let newComment = comment
+
+	newComment.id = Date.now()
+
+	let newComments = comments.concat([newComment])
+}
+```
+<!-- .element: class="large" -->
+
+/////
+
+`Math.max.apply`???
+
+```js
+var maxValueNormal = Math.max(33, 2, 9),
+    arrayOfValues = [33, 2, 9],
+    maxValueFromArray = Math.max.apply(null, arrayOfValues)
+
+// output: 33  33
+console.log(maxValueNormal, maxValueFromArray)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+_[21 minutes]_
+
+- `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
+- If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
+- `apply` converts the array of values into a sequence of parameters
+- But it's kind of esoteric
+  - Plus you have to specify `null` as the context
+- Maybe there's an ES6 feature for this?
+
+/////
+
+###### Spread operator
+
+No more `apply`!
+
+```js
+let arrayOfValues = [33, 2, 9]
+let maxValueFromArray = Math.max(...arrayOfValues)
+
+// output: 33
+console.log(maxValueFromArray)
+```
+<!-- .element: class="large" -->
+
+<br />
+
+-----
+
+#### ES5 way
+
+```js
+var arrayOfValues = [33, 2, 9],
+    maxValueFromArray = Math.max.apply(null, arrayOfValues)
+
+// output: 33
+console.log(maxValueFromArray)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Instead of calling `apply` we can use the spread operator
+- It's 3 dots preceding a parameter in a function call
+- The spread operator _spreads_ out the array into individual parameters
+
+/////
+
+###### Spread operator
+
+Creating an array
+
+```js
+// verbose
+let array = new Array(2, 3, 4)
+
+// shorthand
+let array = [2, 3, 4]
+```
+<!-- .element: class="large" -->
+
+------
+
+Spreading into an array
+
+```js
+// [1, 2, 3, 4, 5]
+let verbose = new Array(1, ...array, 5)
+
+// [1, 2, 3, 4, 5]
+let shorthand = [1, ...array, 5]
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- So what does this have to do w/ maintaining immutability?
+
+/////
+
+###### Spread operator
+
+Spread operator with object literals!
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = {
+    ...warriors,
+    Kevin: 97
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = _.assign({}, warriors, {
+    Kevin: 97
+})
+```
+<!-- .element: class="large" -->
+
+[Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+NOTES:
+- Now we copy objects while adding new properties in one object literal definition
+- It's a Stage 3 ES feature
+- The ES5 way was to use `_.assign()`
+- ES6 did introduce Object.assign() to handle this as well, but I'll always prefer syntax
+
+/////
+
+###### Spread operator
+
+[JSX spread attributes](https://facebook.github.io/react/docs/jsx-spread.html)!
+
+```js
+function WrapperComponent(props) {
+    return (
+        <InnerComponent {...props} />
+    )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Similar to object spread, are JSX spread attributes
+- It allows you to take an object and make all of its properties attributes on a component
+- I tend to avoid it in favor of being explicit about the attributes I'm setting
+
+/////
+
+```js
+_handleCommentSubmit(comment) {
+	let {comments} = this.state
+	let newComment = {...comment, id: Date.now()}
+	let newComments = [...comments, newComment]
+
+	// state setting + ajax stuffs
+}
+```
+<!-- .element: class="large" -->
 
 =====
 
 ## Recap
 
 0. Destructuring
-0. Arrow functions
 0. Spread operator
+0. Arrow functions
 0. Promises
 0. Async functions
 
