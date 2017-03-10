@@ -548,16 +548,256 @@ NOTES:
 
 /////
 
+###### Spread operator
+
 ```js
 _handleCommentSubmit(comment) {
 	let {comments} = this.state
 	let newComment = {...comment, id: Date.now()}
 	let newComments = [...comments, newComment]
-
-	// state setting + ajax stuffs
 }
 ```
 <!-- .element: class="large" -->
+
+NOTES:
+- So now these lines make a bit more sense knowing how the spread operator works
+
+===== <!-- .slide: data-transition="fade" -->
+
+Where's the bug?
+
+```js
+_handleCommentSubmit(comment) {
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+
+			this.setState({comments: resComments})
+		}
+	})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Can anyone spot the mistake in this code?
+- It's a modified version of the ajax call to submit the comment
+- We're passing a callback to `success` of the `ajax` request
+- The callback calls `this.setState` with the returned data
+- And no the bug is not using `jQuery`
+
+///// <!-- .slide: data-transition="fade" -->
+
+Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
+
+```js
+_handleCommentSubmit(comment) {
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+			// `this` is undefined!
+			this.setState({comments: resComments})
+		}
+	})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `this` is `undefined` in the callback function in strict mode
+- `this` is the global scope (window) in loose mode
+- Something that newbies scratch their head about
+- Experienced JavaScript developers still run into it
+- _[Water break]_
+
+/////
+
+ES3 fix
+
+```js
+_handleCommentSubmit: function(comment) {
+    var self = this // store reference to `this`
+
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+			// `self` is available in scope
+            self.setState({comments: resComments})
+		}
+	})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- In ES3, we solved this by storing a reference to `this` in a variable so that it’s available in the scope of the anonymous function
+- Works, but pretty much every method has to assign `self` variable
+
+/////
+
+ES5 fix
+
+```js
+// in App.js
+
+_handleCommentSubmit: function(comment) {
+	// initializations
+
+    $.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+            this.setState({comments: resComments})
+		}.bind(this) // pass in proper `this` context
+	})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
+- Underscore and other shim have a bind method so it can work with ES3 browsers
+- This is what the React tutorial does
+- Works, but messy syntax
+- We need something better!
+
+/////
+
+# Arrow functions
+
+Replace anonymous functions with arrow functions
+
+<br />
+<br />
+
+[_Learning ES6: Arrow functions_](http://www.benmvp.com/learning-es6-arrow-functions/)
+
+NOTES:
+- With arrow functions we can stop using anonymous functions
+
+/////
+
+###### Arrow functions
+
+Arrow functions works how you would expect!
+
+```js
+$.ajax({
+	url: this.props.url,
+	data: comment,
+	success: (resComments) => {
+		this.setState({comments: resComments})
+	}
+})
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+$.ajax({
+	url: this.props.url,
+	data: comment,
+	success: function(resComments) {
+		this.setState({comments: resComments})
+	}.bind(this) // pass in proper `this` context
+})
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- Arrow functions in ES6 solve this problem
+- Arrow functions use what’s called “lexical scoping” for `this`
+  - It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
+  - Essentially arrow functions work how you would expect it to
+- An arrow function is literally an arrow (fat arrow) between parameters and body
+
+/////
+
+###### Arrow functions
+
+```js
+let squares = [1, 2, 3].map(value => value * value)
+```
+<!-- .element: class="large" -->
+
+```js
+let sum = [9, 8, 7, 6].reduce((prev, value) => prev + value, 0)
+```
+<!-- .element: class="large" -->
+
+```js
+setTimeout(() => {
+	console.log('delayed for 1 second')
+	console.log('using arrow function')
+}, 1000)
+```
+<!-- .element: class="large" -->
+
+```js
+const alertUser = (message) => {
+	alert(message)
+})
+```
+<!-- .element: class="large" -->
+
+```js
+const MyComponent = ({style, content}) => (
+    <div style={style}>{content}</div>
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- You’ll find that arrow functions come in handy most when used as a callback function.
+  - The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
+  - Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
+- This also shows the different formats of arrow functions
+  - Parentheses can be omitted if there is one parameter
+  - Curly braces can be omitted if there's just a single `return` line
+- The last example is a stateless function using arrow functions with header destructuring
+
+=====
+
+```js
+_handleCommentSubmit(comment) {
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: (resComments) => {
+			this.setState({comments: resComments})
+		},
+		error: function(xhr, status, err) => {
+			this.setState({comments: comments});
+			console.error(this.props.url, status, err.toString())
+		}
+	});
+}
+```
+<!-- .element: class="large" -->
+
+/////
+
+
 
 =====
 
