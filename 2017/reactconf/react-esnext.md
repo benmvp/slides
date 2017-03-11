@@ -138,7 +138,7 @@ _handleCommentSubmit(comment) {
 			this.setState({comments: resJson});
 		}.bind(this),
 		error: function(xhr, status, err) {
-			this.setState({comments: comments});
+			this.setState({comments});
 			console.error(this.props.url, status, err.toString());
 		}.bind(this)
 	});
@@ -149,7 +149,7 @@ _handleCommentSubmit(comment) {
 NOTES:
 - Want to just focus on this one method in top-level App container component
 - Handles submission of the form via AJAX (w/ optimistic updates)
-- Because of time constraints already has some ES6: class syntax, `let`, etc.
+- Because of time constraints already has some ES6: class syntax, `let`, object literal, shorthand, etc.
 - Uses `concat` to maintain immutability when adding `newComment`
 - Uses jQuery to make AJAX call
 - Ugly use of `.bind()` in callbacks
@@ -763,7 +763,7 @@ _handleCommentSubmit(comment) {
 			this.setState({comments: resJson})
 		},
 		error: function(xhr, status, err) => {
-			this.setState({comments: comments});
+			this.setState({comments});
 			console.error(this.props.url, status, err.toString())
 		}
 	});
@@ -773,6 +773,8 @@ _handleCommentSubmit(comment) {
 
 NOTES:
 - So this is what our AJAX call looks like
+- On success, it updates the comments state w/ the response
+- On fail, it resets the comments state w/ the previous value
 - It's fine, but I don't like using jQuery, especially just for ajax
 - Including it could lead to proper React development, relying too much on refs
 - In addition, callbacks are so 2013
@@ -790,7 +792,7 @@ Replace callbacks with promises
 [_Learning ES6: Promises_](http://www.benmvp.com/learning-es6-promises/)
 
 NOTES:
-- With promises we can stop using callback functions
+- With promises we can stop using callback-style programming
 - This is where we start to ratchet it up a bit
 
 /////
@@ -957,6 +959,166 @@ NOTES:
 - Asynchronous programming still makes you write code control flow differently
 - Until...
 
+/////
+
+# Async Functions
+
+Use normal control flow with `async`/`await`
+
+<br />
+<br />
+
+[_Exploring ES2016 and ES2017: Async functions_](http://exploringjs.com/es2016-es2017/ch_async-functions.html)
+
+NOTES:
+- With async functions we can use normal control flow with `async`/`await`
+
+/////
+
+###### Async Functions
+
+Synchronous control flow!
+
+```js
+async _handleCommentSubmit(comment) {
+	// initializations
+
+	try {
+		let res = await fetch(this.props.url, {
+			method: 'POST',
+			body: JSON.stringify(comment)
+		})
+		newComments = res.json()
+	} catch (ex) {
+		console.error(this.props.url, ex)
+		newComments = comments
+	}
+
+	this.setState({comments: newComments})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- So here we are: no more anonymous arrow functions
+- We have asynchronous code because we're making a `fetch` but it looks like normal synchronous code
+- The key are the new `async` & `await` keywords being introduced in ES2017
+- Declare the function/method as `async`
+- Then in your code any function that returns a promise can use `await`
+- The code literally sits there until the promise is resolved; then it gets assigned
+- It's non-blocking (control is returned to event loop), but it waits
+- And you handle exceptions the same way you always do, with a `try-catch`
+- How does this all work?
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/shia-magic.gif) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- It's basically magic... well it's probably the closest thing we have to magic in JavaScript
+- If you take a peek at all Babel has to do you'll see that it's basically magic
+- But in reality async functions bring together Promises & Generators for synchronous control flow
+
+/////
+
+###### Async Functions
+
+```js
+const funWithAsync = async () => {
+  let uniqueCommentAuthors = await getUniqueCommentAuthors()
+
+  await wait(1500)
+
+  let packageInfo = JSON.parse(await readFile('./package.json'))
+
+  await wait(3000)
+
+  let [comments, posts, users] = await Promise.all([
+    fetchComments(),
+    fetchPosts(),
+    fetchUsers()
+  ])
+
+  return 42
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Remember all of our Promise-based functions from earlier
+- Well inside of an `async` function, we can `await` all of their values
+- Return values are always promises so 42 will get wrapped in a promise
+- This means something else can `await` `funWithAsync` in sync control flow
+
+=====
+
+### Before
+
+```js
+// App.js
+_handleCommentSubmit(comment) {
+	let comments = this.state.comments;
+	let newComment = comment;
+	let newComments;
+
+	newComment.id = Date.now();
+
+	newComments = comments.concat([newComment]);
+	this.setState({comments: newComments});
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resJson) {
+			this.setState({comments: resJson});
+		}.bind(this),
+		error: function(xhr, status, err) {
+			this.setState({comments});
+			console.error(this.props.url, status, err.toString());
+		}.bind(this)
+	});
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- So if you recall this was our original code
+- And with everything we learned, it turned into...
+
+/////
+
+### After
+
+```js
+// App.js
+async _handleCommentSubmit(comment) {
+	let {comments} = this.state
+	let newComment = {...comment, id: Date.now()}
+	let newComments = [...comments, newComment]
+
+	this.setState({comments: newComments})
+
+	try {
+		let res = await fetch(this.props.url, {
+			method: 'POST',
+			body: JSON.stringify(comment)
+		})
+		newComments = res.json()
+	} catch(ex) {
+		console.error(this.props.url, ex)
+		newComments = comments
+	}
+
+	this.setState({comments: newComments})
+}
+```
+
+NOTES:
+- Uses destructuring, spread operator
+- Promises & arrow functions behind the scenes
+- And async functions from and center
+
 =====
 
 [![react-esnext Gitub repo](../../img/react-esnext/repo.png)](https://github.com/benmvp/react-esnext)
@@ -971,10 +1133,10 @@ NOTES:
 
 ## Additional resources
 
-- [React official tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
 - [_Learning ES6_ series](/learning-es6-series/)
 - [_Async functions_](http://exploringjs.com/es2016-es2017/ch_async-functions.html)
-- [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
+- [Eventbrite ES6+ coding style guide](https://github.com/eventbrite/javascript/tree/master/es6)
+- [Eventbrite React coding style guide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite React ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
 
 =====
@@ -991,12 +1153,22 @@ NOTES:
 <!-- .element: style="width: 50%; border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
--
+- Truly an honor & privilege to be here
+- Two years ago I didn't even know what React was
+- Last year all I wanted to do was attend _React Conf_ (_echoes_)
+- And now I'm here sharing with you
+- Simply amazing
+- Thanks to Tom, Ben, Beth & the rest of the team for the opportunity
 
 /////
 
-![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+
+NOTES:
+- I'm here in part because Eventbrite allowed my Frontend Platform team to make the transition from Backbone to React
+- So thanks to the leadership for that trust
+- Also thanks for continued support in speaking at conference to share what I know and what we've been doing
 
 /////
 
@@ -1004,6 +1176,8 @@ NOTES:
 <!-- .element: style="font-size:12em" -->
 
 NOTES:
+- Thanks to you in the audience for staying and not trying to get a jump on the lunch line
+- And for those tuning in too
 - It's my hope that, the main reason I do this, is so you learn something new to make you a better developer
 - Any feedback would be appreciated!
 
