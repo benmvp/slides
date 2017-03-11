@@ -101,8 +101,10 @@ NOTES:
 NOTES:
 - Here's the agenda
 - One of the things I like about React is that it's basically JavaScript, outside JSX & lifecycle things
-- So in the little time we have together wanted to focus on the features you're most likely to use building apps
-- And then throw in some fun at the end
+- So in the little time we have together wanted to focus on these features
+- Reason picking these 5 features is because they'll help write clear & concise code
+- They target a wide range of audiences
+- Will see other features along the way that I will explain quickly
 
 /////
 
@@ -795,9 +797,184 @@ _handleCommentSubmit(comment) {
 ```
 <!-- .element: class="large" -->
 
+NOTES:
+- So this is what our AJAX call looks like
+- It's fine, but I don't like using jQuery, especially just for ajax
+- Including it could lead to proper React development, relying too much on refs
+- In addition, callbacks are so 2013
+- There's gotta be something better!
+
 /////
 
+# Promises
 
+Replace callbacks with promises
+
+<br />
+<br />
+
+[_Learning ES6: Promises_](http://www.benmvp.com/learning-es6-promises/)
+
+NOTES:
+- With promises we can stop using callback functions
+- This is where we start to ratchet it up a bit
+
+/////
+
+###### Promises
+
+New [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) + Promises
+
+```js
+_handleCommentSubmit(comment) {
+  // initializations
+
+  fetch(this.props.url, {
+    method: 'POST',
+    body: JSON.stringify(comment)
+  })
+    .then((res) => res.json())
+    .then((resComments) => this.setState({comments: resComments}))
+    .catch((ex) => {
+      this.setState({comments});
+      console.error(this.props.url, ex);
+    });
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- We can replace jquery ajax with Fetch browser API which gives us `window.fetch`
+- Instead of taking callback functions, it's promised-based so it returns a promise
+- Pretty much all future asynchronous APIs will be promised-based
+- Because promises are more flexible than callbacks
+
+/////
+
+###### Promises
+
+Passing promises + chaining reactions
+
+```js
+const fetchJson = (path) => (
+  fetch(`${DOMAIN}${path}`)
+    .then((res) => res.json())
+    .catch((ex) => console.error('Request failure', ex))
+)
+```
+<!-- .element: class="large" -->
+
+```js
+const fetchComments = () => fetchJson('/comments')
+```
+<!-- .element: class="large" -->
+
+```js
+const getUniqueCommentAuthors = () => (
+  fetchComments()
+    .then((comments) => comments.map(({author}) => author))
+    .then((authors) => _.uniq(authors))
+	.catch((ex) => console.error('Something bad happened', ex))
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's take a look at what a typical set of API utils might look like
+- This shows the power of promises
+- At the bottom we have a function that gets the unique set of comment authors
+- It does that by making a call to `fetchComments` that returns a promise
+- We set that `fetchComments` actually returns the result of `fetchJson`
+- The promise that `fetch` returns is "resolved" when the API request returns
+- The `then` & `catch` are called "reactions"
+- If the request is successful, `then` it'll convert the response to JSON
+- If the request is unsuccessful OR the JSON parsing fails, then `console.error`
+
+/////
+
+###### Promises
+
+Converting callbacks to Promises
+
+```js
+const sleep = (delay = 0) => (
+    new Promise((resolve) => {
+        setTimeout(resolve, delay)
+    })
+)
+
+sleep(3000)
+  .then(() => getUniqueCommentAuthors())
+```
+<!-- .element: class="large" -->
+
+Sleep function... in JavaScript!
+
+/////
+
+###### Promises
+
+Converting callbacks to Promises
+
+```js
+const readFile = (filePath) => (
+	new Promise((resolve, reject) => {
+		fs.readFile(filePath, (err, data) => {
+			if (err) reject(err)
+			resolve(data)
+		})
+	})
+)
+
+readFile('path/to/file')
+  .then((data) => console.log('Here is the data', data))
+  .catch((ex) => console.error('Arg!', ex))
+```
+<!-- .element: class="large" -->
+
+Friendlier Node file system methods!
+
+/////
+
+###### Promises
+
+Simultaneous async requests
+
+```js
+Promise.all([
+	fetchComments(),
+	fetchPosts(),
+	fetchUsers()
+])
+  .then(([comments, posts, users]) => {
+	  console.log(comments)
+	  console.log(posts)
+	  console.log(users)
+  })
+```
+<!-- .element: class="large" -->
+
+=====
+
+New [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) + Promises
+
+```js
+_handleCommentSubmit(comment) {
+  // initializations
+
+  fetch(this.props.url, {
+    method: 'POST',
+    body: JSON.stringify(comment)
+  })
+    .then((res) => res.json())
+    .then((resComments) => this.setState({comments: resComments}))
+    .catch((ex) => {
+      this.setState({comments});
+      console.error(this.props.url, ex);
+    });
+}
+```
+<!-- .element: class="large" -->
 
 =====
 
