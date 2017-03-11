@@ -75,9 +75,9 @@ _[1 minute]_
 NOTES:
 - Currently a Senior UI Engineer and Frontend Platform Manager at Eventbrite
 - Eventbrite is an online ticketing & events platform
+- Like to call it Ticketmaster but for the people!
 - Many conferences use it for registration
 - I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
-- Python/Django backend, but using a Node daemon to render React components server-side
 
 /////
 
@@ -116,14 +116,14 @@ NOTES:
 
 /////
 
-## ES5
+Let's get to work!
 
 ```js
 // App.js
-_handleCommentSubmit: function(comment) {
-	var comments = this.state.comments;
-	var newComment = comment;
-	var newComments;
+_handleCommentSubmit(comment) {
+	let comments = this.state.comments;
+	let newComment = comment;
+	let newComments;
 
 	newComment.id = Date.now();
 
@@ -134,8 +134,8 @@ _handleCommentSubmit: function(comment) {
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: function(resComments) {
-			this.setState({comments: resComments});
+		success: function(resJson) {
+			this.setState({comments: resJson});
 		}.bind(this),
 		error: function(xhr, status, err) {
 			this.setState({comments: comments});
@@ -147,46 +147,13 @@ _handleCommentSubmit: function(comment) {
 <!-- .element: class="small" -->
 
 NOTES:
-- Here's just one method in the original ES5 code
-- Handles submission of the form via AJAX (w/ optimistic updates) in top-level App container component
+- Want to just focus on this one method in top-level App container component
+- Handles submission of the form via AJAX (w/ optimistic updates)
+- Because of time constraints already has some ES6: class syntax, `let`, etc.
 - Uses `concat` to maintain immutability when adding `newComment`
 - Uses jQuery to make AJAX call
 - Ugly use of `.bind()` in callbacks
-
-/////
-
-## ES.next
-
-```js
-// App.js
-async _handleCommentSubmit(comment) {
-	let {comments} = this.state
-	let newComment = {...comment, id: Date.now()}
-	let newComments = [...comments, newComment]
-
-	this.setState({comments: newComments})
-
-	try {
-		let res = await fetch(this.props.url, {
-			method: 'POST',
-			body: JSON.stringify(comment)
-		})
-		newComments = res.json()
-	} catch(ex) {
-		console.error(this.props.url, ex)
-		newComments = comments
-	}
-
-	this.setState({comments: newComments})
-}
-```
-
-NOTES:
-- This version is a little bit shorter
-- But leverages lots of new ES goodies
-- You may notice the `async` & `await` keywords for async functions
-- Those ellipses are the spread operator
-- All the `var` statements are replaced with `let` (no time to talk about that)
+- We'll use the 5 features to modernize things
 
 =====
 
@@ -315,18 +282,23 @@ Named parameters!
 
 ```js
 // after
-function MyComponent({style, content}) {
+function MyComponent({children, style}) {
     return (
-        <div style={style}>{content}</div>
+        <div style={style}>{children}</div>
     )
 }
 
 // before
 function MyComponent(props) {
     return (
-        <div style={props.style}>{props.content}</div>
+        <div style={props.style}>{props.children}</div>
     )
 }
+```
+<!-- .element: class="large" -->
+
+```js
+<MyComponent style="dark">Stateless func!</MyComponent>
 ```
 <!-- .element: class="large" -->
 
@@ -537,7 +509,11 @@ NOTES:
 ```js
 function WrapperComponent(props) {
     return (
-        <InnerComponent {...props} />
+        <InnerComponent
+			{...props}
+			style="light"
+			size="large"
+		/>
     )
 }
 ```
@@ -576,9 +552,9 @@ _handleCommentSubmit(comment) {
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: function(resComments) {
+		success: function(resJson) {
 
-			this.setState({comments: resComments})
+			this.setState({comments: resJson})
 		}
 	})
 }
@@ -604,9 +580,9 @@ _handleCommentSubmit(comment) {
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: function(resComments) {
+		success: function(resJson) {
 			// `this` is undefined!
-			this.setState({comments: resComments})
+			this.setState({comments: resJson})
 		}
 	})
 }
@@ -634,9 +610,9 @@ _handleCommentSubmit: function(comment) {
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: function(resComments) {
+		success: function(resJson) {
 			// `self` is available in scope
-            self.setState({comments: resComments})
+            self.setState({comments: resJson})
 		}
 	})
 }
@@ -652,8 +628,6 @@ NOTES:
 ES5 fix
 
 ```js
-// in App.js
-
 _handleCommentSubmit: function(comment) {
 	// initializations
 
@@ -661,8 +635,8 @@ _handleCommentSubmit: function(comment) {
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: function(resComments) {
-            this.setState({comments: resComments})
+		success: function(resJson) {
+            this.setState({comments: resJson})
 		}.bind(this) // pass in proper `this` context
 	})
 }
@@ -700,8 +674,8 @@ Arrow functions works how you would expect!
 $.ajax({
 	url: this.props.url,
 	data: comment,
-	success: (resComments) => {
-		this.setState({comments: resComments})
+	success: (resJson) => {
+		this.setState({comments: resJson})
 	}
 })
 ```
@@ -715,8 +689,8 @@ $.ajax({
 $.ajax({
 	url: this.props.url,
 	data: comment,
-	success: function(resComments) {
-		this.setState({comments: resComments})
+	success: function(resJson) {
+		this.setState({comments: resJson})
 	}.bind(this) // pass in proper `this` context
 })
 ```
@@ -760,8 +734,8 @@ const alertUser = (message) => {
 <!-- .element: class="large" -->
 
 ```js
-const MyComponent = ({style, content}) => (
-    <div style={style}>{content}</div>
+const MyComponent = ({children, style}) => (
+    <div style={style}>{children}</div>
 )
 ```
 <!-- .element: class="large" -->
@@ -785,8 +759,8 @@ _handleCommentSubmit(comment) {
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: (resComments) => {
-			this.setState({comments: resComments})
+		success: (resJson) => {
+			this.setState({comments: resJson})
 		},
 		error: function(xhr, status, err) => {
 			this.setState({comments: comments});
@@ -834,7 +808,9 @@ _handleCommentSubmit(comment) {
     body: JSON.stringify(comment)
   })
     .then((res) => res.json())
-    .then((resComments) => this.setState({comments: resComments}))
+    .then((resJson) => {
+      this.setState({comments: resJson})
+	})
     .catch((ex) => {
       this.setState({comments});
       console.error(this.props.url, ex);
@@ -848,6 +824,7 @@ NOTES:
 - Instead of taking callback functions, it's promised-based so it returns a promise
 - Pretty much all future asynchronous APIs will be promised-based
 - Because promises are more flexible than callbacks
+- How so...?
 
 /////
 
@@ -859,7 +836,6 @@ Passing promises + chaining reactions
 const fetchJson = (path) => (
   fetch(`${DOMAIN}${path}`)
     .then((res) => res.json())
-    .catch((ex) => console.error('Request failure', ex))
 )
 ```
 <!-- .element: class="large" -->
@@ -897,13 +873,13 @@ NOTES:
 Converting callbacks to Promises
 
 ```js
-const sleep = (delay = 0) => (
+const wait = (delay = 0) => (
     new Promise((resolve) => {
         setTimeout(resolve, delay)
     })
 )
 
-sleep(3000)
+wait(3000)
   .then(() => getUniqueCommentAuthors())
 ```
 <!-- .element: class="large" -->
@@ -956,8 +932,6 @@ Promise.all([
 
 =====
 
-New [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) + Promises
-
 ```js
 _handleCommentSubmit(comment) {
   // initializations
@@ -967,7 +941,7 @@ _handleCommentSubmit(comment) {
     body: JSON.stringify(comment)
   })
     .then((res) => res.json())
-    .then((resComments) => this.setState({comments: resComments}))
+    .then((resJson) => this.setState({comments: resJson}))
     .catch((ex) => {
       this.setState({comments});
       console.error(this.props.url, ex);
@@ -976,20 +950,12 @@ _handleCommentSubmit(comment) {
 ```
 <!-- .element: class="large" -->
 
-=====
-
-## Recap
-
-0. Destructuring
-0. Spread operator
-0. Arrow functions
-0. Promises
-0. Async functions
-
 NOTES:
-- So here's what we discussed
-- I kind of cheated and only talked about the first 8, but I have helpful links for the others
-- Feel free to grab the slides
+- So hopefully I've convinced you in that short time that Promises are better than callback-style programming
+- Because you can chain promises, instead of having callback-hell there's just a flat level of chains
+- However, you're still passing anonymous functions
+- Asynchronous programming still makes you write code control flow differently
+- Until...
 
 =====
 
