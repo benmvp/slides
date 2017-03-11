@@ -859,7 +859,7 @@ async _handleCommentSubmit(comment) {
 			method: 'POST',
 			body: JSON.stringify(comment)
 		})
-		newComments = res.json()
+		newComments = await res.json()
 	} catch (ex) {
 		console.error(this.props.url, ex)
 		newComments = comments
@@ -975,7 +975,7 @@ async _handleCommentSubmit(comment) {
 			method: 'POST',
 			body: JSON.stringify(comment)
 		})
-		newComments = res.json()
+		newComments = await res.json()
 	} catch(ex) {
 		console.error(this.props.url, ex)
 		newComments = comments
