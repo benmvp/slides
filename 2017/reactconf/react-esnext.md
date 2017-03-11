@@ -17,7 +17,8 @@ NOTES:
 - Super excited to talk about my two favorite things
 - React and what I'm calling ES.next
 - And how they go so well together
-- Posted link to slides on twitter if you want to follow along
+- Posted link to slides on twitter so you can follow-up afterwards
+- Gonna show lots of potentially new syntax and you'll need to look at it longer than I can show to get through everything
 
 /////
 
@@ -377,30 +378,6 @@ _handleCommentSubmit(comment) {
 
 /////
 
-`Math.max.apply`???
-
-```js
-var maxValueNormal = Math.max(33, 2, 9),
-    arrayOfValues = [33, 2, 9],
-    maxValueFromArray = Math.max.apply(null, arrayOfValues)
-
-// output: 33  33
-console.log(maxValueNormal, maxValueFromArray)
-```
-<!-- .element: class="large" -->
-
-NOTES:
-_[21 minutes]_
-
-- `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
-- If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
-- `apply` converts the array of values into a sequence of parameters
-- But it's kind of esoteric
-  - Plus you have to specify `null` as the context
-- Maybe there's an ES6 feature for this?
-
-/////
-
 ###### Spread operator
 
 No more `apply`!
@@ -504,30 +481,6 @@ NOTES:
 
 ###### Spread operator
 
-[JSX spread attributes](https://facebook.github.io/react/docs/jsx-spread.html)!
-
-```js
-function WrapperComponent(props) {
-    return (
-        <InnerComponent
-			{...props}
-			style="light"
-			size="large"
-		/>
-    )
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Similar to object spread, are JSX spread attributes
-- It allows you to take an object and make all of its properties attributes on a component
-- I tend to avoid it in favor of being explicit about the attributes I'm setting
-
-/////
-
-###### Spread operator
-
 ```js
 _handleCommentSubmit(comment) {
 	let {comments} = this.state
@@ -540,95 +493,10 @@ _handleCommentSubmit(comment) {
 NOTES:
 - So now these lines make a bit more sense knowing how the spread operator works
 
-===== <!-- .slide: data-transition="fade" -->
-
-Where's the bug?
+=====
 
 ```js
 _handleCommentSubmit(comment) {
-	// initializations
-
-	$.ajax({
-		url: this.props.url,
-		type: 'POST',
-		data: comment,
-		success: function(resJson) {
-
-			this.setState({comments: resJson})
-		}
-	})
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Can anyone spot the mistake in this code?
-- It's a modified version of the ajax call to submit the comment
-- We're passing a callback to `success` of the `ajax` request
-- The callback calls `this.setState` with the returned data
-- And no the bug is not using `jQuery`
-
-///// <!-- .slide: data-transition="fade" -->
-
-Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
-
-```js
-_handleCommentSubmit(comment) {
-	// initializations
-
-	$.ajax({
-		url: this.props.url,
-		type: 'POST',
-		data: comment,
-		success: function(resJson) {
-			// `this` is undefined!
-			this.setState({comments: resJson})
-		}
-	})
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- `this` is `undefined` in the callback function in strict mode
-- `this` is the global scope (window) in loose mode
-- Something that newbies scratch their head about
-- Experienced JavaScript developers still run into it
-- _[Water break]_
-
-/////
-
-ES3 fix
-
-```js
-_handleCommentSubmit: function(comment) {
-    var self = this // store reference to `this`
-
-	// initializations
-
-	$.ajax({
-		url: this.props.url,
-		type: 'POST',
-		data: comment,
-		success: function(resJson) {
-			// `self` is available in scope
-            self.setState({comments: resJson})
-		}
-	})
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- In ES3, we solved this by storing a reference to `this` in a variable so that it’s available in the scope of the anonymous function
-- Works, but pretty much every method has to assign `self` variable
-
-/////
-
-ES5 fix
-
-```js
-_handleCommentSubmit: function(comment) {
 	// initializations
 
     $.ajax({
@@ -643,12 +511,15 @@ _handleCommentSubmit: function(comment) {
 ```
 <!-- .element: class="large" -->
 
+ES5 `Function.prototype.bind` is so clunky!
+
 NOTES:
+- So this is what our AJAX call looks like
 - `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
 - Underscore and other shim have a bind method so it can work with ES3 browsers
 - This is what the React tutorial does
 - Works, but messy syntax
-- We need something better!
+- We need something better to ensure proper `this` context is passed!
 
 /////
 
@@ -766,15 +637,13 @@ _handleCommentSubmit(comment) {
 			this.setState({comments});
 			console.error(this.props.url, status, err.toString())
 		}
-	});
+	})
 }
 ```
 <!-- .element: class="large" -->
 
 NOTES:
-- So this is what our AJAX call looks like
-- On success, it updates the comments state w/ the response
-- On fail, it resets the comments state w/ the previous value
+- Made the ajax call a bit better with arrow functions
 - It's fine, but I don't like using jQuery, especially just for ajax
 - Including it could lead to proper React development, relying too much on refs
 - In addition, callbacks are so 2013
@@ -816,14 +685,14 @@ _handleCommentSubmit(comment) {
     .catch((ex) => {
       this.setState({comments});
       console.error(this.props.url, ex);
-    });
+    })
 }
 ```
 <!-- .element: class="large" -->
 
 NOTES:
 - We can replace jquery ajax with Fetch browser API which gives us `window.fetch`
-- Instead of taking callback functions, it's promised-based so it returns a promise
+- Instead of taking callback functions, it's promised-based so it returns a promise object
 - Pretty much all future asynchronous APIs will be promised-based
 - Because promises are more flexible than callbacks
 - How so...?
@@ -916,7 +785,7 @@ Friendlier Node file system methods!
 
 ###### Promises
 
-Simultaneous async requests
+Simultaneous async requests as single Promise
 
 ```js
 Promise.all([
@@ -924,7 +793,9 @@ Promise.all([
 	fetchPosts(),
 	fetchUsers()
 ])
-  .then(([comments, posts, users]) => {
+  .then((responses) => {
+	  let [comments, posts, users] = responses
+
 	  console.log(comments)
 	  console.log(posts)
 	  console.log(users)
@@ -1025,7 +896,7 @@ NOTES:
 
 ```js
 const funWithAsync = async () => {
-  let uniqueCommentAuthors = await getUniqueCommentAuthors()
+  let authors = await getUniqueCommentAuthors()
 
   await wait(1500)
 
