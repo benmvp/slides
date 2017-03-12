@@ -113,7 +113,8 @@ NOTES:
 <!-- .element: style="width: 75%"-->
 
 NOTES:
-- The original official React tutorial was written in ES5, presumably to make it easy to develop
+- The code we'll be looking at derives from the original React tutorial
+- Basically a TODO app masquerading as a commenting app
 
 /////
 
@@ -172,7 +173,6 @@ _handleCommentSubmit(comment) {
 NOTES:
 
 - Let's jump right in
-- Converted the `let` declarations to `var`, removed those unnecessary semicolons
 - Want to focus on the first statement
 - Pulling out the `comments` property from `this.state` and assigning it to a variable with the same name
 
@@ -199,6 +199,7 @@ NOTES:
 
 NOTES:
 - I'm afraid that after we cover destructuring, you'll feel like this...
+- Really just shooting the messenger
 - But stick with me...
 
 /////
@@ -645,7 +646,7 @@ _handleCommentSubmit(comment) {
 NOTES:
 - Made the ajax call a bit better with arrow functions
 - It's fine, but I don't like using jQuery, especially just for ajax
-- Including it could lead to proper React development, relying too much on refs
+- Including it could lead to improper React development, relying too much on refs
 - In addition, callbacks are so 2013
 - There's gotta be something better!
 
@@ -653,7 +654,7 @@ NOTES:
 
 # Promises
 
-Replace callbacks with promises
+Replace callback-style programming with promises
 
 <br />
 <br />
@@ -741,7 +742,7 @@ NOTES:
 
 ###### Promises
 
-Converting callbacks to Promises
+Converting callback-style to Promises
 
 ```js
 const wait = (delay = 0) => (
@@ -761,7 +762,7 @@ Sleep function... in JavaScript!
 
 ###### Promises
 
-Converting callbacks to Promises
+Converting callback-style to Promises
 
 ```js
 const readFile = (filePath) => (
@@ -920,6 +921,7 @@ NOTES:
 - Well inside of an `async` function, we can `await` all of their values
 - Return values are always promises so 42 will get wrapped in a promise
 - This means something else can `await` `funWithAsync` in sync control flow
+- That's the power of async functions
 
 =====
 
@@ -988,7 +990,7 @@ async _handleCommentSubmit(comment) {
 NOTES:
 - Uses destructuring, spread operator
 - Promises & arrow functions behind the scenes
-- And async functions from and center
+- And async functions front and center
 
 =====
 
@@ -1063,11 +1065,10 @@ NOTES:
 
 /////
 
-# Questions?
+
+# Ben Ilegbodu
 
 <br />
-
-## Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 
@@ -1077,7 +1078,7 @@ Code examples: [github/benmvp/react-esnext](https://github.com/benmvp/react-esne
 
 <br />
 
-Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
+Ask me anything! [benmvp.com/ama](/ama/)
 
 NOTES:
 - Slides are available on Twitter
