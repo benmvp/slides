@@ -334,6 +334,7 @@ NOTES:
 - Here's more of our code, annotated a bit
 - Adding `id` property to `comment` to create `newComment` (except we're mutating)
 - Then appending `newComment` to `comments` via `concat` to maintain immutability
+- This is a common pattern in React to never mutate objects or arrays
 
 /////
 
@@ -634,7 +635,7 @@ _handleCommentSubmit(comment) {
 		success: (resJson) => {
 			this.setState({comments: resJson})
 		},
-		error: function(xhr, status, err) => {
+		error: (xhr, status, err) => {
 			this.setState({comments});
 			console.error(this.props.url, status, err.toString())
 		}
@@ -705,15 +706,15 @@ NOTES:
 Passing promises + chaining reactions
 
 ```js
-const fetchJson = (path) => (
-  fetch(`${DOMAIN}${path}`)
+const fetchJson = (path, options) => (
+  fetch(`${DOMAIN}${path}`, options)
     .then((res) => res.json())
 )
 ```
 <!-- .element: class="large" -->
 
 ```js
-const fetchComments = () => fetchJson('/comments')
+const fetchComments = () => fetchJson('/api/comments')
 ```
 <!-- .element: class="large" -->
 
@@ -724,6 +725,12 @@ const getUniqueCommentAuthors = () => (
     .then((authors) => _.uniq(authors))
 	.catch((ex) => console.error('Something bad happened', ex))
 )
+```
+<!-- .element: class="large" -->
+
+```js
+getUniqueCommentAuthors()
+	.then((uniqueAuthors) => { this.setState({uniqueAuthors}) })
 ```
 <!-- .element: class="large" -->
 
@@ -745,14 +752,15 @@ NOTES:
 Converting callback-style to Promises
 
 ```js
-const wait = (delay = 0) => (
+const sleep = (delay = 0) => (
     new Promise((resolve) => {
         setTimeout(resolve, delay)
     })
 )
 
-wait(3000)
+sleep(3000)
   .then(() => getUniqueCommentAuthors())
+  .then((uniqueAuthors) => { this.setState({uniqueAuthors}) })
 ```
 <!-- .element: class="large" -->
 
@@ -797,9 +805,11 @@ Promise.all([
   .then((responses) => {
 	  let [comments, posts, users] = responses
 
-	  console.log(comments)
-	  console.log(posts)
-	  console.log(users)
+	  this.setState({
+		  comments,
+		  posts,
+		  users
+	  })
   })
 ```
 <!-- .element: class="large" -->
@@ -897,13 +907,13 @@ NOTES:
 
 ```js
 const funWithAsync = async () => {
-  let authors = await getUniqueCommentAuthors()
+  let uniqueAuthors = await getUniqueCommentAuthors()
 
-  await wait(1500)
+  await sleep(1500)
 
   let packageInfo = JSON.parse(await readFile('./package.json'))
 
-  await wait(3000)
+  await sleep(3000)
 
   let [comments, posts, users] = await Promise.all([
     fetchComments(),
@@ -922,6 +932,13 @@ NOTES:
 - Return values are always promises so 42 will get wrapped in a promise
 - This means something else can `await` `funWithAsync` in sync control flow
 - That's the power of async functions
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/mind-blown.gif) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- If you're at all like me, this is how you're feeling
 
 =====
 
