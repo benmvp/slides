@@ -325,7 +325,7 @@ _handleCommentSubmit(comment) {
 	// clone `comments` + append `newComment`
 	let newComments = comments.concat([newComment])
 
-	// state setting + ajax stuffs
+	// setState + ajax stuffs
 }
 ```
 <!-- .element: class="large" -->
@@ -358,6 +358,8 @@ _handleCommentSubmit(comment) {
 	let {comments} = this.state
 	let newComment = {...comment, id: Date.now()}
 	let newComments = [...comments, newComment]
+
+	// setState + ajax stuffs
 }
 ```
 <!-- .element: class="large" -->
@@ -421,10 +423,10 @@ Creating an array
 
 ```js
 // verbose
-let array = new Array(2, 3, 4)
+let values = new Array(2, 3, 4)
 
 // shorthand
-let array = [2, 3, 4]
+let values = [2, 3, 4]
 ```
 <!-- .element: class="large" -->
 
@@ -434,10 +436,10 @@ Spreading into an array
 
 ```js
 // [1, 2, 3, 4, 5]
-let verbose = new Array(1, ...array, 5)
+let verbose = new Array(1, ...values, 5)
 
 // [1, 2, 3, 4, 5]
-let shorthand = [1, ...array, 5]
+let shorthand = [1, ...values, 5]
 ```
 <!-- .element: class="large" -->
 
@@ -488,6 +490,8 @@ _handleCommentSubmit(comment) {
 	let {comments} = this.state
 	let newComment = {...comment, id: Date.now()}
 	let newComments = [...comments, newComment]
+
+	// setState + ajax stuffs
 }
 ```
 <!-- .element: class="large" -->
@@ -685,12 +689,13 @@ _handleCommentSubmit(comment) {
       this.setState({comments: resJson})
 	})
     .catch((ex) => {
-      this.setState({comments});
       console.error(this.props.url, ex);
     })
 }
 ```
 <!-- .element: class="large" -->
+
+Promises are the future of asynchronous programming
 
 NOTES:
 - We can replace jquery ajax with Fetch browser API which gives us `window.fetch`
@@ -776,7 +781,7 @@ Converting callback-style to Promises
 const readFile = (filePath) => (
 	new Promise((resolve, reject) => {
 		fs.readFile(filePath, (err, data) => {
-			if (err) reject(err)
+			if (err) { reject(err) }
 			resolve(data)
 		})
 	})
@@ -864,7 +869,6 @@ Synchronous control flow!
 ```js
 async _handleCommentSubmit(comment) {
 	// initializations
-
 	try {
 		let res = await fetch(this.props.url, {
 			method: 'POST',
@@ -880,6 +884,8 @@ async _handleCommentSubmit(comment) {
 }
 ```
 <!-- .element: class="large" -->
+
+How does this all work???
 
 NOTES:
 - So here we are: no more anonymous arrow functions
