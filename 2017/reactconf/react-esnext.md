@@ -628,6 +628,14 @@ NOTES:
 
 =====
 
+<!-- .slide: data-background="url(../../img/giphy/fireman-ladder-exercise.gif) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- We've talked about destructuring, spread operator & arrow functions
+- Let's take things up a level now
+
+/////
+
 ```js
 _handleCommentSubmit(comment) {
 	// initializations
