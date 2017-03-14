@@ -648,7 +648,7 @@ _handleCommentSubmit(comment) {
 			this.setState({comments: resJson})
 		},
 		error: (xhr, status, err) => {
-			this.setState({comments});
+			this.setState({comments})
 			console.error(this.props.url, status, err.toString())
 		}
 	})
@@ -697,7 +697,7 @@ _handleCommentSubmit(comment) {
       this.setState({comments: resJson})
 	})
     .catch((ex) => {
-      console.error(this.props.url, ex);
+      console.error(this.props.url, ex)
     })
 }
 ```
@@ -840,9 +840,9 @@ _handleCommentSubmit(comment) {
     .then((res) => res.json())
     .then((resJson) => this.setState({comments: resJson}))
     .catch((ex) => {
-      this.setState({comments});
-      console.error(this.props.url, ex);
-    });
+      this.setState({comments})
+      console.error(this.props.url, ex)
+    })
 }
 ```
 <!-- .element: class="large" -->
