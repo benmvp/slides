@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#MWDCON](https://twitter.com/hashtag/MWDCON)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DevoxxUS](https://twitter.com/hashtag/DevoxxUS)    
 
 <br />
 
-March 3, 2017  
+March 21, 2017  
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -147,7 +147,7 @@ $('.btnUp').click(function() {
 <!-- .element: class="large" -->
 
 <div>
-	<input type="text" class="valueBox" value="0" size="1" style="font-size: 2em" />
+	<input type="text" class="valueBox" value="0" size="1" style="font-size: 2em;text-align: center" />
 	<button class="btnUp" style="font-size: 2em" onclick="$('.valueBox').val(+$('.valueBox').val() + 1)">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
 </div>
 
@@ -218,6 +218,7 @@ NOTES:
 - Block scoping
 - Arrow functions
 - Object literal shorthand
+- Async functions
 - and more...
 
 NOTES:
@@ -225,14 +226,43 @@ NOTES:
 
 /////
 
-## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/buzzjs/react-esnext.html)
+```js
+// App.js
+async _handleCommentSubmit(comment) {
+	let {comments} = this.state
+	let newComment = {...comment, id: Date.now()}
+	let newComments = [...comments, newComment]
 
-<iframe width="1333" height="750" src="https://www.youtube.com/embed/fXWvcmrbX5M" frameborder="0" allowfullscreen></iframe>
+	this.setState({comments: newComments})
 
-### BuzzJS 2.0 2017
+	try {
+		let res = await fetch(this.props.url, {
+			method: 'POST',
+			body: JSON.stringify(comment)
+		})
+		newComments = await res.json()
+	} catch(ex) {
+		console.error(this.props.url, ex)
+		newComments = comments
+	}
+
+	this.setState({comments: newComments})
+}
+```
 
 NOTES:
-- I gave a talk call _React + ES.next = ♥_ at BuzzJS in New York earlier this year
+- Here's some example ES2015+
+
+/////
+
+## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/watch?v=jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
+
+### ReactConf 2017
+
+NOTES:
+- I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
 - What I just talked about was just a small snippet of all the different features
 - Feel free to watch the video (not now)
 
@@ -301,6 +331,30 @@ NOTES:
 - Never used Bower before, but have seen some older packages that area available on both
 - Funniest thing: you install Bower with NPM!
 - Facebook just released Yarn last October!
+
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-around;margin-bottom: 5%">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/nav-react/yarn-logo.png" style="background:none;box-shadow:none;border:none;"/>
+	</div>
+    <div style="flex:0 0 45%;">
+		<h2>Flat Mode</h2>
+        <h2>Offline Mode</h2>
+        <h2>Deterministic</h2>
+		<h2>Multiple Registries</h2>
+		<h2>Network Resilience</h2>
+        <h2>Network Performance</h2>
+    </div>
+</div>
+
+NOTES:
+- Flat Mode: Resolve mismatching versions of dependencies to a single version to avoid creating duplicates.
+- Offline Mode: If you've installed a package before, you can install it again without any internet connection.
+- Deterministic: The same dependencies will be installed the same exact way across every machine regardless of install order.
+- Multiple Registries: Install any package from either npm or Bower and keep your package workflow the same.
+- Network Resilience: A single request failing won't cause an install to fail. Requests are retried upon failure.
+- Network Performance: Yarn efficiently queues up requests and avoids request waterfalls in order to maximize network utilization.
 
 /////
 
@@ -829,9 +883,7 @@ NOTES:
 Handle AJAX natively
 
 ```js
-fetch('http://www.benmvp.com/', {
-	method: 'get'
-})
+fetch('http://www.benmvp.com/', {method: 'get'})
   .then((response) => {
 	// do something w/ response
   })
@@ -889,6 +941,59 @@ Keep your UI in sync with the URL
 NOTES:
 - React Router is the obvious choice. Major player
 - There are many others but most aren't actively developed anymore
+
+/////
+
+## React Router
+
+```js
+// index.js
+import React from 'react'
+import {render} from 'react-dom'
+import {browserHistory} from 'react-router'
+import App from './components/About'
+import About from './components/About'
+import Repos from './components/Repos'
+
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}/>
+    <Route path="/repos" component={Repos}/>
+    <Route path="/about" component={About}/>
+  </Router>
+), document.getElementById('app'))
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Can set up your routes with the same JSX syntax pointing to components
+
+/////
+
+## React Router
+
+```js
+// modules/App.js
+import {Link} from 'react-router'
+
+export default class App extends React.PureComponent {
+  render() {
+    return (
+      <div>
+        <h1>React Router Tutorial</h1>
+        <ul role="nav">
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/repos">Repos</Link></li>
+        </ul>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Then replace `<a>` tags with special `<Link>` tags
 
 =====
 
@@ -1014,7 +1119,6 @@ NOTES:
 /////
 
 ## Server-side Rendering
-<!-- .element style="margin-bottom: 5%" -->
 
 ### [Without a Node back-end...](http://www.benmvp.com/slides/2016/rwreact/iso-react.html)
 
@@ -1119,22 +1223,25 @@ NOTES:
 
 ## API Optimization
 
-<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 45%;">
-        <a href="http://graphql.org/"><img
-            src="../../img/nav-react/graphql-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:45%;"
-        /></a>
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 30%;">
         <a href="https://facebook.github.io/relay/"><img
             src="../../img/nav-react/relay-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:45%;"
+            style="background:none;box-shadow:none;border:none;width:100%;"
         /></a>
-		<a href="http://graphql.org/">GraphQL</a> + <a href="https://facebook.github.io/relay/">Relay</a>
+		<a href="https://facebook.github.io/relay/">Relay</a>
     </div>
-	<div style="flex:0 0 45%;">
+	<div style="flex:0 0 30%;">
+        <a href="http://dev.apollodata.com/"><img
+            src="../../img/nav-react/apollo-logo.svg"
+            style="background:none;box-shadow:none;border:none;width:100%;width:100%;margin:4em 0"
+        /></a>
+		<a href="http://dev.apollodata.com/">Apollo</a>
+    </div>
+	<div style="flex:0 0 30%;">
         <a href="http://netflix.github.io/falcor/"><img
             src="../../img/nav-react/falcor-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:100%;"
+            style="background:none;box-shadow:none;border:none;width:100%;margin:5.25em 0"
         /></a>
 		<a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
     </div>
@@ -1229,7 +1336,7 @@ NOTES:
 
 =====
 
-![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
+![Julian Edelman Thumbs Up](../../img/giphy/julian-edelman-thumbs-up.gif)
 <!-- .element: style="width: 60%" -->
 
 NOTES:
@@ -1237,8 +1344,8 @@ NOTES:
 
 /////
 
-![DeveloperWeek 2016 logo](../../img/mobile-web-devcon-logo.png)
-<!-- .element: style="width: 60%; border: 0; background: none; margin: 0; box-shadow: none;" -->
+![DevoxxUS logo](../../img/conf-logos/devoxxus-white-logo.png)
+<!-- .element: style="width: 100%; border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
 -
@@ -1259,8 +1366,8 @@ NOTES:
 
 =====
 
-![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
-<!-- .element: style="width: 80%" -->
+![Aladdin Thanks](../../img/giphy/thanks-aladdin.gif)
+<!-- .element: style="width: 60%" -->
 
 # THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
 
