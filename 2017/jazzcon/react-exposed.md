@@ -93,7 +93,7 @@ ben-ilegbodu.json
     "Jesus", "family", "work"
   ],
   "location": "Pittsburg, CA",
-  "work": "@Eventbrite",
+  "work": "Eventbrite",
   "role": "Frontend Eng Mgr",
   "hobbies": [
     "basketball", "DIY", "movies"
@@ -300,10 +300,7 @@ NOTES:
 
 ```
 const Label = ({children, inputId}) => (
-    <label
-        class="is-hidden"
-        for={inputId}
-    >
+    <label class="is-hidden" for={inputId}>
 	  {children}
 	</label>
 )
@@ -559,6 +556,8 @@ const App = () => (
 
 <br />
 
+Lowercase JSX tags become HTML tags!
+
 ```js
 React.createElement('camelCaseComponent', {name: 'Ben'})
 React.createElement(PascalCaseComponent, {name: 'Ilegbodu'})
@@ -577,10 +576,7 @@ NOTES:
 
 ```
 const Label = ({children, inputId}) => (
-    <label
-      className="is-hidden"
-	  htmlFor={inputId}
-    >
+    <label className="is-hidden" htmlFor={inputId}>
 	  {children}
 	</label>
 )
@@ -864,6 +860,11 @@ NOTES:
 - You'd do this when you need to use the value in React
 - More performant than using refs and asking the DOM for the value
 - Is more code to write
+
+/////
+
+# Demo Time!
+<!-- .element: style="font-size:6em" -->
 
 /////
 
