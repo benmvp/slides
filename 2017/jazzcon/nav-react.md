@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DevoxxUS](https://twitter.com/hashtag/DevoxxUS)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@Jazz_Con](https://twitter.com/Jazz_Con)
 
 <br />
 
-March 21, 2017  
+March 23, 2017  
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -60,7 +60,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-tahoe-beach-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family on the beach at Lake Tahoe" />
+		<img src="../../img/family-avery-birth.jpg" style="width:100%;height:auto" alt="Ilegbodu family after baby Avery was born" />
 	</div>
 </div>
 
@@ -195,6 +195,19 @@ NOTES:
 - It teaches all the core concepts
 - It's written in ES6, so...
 
+/////
+
+![Ben Ilegbodu](../../img/headshot.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Ben Ilegbodu
+
+<br />
+
+## React exposed! 😮
+
+Today @ 1p (ReactJS)
+
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -226,45 +239,16 @@ NOTES:
 
 /////
 
-```js
-// App.js
-async _handleCommentSubmit(comment) {
-	let {comments} = this.state
-	let newComment = {...comment, id: Date.now()}
-	let newComments = [...comments, newComment]
+![Ben Ilegbodu](../../img/headshot.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
 
-	this.setState({comments: newComments})
+Ben Ilegbodu
 
-	try {
-		let res = await fetch(this.props.url, {
-			method: 'POST',
-			body: JSON.stringify(comment)
-		})
-		newComments = await res.json()
-	} catch(ex) {
-		console.error(this.props.url, ex)
-		newComments = comments
-	}
+<br />
 
-	this.setState({comments: newComments})
-}
-```
+## React + ES.next = ♥
 
-NOTES:
-- Here's some example ES2015+
-
-/////
-
-## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
-
-<iframe width="1333" height="750" src="https://www.youtube.com/watch?v=jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
-
-### ReactConf 2017
-
-NOTES:
-- I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
-- What I just talked about was just a small snippet of all the different features
-- Feel free to watch the video (not now)
+Tomorrow @ 10a (ReactJS)
 
 =====
 
@@ -456,6 +440,19 @@ NOTES:
 
 /////
 
+![Tirell Mckinnon](../../img/nav-react/tirell-mckinnon.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Tirell Mckinnon
+
+<br />
+
+## Zero to Sixty with Webpack Two
+
+Today @ 4:30p (Core & Advanced JavaScript)
+
+/////
+
 ## Task runners
 
 Help execute shell commands, generate files, etc.
@@ -543,7 +540,7 @@ Help catch errors in written code before runtime
 	<div style="flex:0 0 30%;">
         <a href="https://flowtype.org/" style="display:block"><img
             src="../../img/nav-react/flow-logo.png"
-            style="background:none;box-shadow:none;border:none;max-width:100%"
+            style="background:none;box-shadow:none;border:none;max-width:100%;background: black"
         /></a>
 		<a href="https://flowtype.org/">Flow</a>
     </div>
@@ -859,8 +856,7 @@ NOTES:
 - [Material UI](http://www.material-ui.com/#/)
 - [React + Foundation](https://react.foundation/)
 - [Classnames](https://github.com/JedWatson/classnames)
-- [PostCSS](http://postcss.org/) & [`postcss-loader`](https://github.com/postcss/postcss-loader)
-- [`style-loader`](https://github.com/webpack/style-loader), [`css-loader`](https://github.com/webpack/css-loader) & [`sass-loader`](https://github.com/jtangelder/sass-loader)
+- [PostCSS](http://postcss.org/)
 
 NOTES:
 - Here are some miscellaneous resources regarding styling
@@ -995,6 +991,19 @@ export default class App extends React.PureComponent {
 NOTES:
 - Then replace `<a>` tags with special `<Link>` tags
 
+/////
+
+![Jeff Barczewski](../../img/nav-react/jeff-barczewski.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Jeff Barczewski
+
+<br />
+
+## Simplifying routing - React Router v4
+
+Today @ 11a (ReactJS)
+
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
@@ -1036,7 +1045,7 @@ NOTES:
     </div>
 	<div style="flex:0 0 30%;">
         <a href="https://facebook.github.io/jest/"><img
-            src="../../img/nav-react/jest-logo.svg"
+            src="../../img/nav-react/jest-logo-dark.svg"
             style="background:none;box-shadow:none;border:none;width:40%;"
         /></a>
 		<a href="https://facebook.github.io/jest/" style="display:block">Jest</a>
@@ -1128,6 +1137,32 @@ NOTES:
 - If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
 - But I have a talk that explains it all!
 
+/////
+
+![Jonathan Creamer](../../img/nav-react/jonathan-creamer.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Jonathan Creamer
+
+<br />
+
+## Universal React Apps Lessons From the Trenches
+
+Today @ 11a (ReactJS)
+
+/////
+
+![Bruno Genaro](../../img/nav-react/bruno-genaro.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Bruno Genaro
+
+<br />
+
+## Server-Side Rendering with ReactJS
+
+Today @ 3:30p (ReactJS)
+
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
@@ -1208,6 +1243,32 @@ NOTES:
 
 /////
 
+![Jeremy Fairbank](../../img/nav-react/jeremy-fairbank.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Jeremy Fairbank
+
+<br />
+
+## State, Side Effects, and Redux. Oh my!
+
+Today @ 2p (ReactJS)
+
+/////
+
+![Kevin Old](../../img/nav-react/kevin-old.jpg)
+<!-- .element: style="width: 400px; border-radius: 50%" -->  
+
+Kevin Old
+
+<br />
+
+## Real-world Redux Patterns and Best Practices
+
+Today @ 4:30p (ReactJS)
+
+/////
+
 ## Immutability
 
 Provide immutable collections for JavaScript
@@ -1285,14 +1346,14 @@ NOTES:
     </div>
 	<div style="flex:0 0 30%;">
         <a href="http://dev.apollodata.com/"><img
-            src="../../img/nav-react/apollo-logo.svg"
+            src="../../img/nav-react/apollo-logo-dark.svg"
             style="background:none;box-shadow:none;border:none;width:100%;width:100%;margin:4em 0"
         /></a>
 		<a href="http://dev.apollodata.com/">Apollo</a>
     </div>
 	<div style="flex:0 0 30%;">
         <a href="http://netflix.github.io/falcor/"><img
-            src="../../img/nav-react/falcor-logo.svg"
+            src="../../img/nav-react/falcor-logo-dark.svg"
             style="background:none;box-shadow:none;border:none;width:100%;margin:5.25em 0"
         /></a>
 		<a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
@@ -1346,12 +1407,12 @@ NOTES:
 	<div style="flex:0 0 25%">
 		<a href="https://flowtype.org/" style="display:block"><img
 			src="../../img/nav-react/flow-logo.png"
-			style="background:none;box-shadow:none;border:none;max-width:100%;"
+			style="background:none;box-shadow:none;border:none;max-width:100%;;background: black"
 		/></a>
 	</div>
 	<div style="flex:0 0 25%">
 		<a href="https://facebook.github.io/jest/"><img
-			src="../../img/nav-react/jest-logo.svg"
+			src="../../img/nav-react/jest-logo-dark.svg"
 			style="background:none;box-shadow:none;border:none;width:40%;"
 		/></a>
 	</div>
@@ -1396,8 +1457,8 @@ NOTES:
 
 /////
 
-![DevoxxUS logo](../../img/conf-logos/devoxxus-white-logo.png)
-<!-- .element: style="width: 100%; border: 0; background: none; margin: 0; box-shadow: none;" -->
+![JazzCon.Tech Banner](../../img/conf-logos/jazzcon-2017-banner.png)
+<!-- .element: style="width: 100%;border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
 -
@@ -1418,7 +1479,7 @@ NOTES:
 
 =====
 
-![Aladdin Thanks](../../img/giphy/thanks-aladdin.gif)
+![Take a Bow](../../img/giphy/animated-take-a-bow.gif)
 <!-- .element: style="width: 60%" -->
 
 # THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
