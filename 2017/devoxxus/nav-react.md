@@ -51,7 +51,7 @@ ben-ilegbodu.json
     "Jesus", "family", "work"
   ],
   "location": "Pittsburg, CA",
-  "work": "@Eventbrite",
+  "work": "Eventbrite",
   "role": "Frontend Eng Mgr",
   "hobbies": [
     "basketball", "DIY", "movies"
@@ -496,7 +496,7 @@ NOTES:
 
 /////
 
-## NPM Scripts
+## NPM/Yarn Scripts
 
 ```json
 {
@@ -504,17 +504,17 @@ NOTES:
     "start": "webpack-dev-server --hot --inline --open",
     "build": "webpack --progress --colors",
     "eslint": "eslint .",
-    "lint": "npm run scss-lint && npm run eslint",
+    "lint": "yarn run scss-lint && yarn run eslint",
     "scss-lint": "scss-lint .",
 	"test": "mocha tests/*.spec.js",
-	"validate": "npm run lint && npm run test"
+	"validate": "yarn run lint && yarn run test"
   }
 }
 ```
 <!-- .element: class="large" -->
 
 ```
-$> npm run validate
+$> yarn run validate
 ```
 <!-- .element: class="large" -->
 
@@ -600,7 +600,7 @@ NOTES:
 - React Dev Tools
 - Package Managers (yarn)
 - Bundlers (webpack)
-- Task Runners (npm)
+- Task Runners (npm/yarn)
 - Static Analyzers (eslint)
 
 NOTES:
@@ -616,17 +616,17 @@ NOTES:
 Create React apps with no build configuration
 
 ```
-$> npm install -g create-react-app
+$> yarn add global create-react-app
 
 $> create-react-app awesome-app
 
 $> cd awesome-app
 
-$> npm start
+$> yarn start
 ```
 <!-- .element: class="large" style="margin:5% 0" -->
 
-NPM, Webpack, ESLint, and more!
+NPM/Yarn, Webpack, ESLint, and more!
 
 NOTES:
 - They created Create React App
@@ -1205,6 +1205,58 @@ NOTES:
 - The Facebook came out with Flux due to demand
 - Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
 - Look we're talking about Redux wayyyy later!
+
+/////
+
+## Immutability
+
+Provide immutable collections for JavaScript
+
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 45%;">
+        <a href="https://facebook.github.io/immutable-js/"><img
+            src="../../img/nav-react/immutable-logo.png"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
+    </div>
+    <div style="flex:0 0 45%;">
+		<a href="https://github.com/rtfeldman/seamless-immutable"><code>seamless-immutable</code></a>
+    </div>
+</div>
+
+NOTES:
+- While on the subject of mutating state...
+- By default, JavaScript arrays, objects and other collections are mutable
+- Normally you would just enforce a standard that data cannot be mutated. That's how React works
+- This leads to a lot of defensive copying with the spread operator
+- Making lots of copies can hurt performance
+- Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
+- Immutable is the big player, yet another library from Facebook
+- Only used it a bit, but found the API a bit cumbersome and then I was constantly going to and from Immutable objects. Don't _really_ want my React components to have to care, just Redux
+- `seamless-immutable` is an alternative that has data structures that are backwards-compatible
+- The work just like Arrays or Objects except they don't mutate and have extra functionality
+- A lot lighter than Immutable
+
+/////
+
+## `seamless-immutable`
+
+```js
+let array = Immutable(['totally', 'immutable', {hammer: 'no!'}])
+
+array[1] = `I'm going to mutate you!`
+console.log(array[1]) // "immutable"
+
+array[2].hammer = 'hm, surely I can mutate this nested object...'
+console.log(array[2].hammer) // "no!"
+
+console.log(JSON.stringify(array))
+// '["totally", "immutable", {"hammer":"no!"}]'
+```
+<!-- .element class="large" -->
+
+NOTES:
+- Looks and acts just like arrays and objects and can pass to libraries like underscore or lodash
 
 =====
 
