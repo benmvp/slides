@@ -20,7 +20,7 @@ NOTES:
 /////
 
 # 10 Revelations about React...
-# ...Wait until you see #6!!
+# ...Wait until you see #16!!
 
 <br />
 
@@ -102,7 +102,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-avery-birth.jpg" style="width:100%;height:auto" alt="Ilegbodu family after baby Avery was born" />
+		<img src="../../img/family-tahoe-beach-mountain.jpg" style="width:100%;height:auto" alt="Ilegbodu family on the beach at Lake Tahoe" />
 	</div>
 </div>
 
