@@ -257,7 +257,7 @@ NOTES:
 
 ## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
 
-<iframe width="1333" height="750" src="https://www.youtube.com/watch?v=jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
 
 ### ReactConf 2017
 
@@ -339,12 +339,12 @@ NOTES:
 		<img src="../../img/nav-react/yarn-logo.png" style="background:none;box-shadow:none;border:none;"/>
 	</div>
     <div style="flex:0 0 45%;">
-		<h2>Flat Mode</h2>
-        <h2>Offline Mode</h2>
-        <h2>Deterministic</h2>
-		<h2>Multiple Registries</h2>
-		<h2>Network Resilience</h2>
-        <h2>Network Performance</h2>
+		<h3>Flat Mode</h3>
+        <h3>Offline Mode</h3>
+        <h3>Deterministic</h3>
+		<h3>Multiple Registries</h3>
+		<h3>Network Resilience</h3>
+        <h3>Network Performance</h3>
     </div>
 </div>
 
