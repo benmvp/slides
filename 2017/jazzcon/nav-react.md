@@ -60,7 +60,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-avery-birth.jpg" style="width:100%;height:auto" alt="Ilegbodu family after baby Avery was born" />
+		<img src="../../img/family-tahoe-beach-mountain.jpg" style="width:100%;height:auto" alt="Ilegbodu family on the beach at Lake Tahoe" />
 	</div>
 </div>
 
@@ -415,7 +415,7 @@ export const cube = (x) => x \* x \* x
 		</code></pre>
 
 		<pre><code class="lang-js">// main.js
-import {cube} from './maths.js'
+import {cube} from './math.js'
 
 console.log(cube(5)) // 125
 		</code></pre>

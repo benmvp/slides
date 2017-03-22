@@ -431,7 +431,7 @@ export const cube = (x) => x \* x \* x
 		</code></pre>
 
 		<pre><code class="lang-js">// main.js
-import {cube} from './maths.js'
+import {cube} from './math.js'
 
 console.log(cube(5)) // 125
 		</code></pre>
