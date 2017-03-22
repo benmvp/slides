@@ -496,8 +496,6 @@ _handleCommentSubmit(comment) {
 
   newComments = comments.concat([newComment])
 
-  this.setState({comments: newComments})
-
   // remaining code
 }
 ```
@@ -553,6 +551,16 @@ _handleCommentSubmit(comment) {
 
 /////
 
+<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- But really this is pretty unimpressive
+- Bug fix masquerading as a feature
+- It's really how `var` should've worked all along
+- More so fixing a deficiency rather than supplying new functionality
+
+/////
+
 `const`
 
 ```js
@@ -589,26 +597,26 @@ NOTES:
 ```js
 // App.js
 _handleCommentSubmit(comment) {
-	let comments = this.state.comments;
-	let newComment = comment;
+  let comments = this.state.comments;
+  let newComment = comment;
 
-	newComment.id = Date.now();
+  newComment.id = Date.now();
 
-	let newComments = comments.concat([newComment]);
-	this.setState({comments: newComments});
+  let newComments = comments.concat([newComment]);
+  this.setState({comments: newComments});
 
-	$.ajax({
-		url: this.props.url,
-		type: 'POST',
-		data: comment,
-		success: function(resJson) {
-			this.setState({comments: resJson});
-		}.bind(this),
-		error: function(xhr, status, err) {
-			this.setState({comments});
-			console.error(this.props.url, status, err.toString());
-		}.bind(this)
-	});
+  $.ajax({
+    url: this.props.url,
+    type: 'POST',
+    data: comment,
+    success: function(resJson) {
+      this.setState({comments: resJson});
+    }.bind(this),
+    error: function(xhr, status, err) {
+      this.setState({comments});
+      console.error(this.props.url, status, err.toString());
+    }.bind(this)
+  });
 }
 ```
 <!-- .element: class="small" -->
@@ -621,16 +629,6 @@ NOTES:
 - Uses jQuery to make AJAX call
 - Ugly use of `.bind()` in callbacks
 - We'll use the 5 features to modernize things
-
-/////
-
-<!-- .slide: data-background="url(../../img/giphy/unimpressed-squidward.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- But really this is pretty unimpressive
-- Bug fix masquerading as a feature
-- It's really how `var` should've worked all along
-- More so fixing a deficiency rather than supplying new functionality
 
 =====
 
@@ -783,6 +781,68 @@ NOTES:
 - React supports stateless functions which receive the `props` as a parameter
 - You can immediately destructure `props` into the properties you need
 
+/////
+
+### Array destructuring
+
+```js
+let [a, b, c] = [8, true, 11];
+    // a=8, b=true, c=11
+let [a, b, c = 9] = ['no'];
+    // a='no', b=undefined, c=9
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('03-24-17');
+    // mo='03', day='24', yr='17'
+```
+<!-- .element: class="large" -->
+
+```js
+function hi(a, [b, , d]) {
+    // a='hello', b=1, d=3
+}
+hi('hello', [1, 2, 3]);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Array destructuring works much the same way as object destructuring
+- The main difference is:
+  - Array destructuring uses an array literal pattern on the left hand side of the assignment
+  - And the order in the pattern determines the assignment matching
+- Focus on the third example which is a real-world use case with regular expression matches
+  - Don't need to maintain the intermediate array
+- Works kind of how tuples work in Python
+- Work in function headers too!
+
+/////
+
+```js
+let {
+    name,
+    nicknames: [primaryNick],
+    misc: {
+      netWorth: netWorthThousands=0
+    }
+  } = {
+    name: 'Sean Combs',
+    nicknames: ['Puffy', 'Puff Daddy', 'Diddy'],
+    misc: {
+      netWorth: 735000,
+      birthdate: '1969-11-04'
+    }
+  };
+```
+<!-- .element: class="large" -->
+
+Object + array + nested destructuring!
+
+NOTES:
+- You thought destructuring was unreadable
+- What about when you combine object & array destructuring?
+- And what about when you also leverage nested destructuring?
+- Your brain explodes! That's what.
+- This conveys the point that just because you _can_ do it doesn't mean you _should_
+- You can revisit this slide if you really want to try and understand what's going on
+
 =====
 
 ```js
@@ -854,6 +914,30 @@ _handleCommentSubmit(comment) {
 }
 ```
 <!-- .element: class="large" -->
+
+/////
+
+`Math.max.apply`???
+
+```js
+var maxValueNormal = Math.max(33, 2, 9),
+    arrayOfValues = [33, 2, 9],
+    maxValueFromArray = Math.max.apply(null, arrayOfValues)
+
+// output: 33  33
+console.log(maxValueNormal, maxValueFromArray)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+_[21 minutes]_
+
+- `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
+- If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
+- `apply` converts the array of values into a sequence of parameters
+- But it's kind of esoteric
+  - Plus you have to specify `null` as the context
+- Maybe there's an ES6 feature for this?
 
 /////
 
@@ -960,6 +1044,30 @@ NOTES:
 
 ###### Spread operator
 
+[JSX spread attributes](https://facebook.github.io/react/docs/jsx-spread.html)!
+
+```js
+function TextInput({type, defaultValue, inputAttrs}) {
+  return (
+    <input
+      {...inputAttrs}
+      type={type}
+      defaultValue={defaultValue}
+    />
+  )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Similar to object spread, are JSX spread attributes
+- It allows you to take an object and make all of its properties attributes on a component
+- I tend to avoid it in favor of being explicit about the attributes I'm setting
+
+/////
+
+###### Spread operator
+
 ```js
 _handleCommentSubmit(comment) {
 	let {comments} = this.state
@@ -971,38 +1079,141 @@ _handleCommentSubmit(comment) {
 ```
 <!-- .element: class="large" -->
 
+-----
+
+##### Before
+
+```js
+_handleCommentSubmit(comment) {
+	let {comments} = this.state
+	let newComment = comment
+
+	newComment.id = Date.now()
+
+	let newComments = comments.concat([newComment])
+
+	// setState + ajax stuffs
+}
+```
+
 NOTES:
 - So now these lines make a bit more sense knowing how the spread operator works
 
 =====
 
+Where's the bug?
+
 ```js
 _handleCommentSubmit(comment) {
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+
+			this.setState({comments: resComments})
+		}
+	})
+}
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- Can anyone spot the mistake in this code?
+- It's a modified version of the ajax call to submit the comment
+- We're passing a callback to `success` of the `ajax` request
+- The callback calls `this.setState` with the returned data
+- And no the bug is not using `jQuery`
+
+///// <!-- .slide: data-transition="fade" -->
+
+Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
+
+```js
+_handleCommentSubmit(comment) {
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+			// `this` is undefined!
+			this.setState({comments: resComments})
+		}
+	})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `this` is `undefined` in the callback function in strict mode
+- `this` is the global scope (window) in loose mode
+- Something that newbies scratch their head about
+- Experienced JavaScript developers still run into it
+- _[Water break]_
+
+/////
+
+ES3 fix
+
+```js
+_handleCommentSubmit: function(comment) {
+    var self = this // store reference to `this`
+
+	// initializations
+
+	$.ajax({
+		url: this.props.url,
+		type: 'POST',
+		data: comment,
+		success: function(resComments) {
+			// `self` is available in scope
+            self.setState({comments: resComments})
+		}
+	})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- In ES3, we solved this by storing a reference to `this` in a variable so that it’s available in the scope of the anonymous function
+- Works, but pretty much every method has to assign `self` variable
+
+/////
+
+ES5 fix
+
+```js
+// in App.js
+
+_handleCommentSubmit: function(comment) {
 	// initializations
 
     $.ajax({
 		url: this.props.url,
 		type: 'POST',
 		data: comment,
-		success: function(resJson) {
-            this.setState({comments: resJson})
+		success: function(resComments) {
+            this.setState({comments: resComments})
 		}.bind(this) // pass in proper `this` context
 	})
 }
 ```
 <!-- .element: class="large" -->
 
-ES5 `Function.prototype.bind` is so clunky!
-
 NOTES:
-- So this is what our AJAX call looks like
 - `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
 - Underscore and other shim have a bind method so it can work with ES3 browsers
 - This is what the React tutorial does
 - Works, but messy syntax
-- We need something better to ensure proper `this` context is passed!
+- We need something better!
 
 /////
+
 
 # Arrow functions
 
@@ -1100,6 +1311,145 @@ NOTES:
   - Parentheses can be omitted if there is one parameter
   - Curly braces can be omitted if there's just a single `return` line
 - The last example is a stateless function using arrow functions with header destructuring
+
+=====
+
+Parameters list is unclear
+
+```js
+function join(separator) {
+  var values = []
+
+  // arguments is not an array, just "array-like"
+  for (var i = 1; i < arguments.length; i++) {
+    values.push(arguments[i])
+  }
+
+  return values.join(separator)
+}
+
+// output: tic-tac-toe
+join('-', 'tic', 'tac', 'toe')
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Ok, let's go on a small tangent
+- Let me set the stage
+- We have here a `join` method that takes a separator string followed by an unlimited number of parameters to join
+- The fact that `join` takes more than one parameter is unclear let alone that it accepts an arbitrary number of them
+- Because `join` uses the `separator` parameter the implementation has to start at index `1` of `arguments`
+- And even if it could start at 0, `arguments` is only array-like so it doesn't have the `join` method that arrays have
+- **NEED:** is an easy way to get an array of the parameters after `separator`
+- And guess what? There's an ES6 feature for that
+
+/////
+
+# Rest operator
+
+Replace `arguments` with an array
+
+<br />
+<br />
+
+[_Learning ES6: Parameter handling_](http://www.benmvp.com/learning-es6-parameter-handling/#rest-parameters/)
+
+/////
+
+###### Rest operator
+
+Clearer function signature!
+
+```js
+const join = (separator, ...values) => values.join(separator)
+
+// output: tic-tac-toe
+join('-', 'tic', 'tac', 'toe')
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### Before
+
+```js
+function join(separator) {
+  var values = []
+
+  // arguments is not an array, just "array-like"
+  for (var i = 1; i < arguments.length; i++) {
+    values.push(arguments[i])
+  }
+
+  return values.join(separator)
+}
+```
+
+NOTES:
+- That's it!
+- The three dots, called the rest operator, before the parameter make it a rest parameter
+  - The rest parameter is an `Array` containing the rest of the parameters
+  - Hence the name!
+- Because `values` is a true array in the example, we can call join on it
+- It’s also much **clearer** to see that `join()` takes an infinite number of parameters
+- Rest parameter should pretty much replace all uses of the `arguments` keyword!
+
+/////
+
+###### Rest operator
+
+### Rest operator
+Multiple parameters ➞ array (function header)
+
+```js
+// values = ['tic', 'tac', 'toe']
+const join = (separator, ...values) => values.join(separator)
+
+join('-', 'tic', 'tac', 'toe')
+```
+<!-- .element: class="large" -->
+
+-----
+
+### Spread operator
+Array ➞ multiple parameters (function call)
+
+```js
+let arrayOfValues = [33, 2, 9]
+let maxValueFromArray = Math.max(...arrayOfValues)
+    // just like: Math.max(33, 2, 9)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Spread operator & rest operator look the exact same
+- The spread operator works w/ function _call_ parameters
+  - Takes an array literal and converts each element to individual parameters
+- The rest operator works w/ function _header_ parameters
+  - Takes individual parameters and puts them together into an array
+- They are opposites of each other
+
+/////
+
+###### Rest operator
+
+Object destructuring + rest operator!
+
+```js
+const MyComponent = ({type, value, ...restProps}) => {
+  // `restProps` has everything in props
+  // except `type` & `value`
+
+  // render stuffs
+}
+```
+<!-- .element: class="large" -->
+
+[Rest Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+NOTES:
+- Rest properties are coming in soon to ECMAScript. They're in Stage 3
+- Not in ES2015, not ES2016, but future JavaScript (maybe ES2017)
 
 =====
 
