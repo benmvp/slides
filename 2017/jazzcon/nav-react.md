@@ -1060,17 +1060,36 @@ NOTES:
 ```js
 import {mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
-import Component from './Component'
+import Link from './Link'
 
-it('should render a checked checkbox if it is selected', () => {
-    let wrapper = mount(<Component isSelected={true} />)
+it('renders correctly', () => {
+  let wrapper = mount(
+     <Link page="http://www.facebook.com">Facebook</Link>
+  )
 
-    expect(toJson(wrapper)).toMatchSnapshot()
+  expect(toJson(wrapper)).toMatchSnapshot()
 })
 ```
 <!-- .element class="large" style="margin:5% 0" -->
 
 (See: [`enzyme-to-json`](https://github.com/adriantoine/enzyme-to-json))
+
+/////
+
+## Jest Snapshots
+
+```js
+exports[`Link renders correctly 1`] = `
+<a
+  className="normal"
+  href="http://www.facebook.com"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}>
+  Facebook
+</a>
+`;
+```
+<!-- .element class="large" -->
 
 /////
 
@@ -1122,19 +1141,6 @@ NOTES:
 NOTES:
 - If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
 - But I have a talk that explains it all!
-
-/////
-
-![Jonathan Creamer](../../img/nav-react/jonathan-creamer.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
-
-Jonathan Creamer
-
-<br />
-
-## Universal React Apps Lessons From the Trenches
-
-Today @ 11a (ReactJS)
 
 /////
 
