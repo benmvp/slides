@@ -60,7 +60,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-tahoe-beach-mountain.jpg" style="width:100%;height:auto" alt="Ilegbodu family on the beach at Lake Tahoe" />
+		<img src="../../img/family-tahoe-beach-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family on the beach at Lake Tahoe" />
 	</div>
 </div>
 
@@ -206,7 +206,7 @@ Ben Ilegbodu
 
 ## React exposed! 😮
 
-Today @ 1p (ReactJS)
+Tomorrow @ 10a (ReactJS)
 
 =====
 
@@ -239,16 +239,16 @@ NOTES:
 
 /////
 
-![Ben Ilegbodu](../../img/headshot.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
 
-Ben Ilegbodu
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
 
-<br />
+### ReactConf 2017
 
-## React + ES.next = ♥
-
-Tomorrow @ 10a (ReactJS)
+NOTES:
+- I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
+- What I just talked about was just a small snippet of all the different features
+- Feel free to watch the video (not now)
 
 =====
 
@@ -834,23 +834,9 @@ NOTES:
 
 /////
 
-## Inline styles drawbacks
-
-<!-- .element: style="margin-bottom:5%" -->
-
-- Pseudo-classes (i.e. `:hover`)
-- Media queries
-- Keyframe animations
-
-NOTES:
-- Inline styles do have drawbacks
-- Only works w/ styling you can stick in the `style` attribute
-- Things that are pretty simple in CSS become work in JS
-
-/////
-
 ## Styling resources
 
+- [Radium](https://formidable.com/open-source/radium/)
 - [CSS Modules](https://github.com/css-modules/css-modules) & [React CSS Modules](https://github.com/gajus/react-css-modules)
 - [React-Bootstrap](https://react-bootstrap.github.io/)
 - [Material UI](http://www.material-ui.com/#/)
@@ -1002,7 +988,7 @@ Jeff Barczewski
 
 ## Simplifying routing - React Router v4
 
-Today @ 11a (ReactJS)
+Tomorrow @ 11a (ReactJS)
 
 =====
 
