@@ -797,8 +797,8 @@ NOTES:
 
 ```
 class Form extends PureComponent {
-  _handleOnChange(value) {
-	console.log(value)
+  _handleOnChange(e) {
+	console.log(e.target.value)
   }
 
   render() {
