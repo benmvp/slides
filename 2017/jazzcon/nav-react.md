@@ -73,7 +73,7 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
-- Currently a Senior UI Engineer and Frontend Platform Manager at Eventbrite
+- Currently Frontend Platform Manager at Eventbrite
 - We've built up a whole new React-based stack to replace Backbone/Marionette
 
 /////
@@ -1486,7 +1486,8 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[github/benmvp](https://github.com/benmvp)
 
 <br />
 
