@@ -6,7 +6,7 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@render_conf](https://twitter.com/render_conf)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#renderconf](https://twitter.com/hashtag/renderconf)  
 
 <br />
 
@@ -142,6 +142,7 @@ NOTES:
 - SEO: google includes page render speed in ranking algorithm
 - Open Graph: media previews
 - React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
+- Again, we're talking about the _initial_ render
 
 /////
 
@@ -229,8 +230,8 @@ NOTES:
 <!-- .element: style="width: 33%" -->
 
 NOTES:
-- We've tried to switch to Node a couple of times now
-- But OPS would've immediately shot down any notion of replacing Django w/ a Node/Express web server
+- We've tried to switch to Node web server a couple of times now
+- But our OPS team immediately shot down any notion of replacing Django w/ a Node/Express web server
 - Not because Node/Express is bad
 - Unfamiliar for Ops. Frontend developers are familiar, but they'd actually have to maintain these servers for critical pages
 - We still have the typical legacy monolith app in our Django middle-tier
@@ -246,6 +247,38 @@ NOTES:
 NOTES:
 - Web server **cannot** change from being Django (for OPS)
 - Server-side rendering of React **must** be Node (for JS)
+
+/////
+
+![Thinking Winnie the Pooh](../../img/giphy/thinking-pooh.gif)
+<!-- .element: style="width: 75%" -->
+
+NOTES:
+- So we were thinking...
+
+/////
+
+![Thinking Batman](../../img/giphy/thinking-batman.gif)
+<!-- .element: style="width: 70%" -->
+
+NOTES:
+- And thinking...
+
+/////
+
+![Thinking Batman](../../img/giphy/thinking-tom-hanks.gif)
+<!-- .element: style="width: 75%" -->
+
+NOTES:
+- And thinking...
+
+/////
+
+![Yes!](../../img/giphy/success.gif)
+<!-- .element: style="width: 35%" -->
+
+NOTES:
+- Until finally we figured it out
 
 /////
 
@@ -362,19 +395,19 @@ NOTES:
 ```js
 // services/react-render-server/server.js
 app.post('/render', (req, res) => {
-  var params = req.body;
+  let params = req.body
 
   // Dynamic require to retrieve React component
-  var Component = require(params.path);
+  let Component = require(params.path)
 
   // Create element from component & props
-  var element = React.createElement(Component, params.props);
+  let element = React.createElement(Component, params.props)
 
   // Render element to a markup string
-  var markup = ReactDomServer.renderToString(element);
+  let markup = ReactDomServer.renderToString(element)
 
-  res.send(markup);
-});
+  res.send(markup)
+})
 ```
 <!-- .element: class="large" -->
 
@@ -567,7 +600,6 @@ crashing child
 Starting child process with 'babel-node server.js --verbose'
 Error: listen EADDRINUSE 127.0.0.1:9009
 ```
-<!-- .element: class="large" -->
 
 ([`node-supervisor`](https://github.com/petruisfan/node-supervisor))
 
@@ -596,7 +628,6 @@ crashing child
 Starting child process with 'node --require babel-register -- server.js --verbose'
 [2016-10-21T21:41:55] Started server at http://127.0.0.1:9009
 ```
-<!-- .element: class="large" -->
 
 ([`babel-register`](https://babeljs.io/docs/usage/require/) require hook)
 
@@ -682,7 +713,7 @@ NOTES:
 - They open-sourced Hypernova which is basically all that I described in late May. We started in late January
 - Creating the server isn't complicated at all, but it's a bit complex with little details here in there
 - If you don't want to go through the hassle, I'd recommending checking out Hypernova
-- The sped up `renderToString` by 3x!
+- They sped up `renderToString` by 3x!
 
 =====
 
