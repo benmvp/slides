@@ -87,7 +87,7 @@ NOTES:
 
 =====
 
-# DISCLAIMER!
+<!-- .slide: data-background="url(../../img/giphy/fraud.gif) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - I don't know a lick of of Ruby
@@ -1838,7 +1838,7 @@ _[45 minutes]_
 
 /////
 
-![Fog City Ruby logo](../../img/fog-city-ruby-logo.png)
+![Fog City Ruby logo](../../img/conf-logos/fog-city-ruby-logo.png)
 <!-- .element: style="width: 100%;border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
@@ -1864,7 +1864,7 @@ NOTES:
 
 # THANKS!
 
-![Simone Banjo Dancing](../../img/giphy/animated-take-a-bow.gif)
+![Animated take a bow](../../img/giphy/animated-take-a-bow.gif)
 <!-- .element: style="width: 70%" -->
 
 NOTES:
