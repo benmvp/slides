@@ -156,8 +156,8 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <img src="../../img/nav-react/eslint-logo.svg" style="background:none;box-shadow:none;border:none;width:30%"/>
     <div>
+		<h2>Prevent errors</h2>
 		<h2>Enforce style</h2>
-        <h2>Prevent errors</h2>
         <h2>Promote a11y</h2>
     </div>
 </div>
@@ -167,10 +167,133 @@ Extend Eventbrite’s [React ESLint Config](https://github.com/eventbrite/javasc
 NOTES:
 - Definitely definitely use ESLint rules
 - Keeps code syntax consistent so folks new to code can focus on code logic instead of code style
+- Great async teaching tool for best practices because violating them causes failures
 - Enforcing style (like no empty tags)
 - Preventing errors (using `class` instead of `className`)
 - Promoting a11y (ensuring ARIA roles are correct)
--
+- Try our best to have all style rules enforced by ESLint
+
+/////
+
+## ESLint: Errors
+
+```js
+const HelloWord = () => (
+	<div class="hello">Hello World</div>
+)
+```
+<!-- .element: class="large" -->
+
+<br /><br />
+
+```
+Unknown property 'class' found, use 'className' instead (react/no-unknown-property)
+```
+
+[`react/no-unknown-property`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md)
+
+NOTES:
+- So helpful in catching little bugs, especially when the linter is incorporated in IDE
+
+/////
+
+## ESLint: Style
+
+```js
+class MyComponent extends PureComponent {
+	static propTypes = {
+		style: PropTypes.string
+	}
+
+	state = {value: ''}
+
+	componentDidMount() { }
+	componentWillReceiveProps() { }
+	componentWillUnmount() { }
+
+	_helperMethod() { }
+
+	render() {
+		return (<div />);
+	}
+}
+```
+
+[`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
+
+NOTES:
+- For example, We use the `react/sort-comp` eslint rule to ensure that our components are organized in a consistent way
+- `static` propTypes are always first
+- Then `state`
+- The lifecycle methods in a specific order
+- Any other helper methods
+- And finally `render()` is always last
+
+/////
+
+## ESLint: Style
+
+```js
+class MyComponent extends PureComponent {
+	render() {
+		return (<div />);
+	}
+
+	static propTypes = {
+		style: PropTypes.string
+	}
+
+	...
+
+	_helperMethod() { }
+}
+```
+<!-- .element: class="large" -->
+
+```
+render should be placed after _helperMethod (react/sort-comp)
+```
+
+NOTES:
+- So if I decided to put `render()` first like I've seen some folks doing, it'll complain
+- Keeps code syntax consistent so folks new to code can focus on code logic instead of code style
+
+/////
+
+## ESLint - A11y
+
+```js
+const ClickableThang = ({onAction}) => (
+	<div onClick={onAction}>
+		Do the thang
+	</div>
+)
+```
+<!-- .element: class="large" -->
+
+<br /><br />
+
+```
+Visible, non-interactive elements with click handlers
+must have role attribute. (jsx-a11y/no-static-element-interactions)
+```
+
+<br />
+
+[`jsx/a11y/no-static-element-interactions`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md)
+
+NOTES:
+- I'll take a wild guess and say that most developers don't know the ends and outs of making an app accessible
+- Well ESLint rules can help with some of the baseline things
+- For instance clickable elements _should_ only be interactive elements like `<button>` but we're notorious for sticking `onclick` on `<div>`
+- If we do, for a11y among other things it needs to have the proper ARIA role to indicate that it is playing the role of a button
+
+/////
+
+[![Tweet from Cory House on ESLint benefits](../../img/react-properly/eslint-benefits-cory-house.png)](https://twitter.com/housecor/status/857591914727694336)
+
+NOTES:
+- Speaking of new JavaScript features...
 
 =====
 
