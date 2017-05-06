@@ -133,6 +133,9 @@ NOTES:
 
 0. Developer Tools
 0. ESLint
+0. ES.next
+0. Props
+0. Rendering
 
 NOTES:
 
@@ -297,10 +300,427 @@ NOTES:
 
 =====
 
+## ES.next: Modules
+
+```js
+import React, {PropTypes, PureComponent} from 'react'
+import Comment from './Comment'
+
+// create CommentList component
+
+export default CommentList
+```
+<!-- .element: class="large" -->
+
+<br />
+
+[_ECMAScript 6 Modules: the final syntax_](http://www.2ality.com/2014/09/es6-modules-final.html)
+
+NOTES:
+- Make full use of "ES.next" features
+- ES6 modules being one of them
+- Instead of using globals, AMD or CommonJS, use ES6 modules
+
+/////
+
+## ES.next: Classes
+
+```js
+// good
+export default class MainComponent extends PureComponent {
+
+}
+
+
+// bad (uses React.createClass)
+const MainComponent = React.createClass({
+
+});
+export default MainComponent
+```
+<!-- .element: class="large" -->
+
+[_Learning ES6: Classes_](http://www.benmvp.com/learning-es6-classes/)
+
+NOTES:
+- Use ES6 classes instead of `React.createClass`
+- This can be enforced by ESLint
+
+/////
+
+## ES.next: Spread Operator
+
+[Spread operator with array literals](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator)
+
+```js
+let values = new Array(2, 3, 4)
+
+let allValues = [1, ...values, 5] // [1, 2, 3, 4, 5]
+```
+<!-- .element: class="large" -->
+
+<br />
+
+[Spread operator with object literals](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = {
+    ...warriors,
+    Kevin: 97
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- In react maintaining immutability is important
+- Meaning that you never modify an array or object directly
+- Clone it and then modify
+- Spread operator makes that super easy
+
+/////
+
+## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
+
+### ReactConf 2017
+
+NOTES:
+- I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
+- What I just talked about was just a small snippet of all the different features
+- Feel free to watch the video (not now)
+
+=====
+
+## Props: API
+
+```js
+// good
+class TextInput extends PureComponent {
+    static propTypes = {
+        type: PropTypes.string,
+        defaultValue: PropTypes.string
+    }
+}
+
+// bad (adds `propTypes` after class definition)
+const TextInput = class extends PureComponent {
+
+};
+
+TextInput.propTypes = {
+    type: PropTypes.string,
+    defaultValue: PropTypes.string
+};
+```
+
+[Public class fields](https://tc39.github.io/proposal-class-public-fields/) (Stage 2)
+
+NOTES:
+- Props help clearly define the component's API
+- React doesn't require you to define `propTypes` for your props, but require that they are defined
+- Use `static` class property syntax to define `propTypes`
+- Also don't use ambiguous like `PropTypes.object` or `PropTypes.array`
+
+/////
+
+## Props: Boolean
+
+```js
+// good
+export default class Banner extends PureComponent {
+    static propTypes = {
+        hideIcon: React.PropTypes.bool,
+    }
+    static defaultProps = {
+        hideIcon: false,
+    }
+}
+
+// bad (icon-related prop is mis-named such that default is true)
+export default class Banner extends PureComponent {
+    static propTypes = {
+        showIcon: React.PropTypes.bool,
+    }
+    static defaultProps = {
+        showIcon: true,
+    }
+}
+```
+
+NOTES:
+- Name boolean `propTypes` for a component so that their default value is `false`
+- This means that you may need to name a prop negatively so that its default value will be `false`
+
+/////
+
+## Props: Boolean
+
+```js
+// great
+const Header = () => (
+	<header>
+		<Banner />
+	</header>
+)
+
+// not-so-great
+const Header = () => (
+	<header>
+		<Banner showIcon={false} />
+	</header>
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- This way, omitting a boolean value in the JSX using the component is the same as specifying the boolean value as `false`
+
+/////
+
+## Props: Initializing State
+
+```js
+// good
+export default class Togglr extends React.Component {
+    constructor(props, context) {
+        super(prop, context);
+        this.state = {visible: props.defaultVisible};
+    }
+
+    // rest of the component
+}
+
+// bad (confusingly-named prop)
+export default class Togglr extends React.Component {
+    constructor(props, context) {
+        super(prop, context);
+        this.state = {visible: props.visible};
+    }
+
+    // rest of the component
+}
+```
+
+NOTES:
+- In general, using props to generate state is an anti-pattern because it results in duplicate "sources of truth"
+- But if your props is properly named to indicate that it's only used as seed data for the component's internally-controlled state, it's no longer an anti-pattern.
+- We tend to prefix these types of props with `default*` to match the `defaultValue` prop React uses for input elements. `initial*` is also a good prefix.
+- In the "bad" example, both `props` and `state` have a property called `visible`, which is very confusing.
+- Should you use `this.props.visible` or `this.state.visible`. The one in `props` cannot change, while the one in `state` can.
+- Naming the prop `defaultVisible` (as shown in the "good" example) makes things clearer.
+
+=====
+
+## Rendering: Logic & JSX
+
+```js
+// bad (expressions in JSX)
+render() {
+  let {includeHeader} = this.props;
+
+  return (
+    <div>
+      {includeHeader ? (<h2>Pagination</h2>) : null}
+      {[1, 2, 3, 4, 5].map((page) => (
+        <Button
+          key={page}
+          onClick={this._handlePageClick.bind(this, page)}
+		/>
+      ))}
+    </div>
+  );
+}
+```
+
+NOTES:
+- React and JSX supporting logic and markup in the same file allows for substantial complexity in markup generation over other traditional templating languages
+- But with that increased complexity can come a decrease in readability.
+- I see a lot of code like this that has ternary operators, `map`s and other code mixed right in the JSX
+- The above "bad" example doesn't seem so bad right?
+- But as we know, code tends to grow over time.
+- If we add more expressions, add more markup to the header, or the map gets more more logic, the code will become unwieldy.
+
+/////
+
+## Rendering: Logic & JSX
+
+```js
+// good
+render() {
+    let {includeHeader} = this.props;
+    let buttons = [1, 2, 3, 4, 5].map((page) => (
+        <Button key={page} onClick={this._handlePageClick.bind(this, page)} />
+    ));
+    let header;
+
+    if (includeHeader) {
+        header = (<h2>Pagination</h2>);
+    }
+
+    return (
+        <div>
+            {header}
+            {buttons}
+        </div>
+    );
+}
+```
+
+NOTES:
+- In order to maximize both complexity and readability, we suggest keeping all logic out of JSX, except variable references and method calls.
+- Expressions, particularly ternary expressions, should be stored in variables outside of JSX.
+- Also using a bound reference to `_handlePageClick` instead of using an anonymous function in the JSX
+
+/////
+
+## Rendering: Helper Components
+
+```js
+// bad (longer, less maintainable render)
+render() {
+    let {allTlds, currentTld, seoLinks} = this.props;
+    let seoItems = seoLinks.map( ... );
+    let domainItems = allTlds.filter( ... ).map( ... );
+
+    return (
+        <div className="global-footer">
+            <ul className="global-footer__site-links">
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/help">Help</a></li>
+                <li><a href="/careers">Careers</a></li>
+            </ul>
+            <ul className="global-footer__seo-links">
+                {seoItems}
+            </ul>
+            <ul className="global-footer__domain-links">
+                {domainItems}
+            </ul>
+        );
+        </div>
+    );
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- Here we have a global footer containing:
+- A section with links to important top-level pages
+- Another section with links for SEO (😐)
+- A section of links to all of your top-level domains (e.g., .com, .co.uk, etc.).
+- There's actually a lot of logic driving the markup
+
+/////
+
+## Rendering: Helper Components
+
+```js
+// using arrow functions for stateless functions
+const SiteLinks = () => (
+    <ul className="global-footer__site-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/help">Help</a></li>
+        <li><a href="/careers">Careers</a></li>
+    </ul>
+);
+```
+<!-- .element: class="small" -->
+
+```js
+// good (clean render w/ help of helper components)
+render() {
+    let {allTlds, currentTld, seoLinks} = this.props;
+
+    return (
+        <div className="global-footer">
+            <SiteLinks />
+            <SeoLinks links={seoLinks} />
+            <DomainLinks allTlds={allTlds} currentTld={currentTld} />
+        </div>
+    );
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- As you can see, with this best practice, the `render()` of `GlobalFooter` is really clean.
+- It's immediately obvious that the global footer consists of site, SEO and domain links.
+- The `GlobalFooter` is composed of these helper components in true React style.
+- Furthermore, if more content is needed for a given section, it's easy for the developer to know where to add code, and `render()` of `GlobalFooter` doesn't need to grow.
+- Use stateless functions instead of class declarations for these helper components.
+- Because they are only useful to the main component and only exist to keep `render()` lean, don’t place these helper components in their own files, nor `export` them within the main component.
+
+/////
+
+## Rendering: Hiding Markup
+
+```js
+// bad (uses CSS to hide element instead of not rendering)
+render() {
+    let {visible} = this.state;
+    let messageClassName;
+
+    if (!visible) {
+        messageClassName = 'hidden';
+    }
+
+    return (
+        <div>
+            <Button click={this._handleToggle.bind(this)}>Toggle!</Button>
+            <p className={messageClassName}>
+                This message is toggled on/off with CSS 🙁!
+            </p>
+        </div>
+    );
+}
+```
+
+NOTES:
+- Typically when you want to conditionally hide markup you would update its style or add a class that'd hide it
+- It's tempting to do the same thing in React, but it's not necessary!
+
+/////
+
+## Rendering: Hiding Markup
+
+```js
+// good
+render() {
+    let {visible} = this.state;
+    let message;
+
+    if (visible) {
+        message = (
+            <p>This message is toggled on/off with React not CSS!</p>
+        );
+    }
+
+    return (
+        <div>
+            <Button click={this._handleToggle.bind(this)}>Toggle!</Button>
+            {message}
+        </div>
+    );
+}
+```
+
+NOTES:
+- With React's optimized re-rendering via its Virtual DOM abstraction, you should never need to hide elements with CSS
+- (except maybe with some sophisticated CSS animations).
+- Instead, don't render the element when it shouldn't be visible, and render it when it should
+
+=====
+
 ## Recap
 
 0. Developer Tools
 0. ESLint
+0. ES.next
+0. Props
+0. Rendering
 
 NOTES:
 - So here's what we discussed
@@ -312,6 +732,8 @@ NOTES:
 
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite React ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
+- [Eventbrite ES6+ coding style guide](https://github.com/eventbrite/javascript/tree/master/es6)
+- [_Learning ES6_ series](/learning-es6-series/)
 
 =====
 
