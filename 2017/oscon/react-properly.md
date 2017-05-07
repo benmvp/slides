@@ -61,7 +61,6 @@ ben-ilegbodu.json
 </div>
 
 NOTES:
-_[1 minute]_
 
 /////
 
@@ -91,6 +90,17 @@ NOTES:
 
 =====
 
+## Just to be clear...
+
+[![Tweet from Dan Abramov about no React rules](../../img/react-properly/no-react-rules-tweet-dan-abramov.png)](https://twitter.com/dan_abramov/status/760871101526310912)
+
+NOTES:
+- These are guidelines and rules that **we** at Eventbrite have adopted
+- They are not hard fast rules
+- But if you're looking coding best practices this may be a great place to start
+
+/////
+
 ## What this talk is **not** about... 😐
 
 <br />
@@ -98,6 +108,7 @@ NOTES:
 - Why to use React
 - How to develop in React
 - How to transition from Backbone to React
+- Mandatory rules on writing React code
 
 NOTES:
 - Just so we're clear...
@@ -108,23 +119,12 @@ NOTES:
 
 <br />
 
-- Overview of Eventbrite React coding styleguide
+- Opinionated guidance on writing healthy React code
 - Lots of code examples
 - Fast-paced!
 
 NOTES:
 - However!
-
-/////
-
-## Just to be clear...
-
-[![Tweet from Dan Abramov about no React rules](../../img/react-properly/no-react-rules-tweet-dan-abramov.png)](https://twitter.com/dan_abramov/status/760871101526310912)
-
-NOTES:
-- These are guidelines and rules that **we** at Eventbrite have adopted
-- They are not hard fast rules
-- But if you're looking coding best practices this may be a great place to start
 
 
 =====
@@ -136,6 +136,9 @@ NOTES:
 0. ES.next
 0. Props
 0. Rendering
+0. Event Handling
+0. State
+0. Context
 
 NOTES:
 
@@ -217,7 +220,7 @@ class MyComponent extends PureComponent {
 	_helperMethod() { }
 
 	render() {
-		return (<div />);
+		return (<div />)
 	}
 }
 ```
@@ -239,7 +242,7 @@ NOTES:
 ```js
 class MyComponent extends PureComponent {
 	render() {
-		return (<div />);
+		return (<div />)
 	}
 
 	static propTypes = {
@@ -335,7 +338,7 @@ export default class MainComponent extends PureComponent {
 // bad (uses React.createClass)
 const MainComponent = React.createClass({
 
-});
+})
 export default MainComponent
 ```
 <!-- .element: class="large" -->
@@ -407,12 +410,12 @@ class TextInput extends PureComponent {
 // bad (adds `propTypes` after class definition)
 const TextInput = class extends PureComponent {
 
-};
+}
 
 TextInput.propTypes = {
     type: PropTypes.string,
     defaultValue: PropTypes.string
-};
+}
 ```
 
 [Public class fields](https://tc39.github.io/proposal-class-public-fields/) (Stage 2)
@@ -485,8 +488,8 @@ NOTES:
 // good
 export default class Togglr extends React.Component {
     constructor(props, context) {
-        super(prop, context);
-        this.state = {visible: props.defaultVisible};
+        super(prop, context)
+        this.state = {visible: props.defaultVisible}
     }
 
     // rest of the component
@@ -495,8 +498,8 @@ export default class Togglr extends React.Component {
 // bad (confusingly-named prop)
 export default class Togglr extends React.Component {
     constructor(props, context) {
-        super(prop, context);
-        this.state = {visible: props.visible};
+        super(prop, context)
+        this.state = {visible: props.visible}
     }
 
     // rest of the component
@@ -518,7 +521,7 @@ NOTES:
 ```js
 // bad (expressions in JSX)
 render() {
-  let {includeHeader} = this.props;
+  let {includeHeader} = this.props
 
   return (
     <div>
@@ -530,7 +533,7 @@ render() {
 		/>
       ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -549,14 +552,14 @@ NOTES:
 ```js
 // good
 render() {
-    let {includeHeader} = this.props;
+    let {includeHeader} = this.props
     let buttons = [1, 2, 3, 4, 5].map((page) => (
         <Button key={page} onClick={this._handlePageClick.bind(this, page)} />
-    ));
-    let header;
+    ))
+    let header
 
     if (includeHeader) {
-        header = (<h2>Pagination</h2>);
+        header = (<h2>Pagination</h2>)
     }
 
     return (
@@ -564,7 +567,7 @@ render() {
             {header}
             {buttons}
         </div>
-    );
+    )
 }
 ```
 
@@ -572,6 +575,7 @@ NOTES:
 - In order to maximize both complexity and readability, we suggest keeping all logic out of JSX, except variable references and method calls.
 - Expressions, particularly ternary expressions, should be stored in variables outside of JSX.
 - Also using a bound reference to `_handlePageClick` instead of using an anonymous function in the JSX
+- We also always surround JSX in parentheses as a convention to signal changing "contexts"
 
 /////
 
@@ -580,9 +584,9 @@ NOTES:
 ```js
 // bad (longer, less maintainable render)
 render() {
-    let {allTlds, currentTld, seoLinks} = this.props;
-    let seoItems = seoLinks.map( ... );
-    let domainItems = allTlds.filter( ... ).map( ... );
+    let {allTlds, currentTld, seoLinks} = this.props
+    let seoItems = seoLinks.map( ... )
+    let domainItems = allTlds.filter( ... ).map( ... )
 
     return (
         <div className="global-footer">
@@ -598,9 +602,9 @@ render() {
             <ul className="global-footer__domain-links">
                 {domainItems}
             </ul>
-        );
+        )
         </div>
-    );
+    )
 }
 ```
 <!-- .element: class="small" -->
@@ -625,14 +629,14 @@ const SiteLinks = () => (
         <li><a href="/help">Help</a></li>
         <li><a href="/careers">Careers</a></li>
     </ul>
-);
+)
 ```
 <!-- .element: class="small" -->
 
 ```js
 // good (clean render w/ help of helper components)
 render() {
-    let {allTlds, currentTld, seoLinks} = this.props;
+    let {allTlds, currentTld, seoLinks} = this.props
 
     return (
         <div className="global-footer">
@@ -640,7 +644,7 @@ render() {
             <SeoLinks links={seoLinks} />
             <DomainLinks allTlds={allTlds} currentTld={currentTld} />
         </div>
-    );
+    )
 }
 ```
 <!-- .element: class="small" -->
@@ -660,11 +664,11 @@ NOTES:
 ```js
 // bad (uses CSS to hide element instead of not rendering)
 render() {
-    let {visible} = this.state;
-    let messageClassName;
+    let {visible} = this.state
+    let messageClassName
 
     if (!visible) {
-        messageClassName = 'hidden';
+        messageClassName = 'hidden'
     }
 
     return (
@@ -674,7 +678,7 @@ render() {
                 This message is toggled on/off with CSS 🙁!
             </p>
         </div>
-    );
+    )
 }
 ```
 
@@ -689,13 +693,13 @@ NOTES:
 ```js
 // good
 render() {
-    let {visible} = this.state;
-    let message;
+    let {visible} = this.state
+    let message
 
     if (visible) {
         message = (
             <p>This message is toggled on/off with React not CSS!</p>
-        );
+        )
     }
 
     return (
@@ -703,7 +707,7 @@ render() {
             <Button click={this._handleToggle.bind(this)}>Toggle!</Button>
             {message}
         </div>
-    );
+    )
 }
 ```
 
@@ -714,6 +718,426 @@ NOTES:
 
 =====
 
+## Event Handling: DOM events
+
+```js
+// bad (_handleChange passes entire event object back)
+// bad (blur event isn't wrapped, which implicitly passed back event object)
+class TextInput extends React.PureComponent {
+    static propTypes = {
+        onChange: React.PropTypes.func.isRequired,
+        onBlur: React.PropTypes.func.isRequired
+    }
+
+    _handleChange(e) {
+        this.props.onChange(e)
+    }
+
+    render() {
+        return (
+            <input
+                type="text"
+                onChange={this._handleChange.bind(this)}
+                onBlur={this.props.onBlur}
+            />
+        )
+    }
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- The above example is a simple wrapper of a text input DOM element
+- However, it's bad because it's passing the entire event object back in its two callbacks.
+- If you pass the entire DOM event object:
+- It's a leaky interface. The parent now has access to `event.taget` (among other properties), which, in turn gives the parent access to DOM nodes that it should not access. At worst, the parent can manipulate or even remove those DOM nodes.
+- It's a poor interface. Instead of directly receiving the required data, the parent now has to navigate within the event object to get the data it wants.
+- It's a fragile interface. If you later want to change how the event is triggered, maybe by adding another type of DOM event that can also trigger it, a parent may now have to check the _type_ of event object it receives
+
+/////
+
+## Event Handling: DOM events
+
+```js
+class TextInput extends React.PureComponent {
+    static propTypes = {
+        onChange: React.PropTypes.func.isRequired,
+        onBlur: React.PropTypes.func.isRequired
+    }
+    _handleChange(e) {
+		// only the value is passed back
+        this.props.onChange(e.target.value)
+    }
+    _handleBlur() {
+		// blur is explicitly handled even though it's a basic wrapper
+        this.props.onBlur()
+    }
+    render() {
+        return (
+            <input
+                type="text"
+                onChange={this._handleChange.bind(this)}
+                onBlur={this._handleBlur.bind(this)}
+            />
+        )
+    }
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- When handling a DOM event that will be passed to the parent via a callback, avoid passing the entire DOM event object.
+- Instead, narrow the component's API by passing only the minimal data required.
+- As a result, this means that you must **always** handle DOM events it within the component even if it's just a wrapper.
+- Otherwise the event object will still be implicitly returned
+
+/////
+
+## Event Handling: Loops
+
+```js
+const TEAMS = {
+    'warriors': {
+        name: 'Golden State Warriors',
+        url: 'http://www.nba.com/warriors'
+    },
+    '49ers': {
+        name: 'San Francisco 49ers',
+        url: 'http://www.49ers.com'
+    },
+    'raiders': {
+        name: 'Oakland Raiders',
+        url: 'http://www.raiders.com'
+    },
+    'giants': {
+        name: 'San Francisco Giants',
+        url: 'http://sanfrancisco.giants.mlb.com'
+    },
+    'athletics': {
+        name: 'Oakland Athletics',
+        url: 'http://oakland.athletics.mlb.com'
+    }
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- If you pass event handlers to child components created in a loop
+- Chances are you will need a way to uniquely identify which child component caused the event handler to occur.
+- Say we had this data set of professional sports teams in the SF Bay Area
+
+/////
+
+## Event Handling: Loops
+
+```js
+// bad (stores the teamId in the DOM `data-teamId` in order to retrieve it onClick)
+class TeamPicker extends React.PureComponent {
+    _handleTeamClick(e) {
+        let teamId = e.target.dataset.teamId
+
+        location.href = TEAMS[teamId].url
+    }
+    render() {
+        let teamButtons = Object.keys(TEAMS).map((teamId) => (
+            <button data-teamId={teamId} onClick={this._handleTeamClick.bind(this)} key={teamId}>
+                {TEAMS[team].name}
+            </button>
+        ))
+
+        return (
+            <div>
+                <h2>Pick your team</h2>
+                <div>{teamButtons}</div>
+            </div>
+        )
+    }
+}
+```
+<!-- .element: class="small" -->
+
+NOTES:
+- I have seen folks still stuck in the old way of thinking store the ID on the DOM using `data-*` attribute
+- The reason that this is "bad" is because the code now has to unnecessarily touch the DOM in order to retrieve `teamId`
+- JavaScript already has the value
+
+/////
+
+## Event Handling: Loops
+
+```js
+class TeamPicker extends React.PureComponent {
+    _handleTeamClick(teamId) {
+        location.href = TEAMS[teamId].url
+    }
+
+    render() {
+        let teamButtons = Object.keys(TEAMS).map((teamId) => (
+            <button onClick={this._handleTeamClick.bind(this, teamId)} key={teamId}>
+                {TEAMS[team].name}
+            </button>
+        ))
+
+        return (
+            <div>
+                <h2>Pick your team</h2>
+                <div>{teamButtons}</div>
+            </div>
+        )
+    }
+}
+```
+
+NOTES:
+- In this _good_ example, we pass the `teamId` to the `.bind()` method
+- When the `onClick` handler is invoked, the `teamId` is the first parameter in `_handleTeamClick`.
+-  In this contrived example, the performance difference between _good_ and _bad_ is likely negligible
+- But at scale, a lot of unnecessary DOM accesses can really slow down an app
+- Always adhering to this good practice should prevent the need to go hunting for performance bottlenecks in an existing large app.
+
+=====
+
+<a href="https://twitter.com/dan_abramov/status/749710501916139520">
+	<img src="../../img/react-properly/state-tweet-dan-abramov.png" target="twitter" style="width: 35%" alt="Dan Abramov tweeting about React state" />
+</a>
+
+/////
+
+## State: Computed data
+
+```js
+// bad (keeps computed `area` value)
+class Box extends React.PureComponent {
+	static propTypes = {height: PropTypes.number.isRequired}
+	constructor(props) {
+		super(props)
+		this.state = {width: 10, area: props.height * 10}
+	}
+	_handleChange(e) {
+		let width = e.target.value
+
+		this.setState({width, area: width * this.props.height})
+	}
+	render() {
+		return (
+			<div>
+				<input value={this.state.width} onChange={this._handleChange.bind(this)} />
+				<span>Area: {this.state.area}</span>
+			</div>
+		)
+	}
+}
+```
+
+NOTES:
+- We have an example of a Box component that just display the area
+- Height comes from props
+- Width comes from text input that's updated in state
+- May be tempted to also put `area` in state as in the example since we need the value
+- But you should only keep the minimal amount in state as possible.
+- Instead....
+
+/////
+
+## State: Computed data
+
+```js
+class Box extends React.PureComponent {
+	static propTypes = {height: PropTypes.number.isRequired}
+	state = {width: 10}
+
+	_handleChange(e) {
+		this.setState({width: e.target.value})
+	}
+	render() {
+		let area = this.state.width * this.props.height;
+
+		return (
+			<div>
+				<input value={this.state.width} onChange={this._handleChange.bind(this)} />
+				<span>Area: {area}</span>
+			</div>
+		)
+	}
+}
+```
+
+NOTES:
+- Only keep `width` in state
+- Calculate `area` as part of `render`
+- This way you don't have to worry about `width` & `area` remaining in sync
+
+/////
+
+## State: Dependent updates
+
+```js
+// bad (doesn't use updater function for dependent state)
+class Incrementer extends React.PureComponent {
+  state = {value: 0}
+
+  _handleClick() {
+	this.setState({value: this.state.value + 1})
+  }
+
+  render() {
+	return (
+	  <div>
+		<span>{this.state.value}</span>
+		<button onClick={this._handleClick.bind(this)}>+</button>
+	  </div>
+    )
+  }
+}
+```
+
+NOTES:
+- Lets say you have a simple `Incrementer` component and all it does is update the state and display it
+- The simplest implementation is this:
+- But it's "bad" because of the way `setState` works
+- `setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state
+- It's a request rather than an immediate command
+- React may delay the update and update several components in a single pass
+- So if the user clicks the button quickly enough, `this.state.value` may still have the same value in successive calls to `_handleClick`
+- So it'll be as if the increment only happened once
+
+/////
+
+## State: Dependent updates
+
+```js
+class Incrementer extends React.PureComponent {
+  state = {value: 0}
+
+  _handleClick() {
+	this.setState((prevState) => ({
+		value: prevState.value + 1
+	}))
+  }
+
+  render() {
+	return (
+	  <div>
+		<span>{this.state.value}</span>
+		<button onClick={this._handleClick.bind(this)}>+</button>
+	  </div>
+    )
+  }
+}
+```
+
+NOTES:
+- The better way is to call `setState` with an updater function
+- This function will get called with the previous state when it's ready to actually set the state
+- So you know you'll be getting the correct previous value
+- React actually suggests that we **always** use this updater function syntax instead of just setting an object
+- But I'm not yet convinced the syntax overhead is worth it when it's not state dependent
+
+/////
+
+## State: Dependent updates
+
+<br />
+
+[`setState`](https://facebook.github.io/react/docs/react-component.html#setstate)
+
+```js
+setState(updaterFunc, [callbackFunc])
+```
+<!-- .element: class="large" -->
+
+<br />
+
+`updaterFunc`
+
+```js
+(prevState, props) => stateChangeObj
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Here is more detail about the function signatures of `setState` & the `updaterFunc`
+
+=====
+
+<a href="https://twitter.com/dan_abramov/status/749715530454622208">
+	<img src="../../img/react-properly/context-tweet-dan-abramov.png" target="twitter" style="width: 45%" alt="Dan Abramov tweeting about unstable React context" />
+</a>
+
+NOTES:
+- Context is the mechanism within React to pass information automatically down through the component tree.
+- Don't use it!
+- If you want to use it in order to "avoid typing", still don't use it!
+- Context in React is the equivalent of global variables in a program; using context makes it harder to track the flow of data through your React components.
+- Instead, be explicit and specifically pass props down the component tree.
+
+/////
+
+## Context
+
+setting context
+
+```js
+class App = () => {
+
+}
+
+export default addTheme(App)
+```
+<!-- .element: class="large" -->
+
+reading context
+
+```js
+class LeftNav = ({theme}) => {
+	// theme is now a prop
+}
+
+export default withTheme(LeftNav)
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- You should never need to define context for components that are in the middle of the component hierarchy
+- If context does need to be defined, it'll be defined at the top-level container App in order to provide truly App-global data.
+- Only used for localization, user state, theming, etc.
+- When you do use context, avoid using it directly when defining, reading or updating a context property.
+- The context API is still considered experimental and likely to change in future releases. Instead wrap your use of the component API in a higher-order component
+- So when the API does change it'll be easier to upgrade the single higher-order component versus all of the individual uses.
+- We have two HOCs: one to set the context at the top-level & one to read context for any of the descendant components
+
+/////
+
+## Context
+
+```js
+const withTheme = (Component) => (
+	class ThemedComponent extends React.PureComponent {
+		static contextTypes = {theme: PropTypes.string}
+
+		render() {
+			let {theme} = this.context
+
+			return (<Component theme={theme} {...this.props} />)
+		}
+	}
+)
+```
+<!-- .element: class="large" -->
+
+[Context API](https://facebook.github.io/react/docs/context.html)
+
+NOTES:
+- Don't have time to really go over higher-order components
+- Will provide resource links
+- But they are basically functions that take in a component, and return a new modified version of it
+- I like to call them "component enhancers" cuz that's more like what they do
+- Here's an example of the `withTheme` HOC
+- The equivalent `addTheme` HOC would set the context
+
+=====
+
 ## Recap
 
 0. Developer Tools
@@ -721,6 +1145,9 @@ NOTES:
 0. ES.next
 0. Props
 0. Rendering
+0. Event Handling
+0. State
+0. Context
 
 NOTES:
 - So here's what we discussed
@@ -734,6 +1161,7 @@ NOTES:
 - [Eventbrite React ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
 - [Eventbrite ES6+ coding style guide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [_Learning ES6_ series](/learning-es6-series/)
+- [_Mixins Are Dead. Long Live Composition_](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.q8tqxgdkp)
 
 =====
 
@@ -745,8 +1173,8 @@ NOTES:
 
 /////
 
-![DeveloperWeek 2016 logo](../../img/mobile-web-devcon-logo.png)
-<!-- .element: style="width: 60%; border: 0; background: none; margin: 0; box-shadow: none;" -->
+![OSCON logo](../../img/conf-logos/oscon-logo.svg)
+<!-- .element: style="width: 75%; border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
 -
@@ -755,6 +1183,9 @@ NOTES:
 
 ![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+
+NOTES:
+- I'm up here presenting this talk, but all of the content comes from a lot of EB engineers
 
 /////
 
@@ -783,10 +1214,6 @@ NOTES:
 ## Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
-
-<br />
-
-Code examples: [github/benmvp/react-esnext](https://github.com/benmvp/react-esnext)
 
 <br />
 
