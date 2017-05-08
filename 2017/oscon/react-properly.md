@@ -78,9 +78,7 @@ NOTES:
 NOTES:
 - Currently an Engineering Manager at Eventbrite
 - Eventbrite is an online ticketing & events platform
-- Many conferences use it for registration
 - Historically we've just been a ticketing platform, but moving to being an events destination
-- I am the engineering manager of that team
 - Previously I was on the Frontend Platform team and where we transitioning Eventbrite from Backbone to React
 - Didn’t want to introduce immediate tech debt from people ramping up
 - Reviewed dozens of coding exercises written in React which showed how poorly code can be written in a hurry :)
@@ -98,6 +96,7 @@ NOTES:
 - These are guidelines and rules that **we** at Eventbrite have adopted
 - They are not hard fast rules
 - But if you're looking coding best practices this may be a great place to start
+- Many devs don't like to be told how to code, but having a solid baseline to start is great
 
 /////
 
@@ -111,7 +110,7 @@ NOTES:
 - Mandatory rules on writing React code
 
 NOTES:
-- Just so we're clear...
+- There will be no public shaming
 
 /////
 
@@ -131,29 +130,15 @@ NOTES:
 
 ## Agenda
 
-0. Developer Tools
 0. ESLint
-0. ES.next
 0. Props
 0. Rendering
 0. Event Handling
 0. State
 0. Context
 
-NOTES:
-
-=====
-
-## React Developer Tools
-
-![React Developer Tools Chrome screenshot](../../img/react-properly/react-developer-tools.jpg)
-<!-- .element: style="width: 55%" -->
-
-Available for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
-
-NOTES:
-- Before we start looking at code, gotta suggest React DevTools
-- It's a debugging lifesaver
+NOTES
+- Here's what we'll be talking about in the areas of writing healthy code
 
 =====
 
@@ -173,11 +158,18 @@ Extend Eventbrite’s [React ESLint Config](https://github.com/eventbrite/javasc
 NOTES:
 - Definitely definitely use ESLint rules
 - Keeps code syntax consistent so folks new to code can focus on code logic instead of code style
-- Great async teaching tool for best practices because violating them causes failures
-- Enforcing style (like no empty tags)
-- Preventing errors (using `class` instead of `className`)
-- Promoting a11y (ensuring ARIA roles are correct)
+- Enforcing style (initial aim)
 - Try our best to have all style rules enforced by ESLint
+- Preventing errors
+- Promoting a11y
+- ESLint config was inspired by Airbnb's
+
+/////
+
+[![Tweet from Cory House on ESLint benefits](../../img/react-properly/eslint-benefits-cory-house.png)](https://twitter.com/housecor/status/857591914727694336)
+
+NOTES:
+- Great async teaching tool for best practices because violating them causes failures
 
 /////
 
@@ -286,113 +278,13 @@ must have role attribute. (jsx-a11y/no-static-element-interactions)
 
 <br />
 
-[`jsx/a11y/no-static-element-interactions`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md)
+[`jsx-a11y/no-static-element-interactions`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md)
 
 NOTES:
 - I'll take a wild guess and say that most developers don't know the ends and outs of making an app accessible
 - Well ESLint rules can help with some of the baseline things
 - For instance clickable elements _should_ only be interactive elements like `<button>` but we're notorious for sticking `onclick` on `<div>`
 - If we do, for a11y among other things it needs to have the proper ARIA role to indicate that it is playing the role of a button
-
-/////
-
-[![Tweet from Cory House on ESLint benefits](../../img/react-properly/eslint-benefits-cory-house.png)](https://twitter.com/housecor/status/857591914727694336)
-
-NOTES:
-- Speaking of new JavaScript features...
-
-=====
-
-## ES.next: Modules
-
-```js
-import React, {PropTypes, PureComponent} from 'react'
-import Comment from './Comment'
-
-// create CommentList component
-
-export default CommentList
-```
-<!-- .element: class="large" -->
-
-<br />
-
-[_ECMAScript 6 Modules: the final syntax_](http://www.2ality.com/2014/09/es6-modules-final.html)
-
-NOTES:
-- Make full use of "ES.next" features
-- ES6 modules being one of them
-- Instead of using globals, AMD or CommonJS, use ES6 modules
-
-/////
-
-## ES.next: Classes
-
-```js
-// good
-export default class MainComponent extends PureComponent {
-
-}
-
-
-// bad (uses React.createClass)
-const MainComponent = React.createClass({
-
-})
-export default MainComponent
-```
-<!-- .element: class="large" -->
-
-[_Learning ES6: Classes_](http://www.benmvp.com/learning-es6-classes/)
-
-NOTES:
-- Use ES6 classes instead of `React.createClass`
-- This can be enforced by ESLint
-
-/////
-
-## ES.next: Spread Operator
-
-[Spread operator with array literals](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator)
-
-```js
-let values = new Array(2, 3, 4)
-
-let allValues = [1, ...values, 5] // [1, 2, 3, 4, 5]
-```
-<!-- .element: class="large" -->
-
-<br />
-
-[Spread operator with object literals](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
-
-```js
-let warriors = {Steph: 95, Klay: 82, Draymond: 79}
-let newWarriors = {
-    ...warriors,
-    Kevin: 97
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- In react maintaining immutability is important
-- Meaning that you never modify an array or object directly
-- Clone it and then modify
-- Spread operator makes that super easy
-
-/////
-
-## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
-
-<iframe width="1333" height="750" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
-
-### ReactConf 2017
-
-NOTES:
-- I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
-- What I just talked about was just a small snippet of all the different features
-- Feel free to watch the video (not now)
 
 =====
 
@@ -422,8 +314,9 @@ TextInput.propTypes = {
 
 NOTES:
 - Props help clearly define the component's API
-- React doesn't require you to define `propTypes` for your props, but require that they are defined
-- Use `static` class property syntax to define `propTypes`
+- React doesn't require you to define `propTypes` for your props, but we require that they are defined
+- Help validate your data and that you're passing in the right stuff
+- Use `static` class property syntax to define `propTypes` (stage 2 public class fields)
 - Also don't use ambiguous like `PropTypes.object` or `PropTypes.array`
 
 /////
@@ -434,41 +327,47 @@ NOTES:
 // good
 export default class Banner extends PureComponent {
     static propTypes = {
-        hideIcon: React.PropTypes.bool,
+        hideIcon: PropTypes.bool
     }
     static defaultProps = {
-        hideIcon: false,
-    }
-}
-
-// bad (icon-related prop is mis-named such that default is true)
-export default class Banner extends PureComponent {
-    static propTypes = {
-        showIcon: React.PropTypes.bool,
-    }
-    static defaultProps = {
-        showIcon: true,
+        hideIcon: false
     }
 }
 ```
+<!-- .element: class="large" -->
+
+```js
+const Header = () => (
+	<header>
+		<Banner />
+	</header>
+)
+```
+<!-- .element: class="large" -->
 
 NOTES:
 - Name boolean `propTypes` for a component so that their default value is `false`
 - This means that you may need to name a prop negatively so that its default value will be `false`
+- This way, omitting a boolean value in the JSX using the component is the same as specifying the boolean value as `false`
 
 /////
 
 ## Props: Boolean
 
 ```js
-// great
-const Header = () => (
-	<header>
-		<Banner />
-	</header>
-)
+// bad (icon-related prop is mis-named such that default is true)
+export default class Banner extends PureComponent {
+    static propTypes = {
+        showIcon: PropTypes.bool
+    }
+    static defaultProps = {
+        showIcon: true
+    }
+}
+```
+<!-- .element: class="large" -->
 
-// not-so-great
+```
 const Header = () => (
 	<header>
 		<Banner showIcon={false} />
@@ -478,7 +377,9 @@ const Header = () => (
 <!-- .element: class="large" -->
 
 NOTES:
-- This way, omitting a boolean value in the JSX using the component is the same as specifying the boolean value as `false`
+- To not have an icon you have to explicitly set `false`
+- And not specifying the prop will actually show it
+- Small detail, but we've found it to be helpful
 
 /////
 
@@ -529,7 +430,7 @@ render() {
       {[1, 2, 3, 4, 5].map((page) => (
         <Button
           key={page}
-          onClick={this._handlePageClick.bind(this, page)}
+          onClick={() => this.setState({page})}
 		/>
       ))}
     </div>
@@ -589,7 +490,7 @@ render() {
     let domainItems = allTlds.filter( ... ).map( ... )
 
     return (
-        <div className="global-footer">
+        <footer className="global-footer">
             <ul className="global-footer__site-links">
                 <li><a href="/about">About</a></li>
                 <li><a href="/blog">Blog</a></li>
@@ -603,17 +504,15 @@ render() {
                 {domainItems}
             </ul>
         )
-        </div>
+        </footer>
     )
 }
 ```
 <!-- .element: class="small" -->
 
 NOTES:
-- Here we have a global footer containing:
-- A section with links to important top-level pages
-- Another section with links for SEO (😐)
-- A section of links to all of your top-level domains (e.g., .com, .co.uk, etc.).
+- Even when you do remove logic from JSX, `render()` can still get super long
+- Here we have a global footer containing a whole bunch of link sections
 - There's actually a lot of logic driving the markup
 
 /////
@@ -639,21 +538,21 @@ render() {
     let {allTlds, currentTld, seoLinks} = this.props
 
     return (
-        <div className="global-footer">
+        <footer className="global-footer">
             <SiteLinks />
             <SeoLinks links={seoLinks} />
             <DomainLinks allTlds={allTlds} currentTld={currentTld} />
-        </div>
+        </footer>
     )
 }
 ```
 <!-- .element: class="small" -->
 
 NOTES:
+- We chunk up markup into private helper components
 - As you can see, with this best practice, the `render()` of `GlobalFooter` is really clean.
 - It's immediately obvious that the global footer consists of site, SEO and domain links.
-- The `GlobalFooter` is composed of these helper components in true React style.
-- Furthermore, if more content is needed for a given section, it's easy for the developer to know where to add code, and `render()` of `GlobalFooter` doesn't need to grow.
+- Easy to add code to a sectino w/o bloating `GlobalFooter` `render()`
 - Use stateless functions instead of class declarations for these helper components.
 - Because they are only useful to the main component and only exist to keep `render()` lean, don’t place these helper components in their own files, nor `export` them within the main component.
 
@@ -723,10 +622,10 @@ NOTES:
 ```js
 // bad (_handleChange passes entire event object back)
 // bad (blur event isn't wrapped, which implicitly passed back event object)
-class TextInput extends React.PureComponent {
+class TextInput extends PureComponent {
     static propTypes = {
-        onChange: React.PropTypes.func.isRequired,
-        onBlur: React.PropTypes.func.isRequired
+        onChange: PropTypes.func.isRequired,
+        onBlur: PropTypes.func.isRequired
     }
 
     _handleChange(e) {
@@ -749,20 +648,19 @@ class TextInput extends React.PureComponent {
 NOTES:
 - The above example is a simple wrapper of a text input DOM element
 - However, it's bad because it's passing the entire event object back in its two callbacks.
-- If you pass the entire DOM event object:
-- It's a leaky interface. The parent now has access to `event.taget` (among other properties), which, in turn gives the parent access to DOM nodes that it should not access. At worst, the parent can manipulate or even remove those DOM nodes.
-- It's a poor interface. Instead of directly receiving the required data, the parent now has to navigate within the event object to get the data it wants.
-- It's a fragile interface. If you later want to change how the event is triggered, maybe by adding another type of DOM event that can also trigger it, a parent may now have to check the _type_ of event object it receives
+- It's a leaky interface. The parent now has access to `event.taget` (among other properties)
+- It's a poor interface. The parent now has to navigate within the event object to get the data it wants.
+- It's a fragile interface. If you later want to change how the event is triggered, a parent may now have to check the _type_ of event object it receives
 
 /////
 
 ## Event Handling: DOM events
 
 ```js
-class TextInput extends React.PureComponent {
+class TextInput extends PureComponent {
     static propTypes = {
-        onChange: React.PropTypes.func.isRequired,
-        onBlur: React.PropTypes.func.isRequired
+        onChange: PropTypes.func.isRequired,
+        onBlur: PropTypes.func.isRequired
     }
     _handleChange(e) {
 		// only the value is passed back
@@ -832,11 +730,11 @@ NOTES:
 
 ```js
 // bad (stores the teamId in the DOM `data-teamId` in order to retrieve it onClick)
-class TeamPicker extends React.PureComponent {
+class TeamPicker extends PureComponent {
     _handleTeamClick(e) {
         let teamId = e.target.dataset.teamId
 
-        location.href = TEAMS[teamId].url
+        console.log(TEAMS[teamId].url)
     }
     render() {
         let teamButtons = Object.keys(TEAMS).map((teamId) => (
@@ -866,9 +764,9 @@ NOTES:
 ## Event Handling: Loops
 
 ```js
-class TeamPicker extends React.PureComponent {
+class TeamPicker extends PureComponent {
     _handleTeamClick(teamId) {
-        location.href = TEAMS[teamId].url
+        console.log(TEAMS[teamId].url)
     }
 
     render() {
@@ -907,25 +805,25 @@ NOTES:
 
 ```js
 // bad (keeps computed `area` value)
-class Box extends React.PureComponent {
-	static propTypes = {height: PropTypes.number.isRequired}
-	constructor(props) {
-		super(props)
-		this.state = {width: 10, area: props.height * 10}
-	}
-	_handleChange(e) {
-		let width = e.target.value
+class Box extends PureComponent {
+  static propTypes = {height: PropTypes.number.isRequired}
+  constructor(props) {
+    super(props)
+    this.state = {width: 10, area: props.height * 10}
+  }
+  _handleChange(e) {
+    let width = e.target.value
 
-		this.setState({width, area: width * this.props.height})
-	}
-	render() {
-		return (
-			<div>
-				<input value={this.state.width} onChange={this._handleChange.bind(this)} />
-				<span>Area: {this.state.area}</span>
-			</div>
-		)
-	}
+    this.setState({width, area: width * this.props.height})
+  }
+  render() {
+    return (
+      <div>
+        <input value={this.state.width} onChange={this._handleChange.bind(this)} />
+        <span>Area: {this.state.area}</span>
+      </div>
+    )
+  }
 }
 ```
 
@@ -942,23 +840,24 @@ NOTES:
 ## State: Computed data
 
 ```js
-class Box extends React.PureComponent {
-	static propTypes = {height: PropTypes.number.isRequired}
-	state = {width: 10}
+class Box extends PureComponent {
+  static propTypes = {height: PropTypes.number.isRequired}
+  state = {width: 10}
 
-	_handleChange(e) {
-		this.setState({width: e.target.value})
-	}
-	render() {
-		let area = this.state.width * this.props.height;
+  _handleChange(e) {
+    this.setState({width: e.target.value})
+  }
+  render() {
+    let width = this.state.width
+    let area = width * this.props.height;
 
-		return (
-			<div>
-				<input value={this.state.width} onChange={this._handleChange.bind(this)} />
-				<span>Area: {area}</span>
-			</div>
-		)
-	}
+    return (
+      <div>
+        <input value={width} onChange={this._handleChange.bind(this)} />
+        <span>Area: {area}</span>
+      </div>
+    )
+  }
 }
 ```
 
@@ -973,7 +872,7 @@ NOTES:
 
 ```js
 // bad (doesn't use updater function for dependent state)
-class Incrementer extends React.PureComponent {
+class Incrementer extends PureComponent {
   state = {value: 0}
 
   _handleClick() {
@@ -995,8 +894,7 @@ NOTES:
 - Lets say you have a simple `Incrementer` component and all it does is update the state and display it
 - The simplest implementation is this:
 - But it's "bad" because of the way `setState` works
-- `setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state
-- It's a request rather than an immediate command
+- `setState()` enqueues changes to the component state; it's a request rather than an immediate command
 - React may delay the update and update several components in a single pass
 - So if the user clicks the button quickly enough, `this.state.value` may still have the same value in successive calls to `_handleClick`
 - So it'll be as if the increment only happened once
@@ -1006,7 +904,7 @@ NOTES:
 ## State: Dependent updates
 
 ```js
-class Incrementer extends React.PureComponent {
+class Incrementer extends PureComponent {
   state = {value: 0}
 
   _handleClick() {
@@ -1102,9 +1000,9 @@ NOTES:
 - You should never need to define context for components that are in the middle of the component hierarchy
 - If context does need to be defined, it'll be defined at the top-level container App in order to provide truly App-global data.
 - Only used for localization, user state, theming, etc.
-- When you do use context, avoid using it directly when defining, reading or updating a context property.
-- The context API is still considered experimental and likely to change in future releases. Instead wrap your use of the component API in a higher-order component
-- So when the API does change it'll be easier to upgrade the single higher-order component versus all of the individual uses.
+- When you do use context, avoid using it directly
+- The context API is still considered experimental and likely to change in future releases.
+- Instead wrap your use of the component API in a higher-order component
 - We have two HOCs: one to set the context at the top-level & one to read context for any of the descendant components
 
 /////
@@ -1113,7 +1011,7 @@ NOTES:
 
 ```js
 const withTheme = (Component) => (
-	class ThemedComponent extends React.PureComponent {
+	class ThemedComponent extends PureComponent {
 		static contextTypes = {theme: PropTypes.string}
 
 		render() {
@@ -1134,15 +1032,14 @@ NOTES:
 - But they are basically functions that take in a component, and return a new modified version of it
 - I like to call them "component enhancers" cuz that's more like what they do
 - Here's an example of the `withTheme` HOC
+- In the end, the wrapped component would get `theme` as a prop
 - The equivalent `addTheme` HOC would set the context
 
 =====
 
 ## Recap
 
-0. Developer Tools
 0. ESLint
-0. ES.next
 0. Props
 0. Rendering
 0. Event Handling
