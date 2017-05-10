@@ -14,6 +14,9 @@ May 10, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
+- And my talk is called "React Properly"
+- I'm here to talk about React
+- But more specifically share some suggestions on how to write in a maintable way
 
 /////
 
@@ -81,8 +84,9 @@ NOTES:
 - Historically we've just been a ticketing platform, but moving to being an events destination
 - Previously I was on the Frontend Platform team and where we transitioning Eventbrite from Backbone to React
 - Didn’t want to introduce immediate tech debt from people ramping up
-- Reviewed dozens of coding exercises written in React which showed how poorly code can be written in a hurry :)
-- Instituted from the beginning React best practices (which we modified over time)
+- Typically the first code you write when you learn something new is pretty poor
+- Mine was and lots of coding exercises written in React I reviewed were too
+- Instituted React best practices from the beginning (which we modified over time)
 - Best practices helped level up our team in React
 - Target audience: those who have done a little bit of React dev
 
@@ -96,7 +100,9 @@ NOTES:
 - These are guidelines and rules that **we** at Eventbrite have adopted
 - They are not hard fast rules
 - But if you're looking coding best practices this may be a great place to start
-- Many devs don't like to be told how to code, but having a solid baseline to start is great
+- Many devs don't like to be told how to code
+- But many do like some guidelines/direction
+- Helps you feel comfortable that you're not shooting yourself in the foot for later
 
 /////
 
@@ -107,9 +113,11 @@ NOTES:
 - Why to use React
 - How to develop in React
 - How to transition from Backbone to React
-- Mandatory rules on writing React code
+- **Mandatory** rules on writing React code
 
 NOTES:
+- Not here to get into flame wars over React vs. Angular
+- And certainly don't have time to teach React; that's a day-long workshop
 - There will be no public shaming
 
 /////
@@ -124,6 +132,7 @@ NOTES:
 
 NOTES:
 - However!
+- Lots I wanna show you and not that much time!
 
 
 =====
@@ -137,10 +146,15 @@ NOTES:
 0. State
 0. Context
 
-NOTES
+NOTES:
 - Here's what we'll be talking about in the areas of writing healthy code
+- These are the basic pillars of React
 
 =====
+
+# 1. ESLint
+
+/////
 
 ## ESLint
 
@@ -170,6 +184,7 @@ NOTES:
 
 NOTES:
 - Great async teaching tool for best practices because violating them causes failures
+- The docs on the eslint rule can actually teach!
 
 /////
 
@@ -255,6 +270,8 @@ render should be placed after _helperMethod (react/sort-comp)
 NOTES:
 - So if I decided to put `render()` first like I've seen some folks doing, it'll complain
 - Keeps code syntax consistent so folks new to code can focus on code logic instead of code style
+- Newbies entering the codebase so that they can learn quicker
+- Newbies writing code so they don't have to worry where things should go
 
 /////
 
@@ -281,12 +298,17 @@ must have role attribute. (jsx-a11y/no-static-element-interactions)
 [`jsx-a11y/no-static-element-interactions`](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md)
 
 NOTES:
+- _Last feature in ESLint_
 - I'll take a wild guess and say that most developers don't know the ends and outs of making an app accessible
 - Well ESLint rules can help with some of the baseline things
 - For instance clickable elements _should_ only be interactive elements like `<button>` but we're notorious for sticking `onclick` on `<div>`
 - If we do, for a11y among other things it needs to have the proper ARIA role to indicate that it is playing the role of a button
 
 =====
+
+# 2. Props
+
+/////
 
 ## Props: API
 
@@ -314,8 +336,8 @@ TextInput.propTypes = {
 
 NOTES:
 - Props help clearly define the component's API
-- React doesn't require you to define `propTypes` for your props, but we require that they are defined
-- Help validate your data and that you're passing in the right stuff
+- React doesn't require you to define `propTypes` for your props, but **we** require that they are defined
+- Help validate your data and that ensure you're passing in the right stuff
 - Use `static` class property syntax to define `propTypes` (stage 2 public class fields)
 - Also don't use ambiguous like `PropTypes.object` or `PropTypes.array`
 
@@ -347,8 +369,8 @@ const Header = () => (
 
 NOTES:
 - Name boolean `propTypes` for a component so that their default value is `false`
+- This way, omitting a boolean value in the JSX is the same as specifying the boolean value as `false`
 - This means that you may need to name a prop negatively so that its default value will be `false`
-- This way, omitting a boolean value in the JSX using the component is the same as specifying the boolean value as `false`
 
 /////
 
@@ -408,6 +430,7 @@ export default class Togglr extends React.Component {
 ```
 
 NOTES:
+- _Last feature in Props_
 - In general, using props to generate state is an anti-pattern because it results in duplicate "sources of truth"
 - But if your props is properly named to indicate that it's only used as seed data for the component's internally-controlled state, it's no longer an anti-pattern.
 - We tend to prefix these types of props with `default*` to match the `defaultValue` prop React uses for input elements. `initial*` is also a good prefix.
@@ -416,6 +439,13 @@ NOTES:
 - Naming the prop `defaultVisible` (as shown in the "good" example) makes things clearer.
 
 =====
+
+# 3. Rendering
+
+NOTES:
+- Here's where things really start getting interesting
+
+/////
 
 ## Rendering: Logic & JSX
 
@@ -439,9 +469,11 @@ render() {
 ```
 
 NOTES:
-- React and JSX supporting logic and markup in the same file allows for substantial complexity in markup generation over other traditional templating languages
+- React and JSX supporting logic and markup in the same file
+- This allows for substantial complexity in markup generation over other traditional templating languages
 - But with that increased complexity can come a decrease in readability.
 - I see a lot of code like this that has ternary operators, `map`s and other code mixed right in the JSX
+- This also has an anonymous function for the `onClick`
 - The above "bad" example doesn't seem so bad right?
 - But as we know, code tends to grow over time.
 - If we add more expressions, add more markup to the header, or the map gets more more logic, the code will become unwieldy.
@@ -473,7 +505,7 @@ render() {
 ```
 
 NOTES:
-- In order to maximize both complexity and readability, we suggest keeping all logic out of JSX, except variable references and method calls.
+- In order to minimize complexity and maximize readability, keep all logic out of JSX, except variable references and method calls.
 - Expressions, particularly ternary expressions, should be stored in variables outside of JSX.
 - Also using a bound reference to `_handlePageClick` instead of using an anonymous function in the JSX
 - We also always surround JSX in parentheses as a convention to signal changing "contexts"
@@ -552,7 +584,7 @@ NOTES:
 - We chunk up markup into private helper components
 - As you can see, with this best practice, the `render()` of `GlobalFooter` is really clean.
 - It's immediately obvious that the global footer consists of site, SEO and domain links.
-- Easy to add code to a sectino w/o bloating `GlobalFooter` `render()`
+- Easy to add code to a section w/o bloating `GlobalFooter` `render()`
 - Use stateless functions instead of class declarations for these helper components.
 - Because they are only useful to the main component and only exist to keep `render()` lean, don’t place these helper components in their own files, nor `export` them within the main component.
 
@@ -582,6 +614,7 @@ render() {
 ```
 
 NOTES:
+- _Last feature in Rendering_
 - Typically when you want to conditionally hide markup you would update its style or add a class that'd hide it
 - It's tempting to do the same thing in React, but it's not necessary!
 
@@ -616,6 +649,13 @@ NOTES:
 - Instead, don't render the element when it shouldn't be visible, and render it when it should
 
 =====
+
+# 4. Event Handling
+
+NOTES:
+- Event handling is where we start building in interactivity
+
+/////
 
 ## Event Handling: DOM events
 
@@ -795,6 +835,10 @@ NOTES:
 
 =====
 
+# 5. State
+
+/////
+
 <a href="https://twitter.com/dan_abramov/status/749710501916139520">
 	<img src="../../img/react-properly/state-tweet-dan-abramov.png" target="twitter" style="width: 35%" alt="Dan Abramov tweeting about React state" />
 </a>
@@ -865,6 +909,7 @@ NOTES:
 - Only keep `width` in state
 - Calculate `area` as part of `render`
 - This way you don't have to worry about `width` & `area` remaining in sync
+- A more complicated example would be a list & a filter in `state`, but the filtered list is computed in `render()`
 
 /////
 
@@ -894,7 +939,7 @@ NOTES:
 - Lets say you have a simple `Incrementer` component and all it does is update the state and display it
 - The simplest implementation is this:
 - But it's "bad" because of the way `setState` works
-- `setState()` enqueues changes to the component state; it's a request rather than an immediate command
+- `setState()` batches up changes to the component state; it's a request rather than an immediate command
 - React may delay the update and update several components in a single pass
 - So if the user clicks the button quickly enough, `this.state.value` may still have the same value in successive calls to `_handleClick`
 - So it'll be as if the increment only happened once
@@ -958,16 +1003,21 @@ NOTES:
 
 =====
 
-<a href="https://twitter.com/dan_abramov/status/749715530454622208">
-	<img src="../../img/react-properly/context-tweet-dan-abramov.png" target="twitter" style="width: 45%" alt="Dan Abramov tweeting about unstable React context" />
-</a>
+# 6. Context
 
 NOTES:
 - Context is the mechanism within React to pass information automatically down through the component tree.
 - Don't use it!
 - If you want to use it in order to "avoid typing", still don't use it!
-- Context in React is the equivalent of global variables in a program; using context makes it harder to track the flow of data through your React components.
+- Context in React is the equivalent of global variables in a program
+- Using context makes it harder to track the flow of data through your React components.
 - Instead, be explicit and specifically pass props down the component tree.
+
+/////
+
+<a href="https://twitter.com/dan_abramov/status/749715530454622208">
+	<img src="../../img/react-properly/context-tweet-dan-abramov.png" target="twitter" style="width: 45%" alt="Dan Abramov tweeting about unstable React context" />
+</a>
 
 /////
 
