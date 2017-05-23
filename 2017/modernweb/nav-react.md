@@ -84,7 +84,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
-## React solar system
+# React solar system
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -107,7 +107,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-## The Sun: React
+# The Sun: React
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -212,7 +212,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-## Mercury: JavaScript
+# Mercury: JavaScript
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -254,7 +254,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Venus: Tooling
+# Venus: Tooling
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -636,7 +636,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-## Earth: Styling
+# Earth: Styling
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -860,7 +860,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
-## Mars: Single-Page Apps
+# Mars: Single-Page Apps
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -964,7 +964,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
 
-## Asteroid Belt
+# Asteroid Belt
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -977,7 +977,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-## Jupiter: Testing
+# Jupiter: Testing
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -1073,7 +1073,7 @@ exports[`Link renders correctly 1`] = `
 
 <!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
 
-## Saturn: Performance & SEO
+# Saturn: Performance & SEO
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -1116,7 +1116,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Uranus: App Data Management
+# Uranus: App Data Management
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
@@ -1246,7 +1246,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
 
-## Neptune: API Optimization
+# Neptune: API Optimization
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
