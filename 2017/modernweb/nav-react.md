@@ -208,6 +208,19 @@ NOTES:
 - It teaches all the core concepts
 - It's written in ES6, so...
 
+/////
+
+## [React exposed! 😮](http://www.benmvp.com/slides/2017/forwardjs/react-exposed.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/cAYMqBU7Qko" frameborder="0" allowfullscreen></iframe>
+
+### ForwardJS Spring 2017
+
+NOTES:
+- I gave a talk call _React exposed! 😮_ at ForwardJS earlier in March
+- Talk about some details about _how_ React works in order to explain _why_ we have to write some of the React code we write
+- Feel free to watch the video (not now)
+
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
