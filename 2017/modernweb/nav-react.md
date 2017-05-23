@@ -937,52 +937,27 @@ NOTES:
 ## React Router
 
 ```js
-// index.js
-import React from 'react'
 import {render} from 'react-dom'
-import {browserHistory} from 'react-router'
-import App from './components/About'
-import About from './components/About'
-import Repos from './components/Repos'
+import {BrowserRouter, Route} from 'react-router-dom'
+// import App, About & Repos components
 
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={App}/>
+  <BrowserRouter>
+    <ul role="nav">
+	  <li><Link to="/about">About</Link></li>
+	  <li><Link to="/repos">Repos</Link></li>
+    </ul>
+
+    <Route exact={true} path="/" component={App}/>
     <Route path="/repos" component={Repos}/>
     <Route path="/about" component={About}/>
-  </Router>
+  </BrowserRouter>
 ), document.getElementById('app'))
 ```
 <!-- .element: class="large" -->
 
 NOTES:
 - Can set up your routes with the same JSX syntax pointing to components
-
-/////
-
-## React Router
-
-```js
-// modules/App.js
-import {Link} from 'react-router'
-
-export default class App extends React.PureComponent {
-  render() {
-    return (
-      <div>
-        <h1>React Router Tutorial</h1>
-        <ul role="nav">
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/repos">Repos</Link></li>
-        </ul>
-      </div>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
 - Then replace `<a>` tags with special `<Link>` tags
 
 =====
@@ -1451,5 +1426,4 @@ Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
 - Slides are available on Twitter and Blog
-- Github repo
 - Ask questions on Twitter, via email or AMA!
