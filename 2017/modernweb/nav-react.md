@@ -263,6 +263,15 @@ NOTES:
 - What I just talked about was just a small snippet of all the different features
 - Feel free to watch the video (not now)
 
+/////
+
+## JavaScript Resources
+
+- [_Learning ES6_ series](/learning-es6-series/)
+- [ES6 Katas](http://es6katas.org/)
+- [Eventbrite ES6+ coding style guide](https://github.com/eventbrite/javascript/tree/master/es6)
+- [Eventbrite ES6+ ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite)
+
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
