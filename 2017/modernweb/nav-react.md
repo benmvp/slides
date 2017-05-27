@@ -699,7 +699,7 @@ Use CSS that exists on the page outside of React
 /* lots of other styles before */
 
 .card { }
-.card__tile { }
+.card__title { }
 .card__image { }
 .card__message { }
 
@@ -743,7 +743,7 @@ Associate React components with CSS snippet
 /* Card.scss */
 
 .card { }
-.card__tile { }
+.card__title { }
 .card__image { }
 .card__message { }
 ```
@@ -786,7 +786,7 @@ Automatically scope CSS class names to the component
 /* Card.scss (source) */
 
 .root { }
-.tile { }
+.title { }
 .image { }
 .message { }
 ```
@@ -806,7 +806,7 @@ Automatically scope CSS class names to the component
 /* Card.scss (generated) */
 
 .Card__root___d74hQ { }
-.Card__tile___37fhU { }
+.Card__title___37fhU { }
 .Card__image___ndh2e { }
 .Card__message___84QQj { }
 ```
@@ -960,7 +960,7 @@ NOTES:
 
 ```js
 import {render} from 'react-dom'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 // import App, About & Repos components
 
 render((
