@@ -1887,7 +1887,7 @@ NOTES:
 - [_ES6 in Depth_](http://ponyfoo.com/articles/tagged/es6-in-depth) by Nicolas Bevacqua
 - [_Setting up ES6_](https://leanpub.com/setting-up-es6/read) by Axel Rauschmayer
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
-- [Eventbrite ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite)
+- [Eventbrite ES6+ ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite)
 
 NOTES:
 _[45 minutes]_
@@ -1938,29 +1938,39 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
-
-<br />
-
-Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
-
-=====
-
-# Exercises Time
-<!-- .element: style="margin-bottom: 1.5em" -->
-
-[github.com/kentcdodds/es6-workshop](https://github.com/kentcdodds/es6-workshop)
-
-/////
-
-# Ben Ilegbodu
-
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[github/benmvp](https://github.com/benmvp)
 
 <br />
 
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
-- Slides are available on Twitter
+- Slides are available on Twitter and Blog
+- Ask questions on Twitter, via email or AMA!
+
+=====
+
+# Exercises Time!!!
+<!-- .element: style="margin-bottom: 1.5em" -->
+
+[github.com/kentcdodds/es6-workshop](https://github.com/kentcdodds/es6-workshop)
+
+/////
+
+# Questions?
+
+<br />
+
+## Ben Ilegbodu
+
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[github/benmvp](https://github.com/benmvp)
+
+<br />
+
+Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
+
+NOTES:
+- Slides are available on Twitter and Blog
 - Ask questions on Twitter, via email or AMA!
