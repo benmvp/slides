@@ -1921,7 +1921,7 @@ NOTES:
 - It's my hope that, the main reason I do this, is so you can feel excited & confident to start using ES6 syntax in your code to make it clearer and more succinct
 - Any feedback would be appreciated!
 
-=====
+/////
 
 # THANKS!
 
@@ -1930,7 +1930,7 @@ NOTES:
 
 NOTES:
 
-=====
+/////
 
 # Questions?
 
@@ -1940,6 +1940,11 @@ NOTES:
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp)
+
+<br />
+
+### _Navigating the React Solar System_  
+### Tomorrow @ 2:30p in Atlantic Ballroom
 
 <br />
 
@@ -1954,7 +1959,9 @@ NOTES:
 # Exercises Time!!!
 <!-- .element: style="margin-bottom: 1.5em" -->
 
-[github.com/kentcdodds/es6-workshop](https://github.com/kentcdodds/es6-workshop)
+Workshop: [github.com/kentcdodds/es6-workshop](https://github.com/kentcdodds/es6-workshop)
+
+Slack: [#workshop-esnext-2017](https://revolutionconf.slack.com/messages/workshop-esnext-2017)
 
 /////
 
