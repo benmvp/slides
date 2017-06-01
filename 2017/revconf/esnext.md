@@ -610,10 +610,10 @@ Named parameters!
 function log(msg, {type='info', delay, color: useColor=true} = {}) {
   // log message
 }
+
+log('Hi!', {type: 'warn', color: false})
 ```
 <!-- .element: class="large" -->
-
-<br />
 
 -----
 
@@ -625,6 +625,8 @@ function log(msg, opts = {}) {
 
   // log message
 }
+
+log('Hi!', {type: 'warn', color: false})
 ```
 <!-- .element: class="large" -->
 
@@ -1751,8 +1753,8 @@ NOTES:
 0. Destructuring
 0. Rest parameters
 0. Spread operator
-0. Template literals
 0. Arrow functions
+0. Template literals
 0. Classes
 0. Object literal shorthand
 0. String APIs
