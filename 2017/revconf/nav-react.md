@@ -734,7 +734,9 @@ Use CSS that exists on the page outside of React
 
 /* lots of other styles after */
 ```
-<!-- .element: class="large" style="margin:5% 0" -->
+<!-- .element: class="large" -->
+
+Use [BEM](http://getbem.com/), [SMACSS](https://smacss.com/) or [OOCSS](https://github.com/stubbornella/oocss/wiki) for class name-spacing
 
 NOTES:
 - Use BEM syntax as a convention to prevent name collisions
@@ -896,11 +898,12 @@ export default styles
 
 ## Styling resources
 
-- [Glamorous](https://github.com/paypal/glamorous#inspiration)
-- [Radium](https://formidable.com/open-source/radium/)
+- [_A Unified Styling Language_](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660) by [Mark Dalgleish](https://twitter.com/markdalgleish)
+- [Glamorous](https://github.com/paypal/glamorous) / [styled components](https://github.com/styled-components/styled-components) / [Radium](https://formidable.com/open-source/radium/)
 - [CSS Modules](https://github.com/css-modules/css-modules) & [React CSS Modules](https://github.com/gajus/react-css-modules)
 - [React-Bootstrap](https://react-bootstrap.github.io/) / [Material UI](http://www.material-ui.com/#/) / [React + Foundation](https://react.foundation/)
 - [Classnames](https://github.com/JedWatson/classnames)
+- [polished](https://polished.js.org/)
 - [PostCSS](http://postcss.org/)
 
 NOTES:
