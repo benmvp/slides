@@ -751,7 +751,7 @@ NOTES:
 
 =====
 
-# QUIZ BREAK!!
+<!-- .slide: data-background="url(../../img/giphy/quiz.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -1088,7 +1088,7 @@ NOTES:
 
 =====
 
-# QUIZ BREAK!!
+<!-- .slide: data-background="url(../../img/giphy/quiz.gif) no-repeat center" data-background-size="contain"-->
 
 ===== <!-- .slide: data-transition="fade" -->
 
@@ -1695,7 +1695,7 @@ NOTES:
 
 =====
 
-# QUIZ BREAK!!
+<!-- .slide: data-background="url(../../img/giphy/quiz.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
@@ -1742,7 +1742,7 @@ NOTES:
 
 =====
 
-# QUIZ BREAK!!
+<!-- .slide: data-background="url(../../img/giphy/quiz.gif) no-repeat center" data-background-size="contain"-->
 
 =====
 
