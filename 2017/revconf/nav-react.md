@@ -89,20 +89,6 @@ NOTES:
 
 NOTES:
 
-/////
-
-## Agenda
-
-0. React
-0. JavaScript
-0. Tooling
-0. Styling
-0. Single-Page Apps
-0. Testing
-0. Performance & SEO
-0. App Data Management
-0. API Optimization
-
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -207,19 +193,6 @@ NOTES:
 - With the official React tutorial you can learn how to use React by including a couple of script tags
 - It teaches all the core concepts
 - It's written in ES6, so...
-
-/////
-
-## [React exposed! 😮](http://www.benmvp.com/slides/2017/forwardjs/react-exposed.html)
-
-<iframe width="1333" height="750" src="https://www.youtube.com/embed/cAYMqBU7Qko" frameborder="0" allowfullscreen></iframe>
-
-### ForwardJS Spring 2017
-
-NOTES:
-- I gave a talk call _React exposed! 😮_ at ForwardJS earlier in March
-- Talk about some details about _how_ React works in order to explain _why_ we have to write some of the React code we write
-- Feel free to watch the video (not now)
 
 =====
 
@@ -601,35 +574,6 @@ NOTES:
 
 /////
 
-## Flow type assertions
-
-```
-/* @flow */
-const foo = (x: ?number): string => {
-  if (x) {
-    return x
-  }
-  return "default string"
-}
-```
-<!-- .element: class="large" -->
-
-
-```
-$> flow
-
-4:  return x
-           ^ number. Incompatible with the expected return type of
-2: const foo = (x: ?number): string => {
-                             ^ string
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- If you decide to add type assertions, it can get even smarter
-
-/////
-
 ## Tooling Recap
 
 - React Dev Tools
@@ -944,7 +888,7 @@ NOTES:
 
 ## Glamorous
 
-Custom-styled `<div>` component
+Custom-styled components
 
 ```js
 import {glamorous} from 'glamorous'
@@ -973,7 +917,7 @@ NOTES:
 
 ## Glamorous
 
-Built-in glamorous component
+Built-in glamorous components
 
 ```js
 import {Div, H2, Img, P} from 'glamorous'
@@ -1014,7 +958,6 @@ NOTES:
 ## Styling resources
 
 - [_A Unified Styling Language_](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660) by [Mark Dalgleish](https://twitter.com/markdalgleish)
-- [Glamorous](https://github.com/paypal/glamorous) / [styled components](https://github.com/styled-components/styled-components) / [Radium](https://formidable.com/open-source/radium/)
 - [CSS Modules](https://github.com/css-modules/css-modules) & [React CSS Modules](https://github.com/gajus/react-css-modules)
 - [React-Bootstrap](https://react-bootstrap.github.io/) / [Material UI](http://www.material-ui.com/#/) / [React + Foundation](https://react.foundation/)
 - [Classnames](https://github.com/JedWatson/classnames)
