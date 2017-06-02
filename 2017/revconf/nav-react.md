@@ -896,6 +896,121 @@ export default styles
 
 /////
 
+## "css-in-js"
+
+Define your CSS using JavaScript
+
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 14%;">
+		<a href="https://github.com/khan/aphrodite">Aphrodite</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <a href="https://github.com/paypal/glamorous"><img
+            src="../../img/nav-react/glamorous-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://github.com/paypal/glamorous">Glamorous</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <a href="https://github.com/cssinjs/react-jss"><img
+            src="../../img/nav-react/jss-logo.png"
+            style="background:white;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://github.com/cssinjs/react-jss">JSS</a>
+    </div>
+	<div style="flex:0 0 18%;">
+        <a href="https://formidable.com/open-source/radium/"><img
+            src="../../img/nav-react/radium-logo.svg"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://formidable.com/open-source/radium/">Radium</a>
+    </div>
+    <div style="flex:0 0 22%;">
+        <a href="http://styled-components.com/"><img
+            src="../../img/nav-react/styled-components-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://styled-components.com/">styled-components</a>
+    </div>
+</div>
+
+NOTES:
+- Problem with inline styles is that it only supports what inline styles support
+- No media queries, pseudo-selectors, etc
+- New libraries have popped up to try to solve that issue in various clever ways
+- Most take what's defined as inline styles but map to unique CSS classes
+
+/////
+
+## Glamorous
+
+Custom-styled `<div>` component
+
+```js
+import {glamorous} from 'glamorous'
+
+const Root = glamorous.div({display:'flex',flexDirection:'row'})
+const Title = glamorous.h2({fontWeight:'bold', fontSize:'2em'})
+const Image = glamorous.img({...})
+const Message = glamorous.p({...})
+
+const Card = ({title, imageUrl, message}) => (
+  <Root>
+    <Title>{title}</Title>
+	<Image src={imageUrl} />
+	<Message>{message}</Message>
+  </Root>
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Quick look at how Glamorous works
+- Create a custom elements/components with the styling you want
+- Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
+
+/////
+
+## Glamorous
+
+Built-in glamorous component
+
+```js
+import {Div, H2, Img, P} from 'glamorous'
+
+const Card = ({title, imageUrl, message}) => (
+  <Div display="flex" flexDirection="row">
+    <H2 fontWeight="bold" fontSize="2em">{title}</H2>
+	<Img src={imageUrl} ... />
+	<P ... >{message}</P>
+  </div>
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Alternatively, if you have some simple styling you can use one of the built-in predefined components and add props!
+
+/////
+
+## Glamorous
+
+Auto-generated class names
+
+```html
+<div class="css-1sa0cvf">
+  <h2 class="css-1un7ufz">Card Title</h2>
+  <img class="css-1e9pfwo" src="..." />
+  <p class="css-1b9v3at">This is the card message</p>
+</div>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Alternatively, if you have some simple styling you can use one of the built-in predefined components and add props!
+
+/////
+
 ## Styling resources
 
 - [_A Unified Styling Language_](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660) by [Mark Dalgleish](https://twitter.com/markdalgleish)
