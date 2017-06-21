@@ -108,7 +108,7 @@ NOTES:
 		<h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
 		<h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
 		<h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
-		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">Virtual DOM</a></h2>
+		<h2><a href="https://facebook.github.io/react/docs/reconciliation.html">"Virtual DOM"</a></h2>
 		<h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
     </div>
 </div>
