@@ -1052,7 +1052,7 @@ NOTES:
 
 ## Browser support
 
-[![CSS3 Flexbox browser support](../../img/no-js/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
+[![CSS3 Flexbox browser support](../../img/flexbox/css3-flexbox-browser-support.png)](http://caniuse.com/#feat=flexbox)
 
 IE10+, Edge, Chrome, Firefox, Opera, Safari 8+, Android 4.1+, iOS
 
@@ -1147,6 +1147,8 @@ NOTES:
 
 ![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+
+## We're hiring!   <!-- .element: class="fragment" -->
 
 /////
 
