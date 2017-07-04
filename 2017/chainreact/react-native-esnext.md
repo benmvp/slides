@@ -339,6 +339,227 @@ NOTES:
 
 =====
 
+![Chain React Conf App Talk Detail Screen](../../img/react-esnext/chain-react-talk-detail-screen.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+
+NOTES:
+- Next feature is on the talk detail screen of the app
+- At the top is the author picture (clipped)
+- Below is the talk title + description
+- Then info about the author
+- In the case of this talk (happening later today) there are two authors
+
+/////
+
+```js
+{ /* App/Containers/TalkDetailScreen.js */ }
+
+<View style={styles.card}>
+  <Text style={styles.sectionHeading}>TALK</Text>
+  <Text style={styles.heading}>{title}</Text>
+  <Text style={styles.description}>{description}</Text>
+  <Text style={styles.sectionHeading}>ABOUT</Text>
+  {renderSpeakers()}
+</View>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- All that text is just a series of `<Text>` components w/in a `<View>`
+- The interesting part is in `renderSpeakers()`
+
+/////
+
+Where's the bug?
+
+```js
+// App/Containers/TalkDetailScreen.js
+
+renderSpeakers() {
+  let {speakers} = this.props
+
+  return speakers.map(function(speaker, index) {
+    return this.renderSpeaker(speaker, index)
+  })
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `renderSpeakers` is a method that takes the list of speakers & returns array of speaker components
+- But there's a sneaky bug in the code
+- Can anyone spot the mistake in this code?
+- _[Water break]_
+
+///// <!-- .slide: data-transition="fade" -->
+
+Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
+
+```js
+// App/Containers/TalkDetailScreen.js
+
+renderSpeakers() {
+  let {speakers} = this.props
+
+  return speakers.map(function(speaker, index) {
+	// `this` is undefined!
+    return this.renderSpeaker(speaker, index)
+  })
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `this` is `undefined` in the callback function in strict mode
+- `this` is the global scope (window) in loose mode
+- Something that newbies scratch their head about
+- Experienced JavaScript developers still run into it
+
+/////
+
+ES3 fix
+
+```js
+// App/Containers/TalkDetailScreen.js
+
+renderSpeakers() {
+  let self = this // store reference to `this`
+  let {speakers} = this.props
+
+  return speakers.map(function(speaker, index) {
+    return self.renderSpeaker(speaker, index)
+  })
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- In ES3, we solved this by storing a reference to `this` in a variable so that it’s available in the scope of the anonymous function
+- Works, but pretty much every method has to assign `self` variable
+
+/////
+
+ES5 fix
+
+```js
+// App/Containers/TalkDetailScreen.js
+
+renderSpeakers() {
+  let {speakers} = this.props
+
+  return speakers.map(function(speaker, index) {
+    return this.renderSpeaker(speaker, index)
+  }.bind(this))  // pass in proper `this` context
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
+- Underscore and other shim have a bind method so it can work with ES3 browsers
+- This is what the React tutorial does
+- Works, but messy syntax
+- We need something better!
+
+/////
+
+# Arrow functions
+
+Replace anonymous functions with arrow functions
+
+<br />
+<br />
+
+[_Learning ES6: Arrow functions_](http://www.benmvp.com/learning-es6-arrow-functions/)
+
+NOTES:
+- With arrow functions we can stop using anonymous functions
+
+/////
+
+###### Arrow functions
+
+Arrow functions works how you would expect!
+
+```js
+let {speakers} = this.props
+
+return speakers.map(
+  (speaker, index) => this.renderSpeaker(speaker, index)
+)
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+let {speakers} = this.props
+
+return speakers.map(function(speaker, index) {
+  return self.renderSpeaker(speaker, index)
+}.bind(this))  // pass in proper `this` context
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- Arrow functions in ES6 solve this problem
+- Arrow functions use what’s called “lexical scoping” for `this`
+- It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
+- Essentially arrow functions work how you would expect it to
+- An arrow function is literally an arrow (fat arrow) between parameters and body
+
+/////
+
+###### Arrow functions
+
+```js
+let squares = [1, 2, 3].map(value => value * value)
+  // [1, 4, 9]
+```
+<!-- .element: class="large" -->
+
+```js
+let sum = [9, 8, 7, 6].reduce((prev, value) => prev + value, 0)
+  // 30
+```
+<!-- .element: class="large" -->
+
+```js
+const log = (message) => {
+  console.log(message)
+})
+```
+<!-- .element: class="large" -->
+
+```js
+setTimeout(() => {
+  log('delayed for 1 second')
+  log('using arrow function')
+}, 1000)
+```
+<!-- .element: class="large" -->
+
+```js
+const MyComponent = ({style, content}) => (
+  <View style={style}>{content}</View>
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- You’ll find that arrow functions come in handy most when used as a callback function.
+- The various higher-order functional programming array methods that were introduced with ECMAScript 5 (like `map`, `forEach`, `reduce`, etc.) work well with arrow functions.
+- Arrow functions can also be used as callback functions for event handlers (like `click`, `keydown`, etc)
+- This also shows the different formats of arrow functions
+- Parentheses can be omitted if there is one parameter
+- Curly braces can be omitted if there's just a single `return` line
+- The last example is a stateless function using arrow functions with parameter destructuring
+
+=====
+
 =====
 
 ## Recap
