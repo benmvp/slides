@@ -141,6 +141,203 @@ NOTES:
 - Hoping there's at least one thing that maybe you forgot or hadn't used it in a way
 - But even if you do know **EVERYTHING** you can teach others!
 
+=====
+
+![Chain React Conf App Schedule Screen](../../img/react-esnext/chain-react-schedule-screen.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+
+NOTES:
+- First feature relates to the Schedule Screen
+- It has a list of the talks happening today and tomorrow
+
+/////
+
+```js
+// App/Containers/ScheduleScreen.js
+
+render() {
+  return (
+    <PurpleGradient style={styles.linearGradient}>
+      {this.renderDayToggle()}
+      <ListView
+        ref='listView'
+        contentContainerStyle={styles.listContent}
+        dataSource={this.state.dataSource}
+        onLayout={this.onLayout}
+        renderRow={this.renderRow}
+        enableEmptySections
+      />
+    </PurpleGradient>
+  )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Naturally it'll render a `ListView` component
+- We'll talk more about this `render()` method later when we discuss classes
+- Connects to the `dataSource` that's in state
+- Each talk itself is rendered via `renderRow`
+
+/////
+
+```js
+// App/Containers/ScheduleScreen.js
+
+renderRow(eventInfo) {
+  // create vars from properties in `state`
+  let currentTime = this.state.currentTime
+  let isCurrentDay = this.state.isCurrentDay
+
+  // grab vars from properties in `eventInfo` param
+  let eventType = eventInfo.type
+  let eventStart = eventInfo.eventStart
+  let eventEnd = eventInfo.eventStart
+
+  // render <Talk /> or <Break /> component
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- And that's where the fun happens
+- We're pulling lots of properties out of `state` and `eventInfo` param to create variables
+- Helps code below be more redable with out constantly dereferencing those objects
+- BTW - using `let` keyword instead of `var` that came with ES6
+- BTW - This isn't what the actual app's code looks like
+
+/////
+
+# Destructuring
+
+Replace multiple assignments with a single one
+
+<br />
+<br />
+
+[_Learning ES6: Destructuring_](http://www.benmvp.com/learning-es6-destructuring/)
+
+NOTES:
+- It's called Destructuring
+- With destructuring we can reduce multiple assignments down to one
+- Be advised, destructuring is probably the most "out there" syntax addition
+- It's ok if you don't understand it at first
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/i-hate-you-brad-pitt.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- I'm afraid that after we cover destructuring, you'll feel like this...
+- Really just shooting the messenger
+- But stick with me...
+
+/////
+
+<!-- .slide: data-background="url(../../img/giphy/brad-pitt-dancing.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- Eventually I think you'll be super excited about them
+
+/////
+
+###### Destructuring
+
+"DRY-er" assignment!
+
+```js
+renderRow(eventInfo) {
+  let {currentTime, isCurrentDay} = this.state
+  let {type: eventType, eventStart, eventEnd} = eventInfo
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+##### Before
+
+```js
+renderRow(eventInfo) {
+  let currentTime = this.state.currentTime
+  let isCurrentDay = this.state.isCurrentDay
+
+  let eventType = eventInfo.type
+  let eventStart = eventInfo.eventStart
+  let eventEnd = eventInfo.eventStart
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Uses object literal pattern
+- Removes the duplication of `this.state` & `eventInfo`
+- We can also create a differently named variable
+- This is more or less how the actual code looks like
+
+/////
+
+###### Destructuring
+
+Destructured parameters!
+
+```js
+renderRow({type: eventType, eventStart, eventEnd}) {
+  let {currentTime, isCurrentDay} = this.state
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+##### Before
+
+```js
+renderRow(eventInfo) {
+  let {currentTime, isCurrentDay} = this.state
+  let {type: eventType, eventStart, eventEnd} = eventInfo
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Now it's clear precisely what properties of the `eventInfo` param are needed
+- `eventInfo` isn't even available
+- Even with the inline destructuring, someone could still dereference `eventInfo` later
+
+/////
+
+###### Destructuring
+
+### After
+
+```js
+renderRow({type: eventType, eventStart, eventEnd}) {
+  let {currentTime, isCurrentDay} = this.state
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+### Before
+
+```js
+renderRow(eventInfo) {
+  let currentTime = this.state.currentTime
+  let isCurrentDay = this.state.isCurrentDay
+
+  let eventType = eventInfo.type
+  let eventStart = eventInfo.eventStart
+  let eventEnd = eventInfo.eventStart
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Look how much more concise are code is with using destructuring!
+
+=====
 
 =====
 
