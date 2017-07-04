@@ -101,7 +101,6 @@ NOTES:
 
 0. Destructuring
 0. Arrow functions
-0. Rest operator
 0. Spread operator
 0. Classes
 
@@ -154,18 +153,17 @@ NOTES:
 
 ```js
 // App/Containers/ScheduleScreen.js
-
 render() {
   return (
     <PurpleGradient style={styles.linearGradient}>
-      {this.renderDayToggle()}
-      <ListView
-        ref='listView'
+      <DayToggle activeDay={activeDay} />
+      <FlatList
+        data={data}
+        extraData={this.props}
+        renderItem={this.renderItem}
+        keyExtractor={(item, idx) => item.eventStart}
         contentContainerStyle={styles.listContent}
-        dataSource={this.state.dataSource}
-        onLayout={this.onLayout}
-        renderRow={this.renderRow}
-        enableEmptySections
+        showsVerticalScrollIndicator={false}
       />
     </PurpleGradient>
   )
@@ -174,25 +172,25 @@ render() {
 <!-- .element: class="large" -->
 
 NOTES:
-- Naturally it'll render a `ListView` component
+- Rendering a `FlatList` component to display talks and breaks
 - We'll talk more about this `render()` method later when we discuss classes
-- Connects to the `dataSource` that's in state
-- Each talk itself is rendered via `renderRow`
+- Connects to the `data` that's in state
+- Each talk itself is rendered via `renderItem`
 
 /////
 
 ```js
 // App/Containers/ScheduleScreen.js
 
-renderRow(eventInfo) {
+renderItem(info) {
   // create vars from properties in `state`
   let currentTime = this.state.currentTime
   let isCurrentDay = this.state.isCurrentDay
 
-  // grab vars from properties in `eventInfo` param
-  let eventType = eventInfo.type
-  let eventStart = eventInfo.eventStart
-  let eventEnd = eventInfo.eventStart
+  // create vars from properties in `info.item`
+  let eventType = info.item.type
+  let eventStart = info.item.eventStart
+  let eventEnd = info.item.eventStart
 
   // render <Talk /> or <Break /> component
 }
@@ -201,7 +199,7 @@ renderRow(eventInfo) {
 
 NOTES:
 - And that's where the fun happens
-- We're pulling lots of properties out of `state` and `eventInfo` param to create variables
+- We're pulling lots of properties out of `state` and `info.item` param to create variables
 - Helps code below be more redable with out constantly dereferencing those objects
 - BTW - using `let` keyword instead of `var` that came with ES6
 - BTW - This isn't what the actual app's code looks like
@@ -246,9 +244,9 @@ NOTES:
 "DRY-er" assignment!
 
 ```js
-renderRow(eventInfo) {
+renderItem(info) {
   let {currentTime, isCurrentDay} = this.state
-  let {type: eventType, eventStart, eventEnd} = eventInfo
+  let {type: eventType, eventStart, eventEnd} = info.item
 }
 ```
 <!-- .element: class="large" -->
@@ -258,22 +256,53 @@ renderRow(eventInfo) {
 ##### Before
 
 ```js
-renderRow(eventInfo) {
+renderItem(info) {
   let currentTime = this.state.currentTime
   let isCurrentDay = this.state.isCurrentDay
 
-  let eventType = eventInfo.type
-  let eventStart = eventInfo.eventStart
-  let eventEnd = eventInfo.eventStart
+  let eventType = info.item.type
+  let eventStart = info.item.eventStart
+  let eventEnd = info.item.eventStart
 }
 ```
 <!-- .element: class="large" -->
 
 NOTES:
 - Uses object literal pattern
-- Removes the duplication of `this.state` & `eventInfo`
+- Removes the duplication of `this.state` & `info.item`
 - We can also create a differently named variable
 - This is more or less how the actual code looks like
+
+/////
+
+###### Destructuring
+
+Nested destructuring!
+
+```js
+renderItem(info) {
+  let {currentTime, isCurrentDay} = this.state
+  let {item: {type: eventType, eventStart, eventEnd}} = info
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+##### Before
+
+```js
+renderItem(info) {
+  let {currentTime, isCurrentDay} = this.state
+  let {type: eventType, eventStart, eventEnd} = info.item
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Before we were still doing `info.item`
+- So we can changed that to be a nested destructuring pattern!
+- Just taking the pattern from before, but nesting it w/in `item`
 
 /////
 
@@ -282,7 +311,7 @@ NOTES:
 Destructured parameters!
 
 ```js
-renderRow({type: eventType, eventStart, eventEnd}) {
+renderItem({item: {type: eventType, eventStart, eventEnd}}) {
   let {currentTime, isCurrentDay} = this.state
 }
 ```
@@ -293,17 +322,17 @@ renderRow({type: eventType, eventStart, eventEnd}) {
 ##### Before
 
 ```js
-renderRow(eventInfo) {
+renderItem(info) {
   let {currentTime, isCurrentDay} = this.state
-  let {type: eventType, eventStart, eventEnd} = eventInfo
+  let {item: {type: eventType, eventStart, eventEnd}} = info
 }
 ```
 <!-- .element: class="large" -->
 
 NOTES:
-- Now it's clear precisely what properties of the `eventInfo` param are needed
-- `eventInfo` isn't even available
-- Even with the inline destructuring, someone could still dereference `eventInfo` later
+- Now it's clear precisely what properties of the `info` param are needed
+- `info` isn't even available
+- Even with the inline destructuring, someone could still dereference `info` or `info.item` later
 
 /////
 
@@ -312,7 +341,7 @@ NOTES:
 ### After
 
 ```js
-renderRow({type: eventType, eventStart, eventEnd}) {
+renderItem({item: {type: eventType, eventStart, eventEnd}}) {
   let {currentTime, isCurrentDay} = this.state
 }
 ```
@@ -323,19 +352,22 @@ renderRow({type: eventType, eventStart, eventEnd}) {
 ### Before
 
 ```js
-renderRow(eventInfo) {
+renderItem(info) {
   let currentTime = this.state.currentTime
   let isCurrentDay = this.state.isCurrentDay
 
-  let eventType = eventInfo.type
-  let eventStart = eventInfo.eventStart
-  let eventEnd = eventInfo.eventStart
+  let eventType = info.item.type
+  let eventStart = info.item.eventStart
+  let eventEnd = info.item.eventStart
 }
 ```
 <!-- .element: class="large" -->
 
 NOTES:
 - Look how much more concise are code is with using destructuring!
+- To be honest, the new syntax takes a lot of time to get used
+- Way more curly braces in places you wouldn't expect to see them
+- But I think the conciseness & clarity is worth it
 
 =====
 
@@ -566,7 +598,6 @@ NOTES:
 
 0. Destructuring
 0. Arrow functions
-0. Rest operator
 0. Spread operator
 0. Classes
 
