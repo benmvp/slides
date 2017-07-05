@@ -99,6 +99,8 @@ NOTES:
 
 ## Agenda
 
+<br />
+
 0. Destructuring
 0. Arrow functions
 0. Spread operator
@@ -159,7 +161,7 @@ NOTES:
 /////
 
 ```js
-// App/Containers/ScheduleScreen.js
+// Containers/ScheduleScreen.js
 render() {
   return (
     <PurpleGradient style={styles.linearGradient}>
@@ -187,7 +189,7 @@ NOTES:
 /////
 
 ```js
-// App/Containers/ScheduleScreen.js
+// Containers/ScheduleScreen.js
 
 renderItem(info) {
   // create vars from properties in `state`
@@ -389,7 +391,7 @@ NOTES:
 /////
 
 ```js
-{ /* App/Containers/TalkDetailScreen.js */ }
+{ /* Containers/TalkDetailScreen.js */ }
 
 <View style={styles.card}>
   <Text style={styles.sectionHeading}>TALK</Text>
@@ -410,7 +412,7 @@ NOTES:
 Where's the bug?
 
 ```js
-// App/Containers/TalkDetailScreen.js
+// Containers/TalkDetailScreen.js
 
 renderSpeakers() {
   let {speakers} = this.props
@@ -433,7 +435,7 @@ NOTES:
 Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
 
 ```js
-// App/Containers/TalkDetailScreen.js
+// Containers/TalkDetailScreen.js
 
 renderSpeakers() {
   let {speakers} = this.props
@@ -457,7 +459,7 @@ NOTES:
 ES3 fix
 
 ```js
-// App/Containers/TalkDetailScreen.js
+// Containers/TalkDetailScreen.js
 
 renderSpeakers() {
   let self = this // store reference to `this`
@@ -479,7 +481,7 @@ NOTES:
 ES5 fix
 
 ```js
-// App/Containers/TalkDetailScreen.js
+// Containers/TalkDetailScreen.js
 
 renderSpeakers() {
   let {speakers} = this.props
@@ -815,11 +817,240 @@ NOTES:
 - We can see that the `fontSize` for `titleText` is overriding the `fontSize` coming from `Fonts`
 - There are other ways to share multiple styles (passing an array), but I like the simplicity of single style used
 
+
+
+
+
+
 =====
+
+![Chain React Conf App Location Screen](../../img/react-esnext/chain-react-location-screen.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+
+NOTES:
+- Fourth and last feature relates to the Location Screen
+- Has this toggle area where it shows Lyft/Uber options if you expand it
+
+/////
+
+```js
+// Containers/LocationScreen.js
+class LocationScreen extends React.Component {
+  static propTypes = { }
+
+  state = { }
+
+  _toggleRides = () => { }
+
+  render() {
+    return (
+      <TouchableOpacity onPress={this._toggleRides}>
+        <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
+	  </TouchableOpacity>
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- This is a snapshot of what the LocationScreen component looks like
+- It's making use of several ES.next features
+- Pay special attention to the `_toggleRides` "method"
+- Let's talk about 'em
+
+/////
+
+# Classes
+
+Replace class factories with `class` syntax
+
+<br />
+<br />
+
+[_Learning ES6: Classes_](http://www.benmvp.com/learning-es6-classes/)
+
+NOTES:
+- Now we can replace assigning to the prototype or using custom class factories with native class syntax
+
+/////
+
+ES6 class structure
+
+```js
+class MyClass extends BaseClass {
+  constructor() { }
+  static staticMethodA() { }
+  static staticMethodB() { }
+  methodOne() { }
+  methodTwo() { }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `class` keyword
+- `extends` base class
+- supports `constructor`, instance & `static` methods
+- JavaScript doesn't officially support properties (yet)
+- So our component in just ES6 would look like...
+
+/////
+
+```js
+class LocationScreen extends React.Component {
+  constructor(props) {
+	super(props)
+    this.state = { }  // instance property
+  }
+  
+  _toggleRides() { }  // instance method ("private")
+
+  render() {  // instance method
+    return (
+      <TouchableOpacity onPress={this._toggleRides.bind(this)}>
+        <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
+	  </TouchableOpacity>
+	)
+  }
+}
+LocationScreen.propTypes = { } // static property
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `propTypes` is now defined after the class definition as a static property
+- `state` is assigned in `constructor` which now needs to call `super(props)`
+- `_toggleRides` needs to be defined like a true method
+- Naming convention prefix private helpers with `_`
+- As a result we need `this._toggleRides.bind(this)`
+
+/////
+
+```js
+class LocationScreen extends React.Component {
+  static propTypes = { } // static property
+
+  state = { }  // instance property
+
+  _toggleRides() { }  // instance method ("private")
+
+  render() {  // instance method
+    return (
+      <TouchableOpacity onPress={this._toggleRides.bind(this)}>
+        <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
+	  </TouchableOpacity>
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+[Public Class fields](https://github.com/tc39/proposal-class-fields) (Stage 2)
+
+NOTES:
+- Public class fields proposal moves back `propTypes` & `state`
+- Supports both static and instance properties
+- More declrative as to what's going on w/ the class
+- Still have the `.bind`
+- Having the `.bind` there potentially is bad because it's creating a new function for each `render`
+
+/////
+
+```js
+class LocationScreen extends React.Component {
+  static propTypes = { } // static property
+
+  state = { }  // instance property
+
+  _toggleRides = () => { }  // bound function ("private")
+
+  render() {  // instance method
+    return (
+      <TouchableOpacity onPress={this._toggleRides}>
+        <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
+	  </TouchableOpacity>
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+Bound instance property functions solve `.bind` issue!
+
+NOTES:
+- Can convert `_toggleRides()` method to `_toggleRides` instance property bound arrow function
+- Don't need to `.bind` anymore because of "lexical scoping"
+- Can have implicit returns
+- Still not 100% sold
+- Looks like a method, but it's actually an instance property
+
+/////
+
+```js
+class LocationScreen extends React.Component {
+  constructor(props) {
+	super(props)
+    this.state = { }  // instance property
+	this._toggleRides = () => { }  // bound function ("private")
+  }
+  
+  render() {  // instance method
+    return (
+      <TouchableOpacity onPress={this._toggleRides}>
+        <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
+	  </TouchableOpacity>
+	)
+  }
+}
+LocationScreen.propTypes = { } // static property
+```
+<!-- .element: class="large" -->
+
+Bound instance property functions aren't subclassable!
+
+NOTES:
+- As a result, each instance creates its own copy
+- Means that `_toggleRides` isn't subclassable
+- In React world we don't use OOP, so not a huge deal
+
+/////
+
+```js
+class LocationScreen extends React.Component {
+  static propTypes = { } // static property
+
+  state = { }  // instance property
+
+  #toggleRides = () => { }  // bound function (private) 
+
+  render() {  // instance method
+    return (
+      <TouchableOpacity onPress={#toggleRides}>
+        <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
+	  </TouchableOpacity>
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+[Private class fields](https://github.com/tc39/proposal-class-fields) (Stage 2)  
+
+NOTES:
+- Advantage of instance property func:
+- Can use private fields syntax (`#`)
+- It really is a private method
+- Helps distinguish helper methods from lifecycle methods
+- Also get to omit `this.`
+- Part of the same proposal
+- Not yet implemented in Babel!
 
 =====
 
 ## Recap
+
+<br />
 
 0. Destructuring
 0. Arrow functions
@@ -827,14 +1058,20 @@ NOTES:
 0. Classes
 
 NOTES:
+- Destructuring to be concise and clear
+- Arrow functions to get lexical scoping + concise
+- Spread operator to maintain immutability
+- Classes to be more declarative
 
 /////
 
 ## Additional resources
 
+<br />
+
 - [React Native Official Tutorial](https://facebook.github.io/react-native/docs/tutorial.html)
 - [_Learning ES6_ series](/learning-es6-series/)
-- [Chain React Conference App](https://github.com/infinitered/ChainReactApp)
+- [Chain React Conference App repo](https://github.com/infinitered/ChainReactApp)
 - [Eventbrite ES6+ coding style guide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [Eventbrite React coding style guide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite React ESLint configuration](https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite-react)
@@ -901,3 +1138,4 @@ Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 NOTES:
 - Slides are available on Twitter and Blog
 - Ask questions on Twitter, via email or AMA!
+- Find me at lunch if you've got questions!
