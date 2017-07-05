@@ -140,6 +140,13 @@ NOTES:
 - Hoping there's at least one thing that maybe you forgot or hadn't used it in a way
 - But even if you do know **EVERYTHING** you can teach others!
 
+
+
+
+
+
+
+
 =====
 
 ![Chain React Conf App Schedule Screen](../../img/react-esnext/chain-react-schedule-screen.png)
@@ -239,8 +246,6 @@ NOTES:
 
 /////
 
-###### Destructuring
-
 "DRY-er" assignment!
 
 ```js
@@ -275,8 +280,6 @@ NOTES:
 
 /////
 
-###### Destructuring
-
 Nested destructuring!
 
 ```js
@@ -306,8 +309,6 @@ NOTES:
 
 /////
 
-###### Destructuring
-
 Destructured parameters!
 
 ```js
@@ -335,8 +336,6 @@ NOTES:
 - Even with the inline destructuring, someone could still dereference `info` or `info.item` later
 
 /////
-
-###### Destructuring
 
 ### After
 
@@ -368,6 +367,12 @@ NOTES:
 - To be honest, the new syntax takes a lot of time to get used
 - Way more curly braces in places you wouldn't expect to see them
 - But I think the conciseness & clarity is worth it
+
+
+
+
+
+
 
 =====
 
@@ -509,8 +514,6 @@ NOTES:
 
 /////
 
-###### Arrow functions
-
 Arrow functions works how you would expect!
 
 ```js
@@ -544,8 +547,6 @@ NOTES:
 - An arrow function is literally an arrow (fat arrow) between parameters and body
 
 /////
-
-###### Arrow functions
 
 ```js
 let squares = [1, 2, 3].map(value => value * value)
@@ -589,6 +590,230 @@ NOTES:
 - Parentheses can be omitted if there is one parameter
 - Curly braces can be omitted if there's just a single `return` line
 - The last example is a stateless function using arrow functions with parameter destructuring
+
+
+
+
+
+
+
+
+=====
+
+![Chain React Conf App About Screen](../../img/react-esnext/chain-react-about-screen.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+
+NOTES:
+- Third feature relates to the About Screen
+- It really doesn't, but I needed some screen to associate with it
+- It applies to all the screens and none of the screens at the same time
+- But to explain it, I need to take us on a journey
+
+/////
+
+```js
+let maxValueNormal = Math.max(33, 2, 9)
+let arrayOfValues = [33, 2, 9]
+let maxValueFromArray = Math.max.apply(null, arrayOfValues)
+
+// output: 33  33
+console.log(maxValueNormal, maxValueFromArray)
+```
+<!-- .element: class="large" -->
+
+`Math.max.apply`???
+
+NOTES:
+_[21 minutes]_
+
+- `Math.max` accepts an arbitrary number of numeric parameters and returns the maximum one
+- If you want to get the maximum value of an array of numbers, you have to call `Math.max.apply`
+- `apply` converts the array of values into a sequence of parameters
+- But it's kind of esoteric
+  - Plus you have to specify `null` as the context
+- Maybe there's an ES6 feature for this?
+
+/////
+
+# Spread operator
+
+Replace `apply` with the spread operator
+
+<br />
+<br />
+
+[_Learning ES6:_ Parameter handling](http://www.benmvp.com/learning-es6-parameter-handling/#spread-operator)
+
+/////
+
+No more `apply`!
+
+```js
+let arrayOfValues = [33, 2, 9]
+let maxValueFromArray = Math.max(...arrayOfValues)
+
+// output: 33
+console.log(maxValueFromArray)
+```
+<!-- .element: class="large" -->
+
+<br />
+
+-----
+
+#### ES5 way
+
+```js
+let arrayOfValues = [33, 2, 9]
+let maxValueFromArray = Math.max.apply(null, arrayOfValues)
+
+// output: 33
+console.log(maxValueFromArray);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Instead of calling `apply` we can use the spread operator
+- It's 3 dots preceding a parameter in a function call
+- The spread operator _spreads_ out the array into individual parameters
+
+/////
+
+Maintain immutability!
+
+```js
+let start = ['do', 're']
+let middle = ['mi', 'fa', 'so']
+let end = ['la', 'ti']
+let scaleFromLiteral = [...start, ...middle, ...end]
+
+// output: ['do', 're', 'mi', 'fa', 'so', 'la', 'ti']
+console.log(scaleFromLiteral)
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- When we spread multiple arrays into an array literal we're constructing a new array with all of those values
+
+/////
+
+Creating an array
+
+```js
+// verbose
+let values = new Array(2, 3, 4)
+
+// shorthand
+let values = [2, 3, 4]
+```
+<!-- .element: class="large" -->
+
+------
+
+Spreading into an array
+
+```js
+// [1, 2, 3, 4, 5]
+let verbose = new Array(1, ...values, 5)
+
+// [1, 2, 3, 4, 5]
+let shorthand = [1, ...values, 5]
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- So what does this have to do w/ maintaining immutability?
+
+/////
+
+Spread operator with object literals!
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = {
+    ...warriors,
+    Kevin: 97
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+#### ES5 way
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = _.assign({}, warriors, {
+    Kevin: 97
+})
+```
+
+[Spread Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+NOTES:
+- Now we copy objects while adding new properties in one object literal definition
+- It's a Stage 3 ES feature
+- The ES5 way was to use `_.assign()`
+- ES6 did introduce Object.assign() to handle this as well, but I'll always prefer syntax
+
+/////
+
+Sharing styles
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="width:48%">
+		<pre><code class="lang-js">// Styles/AboutScreenStyle.js
+export default StyleSheet.create({
+  ...ApplicationStyles.screen,
+  container: {
+    flex: 1
+  }
+})</code></pre>
+		<pre><code class="lang-js">// Themes/ApplicationStyles.js
+const ApplicationStyles = {
+  screen: {
+    titleText: {
+      ...Fonts.style.h2,
+      fontSize: 14,
+      color: Colors.text
+    }
+  }
+}
+export default ApplicationStyles</code></pre>
+	</div>
+	<div style="width:48%">
+		<pre><code class="lang-js">// Themes/Fonts.js
+const size = {
+  h1: 38,
+  h2: 34
+}
+const style = {
+  h1: {
+    fontFamily: type.base,
+    fontSize: size.h1
+  },
+  h2: {
+    fontWeight: 'bold',
+    fontSize: size.h2
+  }
+}
+export default {size, style}</code></pre>
+		<pre><code class="lang-js">&lt;Text style={styles.titleText}>
+  Our Sponsors
+&lt;/Text></code></pre>
+	</div>
+</div>
+
+NOTES:
+- So that was a long digression to talk about the actual feature in the app
+- React Native components don't use CSS but "inline styles"
+- `StyleSheet.create` takes an object literal allowing to define several styles in one place
+- Spreading in `ApplicationStyles.screen` so all the default styles for screens are available in component
+- `titleText` is a style w/in `ApplicationStyles.screen`
+- It spreads in the styling for `h2` defined in `Fonts`
+- We can see that the `fontSize` for `titleText` is overriding the `fontSize` coming from `Fonts`
+- There are other ways to share multiple styles (passing an array), but I like the simplicity of single style used
 
 =====
 
@@ -662,11 +887,9 @@ NOTES:
 
 /////
 
-# Questions?
+# Ben Ilegbodu
 
 <br />
-
-## Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
 [github/benmvp](https://github.com/benmvp)
