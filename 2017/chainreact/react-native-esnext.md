@@ -125,6 +125,7 @@ NOTES:
 NOTES:
 - All of the examples I'll show come from the Chain React Conference app
 - Some of the examples are code "improvements"; what I thought should've been done
+- Others are just explaining how you get to the ES.next from ES5
 - I considered submitting a "code improvements" PR
 - But didn't wanna be _that_ guy nor get uninvited to speak 😉
 
@@ -378,127 +379,38 @@ NOTES:
 
 =====
 
-![Chain React Conf App Talk Detail Screen](../../img/react-esnext/chain-react-talk-detail-screen.png)
+![Chain React Conf App Location Screen](../../img/react-esnext/chain-react-location-screen.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
 
 NOTES:
-- Next feature is on the talk detail screen of the app
-- At the top is the author picture (clipped)
-- Below is the talk title + description
-- Then info about the author
-- In the case of this talk (happening later today) there are two authors
+- Next feature is on the location screen of the app
+- There's a map that you can pan around on
 
 /////
 
 ```js
-{ /* Containers/TalkDetailScreen.js */ }
+// Containers/LocationScreen.js
 
-<View style={styles.card}>
-  <Text style={styles.sectionHeading}>TALK</Text>
-  <Text style={styles.heading}>{title}</Text>
-  <Text style={styles.description}>{description}</Text>
-  <Text style={styles.sectionHeading}>ABOUT</Text>
-  {renderSpeakers()}
-</View>
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- All that text is just a series of `<Text>` components w/in a `<View>`
-- The interesting part is in `renderSpeakers()`
-
-/////
-
-Where's the bug?
-
-```js
-// Containers/TalkDetailScreen.js
-
-renderSpeakers() {
-  let {speakers} = this.props
-
-  return speakers.map(function(speaker, index) {
-    return this.renderSpeaker(speaker, index)
+componentWillMount () {
+  this._panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: function() { return true },
+    onPanResponderGrant: function(e) { 
+	  this.setState({mapTouchStart: e.nativeEvent.timestamp})
+	}.bind(this),  // pass in proper `this` context
+    onPanResponderRelease: this.checkMapTap.bind(this)
   })
 }
 ```
 <!-- .element: class="large" -->
 
-NOTES:
-- `renderSpeakers` is a method that takes the list of speakers & returns array of speaker components
-- But there's a sneaky bug in the code
-- Can anyone spot the mistake in this code?
-- _[Water break]_
-
-///// <!-- .slide: data-transition="fade" -->
-
-Undefined [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
-
-```js
-// Containers/TalkDetailScreen.js
-
-renderSpeakers() {
-  let {speakers} = this.props
-
-  return speakers.map(function(speaker, index) {
-	// `this` is undefined!
-    return this.renderSpeaker(speaker, index)
-  })
-}
-```
-<!-- .element: class="large" -->
+ES5 `Function.prototype.bind` is so clunky for getting proper [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
 
 NOTES:
-- `this` is `undefined` in the callback function in strict mode
-- `this` is the global scope (window) in loose mode
-- Something that newbies scratch their head about
-- Experienced JavaScript developers still run into it
-
-/////
-
-ES3 fix
-
-```js
-// Containers/TalkDetailScreen.js
-
-renderSpeakers() {
-  let self = this // store reference to `this`
-  let {speakers} = this.props
-
-  return speakers.map(function(speaker, index) {
-    return self.renderSpeaker(speaker, index)
-  })
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- In ES3, we solved this by storing a reference to `this` in a variable so that it’s available in the scope of the anonymous function
-- Works, but pretty much every method has to assign `self` variable
-
-/////
-
-ES5 fix
-
-```js
-// Containers/TalkDetailScreen.js
-
-renderSpeakers() {
-  let {speakers} = this.props
-
-  return speakers.map(function(speaker, index) {
-    return this.renderSpeaker(speaker, index)
-  }.bind(this))  // pass in proper `this` context
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- `bind()` was introduced in ES5 and it creates a new function, passing the specified `this`
-- Underscore and other shim have a bind method so it can work with ES3 browsers
-- This is what the React tutorial does
-- Works, but messy syntax
-- We need something better!
+- So naturally we'll be using `PanResponder`
+- The `PanResponder` exposes lots of events which we handle with function callbacks
+- It's pretty verbose!
+- I especially dislike having to `.bind` the `onPanResponderGrant` handler to pass proper this
+- This isn't how the original code was written
 
 /////
 
@@ -519,11 +431,13 @@ NOTES:
 Arrow functions works how you would expect!
 
 ```js
-let {speakers} = this.props
-
-return speakers.map(
-  (speaker, index) => this.renderSpeaker(speaker, index)
-)
+this._panResponder = PanResponder.create({
+  onStartShouldSetPanResponder: () => true,
+  onPanResponderGrant: (e) => { 
+	this.setState({mapTouchStart: e.nativeEvent.timestamp})
+  },
+  onPanResponderRelease: this.checkMapTap.bind(this)
+})
 ```
 <!-- .element: class="large" -->
 
@@ -532,11 +446,13 @@ return speakers.map(
 #### ES5 way
 
 ```js
-let {speakers} = this.props
-
-return speakers.map(function(speaker, index) {
-  return self.renderSpeaker(speaker, index)
-}.bind(this))  // pass in proper `this` context
+this._panResponder = PanResponder.create({
+  onStartShouldSetPanResponder: function() { return true },
+  onPanResponderGrant: function(e) { 
+	this.setState({mapTouchStart: e.nativeEvent.timestamp})
+  }.bind(this),  // pass in proper `this` context
+  onPanResponderRelease: this.checkMapTap.bind(this)
+})
 ```
 <!-- .element: class="large" -->
 
@@ -547,6 +463,8 @@ NOTES:
 - It's implicitly “inherited” from the enclosing scope, which in our case would be the class method
 - Essentially arrow functions work how you would expect it to
 - An arrow function is literally an arrow (fat arrow) between parameters and body
+- You'll see a lot of React Native docs using arrow functions
+- I left the last `this.checkMapTap.bind(this)` as-is and I'll explain why later
 
 /////
 
@@ -828,7 +746,7 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
 
 NOTES:
-- Fourth and last feature relates to the Location Screen
+- Fourth and last feature relates to the Location Screen again
 - Has this toggle area where it shows Lyft/Uber options if you expand it
 
 /////
