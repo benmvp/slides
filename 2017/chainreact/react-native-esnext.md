@@ -15,6 +15,7 @@ July 10, 2017
 NOTES:
 - My name is Ben Ilegbodu
 - Here to talk about React Native + ES.next
+- ES.next = ES2015 and beyond
 
 /////
 
@@ -153,7 +154,7 @@ NOTES:
 =====
 
 ![Chain React Conf App Schedule Screen](../../img/react-esnext/chain-react-schedule-screen.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 30%" -->
 
 NOTES:
 - First feature relates to the Schedule Screen
@@ -209,10 +210,10 @@ renderItem(info) {
 
 NOTES:
 - And that's where the fun happens
+- A non ES.next implementation may look something like this
 - We're pulling lots of properties out of `state` and `info.item` param to create variables
 - Helps code below be more redable with out constantly dereferencing those objects
 - BTW - using `let` keyword instead of `var` that came with ES6
-- BTW - This isn't what the actual app's code looks like
 
 /////
 
@@ -295,7 +296,7 @@ renderItem(info) {
 
 -----
 
-##### Before
+##### Previous
 
 ```js
 renderItem(info) {
@@ -306,7 +307,7 @@ renderItem(info) {
 <!-- .element: class="large" -->
 
 NOTES:
-- Before we were still doing `info.item`
+- Previously we were still doing `info.item`
 - So we can changed that to be a nested destructuring pattern!
 - Just taking the pattern from before, but nesting it w/in `item`
 
@@ -323,7 +324,7 @@ renderItem({item: {type: eventType, eventStart, eventEnd}}) {
 
 -----
 
-##### Before
+##### Previous
 
 ```js
 renderItem(info) {
@@ -371,6 +372,40 @@ NOTES:
 - Way more curly braces in places you wouldn't expect to see them
 - But I think the conciseness & clarity is worth it
 
+/////
+
+# BONUS!
+
+NOTES:
+- While we're here, I have one bonus feature I want to throw at you
+- Couldn't find it anywhere in the code, but here seems like a good place
+
+/////
+
+Object destructuring + rest operator!
+
+```js
+export default class Box extends PureComponent {
+  render() {
+    let {type, style, ...restProps} = this.props
+    // `restProps` has everything in `this.props`
+    // except `type` & `style`
+	let calcStyle = calculateStyle(type, style)
+
+    return (
+	  <View style={calcStyle} {...restProps} />
+	)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+[Rest Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+NOTES:
+- Rest properties are coming in soon to ECMAScript. They're in Stage 3
+- Not in ES2015, not ES2016, not ES2017, but future JavaScript (maybe ES2018?)
+
 
 
 
@@ -380,7 +415,7 @@ NOTES:
 =====
 
 ![Chain React Conf App Location Screen](../../img/react-esnext/chain-react-location-screen.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 30%" -->
 
 NOTES:
 - Next feature is on the location screen of the app
@@ -403,10 +438,11 @@ componentWillMount () {
 ```
 <!-- .element: class="large" -->
 
-ES5 `Function.prototype.bind` is so clunky for getting proper [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
+Anonymous function + ES5 `bind` is so clunky for getting proper [`this`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this)!
 
 NOTES:
 - So naturally we'll be using `PanResponder`
+- A non ES.next implementation might look like this
 - The `PanResponder` exposes lots of events which we handle with function callbacks
 - It's pretty verbose!
 - I especially dislike having to `.bind` the `onPanResponderGrant` handler to pass proper this
@@ -496,8 +532,8 @@ setTimeout(() => {
 <!-- .element: class="large" -->
 
 ```js
-const MyComponent = ({style, content}) => (
-  <View style={style}>{content}</View>
+const Box = ({type, style, ...restProps}) => (
+  <View style={calcStyle(type, style)}>{content}</View>
 )
 ```
 <!-- .element: class="large" -->
@@ -521,7 +557,7 @@ NOTES:
 =====
 
 ![Chain React Conf App About Screen](../../img/react-esnext/chain-react-about-screen.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 30%" -->
 
 NOTES:
 - Third feature relates to the About Screen
@@ -647,6 +683,10 @@ NOTES:
 
 /////
 
+# But wait, there's more!
+
+/////
+
 Spread operator with object literals!
 
 ```js
@@ -735,6 +775,40 @@ NOTES:
 - We can see that the `fontSize` for `titleText` is overriding the `fontSize` coming from `Fonts`
 - There are other ways to share multiple styles (passing an array), but I like the simplicity of single style used
 
+/////
+
+### Spread operator
+object ➡️ multiple properties (right-hand side)
+
+```js
+let warriors = {Steph: 95, Klay: 82, Draymond: 79}
+let newWarriors = {
+  ...warriors, 
+  Kevin: 97
+}
+```
+<!-- .element: class="large" -->
+
+-----
+
+### Rest operator
+Multiple properties ➡️ object (left-hand side)
+
+```js
+let {type, style, ...restProps} = this.props
+  // `restProps` has everything in `this.props`
+  // except `type` & `style`
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Spread operator & rest operator look the exact same
+- Spread operator takes an object and spreds each of its properties to create a new object
+- So it's on the RHS of assignment
+- Rest operator takes multiple properties and combines them together into an object
+- So it's on the LHS of assignment
+- They are opposites of each other
+
 
 
 
@@ -743,7 +817,7 @@ NOTES:
 =====
 
 ![Chain React Conf App Location Screen](../../img/react-esnext/chain-react-location-screen.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 25%" -->
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 30%" -->
 
 NOTES:
 - Fourth and last feature relates to the Location Screen again
@@ -753,14 +827,14 @@ NOTES:
 
 ```js
 // Containers/LocationScreen.js
-class LocationScreen extends React.Component {
-  static propTypes = { }
+class LocationScreen extends React.PureComponent {
+  static propTypes = { } // static property
 
-  state = { }
+  state = { }  // instance property
 
-  _toggleRides = () => { }
+  _toggleRides = () => { }  // instance method ("private")
 
-  render() {
+  render() {  // instance method
     return (
       <TouchableOpacity onPress={this._toggleRides}>
         <Text style={styles.rideLabel}>Taking Lyft/Uber?</Text>
@@ -816,7 +890,7 @@ NOTES:
 /////
 
 ```js
-class LocationScreen extends React.Component {
+class LocationScreen extends React.PureComponent {
   constructor(props) {
 	super(props)
     this.state = { }  // instance property
@@ -846,7 +920,7 @@ NOTES:
 /////
 
 ```js
-class LocationScreen extends React.Component {
+class LocationScreen extends React.PureComponent {
   static propTypes = { } // static property
 
   state = { }  // instance property
@@ -876,7 +950,7 @@ NOTES:
 /////
 
 ```js
-class LocationScreen extends React.Component {
+class LocationScreen extends React.PureComponent {
   static propTypes = { } // static property
 
   state = { }  // instance property
@@ -906,7 +980,7 @@ NOTES:
 /////
 
 ```js
-class LocationScreen extends React.Component {
+class LocationScreen extends React.PureComponent {
   constructor(props) {
 	super(props)
     this.state = { }  // instance property
@@ -935,7 +1009,7 @@ NOTES:
 /////
 
 ```js
-class LocationScreen extends React.Component {
+class LocationScreen extends React.PureComponent {
   static propTypes = { } // static property
 
   state = { }  // instance property
