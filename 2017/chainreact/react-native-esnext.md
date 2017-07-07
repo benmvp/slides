@@ -132,8 +132,8 @@ NOTES:
 
 /////
 
-![Disclaimer](../../img/disclaimer.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+![Lebron gets hit in head with basketball](../../img/giphy/lebron-head-basketball.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 50%" -->
 
 NOTES:
 - I gave my first ES6 talk in October 2015 right after the ES2015 spec was released, and 2 years later speaking on it
@@ -374,7 +374,8 @@ NOTES:
 
 /////
 
-# BONUS!
+![Mario Mushroom](../../img/giphy/mario-mushroom.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 20%" -->
 
 NOTES:
 - While we're here, I have one bonus feature I want to throw at you
@@ -403,6 +404,7 @@ export default class Box extends PureComponent {
 [Rest Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
 
 NOTES:
+- Rest operator is used for other things as well
 - Rest properties are coming in soon to ECMAScript. They're in Stage 3
 - Not in ES2015, not ES2016, not ES2017, but future JavaScript (maybe ES2018?)
 
@@ -683,7 +685,8 @@ NOTES:
 
 /////
 
-# But wait, there's more!
+![But wait there's more!](../../img/giphy/but-wait-theres-more.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 100%" -->
 
 /////
 
