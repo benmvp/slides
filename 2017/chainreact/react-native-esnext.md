@@ -82,7 +82,7 @@ NOTES:
 <br />
 
 - [Jul 2015] [_Learning ES6 series_](http://www.benmvp.com/learning-es6-series)
-- [Jan 2016] [React official tutorial (old)](https://github.com/facebook/react/blob/8cac523beaaacfeae179ca14a1d8a46d82892016/docs/docs/tutorial.md)
+- [Jan 2016] [React official tutorial (original)](https://github.com/facebook/react/blob/8cac523beaaacfeae179ca14a1d8a46d82892016/docs/docs/tutorial.md)
 - [Nov 2016] [React Native Express](http://www.reactnativeexpress.com/) training course by [Devin Abbott](https://twitter.com/devinaabbott)
 
 NOTES:
@@ -372,42 +372,6 @@ NOTES:
 - Way more curly braces in places you wouldn't expect to see them
 - But I think the conciseness & clarity is worth it
 
-/////
-
-![Mario Mushroom](../../img/giphy/mario-mushroom.gif)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 20%" -->
-
-NOTES:
-- While we're here, I have one bonus feature I want to throw at you
-- Couldn't find it anywhere in the code, but here seems like a good place
-
-/////
-
-Object destructuring + rest operator!
-
-```js
-export default class Box extends PureComponent {
-  render() {
-    let {type, style, ...restProps} = this.props
-    // `restProps` has everything in `this.props`
-    // except `type` & `style`
-	let calcStyle = calculateStyle(type, style)
-
-    return (
-	  <View style={calcStyle} {...restProps} />
-	)
-  }
-}
-```
-<!-- .element: class="large" -->
-
-[Rest Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
-
-NOTES:
-- Rest operator is used for other things as well
-- Rest properties are coming in soon to ECMAScript. They're in Stage 3
-- Not in ES2015, not ES2016, not ES2017, but future JavaScript (maybe ES2018?)
-
 
 
 
@@ -428,7 +392,7 @@ NOTES:
 ```js
 // Containers/LocationScreen.js
 
-componentWillMount () {
+componentWillMount() {
   this._panResponder = PanResponder.create({
     onStartShouldSetPanResponder: function() { return true },
     onPanResponderGrant: function(e) { 
@@ -534,8 +498,8 @@ setTimeout(() => {
 <!-- .element: class="large" -->
 
 ```js
-const Box = ({type, style, ...restProps}) => (
-  <View style={calcStyle(type, style)}>{content}</View>
+const MyComponent = ({style, content}) => (
+  <View style={style}>{content}</View>
 )
 ```
 <!-- .element: class="large" -->
@@ -685,11 +649,6 @@ NOTES:
 
 /////
 
-![But wait there's more!](../../img/giphy/but-wait-theres-more.gif)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 100%" -->
-
-/////
-
 Spread operator with object literals!
 
 ```js
@@ -780,6 +739,42 @@ NOTES:
 
 /////
 
+![Mario Mushroom](../../img/giphy/mario-mushroom.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 20%" -->
+
+NOTES:
+- While we're here, I have one bonus feature I want to throw at you
+- Couldn't find it anywhere in the code, but here seems like a good place
+
+/////
+
+Object destructuring + rest operator!
+
+```js
+export default class Box extends PureComponent {
+  render() {
+    let {type, style, ...restProps} = this.props
+    // `restProps` has everything in `this.props`
+    // except `type` & `style`
+	  let calcStyle = calculateStyle(type, style)
+
+    return (
+      <View style={calcStyle} {...restProps} />
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+[Rest Properties](https://github.com/sebmarkbage/ecmascript-rest-spread) (Stage 3)
+
+NOTES:
+- Rest operator is used for other things as well
+- Rest properties are coming in soon to ECMAScript. They're in Stage 3
+- Not in ES2015, not ES2016, not ES2017, but future JavaScript (maybe ES2018?)
+
+/////
+
 ### Spread operator
 object ➡️ multiple properties (right-hand side)
 
@@ -835,7 +830,7 @@ class LocationScreen extends React.PureComponent {
 
   state = { }  // instance property
 
-  _toggleRides = () => { }  // instance method ("private")
+  _toggleRides = () => { }  // bound function ("private")
 
   render() {  // instance method
     return (
@@ -874,9 +869,9 @@ ES6 class structure
 
 ```js
 class MyClass extends BaseClass {
-  constructor() { }
   static staticMethodA() { }
   static staticMethodB() { }
+  constructor() { }
   methodOne() { }
   methodTwo() { }
 }
@@ -1002,7 +997,7 @@ LocationScreen.propTypes = { } // static property
 ```
 <!-- .element: class="large" -->
 
-Bound instance property functions aren't subclassable!
+Bound instance property functions aren't extendable!
 
 NOTES:
 - As a result, each instance creates its own copy
@@ -1049,7 +1044,7 @@ NOTES:
 
 0. Destructuring
 0. Arrow functions
-0. Spread operator
+0. Spread operator (+ Rest operator!)
 0. Classes
 
 NOTES:
