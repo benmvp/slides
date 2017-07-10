@@ -115,7 +115,6 @@ NOTES:
 - Wish I could talk about everything but that's 40+ features
 - Reason picking these 4 features is because they'll help write clear & concise code
 - They target a wide range of audiences
-- We'll see other features along the way that I will explain quickly
 
 /////
 
@@ -137,6 +136,7 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 50%" -->
 
 NOTES:
+- Heads up!
 - For some of you, a lot of what I'll talk about will be new, and that's ok
 - Others will know the core concepts, but I hope to remind of details
 - There'll be some of you who have been doing it longer than me that will know most of this stuff
@@ -414,6 +414,7 @@ NOTES:
 - The `PanResponder` exposes lots of events which we handle with function callbacks
 - It's pretty verbose!
 - I especially dislike having to `.bind` the `onPanResponderGrant` handler to pass proper this
+- Otherwise `this` would be `undefined`
 
 /////
 
@@ -616,8 +617,9 @@ console.log(scaleFromLiteral)
 
 
 NOTES:
+- The main way we use spread oeprator is to maintain immutability
 - When we spread multiple arrays into an array literal we're constructing a new array with all of those values
-- So how does this all work exactly when the spread operator worked w/ function calls
+- So how does this all work exactly when the spread operator worked w/ function calls?
 
 /////
 
@@ -773,7 +775,6 @@ NOTES:
 - Rest operator is used for other things as well
 - Rest properties are coming in soon to ECMAScript. They're in Stage 3
 - Not in ES2015, not ES2016, not ES2017, but future JavaScript (maybe ES2018?)
-- Can use `PureComponent` because we maintained immutability
 
 /////
 
@@ -1085,7 +1086,7 @@ NOTES:
 - A year ago I didn't even know React Native
 - And now I'm here sharing with you at the first React Native conf in the US
 - Simply amazing
-- Thanks to Jamon, Shawni & the rest of the team for the opportunity
+- Thanks to Jamon, Shawni & the rest of the Infinite Red team for the opportunity
 
 /////
 
@@ -1093,8 +1094,6 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
-- I'm here in part because Eventbrite allowed my Frontend Platform team to make the transition from Backbone to React
-- So thanks to the leadership for that trust
 - Also thanks for continued support in speaking at conference to share what I know and what we've been doing
 
 /////
