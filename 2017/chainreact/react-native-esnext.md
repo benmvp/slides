@@ -16,6 +16,7 @@ NOTES:
 - My name is Ben Ilegbodu
 - Here to talk about React Native + ES.next
 - ES.next = ES2015 and beyond
+- How we can make the most of ES.next in React Native apps
 
 /////
 
@@ -112,7 +113,7 @@ NOTES:
 - Focusing on the features you're most likely to use while building UI in React Native
 - As opposed to features for APIs/Redux/etc
 - Wish I could talk about everything but that's 40+ features
-- Reason picking these 5 features is because they'll help write clear & concise code
+- Reason picking these 4 features is because they'll help write clear & concise code
 - They target a wide range of audiences
 - We'll see other features along the way that I will explain quickly
 
@@ -136,8 +137,6 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 50%" -->
 
 NOTES:
-- I gave my first ES6 talk in October 2015 right after the ES2015 spec was released, and 2 years later speaking on it
-- Some people know everything & others know absolutely nothing
 - For some of you, a lot of what I'll talk about will be new, and that's ok
 - Others will know the core concepts, but I hope to remind of details
 - There'll be some of you who have been doing it longer than me that will know most of this stuff
@@ -185,7 +184,6 @@ render() {
 NOTES:
 - Rendering a `FlatList` component to display talks and breaks
 - We'll talk more about this `render()` method later when we discuss classes
-- Connects to the `data` that's in state
 - Each talk itself is rendered via `renderItem`
 
 /////
@@ -211,9 +209,8 @@ renderItem(info) {
 NOTES:
 - And that's where the fun happens
 - A non ES.next implementation may look something like this
-- We're pulling lots of properties out of `state` and `info.item` param to create variables
+- We're pulling lots of properties out of `this.state` and `info.item` param to create variables
 - Helps code below be more redable with out constantly dereferencing those objects
-- BTW - using `let` keyword instead of `var` that came with ES6
 
 /////
 
@@ -310,6 +307,11 @@ NOTES:
 - Previously we were still doing `info.item`
 - So we can changed that to be a nested destructuring pattern!
 - Just taking the pattern from before, but nesting it w/in `item`
+
+/////
+
+![Joey but wait there's more](../../img/giphy/but-wait-theres-more.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 100%" -->
 
 /////
 
@@ -412,7 +414,6 @@ NOTES:
 - The `PanResponder` exposes lots of events which we handle with function callbacks
 - It's pretty verbose!
 - I especially dislike having to `.bind` the `onPanResponderGrant` handler to pass proper this
-- This isn't how the original code was written
 
 /////
 
@@ -527,8 +528,7 @@ NOTES:
 
 NOTES:
 - Third feature relates to the About Screen
-- It really doesn't, but I needed some screen to associate with it
-- It applies to all the screens and none of the screens at the same time
+- This really could apply to any screen, but I needed some screen to associate with it
 - But to explain it, I need to take us on a journey
 
 /////
@@ -617,6 +617,7 @@ console.log(scaleFromLiteral)
 
 NOTES:
 - When we spread multiple arrays into an array literal we're constructing a new array with all of those values
+- So how does this all work exactly when the spread operator worked w/ function calls
 
 /////
 
@@ -645,7 +646,7 @@ let shorthand = [1, ...values, 5]
 <!-- .element: class="large" -->
 
 NOTES:
-- So what does this have to do w/ maintaining immutability?
+
 
 /////
 
@@ -756,7 +757,7 @@ export default class Box extends PureComponent {
     let {type, style, ...restProps} = this.props
     // `restProps` has everything in `this.props`
     // except `type` & `style`
-	  let calcStyle = calculateStyle(type, style)
+    let calcStyle = calculateStyle(type, style)
 
     return (
       <View style={calcStyle} {...restProps} />
@@ -772,6 +773,7 @@ NOTES:
 - Rest operator is used for other things as well
 - Rest properties are coming in soon to ECMAScript. They're in Stage 3
 - Not in ES2015, not ES2016, not ES2017, but future JavaScript (maybe ES2018?)
+- Can use `PureComponent` because we maintained immutability
 
 /////
 
@@ -780,10 +782,7 @@ object ➡️ multiple properties (right-hand side)
 
 ```js
 let warriors = {Steph: 95, Klay: 82, Draymond: 79}
-let newWarriors = {
-  ...warriors, 
-  Kevin: 97
-}
+let newWarriors = {...warriors, Kevin: 97}
 ```
 <!-- .element: class="large" -->
 
@@ -846,6 +845,7 @@ class LocationScreen extends React.PureComponent {
 NOTES:
 - This is a snapshot of what the LocationScreen component looks like
 - It's making use of several ES.next features
+- Some ES2015 and others are future JS
 - Pay special attention to the `_toggleRides` "method"
 - Let's talk about 'em
 
@@ -865,7 +865,7 @@ NOTES:
 
 /////
 
-ES6 class structure
+ES2015 class structure
 
 ```js
 class MyClass extends BaseClass {
@@ -883,7 +883,7 @@ NOTES:
 - `extends` base class
 - supports `constructor`, instance & `static` methods
 - JavaScript doesn't officially support properties (yet)
-- So our component in just ES6 would look like...
+- So our component in just ES2015 would look like...
 
 /////
 
@@ -969,7 +969,7 @@ class LocationScreen extends React.PureComponent {
 Bound instance property functions solve `.bind` issue!
 
 NOTES:
-- Can convert `_toggleRides()` method to `_toggleRides` instance property bound arrow function
+- Can convert `_toggleRides()` method to `_toggleRides` bound instance property arrow function
 - Don't need to `.bind` anymore because of "lexical scoping"
 - Can have implicit returns
 - Still not 100% sold
@@ -1001,8 +1001,9 @@ Bound instance property functions aren't extendable!
 
 NOTES:
 - As a result, each instance creates its own copy
-- Means that `_toggleRides` isn't subclassable
+- Means that `_toggleRides` isn't extendable
 - In React world we don't use OOP, so not a huge deal
+- However...
 
 /////
 
@@ -1084,7 +1085,7 @@ NOTES:
 - A year ago I didn't even know React Native
 - And now I'm here sharing with you at the first React Native conf in the US
 - Simply amazing
-- Thanks to Tom, Ben, Beth & the rest of the team for the opportunity
+- Thanks to Jamon, Shawni & the rest of the team for the opportunity
 
 /////
 
