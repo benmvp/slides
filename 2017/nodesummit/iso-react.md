@@ -13,7 +13,6 @@
 July 27, 2017  
 
 NOTES:
-- Anyone attend my talk earlier today?
 - My name is Ben Ilegbodu
 - Posted link to slides on twitter if you want to follow along
 - Talking about Isomorphic React w/o Node back-end
@@ -122,6 +121,8 @@ NOTES:
 - Probably used Eventbrite before, but because an organizer told you to buy your tickets on Eventbrite
 - This conference is using Eventbrite, so thank you very much :)
 - But I'm leading the team tasked with making Eventbrite a Destination
+- Prior to being a manager, I was lead Engineer on our Frontend Platform team that transitioned us from Backbone to React
+- Made the transition over a year ago now and have been building new features on the new platform
 
 =====
 
@@ -459,6 +460,7 @@ response = requests.post(
     }))
 
 context['react_page_markup'] = response.text
+context['react_page_props'] = component_props
 ```
 <!-- .element: class="large" -->
 
@@ -475,13 +477,16 @@ NOTES:
 
 ```html
 <html>
-    <head>
-        <title>Eventbrite</title>
-    </head>
-    <body>
-        <div id="app">${ react_page_markup }</div>
-        <script src="dist/react_bundle.js" />
-    </body>
+  <head>
+    <title>Eventbrite</title>
+  </head>
+  <body>
+    <div id="app">${ react_page_markup }</div>
+    <script>
+      window.__INITIAL_STATE = ${ json.dumps(react_page_props) }
+    </script>
+    <script src="dist/react_bundle.js" />
+  </body>
 </html>
 ```
 <!-- .element: class="large" -->
@@ -491,6 +496,7 @@ NOTES:
 - Take the string of markup rendered and inject it into the page template
 - We still have to rely on server template (Mako) to render the page scaffolding (unavoidable)
 - EB is made up of multiple SPAs so the template is a bit more complicated, but this is idea
+- Pass along props in `window.INITIAL_STATE` to hydrate the app on the client
 
 /////
 
@@ -517,9 +523,11 @@ NOTES:
 - Found that the overhead + React rendering was faster than Pybars
 - And we had actually already forked it to speed it up
 
+- That's it!
+
 =====
 
-![Swinging over a lake](../../img/giphy/lake-swing-over.gif)
+![Slippery bowling lane](../../img/giphy/bowling-lane-fall.gif)
 <!-- .element: style="width: 65%" -->
 
 NOTES:
@@ -550,6 +558,7 @@ NOTES:
 - But in DEV we don't want to have to compile JS each time we make a change so server can pick it up
 - We need the React component and all its dependencies, all written in ES6, transpiled
 - Otherwise we get this sort of error when trying to request a component's markup
+- (we're still running Node v4)
 - We need "live" transpilation
 
 /////
@@ -634,6 +643,7 @@ Starting child process with 'node --require babel-register -- server.js --verbos
 
 NOTES:
 - After much googling & StackOverflow-ing, found the `--require` flag on node CLI
+- Preloads a specified module at startup
 - Could use it to require `babel-register` which is a require hook for transpiling everything that gets `require`d
 - It worked beautifully
 - But then there was _another_ problem...
@@ -660,25 +670,6 @@ NOTES:
 - So we had to resort to long polling
 - Really unfortunate because it's hard to know when the server will restart
 - Will be fixed once we switch away to Docker for Mac
-
-=====
-
-## `node_modules` weight
-
-![Mr. Burns can't push heavy bowling ball](../../img/giphy/mr-burns-bowling-ball-too-heavy.gif)
-<!-- .element: style="width: 50%" -->
-
-`node_modules` added 1GB+ on servers!
-
-NOTES:
-- With require.js we pre-built app JS bundles so we never needed `node_modules` on our production servers.
-- App bundles got built on build servers and we deleted `node_modules` before copying files over to production
-- This obviously broke server-side rendering
-- First attempt was to just let all the `node_modules` through, and OPS complained about 1GB+ additional size.
-- Mainly a problem because the file transfer would take much longer.
-- Eventbrite’s package.json has 75+ dependencies which all have dependencies
-- Switching to Yarn de-duping would fix that
-- Second attempt was to whitelist the few packages we need we needed for server-side rendering. Of course that whitelist continued to grow.
 
 =====
 
