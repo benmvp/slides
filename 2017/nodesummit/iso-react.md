@@ -523,17 +523,22 @@ NOTES:
 - Found that the overhead + React rendering was faster than Pybars
 - And we had actually already forked it to speed it up
 
-- That's it!
-
 =====
 
-![Slippery bowling lane](../../img/giphy/bowling-lane-fall.gif)
+![Squidward Ta-Da!](../../img/giphy/squidward-tada.gif)
 <!-- .element: style="width: 65%" -->
 
 NOTES:
 - That's it!
 - So hopefully if you are in the same situation we were, what I've presented thus far is pretty compelling
 - No doubt you've got your own legacy code, and there'll be lots of different implementation details for you
+
+/////
+
+![Slippery bowling lane](../../img/giphy/bowling-lane-fall.gif)
+<!-- .element: style="width: 65%" -->
+
+NOTES:
 - But I did want to highlight a few gotchas/pitfalls that we ran into so hopefully you can learn from us
 - Not all sunshine & roses
 - The initial proof-of-concept was easy, it was handling all of the use-cases that was the “fun” part
