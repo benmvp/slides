@@ -6,7 +6,7 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NodeSummit17](https://twitter.com/hashtag/NodeSummit17)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NodeSummit](https://twitter.com/hashtag/NodeSummit)  
 
 <br />
 
@@ -469,7 +469,7 @@ NOTES:
 - Coalesce data directly from DB/SOA calls, Django request / environment params
 - EVERYTHING must be passed because it's "stateless"
 - Again this is a simplification of what's going on
-- It gets the markup response and adds it to the context for the template to render
+- It gets the markup response and adds it to the context w/ props for the template to render
 
 /////
 
