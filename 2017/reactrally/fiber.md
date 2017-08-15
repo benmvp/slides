@@ -288,7 +288,7 @@ NOTES:
 
 =====
 
-```
+```js
 const PageBody = () => (
   <aside> LEFT NAV </aside>
   <section> MAIN BODY </section>
@@ -314,7 +314,7 @@ NOTES:
 ![Adjacent jsx elements error in React](../../img/react-fiber/adjacent-jsx-elements-error.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 80%" -->
 
-# 🤔
+# 😭
 
 NOTES:
 - However, this results in an error saying you have to wrap in an enclosing tag
@@ -324,7 +324,7 @@ NOTES:
 
 Transpiled adjacent JSX elements is not valid JavaScript
 
-```
+```js
 const PageBody = () => (
   <aside> LEFT NAV </aside>
   <section> MAIN BODY </section>
@@ -351,7 +351,7 @@ NOTES:
 
 Must wrap adjacent JSX element in element/component in React <= 15
 
-```
+```js
 const PageBody = () => (
   <div>
     <aside> LEFT NAV </aside>
@@ -362,7 +362,7 @@ const PageBody = () => (
 <!-- .element: class="large" -->
 
 
-```
+```js
 const PageBody = () => (
   React.createElement(
 	'div',
@@ -384,10 +384,10 @@ NOTES:
 
 Adjacent JSX elements is _still_ an error in React 16...
 
-```
+```js
 const PageBody = () => ([
-  (<aside> LEFT NAV </aside>),
-  (<section> MAIN BODY </section>),
+  (<aside key="aside"> LEFT NAV </aside>),
+  (<section section="section"> MAIN BODY </section>),
 ])
 
 const Page = () => (
@@ -402,27 +402,140 @@ const Page = () => (
 ...but arrays **ARE** valid return values in React 16! 👏🏾
 
 NOTES:
-- The thing is that adjacent JSX elements is also an error in React 16
+- Adjacent JSX elements is also an error in React 16
 - Because it result in invalid JavaScript
 - However, React 16 allows returning an array from a component!
-- Arrays, like strings, weren't allowed in React 15
+- Arrays, like strings, weren't allowed as return values in React 15
 - We can get rid of so many container `<div>`s
-- Wrapping JSX in parenthesis, but this isn't necessary
-- Whenever I use JSX in the midst of regular JSX I surround in parenthesis to indicate different "context"
+- Unique `key` is needed (to hide warning)
+- Wrapping JSX in parentheses, but this isn't necessary
+- Whenever I use JSX in the midst of regular JSX I surround in parentheses to indicate different "context"
+
+=====
+
+Uncaught errors now unmount your app!
+
+![App is unmounted onerror](../../img/react-fiber/unmounted-app-on-error.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 100%" -->
+
+# 🤔
+
+NOTES:
+- In React 16, uncaught errors unmount your entire app
+- React team debated this decision, but felt it's worse to leave a corrupted UI
+- In DEV mode you will see something like this, especially w/ Create React App
+- In migrating to React 16 you may uncover existing crashes that you may not have noticed unless you had dev tools open
+- Helpful error message mentions using error boundaries w/ link on learning more
+- But I'm ging to tell you all about them!
+
+/////
+
+New `componentDidCatch` lifecycle method!
+
+```js
+export default class ErrorBoundary extends PureComponent {
+  componentDidCatch(error, errorInfo) {
+
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- However, React 16 introduces new lifecycle method called `componentDidCatch`
+- In that method you receive the error/exception and additional information like the stack trace
+
+/////
+
+```js
+export default class ErrorBoundary extends PureComponent {
+  state = {
+    hasError: false
+  }
+  componentDidCatch(error, errorInfo) {
+    this.setState({hasError: true})
+    Bugsnag.notifiyException(error, 'ReactError');
+  }
+  render() {
+    if (!this.state.hasError) {
+      return this.props.children
+    }
+
+    return (<h1>Something went wrong!</h1>)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- So we can create what's called an "error boundary" component
+- It maintains state whether or not an error has occurred
+- When one has ocurred, set state to `true` & probably also log to error reporting service
+- In `render()` when there's an error, we'll display the error message
+- When no error, just render the children
+
+/////
+
+Error boundary component works like any other component
+
+<br />
+
+```js
+<ErrorBoundary>
+  <BrokenComponent />
+</ErrorBoundary>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+
+- Any errors that happen within `BrokenComponent` or lower in the tree will trigger `componentDidCatch` in `ErrorBoundary`
+- **IMPORTANT:** It cannot catch errors within itself. That would get bubbled up to a error boundary component higher in the tree
+
+/////
+
+```js
+const App = () => (
+  <div>
+    <nav>
+      <Link to="/dashboard">Dashboard</Link>
+    </nav>
+    <main>
+      <ErrorBoundary>
+        <Route path="/dashboard" component={Dashboard} />
+      </ErrorBoundary>
+    </main>
+  </div>
+)
+```
+<!-- .element: class="large" -->
+
+Wrap top-level route components in error boundary components
+
+NOTES:
+- You can use error boundary components anywhere
+- Most sense is wrapping top-level route components
+- Can have a page-level error boundary that looks much like the 500 page your server would generate
+- But at least now you can have some nav UI around it
+- But can also wrap smaller independent interactive components on a page
 
 =====
 
 ## Installation
 
+<br />
+
 ```sh
 yarn add react@next react-dom@next
 ```
+<!-- .element: class="large" -->
 
 or
 
 ```sh
 npm install --save react@next react-dom@next
 ```
+<!-- .element: class="large" -->
 
 NOTES:
 - Right now the latest version is beta 5
