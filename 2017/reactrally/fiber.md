@@ -521,6 +521,131 @@ NOTES:
 
 =====
 
+![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
+
+[github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
+
+NOTES:
+- Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
+- Latest Node 4, 6 & 8
+- Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
+
+
+/////
+
+Markup from `ReactDOMServer.renderToString` in React <= 15
+
+<br />
+
+```html
+<div class="App" data-reactroot="" data-reactid="1" data-react-checksum="1334994557">
+  <nav data-reactid="2">
+    <a href="/dashboard" data-reactid="3">Dashboard</a>
+  </nav>
+  <main data-reactid="4">
+    <section data-reactid="5"> ... </section>
+  </main>
+</div>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+-  `renderToString` is used server-side to render HTML markup to return in response body
+- Server-side rendering is good for user performance & SEO
+- In React 15, the markup has `data-reactid` attributes
+- Used by React to correlate server rendered code w/ client-side render & attach event handlers
+- Although there's gzip, it's still adds a lot of additional markup
+- There is `renderToStaticMarkup` for just static sites
+- Still need it for interactive sites...
+
+/////
+
+No more `data-reactid` attributes from `ReactDOMServer.renderToString`!
+
+<br />
+
+```html
+<div class="App" data-reactroot="">
+  <nav>
+    <a href="/dashboard">Dashboard</a>
+  </nav>
+  <main>
+    <section> ... </section>
+  </main>
+</div>
+```
+<!-- .element: class="large" -->
+
+<br />
+
+Use new `ReactDOM.hydrate()` on client
+
+NOTES:
+- React tries it's best to do the proper correlation
+- Use `ReactDOM.hydrate()` instead of usual `ReactDOM.render()` on the client
+- Deprecate in React 16, will be removed in React 17
+
+/////
+
+Element text mismatch:
+```js
+Warning: Text content did not match. Server: " HEADIN " Client: " HEADING "
+```
+<!-- .element: style="margin-bottom: 2em" -->
+
+Tag name mismatch:
+```js
+Warning: Expected server HTML to contain a matching <h1> in <main>.
+```
+<!-- .element: style="margin-bottom: 2em" -->
+
+Extra attributes from server:
+```js
+Warning: Extra attributes from the server: class
+```
+<!-- .element: style="margin-bottom: 2em" -->
+
+Extra attributes from client:
+```js
+Warning: Prop `title` did not match. Server: null Client: "hello"
+```
+
+NOTES:
+- `ReactDOM.hydrate()` comes with a lot of helpful warning messages when server markup doesn't match client render
+
+/////
+
+"Native" server-side streaming support
+
+```js
+import {renderToNodeStream} from 'react-dom/server'
+
+app.get('/', (req, res) => {
+  // write opening <html>, <head>, <body> tags streamed
+
+  renderToNodeStream(<App />)
+    .pipe(res)
+    .on('end', () => {
+      // write rest of page, <body>, <html>
+      res.end()
+    })
+})
+```
+<!-- .element: class="large" -->
+
+Prior art: [`react-dom-stream`](https://github.com/aickin/react-dom-stream)
+
+NOTES:
+- React now supports server-side streaming!
+- Rendering to string is sub-optimal:
+  0. Server can send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
+  0. Server has to allocate memory for entire HTML string
+  0. Single call to `renderToString` can dominate CPU
+- With streaming, the browser can render pages before entire response is finished
+
+=====
+
 ## Installation
 
 <br />
