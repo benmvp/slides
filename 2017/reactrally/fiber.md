@@ -14,9 +14,18 @@ August 24, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
-- Here to talk about React 16 & Fiber
-- Funny thing: When I submitted the talk back in April I assumed 16 would be out
+- Here to talk about Fiber & React 16
+- There's so much hype about Fiber; mythical unicorn to solve all our problems
 
+/////
+
+<a href="https://twitter.com/dan_abramov/status/850748912373813249">
+  <img src="../../img/react-fiber/fiber-platform-of-future.png" alt="Dan Abramov tweet about Fiber architecture flexibility" style="width: 80%" />
+</a>
+
+NOTES:
+- Reality is that Fiber & React 16 are as Dan puts it a flexible architecture to build on top of
+- Funny thing: When I submitted the talk back in April I assumed 16 would be out
 
 /////
 
@@ -28,8 +37,8 @@ NOTES:
 - I mean it's ready!
 - But it is in Beta
 - It's been about 4 weeks or so
+- 5 release candidates so far
 - So maybe soon?
-
 
 /////
 
@@ -129,6 +138,25 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 ## Fiber reconciler
+
+/////
+
+## Update Priorities
+
+- Synchronous
+- Task
+- Animation
+- High
+- Low
+- Offscreen
+
+NOTES:
+- Synchronous (just like stack reconciler)
+- Task        (next tick)
+- Animation   (before next frame)
+- High        (pretty soon)
+- Low         (delays are ok)
+- Offscreen   (prep for display/scroll)
 
 /////
 
@@ -616,7 +644,7 @@ NOTES:
 
 /////
 
-"Native" server-side streaming support
+"Native" server-side streaming support 🎉
 
 ```js
 import {renderToNodeStream} from 'react-dom/server'
@@ -637,7 +665,7 @@ app.get('/', (req, res) => {
 Prior art: [`react-dom-stream`](https://github.com/aickin/react-dom-stream)
 
 NOTES:
-- React now supports server-side streaming!
+- React now supports server-side streaming thanks to Sasha!
 - Rendering to string is sub-optimal:
   0. Server can send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
   0. Server has to allocate memory for entire HTML string
@@ -665,6 +693,98 @@ npm install --save react@next react-dom@next
 NOTES:
 - Right now the latest version is beta 5
 
+/////
+
+# That's it!
+
+NOTES:
+- So that's basically it for the new features with React 16
+- There are a bunch of other little things here and there
+- React team focus was more on backwards compat with React 15 w/ new renderer
+- Async scheduling (the big feature) is turned off in initial release
+- Will be a opt-in feature flag to turn it on in future release
+
+/////
+
+## However...
+
+NOTES:
+- However, if we can keep this between us...
+
+/////
+
+## "Secret" code to enable async scheduling 🤐
+
+<br />
+
+- Open `node_modules/react-dom/cjs/react-dom.development.js`
+- Replace "`fiberAsyncScheduling: false`" ➜ "`fiberAsyncScheduling: true`"
+
+<br />
+
+```
+ReactDOM.unstable_deferredUpdates(() => {
+  this.setState((state, props) => {
+    // return updated state
+  })
+});
+```
+<!-- .element: class="large" -->
+
+Source: [`react-fiber-resources`](https://github.com/koba04/react-fiber-resources#try-react-fiber-with-asynchronous-scheduling)
+
+NOTES:
+- First need to manually turn on async scheduling by turning on flag in `react-dom`
+- Then you can use the unstable API `unstable_deferredUpdates` in `ReactDom`
+- This makes the `setState` a "low priority"
+- Great for the results of API calls that can wait a bit
+
+/////
+
+## React Fiber Synchronous Scheduling 😞 
+
+<a href="https://twitter.com/koba04/status/854924460352192520">
+  <img src="../../img/react-fiber/sync-browser-perf.jpg" alt="Screenshot of browser performance with sync Fiber scheduling" style="width: 50%" />
+</a>
+
+NOTES:
+- With a very heavy update
+- You can go from a performance profile that looks like this
+- Where the browser is spending so much time updating your UI that it can't do anything else
+- To...
+
+/////
+
+## React Fiber Asynchronous Scheduling! 🤗
+
+<a href="https://twitter.com/koba04/status/854924460352192520">
+  <img src="../../img/react-fiber/async-browser-perf.jpg" alt="Screenshot of browser performance with async Fiber scheduling" style="width: 50%" />
+</a>
+
+NOTES:
+- This where it has time to come up for air
+
+=====
+
+## Fiber makes React renderers easier to build
+
+## Native
+## VR
+## Sketch
+
+NOTES:
+- By rewritting the reconciler, it creates a clean separation between the singular reconciler
+- And the many type of rendering environments
+
+/////
+
+<a href="https://twitter.com/dan_abramov/status/850748912373813249">
+  <img src="../../img/react-fiber/fiber-platform-of-future.png" alt="Dan Abramov tweet about Fiber architecture flexibility" style="width: 80%" />
+</a>
+
+NOTES:
+- And once again, React 16 is just the beginning of all the great stuff coming our way
+
 =====
 
 ## Recap
@@ -676,7 +796,7 @@ NOTES:
 0. Components can return strings & arrays
 0. Component error boundaries
 0. Server-side rendering
-0. Update prioritization
+0. Update prioritization (shhhhh...)
 
 NOTES:
 
@@ -686,11 +806,11 @@ NOTES:
 
 <br />
 
+- [React 16 beta](https://github.com/facebook/react/issues/10294)
 - [A Cartoon Intro to Fiber](https://www.youtube.com/watch?v=ZCuYPiUIONs) by [Lin Clark](https://twitter.com/linclark)
 - [React Fiber resources](https://github.com/koba04/react-fiber-resources) by [Toru Kobayashi](https://twitter.com/koba04)
 - [Error Handling in React 16](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html) by [Dan Abramov](https://twitter.com/dan_abramov)
 - [What's New in React 16 and Fiber Explanation](https://medium.com/@treyhuffine/react-16-features-and-fiber-explanation-e779544bb1b7) by [Trey Huffine](https://twitter.com/treyhuffine)
-- [React 16 beta](https://github.com/facebook/react/issues/10294)
 
 =====
 
