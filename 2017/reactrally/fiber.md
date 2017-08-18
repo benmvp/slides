@@ -305,14 +305,15 @@ export default const App = () => (
 ```
 <!-- .element: class="large" -->
 
-Strings **ARE** valid return values in React 16! 👍🏾
+Strings **ARE** valid return values in React 16! 👍🏾  
+(numbers & booleans too)
 
 NOTES:
 - However, now in React 16 w/ Fiber string values are valid return values
 - It's likely that this isn't so big of a deal for you
 - The only real-world use case I've found for this is I18N components
-- We basically want a utility function wrapped in the convenience of a declarative component
-- However...
+- We basically want a utility function wrapped in the convenience of a declarative component that can optionally handle markup
+- Other scalar values like numbers & booleans are also valid
 
 =====
 
@@ -768,13 +769,38 @@ NOTES:
 
 ## Fiber makes React renderers easier to build
 
-## Native
-## VR
-## Sketch
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
+  [`ink`](https://github.com/vadimdemedes/ink)  
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
+  [`rax`](https://github.com/alibaba/rax)  
+  [`react-art`](https://github.com/reactjs/react-art)  
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
+  [`react-konsul`](https://github.com/mohebifar/konsul)  
+  [_**`react-native`**_](https://github.com/facebook/react-native)  
+  [`react-pdf`](https://github.com/diegomura/react-pdf)  
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
+  [`react-three`](https://github.com/Izzimach/react-three)  
+  [`react-titanium`](https://github.com/yuchi/react-titanium)  
+  [`react-tvml`](https://github.com/ramitos/react-tvml)  
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
+  [`react-x11`](https://github.com/sidorares/react-x11)  
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+</div>
+
+Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
 
 NOTES:
 - By rewritting the reconciler, it creates a clean separation between the singular reconciler
 - And the many type of rendering environments
+- Some more useful than others...
 
 /////
 
