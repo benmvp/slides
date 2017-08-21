@@ -24,8 +24,8 @@ NOTES:
 </a>
 
 NOTES:
-- Reality is that Fiber & React 16 are as Dan puts it a flexible architecture to build on top of
-- Funny thing: When I submitted the talk back in April I assumed 16 would be out
+- Reality is that Fiber & React 16 are, as Dan puts it, a flexible architecture to build on top of
+- Funny thing: When I submitted the talk back in April I assumed v16 would be out
 
 /////
 
@@ -79,7 +79,7 @@ ben-ilegbodu.json
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-tahoe-beach-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family on the beach at Lake Tahoe" />
+		<img src="../../img/family-house-selfie-anim.gif" style="width:100%;height:auto" alt="Animatino of Ilegbodu standing in front of their house" />
 	</div>
 </div>
 
@@ -117,13 +117,16 @@ NOTES:
       <h3>Next major React version (v16)</h3>
       <h3>Rewrite of reconciler</h3>
       <h3>Enables async rendering</h3>
-      <h3>UI update prioritization</h3>
+      <h3>Prioritizes UI updates</h3>
       <h3>Improves perceived performance</h3>
     </div>
 </div>
 
 NOTES:
-- 
+- The _reconciler_ has historically gone by the name of "Virtual DOM"
+- It's the "killer feature" of React that let's us just right our code as if it's going to re-render everything
+- But it's able to _reconcile_ the difference before and after and then make optimized updates
+- "Virtual DOM" is a misnomer because, as we know, React exists in other environments besides DOM
 
 /////
 
@@ -132,6 +135,12 @@ NOTES:
 
 ## Stack reconciler
 
+NOTES:
+- The current (soon-to-be-previous) reconciler has been posthumously given the name Stack reconciler
+- Basically when an update needs to happen, the Stack reconciler traverses the entire component tree and does all the rendering for as long as it takes
+- Then it reliquishes control back to the JS interpreter
+- For deep or expensive updates this can have a noticeable impact on performance even w/ intelligent reconciliation
+
 /////
 
 ![Fiber reconciler](../../img/react-fiber/fiber-reconciler.png)
@@ -139,9 +148,18 @@ NOTES:
 
 ## Fiber reconciler
 
+NOTES:
+- Instead the forthcoming Fiber reconciler will do some work and then relinquish control back to the interpreter
+- So rendering becomes asynchronous because it can render a higher priority update before returning to the original update
+- Imagine you have a text input field and then long list of results being populated by API response
+- You want typing to have immediate feedback where as the list of results can be lower priority because it's coming from API
+- These sorts of optimizations give a higher perceived performance
+
 /////
 
 ## Update Priorities
+
+<br />
 
 - Synchronous
 - Task
@@ -170,6 +188,9 @@ NOTES:
 - That's all I want to say about the Fiber architecture itself
 - Because Lin did an AMAZING job giving a deep-dive on how it works back at ReactConf
 - In fact I snagged those previous two graphics from her talk :)
+- Everywhere I looked at info about Fiber this video was linked
+- It's got like 75k views!
+- Instead, I want to spend time talking about how Fiber & React 16 will affect how we'll dev moving forward
 
 =====
 
@@ -197,7 +218,7 @@ react-dom@15    43.9 kB (gzipped)</code></pre>
 </div>
 
 NOTES:
-- Now: 40.25kb, Before: 51.12
+- Now: 40.25kb, Before: 51.12kb
 - 20%+ reduction!
 
 =====
@@ -227,7 +248,7 @@ jscodeshift -t react-codemod/transforms/class.js <path>
 NOTES:
 - Use the `prop-types` lib for prop types
 - Use ES6 classes or `create-react-class` lib for components
-- I'm guessing this helped with smaller bundle size
+- I'm guessing removing these helped with smaller build size
 
 =====
 
@@ -335,7 +356,7 @@ const Page = () => (
 Adjancent JSX elements are invalid
 
 NOTES:
-- If you're coming from a templating background like Handlebars you may try to use JSX like this
+- When you were new to React, you may have tried to do something like this
 - You know you want to stick the contents of `PageBody` in `Page`
 
 /////
@@ -435,6 +456,7 @@ NOTES:
 - Because it result in invalid JavaScript
 - However, React 16 allows returning an array from a component!
 - Arrays, like strings, weren't allowed as return values in React 15
+- You could use arrays w/in JSX, but not as component return values
 - We can get rid of so many container `<div>`s
 - Unique `key` is needed (to hide warning)
 - Wrapping JSX in parentheses, but this isn't necessary
@@ -490,7 +512,7 @@ export default class ErrorBoundary extends PureComponent {
       return this.props.children
     }
 
-    return (<h1>Something went wrong!</h1>)
+    return (<h1>Something went wrong 😿!</h1>)
   }
 }
 ```
@@ -520,6 +542,7 @@ NOTES:
 
 - Any errors that happen within `BrokenComponent` or lower in the tree will trigger `componentDidCatch` in `ErrorBoundary`
 - **IMPORTANT:** It cannot catch errors within itself. That would get bubbled up to a error boundary component higher in the tree
+- So if you have sections of an app that are independent, you can wrap them and if one part fails, the whole thing doesn't
 
 /////
 
@@ -546,22 +569,8 @@ NOTES:
 - Most sense is wrapping top-level route components
 - Can have a page-level error boundary that looks much like the 500 page your server would generate
 - But at least now you can have some nav UI around it
-- But can also wrap smaller independent interactive components on a page
 
 =====
-
-![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
-
-[github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
-
-NOTES:
-- Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
-- Latest Node 4, 6 & 8
-- Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
-
-
-/////
 
 Markup from `ReactDOMServer.renderToString` in React <= 15
 
@@ -582,7 +591,7 @@ Markup from `ReactDOMServer.renderToString` in React <= 15
 NOTES:
 -  `renderToString` is used server-side to render HTML markup to return in response body
 - Server-side rendering is good for user performance & SEO
-- In React 15, the markup has `data-reactid` attributes
+- In React 15, the markup is filled `data-reactid` attributes
 - Used by React to correlate server rendered code w/ client-side render & attach event handlers
 - Although there's gzip, it's still adds a lot of additional markup
 - There is `renderToStaticMarkup` for just static sites
@@ -591,8 +600,6 @@ NOTES:
 /////
 
 No more `data-reactid` attributes from `ReactDOMServer.renderToString`!
-
-<br />
 
 ```html
 <div class="App" data-reactroot="">
@@ -610,12 +617,19 @@ No more `data-reactid` attributes from `ReactDOMServer.renderToString`!
 
 Use new `ReactDOM.hydrate()` on client
 
+```js
+ReactDOM.hydrate(<App />, document.getElementById('root'))
+```
+<!-- .element: class="large" -->
+
 NOTES:
 - React tries it's best to do the proper correlation
 - Use `ReactDOM.hydrate()` instead of usual `ReactDOM.render()` on the client
 - Deprecate in React 16, will be removed in React 17
 
 /////
+
+### Helpful warnings with `ReactDOM.hydrate()`
 
 Element text mismatch:
 ```js
@@ -645,6 +659,19 @@ NOTES:
 
 /////
 
+![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
+
+[github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
+
+NOTES:
+- Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
+- Latest Node 4, 6 & 8
+- Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
+
+
+/////
+
 "Native" server-side streaming support 🎉
 
 ```js
@@ -666,12 +693,13 @@ app.get('/', (req, res) => {
 Prior art: [`react-dom-stream`](https://github.com/aickin/react-dom-stream)
 
 NOTES:
-- React now supports server-side streaming thanks to Sasha!
+- React now supports server-side streaming!
 - Rendering to string is sub-optimal:
-  0. Server can send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
+  0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
   0. Server has to allocate memory for entire HTML string
   0. Single call to `renderToString` can dominate CPU
 - With streaming, the browser can render pages before entire response is finished
+- Even further performance gains
 
 =====
 
@@ -691,23 +719,23 @@ npm install --save react@next react-dom@next
 ```
 <!-- .element: class="large" -->
 
-NOTES:
-- Right now the latest version is beta 5
+<br />
 
-/////
-
-# That's it!
+(Async scheduling is turned off 😐)
 
 NOTES:
-- So that's basically it for the new features with React 16
+- So that's basically it for the new features with React 16!
 - There are a bunch of other little things here and there
-- React team focus was more on backwards compat with React 15 w/ new renderer
+- Installing is as simple as getting `@next` (beta 5)
+- Provided that you've addressed all warnings you should be good
+- React team focus was more on backwards compat with React 15 w/ new reconciler
 - Async scheduling (the big feature) is turned off in initial release
 - Will be a opt-in feature flag to turn it on in future release
 
 /////
 
-## However...
+![Captain Obvious be quiet](../../img/giphy/captain-obvious-shhh.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 50%" -->
 
 NOTES:
 - However, if we can keep this between us...
@@ -724,6 +752,7 @@ NOTES:
 <br />
 
 ```
+// make low-priority update
 ReactDOM.unstable_deferredUpdates(() => {
   this.setState((state, props) => {
     // return updated state
@@ -736,9 +765,11 @@ Source: [`react-fiber-resources`](https://github.com/koba04/react-fiber-resource
 
 NOTES:
 - First need to manually turn on async scheduling by turning on flag in `react-dom`
-- Then you can use the unstable API `unstable_deferredUpdates` in `ReactDom`
+- Then you can use the unstable API `unstable_deferredUpdates` in `ReactDOM`
 - This makes the `setState` a "low priority"
 - Great for the results of API calls that can wait a bit
+- Using `setState` updater function is even more important now
+- `react-fiber-resources` has a sample app
 
 /////
 
@@ -763,7 +794,7 @@ NOTES:
 </a>
 
 NOTES:
-- This where it has time to come up for air
+- This where the browser has time to come up for air
 
 =====
 
@@ -799,7 +830,8 @@ Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-r
 
 NOTES:
 - By rewritting the reconciler, it creates a clean separation between the singular reconciler
-- And the many type of rendering environments
+- And the many type of rendering environments (23 total listed)
+- All of these renderers will make use of all the improvements of the Fiber reconciler
 - Some more useful than others...
 
 /////
@@ -822,7 +854,7 @@ NOTES:
 0. Components can return strings & arrays
 0. Component error boundaries
 0. Server-side rendering
-0. Update prioritization (shhhhh...)
+0. Async scheduling + update prioritization (shhhhh...)
 
 NOTES:
 
