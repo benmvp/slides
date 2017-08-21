@@ -429,6 +429,7 @@ NOTES:
 - This is the main culprit of "tag bloat"
 - Was looking through our design system and we have so many `<div>`s with no styling
 - They exist just to contain the adjacent JSX elements we want to return
+- Potentially problematic for flexbox, grid, etc. where you can't have a container
 
 /////
 
@@ -461,6 +462,37 @@ NOTES:
 - Unique `key` is needed (to hide warning)
 - Wrapping JSX in parentheses, but this isn't necessary
 - Whenever I use JSX in the midst of regular JSX I surround in parentheses to indicate different "context"
+- Pretty ugly syntax for fixed markup
+
+/////
+
+React 16 + "self-destructured" component 😎
+
+```js
+const Aux = (props) => props.children
+const PageBody = () => (
+  <Aux>
+    <aside> LEFT NAV </aside>
+    <section> MAIN BODY </section>
+  </Aux>
+)
+const Page = () => (
+  <main>
+    <h1> HEADING </h1>
+    <PageBody />
+  </main>
+)
+```
+<!-- .element: class="large" -->
+
+Source: [github/gajus/react-aux](https://github.com/gajus/react-aux)
+
+NOTES:
+- An interesting solve I just came across is to use a "self-destructured" component
+- `Aux` just returns its children. In React 15 if `children` was an array, it'd fail. But in React 16 it won't!
+- So even though it looks like `PageBody` has a container element around the elements, the `<h1>`, `<aside>` & `<section>` will be siblings
+- And now we don't have to deal with that weird mix of arrays and JSX
+- And not having to specify the `key`s
 
 =====
 
@@ -869,6 +901,7 @@ NOTES:
 - [React Fiber resources](https://github.com/koba04/react-fiber-resources) by [Toru Kobayashi](https://twitter.com/koba04)
 - [Error Handling in React 16](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html) by [Dan Abramov](https://twitter.com/dan_abramov)
 - [What's New in React 16 and Fiber Explanation](https://medium.com/@treyhuffine/react-16-features-and-fiber-explanation-e779544bb1b7) by [Trey Huffine](https://twitter.com/treyhuffine)
+- [Using React v16 to create self-destructing components](https://medium.com/@gajus/using-react-v16-to-create-self-destructing-components-de8e4eb61d0f)
 
 =====
 
