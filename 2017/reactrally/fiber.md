@@ -16,6 +16,7 @@ NOTES:
 - My name is Ben Ilegbodu
 - Here to talk about Fiber & React 16
 - There's so much hype about Fiber; mythical unicorn to solve all our problems
+- It was announced over a year ago in July 2016
 
 /////
 
@@ -269,63 +270,6 @@ export default const App = () => (
 ```
 <!-- .element: class="large" -->
 
-Strings are not valid return values for components in React <= 15!
-
-NOTES:
-- Strings are not valid return values for components in React <= 15
-
-/////
-
-![Error trying to return string in React 15](../../img/react-fiber/stack-return-string-error.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 100%" -->
-
-# 😢
-
-/////
-
-Must wrap strings in element/component in React <= 15
-
-```js
-const FormatMessage = ({msg, tokens}) => {
-  let formatMsg = i18n(msg)
-
-  formatMsg = interpolate(formatMsg, tokens)
-
-  return (<span>formatMsg</span>)
-}
-
-export default const App = () => (
-  <div>
-    <FormatMessage msg="Hello {name}!" tokens={{name: 'Ben'}} />
-  </div>
-)
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Instead we had to wrap the string in an element or component
-- Even though we _know_ it's going to go right there in that `<div>`
-- This leads to what I call "tag bloat"
-
-/////
-
-```js
-const FormatMessage = ({msg, tokens}) => {
-  let formatMsg = i18n(msg)
-
-  formatMsg = interpolate(formatMsg, tokens)
-
-  return formatMsg
-}
-
-export default const App = () => (
-  <div>
-    <FormatMessage msg="Hello {name}!" tokens={{name: 'Ben'}} />
-  </div>
-)
-```
-<!-- .element: class="large" -->
-
 Strings **ARE** valid return values in React 16! 👍🏾  
 (numbers & booleans too)
 
@@ -369,67 +313,6 @@ NOTES:
 NOTES:
 - However, this results in an error saying you have to wrap in an enclosing tag
 - Literally one of the first things you learn/experience in React
-
-/////
-
-Transpiled adjacent JSX elements is not valid JavaScript
-
-```js
-const PageBody = () => (
-  <aside> LEFT NAV </aside>
-  <section> MAIN BODY </section>
-)
-```
-<!-- .element: class="large" -->
-
-<br />
-
-```
-const PageBody = () => (
-  React.createElement('aside', null, ' LEFT NAV ')
-  React.createElement('section', null, ' MAIN BODY ')
-)
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- So when trying to return back those two DOM nodes
-- We're actually trying to return back two objects, which we know is not possible
-- Only one thing can be returned: one array, object, string, boolean, etc.
-
-/////
-
-Must wrap adjacent JSX element in element/component in React <= 15
-
-```js
-const PageBody = () => (
-  <div>
-    <aside> LEFT NAV </aside>
-    <section> MAIN BODY </section>
-  </div>
-)
-```
-<!-- .element: class="large" -->
-
-
-```js
-const PageBody = () => (
-  React.createElement(
-	'div',
-	null,
-	React.createElement('aside', null, ' LEFT NAV '),
-    React.createElement('section', null, ' MAIN BODY ')
-  )
-)
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- So that's why you end up having to wrap the contents in a `<div>`
-- This is the main culprit of "tag bloat"
-- Was looking through our design system and we have so many `<div>`s with no styling
-- They exist just to contain the adjacent JSX elements we want to return
-- Potentially problematic for flexbox, grid, etc. where you can't have a container
 
 /////
 
@@ -604,33 +487,6 @@ NOTES:
 
 =====
 
-Markup from `ReactDOMServer.renderToString` in React <= 15
-
-<br />
-
-```html
-<div class="App" data-reactroot="" data-reactid="1" data-react-checksum="1334994557">
-  <nav data-reactid="2">
-    <a href="/dashboard" data-reactid="3">Dashboard</a>
-  </nav>
-  <main data-reactid="4">
-    <section data-reactid="5"> ... </section>
-  </main>
-</div>
-```
-<!-- .element: class="large" -->
-
-NOTES:
--  `renderToString` is used server-side to render HTML markup to return in response body
-- Server-side rendering is good for user performance & SEO
-- In React 15, the markup is filled `data-reactid` attributes
-- Used by React to correlate server rendered code w/ client-side render & attach event handlers
-- Although there's gzip, it's still adds a lot of additional markup
-- There is `renderToStaticMarkup` for just static sites
-- Still need it for interactive sites...
-
-/////
-
 No more `data-reactid` attributes from `ReactDOMServer.renderToString`!
 
 ```html
@@ -655,7 +511,9 @@ ReactDOM.hydrate(<App />, document.getElementById('root'))
 <!-- .element: class="large" -->
 
 NOTES:
-- React tries it's best to do the proper correlation
+-  `renderToString` is used server-side to render HTML markup to return in response body
+- Server-side rendering is good for user performance & SEO
+- React tries it's best to do the proper correlation & attach handlers
 - Use `ReactDOM.hydrate()` instead of usual `ReactDOM.render()` on the client
 - Deprecate in React 16, will be removed in React 17
 
@@ -876,21 +734,6 @@ NOTES:
 - And once again, React 16 is just the beginning of all the great stuff coming our way
 
 =====
-
-## Recap
-
-<br />
-
-0. Smaller footprint
-0. React 15 warnings are errors in React 16
-0. Components can return strings & arrays
-0. Component error boundaries
-0. Server-side rendering
-0. Async scheduling + update prioritization (shhhhh...)
-
-NOTES:
-
-/////
 
 ## Additional resources
 
