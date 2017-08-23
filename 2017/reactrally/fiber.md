@@ -15,31 +15,8 @@ August 24, 2017
 NOTES:
 - My name is Ben Ilegbodu
 - Here to talk about Fiber & React 16
-- There's so much hype about Fiber; mythical unicorn to solve all our problems
-- It was announced over a year ago in July 2016
-
-/////
-
-<a href="https://twitter.com/dan_abramov/status/850748912373813249">
-  <img src="../../img/react-fiber/fiber-platform-of-future.png" alt="Dan Abramov tweet about Fiber architecture flexibility" style="width: 80%" />
-</a>
-
-NOTES:
-- Reality is that Fiber & React 16 are, as Dan puts it, a flexible architecture to build on top of
-- Funny thing: When I submitted the talk back in April I assumed v16 would be out
-
-/////
-
-[![Is Fiber Ready Yet?](../../img/react-fiber/is-fiber-ready-yet.png)](http://isfiberreadyyet.com/)
-
-[isfiberreadyyet.com](http://isfiberreadyyet.com/)
-
-NOTES:
-- I mean it's ready!
-- But it is in Beta
-- It's been about 4 weeks or so
-- 5 release candidates so far
-- So maybe soon?
+- Instead of talking about the technical implementation & architecture
+- Focusing on how Fiber & React 16 will affect how we develop
 
 /////
 
@@ -60,7 +37,7 @@ NOTES:
 
 =====
 
-ben-ilegbodu.json
+## me.json
 
 <div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
@@ -109,17 +86,18 @@ NOTES:
 NOTES:
 - I hate the Utah Jazz
 - Prevented us from going to the '97 Finals to face Jordan
+- Now that I've gotten that off my chest...
 
 =====
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <img src="../../img/react-fiber/react-fiber-logo.jpg" alt="React Fiber Logo" style="background:none;box-shadow:none;border:none"/>
     <div>
-      <h3>Next major React version (v16)</h3>
       <h3>Rewrite of reconciler</h3>
-      <h3>Enables async rendering</h3>
       <h3>Prioritizes UI updates</h3>
+      <h3>Enables async rendering</h3>
       <h3>Improves perceived performance</h3>
+      <h3>In next major React version (v16)</h3>
     </div>
 </div>
 
@@ -190,7 +168,7 @@ NOTES:
 - Because Lin did an AMAZING job giving a deep-dive on how it works back at ReactConf
 - In fact I snagged those previous two graphics from her talk :)
 - Everywhere I looked at info about Fiber this video was linked
-- It's got like 75k views!
+- It's got like 75k views! The ReactJS repo only has...
 - Instead, I want to spend time talking about how Fiber & React 16 will affect how we'll dev moving forward
 
 =====
@@ -224,14 +202,16 @@ NOTES:
 
 =====
 
-React 15 deprecations ➜ React 16 errors
+## React 15.5 deprecations ➜ React 16 errors
 
 <div style="display:flex;align-items:center;justify-content: space-between">
 	<div style="flex:0 0 48%;">
 		<img src="../../img/react-fiber/prop-types-error.png" style="width:100%;height:auto" alt="React Prop Types error screenshot" />
+    <pre><code class="lang-js">import PropTypes from 'prop-types'</code></pre>
 	</div>
 	<div style="flex:0 0 48%;">
 		<img src="../../img/react-fiber/create-class-error.png" style="width:100%;height:auto" alt="React createClass error screenshot" />
+    <pre><code class="lang-js">import createClass from 'create-react-class'</code></pre>
 	</div>
 </div>
 
@@ -250,35 +230,6 @@ NOTES:
 - Use the `prop-types` lib for prop types
 - Use ES6 classes or `create-react-class` lib for components
 - I'm guessing removing these helped with smaller build size
-
-=====
-
-```js
-const FormatMessage = ({msg, tokens}) => {
-  let formatMsg = i18n(msg)
-
-  formatMsg = interpolate(formatMsg, tokens)
-
-  return formatMsg
-}
-
-export default const App = () => (
-  <div>
-    <FormatMessage msg="Hello {name}!" tokens={{name: 'Ben'}} />
-  </div>
-)
-```
-<!-- .element: class="large" -->
-
-Strings **ARE** valid return values in React 16! 👍🏾  
-(numbers & booleans too)
-
-NOTES:
-- However, now in React 16 w/ Fiber string values are valid return values
-- It's likely that this isn't so big of a deal for you
-- The only real-world use case I've found for this is I18N components
-- We basically want a utility function wrapped in the convenience of a declarative component that can optionally handle markup
-- Other scalar values like numbers & booleans are also valid
 
 =====
 
@@ -302,6 +253,7 @@ Adjancent JSX elements are invalid
 NOTES:
 - When you were new to React, you may have tried to do something like this
 - You know you want to stick the contents of `PageBody` in `Page`
+- Maybe you're using flexbox or grid, and you need the `<h1>`, `<aside>` & `<section>` to be siblings
 
 /////
 
@@ -312,7 +264,8 @@ NOTES:
 
 NOTES:
 - However, this results in an error saying you have to wrap in an enclosing tag
-- Literally one of the first things you learn/experience in React
+- The result is a lot of "tag bloat" because you needed enclosing tags everywhere
+- And this breaks flexbox
 
 /////
 
@@ -339,9 +292,9 @@ NOTES:
 - Adjacent JSX elements is also an error in React 16
 - Because it result in invalid JavaScript
 - However, React 16 allows returning an array from a component!
-- Arrays, like strings, weren't allowed as return values in React 15
+- Arrays weren't allowed as return values in React 15
 - You could use arrays w/in JSX, but not as component return values
-- We can get rid of so many container `<div>`s
+- We can get rid of so many enclosing `<div>`s
 - Unique `key` is needed (to hide warning)
 - Wrapping JSX in parentheses, but this isn't necessary
 - Whenever I use JSX in the midst of regular JSX I surround in parentheses to indicate different "context"
@@ -349,7 +302,7 @@ NOTES:
 
 /////
 
-React 16 + "self-destructured" component 😎
+## React 16 + "self-eradicating" component 😎
 
 ```js
 const Aux = (props) => props.children
@@ -371,15 +324,47 @@ const Page = () => (
 Source: [github/gajus/react-aux](https://github.com/gajus/react-aux)
 
 NOTES:
-- An interesting solve I just came across is to use a "self-destructured" component
+- An interesting solve I just came across is to use a "self-eradicating" component
 - `Aux` just returns its children. In React 15 if `children` was an array, it'd fail. But in React 16 it won't!
 - So even though it looks like `PageBody` has a container element around the elements, the `<h1>`, `<aside>` & `<section>` will be siblings
-- And now we don't have to deal with that weird mix of arrays and JSX
+- And now we can have fixed markedup with having to deal with that weird mix of arrays and JSX
 - And not having to specify the `key`s
+- In general, this is when array returning will be most useful; when it's a variable (usually from `map`)
+- BTW, `react-aux` is literally just that component
 
 =====
 
-Uncaught errors now unmount your app!
+## Strings are also valid return values in React 16! 👍🏾  
+
+```js
+const Localized = ({msg, tokens}) => {
+  let translated = i18n(msg)
+
+  translated = interpolate(formatMsg, tokens)
+
+  return translated
+}
+
+export default const App = () => (
+  <main>
+    <Localized msg="Hello {name}!" tokens={{name: 'Ben'}} />
+  </main>
+)
+```
+<!-- .element: class="large" -->
+
+(numbers & booleans too)
+
+NOTES:
+- In React 16 string values are valid return values
+- It's likely that this isn't so big of a deal for you
+- The only real-world use case I've found for this is I18N components
+- We basically want a utility function wrapped in the convenience of a declarative component that can optionally handle markup
+- Other scalar values like numbers & booleans are also valid
+
+=====
+
+## Uncaught errors now unmount your app!
 
 ![App is unmounted onerror](../../img/react-fiber/unmounted-app-on-error.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 100%" -->
@@ -396,7 +381,9 @@ NOTES:
 
 /////
 
-New `componentDidCatch` lifecycle method!
+## New `componentDidCatch` lifecycle method!
+
+<br />
 
 ```js
 export default class ErrorBoundary extends PureComponent {
@@ -438,24 +425,28 @@ NOTES:
 - It maintains state whether or not an error has occurred
 - When one has ocurred, set state to `true` & probably also log to error reporting service
 - In `render()` when there's an error, we'll display the error message
-- When no error, just render the children
+- When no error, just render the children (which works because we can return any type from components)
 
 /////
 
-Error boundary component works like any other component
+## Error boundary component
 
 <br />
 
 ```js
 <ErrorBoundary>
-  <BrokenComponent />
+  <Buggyomponent />
 </ErrorBoundary>
 ```
 <!-- .element: class="large" -->
 
+<br />
+
+(used like any other component)
+
 NOTES:
 
-- Any errors that happen within `BrokenComponent` or lower in the tree will trigger `componentDidCatch` in `ErrorBoundary`
+- Any errors that happen within `Buggyomponent` or lower in the tree will trigger `componentDidCatch` in `ErrorBoundary`
 - **IMPORTANT:** It cannot catch errors within itself. That would get bubbled up to a error boundary component higher in the tree
 - So if you have sections of an app that are independent, you can wrap them and if one part fails, the whole thing doesn't
 
@@ -487,7 +478,7 @@ NOTES:
 
 =====
 
-No more `data-reactid` attributes from `ReactDOMServer.renderToString`!
+## No more `data-reactid` attributes from server!
 
 ```html
 <div class="App" data-reactroot="">
@@ -503,7 +494,7 @@ No more `data-reactid` attributes from `ReactDOMServer.renderToString`!
 
 <br />
 
-Use new `ReactDOM.hydrate()` on client
+### Use new `ReactDOM.hydrate()` on client
 
 ```js
 ReactDOM.hydrate(<App />, document.getElementById('root'))
@@ -513,39 +504,10 @@ ReactDOM.hydrate(<App />, document.getElementById('root'))
 NOTES:
 -  `renderToString` is used server-side to render HTML markup to return in response body
 - Server-side rendering is good for user performance & SEO
+- In React <= 15, markup with flodded with `data-reactid` attributes which React used to correlate markup
 - React tries it's best to do the proper correlation & attach handlers
 - Use `ReactDOM.hydrate()` instead of usual `ReactDOM.render()` on the client
 - Deprecate in React 16, will be removed in React 17
-
-/////
-
-### Helpful warnings with `ReactDOM.hydrate()`
-
-Element text mismatch:
-```js
-Warning: Text content did not match. Server: " HEADIN " Client: " HEADING "
-```
-<!-- .element: style="margin-bottom: 2em" -->
-
-Tag name mismatch:
-```js
-Warning: Expected server HTML to contain a matching <h1> in <main>.
-```
-<!-- .element: style="margin-bottom: 2em" -->
-
-Extra attributes from server:
-```js
-Warning: Extra attributes from the server: class
-```
-<!-- .element: style="margin-bottom: 2em" -->
-
-Extra attributes from client:
-```js
-Warning: Prop `title` did not match. Server: null Client: "hello"
-```
-
-NOTES:
-- `ReactDOM.hydrate()` comes with a lot of helpful warning messages when server markup doesn't match client render
 
 /////
 
@@ -558,11 +520,15 @@ NOTES:
 - Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
 - Latest Node 4, 6 & 8
 - Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
+- Event with speed-ups, rendering to string is still sub-optimal:
+  0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
+  0. Server has to allocate memory for entire HTML string
+  0. Single call to `renderToString` can dominate CPU
 
 
 /////
 
-"Native" server-side streaming support 🎉
+## First-class server-side streaming support! 🎉
 
 ```js
 import {renderToNodeStream} from 'react-dom/server'
@@ -584,12 +550,46 @@ Prior art: [`react-dom-stream`](https://github.com/aickin/react-dom-stream)
 
 NOTES:
 - React now supports server-side streaming!
-- Rendering to string is sub-optimal:
-  0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
-  0. Server has to allocate memory for entire HTML string
-  0. Single call to `renderToString` can dominate CPU
 - With streaming, the browser can render pages before entire response is finished
 - Even further performance gains
+- We should be aware that all the server features were the last to be developed, so they're likely to still be buggy
+
+=====
+
+## Fiber makes React renderers easier to build
+
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
+  [`ink`](https://github.com/vadimdemedes/ink)  
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
+  [`rax`](https://github.com/alibaba/rax)  
+  [`react-art`](https://github.com/reactjs/react-art)  
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
+  [`react-konsul`](https://github.com/mohebifar/konsul)  
+  [_**`react-native`**_](https://github.com/facebook/react-native)  
+  [`react-pdf`](https://github.com/diegomura/react-pdf)  
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
+  [`react-three`](https://github.com/Izzimach/react-three)  
+  [`react-titanium`](https://github.com/yuchi/react-titanium)  
+  [`react-tvml`](https://github.com/ramitos/react-tvml)  
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
+  [`react-x11`](https://github.com/sidorares/react-x11)  
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+</div>
+
+Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
+
+NOTES:
+- By rewritting the reconciler, it creates a clean separation between the singular reconciler
+- And the many type of rendering environments (23 total listed)
+- All of these renderers will make use of all the improvements of the Fiber reconciler
 
 =====
 
@@ -670,6 +670,7 @@ NOTES:
 </a>
 
 NOTES:
+- `fiberAsyncScheduling: false`
 - With a very heavy update
 - You can go from a performance profile that looks like this
 - Where the browser is spending so much time updating your UI that it can't do anything else
@@ -684,45 +685,9 @@ NOTES:
 </a>
 
 NOTES:
+- `fiberAsyncScheduling: true`
 - This where the browser has time to come up for air
-
-=====
-
-## Fiber makes React renderers easier to build
-
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
-  [`ink`](https://github.com/vadimdemedes/ink)  
-  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
-  [`rax`](https://github.com/alibaba/rax)  
-  [`react-art`](https://github.com/reactjs/react-art)  
-  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
-  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
-  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
-  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
-  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
-  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
-  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
-  [`react-konsul`](https://github.com/mohebifar/konsul)  
-  [_**`react-native`**_](https://github.com/facebook/react-native)  
-  [`react-pdf`](https://github.com/diegomura/react-pdf)  
-  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
-  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
-  [`react-three`](https://github.com/Izzimach/react-three)  
-  [`react-titanium`](https://github.com/yuchi/react-titanium)  
-  [`react-tvml`](https://github.com/ramitos/react-tvml)  
-  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
-  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
-  [`react-x11`](https://github.com/sidorares/react-x11)  
-  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
-</div>
-
-Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
-
-NOTES:
-- By rewritting the reconciler, it creates a clean separation between the singular reconciler
-- And the many type of rendering environments (23 total listed)
-- All of these renderers will make use of all the improvements of the Fiber reconciler
-- Some more useful than others...
+- This it really happening in a browser
 
 /////
 
@@ -731,7 +696,9 @@ NOTES:
 </a>
 
 NOTES:
-- And once again, React 16 is just the beginning of all the great stuff coming our way
+- There's so much hype about Fiber; mythical unicorn to solve all our problems
+- It was announced over a year ago in July 2016 so it's been building
+- But React 16 is just the beginning of all the great stuff coming our way
 
 =====
 
@@ -811,4 +778,4 @@ NOTES:
 - Better yet, just come up to me during the breaks - it can be awkward or cool, it doesn't matter
 - Just not awkward in the bathroom; that's off limits
 - And don't let me know you're a Jazz fan
-- Thanks
+- Thanks!
