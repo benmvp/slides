@@ -17,6 +17,7 @@ NOTES:
 - Here to talk about Fiber & React 16
 - Instead of talking about the technical implementation & architecture
 - Focusing on how Fiber & React 16 will affect how we develop & build React apps
+- Tweeted out a link to my slides!
 
 /////
 
@@ -89,17 +90,24 @@ NOTES:
 - Now that I've gotten that off my chest...
 
 =====
+<!-- .slide: data-background="#ddd" -->
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
-    <img src="../../img/react-fiber/react-fiber-logo.jpg" alt="React Fiber Logo" style="background:none;box-shadow:none;border:none"/>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/react/react-logo.png" style="width:75%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="React Logo" />
+    </div>
     <div>
-      <h3>Rewrite of reconciler</h3>
-      <h3>Prioritizes UI updates</h3>
-      <h3>Enables async rendering</h3>
-      <h3>Improves perceived performance</h3>
-      <h3>In next major React version (v16)</h3>
+      <h1>React Fiber</h1>
     </div>
 </div>
+
+/////
+
+### Rewrite of reconciler
+### Prioritizes UI updates
+### Enables async rendering
+### Improves perceived performance
+### In next major React version (v16)
 
 NOTES:
 - The _reconciler_ has historically gone by the name of "Virtual DOM"
@@ -174,11 +182,16 @@ NOTES:
 - Instead, I want to spend time talking about how Fiber & React 16 will affect how we'll dev moving forward
 
 =====
+<!-- .slide: data-background="#ddd" -->
 
-## React Packages
-
-![Employee throwing packages](../../img/giphy/throwing-packages.gif)
-<!-- .element: style="width: 50%" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h2>React Packages</h2>
+    </div>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/throwing-packages.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Employee throwing packages" />
+    </div>
+</div>
 
 NOTES:
 - Let's start easy; nothing too complicated
@@ -245,11 +258,16 @@ NOTES:
 - I'm guessing removing these helped with smaller build size
 
 =====
+<!-- .slide: data-background="#ddd" -->
 
-## Return values for components
-
-![Bowling lane fall](../../img/giphy/success.gif)
-<!-- .element: style="width: 30%" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/success.gif" style="width:75%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="" />
+    </div>
+    <div>
+      <h2>New return values for components</h2>
+    </div>
+</div>
 
 NOTES:
 - Next, let's make some folks talking about return values for components
@@ -385,11 +403,16 @@ NOTES:
 - Other scalar values like numbers & booleans are also valid
 
 =====
+<!-- .slide: data-background="#ddd" -->
 
-## Handling errors
-
-![Bowling lane fall](../../img/giphy/bowling-lane-fall.gif)
-<!-- .element: style="width: 70%" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h2>Handling errors</h2>
+    </div>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/bowling-lane-fall.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Bowling lane fall" />
+    </div>
+</div>
 
 NOTES:
 - Now, let's talk about handling errors
@@ -509,14 +532,21 @@ NOTES:
 - But at least now you can have some nav UI around it
 
 =====
+<!-- .slide: data-background="#ddd" -->
 
-## Server rendering
-
-![Homer pours water all over servers](../../img/giphy/homer-pours-water-on-servers.gif)
-<!-- .element: style="width: 50%" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/homer-pours-water-on-servers.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Homer pours water all over servers" />
+    </div>
+    <div>
+      <h2>Server rendering</h2>
+    </div>
+</div>
 
 NOTES:
-- Next, let's talk about handling errors
+- Next, let's talk about server rendering
+-  `renderToString` is used server-side to render React into HTML markup to return in response body
+- Server-side rendering is good for user performance & SEO
 
 /////
 
@@ -544,8 +574,6 @@ ReactDOM.hydrate(<App />, document.getElementById('root'))
 <!-- .element: class="large" -->
 
 NOTES:
--  `renderToString` is used server-side to render React into HTML markup to return in response body
-- Server-side rendering is good for user performance & SEO
 - In React <= 15, markup with flodded with `data-reactid` attributes which React used to correlate markup
 - Even with gzip it's still a lot of markup
 - React tries it's best to do the proper correlation & attach handlers
@@ -754,7 +782,7 @@ NOTES:
 - [React Fiber resources](https://github.com/koba04/react-fiber-resources) by [Toru Kobayashi](https://twitter.com/koba04)
 - [Error Handling in React 16](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html) by [Dan Abramov](https://twitter.com/dan_abramov)
 - [What's New in React 16 and Fiber Explanation](https://medium.com/@treyhuffine/react-16-features-and-fiber-explanation-e779544bb1b7) by [Trey Huffine](https://twitter.com/treyhuffine)
-- [Using React v16 to create self-destructing components](https://medium.com/@gajus/using-react-v16-to-create-self-destructing-components-de8e4eb61d0f)
+- [Using React v16 to create self-destructing components](https://medium.com/@gajus/using-react-v16-to-create-self-destructing-components-de8e4eb61d0f) by [Gajus Kuizinas](https://twitter.com/kuizinas)
 
 =====
 
