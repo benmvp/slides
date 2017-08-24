@@ -16,7 +16,7 @@ NOTES:
 - My name is Ben Ilegbodu
 - Here to talk about Fiber & React 16
 - Instead of talking about the technical implementation & architecture
-- Focusing on how Fiber & React 16 will affect how we develop
+- Focusing on how Fiber & React 16 will affect how we develop & build React apps
 
 /////
 
@@ -104,8 +104,10 @@ NOTES:
 NOTES:
 - The _reconciler_ has historically gone by the name of "Virtual DOM"
 - It's the "killer feature" of React that let's us just right our code as if it's going to re-render everything
-- But it's able to _reconcile_ the difference before and after and then make optimized updates
-- "Virtual DOM" is a misnomer because, as we know, React exists in other environments besides DOM
+- But it's able to _reconcile_ the difference before and after a state change and tell the render the optimized updates to make
+- The Fiber reconciler can prioritize UI updates, which means that the UI can render asynchronously
+- As a result we get greater perceived performance because the higher priority updates happen first
+- And this is all happening in React 16 - the next major version
 
 /////
 
@@ -117,7 +119,7 @@ NOTES:
 NOTES:
 - The current (soon-to-be-previous) reconciler has been posthumously given the name Stack reconciler
 - Basically when an update needs to happen, the Stack reconciler traverses the entire component tree and does all the rendering for as long as it takes
-- Then it reliquishes control back to the JS interpreter
+- Then it reliquishes control back to the JS engine
 - For deep or expensive updates this can have a noticeable impact on performance even w/ intelligent reconciliation
 
 /////
@@ -128,7 +130,7 @@ NOTES:
 ## Fiber reconciler
 
 NOTES:
-- Instead the forthcoming Fiber reconciler will do some work and then relinquish control back to the interpreter
+- Instead the forthcoming Fiber reconciler will do some work and then relinquish control back to the engine
 - So rendering becomes asynchronous because it can render a higher priority update before returning to the original update
 - Imagine you have a text input field and then long list of results being populated by API response
 - You want typing to have immediate feedback where as the list of results can be lower priority because it's coming from API
@@ -168,7 +170,7 @@ NOTES:
 - Because Lin did an AMAZING job giving a deep-dive on how it works back at ReactConf
 - In fact I snagged those previous two graphics from her talk :)
 - Everywhere I looked at info about Fiber this video was linked
-- It's got like 75k views! The ReactJS repo only has...
+- It's got like 75k views! The ReactJS repo has nearly 74k stars
 - Instead, I want to spend time talking about how Fiber & React 16 will affect how we'll dev moving forward
 
 =====
@@ -274,7 +276,7 @@ Adjacent JSX elements is _still_ an error in React 16...
 ```js
 const PageBody = () => ([
   (<aside key="aside"> LEFT NAV </aside>),
-  (<section section="section"> MAIN BODY </section>),
+  (<section key="section"> MAIN BODY </section>),
 ])
 
 const Page = () => (
@@ -293,7 +295,6 @@ NOTES:
 - Because it result in invalid JavaScript
 - However, React 16 allows returning an array from a component!
 - Arrays weren't allowed as return values in React 15
-- You could use arrays w/in JSX, but not as component return values
 - We can get rid of so many enclosing `<div>`s
 - Unique `key` is needed (to hide warning)
 - Wrapping JSX in parentheses, but this isn't necessary
@@ -327,9 +328,9 @@ NOTES:
 - An interesting solve I just came across is to use a "self-eradicating" component
 - `Aux` just returns its children. In React 15 if `children` was an array, it'd fail. But in React 16 it won't!
 - So even though it looks like `PageBody` has a container element around the elements, the `<h1>`, `<aside>` & `<section>` will be siblings
-- And now we can have fixed markedup with having to deal with that weird mix of arrays and JSX
+- And now we can have fixed markup with having to deal with that weird mix of arrays and JSX
 - And not having to specify the `key`s
-- In general, this is when array returning will be most useful; when it's a variable (usually from `map`)
+- In general, this is when returning arrays will be most useful; when it's a variable (usually from `map`)
 - BTW, `react-aux` is literally just that component
 
 =====
@@ -377,7 +378,7 @@ NOTES:
 - In DEV mode you will see something like this, especially w/ Create React App
 - In migrating to React 16 you may uncover existing crashes that you may not have noticed unless you had dev tools open
 - Helpful error message mentions using error boundaries w/ link on learning more
-- But I'm ging to tell you all about them!
+- But I'm going to tell you all about them!
 
 /////
 
@@ -395,7 +396,7 @@ export default class ErrorBoundary extends PureComponent {
 <!-- .element: class="large" -->
 
 NOTES:
-- However, React 16 introduces new lifecycle method called `componentDidCatch`
+- React is adding new lifecycle method called `componentDidCatch`
 - In that method you receive the error/exception and additional information like the stack trace
 
 /////
@@ -435,7 +436,7 @@ NOTES:
 
 ```js
 <ErrorBoundary>
-  <Buggyomponent />
+  <BuggyComponent />
 </ErrorBoundary>
 ```
 <!-- .element: class="large" -->
@@ -446,9 +447,9 @@ NOTES:
 
 NOTES:
 
-- Any errors that happen within `Buggyomponent` or lower in the tree will trigger `componentDidCatch` in `ErrorBoundary`
-- **IMPORTANT:** It cannot catch errors within itself. That would get bubbled up to a error boundary component higher in the tree
+- Any errors that happen within `BuggyComponent` or lower in the tree will trigger `componentDidCatch` in `ErrorBoundary`
 - So if you have sections of an app that are independent, you can wrap them and if one part fails, the whole thing doesn't
+- **IMPORTANT:** It cannot catch errors within itself. That would get bubbled up to a error boundary component higher in the tree
 
 /////
 
@@ -502,9 +503,10 @@ ReactDOM.hydrate(<App />, document.getElementById('root'))
 <!-- .element: class="large" -->
 
 NOTES:
--  `renderToString` is used server-side to render HTML markup to return in response body
+-  `renderToString` is used server-side to render React into HTML markup to return in response body
 - Server-side rendering is good for user performance & SEO
 - In React <= 15, markup with flodded with `data-reactid` attributes which React used to correlate markup
+- Even with gzip it's still a lot of markup
 - React tries it's best to do the proper correlation & attach handlers
 - Use `ReactDOM.hydrate()` instead of usual `ReactDOM.render()` on the client
 - Deprecate in React 16, will be removed in React 17
@@ -520,7 +522,7 @@ NOTES:
 - Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
 - Latest Node 4, 6 & 8
 - Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
-- Event with speed-ups, rendering to string is still sub-optimal:
+- Even with speed-ups, rendering to string is still sub-optimal:
   0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
   0. Server has to allocate memory for entire HTML string
   0. Single call to `renderToString` can dominate CPU
@@ -689,7 +691,7 @@ NOTES:
 - This where the browser has time to come up for air
 - This it really happening in a browser
 
-/////
+=====
 
 <a href="https://twitter.com/dan_abramov/status/850748912373813249">
   <img src="../../img/react-fiber/fiber-platform-of-future.png" alt="Dan Abramov tweet about Fiber architecture flexibility" style="width: 80%" />
@@ -697,10 +699,10 @@ NOTES:
 
 NOTES:
 - There's so much hype about Fiber; mythical unicorn to solve all our problems
-- It was announced over a year ago in July 2016 so it's been building
+- It was announced over a year ago in July 2016 so excitement has been building
 - But React 16 is just the beginning of all the great stuff coming our way
 
-=====
+/////
 
 ## Additional resources
 
@@ -742,9 +744,11 @@ NOTES:
 
 NOTES:
 - Also thanks for continued support in speaking at conference to share what I know and what we've been doing
-- Gonna ask you to sort a linked list in C++...
+- And... we're hiring
+- Gonna ask you to sort a linked list... 
+- in C++...
 - on the back of a cocktail napkin...
-- in crayon 😂
+- in purple crayon 😂
 
 /////
 
