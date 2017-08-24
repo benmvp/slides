@@ -175,6 +175,17 @@ NOTES:
 
 =====
 
+## React Packages
+
+![Employee throwing packages](../../img/giphy/throwing-packages.gif)
+<!-- .element: style="width: 50%" -->
+
+NOTES:
+- Let's start easy; nothing too complicated
+- Talking about the React packages themselves
+
+/////
+
 <div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
     <h3>20% smaller React bundle!</h3>
@@ -202,7 +213,7 @@ NOTES:
 - Now: 40.25kb, Before: 51.12kb
 - 20%+ reduction!
 
-=====
+/////
 
 ## React 15.5 deprecations ➜ React 16 errors
 
@@ -235,6 +246,16 @@ NOTES:
 
 =====
 
+## Return values for components
+
+![Bowling lane fall](../../img/giphy/success.gif)
+<!-- .element: style="width: 30%" -->
+
+NOTES:
+- Next, let's make some folks talking about return values for components
+
+/////
+
 ```js
 const PageBody = () => (
   <aside> LEFT NAV </aside>
@@ -259,7 +280,7 @@ NOTES:
 
 /////
 
-![Adjacent jsx elements error in React](../../img/react-fiber/adjacent-jsx-elements-error.png)
+![Adjacent JSX elements error in React](../../img/react-fiber/adjacent-jsx-elements-error.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 80%" -->
 
 # 😭
@@ -288,7 +309,7 @@ const Page = () => (
 ```
 <!-- .element: class="large" -->
 
-...but arrays **ARE** valid return values in React 16! 👏🏾
+...but arrays **ARE** valid component return values in React 16! 👏🏾
 
 NOTES:
 - Adjacent JSX elements is also an error in React 16
@@ -333,9 +354,9 @@ NOTES:
 - In general, this is when returning arrays will be most useful; when it's a variable (usually from `map`)
 - BTW, `react-aux` is literally just that component
 
-=====
+/////
 
-## Strings are also valid return values in React 16! 👍🏾  
+Strings are also valid return values in React 16! 👍🏾  
 
 ```js
 const Localized = ({msg, tokens}) => {
@@ -364,6 +385,16 @@ NOTES:
 - Other scalar values like numbers & booleans are also valid
 
 =====
+
+## Handling errors
+
+![Bowling lane fall](../../img/giphy/bowling-lane-fall.gif)
+<!-- .element: style="width: 70%" -->
+
+NOTES:
+- Now, let's talk about handling errors
+
+/////
 
 ## Uncaught errors now unmount your app!
 
@@ -478,6 +509,16 @@ NOTES:
 - But at least now you can have some nav UI around it
 
 =====
+
+## Server rendering
+
+![Homer pours water all over servers](../../img/giphy/homer-pours-water-on-servers.gif)
+<!-- .element: style="width: 50%" -->
+
+NOTES:
+- Next, let's talk about handling errors
+
+/////
 
 ## No more `data-reactid` attributes from server!
 
