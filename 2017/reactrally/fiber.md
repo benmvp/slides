@@ -602,7 +602,8 @@ NOTES:
 ## First-class server-side streaming support! 🎉
 
 ```js
-import {renderToNodeStream} from 'react-dom/server'
+// will soon be renamed renderToNodeStream in a future release!
+import {renderToStream} from 'react-dom/server'
 
 app.get('/', (req, res) => {
   // write opening <html>, <head>, <body> tags streamed
