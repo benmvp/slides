@@ -154,7 +154,6 @@ NOTES:
 - Because Lin did an AMAZING job giving a deep-dive on how it works back at ReactConf
 - In fact I snagged those previous two graphics from her talk :)
 - Everywhere I looked at info about Fiber this video was linked
-- It's got like 75k views! The ReactJS repo has nearly 74k stars
 - Instead, I want to spend time talking about how Fiber & React 16 will affect how we'll dev moving forward
 
 =====
@@ -232,6 +231,7 @@ jscodeshift -t react-codemod/transforms/class.js <path>
 NOTES:
 - Use the `prop-types` lib for prop types
 - Use ES6 classes or `create-react-class` lib for components
+- React has codemods to be able to programmatically change
 - I'm guessing removing these helped with smaller build size
 
 =====
@@ -247,7 +247,7 @@ NOTES:
 </div>
 
 NOTES:
-- Next, let's make some folks talking about return values for components
+- Next, let's make some folks happy talking about return values for components
 
 /////
 
@@ -282,6 +282,7 @@ NOTES:
 
 NOTES:
 - However, this results in an error saying you have to wrap in an enclosing tag
+- Not valid JavaScript
 - The result is a lot of "tag bloat" because you needed enclosing tags everywhere
 - And this breaks flexbox
 
@@ -314,8 +315,6 @@ NOTES:
 - We can get rid of so many enclosing `<div>`s
 - Pretty ugly syntax for static markup
 - Unique `key` is needed (to hide warning)
-- Wrapping JSX in parentheses, but this isn't necessary
-- Whenever I use JSX in the midst of regular JSX I surround in parentheses to indicate different "context"
 
 /////
 
@@ -344,11 +343,11 @@ NOTES:
 - An interesting solve I just came across is to use a "self-eradicating" component
 - `Aux` just returns its children. In React 15 if `children` was an array, it'd fail. But in React 16 it won't!
 - So even though it looks like `PageBody` has a container element around the elements, the `<h1>`, `<aside>` & `<section>` will be siblings
-- And now we can have fixed markup with having to deal with that weird mix of arrays and JSX
+- And now we can have fixed markup without having to deal with that weird mix of arrays and JSX
 - And not having to specify the `key`s
 - In general, this is when returning arrays will be most useful; when it's a variable (usually from `map`)
 - BTW, `react-aux` is literally just that component
-- No more tag bloat!
+- No more empty `<div>` or `<span>` tags!
 
 /////
 
@@ -603,7 +602,7 @@ NOTES:
 - React now supports server-side streaming!
 - With streaming, the browser can render pages before entire response is finished
 - Even further performance gains
-- We should be aware that all the server features were the last to be developed, so they're likely to still be buggy
+- FYI: Server features were the last to be developed, so they're likely to still be buggy
 
 =====
 
@@ -782,6 +781,7 @@ Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 NOTES:
 - So that's it!
 - Hopefully you learned something and are excited!
-- Slides are available on Twitter and Blog
+- If anything didn't make sense, please let me know
 - Ask questions on Twitter, via email or AMA!
+- Slides are available on Twitter and Blog
 - Thanks!
