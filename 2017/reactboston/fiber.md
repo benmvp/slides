@@ -198,11 +198,11 @@ NOTES:
 <!-- .slide: data-background="#ddd" -->
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
-    <div>
-      <h2>React Packages</h2>
-    </div>
     <div style="flex: 0 0 50%">
       <img src="../../img/giphy/throwing-packages.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Employee throwing packages" />
+    </div>
+    <div>
+      <h2>React Packages</h2>
     </div>
 </div>
 
@@ -272,9 +272,94 @@ NOTES:
 - React has codemods to be able to programmatically change
 - I'm guessing removing these helped with smaller build size
 
+=====
+<!-- .slide: data-background="#ddd" -->
+
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h2>Custom Attributes</h2>
+    </div>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/hercules-hercules.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="" />
+    </div>
+</div>
+
+NOTES:
+- Let's start easy; nothing too complicated
+- Talking about the React packages themselves
+
 /////
 
-## React 15.5 deprecations ➜ React 16 🤐
+## Custom attributes are supported!
+
+<div style="display:flex;align-items:center;justify-content: space-between; margin: 2em 0">
+	<div style="flex:0 0 45%;">
+    React 15 JSX
+    <pre class="large"><code class="lang-js">&lt;svg foo="bar" /></code></pre>
+	</div>
+	<div style="flex:0 0 45%;">
+		React 15 HTML
+    <pre class="large"><code class="lang-html"><svg></svg></code></pre>
+	</div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content: space-between">
+	<div style="flex:0 0 45%;">
+    React 16 JSX
+    <pre class="large"><code class="lang-js">&lt;svg foo="bar" /></code></pre>
+	</div>
+	<div style="flex:0 0 45%;">
+		React 16 HTML
+    <pre class="large"><code class="lang-html"><svg foo="bar"></svg></code></pre>
+	</div>
+</div>
+
+NOTES:
+- In React 15, unknown attributes not rendered to DOM
+- React would also warn you of "unknown prop on `<svg>`"
+- Prevented custom attributes: browser-specific, new APIs or 3rd-party
+- React had to maintain a (growing) whitelist of **all** standard DOM attributes
+- `<svg>` was biggest problem and always would be missing attributes
+- Custom attributes are now supported in React 16!
+- Able to shave off more package size
+
+/////
+
+### Still get some helpful warnings...
+
+`<div class="foo">` (wrong form)
+```js
+Warning: Invalid DOM property `class`. Did you mean `className`?
+```
+<!-- .element: style="margin-bottom: 1.5em" -->
+
+`<div classname="foo">` (all-lowercase)
+```js
+Warning: Invalid DOM property `classname`. Did you mean `className`?
+```
+<!-- .element: style="margin-bottom: 1.5em" -->
+
+`<div classNam="foo">` (misspelled camelCase)
+```js
+React does not recognize the `classNam` prop on a DOM element. If you intentionally 
+want it to appear in the DOM as a custom attribute, spell it as lowercase `classnam` 
+instead. If you accidentally passed it from a parent, remove it from the DOM element.
+```
+<!-- .element: style="margin-bottom: 1.5em" -->
+
+`<div clas="foo">` / `<div classnam="foo">` (misspelled lowercase)
+```js
+NO WARNING! Assumed custom attribute!
+```
+
+NOTES:
+- React will still give some helpful warnings for known attributes
+- All these cases the attributes are rendered in the DOM
+- Knows to watch out for `class` (React follows JS DOM API)
+- An unknown all-lowercase attribute cannot match a camelCase version
+- Unknown camelCase attributes are invalid
+- Unknown all lowercase are assumed custom attributes
+
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -781,7 +866,7 @@ NOTES:
 - So that's basically it for the new features with React 16!
 - There are a bunch of other little things here and there
 - Installing is as simple as getting `@next` (rc 3)
-- Likely the last RC - working on documentation
+- Should be releasing next week w/ new MIT license!
 - Totally stable - Facebook is using RC-2 in production
 - Provided that you've addressed all warnings you should be good
 - React team focus was more on backwards compat with React 15 w/ new reconciler
