@@ -92,7 +92,8 @@ NOTES:
 - Speaking of Kaylie, yesterday was her first conference talk!
 - Didn't tell you that she implemented selective resolution
 - She's been at Eventbrite for 1.5 years; Graduated for Hackbright
-- Part of Eventbrite Bootcamp
+- Part of Eventbrite Bootcamp & now has come back to the team
+- I really value her opinion; she & another bootcamp grad are responsible FE infra
 - 1) want to embarass her & 2) highlight that you don't have to have a CS degree
 - Kaylie got her degree in Art History & worked at the Smithsonian
 - Inspiration: those from non-traditional backgrounds
@@ -885,7 +886,7 @@ Prior art: [`react-portal`](https://github.com/tajo/react-portal)
 NOTES:
 - New `createPortal` method in `react-dom`
 - Give it the elements and the DOM container to actually render it
-- Rendering a special kind of component called a "portal"
+- `createPortal` returns a special kind of React element called a "portal"
 - Gross oversimplification cuz not doing any cleanup on unmount
 - Relies on `react-dom` so not portable; working on decoupling
 - Just became official API 2 weeks ago
@@ -927,6 +928,7 @@ NOTES:
 - By rewritting the reconciler, it creates a clean separation between the singular reconciler
 - And the many type of rendering environments (23 total listed)
 - All of these renderers will make use of all the improvements of the Fiber reconciler
+- These are the ones that exist **now**. There'll be even more!
 
 =====
 
@@ -958,6 +960,7 @@ NOTES:
 - Totally stable - Facebook is using RC-2 in production
 - Provided that you've addressed all warnings you should be good
 - React team focus was more on backwards compat with React 15 w/ new reconciler
+- Biggest issue will be 3rd-party libraries
 - Async scheduling (the big feature) is turned off in initial release
 - Will be a opt-in feature flag to turn it on in future release
 
