@@ -17,11 +17,6 @@ NOTES:
 - Here to talk about Fiber & React 16
 - Instead of talking about the technical implementation & architecture
 - Focusing on how Fiber & React 16 will affect how we develop & build React apps
-- Show of hands
-  * Who has heard of React? (control)
-  * Who has built React apps?
-  * Who has heard of React Fiber (before right now)?
-  * Who has tried out Fiber?
 - Tweeted out a link to my slides!
 
 /////
@@ -96,8 +91,8 @@ NOTES:
 - I'm actually on the Frontend Platform team with Kaylie
 - Speaking of Kaylie, yesterday was her first conference talk!
 - Didn't tell you that she implemented selective resolution
-- She's been at Eventbrite for 1.5 years & remember interviewing her
-- Graduated for Hackbright; did my async JS question in Python
+- She's been at Eventbrite for 1.5 years; Graduated for Hackbright
+- Part of Eventbrite Bootcamp
 - 1) want to embarass her & 2) highlight that you don't have to have a CS degree
 - Kaylie got her degree in Art History & worked at the Smithsonian
 - Inspiration: those from non-traditional backgrounds
@@ -114,6 +109,14 @@ NOTES:
       <h1>React Fiber</h1>
     </div>
 </div>
+
+NOTES:
+- Let's talk about React Fiber
+- Show of hands
+  * Who has heard of React? (control)
+  * Who has built React apps?
+  * Who has heard of React Fiber (before right now)?
+  * Who has tried out Fiber?
 
 /////
 
@@ -202,7 +205,7 @@ NOTES:
       <img src="../../img/giphy/throwing-packages.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Employee throwing packages" />
     </div>
     <div>
-      <h2>React Packages</h2>
+      <h2>1. React Packages</h2>
     </div>
 </div>
 
@@ -275,18 +278,14 @@ NOTES:
 =====
 <!-- .slide: data-background="#ddd" -->
 
-<div style="display:flex;align-items:center;justify-content:space-around;">
-    <div>
-      <h2>Custom Attributes</h2>
-    </div>
-    <div style="flex: 0 0 50%">
-      <img src="../../img/giphy/hercules-hercules.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="" />
-    </div>
-</div>
+## 2. Custom Attributes
+
+![Hercules! Hercules!](../../img/giphy/hercules-hercules.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 80%" -->
 
 NOTES:
-- Let's start easy; nothing too complicated
-- Talking about the React packages themselves
+- Continuing on
+- Let's talk about some changes to custom attributes
 
 /////
 
@@ -315,7 +314,7 @@ NOTES:
 </div>
 
 NOTES:
-- In React 15, unknown attributes not rendered to DOM
+- In React 15, unknown attributes were not rendered to DOM
 - React would also warn you of "unknown prop on `<svg>`"
 - Prevented custom attributes: browser-specific, new APIs or 3rd-party
 - React had to maintain a (growing) whitelist of **all** standard DOM attributes
@@ -354,22 +353,22 @@ NO WARNING! Assumed custom attribute!
 
 NOTES:
 - React will still give some helpful warnings for known attributes
-- All these cases the attributes are rendered in the DOM
 - Knows to watch out for `class` (React follows JS DOM API)
 - An unknown all-lowercase attribute cannot match a camelCase version
 - Unknown camelCase attributes are invalid
 - Unknown all lowercase are assumed custom attributes
+- All these cases the attributes are rendered in the DOM!
 
 
 =====
 <!-- .slide: data-background="#ddd" -->
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h2>3. New return values for components</h2>
+    </div>
     <div style="flex: 0 0 50%">
       <img src="../../img/giphy/success.gif" style="width:75%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="" />
-    </div>
-    <div>
-      <h2>New return values for components</h2>
     </div>
 </div>
 
@@ -509,17 +508,13 @@ NOTES:
 =====
 <!-- .slide: data-background="#ddd" -->
 
-<div style="display:flex;align-items:center;justify-content:space-around;">
-    <div>
-      <h2>Handling errors</h2>
-    </div>
-    <div style="flex: 0 0 50%">
-      <img src="../../img/giphy/bowling-lane-fall.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Bowling lane fall" />
-    </div>
-</div>
+## 4. Handling errors
+
+![Adjacent JSX elements error in React](../../img/giphy/bowling-lane-fall.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 70%" -->
 
 NOTES:
-- Talked about 1) changes to React packages & 2) new return values
+- Talked about 1) changes to React packages 2) custom attributes 3) new return values
 - Now, let's talk about handling errors
 
 /////
@@ -640,19 +635,19 @@ NOTES:
 <!-- .slide: data-background="#ddd" -->
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h2>5. Server rendering</h2>
+    </div>
     <div style="flex: 0 0 50%">
       <img src="../../img/giphy/homer-pours-water-on-servers.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Homer pours water all over servers" />
-    </div>
-    <div>
-      <h2>Server rendering</h2>
     </div>
 </div>
 
 NOTES:
-- Last main feature I want to talk about
 -  `renderToString` is used server-side to render React into HTML markup to return in response body
-- Huge benefit of React
+- Killer feature of React
 - Server-side rendering is good for user performance & SEO
+- Both Sasha & Natalie talked about this
 
 /////
 
@@ -732,7 +727,7 @@ Warning: Extra attributes from the server: class
 ```
 <!-- .element: style="margin-bottom: 2em" -->
 
-Extra attributes from client:
+Extra attributes on client:
 ```js
 Warning: Prop `title` did not match. Server: null Client: "hello"
 ```
@@ -751,6 +746,7 @@ NOTES:
 - Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
 - Latest Node 4, 6 & 8
 - Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
+- At Eventbrite we didn't set `process.env=PRODUCTION` for like 6 months
 - Even with speed-ups, rendering to string is still sub-optimal:
   0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
   0. Server has to allocate memory for entire HTML string
@@ -765,12 +761,12 @@ NOTES:
 import {renderToNodeStream} from 'react-dom/server'
 
 app.get('/', (req, res) => {
-  // write opening <html>, <head>, <body> tags streamed
+  res.write('<html><head><title>EB</title><body><div id="root">')
 
   renderToNodeStream(<App />)
-    .pipe(res)
+    .pipe(res, {end: false})
     .on('end', () => {
-      // write rest of page, <body>, <html>
+      res.write('</div></body></html>')
       res.end()
     })
 })
@@ -789,19 +785,111 @@ NOTES:
 <!-- .slide: data-background="#ddd" -->
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
-    <div>
-      <h2>Portals</h2>
-    </div>
     <div style="flex: 0 0 50%">
       <img src="../../img/giphy/omg-taco.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Taco goes from one woman's mouth to the next" />
+    </div>
+    <div>
+      <h2>6. Portals</h2>
     </div>
 </div>
 
 NOTES:
-- Talked about 1) changes to React packages 2) new return values 3) error handling 4) server-rendering
-- Now let's talk about portals!
+- Talked about 1) changes to React packages 2) custom attributes 3) new return values 4) error handling 5) server-rendering
+- Now let's finish and talk about portals!
 
 /////
+<!-- .slide: data-background-video="../../img/react-fiber/city-browse-boston-share.m4v" data-background-video-loop="true" data-background-size="cover" -->
+
+NOTES:
+- Here we have a brand new React app we've built at Eventbrite
+- It allows you to browse events for a city
+- So we're browsing Boston seeing what's Popular and good in Music
+- Each one of these is an "event card"
+- To share, I click the share button on a card, which pop-ups a share modal
+- This modal sits on top of the whole page, it doesn't render _in_ the event card
+- We're not using portals to accomplish this, but we could!
+- We want the modal to be rendered directly in the `document.body`
+
+/////
+
+## Displaying Modals
+
+```js
+class EventCard extends PureComponent {
+  state = {showModal: false}
+
+  _handleShare() { this.setState({showModal: true}) }
+  render() {
+    let {showModal} = this.state
+    return (
+      <section>
+        <h1>{title}</h1>
+        <button onClick={this._handleShare}>Share</button>
+        <Modal shown={showModal}>Share Modal Content</Modal>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Have an event card and want to show a modal when user clicks share
+- In the "React way" the `Modal` would be a child of `EventCard`
+- Would render **in** in the event card, which is bad
+- We want our modals/lightboxes/loading overlays directly within `<body>`
+- This way they can render on top of everything
+
+/////
+
+## `Modal` uses `Portal` to render outside of hierarchy
+
+```js
+const Modal = ({title, children, shown}) => {
+  if (!shown) {
+    return null
+  }
+  
+  return (
+    <Portal>
+      <dialog>
+        <h1>{title}</h1>
+        <main>{children}</main>
+      </dialog>
+    </Portal>
+  )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- `Modal` uses a `Portal` component that we can create to render outside of component hierarchy
+- Instead of `Modal` being a child of `EventCard` it'll be rendered outside as a sibling of App
+
+/////
+
+## (Oversimplified) `Portal` Component
+
+
+```js
+import {createPortal} from 'react-dom'
+
+const Portal = ({children}) => (
+  createPortal(children, document.body)
+)
+```
+<!-- .element: class="large" style="margin: 2em 0" -->
+
+Prior art: [`react-portal`](https://github.com/tajo/react-portal)
+
+NOTES:
+- New `createPortal` method in `react-dom`
+- Give it the elements and the DOM container to actually render it
+- Rendering a special kind of component called a "portal"
+- Gross oversimplification cuz not doing any cleanup on unmount
+- Relies on `react-dom` so not portable; working on decoupling
+- Just became official API 2 weeks ago
+- No docs!; reverse-engineered from reading tests
 
 =====
 
