@@ -1045,7 +1045,7 @@ NOTES:
 
 <br />
 
-- [React 16 RC](https://github.com/facebook/react/issues/10294)
+- [React 16 RC](https://github.com/facebook/react/issues/10294) / [CHANGELOG](https://github.com/facebook/react/blob/master/CHANGELOG.md)
 - [A Cartoon Intro to Fiber](https://www.youtube.com/watch?v=ZCuYPiUIONs) by [Lin Clark](https://twitter.com/linclark)
 - [React Fiber resources](https://github.com/koba04/react-fiber-resources) by [Toru Kobayashi](https://twitter.com/koba04)
 - [Error Handling in React 16](https://facebook.github.io/react/blog/2017/07/26/error-handling-in-react-16.html) by [Dan Abramov](https://twitter.com/dan_abramov)
