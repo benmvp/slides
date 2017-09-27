@@ -6,7 +6,7 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@strangeloop_stl](https://twitter.com/strangeloop_stl)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#strangeloop](https://twitter.com/hashtag/strangeloop)    
 
 <br />
 
@@ -118,8 +118,8 @@ September 28, 2017
 
 =====
 
-# Coding Time!
-<!-- .element: style="font-size:6em" -->
+![Workshop screenshot](../../img/giphy/cat-typing-fast.gif)
+<!-- .element: style="width:50%" -->
 
 =====
 
@@ -127,12 +127,12 @@ September 28, 2017
 
 # More functionality
 
-- Animation
 - Redux
+- Testing
 - Routing
+- Animation
 - Form validation
 - Server rendering
-- Testing
 
 =====
 
