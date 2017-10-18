@@ -643,8 +643,8 @@ let [a, b, c] = [8, true, 11];
     // a=8, b=true, c=11
 let [a, b, c=9] = ['no'];
     // a='no', b=undefined, c=9
-let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('10-16-17');
-    // mo='10', day='16', yr='17'
+let [, mo, day, yr] = /^(\d\d)-(\d\d)-(\d\d)$/.exec('10-17-17');
+    // mo='10', day='17', yr='17'
 ```
 <!-- .element: class="large" -->
 
