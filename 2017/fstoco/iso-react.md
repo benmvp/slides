@@ -232,6 +232,9 @@ NOTES:
 ![Coldfusion logo](../../img/react-sans-node/coldfusion.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; height: auto; width: 45%" -->
 
+NOTES:
+- I'm just trolling you now...
+
 =====
 
 ![Baby no no no!](../../img/giphy/baby-no.gif)
@@ -344,7 +347,7 @@ REQUEST:
 - URL endpoint
     ex. http://localhost:9009/render
 - Path to React component
-    ex. /www/js/react/HelloWorld.jsx
+    ex. /www/js/react/HelloWorld.js
 - Component props
     ex. {name: 'Ben'}
 
@@ -365,7 +368,7 @@ NOTES:
 ## React Component
 
 ```js
-// www/js/react/HelloWorld.jsx
+// www/js/react/HelloWorld.js
 
 const HelloWorld = ({name}) => (
   <div>Hello {name}!</div>
@@ -385,7 +388,7 @@ NOTES:
 $> curl
   -H "Content-Type: application/json"
   -X POST
-  -d '{"path":"/www/js/react/HelloWorld.jsx",props:{name:"Ben"}}'
+  -d '{"path":"/www/js/react/HelloWorld.js",props:{name:"Ben"}}'
   http://localhost:9009/render
 
 <div data-reactid="1">Hello Ben!</div>
@@ -437,7 +440,7 @@ NOTES:
 $> node server.js --verbose
 
 [2016-10-21T21:39:55] Started server at http://127.0.0.1:9009
-[2016-10-21T21:40:23] Request for /www/js/react/HelloWorld.jsx
+[2016-10-21T21:40:23] Request for /www/js/react/HelloWorld.js
 ```
 <!-- .element: class="large" -->
 
@@ -594,18 +597,18 @@ if (process.env === 'development') {
 <!-- .element: class="large" -->
 
 NOTES:
-- Instead we should've run the server this way, but we forgot
 - If you've developed in React, you've noticed that it provides lots of helpful warnings
 - Great for developer experience, but they do slow things down
 - If you pass in `NODE_ENV=production`, `process.env` is `'production'` so those conditionals don't get run
 - `PropTypes` are an example of warnings not run on production
+- Instead we should've run the server this way, but we forgot!
 
 /////
 
 ## Production Mode
 
 ![react-render-server render times after setting process.env](../../img/react-sans-node/rrs-node-env.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 65%" -->
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 85%" -->
 
 🤣🤣🤣
 
@@ -616,17 +619,16 @@ NOTES:
 
 ## Production Mode
 
-![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart.png)
+![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart-updated.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 65%" -->
 
 [github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
 
 NOTES:
-- Basically proved this benchmark chart
+- Basically proved this synthetic benchmark chart
 - Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
 - Latest Node 4, 6 & 8
-- Upcoming Node 8.3 RC shipped with high-performant V8 6.0 w/ Turbofan
-- 15x improvement just by upgrading systems
+- 17x improvement just by upgrading systems
 
 /////
 
@@ -685,12 +687,11 @@ export default class LazyString {
 <!-- .element: class="large" -->
 
 NOTES:
-- What we needed was something that would do the translation at render time
-- That's when we need the language of the request
+- What we needed was something that would do the translation at _render_ time
+- That's when we knew the language of the request
 - Unfortunately I don't have too much time to go into the details
 - But here's the `LazyString` object we built
 - It overrides the `toString` method so that it _acts_ like a string
-- Had to introduce a new prop type that receive a normal string or `LazyString`
 
 /////
 
@@ -721,6 +722,7 @@ NOTES:
 - So even though the `LazyString` object is const, the message will be translated
 - We _just_ found this issue, a year into it
 - We'll be blogging about it soon
+- Had to introduce a new prop type that receive a normal string or `LazyString`
 
 =====
 
@@ -739,7 +741,7 @@ NOTES:
 - Logging & monitoring was even further outside my expertise
 - Thankfully I had some AMAZING back-end engineers who volunteered to help me take it to completion
 - Decided for the first consumers of new React platform to be new features
-- Checkout widget, New create, new signin apps is in production!
+- Checkout widget, Organizer onboarding, new signin apps is in production!
 - Destination team has new City Browse experience coming sooon!
 
 =====
@@ -773,7 +775,8 @@ Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 NOTES:
 - So that's it!
 - Wanted to thank Full Stack and James for invited me here to share with you
-- Also thank you for attending!
+- Also thank YOU for attending!
+- My goal is for you to learn at least one thing you can take away to be a better dev
 - Slides are available on Twitter and Blog
 - Ask questions on Twitter, via email or AMA!
-- Thanks!
+- Thanks and enjoy the rest of the conference!
