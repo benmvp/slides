@@ -14,8 +14,8 @@ October 23, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
-- Posted link to slides on twitter if you want to follow along
 - Talking about Isomorphic React w/o Node back-end
+- Posted link to slides on twitter if you want to follow along
 
 /////
 
@@ -40,7 +40,7 @@ NOTES:
 - Architecture design
 
 NOTES:
-- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on the server
+- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
 - Eventbrite had to solve the problem of rendering React components server-side on non-Node web server
 - Hoping our experiences, both good & bad, will help you if you find yourself in the same boat
 
@@ -55,7 +55,6 @@ NOTES:
 <!-- .element: style="width: 65%;" -->
 
 NOTES:
-- Michael Jackson had a post of Medium...
 - _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
 - _Universal_ basically means that it works everywhere
 - So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
@@ -122,7 +121,7 @@ NOTES:
 - Currently a Principal Frontend Engineer at Eventbrite
 - Eventbrite is an online events & ticketing platform
 - Full Stack is using one of our competitors, but that's ok! ;-)
-- We've been transitioning from Backbone to React
+- We've spent the last year transitioning from Backbone to React
 - I'm sure others in the room are doing the same
 - Made the transition over a year ago now and have been building new features on the new platform
 - One of the key must-haves in the transition was server-side rendering
@@ -141,8 +140,7 @@ NOTES:
 </div>
 
 NOTES:
-- Isomorphic React is rendering our React app components server-side
-- Server-side rendering was important & critical for the transition to be viable
+- Three reasons:
 - Performance: initial page render
 - SEO: google includes page render speed in ranking algorithm
 - Open Graph: media previews
@@ -157,7 +155,7 @@ NOTES:
 NOTES:
 - Node is needed to render React components server-side because we need a full-fledged JS interpreter
 - Typically, with "Isomorphic React" you would have a Node/Express web server
-- With help of routing lib like `react-router`, render components to a string included in HTML response
+- With help of routing lib like `react-router`, render App to a string included in HTML response
 - BUT Because Eventbrite has existed for a decade, our backend isn’t Node
 
 /////
@@ -171,7 +169,7 @@ NOTES:
 - We use Python/Django for our back-end web server
 - And it obviously can't interpret JS
 - Question: how do we render React components?
-- _Anybody else use Python/Django?_
+- _Anybody else use Python/Django/Flask?_
 
 /////
 
@@ -200,7 +198,8 @@ NOTES:
 - Our JS templates are written in Handlebars & Pybars converts the Handlebars into Python functions that return a string
 - It's like what happens in the original JS
 - Except it's super-duper slow because it was poorly written
-- Same solution wouldn’t work for React; you’d essentially need to recreate Node in Python
+- Tried to speed it up, but it was still like 10x slower than rendering in Django/Mako templates
+- Same solution wouldn’t work for React; you’d essentially need to recreate V8 engine in Python
 - Although we did consider it for a few seconds
 - This problem isn't just for Python/Django, it exists for all non-Node back-ends
 
@@ -245,10 +244,10 @@ NOTES:
 - But our OPS team immediately shot down any notion of replacing Django w/ a Node/Express web server
 - Not because Node/Express is bad
 - Unfamiliar for Ops. Frontend developers are familiar, but they'd actually have to maintain these servers for critical pages
-- We still have the typical legacy monolith app in our Django middle-tier
+- Furthermore... We still have the typical legacy monolith app in our Django middle-tier
 - Working on factoring out things to SOA, but it's a lot! Long process
 - Would have to replicate a lot of legacy logic in our Node server that's in Django
-- Already making a huge “gamble” with React in general
+- At the time, already making a huge “gamble” with React in general
 
 /////
 
@@ -358,7 +357,7 @@ RESPONSE:
 <!-- .element: class="large" -->
 
 NOTES:
-- It's an internal service that given a React component and its props it'll return a string of rendered markup
+- It's an internal service that given path to React component and its props, it'll return a string of rendered markup
 - No AJAX, on DB calls, no environment lookup, etc.
 - Everything must be passed in for _initial render_
 - "Stateless" because the server has access to the file system of all React components which _is_ state
@@ -426,7 +425,7 @@ NOTES:
 - Digging deeper here's the super simple Express app
 - Has a `/render` route
 - Create the Component class from the specified component path by using `require()`
-- Create an element applying the props to the Component class
+- Create an element applying the props to the Component class (i.e. JSX)
 - Leveraging React's [`renderToString`](https://facebook.github.io/react/docs/top-level-api.html#reactdomserver.rendertostring) to get the markup
 - Because React is a declarative tree, we can turn our JS into a string! Most previous libs couldn't do this
 - Return it as the response
@@ -599,7 +598,7 @@ if (process.env === 'development') {
 NOTES:
 - If you've developed in React, you've noticed that it provides lots of helpful warnings
 - Great for developer experience, but they do slow things down
-- If you pass in `NODE_ENV=production`, `process.env` is `'production'` so those conditionals don't get run
+- If you pass in `NODE_ENV=production`, `process.env` is `'production'` so those extra checks don't get run
 - `PropTypes` are an example of warnings not run on production
 - Instead we should've run the server this way, but we forgot!
 
@@ -614,6 +613,8 @@ NOTES:
 
 NOTES:
 - Can you guess when we turned on the env var?? 🤣
+- 2x improvement just by adding that env variable
+- We went through this so you don't have to!
 
 /////
 
