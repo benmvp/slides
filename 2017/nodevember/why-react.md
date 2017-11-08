@@ -63,6 +63,7 @@ NOTES:
 - Also, given that this is a keynote for everyone I wanted to make it useful to everyone
 - So if you've never used React, it should be a good primer
 - But if you're hardcore React, hopefully I can hit you w/ some tips
+- And if not this can be an example of how to explain besides "it's awesome"
 - Heads up!
 - I've had the opportunity now to speak about a variety of different React topics over the last year
 - Throughout the talk I'll be giving shameless plugs to those talks
@@ -124,13 +125,15 @@ NOTES:
 
 /////
 
-![Houston Astros are World Series Champs!](../../img/giphy/houston-astros-world-series.gif)
-<!-- .element: style="width: 85%" -->
+![NBA Go CLI](../../img/giphy/nba-go-cli.gif)
+<!-- .element: style="width: 75%" -->
+
+
+[xxhomey19/nba-go](https://github.com/xxhomey19/nba-go)
 
 NOTES:
-- So I'm from Houston
-- And although basketball is my sport
-- I was definitely watching the Astros in the World Series
+- I'm a huge basketball fan; love playing & watching
+- Got so excited when I found this NBA Go CLI
 
 =====
 
