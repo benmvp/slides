@@ -134,6 +134,8 @@ NOTES:
 NOTES:
 - I'm a huge basketball fan; love playing & watching
 - Got so excited when I found this NBA Go CLI
+- I use VS Code, which has the terminal pane right at the bottom
+- So I could literally be following the game and coding at the same time!
 
 =====
 
@@ -159,6 +161,226 @@ NOTES:
 =====
 
 # Declarative JSX
+
+/////
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+	this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+	return (
+	  <div>
+		<span className="val">{this.state.value}</span>
+		<button onClick={this._handleClick}>+</button>
+	  </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Here's a rather simple component
+- All it does is increment the value every time you click the button
+- Want to zero on the `render()` method which is return this HTML-link syntax in our JavaScript
+- Many people didn't like the syntax at first
+- But I find it very approachable
+
+/////
+
+## JSX
+
+```js
+<div>
+  <span className="val">{this.state.value}</span>
+  <button onClick={this._handleClick}>+</button>
+</div>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Here it is close up
+
+
+/////
+
+## Transpiled JSX
+
+```js
+React.createElement(
+  "div",
+  null,
+  React.createElement("span", {className: "val"}, value),
+  React.createElement("button", {onClick: this._handleClick}, "+")
+);
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Here it is transpiled; it's just JavaScript
+- Thanks to the power of build tooling (Babel)
+- We can write our code in friendly JSX
+- But out comes normal JS
+- I couldn't imagine building my React components like this
+
+/////
+
+## Collocated markup, logic & data
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+	this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+	return (
+	  <div>
+		<span className="val">{this.state.value}</span>
+		<button onClick={this._handleClick}>+</button>
+	  </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- With React, a component contains...
+  * Markup (`render()`)
+  - Logic (`_handleClick`)
+  - Data (`this.state`)
+- You can also include styling too, but not trying to start a flamewar over css-in-js right now
+- So everything is collocated, which is very different than traditional MVC like Backbone
+
+/////
+
+## Traditional MVC equivalent
+
+Handlebars template
+```
+
+```
+
+Backbone Model
+```
+
+```
+
+Backbone View
+```
+
+```
+
+NOTES:
+- This is the traditional MVC equivalent in Backbone
+- You have a separate file for template (markup), model & view (logic)
+- THe idea is that we wanted to have a "separation of concerns"
+- But it didn't happen in practice; especially as things got complex
+- We used `js-*` prefix in our templates to safely reference them in views
+- If the template changed, you needed to change the view
+- If the model changed, you needed to change the tmeplate, and so on
+- As things got complicated, hard to know the effects changing one would have on the other
+- And the templating languages were intended to be _just_ markup, so limited logic...
+
+/////
+
+## Logic in the template
+
+```html
+
+```
+
+NOTES:
+- And doing logic got really, really messy
+- Plus we'd basically have to basically learn a new language
+- The version of Handlebars we were using at Eventbrite didn't even have `else-if`
+- So we'd have a nested `if` w/in an `else`
+- We created "helpers" so we could call functions in templates
+- Many times we just had to do a whole lot of pre-computation in the view to enable the template to be dumb
+
+/////
+
+## Logic in React Component
+
+```js
+class Selector extends React.Component {
+  render() {
+    let options = this.props.values.map((info) => (
+      <option 
+        key={info.value} 
+        value={info.value} 
+        disabled={info.disabled}
+      >
+        {info.display}
+      </option>
+    ))
+
+    return (<select>{options}</select>)
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- But with React, since our markup is in JavaScript
+- We have the full use of JavaScript at our dispoable to build up the markup
+- We also have linting, editor autocmoplete, and more around JavaScript the language
+- There's no need, IMO, to invent a new language for logic
+
+/////
+
+## JSX is not HTML!
+
+```
+class Label extends React.Component {
+  render() {
+    return (
+      <label className="is-hidden" htmlFor={this.props.inputId}>
+        {this.props.children}
+      </label>
+    )
+  }
+}
+```
+<!-- .element: class="large" style="margin-bottom: 1em" -->
+
+React JSX props mirror HTML DOM properties!
+
+```
+let labelNode = document.getElementById('label')
+labelNode.className = 'is-hidden'
+labelNode.htmlFor = inputId
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- One con or gotcha, is that although JSX looks like HTML, it's not
+- It's the `className` & `htmlFor` prop which make it **really** clear that this isn't HTML
+- React chose to mirror the JS DOM API for its props which are all camelCase
+- And that's why its `className` & `htmlFor` instead of the HTML `class` & `for`
+- It's also why it's `onClick`, `onChange`, etc.
+- React is pretty good at giving great warnings if you forget or mess up
+- Especially with React 16
+
+/////
+
+## [React exposed! 😮](http://www.benmvp.com/slides/2017/forwardjs/react-exposed.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/cAYMqBU7Qko" frameborder="0" allowfullscreen></iframe>
+
+### ForwardJS Spring 2017
+
+NOTES:
+- Shameless plug alert!
+- I gave a talk call _React exposed! 😮_ at ForwardJS earlier this year
+- I go through several JSX gotchas among other topics
+- Feel free to watch the video (not now)
 
 =====
 
