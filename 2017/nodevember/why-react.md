@@ -236,14 +236,14 @@ class Incrementer extends React.Component {
   state = {value: 0}
 
   _handleClick = () => {
-	this.setState((prevState) => ({value: prevState.value + 1}))
+    this.setState((prevState) => ({value: prevState.value + 1}))
   }
   render() {
-	return (
-	  <div>
-		<span className="val">{this.state.value}</span>
-		<button onClick={this._handleClick}>+</button>
-	  </div>
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
     )
   }
 }
@@ -262,47 +262,89 @@ NOTES:
 
 ## Traditional MVC equivalent
 
-Handlebars template
+Backbone Model & View
 ```
-
-```
-
-Backbone Model
-```
-
-```
-
-Backbone View
-```
-
+var IncrementerModel = Backbone.Model.extend({
+  defaults: {value: 0}
+})
+var IncrementerView = Backbone.View.extend({
+  template: Handlebars.compile($('#tempalte').html()),
+  events: {
+    'click .js-btn': 'increment'
+  },
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render)
+  },
+  increment: function() {
+    this.model.set({value: this.model.get('value') + 1})
+  },
+  render: function() {
+    this.$el.html(this.template(this.mode.attributes))
+  }
+})
 ```
 
 NOTES:
 - This is the traditional MVC equivalent in Backbone
 - You have a separate file for template (markup), model & view (logic)
+- Here's the logic
 - THe idea is that we wanted to have a "separation of concerns"
 - But it didn't happen in practice; especially as things got complex
 - We used `js-*` prefix in our templates to safely reference them in views
 - If the template changed, you needed to change the view
 - If the model changed, you needed to change the tmeplate, and so on
 - As things got complicated, hard to know the effects changing one would have on the other
-- And the templating languages were intended to be _just_ markup, so limited logic...
+- BTW - we're re-rendering everytime the model changes for simplicity, but bad perf
+
+/////
+
+## Traditional MVC equivalent
+
+Handlebars template
+```
+<div>
+  <span class="val">{{value}}</span>
+  <button class="js-btn">+</button>
+</div>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Here's the template; it's simple enough
+- But the templating languages were intended to be _just_ markup, so limited logic...
 
 /////
 
 ## Logic in the template
 
 ```html
-
+<select>
+  {{#each values}}
+    {{option_value}}
+  {{/each}}
+</select>
 ```
+<!-- .element: class="large" -->
+
+```js
+Handlebars.registerHelper('option_value', function() {
+  if (shouldShow(this)) {
+    return new Handlebars.SafeString(
+      '<option value="' + this.value + '">'
+        + this.display + '</option>'
+    )
+  }
+})
+```
+<!-- .element: class="large" -->
 
 NOTES:
-- And doing logic got really, really messy
+- And doing any kind of fancy logic got really, really messy
 - Plus we'd basically have to basically learn a new language
-- The version of Handlebars we were using at Eventbrite didn't even have `else-if`
-- So we'd have a nested `if` w/in an `else`
 - We created "helpers" so we could call functions in templates
-- Many times we just had to do a whole lot of pre-computation in the view to enable the template to be dumb
+- Alternative is to do a whole lot of pre-computation in the view to enable the template to be dumb
+- Handlebars didn't even have `else-if`
+- So we'd have a nested `if` w/in an `else`
 
 /////
 
@@ -311,15 +353,15 @@ NOTES:
 ```js
 class Selector extends React.Component {
   render() {
-    let options = this.props.values.map((info) => (
-      <option 
-        key={info.value} 
-        value={info.value} 
-        disabled={info.disabled}
-      >
-        {info.display}
-      </option>
-    ))
+    let options = this.props.values.map((info) => {
+      if (this._shouldShow(info)) {
+        return (
+          <option key={info.value} value={info.value}>
+            {info.display}
+          </option>
+        )
+      }
+    })
 
     return (<select>{options}</select>)
   }
