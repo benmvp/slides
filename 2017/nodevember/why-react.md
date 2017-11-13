@@ -428,6 +428,175 @@ NOTES:
 
 # Component-driven
 
+/////
+
+## Everything is a component!
+
+```js
+class FormField extends React.Component {
+  render() {
+    let name = this.props.name
+    return (
+      <div>
+        <Label inputId={name}>{this.props.label}</Label>
+        <TextInput
+          id={name}
+          value={this.props.value}
+          onChange={this.props.onChange}
+        />
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- The sole way you build your UI in React is with "custom" components
+- Everything is a component!
+- And you build bigger components by combining smaller components w/ markup
+- Here we have a FormField component made up of `Label` & `TextInput` components
+- It defines 4 `props`, which are how the component is configured
+
+/////
+
+## Everything is a component!
+
+```js
+import FormField from './FormField'
+class NameForm extends React.Component {
+  render() {
+    return (
+      <form onSubmit={this._handleSubmit}>
+        <FormField
+          name="fName"
+          label="First"
+          value={this.props.fields.first}
+          onChange={this._handleFieldChange.bind(null, 'fName')}
+        />
+        <FormField name="lName" ... />
+      </form>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- You include the component by importing it and then using it in `render()` like an HTML tag
+- And you configure the props by passing them in via attributes, just like HTML
+- Although we're in Javascript using JSX, the HTML-like syntax should feel familiar
+- Then you can combine one or more `FormField` components to create a bigger form component
+- And keep doing that until you have a full-fledged app
+
+/////
+
+## Eventbrite Design System
+
+![Eventbrite Design System](../../img/why-react/eds-homepage.png)
+<!-- .element: style="border: 0; background: none; margin: 0; width: 85%" -->
+
+NOTES:
+- At Eventbrite we created our own component library
+- It's filled with dozens of React components big and small
+- But it's more than a component library; it's a design system
+- Talks about _why_ components should be used, etc
+
+/////
+
+<div style="display:flex;align-items:center">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/react/backbone-logo.png" style="width:100%;height:auto;border:0;background:none;box-shadow:none;" alt="Backbone.js logo" />
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="../../img/react/marionette-logo.svg" style="width:100%;height:auto;border:0;background:none;box-shadow:none;" alt="Marionette logo" />
+	</div>
+</div>
+
+NOTES:
+- Component-driven development seems pretty obvious right?
+- All the popular libraries/frameworks are component-driven in their own way
+- But not Backbone; you simply could not nest Backbone views
+- Now we were also using Marionette; an architecture layer on top of Backbone
+- The version we were using had Layouts, which could contain Views, which could _be_ layouts so nesting was possible
+- But it was not nearly as effortless as what I just showed w/ React
+- Configuring the nested views wasn't simple either
+- It's the difference between components being the core vs. being an add-on
+- We were stuck on the latest v1 version that came out mid-2014; think about how JS has changed since then
+
+/////
+
+## Explicitly passing data DOWN the tree
+
+`App.js`
+```
+<NameForm fields={ ... } />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`NameForm.js`
+```
+<FormField name="first" value={props.fields.first} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`FormField.js`
+```
+<TextInput value={props.value} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`TextInput.js`
+```
+<input type="text" value={props.value} />
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- It's not all sunshine & roses; at least not for everyone
+- If in my `App` I want to set the value of the HTML input for the first name...
+- I pass it from `App` -> `NameForm` -> `FormField` -> `TextInput` that reners `<input>`
+- This is _very_ explicit; you can clearly see how data flows down the component hierarchy
+- I personally don't have a problem with it because I prefer the clarity; especially in code reviews
+- But some find it verbose. If they could, they'd rather jump levels of the hierarchy to get it where it should
+- But I've seen that introduce other gnarliness
+
+/////
+
+## Explicitly passing data UP the tree 
+
+`TextInput.js`
+```
+<input type="text" onChange={props.onChange} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`FormField.js`
+```
+<TextInput onChange={props.onChange} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`NameForm.js`
+```
+<FormField onChange={props.onFieldChange.bind(null, 'first')} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`App.js`
+```
+<NameForm onFieldChange={this._handleFieldChange} />
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Similarly getting data back **up** the tree is also explicit
+- Let's say the top-level App wants to react to changes in the `<input>` field
+- Well we have to pass callback handlers down the tree as props
+- So when `onChange` happens on `TextInput` -> `FormField` -> `NameForm` -> `App`
+- In Backbone/Marionette we had global "radios" & components could register channels
+- But no enforcement on who was sending/receiving
+
 =====
 
 # All JavaScript*
