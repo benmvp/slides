@@ -627,6 +627,283 @@ NOTES:
 
 # All JavaScript*
 
+NOTES:
+- Have the asterisk there because obviously we're building web apps so CSS is definitely involved
+
+/////
+
+[![Dan Abramov's tweet about no special JSX API for loops/conditionals](../../img/why-react/dan-abramov-jsx-tweet.png)](https://twitter.com/dan_abramov/status/929136989085093890)
+
+(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx))
+
+NOTES:
+- Dan tweeted this in response to an RFC to add conditionals and loops into JSX
+- I ❤️ JavaScript so the more I can do in JS the better
+- I'm glad that I don't have to learn a new API to do conditionals/loops in JS
+- Because it's JS, I can do whatever JS can do
+- For some though, this is a drawback because you _have_ to know JS pretty well
+- Before if you were solid at HTML/CSS, you could throw some jQuery around and do well
+- I would say it's not intuitive: there's a StackOveflow question about loops that has > 300k views!
+- Now it's JS or bust, which takes some getting used to
+
+/////
+
+## Conditional JSX
+
+```
+class Section extends React.Component {
+  render() {
+    let headingText = this.props.headingText
+
+    return (
+      <section className="section-correct">
+        if (headingText) {
+          <h1>{headingText}</h1>
+        }
+        <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- All the string-based templating languages provide some facility for conditionally including markup
+- In those cases, you're trying to replicate logic in the template
+- May be tempted to do something like this
+- Or... more likely just wonder how to accomplish conditionally including code
+- Cuz this obviously looks like broken syntax
+- Trying to include the `<h1>` only if `headingText` is defined
+- This is a syntax error
+
+/////
+
+## Conditional JSX
+
+```
+class Section extends React.Component {
+  render() {
+    let headingText = this.props.headingText
+    let headingElem
+
+    if (headingText) {
+      headingElem = (<h1>{headingText}</h1>)
+    }
+    return (
+      <section className="section-correct">
+        {headingElem}
+        <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- React doesn't have any special API to do loops or conditionals
+- It just piggybacks on JavaScript
+- Here's how I would do the conditional
+- We can use normal JS to do conditionals instead of muddying up our JSX
+- Conditionally assign a variable, and put that in our JSX
+
+/////
+
+## Conditional JSX
+
+```
+class Section extends React.Component {
+  render() {
+    let headingText = this.props.headingText
+    let headingElem
+
+    if (headingText) {
+      headingElem = React.createElement('h1', null, headingText)
+    }
+    return React.createElement(
+      'section',
+      {className: 'section-correct'},
+      headingElem,
+      React.createElement('p', null, children)
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- This is what the JSX would be transformed into
+- So it really **is** all JavaScript
+- It seems like a lot more code, so...
+
+/////
+
+## Conditional JSX
+
+```
+class Section extends React.Component {
+  render() {
+    let headingText = this.props.headingText
+
+    return (
+      <section className="section-correct">
+        {headingText ? (<h1>{headingText}</h1>) : null}
+	      <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Many people use a ternary for this to keep things short
+- But at Eventbrite we strive to keep the JSX as "clean" as possible
+- This might be "okay", but would get out of hand quickly
+- I've seen ternaries spanning 10+ lines
+
+/////
+
+## React + ES.next = ❤️
+
+```
+class Section extends React.Component {
+  render() {
+    let headingText = this.props.headingText
+    let headingElem
+
+    if (headingText) {
+      headingElem = (<h1>{headingText}</h1>)
+    }
+    return (
+      <section className="section-correct">
+        {headingElem}
+        <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- The nice thing about React, the JS UI lib, tying itself to JS instead of its own API is that as JS evolves it auto-evolves
+- You probably already noticed that we were using `class`es to creat our React components
+- That's ES6 that's become standard with React
+- But we can take the previous `Section` component...
+
+/////
+
+## React + ES.next = ❤️
+
+```
+const Section = ({headingText, children}) => {
+  let headingElem
+
+  if (headingText) {
+    headingElem = (<h1>{headingText}</h1>)
+  }
+
+  return (
+    <section className="section-correct">
+      {headingElem}
+      <p>{children}</p>
+    </section>
+  )
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- ...rewrite it using the latest JavaScript
+- React components can be written as functions of their props
+- Here we're using an arrow function instead of a standard function
+- And we're immediately destructuring the props into `headerText` & `children`
+- There's plenty more we can do too
+
+/////
+
+## Gotta have a build system
+
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin: 2em 0">
+	<div style="flex:0 0 22%;">
+        <a href="https://babeljs.io/"><img
+            src="../../img/es6/babel-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://babeljs.io/">Babel</a>
+  </div>
+	<div style="flex:0 0 22%;">
+        <a href="https://webpack.github.io/"><img
+            src="../../img/nav-react/webpack-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://webpack.github.io/">Webpack</a>
+  </div>
+	<div style="flex:0 0 22%;">
+        <a href="https://www.typescriptlang.org/"><img
+            src="../../img/nav-react/typescript-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://www.typescriptlang.org/">TypeScript</a>
+  </div>
+	<div style="flex:0 0 22%;">
+        <a href="http://rollupjs.org/"><img
+            src="../../img/nav-react/rollup-logo.svg"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://rollupjs.org/">Rollup</a>
+  </div>
+</div>
+
+Fun features like [tree-shaking](https://webpack.js.org/guides/tree-shaking/) & [code splitting](https://webpack.js.org/guides/code-splitting/)!
+
+NOTES:
+- But all this goodness comes at a cost
+- We basically are forced to have a build system
+- And that's where some combo of Babel, Webpack, TypeScript, Rollup, etc. come in
+- Chances are for production apps you already had _some_ sort of build system
+- Compile SASS -> CSS, minify & bundle JS, etc
+- Paying the upfront cost of the build system enables cool features: tree-shaking & code splitting
+
+/////
+
+## Create React App
+
+Create React apps with no build configuration
+
+```
+$> yarn add global create-react-app
+
+$> create-react-app awesome-app
+
+$> cd awesome-app
+
+$> yarn start
+```
+<!-- .element: class="large" style="margin:5% 0" -->
+
+Babel, Webpack 3, ESLint, and more!
+
+NOTES:
+- And you don't have to roll your own build system; at least not initially
+- Create React App let's you bootstrap an app to start React-ing quickly
+
+/////
+
+## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
+
+### ReactConf 2017
+
+NOTES:
+- Shameless plug alert!
+- I gave a talk call _React + ES.next = ♥_ at React Conf back in March
+- I go through a handful of ES.next features that go great with React
+- Feel free to watch the video (not now)
+
 =====
 
 # State-driven
