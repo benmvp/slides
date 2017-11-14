@@ -565,15 +565,9 @@ NOTES:
 
 ## Explicitly passing data UP the tree 
 
-`TextInput.js`
+`App.js`
 ```
-<input type="text" onChange={props.onChange} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`FormField.js`
-```
-<TextInput onChange={props.onChange} />
+<NameForm onFieldChange={this._handleFieldChange} />
 ```
 <!-- .element: class="large" style="margin-bottom: 1.5em" -->
 
@@ -583,9 +577,15 @@ NOTES:
 ```
 <!-- .element: class="large" style="margin-bottom: 1.5em" -->
 
-`App.js`
+`FormField.js`
 ```
-<NameForm onFieldChange={this._handleFieldChange} />
+<TextInput onChange={props.onChange} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`TextInput.js`
+```
+<input type="text" onChange={props.onChange} />
 ```
 <!-- .element: class="large" -->
 
@@ -597,6 +597,32 @@ NOTES:
 - In Backbone/Marionette we had global "radios" & components could register channels
 - But no enforcement on who was sending/receiving
 
+/////
+
+## `<App />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<NameForm />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<FormField />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<TextInput />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<input />`
+
+
+
+NOTES:
+- This one-way circular data flow is a completely different way of thinking than traditional MVC
+- It's probably the hardest thing to grasp in React, but one you do everything else falls into place
+
 =====
 
 # All JavaScript*
@@ -604,6 +630,10 @@ NOTES:
 =====
 
 # State-driven
+
+NOTES:
+- So far we've basically been creating static user-interfaces; not user interaction
+- To do that the state of the UI has to change over time
 
 =====
 
@@ -631,7 +661,7 @@ NOTES:
 
 =====
 
-# Other stuff...
+# Miscellaneous
 
 =====
 
@@ -655,6 +685,10 @@ NOTES:
 =====
 
 ## Additional resources
+
+- [Babel REPL](https://babeljs.io/repl/)
+- [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
+
 
 NOTES:
 
