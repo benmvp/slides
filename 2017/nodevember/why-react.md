@@ -169,14 +169,14 @@ class Incrementer extends React.Component {
   state = {value: 0}
 
   _handleClick = () => {
-	this.setState((prevState) => ({value: prevState.value + 1}))
+	  this.setState((prevState) => ({value: prevState.value + 1}))
   }
   render() {
-	return (
-	  <div>
-		<span className="val">{this.state.value}</span>
-		<button onClick={this._handleClick}>+</button>
-	  </div>
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
     )
   }
 }
@@ -911,12 +911,156 @@ NOTES:
 NOTES:
 - So far we've basically been creating static user-interfaces; not user interaction
 - To do that the state of the UI has to change over time
+- React components are state-driven instead of the more familiar event-driven
+- This is the hardest thing to wrap your head around if you're new to React
+- It's just a different way of building UIs
+- But I've found it to be very compelling
+
+/////
+
+## Event-driven jQuery
+
+```html
+<div>
+  <span class="val">0</span>
+  <button class="btnUp">+</button>
+</div>
+```
+<!-- .element: class="large" -->
+
+```js
+$('.btnUp').click(function() {
+  var $val = $('.val'),
+      currentValue = parseInt($val.html(), 10);
+
+  $val.html(currentValue + 1);
+});
+```
+<!-- .element: class="large" -->
+
+<div>
+	<span class="val" style="font-size: 2em;text-align: center;margin: 0 1em">0</span>
+	<button class="btnUp" style="font-size: 2em" onclick="$('.val').html(+$('.val').html() + 1)">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+</div>
+
+NOTES:
+- Here's some event-driven jQuery code that should be pretty familiar
+- It's the jQuery equivalent of the `Incrementer` component we saw earlier when talking about JSX
+- Click a button and update `<span>`
+- The driver is the event
+- The only way to get the app so that it displays 10 is to click the button 10 times
+- If you were using Backbone you may have a model that you update as well, but it's basically same flow
+- This is _really_ easy to follow (imperative), but as app grows in complexity, code turns into spaghetti
+
+/////
+
+## State-driven React
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Contrast this with the React code
+- Used ES.next to keep my example as concise as possible
+- Explanation of code...
+- It's the handler that does the logic of incrementing the value; separation of concerns!
+- And since `value` is already in `state` we don't have to get it from the DOM
+- Then calling `setState` causes `render` to be called again
+- Click again and the loop continues
+- In the old world `_handleClick` would've directly manipulated the DOM
+- But instead we update the state and that will indirectly update the DOM
+- Layer of indirection is hard to wrap head around
+
+/////
+
+## State-driven React
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+    return (
+      <div>
+        <Text size="large">{this.state.value}</span>
+        <Button onClick={this._handleClick}>+</button>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's say instead of DOM elements, `Incrementer` used other React components
+- We see here that the `state` of `Incrementer` becomes the `props` of `Text`
+- So `Text` can be "dumb" in that it does worry about any state
+- Just renders based on its `size` & special `children` props
+- I find that React dev is actually similar to server-side dev
+- Server-side: one-pass, render out the marker
+- React: initial render, but subsequent renders
+
+/////
+
+## State-driven React
+
+Work in React can be boiled down to 2 main areas...
+<!-- .element: style="margin: 2em 0" -->
+
+1. `render()` based on `props` & `state`
+1. `onEvent` → transform data to generate new `state`
+1. Profit 🎉
+
+NOTES:
+- So basically we do work in two main areas:
+- 1) Define what we're going to `render()` based on `prop` & `state`
+- Can have conditional logic, loops, other sophisticated logic to determin what to render
+- 2) When events happen transform data to generate new `state` (to `render` again)
+- Where algorithms become really useful to transform data efficiently
+- Can also do async transformation by making API calls
+
+/////
+
+[![Dan Abramov's tweet about how React code remains understandable as app gets more complex](../../img/why-react/dan-abramov-reactive-tweet.png)](https://twitter.com/dan_abramov/status/930380316463726593)
+
+NOTES:
+- When folks look at simple examples of "reactivity" in React, they find it to be too verbose
+- But with React trades conciseness for predictability
+- So you end up spending more time explicitly wiring things up together
+- Structure of your code can more or less stay the same as complexity grows
+- Certainly not the case with Backbone; things got crazy
+- But prepare yourself for the fact that it'll feel like you're writing "more code"
 
 =====
 
 # Sophisticated reconciler
 
 ### (Virual DOM)
+
+NOTES:
+- Here's where we talk about the killer feature of React
+- Whenever anyone talks about React it's the cool feature they talk about
+- Up until this point, it's looked like `render()` was rendering to the DOM
+- But it's not...
 
 =====
 
