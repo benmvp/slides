@@ -422,7 +422,6 @@ NOTES:
 - Shameless plug alert!
 - I gave a talk call _React exposed! 😮_ at ForwardJS earlier this year
 - I go through several JSX gotchas among other topics
-- Feel free to watch the video (not now)
 
 =====
 
@@ -902,7 +901,6 @@ NOTES:
 - Shameless plug alert!
 - I gave a talk call _React + ES.next = ♥_ at React Conf back in March
 - I go through a handful of ES.next features that go great with React
-- Feel free to watch the video (not now)
 
 =====
 
@@ -1054,13 +1052,257 @@ NOTES:
 
 # Sophisticated reconciler
 
-### (Virual DOM)
+### (aka Virual DOM)
 
 NOTES:
 - Here's where we talk about the killer feature of React
 - Whenever anyone talks about React it's the cool feature they talk about
 - Up until this point, it's looked like `render()` was rendering to the DOM
 - But it's not...
+
+/////
+
+## React reconciler makes efficient updates easy
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's take our example from before...
+- When we call `setState` React calls `render()` w/ updated state
+- So it looks like are re-rendering the `<div>` + children each time
+- When we know all we _really_ are updating is _just_ the `<span>` content
+- This is where you should know that `render()` is updating DOM, but building up element hierarchy
+- Basically a virtual representation of the DOM
+- The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only updates changes
+- We don't have to do the hard work of figuring out how to make the "micro updates"
+- We can just write our code the easy way: like it re-renders everything
+- And React does the hard work of figuring out micro updates
+
+/////
+
+## No reconciler in Backbone 😩
+
+```
+var IncrementerModel = Backbone.Model.extend({
+  defaults: {value: 0}
+})
+var IncrementerView = Backbone.View.extend({
+  template: Handlebars.compile($('#tempalte').html()),
+  events: {
+    'click .js-btn': 'increment'
+  },
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render)
+  },
+  increment: function() {
+    this.model.set({value: this.model.get('value') + 1})
+  },
+  render: function() {
+    this.$el.html(this.template(this.mode.attributes))
+  }
+})
+```
+
+NOTES:
+- Here again is the equivalent Backbone code written to be "reactive"
+- Probably not how it would normally be written; hard not to after knowing React
+- It's really simple; `increment` updates model & `model` calls `render()`
+- But this will actually re-render the whole template blowing away prev DOM
+- This is super inefficient
+
+/////
+
+## Manual update in Backbone 😭
+
+```
+var IncrementerView = Backbone.View.extend({
+  template: Handlebars.compile($('#tempalte').html()),
+  events: {
+    'click .js-btn': 'increment'
+  },
+  increment: function() {
+    this.model.set({value: this.model.get('value') + 1})
+    $('.val').html(this.model.get('value'))
+  },
+  render: function() {
+    this.$el.html(this.template(this.mode.attributes))
+  }
+})
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Instead of listening to model changes and re-rendering
+- We should just update the `<span>` ourselves after updating the odel
+- Full `render` would only be for the initial render
+- This is fine for this simple case; nightmare when there are lots of events
+- Confession: when I have to go back to Backbone I just do it the easy way!
+
+/////
+
+![Brace Yourselves - A live demo is coming](../../img/react-exposed/live-demo.jpg)
+<!-- .element: style="width:70%" -->
+
+NOTES:
+- I've kinda talked about it, but lemme **show** you the benefits w/ a demo
+
+/////
+
+## Fiber Reconciler
+<!-- .element: style="margin-bottom: 1em" -->
+
+- Rewrite of reconciler
+- Prioritizes UI updates
+- Enables async rendering
+- Improves perceived performance
+- In recent major React version (v16)
+
+NOTES:
+- React recently released React 16, which included a complete rewrite of the reconciler now codenamed Fiber
+- The Fiber reconciler can prioritize UI updates, which means that the UI can render asynchronously
+- As a result we get greater perceived performance because the higher priority updates happen first
+- And this is all happening in React 16 - the next major version
+
+/////
+
+![Stack reconciler](../../img/react-fiber/stack-reconciler.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+
+## Stack reconciler
+
+NOTES:
+- The previous reconciler has been posthumously given the name Stack reconciler
+- Basically when an update needs to happen, the Stack reconciler traverses the entire component tree and does all the rendering for as long as it takes
+- Then it reliquishes control back to the JS engine
+- For deep or expensive updates this can have a noticeable impact on performance even w/ intelligent reconciliation
+
+/////
+
+![Fiber reconciler](../../img/react-fiber/fiber-reconciler.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
+
+## Fiber reconciler
+
+NOTES:
+- Instead the forthcoming Fiber reconciler will do some work and then relinquish control back to the engine
+- So rendering becomes asynchronous because it can render a higher priority update before returning to the original update
+- Imagine you have a text input field and then long list of results being populated by API response
+- You want typing to have immediate feedback where as the list of results can be lower priority because it's coming from API
+- These sorts of optimizations give a higher perceived performance
+
+/////
+
+## Update Priorities
+
+<br />
+
+- Synchronous
+- Task
+- Animation
+- High
+- Low
+- Offscreen
+
+NOTES:
+- Synchronous (just like stack reconciler)
+- Task        (next tick)
+- Animation   (before next frame)
+- High        (pretty soon)
+- Low         (delays are ok)
+- Offscreen   (prep for display/scroll, not being rendered)
+
+/////
+
+## "Secret" code to enable (partial) async scheduling 🤐
+
+<br />
+
+- Open `node_modules/react-dom/cjs/react-dom.development.js`
+- Replace "`fiberAsyncScheduling: false`" ➜ "`fiberAsyncScheduling: true`"
+
+<br />
+
+```
+// make low-priority update
+ReactDOM.unstable_deferredUpdates(() => {
+  this.setState((state, props) => {
+    // return updated state
+  })
+});
+```
+<!-- .element: class="large" -->
+
+Source: [`react-fiber-resources`](https://github.com/koba04/react-fiber-resources#try-react-fiber-with-asynchronous-scheduling)
+
+NOTES:
+- Async scheduling is turned off in React 16
+- Will be a opt-in feature flag to turn it on in future release
+- But you can still try it out!
+- First need to manually turn on async scheduling by turning on flag in `react-dom`
+- Then you can use the unstable API `unstable_deferredUpdates` in `ReactDOM`
+- This makes the `setState` a "low priority"
+- Great for the results of API calls that can wait a bit
+- Using `setState` updater function is even more important now
+- `react-fiber-resources` has a sample app
+
+/////
+
+## React Fiber Synchronous Scheduling 😞 
+
+<a href="https://twitter.com/koba04/status/854924460352192520">
+  <img src="../../img/react-fiber/sync-browser-perf.jpg" alt="Screenshot of browser performance with sync Fiber scheduling" style="width: 50%" />
+</a>
+
+NOTES:
+- `fiberAsyncScheduling: false`
+- With a very heavy update
+- You can go from a performance profile that looks like this
+- Where the browser is spending so much time updating your UI that it can't do anything else
+- To...
+
+/////
+
+## React Fiber Asynchronous Scheduling! 🤗
+
+<a href="https://twitter.com/koba04/status/854924460352192520">
+  <img src="../../img/react-fiber/async-browser-perf.jpg" alt="Screenshot of browser performance with async Fiber scheduling" style="width: 50%" />
+</a>
+
+NOTES:
+- `fiberAsyncScheduling: true`
+- This where the browser has time to come up for air
+- This it really happening in a browser
+- The super awesome feature of React is posed to get even better!
+
+/////
+
+## [Layperson's guide to React Fiber](http://www.benmvp.com/slides/2017/reactrally/fiber.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/q6QTxq_pFn0" frameborder="0" allowfullscreen></iframe>
+
+### React Rally 2017
+
+NOTES:
+- Shameless plug alert!
+- I gave a talk call _Layperson's guide to React Fiber_ at React Rally in August
+- I talk a little bit about React Fiber and other goodies in React 16
 
 =====
 
