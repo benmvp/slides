@@ -420,7 +420,7 @@ NOTES:
 
 NOTES:
 - Shameless plug alert!
-- I gave a talk call _React exposed! 😮_ at ForwardJS earlier this year
+- I gave a talk called _React exposed! 😮_ at ForwardJS earlier this year
 - I go through several JSX gotchas among other topics
 
 =====
@@ -899,7 +899,7 @@ NOTES:
 
 NOTES:
 - Shameless plug alert!
-- I gave a talk call _React + ES.next = ♥_ at React Conf back in March
+- I gave a talk called _React + ES.next = ♥_ at React Conf back in March
 - I go through a handful of ES.next features that go great with React
 
 =====
@@ -1301,12 +1301,237 @@ NOTES:
 
 NOTES:
 - Shameless plug alert!
-- I gave a talk call _Layperson's guide to React Fiber_ at React Rally in August
+- I gave a talk called _Layperson's guide to React Fiber_ at React Rally in August
 - I talk a little bit about React Fiber and other goodies in React 16
 
 =====
 
 # Server-side rendering
+
+### (aka "Isomorphic React")
+
+NOTES:
+- Let's talk about server-side rendering or "Isomorphic React"
+- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
+
+/////
+
+## "Isomorphic" vs. "Universal"
+
+![Definition of isomorphic](../../img/react-sans-node/isomorphic-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+![Definition of universal](../../img/react-sans-node/universal-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+NOTES:
+- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
+- _Universal_ basically means that it works everywhere
+- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
+- But I actually still prefer "Isomorphic React" because it sounds cooler
+- I feel like I sound smarter saying it
+
+/////
+
+## Isomorphic React
+
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
+    <div>
+		<h2>Performance</h2>
+        <h2>SEO</h2>
+        <h2>Open Graph</h2>
+    </div>
+</div>
+
+NOTES:
+- Three reasons:
+- Performance: initial page render
+- SEO: google includes page render speed in ranking algorithm
+- Open Graph: media previews
+- React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
+- Again, we're talking about the _initial_ render
+
+/////
+
+## React components only define WHAT to render!
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's return to our old friend the Incrementer component
+- Up until this point I've kind of made it seem like `render()` was rendering to the DOM
+- But that's not true!
+- `render()` just informs what elements & child components should be rendered
+- It doesn't dictate _how_ they should be rendered
+
+/////
+
+## DOM rendering happens at the root
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- That typically happens in the entry point of your app
+- You'll import from `react-dom` and use it's `render()` function
+- Insert your app into the DOM location
+- And then when your app updates a produces a new component hierarchy
+- `react-dom` is what takes that difference and applies it to the DOM
+
+/////
+
+## Render to string server-side!
+
+```js
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import App from './App'
+
+
+let markup = ReactDOMServer.renderToString(<App />)
+
+// return `markup` in HTML response
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- I bring up that distinction because that separation between building your UI and rendering to DOM...
+- Allows for us to render the _exact same_ UI server-side to a string!
+- This is such a huge feature!
+- Before this, all UI libraries just assumed the DOM and you were manipulating DOM elements
+- So getting your templates to run server-side was at best a pain; at worst in possible
+
+/////
+
+## Run your Node server in production mode!
+
+![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart-updated.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 65%" -->
+
+[github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
+
+NOTES:
+- Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
+- Latest Node 4, 6 & 8
+- 17x improvement just by upgrading systems
+- At Eventbrite we didn't set `process.env=PRODUCTION` for like 6 months
+
+/////
+
+## Run your Node server in production mode! 🤦🏾‍♂️
+
+![react-render-server render times after setting process.env](../../img/react-sans-node/rrs-node-env.png)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 85%" -->
+
+🤣🤣🤣
+
+NOTES:
+- Can you guess when we turned on the env var?? 🤣
+- 2x improvement just by adding that env variable
+- We went through this so you don't have to!
+
+
+/////
+
+## First-class server-side streaming support! 🎉
+
+```js
+import {renderToNodeStream} from 'react-dom/server'
+
+app.get('/', (req, res) => {
+  res.write('<html><head><title>EB</title><body><div id="root">')
+
+  renderToNodeStream(<App />)
+    .pipe(res, {end: false})
+    .on('end', () => {
+      res.write('</div></body></html>')
+      res.end()
+    })
+})
+```
+<!-- .element: class="large" -->
+
+Prior art: [`react-dom-stream`](https://github.com/aickin/react-dom-stream)
+
+NOTES:
+- Even with speed-ups, rendering to string is still sub-optimal:
+  0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
+  0. Server has to allocate memory for entire HTML string
+  0. Single call to `renderToString` can dominate CPU
+- Speaking of React 16, React now supports server-side streaming!
+- With streaming, the browser can render pages before entire response is finished
+- Even further performance gains
+
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-between;margin-top:5%">
+    <div style="flex:0 0 40%;">
+        <img
+            src="../../img/react-sans-node/python.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+    </div>
+    <div style="flex: 0 0 5%;text-align:center">
+        <h1>+</h1>
+    </div>
+    <div style="flex:0 0 45%;">
+        <img
+            src="../../img/react-sans-node/handlebars.png"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        />
+    </div>
+</div>
+
+([pybars](https://github.com/wbond/pybars3))
+
+NOTES:
+- At Eventbrite our backend is in Python/Django
+- Currently solved the “dual rendering issue” using a lib called Pybars
+- Our JS templates are written in Handlebars & Pybars converts the Handlebars into Python functions that return a string
+- It's like what happens in the original JS
+- Except it's super-duper slow because it was poorly written
+- Tried to speed it up, but it was still like 10x slower than rendering in Django/Mako templates
+
+/////
+
+## [Isomorphic React sans Node??](http://www.benmvp.com/slides/2017/forwardjs/react-exposed.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/cAYMqBU7Qko" frameborder="0" allowfullscreen></iframe>
+
+### Render Conf 2017
+
+NOTES:
+- Shameless plug alert!
+- I gave a talk called _Isomorphic React sans Node??_ at Render Conf earlier this year
+- Because backend is Django, makes server-side rendering w/ React a bit tricky
+- But we created a small Node service just for rendering components
+- Passed it the path to the component and its props and it would give back the HTML
+- This talk goes into all of the nitty gritty details plus various gotchas
 
 =====
 
