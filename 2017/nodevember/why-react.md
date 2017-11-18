@@ -1436,7 +1436,7 @@ NOTES:
 [github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
 
 NOTES:
-- Comparing Raw React 15, compiled React 15, and compiled React 16 beta 3
+- Comparing Raw React 15, compiled React 15, and compiled React 16 beta 2
 - Latest Node 4, 6 & 8
 - 17x improvement just by upgrading systems
 - At Eventbrite we didn't set `process.env=PRODUCTION` for like 6 months
@@ -1537,6 +1537,110 @@ NOTES:
 
 # Testing
 
+NOTES:
+- The same component-based architecture that makes server-side rendering easy, also makes testing React easy
+- Like any good UI lib/framework you wanna separate data logic from the UI
+- The logic that help update state: utility functions, API, etc
+- Vanilla Backbone was good at this; the Model architecture created a separation that was easily testable
+- But when it came to testing UI logic: this markup should display based on a condition or a user action should call a handler
+- Backbone like all the DOM-based UI libraries was bad
+- And we made things worse by having global data stores and passing data between components with radios
+
+/////
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}), () => {
+      this.props.onIncrement(this.state.value)
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
+    )
+  }
+}
+```
+
+```
+<Incrementer onIncrement={this._handleIncrement} />
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Again we have ol' faithful the `Incrementer` component
+- Except this time after we click and update state, we also call `onIncrement` event handler prop
+- At the bottom is an example of how you would call it
+- We want to test the component's **public** API:
+- The markup that it renders and the callback handlers it calls
+- That's it! Don't want to test implementation details like `state` changes
+
+/////
+
+## Testing Render
+
+```js
+import {shallow} from 'enzyme'
+
+it('renders a `.val`', () => {
+  let wrapper = shallow(<Incrementer />)
+
+  expect(wraper.find('.val')).toBePresent()
+})
+```
+<!-- .element: class="large" -->
+
+[Jest](https://facebook.github.io/jest/) + [Enzyme](http://airbnb.io/enzyme/) + [`jest-enzyme`]() = 😍
+
+NOTES:
+- We can test incrementer using Jest & Enzyme
+- Here we're asserting that `Incremener` renders an element with `.val` class
+- Enzyme has a jQuery-like interface for manipulating React components
+- All w/o a browser
+- "Rendering" is creating an enzyme wrapper
+- Using Jest as the test framework; also created by Facebook
+- `jest-enzyme` provides additional enzyme-specific assertions to Jest
+
+/////
+
+## Testing callbacks
+
+```js
+import {shallow} from 'enzyme';
+
+it('renders a `.val`', () => {
+  let onIncrement = jest.fn()
+  let wrapper = shallow(<Incrementer onIncrement={onIncrement} />)
+  let button = wrapper.find('button')
+
+  // simulate clicking twice
+  button.simulate('click')
+  button.simulate('click')
+
+  expect(onIncrement).toHaveBeenCalledTimes(2)
+  expect(onIncrement).toHaveBeenLastCalledWith(2)
+})
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- If you recall, when we click the button we call our `onIncrement` handler
+- Well with enzyme we can simulate clicking the button w/o running in a browser!
+- And with Jest we can provide a mock function using `jest.fn()`
+- Then we can assert things on that mock:
+- How many times it was called (twice for 2 clicks)
+- What arguments it was last called with (2)
+- So we shouldn't inspect the `state` of the component (which would be 2)
+- Instead we assert on the value in the handler (the public API)
+- Being able to unit test like this is a game-changer
+
 =====
 
 # React Native
@@ -1576,6 +1680,8 @@ NOTES:
 
 - [Babel REPL](https://babeljs.io/repl/)
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
+- [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
+- [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
 
 
 NOTES:
