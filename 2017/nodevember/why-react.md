@@ -1794,9 +1794,36 @@ NOTES:
 
 =====
 
-# Where we are now
+# The Process
 
 NOTES:
+- After presenting our compelling argument we got the greenlight to start React transition
+- Started building up stack and Design team came to us w/ opportunity also update visual design
+- Began building out design system I showed earlier
+- First consumer was team building ambitious new event creation experience
+- Existing experience pre-dates Backbone and mostly written in jQuery soup; complete rewrite
+- Over time built up EDS and more teams began creating app
+- No plan to stop and convert everything over; opportunistic rewrites
+
+/////
+
+## Eventbrite + React in the wild
+
+- [Sign-in / Sign-up](http://www.eventbrite.com/signin)
+- [Checkout Widget](https://www.speednashvilledating.com/event-schedule/)
+- [Organizer Onboarding](https://www.eventbrite.com/organizer/onboarding/)
+- [City Browse](https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB)
+- [Trending Searches](https://www.eventbrite.com/trending/searches/tn--nashville/daily/)
+- Event Creation (Beta)
+- Event Management Navigation
+- Event Management Dashboard
+- Admin Tools
+
+NOTES:
+- Checkout widget takes you to speednashviledating.com FYI
+- Event Management Navigation was an example where we mixed React & Backbone
+- Dozens of management pages that share the same nav, so redid the nav in React
+- So that when pages got rewritten or added, the IA would seem consistent
 
 =====
 
