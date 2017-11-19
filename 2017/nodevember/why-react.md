@@ -1665,9 +1665,74 @@ NOTES:
 
 # 9. Unopionated
 
+NOTES:
+- Honestly this one can be seen as a pro or con depending on how you look at it
+
+/////
+
+## Decisions decisions...
+
+- Tooling (bundlers, task runners, static analyzers)
+- Styling (global css, [css modules](https://github.com/gajus/react-css-modules), inline styles, css-in-js)
+- Testing ([jest](https://facebook.github.io/jest/), [mocha](https://mochajs.org) + [chai](https://mochajs.org))
+- State management ([`setState`](https://reactjs.org/docs/react-component.html#setstate), [redux](http://redux.js.org/), [mobx](http://mobxjs.github.io/mobx/))
+- API (REST + [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), [relay](https://facebook.github.io/relay/), [apollo](http://dev.apollodata.com/), [falcor](http://netflix.github.io/falcor/))
+
+<!-- .element: style="margin: 2em 0" -->
+
+Decision fatigue?
+
+NOTES:
+- React is just a UI library; it's a great one IMO, but just a UI library
+- So to create apps you need to build up your own stack
+- **Tooling:** probably Webpack, but need to configure it; gulp/grunt; eslint/flow/Typescript;
+- Create React App helps w/ getting started
+- **Styling:** glamours, styled-components, radium, aphrodite
+- You really get to tailor your own stack
+- But if you're just getting started it's "decision fatigute"
+
+/////
+
+## Moar decisions decisions...
+
+- ["`setState` Gate"](https://medium.com/javascript-scene/setstate-gate-abc10a9b2d82)
+- [Inline functions debate](https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578)
+- [`redux-thunk`](https://github.com/gaearon/redux-thunk) vs [`redux-saga`](https://github.com/redux-saga/redux-saga)
+- [Higher-order components vs Render props](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)
+- [Logic & JSX](https://github.com/eventbrite/javascript/tree/master/react#logic-and-jsx)
+
+<!-- .element: style="margin: 2em 0" -->
+
+There's no **React way™** 🤷🏾‍♂️
+
+NOTES:
+- But even when you have the stack down, there are still more "opportunities" for decisions
+- Do you always use component classes or use stateless functions until you need state?
+- Can be a "pro" because you can look at the team and make decisiosn based on the skillset
+- Why you can from one team to another doing React and it'll be done completely differently
+- Especially with React 16
+
+/////
+
+## [Navigating the React Solar System](http://www.benmvp.com/slides/2017/modernweb/nav-react.html)
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/-6gfOJwwXvs" frameborder="0" allowfullscreen></iframe>
+
+### Modern Web Meetup May 2017
+
+NOTES:
+- Shameless plug alert!
+- I gave a talk called _Navigating the React Solar System_ at ForwardJS earlier this year
+- Go through all the important pieces that make up a React stack
+- Talk about the different options and show code examples
+
 =====
 
 # 10. Miscellaneous
+
+NOTES:
+- There are many other reason for React
+- Don't really deserve their own section, but still important...
 
 /////
 
@@ -1676,32 +1741,30 @@ NOTES:
 <div style="columns:2;-webkit-columns:2;-moz-columns:2;margin: 2em 0">
   <h3>Deep commitment by Facebook</h3>
   <h3>Dedicated Facebook dev staff</h3>
-  <h3>Popular</h3>
-  <h3>Simple API</h3>
-  <h3>Huge ecosystem</h3>
   <h3>Rapid feedback loop</h3>
+  <h3>Huge ecosystem</h3>
+  <h3>Simple API</h3>
+  <h3>Popular</h3>
   <h3>Stable</h3>
   <h3>Evolving</h3>
   <h3>Codemods</h3>
-  <h3>Composable with existing apps</h3>
-  <h3>Browser compatibility</h3>
   <h3>Developer Tools</h3>
+  <h3>Browser compatibility</h3>
+  <h3>Composable with existing apps</h3>
 </div>
 
 Thanks [Cory House 🏠](https://twitter.com/housecor/status/909145686498775040)!
 
 NOTES:
-- There are many other reason for React
-- Don't deserve their own section, but still important...
-- Commitment: Facebook uses it in their own products so less likely to go away
-- Staff: is a big reason; it's not just some folks doing it in their spare time
-- Popular: not a good enough reason by itself but doesn't hurt for recruiting/perception
-- Simple API: I rarely have to go to the docs (except for prop types)
-- Ecosystem: Similarly the eco-system is huge so if you need to do something probably already exists
-- Feedback: React + webpack makes developing a sync with webpack dev server
-- Evolving + Stable: React continues to grow greatly (Fiber) but few breaking changes & there are long deprecations
-- Codemods: enable switching code when features are deprecated
-- Existing apps: React _can_ be used with other libs like Backbone for a gradual transition (what we're doing)
+- **Commitment**: Facebook uses it in their own products so less likely to go away
+- **Staff**: is a big reason; it's not just some folks doing it in their spare time
+- **Popular**: not a good enough reason by itself but doesn't hurt for recruiting/perception
+- **Simple API**: I rarely have to go to the docs (except for prop types)
+- **Ecosystem**: Similarly the eco-system is huge so if you need to do something probably already exists
+- **Feedback**: React + webpack makes developing a sync with webpack dev server
+- **Evolving + Stable**: React continues to grow greatly (Fiber) but few breaking changes & there are long deprecations
+- **Codemods**: enable switching code when features are deprecated
+- **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition (what we're doing)
 - This list was lifted from a tweet from Cory, so thanks!
 
 =====
