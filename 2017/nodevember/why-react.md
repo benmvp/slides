@@ -160,7 +160,7 @@ NOTES:
 
 =====
 
-# Declarative JSX
+# 1. Declarative JSX
 
 /////
 
@@ -425,7 +425,7 @@ NOTES:
 
 =====
 
-# Component-driven
+# 2. Component-driven
 
 /////
 
@@ -624,7 +624,7 @@ NOTES:
 
 =====
 
-# All JavaScript*
+# 3. All JavaScript*
 
 NOTES:
 - Have the asterisk there because obviously we're building web apps so CSS is definitely involved
@@ -904,7 +904,7 @@ NOTES:
 
 =====
 
-# State-driven
+# 4. State-driven
 
 NOTES:
 - So far we've basically been creating static user-interfaces; not user interaction
@@ -1050,7 +1050,7 @@ NOTES:
 
 =====
 
-# Sophisticated reconciler
+# 5. Sophisticated reconciler
 
 ### (aka Virual DOM)
 
@@ -1306,7 +1306,7 @@ NOTES:
 
 =====
 
-# Server-side rendering
+# 6. Server-side rendering
 
 ### (aka "Isomorphic React")
 
@@ -1532,10 +1532,11 @@ NOTES:
 - But we created a small Node service just for rendering components
 - Passed it the path to the component and its props and it would give back the HTML
 - This talk goes into all of the nitty gritty details plus various gotchas
+- Unfortunately we won't be able to make use streaming
 
 =====
 
-# Testing
+# 7. Testing
 
 NOTES:
 - The same component-based architecture that makes server-side rendering easy, also makes testing React easy
@@ -1597,7 +1598,7 @@ it('renders a `.val`', () => {
 ```
 <!-- .element: class="large" -->
 
-[Jest](https://facebook.github.io/jest/) + [Enzyme](http://airbnb.io/enzyme/) + [`jest-enzyme`]() = 😍
+[Jest](https://facebook.github.io/jest/) + [Enzyme](http://airbnb.io/enzyme/) + [`jest-enzyme`](https://yarnpkg.com/en/package/jest-enzyme) = 😍
 
 NOTES:
 - We can test incrementer using Jest & Enzyme
@@ -1641,44 +1642,105 @@ NOTES:
 - Instead we assert on the value in the handler (the public API)
 - Being able to unit test like this is a game-changer
 
+/////
+
+## Jest Snapshots and Beyond
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/HAuXJVI_bUs" frameborder="0" allowfullscreen></iframe>
+
+### React Conf 2017
+
+NOTES:
+- I haven't given a talk on React testing, although maybe I should
+- But Rogelio gave a talk at React Conf earlier this year called _Jest Snapshots and Beyond_
+- And it talks about another fun way to test React components with "snapshots"
+
 =====
 
-# React Native
+# 8. React Native
 
 ### (...and other renderers)
 
 =====
 
-# Unopionated
+# 9. Unopionated
 
 =====
 
-# Miscellaneous
+# 10. Miscellaneous
+
+/////
+
+## Other considerations
+
+<div style="columns:2;-webkit-columns:2;-moz-columns:2;margin: 2em 0">
+  <h3>Deep commitment by Facebook</h3>
+  <h3>Dedicated Facebook dev staff</h3>
+  <h3>Popular</h3>
+  <h3>Simple API</h3>
+  <h3>Huge ecosystem</h3>
+  <h3>Rapid feedback loop</h3>
+  <h3>Stable</h3>
+  <h3>Evolving</h3>
+  <h3>Codemods</h3>
+  <h3>Composable with existing apps</h3>
+  <h3>Browser compatibility</h3>
+  <h3>Developer Tools</h3>
+</div>
+
+Thanks [Cory House 🏠](https://twitter.com/housecor/status/909145686498775040)!
+
+NOTES:
+- There are many other reason for React
+- Don't deserve their own section, but still important...
+- Commitment: Facebook uses it in their own products so less likely to go away
+- Staff: is a big reason; it's not just some folks doing it in their spare time
+- Popular: not a good enough reason by itself but doesn't hurt for recruiting/perception
+- Simple API: I rarely have to go to the docs (except for prop types)
+- Ecosystem: Similarly the eco-system is huge so if you need to do something probably already exists
+- Feedback: React + webpack makes developing a sync with webpack dev server
+- Evolving + Stable: React continues to grow greatly (Fiber) but few breaking changes & there are long deprecations
+- Codemods: enable switching code when features are deprecated
+- Existing apps: React _can_ be used with other libs like Backbone for a gradual transition (what we're doing)
+- This list was lifted from a tweet from Cory, so thanks!
 
 =====
 
 ## Recap
 
-- Declarative JSX
-- Component-driven
-- All JavaScript*
-- State-driven
-- Sophisticated reconciler
-- Server-side rendering
-- Testing
-- React Native
-- Unopionated
-- ...and more!
+1. Declarative JSX
+1. Component-driven
+1. All JavaScript*
+1. State-driven
+1. Sophisticated reconciler
+1. Server-side rendering
+1. Testing
+1. React Native
+1. Unopionated
+1. ...and more!
 
 NOTES:
 - Again these are the reasons **we** made the switch to React
-- I'm sure there are plenty other great reasons as well
+- I really wish I could've gone into more details on each one
+- Each one literally could be its own talk
+- Talked about how JSX provides great developer ergonomics
+- The fact that it's component-driven not only makes it easy to build UIs
+- But also enables the reconciler, server-side rendering, testing & dozens of other renders
+- It's state-driven instead of event-driven and we can use lots of ES.next in our apps
+- And much more!
+
+=====
+
+# Where we are now
+
+NOTES:
 
 =====
 
 ## Additional resources
 
 - [Babel REPL](https://babeljs.io/repl/)
+- [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
