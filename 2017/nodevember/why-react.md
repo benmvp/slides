@@ -149,7 +149,7 @@ NOTES:
 [![Tweet from Jordan Harband about how people are hard](../../img/why-react/jordan-harband-people-are-hard.png)](https://twitter.com/ljharb/status/927606717793296384)
 
 NOTES:
-- I've been in the industry for about a dozen years
+- I've been in the industry for about a dozen years now
 - And I've come to realize that software development isn't just the code you commit
 - There's an equal human element to it
 - Whenever doing something buy-in is equally as important as the technical approach
@@ -162,6 +162,9 @@ NOTES:
 
 # 1. Declarative JSX
 
+NOTES:
+- The first reason why we wanted to migrate from Backbone to React was its Declarative JSX
+
 /////
 
 ```js
@@ -169,7 +172,7 @@ class Incrementer extends React.Component {
   state = {value: 0}
 
   _handleClick = () => {
-	  this.setState((prevState) => ({value: prevState.value + 1}))
+    this.setState((prevState) => ({value: prevState.value + 1}))
   }
   render() {
     return (
@@ -221,7 +224,7 @@ React.createElement(
 <!-- .element: class="large" -->
 
 NOTES:
-- Here it is transpiled; it's just JavaScript
+- Here it is transpiled; it's just JavaScript ultimately
 - Thanks to the power of build tooling (Babel)
 - We can write our code in friendly JSX
 - But out comes normal JS
@@ -268,7 +271,7 @@ var IncrementerModel = Backbone.Model.extend({
   defaults: {value: 0}
 })
 var IncrementerView = Backbone.View.extend({
-  template: Handlebars.compile($('#tempalte').html()),
+  template: Handlebars.compile($('#template').html()),
   events: {
     'click .js-btn': 'increment'
   },
@@ -372,7 +375,7 @@ class Selector extends React.Component {
 NOTES:
 - But with React, since our markup is in JavaScript
 - We have the full use of JavaScript at our dispoable to build up the markup
-- We also have linting, editor autocmoplete, and more around JavaScript the language
+- We also have linting, editor auto-complete, and more around JavaScript the language
 - There's no need, IMO, to invent a new language for logic
 
 /////
@@ -426,6 +429,9 @@ NOTES:
 =====
 
 # 2. Component-driven
+
+NOTES:
+- The next motivation for the transition was React's component-based architecture
 
 /////
 
@@ -490,25 +496,16 @@ NOTES:
 
 /////
 
-## Eventbrite Design System
-
-![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="border: 0; background: none; margin: 0; width: 85%" -->
-
-NOTES:
-- At Eventbrite we created our own component library
-- It's filled with dozens of React components big and small
-- But it's more than a component library; it's a design system
-- Talks about _why_ components should be used, etc
-
-/////
-
 <div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
-		<img src="../../img/react/backbone-logo.png" style="width:100%;height:auto;border:0;background:none;box-shadow:none;" alt="Backbone.js logo" />
+    <a href="http://backbonejs.org/" target="_blank">
+		  <img src="../../img/react/backbone-logo.png" style="width:100%;height:auto;border:0;background:none;box-shadow:none;" alt="Backbone.js logo" />
+    </a>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/react/marionette-logo.svg" style="width:100%;height:auto;border:0;background:none;box-shadow:none;" alt="Marionette logo" />
+    <a href="https://marionettejs.com" target="_blank">
+		  <img src="../../img/react/marionette-logo.svg" style="width:100%;height:auto;border:0;background:none;box-shadow:none;" alt="Marionette logo" />
+    </a>
 	</div>
 </div>
 
@@ -523,110 +520,12 @@ NOTES:
 - It's the difference between components being the core vs. being an add-on
 - We were stuck on the latest v1 version that came out mid-2014; think about how JS has changed since then
 
-/////
-
-## Explicitly passing data DOWN the tree
-
-`App.js`
-```
-<NameForm fields={ ... } />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`NameForm.js`
-```
-<FormField name="first" value={props.fields.first} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`FormField.js`
-```
-<TextInput value={props.value} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`TextInput.js`
-```
-<input type="text" value={props.value} />
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- It's not all sunshine & roses; at least not for everyone
-- If in my `App` I want to set the value of the HTML input for the first name...
-- I pass it from `App` -> `NameForm` -> `FormField` -> `TextInput` that reners `<input>`
-- This is _very_ explicit; you can clearly see how data flows down the component hierarchy
-- I personally don't have a problem with it because I prefer the clarity; especially in code reviews
-- But some find it verbose. If they could, they'd rather jump levels of the hierarchy to get it where it should
-- But I've seen that introduce other gnarliness
-
-/////
-
-## Explicitly passing data UP the tree 
-
-`App.js`
-```
-<NameForm onFieldChange={this._handleFieldChange} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`NameForm.js`
-```
-<FormField onChange={props.onFieldChange.bind(null, 'first')} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`FormField.js`
-```
-<TextInput onChange={props.onChange} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`TextInput.js`
-```
-<input type="text" onChange={props.onChange} />
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Similarly getting data back **up** the tree is also explicit
-- Let's say the top-level App wants to react to changes in the `<input>` field
-- Well we have to pass callback handlers down the tree as props
-- So when `onChange` happens on `TextInput` -> `FormField` -> `NameForm` -> `App`
-- In Backbone/Marionette we had global "radios" & components could register channels
-- But no enforcement on who was sending/receiving
-
-/////
-
-## `<App />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<NameForm />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<FormField />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<TextInput />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<input />`
-
-
-
-NOTES:
-- This one-way circular data flow is a completely different way of thinking than traditional MVC
-- It's probably the hardest thing to grasp in React, but one you do everything else falls into place
-
 =====
 
 # 3. All JavaScript*
 
 NOTES:
+- The 3rd reason was React being exclusively JavaScript based
 - Have the asterisk there because obviously we're building web apps so CSS is definitely involved
 
 /////
@@ -644,123 +543,6 @@ NOTES:
 - Before if you were solid at HTML/CSS, you could throw some jQuery around and do well
 - I would say it's not intuitive: there's a StackOveflow question about loops that has > 300k views!
 - Now it's JS or bust, which takes some getting used to
-
-/////
-
-## Conditional JSX
-
-```
-class Section extends React.Component {
-  render() {
-    let headingText = this.props.headingText
-
-    return (
-      <section className="section-correct">
-        if (headingText) {
-          <h1>{headingText}</h1>
-        }
-        <p>{this.props.children}</p>
-      </section>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- All the string-based templating languages provide some facility for conditionally including markup
-- In those cases, you're trying to replicate logic in the template
-- May be tempted to do something like this
-- Or... more likely just wonder how to accomplish conditionally including code
-- Cuz this obviously looks like broken syntax
-- Trying to include the `<h1>` only if `headingText` is defined
-- This is a syntax error
-
-/////
-
-## Conditional JSX
-
-```
-class Section extends React.Component {
-  render() {
-    let headingText = this.props.headingText
-    let headingElem
-
-    if (headingText) {
-      headingElem = (<h1>{headingText}</h1>)
-    }
-    return (
-      <section className="section-correct">
-        {headingElem}
-        <p>{this.props.children}</p>
-      </section>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- React doesn't have any special API to do loops or conditionals
-- It just piggybacks on JavaScript
-- Here's how I would do the conditional
-- We can use normal JS to do conditionals instead of muddying up our JSX
-- Conditionally assign a variable, and put that in our JSX
-
-/////
-
-## Conditional JSX
-
-```
-class Section extends React.Component {
-  render() {
-    let headingText = this.props.headingText
-    let headingElem
-
-    if (headingText) {
-      headingElem = React.createElement('h1', null, headingText)
-    }
-    return React.createElement(
-      'section',
-      {className: 'section-correct'},
-      headingElem,
-      React.createElement('p', null, children)
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- This is what the JSX would be transformed into
-- So it really **is** all JavaScript
-- It seems like a lot more code, so...
-
-/////
-
-## Conditional JSX
-
-```
-class Section extends React.Component {
-  render() {
-    let headingText = this.props.headingText
-
-    return (
-      <section className="section-correct">
-        {headingText ? (<h1>{headingText}</h1>) : null}
-	      <p>{this.props.children}</p>
-      </section>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Many people use a ternary for this to keep things short
-- But at Eventbrite we strive to keep the JSX as "clean" as possible
-- This might be "okay", but would get out of hand quickly
-- I've seen ternaries spanning 10+ lines
 
 /////
 
@@ -789,8 +571,9 @@ class Section extends React.Component {
 NOTES:
 - The nice thing about React, the JS UI lib, tying itself to JS instead of its own API is that as JS evolves it auto-evolves
 - You probably already noticed that we were using `class`es to creat our React components
-- That's ES6 that's become standard with React
-- But we can take the previous `Section` component...
+- That's ES6 and it's become standard with React
+- This `Section` component simply does...
+- But we can take it and...
 
 /////
 
@@ -907,12 +690,14 @@ NOTES:
 # 4. State-driven
 
 NOTES:
-- So far we've basically been creating static user-interfaces; not user interaction
+- So far we've talked about (1) JSX, (2) Component-driven & (3) JavaScript
+- And so far we've basically been creating static user-interfaces; not user interaction
 - To do that the state of the UI has to change over time
 - React components are state-driven instead of the more familiar event-driven
 - This is the hardest thing to wrap your head around if you're new to React
 - It's just a different way of building UIs
 - But I've found it to be very compelling
+- And this is the 4th motivator for the transition away from Backbone to React
 
 /////
 
@@ -989,39 +774,7 @@ NOTES:
 
 ## State-driven React
 
-```js
-class Incrementer extends React.Component {
-  state = {value: 0}
-
-  _handleClick = () => {
-    this.setState((prevState) => ({value: prevState.value + 1}))
-  }
-  render() {
-    return (
-      <div>
-        <Text size="large">{this.state.value}</span>
-        <Button onClick={this._handleClick}>+</button>
-      </div>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Let's say instead of DOM elements, `Incrementer` used other React components
-- We see here that the `state` of `Incrementer` becomes the `props` of `Text`
-- So `Text` can be "dumb" in that it does worry about any state
-- Just renders based on its `size` & special `children` props
-- I find that React dev is actually similar to server-side dev
-- Server-side: one-pass, render out the marker
-- React: initial render, but subsequent renders
-
-/////
-
-## State-driven React
-
-Work in React can be boiled down to 2 main areas...
+Dev work in React can be boiled down to 2 main areas...
 <!-- .element: style="margin: 2em 0" -->
 
 1. `render()` based on `props` & `state`
@@ -1044,8 +797,8 @@ NOTES:
 - When folks look at simple examples of "reactivity" in React, they find it to be too verbose
 - But with React trades conciseness for predictability
 - So you end up spending more time explicitly wiring things up together
-- Structure of your code can more or less stay the same as complexity grows
-- Certainly not the case with Backbone; things got crazy
+- Buuuut... structure of your code can more or less stay the same as complexity grows
+- Certainly not the case with Backbone; things got cray
 - But prepare yourself for the fact that it'll feel like you're writing "more code"
 
 =====
@@ -1055,7 +808,8 @@ NOTES:
 ### (aka Virual DOM)
 
 NOTES:
-- Here's where we talk about the killer feature of React
+- Let's talk about our 5th reason for the transition:
+- The killer feature of React
 - Whenever anyone talks about React it's the cool feature they talk about
 - Up until this point, it's looked like `render()` was rendering to the DOM
 - But it's not...
@@ -1100,11 +854,8 @@ NOTES:
 ## No reconciler in Backbone 😩
 
 ```
-var IncrementerModel = Backbone.Model.extend({
-  defaults: {value: 0}
-})
 var IncrementerView = Backbone.View.extend({
-  template: Handlebars.compile($('#tempalte').html()),
+  template: Handlebars.compile($('#template').html()),
   events: {
     'click .js-btn': 'increment'
   },
@@ -1119,6 +870,7 @@ var IncrementerView = Backbone.View.extend({
   }
 })
 ```
+<!-- .element: class="large" -->
 
 NOTES:
 - Here again is the equivalent Backbone code written to be "reactive"
@@ -1133,7 +885,7 @@ NOTES:
 
 ```
 var IncrementerView = Backbone.View.extend({
-  template: Handlebars.compile($('#tempalte').html()),
+  template: Handlebars.compile($('#template').html()),
   events: {
     'click .js-btn': 'increment'
   },
@@ -1150,22 +902,15 @@ var IncrementerView = Backbone.View.extend({
 
 NOTES:
 - Instead of listening to model changes and re-rendering
-- We should just update the `<span>` ourselves after updating the odel
+- We _should_ just update the `<span>` ourselves after updating the odel
 - Full `render` would only be for the initial render
-- This is fine for this simple case; nightmare when there are lots of events
+- This is fine for this simple case; very easy to follow
+- Nightmare when there are lots of events
 - Confession: when I have to go back to Backbone I just do it the easy way!
 
 /////
 
-![Brace Yourselves - A live demo is coming](../../img/react-exposed/live-demo.jpg)
-<!-- .element: style="width:70%" -->
-
-NOTES:
-- I've kinda talked about it, but lemme **show** you the benefits w/ a demo
-
-/////
-
-## Fiber Reconciler
+## New Fiber Reconciler
 <!-- .element: style="margin-bottom: 1em" -->
 
 - Rewrite of reconciler
@@ -1182,33 +927,6 @@ NOTES:
 
 /////
 
-![Stack reconciler](../../img/react-fiber/stack-reconciler.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-## Stack reconciler
-
-NOTES:
-- The previous reconciler has been posthumously given the name Stack reconciler
-- Basically when an update needs to happen, the Stack reconciler traverses the entire component tree and does all the rendering for as long as it takes
-- Then it reliquishes control back to the JS engine
-- For deep or expensive updates this can have a noticeable impact on performance even w/ intelligent reconciliation
-
-/////
-
-![Fiber reconciler](../../img/react-fiber/fiber-reconciler.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-## Fiber reconciler
-
-NOTES:
-- Instead the forthcoming Fiber reconciler will do some work and then relinquish control back to the engine
-- So rendering becomes asynchronous because it can render a higher priority update before returning to the original update
-- Imagine you have a text input field and then long list of results being populated by API response
-- You want typing to have immediate feedback where as the list of results can be lower priority because it's coming from API
-- These sorts of optimizations give a higher perceived performance
-
-/////
-
 ## Update Priorities
 
 <br />
@@ -1221,6 +939,7 @@ NOTES:
 - Offscreen
 
 NOTES:
+- With the Fiber reconciler you'll be able to distinguish between different types of updates
 - Synchronous (just like stack reconciler)
 - Task        (next tick)
 - Animation   (before next frame)
@@ -1264,35 +983,6 @@ NOTES:
 
 /////
 
-## React Fiber Synchronous Scheduling 😞 
-
-<a href="https://twitter.com/koba04/status/854924460352192520">
-  <img src="../../img/react-fiber/sync-browser-perf.jpg" alt="Screenshot of browser performance with sync Fiber scheduling" style="width: 50%" />
-</a>
-
-NOTES:
-- `fiberAsyncScheduling: false`
-- With a very heavy update
-- You can go from a performance profile that looks like this
-- Where the browser is spending so much time updating your UI that it can't do anything else
-- To...
-
-/////
-
-## React Fiber Asynchronous Scheduling! 🤗
-
-<a href="https://twitter.com/koba04/status/854924460352192520">
-  <img src="../../img/react-fiber/async-browser-perf.jpg" alt="Screenshot of browser performance with async Fiber scheduling" style="width: 50%" />
-</a>
-
-NOTES:
-- `fiberAsyncScheduling: true`
-- This where the browser has time to come up for air
-- This it really happening in a browser
-- The super awesome feature of React is posed to get even better!
-
-/////
-
 ## [Layperson's guide to React Fiber](http://www.benmvp.com/slides/2017/reactrally/fiber.html)
 
 <iframe width="1333" height="750" src="https://www.youtube.com/embed/q6QTxq_pFn0" frameborder="0" allowfullscreen></iframe>
@@ -1311,7 +1001,8 @@ NOTES:
 ### (aka "Isomorphic React")
 
 NOTES:
-- Let's talk about server-side rendering or "Isomorphic React"
+- Now we're halfway through the love-fest about React 😀
+- Let's talk about the 6th reason: server-side rendering or "Isomorphic React"
 - "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
 
 /////
@@ -1354,7 +1045,7 @@ NOTES:
 
 /////
 
-## React components only define WHAT to render!
+## React components only define **WHAT** to render!
 
 ```js
 class Incrementer extends React.Component {
@@ -1381,6 +1072,7 @@ NOTES:
 - But that's not true!
 - `render()` just informs what elements & child components should be rendered
 - It doesn't dictate _how_ they should be rendered
+- Which is actually a great thing!
 
 /////
 
@@ -1391,16 +1083,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
+const props = window.__SERVER_DATA__ || {};
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <App {..props} />, 
+  document.getElementById('root')
+)
 ```
 <!-- .element: class="large" -->
 
 NOTES:
 - That typically happens in the entry point of your app
 - You'll import from `react-dom` and use it's `render()` function
-- Insert your app into the DOM location
-- And then when your app updates a produces a new component hierarchy
+- Inserts your app into the DOM location
+- And then when your app updates it produces a new component hierarchy
 - `react-dom` is what takes that difference and applies it to the DOM
 
 /////
@@ -1412,8 +1108,13 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import App from './App'
 
+const props = {
+  // Data coalesced from DB / SOA calls
+  // Data coalesced from Express GET/POST params
+  // Data coalesced from other environment params
+}
 
-let markup = ReactDOMServer.renderToString(<App />)
+let markup = ReactDOMServer.renderToString(<App {...props} />)
 
 // return `markup` in HTML response
 ```
@@ -1436,6 +1137,7 @@ NOTES:
 [github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
 
 NOTES:
+- If you do render server, make sure you run your Node server in production mode!
 - Comparing Raw React 15, compiled React 15, and compiled React 16 beta 2
 - Latest Node 4, 6 & 8
 - 17x improvement just by upgrading systems
@@ -1454,38 +1156,6 @@ NOTES:
 - Can you guess when we turned on the env var?? 🤣
 - 2x improvement just by adding that env variable
 - We went through this so you don't have to!
-
-
-/////
-
-## First-class server-side streaming support! 🎉
-
-```js
-import {renderToNodeStream} from 'react-dom/server'
-
-app.get('/', (req, res) => {
-  res.write('<html><head><title>EB</title><body><div id="root">')
-
-  renderToNodeStream(<App />)
-    .pipe(res, {end: false})
-    .on('end', () => {
-      res.write('</div></body></html>')
-      res.end()
-    })
-})
-```
-<!-- .element: class="large" -->
-
-Prior art: [`react-dom-stream`](https://github.com/aickin/react-dom-stream)
-
-NOTES:
-- Even with speed-ups, rendering to string is still sub-optimal:
-  0. Server can't send out response until entire HTML is created, so browsers can't paint until `renderToString` is finished
-  0. Server has to allocate memory for entire HTML string
-  0. Single call to `renderToString` can dominate CPU
-- Speaking of React 16, React now supports server-side streaming!
-- With streaming, the browser can render pages before entire response is finished
-- Even further performance gains
 
 /////
 
@@ -1532,7 +1202,6 @@ NOTES:
 - But we created a small Node service just for rendering components
 - Passed it the path to the component and its props and it would give back the HTML
 - This talk goes into all of the nitty gritty details plus various gotchas
-- Unfortunately we won't be able to make use streaming
 
 =====
 
@@ -1545,9 +1214,12 @@ NOTES:
 - Vanilla Backbone was good at this; the Model architecture created a separation that was easily testable
 - But when it came to testing UI logic: this markup should display based on a condition or a user action should call a handler
 - Backbone like all the DOM-based UI libraries was bad
-- And we made things worse by having global data stores and passing data between components with radios
+- Pretty much have to run tests in a browser or headless browser which brings a host of issues
+- So the 7th reason for transition is about making testing life far simpler
 
 /////
+
+## Test public API only!
 
 ```js
 class Incrementer extends React.Component {
@@ -1616,7 +1288,7 @@ NOTES:
 ```js
 import {shallow} from 'enzyme';
 
-it('renders a `.val`', () => {
+it('calls `onIncrement` prop with current value', () => {
   let onIncrement = jest.fn()
   let wrapper = shallow(<Incrementer onIncrement={onIncrement} />)
   let button = wrapper.find('button')
@@ -1662,6 +1334,7 @@ NOTES:
 ### (...and other renderers)
 
 NOTES:
+- Let's jump to the 8th reason for transitioning
 - Eventbrite has 4 native apps: 2 on iOS & 2 on Android
 - One set for people running events (organizer) / other set for people attending (attendee)
 - We don't have any plans to replace our apps with React Native
@@ -1674,7 +1347,7 @@ NOTES:
 
 NOTES:
 - One of the benefits React mentions on its home page is that you can "Learn Once, Write Anywhere"
-- Basically saying that once you learn React and its paradigms you can build apps for any environment
+- Basically saying that once you learn React and its paradigms, you can build apps for any environment
 
 /////
 
@@ -1729,11 +1402,11 @@ class Incrementer extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
-- If replaced `<div>`, `<span>` & `<button>` w/ `View`, `Text` & `TouchableOpacity` from `react-native`
+- If replaced `<div>`, `<span>` & `<button>` w/ `View`, `Text` & `TouchableOpacity` components from `react-native`
 - You've got the makings a native app!
 - I remember when I wen to my first React Native workshop and was blown away
 - Everything I learned building React web apps, I could leverage in React Native
-- Just like w/ the web there are special considerations for native
+- Just like w/ the web there are special considerations for native of course
 - Layout engine is different
 - But there are a bunch more pre-built components
 - And React is not just for mobile devices...
@@ -1772,7 +1445,7 @@ NOTES:
 Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
 
 NOTES:
-- React is everywhere!
+- React is everywhere! Got 24 renderers listed here!
 - And the new Fiber architecture should make building new renderers easier
 - Remember the Reconciler determines what in the UI should change on re-render
 - The renderer actually applies the changes in the environment
@@ -1801,14 +1474,15 @@ NOTES:
 # 9. Unopionated
 
 NOTES:
-- Honestly this one can be seen as a pro or con depending on how you look at it
+- Honestly this 9th reason can be seen as a pro or con depending on how you look at it
+- React is pretty unopinonated on how your apps should be built
 
 /////
 
 ## Decisions decisions...
 
 - Tooling (bundlers, task runners, static analyzers)
-- Styling (global css, [css modules](https://github.com/gajus/react-css-modules), inline styles, css-in-js)
+- Styling (global css, [css modules](https://github.com/gajus/react-css-modules), inline styles, css-in-js 🔥)
 - Testing ([jest](https://facebook.github.io/jest/), [mocha](https://mochajs.org) + [chai](https://mochajs.org))
 - State management ([`setState`](https://reactjs.org/docs/react-component.html#setstate), [redux](http://redux.js.org/), [mobx](http://mobxjs.github.io/mobx/))
 - API (REST + [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), [relay](https://facebook.github.io/relay/), [apollo](http://dev.apollodata.com/), [falcor](http://netflix.github.io/falcor/))
@@ -1821,8 +1495,8 @@ NOTES:
 - React is just a UI library; it's a great one IMO, but just a UI library
 - So to create apps you need to build up your own stack
 - **Tooling:** probably Webpack, but need to configure it; gulp/grunt; eslint/flow/Typescript;
-- Create React App helps w/ getting started
-- **Styling:** glamours, styled-components, radium, aphrodite
+- Create React App helps w/ getting started; eject later
+- **Styling:** glamorous, styled-components, radium, aphrodite
 - You really get to tailor your own stack
 - But if you're just getting started it's "decision fatigute"
 
@@ -1843,8 +1517,9 @@ There's no **React way™** 🤷🏾‍♂️
 NOTES:
 - But even when you have the stack down, there are still more "opportunities" for decisions
 - Do you always use component classes or use stateless functions until you need state?
-- Can be a "pro" because you can look at the team and make decisiosn based on the skillset
-- Why you can from one team to another doing React and it'll be done completely differently
+- _Other decisions_
+- Can be a "pro" because you can look at the team and make decisions based on the skillset
+- This is how you can from one team to another doing React and it'll be done completely differently
 - Especially with React 16
 
 /////
@@ -1866,6 +1541,7 @@ NOTES:
 # 10. Miscellaneous
 
 NOTES:
+- Ok, the final reason for the migration is a sort of catch-all
 - There are many other reason for React
 - Don't really deserve their own section, but still important...
 
@@ -1942,6 +1618,19 @@ NOTES:
 
 /////
 
+## Eventbrite Design System
+
+![Eventbrite Design System](../../img/why-react/eds-homepage.png)
+<!-- .element: style="border: 0; background: none; margin: 0; width: 85%" -->
+
+NOTES:
+- At Eventbrite we created our own component library
+- It's filled with dozens of React components big and small
+- But it's more than a component library; it's a design system
+- Talks about _why_ components should be used, etc
+
+/////
+
 ## Eventbrite + React in the wild
 
 - [Sign-in / Sign-up](http://www.eventbrite.com/signin)
@@ -1955,6 +1644,8 @@ NOTES:
 - Admin Tools
 
 NOTES:
+- Eventbrite is not one single app, but made up multiple smaller apps
+- We have a number of React apps out there now
 - Checkout widget takes you to speednashviledating.com FYI
 - Event Management Navigation was an example where we mixed React & Backbone
 - Dozens of management pages that share the same nav, so redid the nav in React
@@ -1997,5 +1688,6 @@ NOTES:
 - Also thank YOU for attending and sticking around!
 - My goal is for you to learn at least one thing you can take away to be a better dev
 - Slides are available on Twitter and Blog
-- Ask questions on Twitter, via email or AMA!
-- Thanks and enjoy the rest of the conference!
+- Would love to hear from you about things that were unclear, wanna know more about or general questions
+- Ask on Twitter, via AMA or email
+- Thanks and I hope you enjoyed the conference
