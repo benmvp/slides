@@ -1652,14 +1652,149 @@ NOTES:
 
 NOTES:
 - I haven't given a talk on React testing, although maybe I should
-- But Rogelio gave a talk at React Conf earlier this year called _Jest Snapshots and Beyond_
-- And it talks about another fun way to test React components with "snapshots"
+- But Rogelio (Jest core team) gave a talk at React Conf earlier this year called _Jest Snapshots and Beyond_
+- And he talks about another fun way to test React components with "snapshots"
 
 =====
 
 # 8. React Native
 
 ### (...and other renderers)
+
+NOTES:
+- Eventbrite has 4 native apps: 2 on iOS & 2 on Android
+- One set for people running events (organizer) / other set for people attending (attendee)
+- We don't have any plans to replace our apps with React Native
+- But should we need other apps, being able to use React Native is appealing
+
+/////
+
+![Learn Once, Write Anywhere screenshot from react homepage](../../img/why-react/react-learn-once-write-anywhere.png)
+<!-- .element: style="width: 50%" -->
+
+NOTES:
+- One of the benefits React mentions on its home page is that you can "Learn Once, Write Anywhere"
+- Basically saying that once you learn React and its paradigms you can build apps for any environment
+
+/////
+
+## React for the Web
+
+```js
+class Incrementer extends React.Component {
+  state = {value: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+    return (
+      <div>
+        <span className="val">{this.state.value}</span>
+        <button onClick={this._handleClick}>+</button>
+      </div>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Let's bring back our good friend the `Incrementer` component one more time
+- Here's what it looks like if we were writing for React in the web
+- We're using HTML elements: `<div>`, `<span>` & `<button>`
+- But...
+
+/////
+
+## React Native 😄
+
+```js
+import {View, Text, TouchableOpacity} from 'react-native'
+class Incrementer extends React.Component {
+  state = {value: 0}
+  _handlePress = () => {
+    this.setState((prevState) => ({value: prevState.value + 1}))
+  }
+  render() {
+    return (
+      <View>
+        <Text style={...}>{this.state.value}</span>
+        <TouchableOpacity onPress={this._handlePress}>+</TouchableOpacity>
+      </View>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- If replaced `<div>`, `<span>` & `<button>` w/ `View`, `Text` & `TouchableOpacity` from `react-native`
+- You've got the makings a native app!
+- I remember when I wen to my first React Native workshop and was blown away
+- Everything I learned building React web apps, I could leverage in React Native
+- Just like w/ the web there are special considerations for native
+- Layout engine is different
+- But there are a bunch more pre-built components
+- And React is not just for mobile devices...
+
+/////
+
+## Fiber makes React renderers easier to build
+
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
+  [`ink`](https://github.com/vadimdemedes/ink)  
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
+  [`rax`](https://github.com/alibaba/rax)  
+  [`react-art`](https://github.com/reactjs/react-art)  
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
+  [`react-html-email`](https://github.com/chromakode/react-html-email)  
+  [`react-konsul`](https://github.com/mohebifar/konsul)  
+  [_**`react-native`**_](https://github.com/facebook/react-native)  
+  [`react-pdf`](https://github.com/diegomura/react-pdf)  
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
+  [`react-three`](https://github.com/Izzimach/react-three)  
+  [`react-titanium`](https://github.com/yuchi/react-titanium)  
+  [`react-tvml`](https://github.com/ramitos/react-tvml)  
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
+  [`react-x11`](https://github.com/sidorares/react-x11)  
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+</div>
+
+Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
+
+NOTES:
+- React is everywhere!
+- And the new Fiber architecture should make building new renderers easier
+- Remember the Reconciler determines what in the UI should change on re-render
+- The renderer actually applies the changes in the environment
+- We're pretty excited about `react-sketchapp` from Airbnb
+- Just discovered `react-html-email`; need to look into that one!
+- These are all links so feel free to check them out!
+
+/////
+
+## React as a Platform
+
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/JaRtmgaNZos" frameborder="0" allowfullscreen></iframe>
+
+### Chain React 2017
+
+NOTES:
+- Also I haven't given a talk about React Native, although I have an idea for one
+- But Leland (Airbnb) gave a talk at Chain React earlier this year called _React as a Platform: A path towards a truly cross-platform UI_
+- And he talks about a path to a world where we can actually write the _same_ code for Web & Native
+- Sucky: building the same app for Web & Native would mean lots of code duplication for developer(s)
+- Need core set of components (primitives) that exist for every renderer
+- Build everything on top of that
 
 =====
 
@@ -1834,9 +1969,11 @@ NOTES:
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
+- [React/Redux Links](https://github.com/markerikson/react-redux-links)
 
 
 NOTES:
+- Mark (w/ help) has collection a bazillion links to resources covering React, Redux, ES6 and more!
 
 =====
 
