@@ -13,3 +13,4 @@ css/reveal.min.css
 js/reveal.min.js
 *.sublime-project
 *.sublime-workspace
+*.log

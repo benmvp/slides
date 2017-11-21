@@ -14,7 +14,10 @@ November 28, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
-- Here to pull back the covers on how Eventbrite decided to make the switch from Backbone to React
+- It was nearly 2 years ago that we embarked on the journey of transitioning our frontend from Backbone to React
+- So this talk is about the first part of that transition: convincing everyone that it was a good idea 😀
+- Wanna pull back the covers on the rationale we used to make that switch
+- And if you're in the same boat, you'll have some solid reasons besides "everyone is doing it"
 - Posted link to slides on twitter if you want to follow along
 
 /////
@@ -25,8 +28,9 @@ NOTES:
 - Beyond excited to be giving the CLOSING KEYNOTE here at Nodevember
 - Truly an honor
 - Because 2 years ago I was novice speaker hoping for a chance
-- Had such a great time sharing about ES6 and learn so much
-- And now I'm back
+- And Nodevember gave me that chance
+- Had such a great time sharing about ES6 and learned so much
+- And now I'm back to talk about React
 
 =====
 
@@ -39,12 +43,13 @@ NOTES:
 - React 💕 fest
 
 NOTES:
+- Quick heads up
 - The goal of this talk is not to teach you React, so you can go off and build the next app that's gonna change the game
 - Even if I wanted to, not possible in an hour
 - Also not gonna be framework bashing; talking about how React is better than Angular or Vue
-- Although I am basically saying it's better than Backbone since switched
+- Although I am basically saying it's better than Backbone since we switched
 - Lastly, not gonna be a React love-fest
-- There's no perfect framework; there are trade-offs and I'll point them out
+- There's no perfect framework; there are trade-offs and I'll try to point them out
 - So hopefully if you're still investigating, you'll get a somewhat balanced opinion
 
 /////
@@ -59,11 +64,11 @@ NOTES:
 
 NOTES:
 - Wanna walk through the many reasons why we made the switch
-- But not just talk about; I want to demonstrate it w/ code
+- But not just talk about; I want to demonstrate it w/ a lil' code
 - Also, given that this is a keynote for everyone I wanted to make it useful to everyone
 - So if you've never used React, it should be a good primer
 - But if you're hardcore React, hopefully I can hit you w/ some tips
-- And if not this can be an example of how to explain besides "it's awesome"
+- And if not this can be an example of how to explain to others besides "it's awesome"
 - Heads up!
 - I've had the opportunity now to speak about a variety of different React topics over the last year
 - Throughout the talk I'll be giving shameless plugs to those talks
@@ -133,7 +138,7 @@ NOTES:
 
 NOTES:
 - I'm a huge basketball fan; love playing & watching
-- Got so excited when I found this NBA Go CLI
+- Got so excited when I was told about the NBA Go CLI
 - I use VS Code, which has the terminal pane right at the bottom
 - So I could literally be following the game and coding at the same time!
 
@@ -142,6 +147,7 @@ NOTES:
 # Why choose React?
 
 NOTES:
+- Why choose React??
 - Let's jump right in
 
 /////
@@ -151,11 +157,12 @@ NOTES:
 NOTES:
 - I've been in the industry for about a dozen years now
 - And I've come to realize that software development isn't just the code you commit
-- There's an equal human element to it
-- Whenever doing something buy-in is equally as important as the technical approach
-- When difficulties arise, the difference between folks complaining or rallying to find a solution, is buy-in
-- We had tried React a couple of times, ran into issues, and people threw out the baby w/ the bathwater
+- There's an equally important human element to it
+- Whenever doing something buy-in is just as important as the technical approach
+- When difficulties arise, it can be the difference between folks complaining or rallying to find a solution, is buy-in
+- We had actually tried React a couple of times, ran into issues, and people concluded "React is no good"
 - So this time, in early 2016, I put together a loooong document to explain why our Frontend Platform team thought we should make the switch
+- And as I said "cuz everybody is using it!" wasn't a good enough reason 😉
 - The rest of the talk is a talk-friendly distillation of that doc
 
 =====
@@ -189,7 +196,7 @@ class Incrementer extends React.Component {
 NOTES:
 - Here's a rather simple component
 - All it does is increment the value every time you click the button
-- Want to zero on the `render()` method which is return this HTML-link syntax in our JavaScript
+- Want to zero on the `render()` method which is returning this HTML-link syntax in JavaScript
 - Many people didn't like the syntax at first
 - But I find it very approachable
 
@@ -207,6 +214,8 @@ NOTES:
 
 NOTES:
 - Here it is close up
+- Got a `<div>` wrapping a `<span>` display and a `<button>`
+- What you may not realize is that this JSX gets converted into JavaScript
 
 
 /////
@@ -225,7 +234,7 @@ React.createElement(
 
 NOTES:
 - Here it is transpiled; it's just JavaScript ultimately
-- Thanks to the power of build tooling (Babel)
+- Thanks to the power of build tooling (aka Babel)
 - We can write our code in friendly JSX
 - But out comes normal JS
 - I couldn't imagine building my React components like this
@@ -256,8 +265,8 @@ class Incrementer extends React.Component {
 NOTES:
 - With React, a component contains...
   * Markup (`render()`)
+  - Data (`this.props` & `this.state`)
   - Logic (`_handleClick`)
-  - Data (`this.state`)
 - You can also include styling too, but not trying to start a flamewar over css-in-js right now
 - So everything is collocated, which is very different than traditional MVC like Backbone
 
@@ -289,13 +298,13 @@ var IncrementerView = Backbone.View.extend({
 
 NOTES:
 - This is the traditional MVC equivalent in Backbone
-- You have a separate file for template (markup), model & view (logic)
+- You have a separate file for model & view (logic) as well as the template (markup)
 - Here's the logic
-- THe idea is that we wanted to have a "separation of concerns"
+- The idea is that we wanted to have a "separation of concerns"
 - But it didn't happen in practice; especially as things got complex
 - We used `js-*` prefix in our templates to safely reference them in views
 - If the template changed, you needed to change the view
-- If the model changed, you needed to change the tmeplate, and so on
+- If the model changed, you needed to change the template, and so on
 - As things got complicated, hard to know the effects changing one would have on the other
 - BTW - we're re-rendering everytime the model changes for simplicity, but bad perf
 
@@ -314,6 +323,7 @@ Handlebars template
 
 NOTES:
 - Here's the template; it's simple enough
+- A non-JS expert could come in and make changes in a familiar env
 - But the templating languages were intended to be _just_ markup, so limited logic...
 
 /////
@@ -346,7 +356,7 @@ NOTES:
 - Plus we'd basically have to basically learn a new language
 - We created "helpers" so we could call functions in templates
 - Alternative is to do a whole lot of pre-computation in the view to enable the template to be dumb
-- Handlebars didn't even have `else-if`
+- Ya know, handlebars didn't even have `else-if`
 - So we'd have a nested `if` w/in an `else`
 
 /////
@@ -374,7 +384,7 @@ class Selector extends React.Component {
 
 NOTES:
 - But with React, since our markup is in JavaScript
-- We have the full use of JavaScript at our dispoable to build up the markup
+- We have the full use of JavaScript at our dispoable to build up the JSX to return
 - We also have linting, editor auto-complete, and more around JavaScript the language
 - There's no need, IMO, to invent a new language for logic
 
@@ -461,7 +471,8 @@ NOTES:
 - Everything is a component!
 - And you build bigger components by combining smaller components w/ markup
 - Here we have a FormField component made up of `Label` & `TextInput` components
-- It defines 4 `props`, which are how the component is configured
+- It defines 4 `props` (`name`, `label`, `value` & `onChange`), which are how the component is configured
+- It lays out the `Label` & `TextInput` and then passes along those props as configuration
 
 /////
 
@@ -511,14 +522,15 @@ NOTES:
 
 NOTES:
 - Component-driven development seems pretty obvious right?
-- All the popular libraries/frameworks are component-driven in their own way
+- All the modern libraries/frameworks are component-driven in their own way
 - But not Backbone; you simply could not nest Backbone views
-- Now we were also using Marionette; an architecture layer on top of Backbone
+- Began to use Marionette; an architecture layer on top of Backbone to help w/ more complex UIs
 - The version we were using had Layouts, which could contain Views, which could _be_ layouts so nesting was possible
 - But it was not nearly as effortless as what I just showed w/ React
 - Configuring the nested views wasn't simple either
 - It's the difference between components being the core vs. being an add-on
-- We were stuck on the latest v1 version that came out mid-2014; think about how JS has changed since then
+- Also, we were stuck on the latest v1 version that came out mid-2014; think about how JS has changed since then
+- Marionette is still in active development: version 3
 
 =====
 
@@ -526,7 +538,8 @@ NOTES:
 
 NOTES:
 - The 3rd reason was React being exclusively JavaScript based
-- Have the asterisk there because obviously we're building web apps so CSS is definitely involved
+- I have the asterisk there because obviously we're building web apps so CSS is obviously involved
+- But I'm conveniently ignoring that for now 😀
 
 /////
 
@@ -535,13 +548,14 @@ NOTES:
 (...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx))
 
 NOTES:
-- Dan tweeted this in response to an RFC to add conditionals and loops into JSX
+- Dan tweeted this in response to a request to add conditionals and loops into JSX
 - I ❤️ JavaScript so the more I can do in JS the better
 - I'm glad that I don't have to learn a new API to do conditionals/loops in JS
 - Because it's JS, I can do whatever JS can do
-- For some though, this is a drawback because you _have_ to know JS pretty well
-- Before if you were solid at HTML/CSS, you could throw some jQuery around and do well
-- I would say it's not intuitive: there's a StackOveflow question about loops that has > 300k views!
+- But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
+- Before if you were solid at HTML/CSS, you could throw in some jQuery do really well
+- Looping and conditionals in JSX is not intuitive
+- That's a StackOveflow question about loops that has > 300k views and 520 upvote!
 - Now it's JS or bust, which takes some getting used to
 
 /////
@@ -570,9 +584,9 @@ class Section extends React.Component {
 
 NOTES:
 - The nice thing about React, the JS UI lib, tying itself to JS instead of its own API is that as JS evolves it auto-evolves
-- You probably already noticed that we were using `class`es to creat our React components
+- You probably already noticed that we were using `class` keyword to create our React components
 - That's ES6 and it's become standard with React
-- This `Section` component simply does...
+- This `Section` component _[describe what it does]_
 - But we can take it and...
 
 /////
@@ -646,8 +660,8 @@ NOTES:
 - We basically are forced to have a build system
 - And that's where some combo of Babel, Webpack, TypeScript, Rollup, etc. come in
 - Chances are for production apps you already had _some_ sort of build system
-- Compile SASS -> CSS, minify & bundle JS, etc
-- Paying the upfront cost of the build system enables cool features: tree-shaking & code splitting
+- Compile SASS -> CSS, minify & bundle JS, CoffeeScript, etc
+- But paying the upfront cost of the build system enables cool features: tree-shaking & code splitting
 
 /////
 
@@ -669,8 +683,8 @@ $> yarn start
 Babel, Webpack 3, ESLint, and more!
 
 NOTES:
-- And you don't have to roll your own build system; at least not initially
-- Create React App let's you bootstrap an app to start React-ing quickly
+- Thankfully though, you don't have to roll your own build system; at least not initially
+- Create React App is a tool that let's you bootstrap an app to start React-ing quickly
 
 /////
 
@@ -684,6 +698,7 @@ NOTES:
 - Shameless plug alert!
 - I gave a talk called _React + ES.next = ♥_ at React Conf back in March
 - I go through a handful of ES.next features that go great with React
+- So if some of the features I was talking about didn't quite make sense, check it out!
 
 =====
 
@@ -733,7 +748,7 @@ NOTES:
 - The driver is the event
 - The only way to get the app so that it displays 10 is to click the button 10 times
 - If you were using Backbone you may have a model that you update as well, but it's basically same flow
-- This is _really_ easy to follow (imperative), but as app grows in complexity, code turns into spaghetti
+- This is _really_ easy to follow (imperative), but as app grows in complexity, code turns into hot spaghetti
 
 /////
 
@@ -765,7 +780,7 @@ NOTES:
 - It's the handler that does the logic of incrementing the value; separation of concerns!
 - And since `value` is already in `state` we don't have to get it from the DOM
 - Then calling `setState` causes `render` to be called again
-- Click again and the loop continues
+- Click again and the cycle continues
 - In the old world `_handleClick` would've directly manipulated the DOM
 - But instead we update the state and that will indirectly update the DOM
 - Layer of indirection is hard to wrap head around
@@ -783,9 +798,9 @@ Dev work in React can be boiled down to 2 main areas...
 
 NOTES:
 - So basically we do work in two main areas:
-- 1) Define what we're going to `render()` based on `prop` & `state`
-- Can have conditional logic, loops, other sophisticated logic to determin what to render
-- 2) When events happen transform data to generate new `state` (to `render` again)
+- 1) Define what we're going to `render()` based on `props` & `state`
+- Can have conditional logic, loops, other sophisticated logic to determine what to render
+- 2) When events happen, do stuff to transform data to generate new `state` (and `render` again)
 - Where algorithms become really useful to transform data efficiently
 - Can also do async transformation by making API calls
 
@@ -794,29 +809,29 @@ NOTES:
 [![Dan Abramov's tweet about how React code remains understandable as app gets more complex](../../img/why-react/dan-abramov-reactive-tweet.png)](https://twitter.com/dan_abramov/status/930380316463726593)
 
 NOTES:
-- When folks look at simple examples of "reactivity" in React, they find it to be too verbose
+- When folks look at simple examples of "reactivity" in React, they find it to be too verbose; and it is
 - But with React trades conciseness for predictability
 - So you end up spending more time explicitly wiring things up together
 - Buuuut... structure of your code can more or less stay the same as complexity grows
-- Certainly not the case with Backbone; things got cray
-- But prepare yourself for the fact that it'll feel like you're writing "more code"
+- Certainly not the case with jQuery or Backbone; things got cray
+- But prepare yourself for the fact that it'll feel like you're writing "more code" in the beginning
 
 =====
 
 # 5. Sophisticated reconciler
 
-### (aka Virual DOM)
+### (aka Virtual DOM)
 
 NOTES:
 - Let's talk about our 5th reason for the transition:
-- The killer feature of React
+- The killer feature of React: the Reconciler aka Virtual DOM
 - Whenever anyone talks about React it's the cool feature they talk about
-- Up until this point, it's looked like `render()` was rendering to the DOM
+- So up until this point, it's looked like `render()` was rendering to the DOM
 - But it's not...
 
 /////
 
-## React reconciler makes efficient updates easy
+## React reconciler makes efficient updates easy 💯
 
 ```js
 class Incrementer extends React.Component {
@@ -841,11 +856,11 @@ NOTES:
 - Let's take our example from before...
 - When we call `setState` React calls `render()` w/ updated state
 - So it looks like are re-rendering the `<div>` + children each time
-- When we know all we _really_ are updating is _just_ the `<span>` content
-- This is where you should know that `render()` is updating DOM, but building up element hierarchy
-- Basically a virtual representation of the DOM
+- When we know all we _really_ are updating is _just_ the `innerHTML` of `<span>`
+- `render()` is **not** updating DOM, but building up element hierarchy
+- Basically a _new_ virtual representation of the DOM
 - The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only updates changes
-- We don't have to do the hard work of figuring out how to make the "micro updates"
+- So we don't have to do the hard work of figuring out how to make the "micro updates"
 - We can just write our code the easy way: like it re-renders everything
 - And React does the hard work of figuring out micro updates
 
@@ -875,9 +890,9 @@ var IncrementerView = Backbone.View.extend({
 NOTES:
 - Here again is the equivalent Backbone code written to be "reactive"
 - Probably not how it would normally be written; hard not to after knowing React
-- It's really simple; `increment` updates model & `model` calls `render()`
+- It's really simple; `increment()` updates model & `model` calls `render()`
 - But this will actually re-render the whole template blowing away prev DOM
-- This is super inefficient
+- This is super inefficient especially for bigger chunks of DOM; will get flashes
 
 /////
 
@@ -902,11 +917,12 @@ var IncrementerView = Backbone.View.extend({
 
 NOTES:
 - Instead of listening to model changes and re-rendering
-- We _should_ just update the `<span>` ourselves after updating the odel
+- We _should_ just update the `innerHTML` of the `<span>` ourselves after updating the model
 - Full `render` would only be for the initial render
 - This is fine for this simple case; very easy to follow
 - Nightmare when there are lots of events
-- Confession: when I have to go back to Backbone I just do it the easy way!
+- Confession: when I _have_ to go back to Backbone I just do it the easy way!
+- If you see some UI flashing on Eventbrite, I may be to blame 😂
 
 /////
 
@@ -941,10 +957,10 @@ NOTES:
 NOTES:
 - With the Fiber reconciler you'll be able to distinguish between different types of updates
 - Synchronous (just like stack reconciler)
-- Task        (next tick)
+- Task        (next tick: keyboard)
 - Animation   (before next frame)
 - High        (pretty soon)
-- Low         (delays are ok)
+- Low         (delays are ok: API responses)
 - Offscreen   (prep for display/scroll, not being rendered)
 
 /////
@@ -1001,7 +1017,7 @@ NOTES:
 ### (aka "Isomorphic React")
 
 NOTES:
-- Now we're halfway through the love-fest about React 😀
+- Now we're halfway...
 - Let's talk about the 6th reason: server-side rendering or "Isomorphic React"
 - "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
 
@@ -1189,9 +1205,9 @@ NOTES:
 
 /////
 
-## [Isomorphic React sans Node??](http://www.benmvp.com/slides/2017/forwardjs/react-exposed.html)
+## [Isomorphic React sans Node??](http://www.benmvp.com/slides/2017/render/iso-react.html)
 
-<iframe width="1333" height="750" src="https://www.youtube.com/embed/cAYMqBU7Qko" frameborder="0" allowfullscreen></iframe>
+<iframe width="1333" height="750" src="https://www.youtube.com/embed/zxtcr8Zuvfs" frameborder="0" allowfullscreen></iframe>
 
 ### Render Conf 2017
 
@@ -1471,11 +1487,11 @@ NOTES:
 
 =====
 
-# 9. Unopionated
+# 9. Unopinionated
 
 NOTES:
 - Honestly this 9th reason can be seen as a pro or con depending on how you look at it
-- React is pretty unopinonated on how your apps should be built
+- React is pretty unopinionated on how your apps should be built
 
 /////
 
@@ -1610,11 +1626,7 @@ NOTES:
 NOTES:
 - After presenting our compelling argument we got the greenlight to start React transition
 - Started building up stack and Design team came to us w/ opportunity also update visual design
-- Began building out design system I showed earlier
-- First consumer was team building ambitious new event creation experience
-- Existing experience pre-dates Backbone and mostly written in jQuery soup; complete rewrite
-- Over time built up EDS and more teams began creating app
-- No plan to stop and convert everything over; opportunistic rewrites
+- Began building out a design system
 
 /////
 
@@ -1645,6 +1657,10 @@ NOTES:
 
 NOTES:
 - Eventbrite is not one single app, but made up multiple smaller apps
+- First consumer was team building ambitious new event creation experience
+- Existing experience pre-dates Backbone and mostly written in jQuery soup; complete rewrite
+- Over time built up EDS and more teams began creating apps
+- No plan to stop and convert everything over; opportunistic rewrites
 - We have a number of React apps out there now
 - Checkout widget takes you to speednashviledating.com FYI
 - Event Management Navigation was an example where we mixed React & Backbone
@@ -1687,6 +1703,7 @@ NOTES:
 - We're hiring!
 - Also thank YOU for attending and sticking around!
 - My goal is for you to learn at least one thing you can take away to be a better dev
+- Hopefully if you are in the same boat of wanting to transition, you've got some good material
 - Slides are available on Twitter and Blog
 - Would love to hear from you about things that were unclear, wanna know more about or general questions
 - Ask on Twitter, via AMA or email
