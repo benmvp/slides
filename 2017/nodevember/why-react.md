@@ -127,6 +127,9 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
+- I'm a Principal Frontend Engineer on our Frontend Platform team
+- We don't work on end-user features, but building the frontend platform that other devs build on top of
+- Two main objects: frontend infrastructure & component library
 
 /////
 
@@ -174,34 +177,6 @@ NOTES:
 
 /////
 
-```js
-class Incrementer extends React.Component {
-  state = {value: 0}
-
-  _handleClick = () => {
-    this.setState((prevState) => ({value: prevState.value + 1}))
-  }
-  render() {
-    return (
-      <div>
-        <span className="val">{this.state.value}</span>
-        <button onClick={this._handleClick}>+</button>
-      </div>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Here's a rather simple component
-- All it does is increment the value every time you click the button
-- Want to zero on the `render()` method which is returning this HTML-link syntax in JavaScript
-- Many people didn't like the syntax at first
-- But I find it very approachable
-
-/////
-
 ## JSX
 
 ```js
@@ -213,8 +188,11 @@ NOTES:
 <!-- .element: class="large" -->
 
 NOTES:
-- Here it is close up
+- Here is some JSX
 - Got a `<div>` wrapping a `<span>` display and a `<button>`
+- Looks much like HTML, but the curly braces for inserting data gives it away
+- Many people didn't like the syntax at first
+- But I find it very approachable
 - What you may not realize is that this JSX gets converted into JavaScript
 
 
@@ -263,12 +241,34 @@ class Incrementer extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
+- Here's the JSX in the context of a full component
+- We'll go into the details of what the component does in following sections
 - With React, a component contains...
   * Markup (`render()`)
   - Data (`this.props` & `this.state`)
   - Logic (`_handleClick`)
 - You can also include styling too, but not trying to start a flamewar over css-in-js right now
 - So everything is collocated, which is very different than traditional MVC like Backbone
+
+/////
+
+## Traditional MVC equivalent
+
+Handlebars template
+```
+<div>
+  <span class="val">{{value}}</span>
+  <button class="js-btn">+</button>
+</div>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- This is the traditional MVC equivalent in Backbone
+- You have a separate file for model & view (logic) as well as the template (markup)
+- A non-JS expert could come in and make changes in a familiar env
+- We used `js-*` prefix in our templates to safely reference them in views
+- But the templating languages were intended to be _just_ markup, so limited logic...
 
 /////
 
@@ -297,34 +297,12 @@ var IncrementerView = Backbone.View.extend({
 ```
 
 NOTES:
-- This is the traditional MVC equivalent in Backbone
-- You have a separate file for model & view (logic) as well as the template (markup)
 - Here's the logic
 - The idea is that we wanted to have a "separation of concerns"
 - But it didn't happen in practice; especially as things got complex
-- We used `js-*` prefix in our templates to safely reference them in views
 - If the template changed, you needed to change the view
 - If the model changed, you needed to change the template, and so on
 - As things got complicated, hard to know the effects changing one would have on the other
-- BTW - we're re-rendering everytime the model changes for simplicity, but bad perf
-
-/////
-
-## Traditional MVC equivalent
-
-Handlebars template
-```
-<div>
-  <span class="val">{{value}}</span>
-  <button class="js-btn">+</button>
-</div>
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Here's the template; it's simple enough
-- A non-JS expert could come in and make changes in a familiar env
-- But the templating languages were intended to be _just_ markup, so limited logic...
 
 /////
 
@@ -384,9 +362,28 @@ class Selector extends React.Component {
 
 NOTES:
 - But with React, since our markup is in JavaScript
+- It's a little... different; not intuitive
+- Before w/ templates, markup was primary and sprinkled in a little logic
+- But React is reverse: logic is primary and sprinkle in some markup
 - We have the full use of JavaScript at our dispoable to build up the JSX to return
 - We also have linting, editor auto-complete, and more around JavaScript the language
-- There's no need, IMO, to invent a new language for logic
+
+/////
+
+[![Dan Abramov's tweet about no special JSX API for loops/conditionals](../../img/why-react/dan-abramov-jsx-tweet.png)](https://twitter.com/dan_abramov/status/929136989085093890)
+
+(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx))
+
+NOTES:
+- Dan tweeted this in response to a request to add conditionals and loops into JSX
+- I ❤️ JavaScript so the more I can do in JS the better
+- I'm glad that I don't have to learn a new API to do conditionals/loops in JS
+- Because it's JS, I can do whatever JS can do
+- But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
+- Before if you were solid at HTML/CSS, you could throw in some jQuery do really well
+- Looping and conditionals in JSX is not intuitive
+- That's a StackOveflow question about loops that has > 300k views and 520 upvote!
+- Now it's JS or bust, which takes some getting used to
 
 /////
 
@@ -415,7 +412,7 @@ labelNode.htmlFor = inputId
 <!-- .element: class="large" -->
 
 NOTES:
-- One con or gotcha, is that although JSX looks like HTML, it's not
+- One gotcha, is that although JSX looks like HTML, it's not
 - It's the `className` & `htmlFor` prop which make it **really** clear that this isn't HTML
 - React chose to mirror the JS DOM API for its props which are all camelCase
 - And that's why its `className` & `htmlFor` instead of the HTML `class` & `for`
@@ -540,23 +537,6 @@ NOTES:
 - The 3rd reason was React being exclusively JavaScript based
 - I have the asterisk there because obviously we're building web apps so CSS is obviously involved
 - But I'm conveniently ignoring that for now 😀
-
-/////
-
-[![Dan Abramov's tweet about no special JSX API for loops/conditionals](../../img/why-react/dan-abramov-jsx-tweet.png)](https://twitter.com/dan_abramov/status/929136989085093890)
-
-(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx))
-
-NOTES:
-- Dan tweeted this in response to a request to add conditionals and loops into JSX
-- I ❤️ JavaScript so the more I can do in JS the better
-- I'm glad that I don't have to learn a new API to do conditionals/loops in JS
-- Because it's JS, I can do whatever JS can do
-- But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
-- Before if you were solid at HTML/CSS, you could throw in some jQuery do really well
-- Looping and conditionals in JSX is not intuitive
-- That's a StackOveflow question about loops that has > 300k views and 520 upvote!
-- Now it's JS or bust, which takes some getting used to
 
 /////
 
@@ -1023,23 +1003,6 @@ NOTES:
 
 /////
 
-## "Isomorphic" vs. "Universal"
-
-![Definition of isomorphic](../../img/react-sans-node/isomorphic-definition.png)
-<!-- .element: style="width: 65%;" -->
-
-![Definition of universal](../../img/react-sans-node/universal-definition.png)
-<!-- .element: style="width: 65%;" -->
-
-NOTES:
-- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
-- _Universal_ basically means that it works everywhere
-- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
-- But I actually still prefer "Isomorphic React" because it sounds cooler
-- I feel like I sound smarter saying it
-
-/////
-
 ## Isomorphic React
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
@@ -1099,7 +1062,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-const props = window.__SERVER_DATA__ || {};
+const props = window.__SERVER_DATA__ || {}
 
 ReactDOM.render(
   <App {..props} />, 
@@ -1540,6 +1503,28 @@ NOTES:
 
 /////
 
+## Eventbrite Stack
+
+- React 15
+- Babel 6 (`env` + `stage-3`)
+- Webpack 3 + `sass-loader`
+- Redux & Redux Thunk
+- React Router 4
+- Jest 21 + Enzyme 3 + `jest-enzyme`
+- Eventbrite Design System
+- Node 4
+- Yarn 0.27
+
+NOTES:
+- Here's our stack at Eventbrite in case you're curious...
+- React 15.4.2 - hopefully upgrading soon
+- Babel: Stage 4 is truly safest, but stage 3 has goodies and unlikely to change
+- Finished huge migration from requirejs to Webpack 3 
+- Enzyme: Had to upgrade cuz of intermittent failures
+- Node: Upgrading to Node 8 right now
+
+/////
+
 ## [Navigating the React Solar System](http://www.benmvp.com/slides/2017/modernweb/nav-react.html)
 
 <iframe width="1333" height="750" src="https://www.youtube.com/embed/-6gfOJwwXvs" frameborder="0" allowfullscreen></iframe>
@@ -1593,6 +1578,7 @@ NOTES:
 - **Codemods**: enable switching code when features are deprecated
 - **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition (what we're doing)
 - This list was lifted from a tweet from Cory, so thanks!
+- He's got a new Pluralsight course called _React: The Big Pciture_
 
 =====
 
@@ -1602,7 +1588,7 @@ NOTES:
 1. Component-driven
 1. All JavaScript*
 1. State-driven
-1. Sophisticated reconciler
+1. Sophisticated reconciler    <!-- .element: class="fragment highlight-red" --> 
 1. Server-side rendering
 1. Testing
 1. React Native
@@ -1618,6 +1604,7 @@ NOTES:
 - But also enables the reconciler, server-side rendering, testing & dozens of other renders
 - It's state-driven instead of event-driven and we can use lots of ES.next in our apps
 - And much more!
+- My favorite one is the sophisticated reconciler!
 
 =====
 
@@ -1677,10 +1664,12 @@ NOTES:
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
 - [React/Redux Links](https://github.com/markerikson/react-redux-links)
+- [React: The Big Picture](https://www.pluralsight.com/courses/react-big-picture)
 
 
 NOTES:
 - Mark (w/ help) has collection a bazillion links to resources covering React, Redux, ES6 and more!
+- Cory has a new Pluralsight course called _React: The Big Picture_
 
 =====
 
