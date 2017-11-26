@@ -71,6 +71,7 @@ NOTES:
 - And if not this can be an example of how to explain to others besides "it's awesome"
 - Heads up!
 - I've had the opportunity now to speak about a variety of different React topics over the last year
+- Covering a lot of topics at a high-level; videos go into detail
 - Throughout the talk I'll be giving shameless plugs to those talks
 - Forewarning you now, so you can get all of your eye rolls out early
 
@@ -79,19 +80,13 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
 
 # Stand Up!
+
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
 
 NOTES:
 - But first, would like everyone to stand up!
 - Let's do some wall sits
-- Let's roll our shoulders
-- Let's stretch our arms
 - Now turn to your neighbors, introduce yourself & say hi
-- You don't realize it, but I just tricked you
-- Now you can't say that you didn't get anything out of my talk
-- You at least got two things:
-- Exercise & and met some people you didn't know
-- But hopefully you'll get more out of the talk!
 
 /////
 
@@ -120,7 +115,6 @@ NOTES:
 </div>
 
 NOTES:
-
 /////
 
 ![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
@@ -128,14 +122,14 @@ NOTES:
 
 NOTES:
 - I'm a Principal Frontend Engineer on our Frontend Platform team
-- We don't work on end-user features, but building the frontend platform that other devs build on top of
+- We don't work on end-user features, but building the frontend platform that other devs build on
+  top of
 - Two main objects: frontend infrastructure & component library
 
 /////
 
 ![NBA Go CLI](../../img/giphy/nba-go-cli.gif)
 <!-- .element: style="width: 75%" -->
-
 
 [xxhomey19/nba-go](https://github.com/xxhomey19/nba-go)
 
@@ -162,11 +156,24 @@ NOTES:
 - And I've come to realize that software development isn't just the code you commit
 - There's an equally important human element to it
 - Whenever doing something buy-in is just as important as the technical approach
-- When difficulties arise, it can be the difference between folks complaining or rallying to find a solution, is buy-in
-- We had actually tried React a couple of times, ran into issues, and people concluded "React is no good"
-- So this time, in early 2016, I put together a loooong document to explain why our Frontend Platform team thought we should make the switch
+- When difficulties arise, it can be the difference between folks complaining or rallying to find a
+  solution, is buy-in
+- We had actually tried React a couple of times, ran into issues, and people concluded "React is no
+  good"
+- So this time, in early 2016, I put together a loooong document to explain why our Frontend
+  Platform team thought we should make the switch
 - And as I said "cuz everybody is using it!" wasn't a good enough reason 😉
 - The rest of the talk is a talk-friendly distillation of that doc
+
+=====
+
+# Core Motivations
+
+NOTES:
+- Split this up into 2 main sections:
+- Core Motivations & Additional Motivations
+- Core ones will apply to everyone transitioning to React
+- Part of the core React lib
 
 =====
 
@@ -195,18 +202,17 @@ NOTES:
 - But I find it very approachable
 - What you may not realize is that this JSX gets converted into JavaScript
 
-
 /////
 
 ## Transpiled JSX
 
 ```js
 React.createElement(
-  "div",
+  'div',
   null,
-  React.createElement("span", {className: "val"}, value),
-  React.createElement("button", {onClick: this._handleClick}, "+")
-);
+  React.createElement('span', {className: 'val'}, value),
+  React.createElement('button', {onClick: this._handleClick}, '+'),
+)
 ```
 <!-- .element: class="large" -->
 
@@ -244,7 +250,7 @@ NOTES:
 - Here's the JSX in the context of a full component
 - We'll go into the details of what the component does in following sections
 - With React, a component contains...
-  * Markup (`render()`)
+  - Markup (`render()`)
   - Data (`this.props` & `this.state`)
   - Logic (`_handleClick`)
 - You can also include styling too, but not trying to start a flamewar over css-in-js right now
@@ -255,6 +261,7 @@ NOTES:
 ## Traditional MVC equivalent
 
 Handlebars template
+
 ```
 <div>
   <span class="val">{{value}}</span>
@@ -262,6 +269,8 @@ Handlebars template
 </div>
 ```
 <!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 80px; top: 333px"></div>
 
 NOTES:
 - This is the traditional MVC equivalent in Backbone
@@ -275,6 +284,7 @@ NOTES:
 ## Traditional MVC equivalent
 
 Backbone Model & View
+
 ```
 var IncrementerModel = Backbone.Model.extend({
   defaults: {value: 0}
@@ -291,10 +301,12 @@ var IncrementerView = Backbone.View.extend({
     this.model.set({value: this.model.get('value') + 1})
   },
   render: function() {
-    this.$el.html(this.template(this.mode.attributes))
+    this.$el.html(this.template(this.model.attributes))
   }
 })
 ```
+
+<div class="code-highlight" style="height: 183px; top: 397px"></div>
 
 NOTES:
 - Here's the logic
@@ -372,7 +384,7 @@ NOTES:
 
 [![Dan Abramov's tweet about no special JSX API for loops/conditionals](../../img/why-react/dan-abramov-jsx-tweet.png)](https://twitter.com/dan_abramov/status/929136989085093890)
 
-(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx))
+(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx) 😞)
 
 NOTES:
 - Dan tweeted this in response to a request to add conditionals and loops into JSX
@@ -400,6 +412,7 @@ class Label extends React.Component {
   }
 }
 ```
+
 <!-- .element: class="large" style="margin-bottom: 1em" -->
 
 React JSX props mirror HTML DOM properties!
@@ -407,7 +420,7 @@ React JSX props mirror HTML DOM properties!
 ```
 let labelNode = document.getElementById('label')
 labelNode.className = 'is-hidden'
-labelNode.htmlFor = inputId
+labelNode.htmlFor = this.props.inputId
 ```
 <!-- .element: class="large" -->
 
@@ -468,7 +481,8 @@ NOTES:
 - Everything is a component!
 - And you build bigger components by combining smaller components w/ markup
 - Here we have a FormField component made up of `Label` & `TextInput` components
-- It defines 4 `props` (`name`, `label`, `value` & `onChange`), which are how the component is configured
+- It defines 4 `props` (`name`, `label`, `value` & `onChange`), which are how the component is
+  configured
 - It lays out the `Label` & `TextInput` and then passes along those props as configuration
 
 /////
@@ -522,16 +536,16 @@ NOTES:
 - All the modern libraries/frameworks are component-driven in their own way
 - But not Backbone; you simply could not nest Backbone views
 - Began to use Marionette; an architecture layer on top of Backbone to help w/ more complex UIs
-- The version we were using had Layouts, which could contain Views, which could _be_ layouts so nesting was possible
+- The version we were using had Layouts, which could contain Views, which could _be_ layouts so
+  nesting was possible
 - But it was not nearly as effortless as what I just showed w/ React
 - Configuring the nested views wasn't simple either
+- Way too much code to try to put on a slide
 - It's the difference between components being the core vs. being an add-on
-- Also, we were stuck on the latest v1 version that came out mid-2014; think about how JS has changed since then
-- Marionette is still in active development: version 3
 
 =====
 
-# 3. All JavaScript*
+# 3. All JavaScript\*
 
 NOTES:
 - The 3rd reason was React being exclusively JavaScript based
@@ -539,8 +553,6 @@ NOTES:
 - But I'm conveniently ignoring that for now 😀
 
 /////
-
-## React + ES.next = ❤️
 
 ```
 class Section extends React.Component {
@@ -551,8 +563,9 @@ class Section extends React.Component {
     if (headingText) {
       headingElem = (<h1>{headingText}</h1>)
     }
+
     return (
-      <section className="section-correct">
+      <section className="section">
         {headingElem}
         <p>{this.props.children}</p>
       </section>
@@ -562,8 +575,11 @@ class Section extends React.Component {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight" style="height: 80px; top: 43px"></div>
+
 NOTES:
-- The nice thing about React, the JS UI lib, tying itself to JS instead of its own API is that as JS evolves it auto-evolves
+- The nice thing about React, the JS UI lib, tying itself to JS instead of its own API is that as JS
+  evolves it auto-evolves
 - You probably already noticed that we were using `class` keyword to create our React components
 - That's ES6 and it's become standard with React
 - This `Section` component _[describe what it does]_
@@ -582,7 +598,7 @@ const Section = ({headingText, children}) => {
   }
 
   return (
-    <section className="section-correct">
+    <section className="section">
       {headingElem}
       <p>{children}</p>
     </section>
@@ -591,16 +607,18 @@ const Section = ({headingText, children}) => {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight" style="height: 80px; top: 133px"></div>
+
 NOTES:
 - ...rewrite it using the latest JavaScript
 - React components can be written as functions of their props
 - Here we're using an arrow function instead of a standard function
 - And we're immediately destructuring the props into `headerText` & `children`
-- There's plenty more we can do too
+- There's plenty more we can do too with new JS features
 
 /////
 
-## Gotta have a build system
+## Gotta have a (modern) build system
 
 <div style="display:flex;align-items:flex-end;justify-content:space-around;margin: 2em 0">
 	<div style="flex:0 0 22%;">
@@ -633,15 +651,18 @@ NOTES:
   </div>
 </div>
 
-Fun features like [tree-shaking](https://webpack.js.org/guides/tree-shaking/) & [code splitting](https://webpack.js.org/guides/code-splitting/)!
+Enable fun features like [tree-shaking](https://webpack.js.org/guides/tree-shaking/) &
+[code splitting](https://webpack.js.org/guides/code-splitting/)!
 
 NOTES:
 - But all this goodness comes at a cost
-- We basically are forced to have a build system
+- We basically are forced to have a modern build system that we must configure
 - And that's where some combo of Babel, Webpack, TypeScript, Rollup, etc. come in
+- Just wrapping up a transition from requirejs to Webpack 3
 - Chances are for production apps you already had _some_ sort of build system
 - Compile SASS -> CSS, minify & bundle JS, CoffeeScript, etc
-- But paying the upfront cost of the build system enables cool features: tree-shaking & code splitting
+- But paying the upfront cost of the build system enables cool features: tree-shaking & code
+  splitting
 
 /////
 
@@ -658,6 +679,7 @@ $> cd awesome-app
 
 $> yarn start
 ```
+
 <!-- .element: class="large" style="margin:5% 0" -->
 
 Babel, Webpack 3, ESLint, and more!
@@ -709,10 +731,10 @@ NOTES:
 ```js
 $('.btnUp').click(function() {
   var $val = $('.val'),
-      currentValue = parseInt($val.html(), 10);
+      currentValue = parseInt($val.html(), 10)
 
-  $val.html(currentValue + 1);
-});
+  $val.html(currentValue + 1)
+})
 ```
 <!-- .element: class="large" -->
 
@@ -727,8 +749,10 @@ NOTES:
 - Click a button and update `<span>`
 - The driver is the event
 - The only way to get the app so that it displays 10 is to click the button 10 times
-- If you were using Backbone you may have a model that you update as well, but it's basically same flow
-- This is _really_ easy to follow (imperative), but as app grows in complexity, code turns into hot spaghetti
+- If you were using Backbone you may have a model that you update as well, but it's basically same
+  flow
+- This is _really_ easy to follow (imperative), but as app grows in complexity, code turns into hot
+  spaghetti
 
 /////
 
@@ -753,7 +777,14 @@ class Incrementer extends React.Component {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 197px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 650px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 704px"></div>
+<div class="code-highlight fragment current-visible" style="height: 190px; top: 313px"></div>
+
 NOTES:
+_click through code highlights_
+
 - Contrast this with the React code
 - Used ES.next to keep my example as concise as possible
 - Explanation of code...
@@ -767,29 +798,31 @@ NOTES:
 
 /////
 
-## State-driven React
-
-Dev work in React can be boiled down to 2 main areas...
-<!-- .element: style="margin: 2em 0" -->
+## React dev work can be boiled down to...
 
 1. `render()` based on `props` & `state`
-1. `onEvent` → transform data to generate new `state`
+1. `onEvent` transform data → `setState()`
 1. Profit 🎉
+
+<!-- .element: style="font-size: 1.5em; margin-top: 1.5em" -->
 
 NOTES:
 - So basically we do work in two main areas:
-- 1) Define what we're going to `render()` based on `props` & `state`
+- 1. Define what we're going to `render()` based on `props` & `state`
 - Can have conditional logic, loops, other sophisticated logic to determine what to render
-- 2) When events happen, do stuff to transform data to generate new `state` (and `render` again)
-- Where algorithms become really useful to transform data efficiently
+- Need to be able to build layouts with HTML & CSS
+- 2. When events happen, do stuff to transform data to generate new `state` (and `render` again)
 - Can also do async transformation by making API calls
+- Where algorithms become really useful to transform data efficiently
+- And the loop continues
 
 /////
 
 [![Dan Abramov's tweet about how React code remains understandable as app gets more complex](../../img/why-react/dan-abramov-reactive-tweet.png)](https://twitter.com/dan_abramov/status/930380316463726593)
 
 NOTES:
-- When folks look at simple examples of "reactivity" in React, they find it to be too verbose; and it is
+- When folks look at simple examples of "reactivity" in React, they find it to be too verbose; and
+  it is
 - But with React trades conciseness for predictability
 - So you end up spending more time explicitly wiring things up together
 - Buuuut... structure of your code can more or less stay the same as complexity grows
@@ -832,6 +865,8 @@ class Incrementer extends React.Component {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight" style="height: 240px; top: 595px"></div>
+
 NOTES:
 - Let's take our example from before...
 - When we call `setState` React calls `render()` w/ updated state
@@ -839,7 +874,8 @@ NOTES:
 - When we know all we _really_ are updating is _just_ the `innerHTML` of `<span>`
 - `render()` is **not** updating DOM, but building up element hierarchy
 - Basically a _new_ virtual representation of the DOM
-- The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only updates changes
+- The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only
+  updates changes
 - So we don't have to do the hard work of figuring out how to make the "micro updates"
 - We can just write our code the easy way: like it re-renders everything
 - And React does the hard work of figuring out micro updates
@@ -861,13 +897,20 @@ var IncrementerView = Backbone.View.extend({
     this.model.set({value: this.model.get('value') + 1})
   },
   render: function() {
-    this.$el.html(this.template(this.mode.attributes))
+    this.$el.html(this.template(this.model.attributes))
   }
 })
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight fragment current-visible" style="height: 180px; top: 262px"></div>
+<div class="code-highlight fragment current-visible" style="height: 180px; top: 600px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 485px"></div>
+<div class="code-highlight fragment current-visible" style="height: 180px; top: 775px"></div>
+
 NOTES:
+_click through code highlights_
+
 - Here again is the equivalent Backbone code written to be "reactive"
 - Probably not how it would normally be written; hard not to after knowing React
 - It's really simple; `increment()` updates model & `model` calls `render()`
@@ -889,24 +932,27 @@ var IncrementerView = Backbone.View.extend({
     $('.val').html(this.model.get('value'))
   },
   render: function() {
-    this.$el.html(this.template(this.mode.attributes))
+    this.$el.html(this.template(this.model.attributes))
   }
 })
 ```
 <!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 70px; top: 542px"></div>
 
 NOTES:
 - Instead of listening to model changes and re-rendering
 - We _should_ just update the `innerHTML` of the `<span>` ourselves after updating the model
 - Full `render` would only be for the initial render
 - This is fine for this simple case; very easy to follow
-- Nightmare when there are lots of events
+- Nightmare when there are lots of events & states
 - Confession: when I _have_ to go back to Backbone I just do it the easy way!
 - If you see some UI flashing on Eventbrite, I may be to blame 😂
 
 /////
 
 ## New Fiber Reconciler
+
 <!-- .element: style="margin-bottom: 1em" -->
 
 - Rewrite of reconciler
@@ -916,7 +962,8 @@ NOTES:
 - In recent major React version (v16)
 
 NOTES:
-- React recently released React 16, which included a complete rewrite of the reconciler now codenamed Fiber
+- React recently released React 16, which included a complete rewrite of the reconciler now
+  codenamed Fiber
 - The Fiber reconciler can prioritize UI updates, which means that the UI can render asynchronously
 - As a result we get greater perceived performance because the higher priority updates happen first
 - And this is all happening in React 16 - the next major version
@@ -927,12 +974,14 @@ NOTES:
 
 <br />
 
-- Synchronous
-- Task
-- Animation
-- High
-- Low
-- Offscreen
+<ul class="bordered-list" style="width: 33.33%">
+  <li>Synchronous</li>
+  <li>Task</li>
+  <li>Animation</li>
+  <li>High</li>
+  <li>Low</li>
+  <li>Offscreen</li>
+</ul>
 
 NOTES:
 - With the Fiber reconciler you'll be able to distinguish between different types of updates
@@ -964,7 +1013,8 @@ ReactDOM.unstable_deferredUpdates(() => {
 ```
 <!-- .element: class="large" -->
 
-Source: [`react-fiber-resources`](https://github.com/koba04/react-fiber-resources#try-react-fiber-with-asynchronous-scheduling)
+Source:
+[`react-fiber-resources`](https://github.com/koba04/react-fiber-resources#try-react-fiber-with-asynchronous-scheduling)
 
 NOTES:
 - Async scheduling is turned off in React 16
@@ -992,6 +1042,15 @@ NOTES:
 
 =====
 
+# Additional Motivations
+
+NOTES:
+- So those were the Core Motivations
+- The ones that are a part of the core React library
+- Now let's jump into some additional motivations
+
+=====
+
 # 6. Server-side rendering
 
 ### (aka "Isomorphic React")
@@ -999,7 +1058,8 @@ NOTES:
 NOTES:
 - Now we're halfway...
 - Let's talk about the 6th reason: server-side rendering or "Isomorphic React"
-- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
+- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered
+  client-side on initial server render
 
 /////
 
@@ -1008,9 +1068,9 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <img src="../../img/react/react-logo.png" style="background:none;box-shadow:none;border:none"/>
     <div>
-		<h2>Performance</h2>
-        <h2>SEO</h2>
-        <h2>Open Graph</h2>
+		  <h2>Performance</h2>
+      <h2>SEO</h2>
+      <h2>Open Graph</h2>
     </div>
 </div>
 
@@ -1064,16 +1124,23 @@ import App from './App'
 
 const props = window.__SERVER_DATA__ || {}
 
-ReactDOM.render(
-  <App {..props} />, 
+ReactDOM.hyrdate(
+  <App {..props} />,
   document.getElementById('root')
 )
 ```
 <!-- .element: class="large" -->
 
+`ReactDOM.hydrate` is new in React 16
+
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 201px"></div>
+<div class="code-highlight fragment current-visible" style="height: 240px; top: 487px"></div>
+
 NOTES:
+_click through code highlights_
+
 - That typically happens in the entry point of your app
-- You'll import from `react-dom` and use it's `render()` function
+- You'll import from `react-dom` and use it's `hydrate()` function
 - Inserts your app into the DOM location
 - And then when your app updates it produces a new component hierarchy
 - `react-dom` is what takes that difference and applies it to the DOM
@@ -1096,11 +1163,15 @@ const props = {
 let markup = ReactDOMServer.renderToString(<App {...props} />)
 
 // return `markup` in HTML response
+// assign `props` to `window.__SERVER_DATA__` in HTML response
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight" style="height: 70px; top: 711px"></div>
+
 NOTES:
-- I bring up that distinction because that separation between building your UI and rendering to DOM...
+- I bring up that distinction because that separation between building your UI and rendering to
+  DOM...
 - Allows for us to render the _exact same_ UI server-side to a string!
 - This is such a huge feature!
 - Before this, all UI libraries just assumed the DOM and you were manipulating DOM elements
@@ -1111,7 +1182,7 @@ NOTES:
 ## Run your Node server in production mode!
 
 ![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart-updated.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 65%" -->
+<!-- .element: style="width: 65%" -->
 
 [github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
 
@@ -1161,7 +1232,8 @@ NOTES:
 NOTES:
 - At Eventbrite our backend is in Python/Django
 - Currently solved the “dual rendering issue” using a lib called Pybars
-- Our JS templates are written in Handlebars & Pybars converts the Handlebars into Python functions that return a string
+- Our JS templates are written in Handlebars & Pybars converts the Handlebars into Python functions
+  that return a string
 - It's like what happens in the original JS
 - Except it's super-duper slow because it was poorly written
 - Tried to speed it up, but it was still like 10x slower than rendering in Django/Mako templates
@@ -1187,11 +1259,14 @@ NOTES:
 # 7. Testing
 
 NOTES:
-- The same component-based architecture that makes server-side rendering easy, also makes testing React easy
+- The same component-based architecture that makes server-side rendering easy, also makes testing
+  React easy
 - Like any good UI lib/framework you wanna separate data logic from the UI
-- The logic that help update state: utility functions, API, etc
-- Vanilla Backbone was good at this; the Model architecture created a separation that was easily testable
-- But when it came to testing UI logic: this markup should display based on a condition or a user action should call a handler
+- The logic that helps update state: utility functions, API, etc
+- Vanilla Backbone was good at this; the Model architecture created a separation that was easily
+  testable
+- But when it came to testing UI logic: this markup should display based on a condition or a user
+  action should call a handler
 - Backbone like all the DOM-based UI libraries was bad
 - Pretty much have to run tests in a browser or headless browser which brings a host of issues
 - So the 7th reason for transition is about making testing life far simpler
@@ -1221,10 +1296,14 @@ class Incrementer extends React.Component {
 }
 ```
 
+<div class="code-highlight" style="height: 60px; top: 353px"></div>
+
 ```
 <Incrementer onIncrement={this._handleIncrement} />
 ```
 <!-- .element: class="large" -->
+
+
 
 NOTES:
 - Again we have ol' faithful the `Incrementer` component
@@ -1249,7 +1328,8 @@ it('renders a `.val`', () => {
 ```
 <!-- .element: class="large" -->
 
-[Jest](https://facebook.github.io/jest/) + [Enzyme](http://airbnb.io/enzyme/) + [`jest-enzyme`](https://yarnpkg.com/en/package/jest-enzyme) = 😍
+[Jest](https://facebook.github.io/jest/) + [Enzyme](http://airbnb.io/enzyme/) +
+[`jest-enzyme`](https://yarnpkg.com/en/package/jest-enzyme) = 😍
 
 NOTES:
 - We can test incrementer using Jest & Enzyme
@@ -1265,7 +1345,7 @@ NOTES:
 ## Testing callbacks
 
 ```js
-import {shallow} from 'enzyme';
+import {shallow} from 'enzyme'
 
 it('calls `onIncrement` prop with current value', () => {
   let onIncrement = jest.fn()
@@ -1303,7 +1383,8 @@ NOTES:
 
 NOTES:
 - I haven't given a talk on React testing, although maybe I should
-- But Rogelio (Jest core team) gave a talk at React Conf earlier this year called _Jest Snapshots and Beyond_
+- But Rogelio (Jest core team) gave a talk at React Conf earlier this year called _Jest Snapshots
+  and Beyond_
 - And he talks about another fun way to test React components with "snapshots"
 
 =====
@@ -1326,7 +1407,8 @@ NOTES:
 
 NOTES:
 - One of the benefits React mentions on its home page is that you can "Learn Once, Write Anywhere"
-- Basically saying that once you learn React and its paradigms, you can build apps for any environment
+- Basically saying that once you learn React and its paradigms, you can build apps for any
+  environment
 
 /////
 
@@ -1350,6 +1432,9 @@ class Incrementer extends React.Component {
 }
 ```
 <!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 240px; top: 603px"></div>
+
 
 NOTES:
 - Let's bring back our good friend the `Incrementer` component one more time
@@ -1380,8 +1465,13 @@ class Incrementer extends React.Component {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight" style="height: 70px; top: 143px"></div>
+<div class="code-highlight" style="height: 240px; top: 603px"></div>
+
+
 NOTES:
-- If replaced `<div>`, `<span>` & `<button>` w/ `View`, `Text` & `TouchableOpacity` components from `react-native`
+- If replaced `<div>`, `<span>` & `<button>` w/ `View`, `Text` & `TouchableOpacity` components from
+  `react-native`
 - You've got the makings a native app!
 - I remember when I wen to my first React Native workshop and was blown away
 - Everything I learned building React web apps, I could leverage in React Native
@@ -1442,7 +1532,8 @@ NOTES:
 
 NOTES:
 - Also I haven't given a talk about React Native, although I have an idea for one
-- But Leland (Airbnb) gave a talk at Chain React earlier this year called _React as a Platform: A path towards a truly cross-platform UI_
+- But Leland (Airbnb) gave a talk at Chain React earlier this year called _React as a Platform: A
+  path towards a truly cross-platform UI_
 - And he talks about a path to a world where we can actually write the _same_ code for Web & Native
 - Sucky: building the same app for Web & Native would mean lots of code duplication for developer(s)
 - Need core set of components (primitives) that exist for every renderer
@@ -1460,13 +1551,55 @@ NOTES:
 
 ## Decisions decisions...
 
-- Tooling (bundlers, task runners, static analyzers)
-- Styling (global css, [css modules](https://github.com/gajus/react-css-modules), inline styles, css-in-js 🔥)
-- Testing ([jest](https://facebook.github.io/jest/), [mocha](https://mochajs.org) + [chai](https://mochajs.org))
-- State management ([`setState`](https://reactjs.org/docs/react-component.html#setstate), [redux](http://redux.js.org/), [mobx](http://mobxjs.github.io/mobx/))
-- API (REST + [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), [relay](https://facebook.github.io/relay/), [apollo](http://dev.apollodata.com/), [falcor](http://netflix.github.io/falcor/))
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin:2em 0">
+    <div>
+        <h3>Tooling</h3>
 
-<!-- .element: style="margin: 2em 0" -->
+        <ul>
+          <li>bundlers</li>
+          <li>task runners</li>
+          <li>static analyzers</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Styling</h3>
+
+        <ul>
+          <li>global css</li>
+          <li><a href="https://github.com/gajus/react-css-modules" target="_blank">css modules</a></li>
+          <li>inline styles</li>
+          <li>css-in-js 🔥</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Testing</h3>
+
+        <ul>
+          <li><a href="https://facebook.github.io/jest/" target="_blank">jest</a></li>
+          <li><a href="https://mochajs.org" target="_blank">mocha</a> + <a href="http://chaijs.com" target="_blank">chai</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3>State</h3>
+
+        <ul>
+          <li><a href="https://reactjs.org/docs/react-component.html#setstate" target="_blank"><code>setState</code></a></li>
+          <li><a href="http://redux.js.org/" target="_blank">redux</a></li>
+          <li><a href="http://mobxjs.github.io/mobx/" target="_blank">mobx</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3>API</h3>
+
+        <ul>
+          <li>REST + <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank"><code>fetch</code></a></li>
+          <li><a href="https://facebook.github.io/relay/" target="_blank">relay</a></li>
+          <li><a href="http://dev.apollodata.com/" target="_blank">apollo</a></li>
+          <li><a href="http://netflix.github.io/falcor/" target="_blank">falcor</a></li>
+        </ul>
+    </div>
+
+</div>
 
 Decision fatigue?
 
@@ -1485,7 +1618,8 @@ NOTES:
 
 - ["`setState` Gate"](https://medium.com/javascript-scene/setstate-gate-abc10a9b2d82)
 - [Inline functions debate](https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578)
-- [`redux-thunk`](https://github.com/gaearon/redux-thunk) vs [`redux-saga`](https://github.com/redux-saga/redux-saga)
+- [`redux-thunk`](https://github.com/gaearon/redux-thunk) vs
+  [`redux-saga`](https://github.com/redux-saga/redux-saga)
 - [Higher-order components vs Render props](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)
 - [Logic & JSX](https://github.com/eventbrite/javascript/tree/master/react#logic-and-jsx)
 
@@ -1511,6 +1645,7 @@ NOTES:
 - Redux & Redux Thunk
 - React Router 4
 - Jest 21 + Enzyme 3 + `jest-enzyme`
+- ESLint 3
 - Eventbrite Design System
 - Node 4
 - Yarn 0.27
@@ -1519,7 +1654,7 @@ NOTES:
 - Here's our stack at Eventbrite in case you're curious...
 - React 15.4.2 - hopefully upgrading soon
 - Babel: Stage 4 is truly safest, but stage 3 has goodies and unlikely to change
-- Finished huge migration from requirejs to Webpack 3 
+- Finished huge migration from requirejs to Webpack 3
 - Enzyme: Had to upgrade cuz of intermittent failures
 - Node: Upgrading to Node 8 right now
 
@@ -1572,11 +1707,14 @@ NOTES:
 - **Staff**: is a big reason; it's not just some folks doing it in their spare time
 - **Popular**: not a good enough reason by itself but doesn't hurt for recruiting/perception
 - **Simple API**: I rarely have to go to the docs (except for prop types)
-- **Ecosystem**: Similarly the eco-system is huge so if you need to do something probably already exists
+- **Ecosystem**: Similarly the eco-system is huge so if you need to do something probably already
+  exists
 - **Feedback**: React + webpack makes developing a sync with webpack dev server
-- **Evolving + Stable**: React continues to grow greatly (Fiber) but few breaking changes & there are long deprecations
+- **Evolving + Stable**: React continues to grow greatly (Fiber) but few breaking changes & there
+  are long deprecations
 - **Codemods**: enable switching code when features are deprecated
-- **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition (what we're doing)
+- **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition
+  (what we're doing)
 - This list was lifted from a tweet from Cory, so thanks!
 - He's got a new Pluralsight course called _React: The Big Pciture_
 
@@ -1584,16 +1722,21 @@ NOTES:
 
 ## Recap
 
-1. Declarative JSX
-1. Component-driven
-1. All JavaScript*
-1. State-driven
-1. Sophisticated reconciler    <!-- .element: class="fragment highlight-red" --> 
-1. Server-side rendering
-1. Testing
-1. React Native
-1. Unopionated
-1. ...and more!
+<ol style="margin-right: 1em">
+  <li>Declarative JSX</li>
+  <li>Component-driven</li>
+  <li>All JavaScript*</li>
+  <li>State-driven</li>
+  <li class="fragment highlight-red">Sophisticated reconciler</li>
+</ol>
+
+<ol start="6">
+  <li>Server-side rendering</li>
+  <li>Testing</li>
+  <li>React NativeX</li>
+  <li>Unopionated</li>
+  <li>...and more!</li>
+</ol>
 
 NOTES:
 - Again these are the reasons **we** made the switch to React
@@ -1608,10 +1751,14 @@ NOTES:
 
 =====
 
-# The Process
+# (Trust) The Process
 
 NOTES:
 - After presenting our compelling argument we got the greenlight to start React transition
+- Eventbrite is not one single app, but made up multiple smaller apps
+- No plan to stop and convert everything over; opportunistic rewrites
+- First consumer was team building ambitious new event creation experience
+- Existing experience pre-dates Backbone and mostly written in jQuery soup; complete rewrite
 - Started building up stack and Design team came to us w/ opportunity also update visual design
 - Began building out a design system
 
@@ -1620,7 +1767,7 @@ NOTES:
 ## Eventbrite Design System
 
 ![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="border: 0; background: none; margin: 0; width: 85%" -->
+<!-- .element: style="width: 85%" -->
 
 NOTES:
 - At Eventbrite we created our own component library
@@ -1632,10 +1779,45 @@ NOTES:
 
 ## Eventbrite + React in the wild
 
-- [Sign-in / Sign-up](http://www.eventbrite.com/signin)
-- [Checkout Widget](https://www.speednashvilledating.com/event-schedule/)
-- [Organizer Onboarding](https://www.eventbrite.com/organizer/onboarding/)
-- [City Browse](https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB)
+![Eventbrite Design System](../../img/why-react/eds-homepage.png)
+<!-- .element: style="width: 65%" -->
+
+[Sign-in / Sign-up](http://www.eventbrite.com/signin)
+
+/////
+
+## Eventbrite + React in the wild
+
+![Eventbrite Design System](../../img/why-react/eds-homepage.png)
+<!-- .element: style="width: 65%" -->
+
+[Checkout Widget](https://www.speednashvilledating.com/event-schedule/)
+
+NOTES:
+- Checkout widget takes you to speednashviledating.com FYI
+
+/////
+
+## Eventbrite + React in the wild
+
+![Eventbrite Design System](../../img/why-react/eds-homepage.png)
+<!-- .element: style="width: 65%" -->
+
+[Organizer Onboarding](https://www.eventbrite.com/organizer/onboarding/)
+
+/////
+
+## Eventbrite + React in the wild
+
+![Eventbrite Design System](../../img/why-react/eds-homepage.png)
+<!-- .element: style="width: 65%" -->
+
+[City Browse](https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB)
+
+/////
+
+## Eventbrite + React in the wild
+
 - [Trending Searches](https://www.eventbrite.com/trending/searches/tn--nashville/daily/)
 - Event Creation (Beta)
 - Event Management Navigation
@@ -1643,13 +1825,6 @@ NOTES:
 - Admin Tools
 
 NOTES:
-- Eventbrite is not one single app, but made up multiple smaller apps
-- First consumer was team building ambitious new event creation experience
-- Existing experience pre-dates Backbone and mostly written in jQuery soup; complete rewrite
-- Over time built up EDS and more teams began creating apps
-- No plan to stop and convert everything over; opportunistic rewrites
-- We have a number of React apps out there now
-- Checkout widget takes you to speednashviledating.com FYI
 - Event Management Navigation was an example where we mixed React & Backbone
 - Dozens of management pages that share the same nav, so redid the nav in React
 - So that when pages got rewritten or added, the IA would seem consistent
