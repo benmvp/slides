@@ -1859,8 +1859,9 @@ NOTES:
 
 ## Eventbrite Design System
 
-![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="width: 85%" -->
+<video data-autoplay loop style="width: 80%">
+  <source data-src="../../img/why-react/eventbrite-design-system.m4v" />
+</video>
 
 NOTES:
 - At Eventbrite we created our own component library
@@ -1870,42 +1871,47 @@ NOTES:
 
 /////
 
-## Eventbrite + React in the wild
+## [Sign-in / Sign-up](http://www.eventbrite.com/signin)
 
-![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="width: 65%" -->
-
-[Sign-in / Sign-up](http://www.eventbrite.com/signin)
+<a href="http://www.eventbrite.com/signin">
+  <video data-autoplay loop style="width: 80%">
+    <source data-src="../../img/why-react/eventbrite-sign-up-flow.m4v" />
+  </video>
+</a>
 
 /////
 
-## Eventbrite + React in the wild
+## [Checkout Widget](https://www.speednashvilledating.com/event-schedule/)
 
-![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="width: 65%" -->
+<a href="https://www.speednashvilledating.com/event-schedule/">
+  <video data-autoplay loop style="width: 80%">
+    <source data-src="../../img/why-react/eventbrite-checkout-widget.m4v" />
+  </video>
+</a>
 
-[Checkout Widget](https://www.speednashvilledating.com/event-schedule/)
 
 NOTES:
 - Checkout widget takes you to speednashviledating.com FYI
 
 /////
 
-## Eventbrite + React in the wild
+## [Organizer Onboarding](https://www.eventbrite.com/organizer/onboarding/)
 
-![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="width: 65%" -->
-
-[Organizer Onboarding](https://www.eventbrite.com/organizer/onboarding/)
+<a href="https://www.eventbrite.com/organizer/onboarding/" target="_blank">
+  <video data-autoplay loop style="width: 80%">
+    <source data-src="../../img/why-react/eventbrite-organizer-onboarding-flow.m4v" />
+  </video>
+</a>
 
 /////
 
-## Eventbrite + React in the wild
+## [City Browse](https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB)
 
-![Eventbrite Design System](../../img/why-react/eds-homepage.png)
-<!-- .element: style="width: 65%" -->
-
-[City Browse](https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB)
+<a href="https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB" target="_blank">
+  <video data-autoplay style="width: 80%">
+    <source data-src="../../img/why-react/eventbrite-city-browse-flow.m4v" />
+  </video>
+</a>
 
 /////
 
