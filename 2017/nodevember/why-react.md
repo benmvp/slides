@@ -1673,7 +1673,6 @@ NOTES:
           <li><a href="http://netflix.github.io/falcor/" target="_blank">falcor</a></li>
         </ul>
     </div>
-
 </div>
 
 Decision fatigue?
@@ -1691,14 +1690,20 @@ NOTES:
 
 ## Moar decisions decisions...
 
-- ["`setState` Gate"](https://medium.com/javascript-scene/setstate-gate-abc10a9b2d82)
-- [Inline functions debate](https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578)
-- [`redux-thunk`](https://github.com/gaearon/redux-thunk) vs
-  [`redux-saga`](https://github.com/redux-saga/redux-saga)
-- [Higher-order components vs Render props](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)
-- [Logic & JSX](https://github.com/eventbrite/javascript/tree/master/react#logic-and-jsx)
-
-<!-- .element: style="margin: 2em 0" -->
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin:2em 0">
+    <div>
+        <a href="https://medium.com/javascript-scene/setstate-gate-abc10a9b2d82" target="_blank"><img src="../../img/why-react/setState-gate.png" alt="setState Gate by Eric Elliott" /></a>
+    </div>
+    <div>
+        <a href="https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578" target="_blank"><img src="../../img/why-react/inline-functions.png" alt="Inline functions debate by Ryan Florence" /></a>
+    </div>
+    <div>
+        <a href="https://medium.com/react-native-training/redux-4-ways-95a130da0cdc" target="_blank"><img src="../../img/why-react/redux-4-ways.png" alt="Redux 4 Ways by Nader Dabat" /></a>
+    </div>
+    <div>
+        <a href="https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce" target="_blank"><img src="../../img/why-react/use-a-render-prop.png" alt="Use a Render Prop by Michael Jackson" /></a>
+    </div>
+</div>
 
 There's no **React way™** 🤷🏾‍♂️
 
@@ -1835,7 +1840,7 @@ NOTES:
 =====
 <!-- .slide: data-background="#222" -->
 
-### (Trust)
+#### (Trust)
 # The Process
 
 ![Joel Embiid Excited](../../img/giphy/joel-embiid-excited.gif)
