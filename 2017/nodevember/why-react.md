@@ -36,11 +36,18 @@ NOTES:
 
 ## What this talk is **not** about... 😞
 
-<br />
-
-- Intro to React
-- React is better than _X_
-- React 💕 fest
+<div style="display:flex;align-items:center">
+	<div style="flex:0 0 50%;">
+		<img src="../../img/giphy/dawson-creek-crying.gif" style="width:100%;height:auto" alt="Dawson's Creek crying" />
+	</div>
+	<div style="flex:0 0 50%;">
+		<ul>
+      <li>Intro to React</li>
+      <li>React is better than <span>X</span></li>
+      <li>React 💕 fest</li>
+    </li>
+	</div>
+</div>
 
 NOTES:
 - Quick heads up
@@ -56,11 +63,18 @@ NOTES:
 
 ## What this talk is about! 😄
 
-<br />
-
-- Rationales explained in code
-- For everyone!
-- Shameless plugs
+<div style="display:flex;align-items:center">
+	<div style="flex:0 0 50%;">
+		<ul>
+      <li>Rationales explained in code</li>
+      <li>For everyone!</li>
+      <li>Shameless plugs</li>
+    </li>
+	</div>
+	<div style="flex:0 0 50%;">
+		<img src="../../img/giphy/brad-pitt-dancing.gif" style="width:100%;height:auto" alt="Brad Pitt dancing" />
+	</div>
+</div>
 
 NOTES:
 - Wanna walk through the many reasons why we made the switch
@@ -92,11 +106,11 @@ NOTES:
 
 ## me.json
 
-<div style="display:flex;align-items:center">
-	<div style="flex:0 0 50%;">
-		<img src="../../img/family-house-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family standing in front of their house" />
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;">
+		<img src="../../img/family-pajamas-stairs.jpg" style="width:90%;height:auto" alt="Ilegbodu family in matching pajamas sitting on the stairs" />
 	</div>
-	<div style="flex:0 0 50%;">
+	<div style="flex:0 0 60%;">
 		<pre class="large"><code class="lang-json">
 {
   "name": "Ben Ilegbodu",
@@ -144,7 +158,7 @@ NOTES:
 # Why choose React?
 
 NOTES:
-- Why choose React??
+- Why choose React?!
 - Let's jump right in
 
 /////
@@ -176,8 +190,12 @@ NOTES:
 - Part of the core React lib
 
 =====
+<!-- .slide: data-background="#222" -->
 
 # 1. Declarative JSX
+
+![Denzel Washington shouting](../../img/giphy/shouting-denzel-washington.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 60%" -->
 
 NOTES:
 - The first reason why we wanted to migrate from Backbone to React was its Declarative JSX
@@ -447,8 +465,16 @@ NOTES:
 - I go through several JSX gotchas among other topics
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 2. Component-driven
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/russian-nesting-doll-trick.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Trick with Russian nesting dolls" />
+    </div>
+    <div>
+      <h1>2. Component-driven</h1>
+    </div>
+</div>
 
 NOTES:
 - The next motivation for the transition was React's component-based architecture
@@ -544,8 +570,16 @@ NOTES:
 - It's the difference between components being the core vs. being an add-on
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 3. All JavaScript\*
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h1>3. All JavaScript*</h1>
+    </div>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/throwing-packages.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Employee throwing packages" />
+    </div>
+</div>
 
 NOTES:
 - The 3rd reason was React being exclusively JavaScript based
@@ -703,8 +737,16 @@ NOTES:
 - So if some of the features I was talking about didn't quite make sense, check it out!
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 4. State-driven
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/success.gif" style="width:75%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="" />
+    </div>
+    <div>
+      <h1>4. State-driven</h1>
+    </div>
+</div>
 
 NOTES:
 - So far we've talked about (1) JSX, (2) Component-driven & (3) JavaScript
@@ -830,10 +872,17 @@ NOTES:
 - But prepare yourself for the fact that it'll feel like you're writing "more code" in the beginning
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 5. Sophisticated reconciler
-
-### (aka Virtual DOM)
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h1>5. Sophisticated reconciler</h1>
+      <h2>(aka Virtual DOM)</h2>
+    </div>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/shia-magic.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Shia displays magic" />
+    </div>
+</div>
 
 NOTES:
 - Let's talk about our 5th reason for the transition:
@@ -1050,10 +1099,17 @@ NOTES:
 - Now let's jump into some additional motivations
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 6. Server-side rendering
-
-### (aka "Isomorphic React")
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/homer-pours-water-on-servers.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Homer pours water all over servers" />
+    </div>
+    <div>
+      <h1>6. Server-side rendering</h1>
+      <h2>(aka "Isomorphic React")</h2>
+    </div>
+</div>
 
 NOTES:
 - Now we're halfway...
@@ -1131,7 +1187,7 @@ ReactDOM.hyrdate(
 ```
 <!-- .element: class="large" -->
 
-`ReactDOM.hydrate` is new in React 16
+[`ReactDOM.hydrate`](https://reactjs.org/docs/react-dom.html#hydrate) is new in React 16
 
 <div class="code-highlight fragment current-visible" style="height: 70px; top: 201px"></div>
 <div class="code-highlight fragment current-visible" style="height: 240px; top: 487px"></div>
@@ -1255,8 +1311,16 @@ NOTES:
 - This talk goes into all of the nitty gritty details plus various gotchas
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 7. Testing
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div>
+      <h1>7. Testing</h1>
+    </div>
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/homer-simpson-walk-away.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Homer simpson slowly walks away" />
+    </div>
+</div>
 
 NOTES:
 - The same component-based architecture that makes server-side rendering easy, also makes testing
@@ -1388,10 +1452,17 @@ NOTES:
 - And he talks about another fun way to test React components with "snapshots"
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 8. React Native
-
-### (...and other renderers)
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/mind-blown.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Mind blown!" />
+    </div>
+    <div>
+      <h1>8. React Native</h1>
+      <h2>(...and other renderers)</h2>
+    </div>
+</div>
 
 NOTES:
 - Let's jump to the 8th reason for transitioning
@@ -1540,8 +1611,12 @@ NOTES:
 - Build everything on top of that
 
 =====
+<!-- .slide: data-background="#222" -->
 
 # 9. Unopinionated
+
+![Lady falls down slipping on bowling lane](../../img/giphy/bowling-lane-fall.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 60%" -->
 
 NOTES:
 - Honestly this 9th reason can be seen as a pro or con depending on how you look at it
@@ -1673,8 +1748,16 @@ NOTES:
 - Talk about the different options and show code examples
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# 10. Miscellaneous
+<div style="display:flex;align-items:center;justify-content:space-around;">
+    <div style="flex: 0 0 50%">
+      <img src="../../img/giphy/omg-taco.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Taco goes from one woman's mouth to the next" />
+    </div>
+    <div>
+      <h1>10. Miscellaneous</h1>
+    </div>
+</div>
 
 NOTES:
 - Ok, the final reason for the migration is a sort of catch-all
@@ -1750,8 +1833,13 @@ NOTES:
 - My favorite one is the sophisticated reconciler!
 
 =====
+<!-- .slide: data-background="#222" -->
 
-# (Trust) The Process
+### (Trust)
+# The Process
+
+![Joel Embiid Excited](../../img/giphy/joel-embiid-excited.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 60%" -->
 
 NOTES:
 - After presenting our compelling argument we got the greenlight to start React transition
