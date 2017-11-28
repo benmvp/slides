@@ -616,7 +616,7 @@ NOTES:
 Create React apps with no build configuration
 
 ```
-$> yarn add global create-react-app
+$> yarn global add create-react-app
 
 $> create-react-app awesome-app
 
