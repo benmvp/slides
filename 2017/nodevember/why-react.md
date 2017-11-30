@@ -16,7 +16,7 @@ NOTES:
 - My name is Ben Ilegbodu
 - It was nearly 2 years ago that we (Eventbrite) embarked on the journey of transitioning our frontend from Backbone to React
 - So this talk is about the first part of that transition: convincing everyone that it was a good idea 😀
-- Wanna pull back the covers on the rationale we used to make that switch
+- Wanna pull back the covers on the rationales we used to make that switch
 - And if you're in the same boat, you'll have some solid reasons besides "everyone is using it"
 - Posted link to slides on twitter if you want to follow along
 
@@ -242,6 +242,8 @@ React.createElement(
 ```
 <!-- .element: class="large" -->
 
+([Babel REPL](https://babeljs.io/repl/))
+
 NOTES:
 - Here it is transpiled; it's just JavaScript ultimately
 - Thanks to the power of build tooling (aka Babel)
@@ -301,8 +303,8 @@ Handlebars template
 NOTES:
 - This is the traditional MVC equivalent in Backbone
 - You have a separate file for the template (markup) as well as model & view (logic)
-- A non-JS expert could come in and make changes in a familiar env
-- We used `js-*` prefix in our templates to safely reference them in views
+- Nice things: a non-JS expert could come in and make changes in a familiar env
+- We used `js-*` prefix in our templates to safely reference them in JavaScript
 
 /////
 
@@ -341,7 +343,7 @@ NOTES:
 - But it was really "separation of technologies"
 - But when the template changed, you needed to change the view
 - When the model changed, you needed to change the template, and so on
-- As things got complex, hard to know the effects changing one would have on the other
+- What we found was, as things got complex, hard to know the effects changing one would have on the other
 
 /////
 
@@ -400,11 +402,11 @@ class Selector extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
-- But with React, since our markup is in JavaScript
-- It's a little... different; not initially intuitive
+- But with React, since our markup is in JavaScript, the logic is in JS
+- It's a little... different; not initially intuitive at first glance
 - You see...
-- Before w/ templates, markup was primary and sprinkled in a little logic
-- But React is reverse: logic is primary and sprinkle in some markup
+- Backbone UI is template-driven, markup was primary and sprinkled in a little logic
+- But React is reverse: logic is primary w/ JS and sprinkle in some markup
 - We have the full use of JavaScript at our dispoable to build up the JSX to return
 - Comes in handy
 
@@ -422,7 +424,7 @@ NOTES:
 - But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
 - Before if you were solid at HTML/CSS, you could throw in some jQuery & do really well
 - Looping and conditionals in JSX is not intuitive
-- That's a StackOveflow question about loops that has > 300k views and 520 upvote!
+- That's a StackOveflow question about loops that has > 300k views and 520 upvotes!
 - Now it's JS or bust, which takes some getting used to
 
 /////
@@ -453,7 +455,7 @@ labelNode.htmlFor = this.props.inputId
 <!-- .element: class="large" -->
 
 NOTES:
-- One gotcha, is that although JSX looks like HTML, it's not
+- One other thing, is that although JSX looks like HTML, it's not
 - The `className` & `htmlFor` props should make it clear that this isn't HTML
 - React chose to mirror the JS DOM API for its props which are all camelCase
 - And that's why its `className` & `htmlFor` instead of the HTML `class` & `for`
@@ -626,6 +628,7 @@ NOTES:
 - The nice thing about React, the JavaScript UI lib, tying itself to JavaScript instead of its own API is that as JavaScript evolves, it auto-evolves
 - You probably already noticed that we were using `class` keyword to create our React components
 - That's ES6 and it's become standard way of creating React components
+- I showed `import` which is the way of including other components & dependencies (also ES6)
 - This `Section` component _[describe what it does]_
 - But we can take this class-based component and...
 
@@ -658,7 +661,7 @@ NOTES:
 - React components can also be written as functions of their props
 - Here we're using an arrow function instead of a standard function
 - And we're immediately destructuring the props into `headerText` & `children`
-- There's plenty more we can do too with new JS features
+- There's plenty more we can do too with new JS features in React
 
 /////
 
@@ -798,9 +801,6 @@ NOTES:
 - Here's some event-driven jQuery code that should be pretty familiar
 - Click a button and update `<span>`
 - The driver is the event
-- The only way to get the app so that it displays 10 is to click the button 10 times
-- If you were using Backbone you may have a model that you update as well, but it's basically same
-  flow
 - This is _really_ easy to follow (imperative), but as app grows in complexity, code turns into crazy spaghetti
 
 /////
@@ -834,7 +834,7 @@ class Incrementer extends React.Component {
 NOTES:
 _click through code highlights_
 
-- Contrast this with the React code
+- Contrast this with the React code equivalent
 - Simplest example of reactivity in React
 - Explanation of code...
 - It's the handler that does the logic of incrementing the value; separation of concerns!
@@ -859,10 +859,10 @@ NOTES:
 - So basically we do work in two main areas:
 - 1/ Define what we're going to `render()` based on `props` & `state`
 - Can have conditional logic, loops, other sophisticated logic to determine what to render
-- Need to be able to build layouts with HTML & CSS
+- Skill: Ability to build layouts with HTML & CSS
 - 2/ When events happen, do stuff to transform data to generate new `state` (and `render` again)
 - Can also do async transformation by making API calls
-- Where algorithms become really useful to transform data efficiently
+- Skill: Ability to transform data efficiently; algorithms are really handy
 - And the loop continues
 
 /////
@@ -876,6 +876,7 @@ NOTES:
 - So you end up spending more time explicitly wiring things up together
 - Buuuut... structure of your code can more or less stay the same as complexity grows
 - Certainly not the case with jQuery or Backbone; things got cray
+- So if an app grew organically, it never was rearchitected
 - But prepare yourself for the fact that it'll feel like you're writing "more code" in the beginning
 
 =====
@@ -895,6 +896,8 @@ NOTES:
 - Let's talk about our 5th reason for the transition:
 - The killer feature of React: the Reconciler aka Virtual DOM
 - Whenever anyone talks about React it's the cool feature they talk about
+- Technically "Virtual DOM" is a misnomer
+
 
 - So up until this point, it's looked like `render()` was rendering to the DOM
 - But it's not...
@@ -936,6 +939,7 @@ NOTES:
 - So we don't have to do the hard work of figuring out how to make the "micro updates"
 - We can just write our code the easy way: like it re-renders everything
 - And React does the hard work of figuring out micro updates
+- This is _really_ _really_ nice
 
 /////
 
@@ -1022,11 +1026,10 @@ NOTES:
 
 NOTES:
 - Quick sidenote
-- React recently released React 16, which included a complete rewrite of the reconciler now
+- React team recently released React 16, which included a complete rewrite of the reconciler now
   codenamed Fiber
 - The Fiber reconciler can prioritize UI updates, which means that the UI can render asynchronously
 - As a result we get greater perceived performance because the higher priority updates happen first
-- And this is all happening in React 16 - the next major version
 
 /////
 
@@ -1052,8 +1055,9 @@ NOTES:
 - Low         (delays are ok: API responses)
 - Offscreen   (prep for display/scroll, not being rendered)
 
-- Async scheduling is turned off in React 16
-- Will be a opt-in feature flag to turn it on in future release
+
+- Async scheduling w/ priorities is turned off in React 16
+- But will be a opt-in feature flag to turn it on in future release
 
 /////
 
@@ -1107,9 +1111,13 @@ NOTES:
 
 NOTES:
 - So those were the Core Motivations
-- The ones that are a part of the core React library
+- The ones that will apply to everyone because they are part of the core lib
+- Before we jump into Additional motivations, let's pause
+- Everyone yell out the most recent JS lib/framework they used (jQuery, React, Vue, etc)
+
+
 - Now let's jump into some additional motivations
-- They applied to us, but _may_ not apply to your situation
+- They applied to us at Eventbrite, but _may_ not apply to your situation
 
 =====
 <!-- .slide: data-background="#222" -->
@@ -1174,7 +1182,7 @@ class Incrementer extends React.Component {
 
 NOTES:
 - Let's return to our old friend the `Incrementer` component
-- Up until this point I've kind of made it seem like `render()` after reconciliations was rendering to the DOM
+- Up until this point I've kind of made it seem like `render()` after reconciliation was rendering to the DOM
 - But event that's not true!
 - `render()` just informs _what_ elements & child components should be rendered
 - It doesn't dictate _how_ they should be rendered
@@ -1206,7 +1214,7 @@ NOTES:
 _click through code highlights_
 
 - Rendering to the DOM typically happens in the entry point of your app
-- You'll import from `react-dom` and use it's `hydrate()` function
+- You'll import from `react-dom` and use it's `hydrate()` function (new to React 16)
 - Inserts your app into the DOM location
 - And then when your app updates, it produces a new component hierarchy
 - `react-dom` is what takes that difference from reconciler and applies it to the DOM
@@ -1239,6 +1247,7 @@ let markup = ReactDOMServer.renderToString(<App {...props} />)
 
 NOTES:
 - Allows for us to render the _exact same_ UI server-side to a string!
+- Take that string and include it in HTML response
 - This is such a huge feature!
 - Before this, all UI libraries just assumed the DOM and browser
 - So getting your templates to run server-side was at best a pain; at worst in possible
@@ -1257,8 +1266,8 @@ NOTES:
 - If you do render server-side, make sure you run your Node server in production mode!
 - Comparing Raw React 15, compiled React 15, and React 16 beta 2
 - Latest Node 4, 6 & 8
-- 17x improvement just by upgrading systems
 - At Eventbrite we didn't set `process.env=PRODUCTION` for like 6 months
+- 17x improvement just by upgrading systems
 
 /////
 
@@ -1393,7 +1402,7 @@ it('renders a `.val`', () => {
   let wrapper = shallow(<Incrementer />)
 
   expect(wraper.find('.val')).toBePresent()
-  expect(wrapper.find('.val')).toHaveText('2')
+  expect(wrapper.find('.val')).toHaveText('0')
 })
 ```
 <!-- .element: class="large" -->
@@ -1402,14 +1411,14 @@ it('renders a `.val`', () => {
 [`jest-enzyme`](https://yarnpkg.com/en/package/jest-enzyme) = 😍
 
 NOTES:
-- We can test incrementer using Jest & Enzyme
+- We can test `Incrementer` using Jest & Enzyme to test the public API
 - Enzyme has a jQuery-like interface for manipulating React components
 - All w/o a browser
 - "Rendering" is creating an enzyme wrapper
-- Using Jest as the test framework; also created by Facebook
+- We use Jest as the test framework & assertion lib; also created by Facebook
 - `jest-enzyme` provides additional enzyme-specific assertions to Jest
 - Here we're asserting that `Incremener` renders an element with `.val` class
-- And that that `.val` element has the text "2" inside of it
+- And that that `.val` element has the text "0" inside of it
 
 /////
 
@@ -1435,12 +1444,13 @@ it('calls `onIncrement` prop with current value', () => {
 
 NOTES:
 - If you recall, when we click the button we call our `onIncrement` handler
+- We want to verify that when we click the button that `onIncrement` gets called w/ the right parameter
 - Well with enzyme we can simulate clicking the button w/o running in a browser!
 - And with Jest we can provide a mock function using `jest.fn()`
 - Then we can assert things on that mock:
 - How many times it was called (twice for 2 clicks)
 - What arguments it was last called with (2)
-- Aagain: we shouldn't inspect the `state` of the component (which would be 2)
+- Again: we shouldn't inspect the `state` of the component (which would be 2)
 - Instead we assert on the value in the handler (the public API)
 - Being able to unit test like this is a game-changer
 
@@ -1813,7 +1823,6 @@ NOTES:
 - **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition
   (what we're doing)
 - This list was lifted from a tweet from Cory, so thanks!
-- He's got a new Pluralsight course called _React: The Big Pciture_
 
 =====
 
@@ -1949,7 +1958,6 @@ NOTES:
 
 ## Additional resources
 
-- [Babel REPL](https://babeljs.io/repl/)
 - [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
