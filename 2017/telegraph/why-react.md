@@ -6,31 +6,20 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#nodevember2017](https://twitter.com/hashtag/nodevember2017)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@HackReactor](https://twitter.com/hackreactor)  
 
 <br />
 
-November 28, 2017  
+December 7, 2017  
 
 NOTES:
 - My name is Ben Ilegbodu
 - It was nearly 2 years ago that we (Eventbrite) embarked on the journey of transitioning our frontend from Backbone to React
 - So this talk is about the first part of that transition: convincing everyone that it was a good idea 😀
 - Wanna pull back the covers on the rationales we used to make that switch
-- And if you're in the same boat, you'll have some solid reasons besides "everyone is using it"
+- You're likely not making the switch, but it should give you great understanding of the pros/cons of React
+- Should be helpful as you interview and meet people; can speak deep about React
 - Posted link to slides on twitter if you want to follow along
-
-/////
-
-[![Tweet about Nodevember being my first talk](../../img/why-react/nodevember-first-talk-tweet.png)](https://twitter.com/benmvp/status/626294349148483584)
-
-NOTES:
-- Beyond excited to be giving the CLOSING KEYNOTE here at Nodevember
-- Truly an honor
-- Because 2 years ago I was novice speaker hoping for a chance
-- And Nodevember gave me that chance
-- Had such a great time sharing about ES6 and learned so much
-- And now I'm back to talk about React
 
 =====
 
@@ -67,7 +56,6 @@ NOTES:
 	<div style="flex:0 0 50%;">
 		<ul>
       <li>Rationales explained in code</li>
-      <li>For everyone!</li>
       <li>Shameless plugs</li>
     </li>
 	</div>
@@ -79,10 +67,6 @@ NOTES:
 NOTES:
 - Wanna walk through the many reasons why we made the switch
 - But not just talk about; I want to demonstrate it w/ a lil' code
-- Also, given that this is a keynote for everyone I wanted to make it useful to everyone
-- So if you've never used React, it should be a good primer
-- But if you're hardcore React, hopefully I can hit you w/ some tips
-- And if not this can be an example of how to explain to others besides "it's awesome"
 - Heads up!
 - I've had the opportunity now to speak about a variety of different React topics over the last year
 - Covering a lot of topics at a high-level; videos go into detail
@@ -90,19 +74,6 @@ NOTES:
 - Forewarning you now, so you can get all of your eye rolls out early
 
 =====
-
-<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
-
-# Stand Up!
-
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
-
-NOTES:
-- But first, would like everyone to stand up!
-- Let's do some wall sits
-- Now turn to your neighbors, introduce yourself & say hi
-
-/////
 
 ## me.json
 
@@ -131,7 +102,7 @@ NOTES:
 NOTES:
 /////
 
-![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
@@ -160,6 +131,7 @@ NOTES:
 NOTES:
 - Why choose React?!
 - Let's jump right in
+- Feel free to ask questions!
 
 /////
 
@@ -190,7 +162,7 @@ NOTES:
 =====
 
 # CORE MOTIVATIONS
-
+<!-- .element: class="title" -->
 
 NOTES:
 - Split this up into 2 main sections:
@@ -1015,86 +987,6 @@ NOTES:
 
 /////
 
-## New Fiber Reconciler
-
-<!-- .element: style="margin-bottom: 1em" -->
-
-- Rewrite of reconciler
-- Prioritizes UI updates
-- Enables async rendering
-- Improves perceived performance
-- In recent major React version (v16)
-
-NOTES:
-- Quick sidenote
-- React team recently released React 16, which included a complete rewrite of the reconciler now
-  codenamed Fiber
-- The Fiber reconciler can prioritize UI updates, which means that the UI can render asynchronously
-- As a result we get greater perceived performance because the higher priority updates happen first
-
-/////
-
-## Update Priorities
-
-<br />
-
-<ul class="bordered-list" style="width: 33.33%">
-  <li>Synchronous</li>
-  <li>Task</li>
-  <li>Animation</li>
-  <li>High</li>
-  <li>Low</li>
-  <li>Offscreen</li>
-</ul>
-
-NOTES:
-- With the Fiber reconciler you'll be able to distinguish between different types of updates
-- Synchronous (just like stack reconciler)
-- Task        (next tick: keyboard)
-- Animation   (before next frame)
-- High        (pretty soon)
-- Low         (delays are ok: API responses)
-- Offscreen   (prep for display/scroll, not being rendered)
-
-
-- Async scheduling w/ priorities is turned off in React 16
-- But will be a opt-in feature flag to turn it on in future release
-
-/////
-
-## "Secret" code to enable (partial) async scheduling 🤐
-
-<br />
-
-- Open `node_modules/react-dom/cjs/react-dom.development.js`
-- Replace "`fiberAsyncScheduling: false`" ➜ "`fiberAsyncScheduling: true`"
-
-<br />
-
-```
-// make low-priority update
-ReactDOM.unstable_deferredUpdates(() => {
-  this.setState((state, props) => {
-    // return updated state
-  })
-});
-```
-<!-- .element: class="large" -->
-
-Source:
-[`react-fiber-resources`](https://github.com/koba04/react-fiber-resources#try-react-fiber-with-asynchronous-scheduling)
-
-NOTES:
-- But you can still try it out!
-- First need to manually turn on async scheduling by turning on flag in `react-dom`
-- Then you can use the unstable API `unstable_deferredUpdates` in `ReactDOM`
-- This makes the `setState` a "low priority"
-- Great for the results of API calls that can wait a bit
-- Using `setState` updater function is even more important now
-- `react-fiber-resources` has a sample app
-
-/////
-
 ## [Layperson's guide to React Fiber](http://www.benmvp.com/slides/2017/reactrally/fiber.html)
 
 <iframe width="1333" height="750" src="https://www.youtube.com/embed/q6QTxq_pFn0" frameborder="0" allowfullscreen></iframe>
@@ -1109,6 +1001,7 @@ NOTES:
 =====
 
 # ADDITIONAL MOTIVATIONS
+<!-- .element: class="title" -->
 
 NOTES:
 - So those were the Core Motivations
@@ -1253,36 +1146,6 @@ NOTES:
 - Before this, all UI libraries just assumed the DOM and browser
 - So getting your templates to run server-side was at best a pain; at worst in possible
 - But now React allows us to do isomorphic javascript
-
-/////
-
-## Run your Node server in production mode!
-
-![Chart outlining React 16 server-side rendering perf](../../img/react-fiber/ssr-perf-chart-updated.png)
-<!-- .element: style="width: 65%" -->
-
-[github/aickin/react-16-ssr-perf](https://github.com/aickin/react-16-ssr-perf)
-
-NOTES:
-- If you do render server-side, make sure you run your Node server in production mode!
-- Comparing Raw React 15, compiled React 15, and React 16 beta 2
-- Latest Node 4, 6 & 8
-- At Eventbrite we didn't set `process.env=PRODUCTION` for like 6 months
-- 17x improvement just by upgrading systems
-
-/////
-
-## Run your Node server in production mode! 🤦🏾‍♂️
-
-![react-render-server render times after setting process.env](../../img/react-sans-node/rrs-node-env.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 85%" -->
-
-🤣🤣🤣
-
-NOTES:
-- Can you guess when we turned on the env var?? 🤣
-- 2x improvement just by adding that env variable
-- We went through this so you don't have to!
 
 /////
 
@@ -1571,7 +1434,7 @@ NOTES:
 
 /////
 
-## Fiber makes React renderers easier to build
+## React exists in many environments
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
   [`ink`](https://github.com/vadimdemedes/ink)  
@@ -1959,22 +1822,21 @@ NOTES:
 
 ## Additional resources
 
-- [React Fundamentals Workshop](https://github.com/benmvp/react-workshop)
+- [The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
+- [Advanced React Component Patterns](https://egghead.io/courses/advanced-react-component-patterns)
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
 - [React/Redux Links](https://github.com/markerikson/react-redux-links)
-- [React: The Big Picture](https://www.pluralsight.com/courses/react-big-picture)
 
 
 NOTES:
 - Mark (w/ help) has collection a bazillion links to resources covering React, Redux, ES6 and more!
-- Cory has a new Pluralsight course called _React: The Big Picture_
 
 =====
 
-![Aladdin Thanks](../../img/giphy/thanks-aladdin.gif)
-<!-- .element: style="width: 35%" -->
+![Take a bow](../../img/giphy/animated-take-a-bow.gif)
+<!-- .element: style="width: 40%" -->
 
 ## Ben Ilegbodu
 
