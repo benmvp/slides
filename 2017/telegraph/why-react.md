@@ -1835,8 +1835,8 @@ NOTES:
 
 =====
 
-![Take a bow](../../img/giphy/animated-take-a-bow.gif)
-<!-- .element: style="width: 40%" -->
+![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
+<!-- .element: style="width: 50%" -->
 
 ## Ben Ilegbodu
 
