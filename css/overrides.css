@@ -54,15 +54,3 @@
   opacity: 0.8;
   box-sizing: border-box;
 }
-
-.reveal .bordered-list {
-  list-style: none;
-  margin: 0 auto;
-}
-
-.reveal .bordered-list li {
-  border: 5px solid #000;
-  margin-bottom: 0.75em;
-  text-align: center;
-  font-size: 1.25em;
-}
