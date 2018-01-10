@@ -31,7 +31,7 @@ NOTES:
 	</div>
 	<div style="flex:0 0 50%;">
 		<ul>
-      <li>Intro to React</li>
+      <li>React tutorial</li>
       <li>React is better than <span>X</span></li>
       <li>React 💕 fest</li>
     </li>
@@ -347,6 +347,7 @@ NOTES:
 - And doing any kind of fancy logic in the template got really, really messy
 - Plus we'd basically have to basically learn a new language
 - At Eventbrite we registered Handlebars "helpers" so we could call functions in templates
+- _explain what is happening_
 - Alternative is to do a whole lot of pre-computation in the view to enable the template to be dumb
 - Ya know, handlebars didn't even have `else-if`
 - So we'd have a nested `if` w/in an `else`
@@ -377,7 +378,7 @@ class Selector extends React.Component {
 NOTES:
 - But with React, since our markup is in JavaScript, the logic is in JS
 - It's a little... different; not initially intuitive at first glance
-- You see...
+- You see... _explain how it works_
 - Backbone UI is template-driven, markup was primary and sprinkled in a little logic
 - But React is reverse: logic is primary w/ JS and sprinkle in some markup
 - We have the full use of JavaScript at our dispoable to build up the JSX to return
@@ -429,6 +430,7 @@ labelNode.htmlFor = this.props.inputId
 
 NOTES:
 - One other thing, is that although JSX looks like HTML, it's not
+- We're creating a custom `<Label>` component
 - The `className` & `htmlFor` props should make it clear that this isn't HTML
 - React chose to mirror the JS DOM API for its props which are all camelCase
 - And that's why its `className` & `htmlFor` instead of the HTML `class` & `for`
@@ -448,6 +450,8 @@ NOTES:
 - Shameless plug alert!
 - I gave a talk called _React exposed! 😮_ at ForwardJS earlier this year
 - I go through several JSX gotchas among other topics
+
+**[ASK ABOUT QUESTIONS]**
 
 =====
 <!-- .slide: data-background="#222" -->
@@ -555,6 +559,8 @@ NOTES:
 - The problem was that the idea of "components" was an add-on in Backbone/Marionette
 - As opposed to being a core feature w/ React
 
+**[ASK ABOUT QUESTIONS]**
+
 =====
 <!-- .slide: data-background="#222" -->
 
@@ -601,7 +607,7 @@ NOTES:
 - The nice thing about React, the JavaScript UI lib, tying itself to JavaScript instead of its own API is that as JavaScript evolves, it auto-evolves
 - You probably already noticed that we were using `class` keyword to create our React components
 - That's ES6 and it's become standard way of creating React components
-- I showed `import` which is the way of including other components & dependencies (also ES6)
+- I showed `import` w/ `FormField` which is the way of including other components & dependencies (also ES6)
 - This `Section` component _[describe what it does]_
 - But we can take this class-based component and...
 
@@ -679,7 +685,7 @@ NOTES:
 - We basically are forced to have a modern build system that we must configure
 - And that's where some combo of Babel, Webpack, TypeScript, Rollup, etc. come in
 - Frontend Platform team is wrapping up a transition from requirejs to Webpack 3
-- Chances are for production apps you already had _some_ sort of build system
+- Chances are for any modern production apps you already had _some_ sort of build system
 - Compile SASS -> CSS, minify & bundle JS, CoffeeScript, etc so not end of the world
 - And by paying the upfront cost of the build system, it enables cool features: tree-shaking & code splitting
 
@@ -704,8 +710,9 @@ Configures Babel, Webpack 3, ESLint, and more!
 ([`npx`](https://github.com/zkat/npx))
 
 NOTES:
-- Thankfully though, you don't have to roll your own build system; at least not initially
+- Thankfully though, you don't have to roll your own build system w/ React; at least not initially
 - Create React App is a tool that let's you bootstrap an app to start React-ing quickly
+- `npx` is a new tool from NPM that allows you to easily/quickly run a global CLI tool...
 
 /////
 
@@ -720,6 +727,8 @@ NOTES:
 - I gave a talk called _React + ES.next = ♥_ at React Conf back in March
 - I go through a handful of ES.next features that go great with React
 - So if some of the features I was talking about didn't quite make sense, check it out!
+
+**[ASK ABOUT QUESTIONS]**
 
 =====
 <!-- .slide: data-background="#222" -->
@@ -737,7 +746,7 @@ NOTES:
 - So far we've talked about (1) JSX, (2) Component-driven & (3) JavaScript
 - And so far we've basically been creating static user-interfaces; not user interaction
 - To do that the state of the UI has to change over time
-- React components are state-driven instead event-driven, which is more familiar
+- So React components are state-driven instead event-driven, which is more familiar
 - This is the hardest thing to wrap your head around if you're new to React
 - It's just a different way of building UIs
 - But I've found it to be very compelling
@@ -851,6 +860,8 @@ NOTES:
 - Certainly not the case with jQuery or Backbone; things got cray
 - So if an app grew organically, it never was rearchitected
 - But prepare yourself for the fact that it'll feel like you're writing "more code" in the beginning
+
+**[ASK ABOUT QUESTIONS]**
 
 =====
 <!-- .slide: data-background="#222" -->
@@ -995,8 +1006,11 @@ NOTES:
 
 NOTES:
 - Shameless plug alert!
+- React team completely rewrote the reconciler and named it Fiber
 - I gave a talk called _Layperson's guide to React Fiber_ at React Rally in August
 - I talk a little bit about React Fiber and other goodies in React 16
+
+**[ASK ABOUT QUESTIONS]**
 
 =====
 
@@ -1194,6 +1208,8 @@ NOTES:
 - Passed it the path to the component and its props and it would give back the HTML
 - This talk goes into all of the nitty gritty details plus various gotchas
 
+**[ASK ABOUT QUESTIONS]**
+
 =====
 <!-- .slide: data-background="#222" -->
 
@@ -1331,6 +1347,8 @@ NOTES:
 - But Rogelio (Jest core team) gave a talk at React Conf earlier this year called _Jest Snapshots
   and Beyond_
 - And he talks about another fun way to test React components with "snapshots"
+
+**[ASK ABOUT QUESTIONS]**
 
 =====
 <!-- .slide: data-background="#222" -->
@@ -1491,6 +1509,8 @@ NOTES:
 - Need core set of components (primitives) that exist for every renderer
 - Build everything on top of that
 
+**[ASK ABOUT QUESTIONS]**
+
 =====
 <!-- .slide: data-background="#222" -->
 
@@ -1635,6 +1655,8 @@ NOTES:
 - Go through all the important pieces that make up a React stack
 - Talk about the different options and show code examples
 
+**[ASK ABOUT QUESTIONS]**
+
 =====
 <!-- .slide: data-background="#222" -->
 
@@ -1687,6 +1709,8 @@ NOTES:
 - **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition
   (what we're doing)
 - This list was lifted from a tweet from Cory, so thanks!
+
+**[ASK ABOUT QUESTIONS]**
 
 =====
 
