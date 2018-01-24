@@ -1,4 +1,4 @@
-# React Fundamentals Workshop
+# React FUNdamentals Workshop
 
 <br />
 
@@ -88,7 +88,7 @@ NOTES:
 ## Agenda
 
 1. [JSX](https://github.com/benmvp/react-workshop/blob/master/01-jsx/)
-1. [Environment setup](https://github.com/benmvp/react-workshop/blob/master/02-components/)
+1. [Components](https://github.com/benmvp/react-workshop/blob/master/02-components/)
 1. [Lists](https://github.com/benmvp/react-workshop/blob/master/03-lists/)
 1. [Email View](https://github.com/benmvp/react-workshop/blob/master/04-email-view/)
 1. [Email Form](https://github.com/benmvp/react-workshop/blob/master/05-email-form/)
