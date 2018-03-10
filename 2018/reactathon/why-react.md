@@ -1298,70 +1298,6 @@ NOTES:
 
 <div style="display:flex;align-items:flex-start;justify-content:space-between;margin:2em 0">
     <div>
-        <h3>Tooling</h3>
-
-        <ul>
-          <li>bundlers</li>
-          <li>task runners</li>
-          <li>static analyzers</li>
-        </ul>
-    </div>
-    <div>
-        <h3>Styling</h3>
-
-        <ul>
-          <li>global css</li>
-          <li><a href="https://github.com/gajus/react-css-modules" target="_blank">css modules</a></li>
-          <li>inline styles</li>
-          <li>css-in-js 🔥</li>
-        </ul>
-    </div>
-    <div>
-        <h3>Testing</h3>
-
-        <ul>
-          <li><a href="https://facebook.github.io/jest/" target="_blank">jest</a></li>
-          <li><a href="https://mochajs.org" target="_blank">mocha</a> + <a href="http://chaijs.com" target="_blank">chai</a></li>
-        </ul>
-    </div>
-    <div>
-        <h3>State</h3>
-
-        <ul>
-          <li><a href="https://reactjs.org/docs/react-component.html#setstate" target="_blank"><code>setState</code></a></li>
-          <li><a href="http://redux.js.org/" target="_blank">redux</a></li>
-          <li><a href="http://mobxjs.github.io/mobx/" target="_blank">mobx</a></li>
-        </ul>
-    </div>
-    <div>
-        <h3>API</h3>
-
-        <ul>
-          <li>REST + <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank"><code>fetch</code></a></li>
-          <li><a href="https://facebook.github.io/relay/" target="_blank">relay</a></li>
-          <li><a href="http://dev.apollodata.com/" target="_blank">apollo</a></li>
-          <li><a href="http://netflix.github.io/falcor/" target="_blank">falcor</a></li>
-        </ul>
-    </div>
-</div>
-
-Decision fatigue?
-
-NOTES:
-- React is just a UI library; it's a great one IMO, but just a UI library
-- So to create apps you need to build up your own stack
-- **Tooling:** probably Webpack, but need to configure it; gulp/grunt; eslint/flow/Typescript;
-- Create React App helps w/ getting started; eject later
-- **Styling:** glamorous, styled-components, radium, aphrodite
-- You really get to tailor your own stack
-- But if you're just getting started it's "decision fatigute"
-
-/////
-
-## Moar decisions decisions...
-
-<div style="display:flex;align-items:flex-start;justify-content:space-between;margin:2em 0">
-    <div>
         <a href="https://medium.com/javascript-scene/setstate-gate-abc10a9b2d82" target="_blank"><img src="../../img/why-react/setState-gate.png" alt="setState Gate by Eric Elliott" /></a>
     </div>
     <div>
@@ -1378,15 +1314,38 @@ NOTES:
 There's no **React way™** 🤷🏾‍♂️
 
 NOTES:
-- But even when you have the stack down, there are all these debates abou the "right way" to do things
+- There are all these debates about the "right way" to do things
 - Do you always use component classes or use stateless functions until you need state?
 - `setState` gate
 - Inline functions debate
 - 4 different ways to do Redux side-effects: thunk, sagas, observables & promise middleware
 - HOCs vs render props
-- How can you decide if you're new to React and don't even know what I just said?
+- How can you decide if you're new to React and don't even know what I just said? So it seems likek a "con"
 - But can be a "pro" because you can look at the team and make decisions based on the skillset
-- This is how you can from one team to another doing React and it'll be done completely differently
+
+- This is how you go can from one team to another doing React and it'll be done completely differently
+
+/////
+
+## Styling Decisions
+
+<br />
+
+- Global CSS
+- Modular CSS
+- [CSS Modules](https://github.com/gajus/react-css-modules)
+- Inline styles
+- CSS-in-JS 🔥
+
+NOTES:
+- Digging a little further, there are different ways you can solve styling your components
+- **Global CSS:** Traditional styling, what we're used, completely separate
+- **Modular CSS:** Each React component imports the CSS it needs, need to have namespacing scheme, ultimately gets bundled
+- **CSS Modules:** Takes it step further and figures out namespacing for you
+- **Inline styles:** Says screw it, if everyting is a component and driven by JS, just style the elements directly
+- **CSS-in-JS:** Super popular, extension of inline styles that allows for full spectrum of CSS
+- How do you choose? Most likely based on your current infrastructure
+- Even within CSS-in-JS there's `emotion`, `glamorous`, `styled-components`, `radium`, `aphrodite`
 
 /////
 
@@ -1401,7 +1360,23 @@ Joe Seifi
 
 NOTES:
 - Luckily for us we've got a number of speakers today with a lot of opinions!
-- I work with Joe at Eventbrite, he's gonna share **FIVE** different ways to style our React components
+- I work with Joe at Eventbrite, he's gonna share several different ways to style our React components and tradeoffs
+
+/////
+
+## State Decisions
+
+<br />
+
+- `setState`
+- [Redux](http://redux.js.org/)
+- [MobX](http://mobxjs.github.io/mobx/)
+
+NOTES:
+- Then there are decisions about how you wanna manage your state
+- Do you wanna just use `setState()` from React API that I showed earlier
+- How about Redux? That's super popular
+- There's MobX too!
 
 /////
 
@@ -1415,9 +1390,28 @@ Mark Erikson
 (Today @ 2:15p!)
 
 NOTES:
-- I mentioned there are different ways to maintain state, `setState()`, Redux & Mobx
+- Guess what? We've got someone who can help us out!
 - Well Mark is a maintainer of Redux, so you know he's got opinions about Redux
 - He's gonna teach us the fundamentals of Redux!
+
+/////
+
+## API Decisions
+
+<br />
+
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [Relay](https://facebook.github.io/relay/)
+- [Apollo](http://dev.apollodata.com/)
+- [Falcor](http://netflix.github.io/falcor/)
+
+NOTES:
+- An app isn't anything without data, and we get that data by requesting it from an API
+- But what sort of API do we interact with?
+- Most of us are probably familiar with interacting with REST APIs
+- But GraphQL is alternative (and easier) way to retrieve data
+- Relay & Apollo are 2 React clients to interface with GraphQL backeneds
+- Falcor is from Netflix and is a client and server-server side solution for doing pretty much the same thing
 
 /////
 
@@ -1431,8 +1425,7 @@ Jon Wong
 (Today @ 3:30p!)
 
 NOTES:
-- Most of us are probably familiar with interacting with REST APIs
-- But GraphQL is alternative (and easier) way to retrieve data
+- If you haven't gotten the trend yet, we have someone who will introduce GraphQL to us as well
 - My buddy Jon is going to give us a gentle introduction 
 
 =====
