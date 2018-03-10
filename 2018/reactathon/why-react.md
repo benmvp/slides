@@ -74,6 +74,19 @@ NOTES:
 
 =====
 
+<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
+
+# Stand Up!
+
+<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+
+NOTES:
+- But first, would like everyone to stand up!
+- Let's do some wall sits
+- Now turn to your neighbors, introduce yourself & say hi
+
+/////
+
 ## me.json
 
 <div style="display:flex;align-items:center;justify-content:space-between">
@@ -573,6 +586,123 @@ NOTES:
 
 /////
 
+## Conditional Rendering
+
+```
+class Section extends React.Component {
+  render() {
+    const headingText = this.props.headingText
+
+    return (
+      <section className="section">
+        if (headingText) {
+          <h1>{headingText}</h1>
+        }
+        <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- All the string-based templating languages provide some facility for conditionally including markup
+- In those cases, you're trying to replicate logic in the template
+- May be tempted to do something like this
+- Or... more likely just wonder how to accomplish conditionally including code
+- Cuz this obviously looks like broken syntax
+- Trying to include the `<h1>` only if `headingText` is defined
+- This is a syntax error
+
+/////
+
+## Conditional Rendering
+
+```
+class Section extends React.Component {
+  render() {
+    const headingText = this.props.headingText
+    let headingElem
+
+    if (headingText) {
+      headingElem = (<h1>{headingText}</h1>)
+    }
+    return (
+      <section className="section">
+        {headingElem}
+        <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- React doesn't have any special API to do loops or conditionals
+- It just piggybacks on JavaScript
+- Here's how I would do the conditional
+- We can use normal JS to do conditionals instead of muddying up our JSX
+- Conditionally assign a variable, and put that in our JSX
+
+/////
+
+## Conditional Rendering
+
+```
+class Section extends React.Component {
+  render() {
+    const headingText = this.props.headingText
+    let headingElem
+
+    if (headingText) {
+      headingElem = React.createElement('h1', null, headingText)
+    }
+    return React.createElement(
+      'section',
+      {className: 'section'},
+      headingElem,
+      React.createElement('p', null, children)
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- This is what the JSX would be transformed into
+- So it really **is** all JavaScript
+- It seems like a lot more code, so...
+
+/////
+
+## Conditional Rendering
+
+```
+class Section extends React.Component {
+  render() {
+    const headingText = this.props.headingText
+
+    return (
+      <section className="section">
+        {headingText ? (<h1>{headingText}</h1>) : null}
+        <p>{this.props.children}</p>
+      </section>
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Many people use a ternary for this to keep things short
+- But at Eventbrite we strive to keep the JSX as "clean" as possible
+- This might be "okay", but would get out of hand quickly
+- I've seen ternaries spanning 10+ lines
+
+/////
+
 ```
 class Section extends React.Component {
   render() {
@@ -597,6 +727,7 @@ class Section extends React.Component {
 <div class="code-highlight" style="height: 80px; top: 43px"></div>
 
 NOTES:
+- Going back to the way I like to write it... 😀
 - The nice thing about React, the JavaScript UI lib, tying itself to JavaScript instead of its own API is that as JavaScript evolves, it auto-evolves
 - You probably already noticed that we were using `class` keyword to create our React components
 - That's ES6 and it's become standard way of creating React components
@@ -790,6 +921,7 @@ class Incrementer extends React.Component {
   _handleClick = () => {
     this.setState((prevState) => ({value: prevState.value + 1}))
   }
+
   render() {
     return (
       <div>
@@ -803,9 +935,10 @@ class Incrementer extends React.Component {
 <!-- .element: class="large" -->
 
 <div class="code-highlight fragment current-visible" style="height: 80px; top: 197px"></div>
-<div class="code-highlight fragment current-visible" style="height: 80px; top: 650px"></div>
 <div class="code-highlight fragment current-visible" style="height: 80px; top: 704px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 764px"></div>
 <div class="code-highlight fragment current-visible" style="height: 190px; top: 313px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 704px"></div>
 
 NOTES:
 _click through code highlights_
@@ -978,23 +1111,6 @@ NOTES:
 NOTES:
 - Let's talk about the 6th reason: server-side rendering or "Isomorphic React"
 - "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
-
-/////
-
-## "Isomorphic" vs. "Universal"
-
-![Definition of isomorphic](../../img/react-sans-node/isomorphic-definition.png)
-<!-- .element: style="width: 65%;" -->
-
-![Definition of universal](../../img/react-sans-node/universal-definition.png)
-<!-- .element: style="width: 65%;" -->
-
-NOTES:
-- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
-- _Universal_ basically means that it works everywhere
-- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
-- But I actually still prefer "Isomorphic React" because it sounds cooler
-- I feel like I sound smarter saying it
 
 /////
 
@@ -1653,104 +1769,6 @@ NOTES:
 - It's state-driven instead of event-driven and we can use at lot of the latest JavaScript in our apps
 - And many other goodies!
 - My favorite one is the sophisticated reconciler!
-
-=====
-
-![React logo](../../img/react/react-logo.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 15%" -->
-
-
-# +
-
-
-![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
-
-NOTES:
-- Before I let you go, I wanna quickly showcase a handful of new experiences on Eventbrite that are built in React
-
-/////
-
-## Eventbrite Design System
-
-<video data-autoplay loop style="width: 80%">
-  <source data-src="../../img/why-react/eventbrite-design-system.m4v" />
-</video>
-
-NOTES:
-- It's filled with dozens of React components big and small
-- But it's more than a component library; it's a design system
-- Talks about _why_ components should be used, etc
-- David Wells will be talking about how to build a React design system for your company first thing tomorrow morning
-
-/////
-
-## [Sign-in / Sign-up](http://www.eventbrite.com/signin)
-
-<a href="http://www.eventbrite.com/signin">
-  <video data-autoplay loop style="width: 80%">
-    <source data-src="../../img/why-react/eventbrite-sign-up-flow.m4v" />
-  </video>
-</a>
-
-NOTES:
-- We rebuilt our sign-in & sign-up experiences in React
-- It's actually a modal that sits on top of the page
-- And it's launchable from every page, React or not
-- So it's an example of React co-existing w/ non React
-- It's dynamically loaded using dynamic `import()`
-
-/////
-
-## [Checkout Widget](https://www.speednashvilledating.com/event-schedule/)
-
-<a href="https://www.speednashvilledating.com/event-schedule/">
-  <video data-autoplay loop style="width: 80%">
-    <source data-src="../../img/why-react/eventbrite-checkout-widget.m4v" />
-  </video>
-</a>
-
-
-NOTES:
-- We want to give organizers the ability to control the experience of displaying tickets
-- Checkout widget takes you to speednashvilledating.com FYI
-- Taking place tonight at 8PM
-
-/////
-
-## [Organizer Onboarding](https://www.eventbrite.com/organizer/onboarding/)
-
-<a href="https://www.eventbrite.com/organizer/onboarding/" target="_blank">
-  <video data-autoplay loop style="width: 80%">
-    <source data-src="../../img/why-react/eventbrite-organizer-onboarding-flow.m4v" />
-  </video>
-</a>
-
-/////
-
-## [City Browse](https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB)
-
-<a href="https://www.eventbrite.com/d/tn--nashville/events/?janus_fv=exp_eb_60058_city_browse%3DB" target="_blank">
-  <video data-autoplay loop style="width: 80%">
-    <source data-src="../../img/why-react/eventbrite-city-browse-flow.m4v" />
-  </video>
-</a>
-
-/////
-
-## Eventbrite + React in the wild
-
-- [Trending Searches](https://www.eventbrite.com/trending/searches/tn--nashville/daily/)
-- Event Creation (Beta)
-- Event Management Navigation
-- Event Management Dashboard
-- Admin Tools
-- Secret stuff coming soon! 🤫
-
-NOTES:
-- Event Management Navigation was an example where we mixed React & Backbone
-- Dozens of management pages that share the same nav, so redid the nav in React
-- So that when pages got rewritten or added, the IA would seem consistent
 
 =====
 
