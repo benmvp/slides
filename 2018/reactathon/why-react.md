@@ -26,7 +26,7 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 # Stand Up!
 
