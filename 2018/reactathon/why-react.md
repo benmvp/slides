@@ -370,7 +370,7 @@ NOTES:
 ## Everything is a component!
 
 ```js
-class FormField extends React.Component {
+export default class FormField extends React.Component {
   render() {
     const name = this.props.name
     return (
@@ -404,15 +404,15 @@ NOTES:
 
 ```js
 import FormField from './FormField'
-class NameForm extends React.Component {
+export default class NameForm extends React.Component {
   render() {
     return (
       <form onSubmit={this._handleSubmit}>
         <FormField
           name="fName"
           label="First"
-          value={this.props.fields.first}
-          onChange={this._handleFieldChange.bind(null, 'fName')}
+          value={this.props.fields.fName}
+          onChange={this.props.onFieldChange.bind(null, 'fName')}
         />
         <FormField name="lName" ... />
       </form>
@@ -427,7 +427,132 @@ NOTES:
 - And we configure the props by passing them in via attributes, just like HTML
 - Although we're in Javascript using JSX, the HTML-like syntax should feel familiar
 - Then you can combine one or more `FormField` components to create a bigger `Form` component
+
+/////
+
+## Everything is a component!
+
+```js
+import NameForm from './NameForm'
+
+export default class App extends React.Component {
+  _handleFieldChange = (fieldName) => {
+    // Do something
+  }
+
+  render() {
+    return (
+      <NameForm
+        fields={ {fName: 'Ben', lName: 'Ilegbodu'} }
+        onFieldChange={this._handleFieldChange}
+      />
+    )
+  }
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
 - And keep doing that until you have a full-fledged app
+
+/////
+
+## Explicitly passing data DOWN the tree
+
+`App.js`
+```
+<NameForm fields={ ... } />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`NameForm.js`
+```
+<FormField name="fName" value={props.fields.fName} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`FormField.js`
+```
+<TextInput value={props.value} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`TextInput.js`
+```
+<input type="text" value={props.value} />
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- It's not all sunshine & roses; at least not for everyone
+- If in my `App` I want to set the value of the HTML input for the first name...
+- I pass it from `App` -> `NameForm` -> `FormField` -> `TextInput` that reners `<input>`
+- This is _very_ explicit; you can clearly see how data flows down the component hierarchy
+- I personally don't have a problem with it because I prefer the clarity; especially in code reviews
+- But some find it verbose. If they could, they'd rather jump levels of the hierarchy to get it where it should
+- But I've seen that introduce other gnarliness
+
+/////
+
+## Explicitly passing data UP the tree 
+
+`App.js`
+```
+<NameForm onFieldChange={this._handleFieldChange} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`NameForm.js`
+```
+<FormField onChange={props.onFieldChange.bind(null, 'first')} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`FormField.js`
+```
+<TextInput onChange={props.onChange} />
+```
+<!-- .element: class="large" style="margin-bottom: 1.5em" -->
+
+`TextInput.js`
+```
+<input type="text" onChange={props.onChange} />
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Similarly getting data back **up** the tree is also explicit
+- Let's say the top-level App wants to react to changes in the `<input>` field
+- Well we have to pass callback handlers down the tree as props
+- So when `onChange` happens on `TextInput` -> `FormField` -> `NameForm` -> `App`
+- In Backbone/Marionette we had global "radios" & components could register channels
+- But no enforcement on who was sending/receiving
+
+/////
+
+## `<App />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<NameForm />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<FormField />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<TextInput />`
+
+## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
+
+## `<input />`
+
+
+
+NOTES:
+- This one-way circular data flow is a completely different way of thinking than traditional MVC
+- It's probably the hardest thing to grasp in React, but one you do everything else falls into place
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -853,6 +978,23 @@ NOTES:
 NOTES:
 - Let's talk about the 6th reason: server-side rendering or "Isomorphic React"
 - "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
+
+/////
+
+## "Isomorphic" vs. "Universal"
+
+![Definition of isomorphic](../../img/react-sans-node/isomorphic-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+![Definition of universal](../../img/react-sans-node/universal-definition.png)
+<!-- .element: style="width: 65%;" -->
+
+NOTES:
+- _Isomorphic_ basically means two things that _look the same_, but actually _aren't the same_
+- _Universal_ basically means that it works everywhere
+- So when we talk about our components rendering client-side as well as server-side and React Native, _universal_ makes more sense
+- But I actually still prefer "Isomorphic React" because it sounds cooler
+- I feel like I sound smarter saying it
 
 /////
 
