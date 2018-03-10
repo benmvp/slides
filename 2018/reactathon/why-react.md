@@ -26,54 +26,6 @@ NOTES:
 
 =====
 
-## What this talk is **not** about... 😞
-
-<div style="display:flex;align-items:center">
-	<div style="flex:0 0 50%;">
-		<img src="../../img/giphy/dawson-creek-crying.gif" style="width:100%;height:auto" alt="Dawson's Creek crying" />
-	</div>
-	<div style="flex:0 0 50%;">
-		<ul>
-      <li>React tutorial</li>
-      <li>React is better than <span>X</span></li>
-      <li>React 💕 fest</li>
-    </li>
-	</div>
-</div>
-
-NOTES:
-- Quick heads up
-- The goal of this talk is not to teach you React, so you can go off and build the next app that's gonna change the game
-- Even if I wanted to, not possible in an hour
-- Had a full day workshop yesterday
-- Also not gonna be framework bashing; talking about how React is better than Angular or Vue or Ember
-- Although I am basically saying it's better than Backbone since we switched
-- Lastly, gonna try to not make this a React love-fest
-
-/////
-
-## What this talk is about! 😄
-
-<div style="display:flex;align-items:center">
-	<div style="flex:0 0 50%;">
-		<ul>
-      <li>Rationales explained in code</li>
-      <li>Tradeoffs</li>
-    </li>
-	</div>
-	<div style="flex:0 0 50%;">
-		<img src="../../img/giphy/brad-pitt-dancing.gif" style="width:100%;height:auto" alt="Brad Pitt dancing" />
-	</div>
-</div>
-
-NOTES:
-- There's no perfect framework; there are trade-offs and I'll try to point them out
-- So hopefully if you're still investigating, you'll get a somewhat balanced opinion
-- Wanna walk through the many reasons why we made the switch
-- But not just talk about; I want to demonstrate it w/ a lil' code
-
-=====
-
 <!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
 
 # Stand Up!
@@ -1039,6 +991,7 @@ class Incrementer extends React.Component {
   _handleClick = () => {
     this.setState((prevState) => ({value: prevState.value + 1}))
   }
+
   render() {
     return (
       <div>
@@ -1051,7 +1004,7 @@ class Incrementer extends React.Component {
 ```
 <!-- .element: class="large" -->
 
-<div class="code-highlight" style="height: 240px; top: 595px"></div>
+<div class="code-highlight" style="height: 240px; top: 655px"></div>
 
 NOTES:
 - Let's take our example from before...
@@ -1060,8 +1013,7 @@ NOTES:
 - When we know all we _really_ are updating is _just_ the `innerHTML` of `<span>`
 - `render()` is **not** updating DOM, but building up element hierarchy
 - Basically a _new_ virtual representation of the DOM
-- The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only
-  updates changes
+- The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only updates changes
 - So we don't have to do the hard work of figuring out how to make the "micro updates"
 - We can just write our code the easy way: like it re-renders everything
 - And React does the hard work of figuring out micro updates
@@ -1144,6 +1096,7 @@ class Incrementer extends React.Component {
   _handleClick = () => {
     this.setState((prevState) => ({value: prevState.value + 1}))
   }
+
   render() {
     return (
       <div>
@@ -1422,6 +1375,7 @@ class Incrementer extends React.Component {
   _handleClick = () => {
     this.setState((prevState) => ({value: prevState.value + 1}))
   }
+
   render() {
     return (
       <div>
@@ -1434,7 +1388,7 @@ class Incrementer extends React.Component {
 ```
 <!-- .element: class="large" -->
 
-<div class="code-highlight" style="height: 240px; top: 603px"></div>
+<div class="code-highlight" style="height: 240px; top: 655px"></div>
 
 
 NOTES:
@@ -1457,7 +1411,7 @@ class Incrementer extends React.Component {
   render() {
     return (
       <View>
-        <Text style={...}>{this.state.value}</span>
+        <Text style={...}>{this.state.value}</Text>
         <TouchableOpacity onPress={this._handlePress}>+</TouchableOpacity>
       </View>
     )
@@ -1587,13 +1541,43 @@ NOTES:
 
 ## Styling Decisions
 
-<br />
-
-- Global CSS
-- Modular CSS
-- [CSS Modules](https://github.com/gajus/react-css-modules)
-- Inline styles
-- CSS-in-JS 🔥
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin: 2em 0">
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/why-react/css-3-logo.svg"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		Global CSS
+  </div>
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/why-react/sass-logo.svg"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		Modular CSS
+  </div>
+	<div style="flex:0 0 18%;">
+        <a href="https://github.com/css-modules/css-modules" style="background: #fff; display: block"><img
+            src="../../img/why-react/css-modules-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="https://github.com/css-modules/css-modules">CSS Modules</a>
+  </div>
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/why-react/jsx-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		Inline styles
+  </div>
+	<div style="flex:0 0 18%;">
+        <img
+            src="../../img/react/react-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+    CSS-in-JS 🔥
+  </div>
+</div>
 
 NOTES:
 - Digging a little further, there are different ways you can solve styling your components
@@ -1624,11 +1608,29 @@ NOTES:
 
 ## State Decisions
 
-<br />
-
-- `setState`
-- [Redux](http://redux.js.org/)
-- [MobX](http://mobxjs.github.io/mobx/)
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin: 2em 0">
+	<div style="flex:0 0 30%;">
+        <img
+            src="../../img/react/react-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        />
+		<code>setState</code>
+  </div>
+	<div style="flex:0 0 30%;">
+        <a href="http://redux.js.org/" target="_blank"><img
+            src="../../img/nav-react/redux-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://redux.js.org/" target="_blank">Redux</a>
+  </div>
+	<div style="flex:0 0 30%;">
+        <a href="http://mobxjs.github.io/mobx/" target="_blank"><img
+            src="../../img/nav-react/mobx-logo.png"
+            style="background:none;box-shadow:none;border:none;"
+        /></a>
+		<a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
+  </div>
+</div>
 
 NOTES:
 - Then there are decisions about how you wanna manage your state
@@ -1656,12 +1658,36 @@ NOTES:
 
 ## API Decisions
 
-<br />
-
-- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-- [Relay](https://facebook.github.io/relay/)
-- [Apollo](http://dev.apollodata.com/)
-- [Falcor](http://netflix.github.io/falcor/)
+<div style="display:flex;align-items:flex-end;justify-content:space-around;margin: 2em 0">
+	<div style="flex:0 0 22%;">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"><img
+        src="../../img/why-react/ajax-logo.svg"
+        style="background:none;box-shadow:none;border:none;width:100%;margin:3.25em 0"
+    /></a>
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API</a>
+  </div>
+	<div style="flex:0 0 22%;">
+    <a href="https://facebook.github.io/relay/"><img
+        src="../../img/nav-react/relay-logo.svg"
+        style="background:none;box-shadow:none;border:none;width:100%;"
+    /></a>
+		<a href="https://facebook.github.io/relay/">Relay</a>
+  </div>
+	<div style="flex:0 0 22%;">
+    <a href="http://dev.apollodata.com/"><img
+        src="../../img/nav-react/apollo-logo.svg"
+        style="background:none;box-shadow:none;border:none;width:100%;width:100%;margin:3em 0"
+    /></a>
+		<a href="http://dev.apollodata.com/">Apollo</a>
+  </div>
+	<div style="flex:0 0 22%;">
+    <a href="http://netflix.github.io/falcor/"><img
+        src="../../img/nav-react/falcor-logo.svg"
+        style="background:none;box-shadow:none;border:none;width:100%;margin:4em 0"
+    /></a>
+		<a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
+  </div>
+</div>
 
 NOTES:
 - An app isn't anything without data, and we get that data by requesting it from an API
@@ -1774,8 +1800,8 @@ NOTES:
 
 ## Additional resources
 
-- [The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
-- [Advanced React Component Patterns](https://egghead.io/courses/advanced-react-component-patterns)
+- [The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) 📺
+- [Advanced React Component Patterns](https://egghead.io/courses/advanced-react-component-patterns) 📺
 - [Eventbrite React coding styleguide](https://github.com/eventbrite/javascript/tree/master/react)
 - [Eventbrite ES6+ coding styleguide](https://github.com/eventbrite/javascript/tree/master/es6)
 - [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
@@ -1799,15 +1825,10 @@ NOTES:
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
-- So before I close...
-- Wanted to thank Nodevember for inviting me to share with you
-- Let's celebrate them for putting on another great conference
-- Thanks to Eventbrite too for sponsoring and flying me out
-- Also thank YOU for attending and sticking around!
+- So that's all I have for you!
+- Hopefully this gave you a solid intro to what React's about and warmed you up for the rest of today's talks
 - My goal is for you to learn at least one thing you can take away to be a better dev
-- Hopefully if you are in the same boat of wanting to transition, you've got some good material
 - Slides are available on Twitter and Blog
 - Would love to hear from you about things that were unclear, wanna know more about or general questions
 - Ask on Twitter, via AMA or email
-- I hope you enjoyed the conference
-- Thanks and let's enjoy the afterparty
+- I hope you enjoy the rest of Reactathon!
