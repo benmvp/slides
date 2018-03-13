@@ -15,12 +15,34 @@ March 20, 2018
 NOTES:
 - My name is Ben Ilegbodu
 - Excited to be kicking of Reactathon and the Fundamentals conference
-- Wanna introduce you to React and intro many of the concepts you will hear today
+- Wanna introduce you to React and intro many of the concepts you will hear the rest of today
+- Another title for the talk could've been...
 
+/////
+
+# 10 Reason Why I ❤️ React!
+### (just wait 'til you hear #6!)
+
+<br />
+
+## Ben Ilegbodu
+
+<br />
+
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#reactathon](https://twitter.com/hashtag/reactathon)  
+
+<br />
+
+March 20, 2018  
+
+NOTES:
 - It was nearly 2 years ago that we (Eventbrite) embarked on the journey of transitioning our frontend from Backbone to React
 - So I wanna talk about the first part of that transition: convincing everyone that it was a good idea 😀
 - Gonna pull back the covers on the rationales we used to make that switch
 - And in doing so introduce you to how React works
+
+- Not planning to teach React; did that yesterday in a full-day workshop
+- But you'll get to see a lot of what React is
 
 - Posted link to slides on twitter if you want to follow along
 
@@ -71,8 +93,7 @@ NOTES:
 
 NOTES:
 - I'm a Principal Frontend Engineer on our Frontend Platform team
-- We don't work on end-user features, but building the frontend platform that other devs build on
-  top of
+- We don't work on end-user features, but building the frontend platform that other devs build on top of
 - Two main objectives: frontend infrastructure & component library
 
 /////
@@ -86,7 +107,7 @@ NOTES:
 
 NOTES:
 - Split this up into 2 main sections:
-- Core Stuff & More STuff
+- Core Stuff & More Stuff
 - Core ones will apply to everyone using React
 - Part of the core React lib
 
