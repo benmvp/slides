@@ -14,9 +14,10 @@ March 20, 2018
 
 NOTES:
 - My name is Ben Ilegbodu
-- Excited to be kicking of Reactathon and the Fundamentals conference
-- Wanna introduce you to React and intro many of the concepts you will hear the rest of today
-- Another title for the talk could've been...
+- Super excited to be kicking of Reactathon and the Fundamentals conference
+- Wanna introduce you to React and warm you up to many of the concepts you will hear the rest of today
+- Called this talk "Why React?"...
+- But another title for the talk could've been...
 
 /////
 
@@ -36,27 +37,24 @@ NOTES:
 March 20, 2018  
 
 NOTES:
-- It was nearly 2 years ago that we (Eventbrite) embarked on the journey of transitioning our frontend from Backbone to React
-- So I wanna talk about the first part of that transition: convincing everyone that it was a good idea 😀
+- It was 2 years ago that we (Eventbrite) embarked on the journey of transitioning our frontend from Backbone to React
+- And a small group of us had to covince everyone else that it was a good idea 😀
 - Gonna pull back the covers on the rationales we used to make that switch
 - And in doing so introduce you to how React works
-
-- Not planning to teach React; did that yesterday in a full-day workshop
+- Not really planning to teach React; did that yesterday in a full-day workshop
 - But you'll get to see a lot of what React is
-
-- Posted link to slides on twitter if you want to follow along
+- BTW - posted link to slides on twitter if you want to follow along
 
 =====
 
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 # Stand Up!
-
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<!-- .element: style="-webkit-text-stroke: black 10px; color: white; font-size: 5em" -->
 
 NOTES:
 - But first, would like everyone to stand up!
-- Let's do some wall sits
+- Squats counting down from 10 to 1
 - Now turn to your neighbors, introduce yourself & say hi
 
 /////
@@ -92,13 +90,21 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
 
 NOTES:
-- I'm a Principal Frontend Engineer on our Frontend Platform team
-- We don't work on end-user features, but building the frontend platform that other devs build on top of
+- I'm a Principal Frontend Engineer at Eventbrite
+- Eventbrite is an online ticketing & events platform
+- Probably heard of us before; apparently Reactathon organizers haven't because they used one of our competitors
+- Part of our Frontend Platform team
+- We don't typically work on end-user features, but building the frontend platform that other devs build on top of
 - Two main objectives: frontend infrastructure & component library
 
 /////
 
 <!-- .slide: data-background="url(../../img/giphy/james-harden-wesley-johnson-ankles.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+- Even though I've now lived in the Bay Area for over 15 years, I was born and raised in Houston, Texas
+- So I'm a die-hard Rockets fan
+- And this is gonna be our year
 
 =====
 
@@ -120,7 +126,7 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 60%" -->
 
 NOTES:
-- The first reason why we wanted to migrate from Backbone to React was its Declarative JSX
+- First let's talk about React & the way we declare our UI
 
 /////
 
@@ -137,10 +143,11 @@ NOTES:
 NOTES:
 - Here is some JSX
 - Got a `<div>` wrapping a `<span>` display and a `<button>`
-- Looks much like HTML and lives right w/in our JavaScript
+- Looks much like HTML and lives right w/in our JavaScript app
+- React actually existed before JSX
 - Many people didn't like the syntax at first
-- But I find it very approachable
-- What you may not realize is that this JSX gets converted into JavaScript
+- But I find it very approachable for defining the UI
+- What you may not realize is that this JSX gets converted into JavaScript so that the browser can understand it
 
 /////
 
@@ -167,7 +174,7 @@ NOTES:
 
 /////
 
-## Collocated markup, logic & data
+## Collocated markup & logic (& data)
 
 ```js
 class Incrementer extends React.Component {
@@ -176,6 +183,7 @@ class Incrementer extends React.Component {
   _handleClick = () => {
     this.setState((prevState) => ({value: prevState.value + 1}))
   }
+
   render() {
     return (
       <div>
@@ -191,96 +199,8 @@ class Incrementer extends React.Component {
 NOTES:
 - Here's the JSX in the context of a full component
 - We'll go into the details of what the component does in following sections
-- With React, a component contains...
-  - Markup (`render()`)
-  - Data (`this.props` & `this.state`)
-  - Logic (`_handleClick`)
-- You can also include styling too, but not trying to start a flamewar over css-in-js right now
-- So everything is collocated, which was very different than traditional MVC like Backbone
-
-/////
-
-## Logic in the template (markup-driven)
-
-```html
-<select>
-  {{#each values}}
-    {{option_value}}
-  {{/each}}
-</select>
-```
-<!-- .element: class="large" -->
-
-```js
-Handlebars.registerHelper('option_value', function() {
-  if (shouldShow(this)) {
-    return new Handlebars.SafeString(
-      '<option value="' + this.value + '">'
-        + this.display + '</option>'
-    )
-  }
-})
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Traditional UI frameworks, like Backbone, are markup-driven
-- Doing any kind of fancy logic in these templates can get really, really messy
-- Plus we'd basically have to basically learn a new language
-- At Eventbrite we registered Handlebars "helpers" so we could call functions in templates
-- _explain what is happening_
-- Alternative is to do a whole lot of pre-computation in the view to enable the template to be dumb
-- Ya know, Handlebars doesn't support compound conditionals
-- So you can't do `if` this `or` that` w/o writing a custom helper
-
-/////
-
-## Logic in React Component (logic-driven)
-
-```js
-class Selector extends React.Component {
-  render() {
-    const options = this.props.values.map((info) => {
-      if (this._shouldShow(info)) {
-        return (
-          <option key={info.value} value={info.value}>
-            {info.display}
-          </option>
-        )
-      }
-    })
-
-    return (<select>{options}</select>)
-  }
-}
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- But with React, since our markup is in JavaScript, the logic is in JS
-- It's a little... different; not initially intuitive at first glance
-- You see... _explain how it works_
-- Backbone UI is template-driven, markup was primary and sprinkled in a little logic
-- But React is reverse: logic is primary w/ JS and sprinkle in some markup
-- We have the full use of JavaScript at our dispoable to build up the JSX to return
-- Comes in handy
-
-/////
-
-[![Dan Abramov's tweet about no special JSX API for loops/conditionals](../../img/why-react/dan-abramov-jsx-tweet.png)](https://twitter.com/dan_abramov/status/929136989085093890)
-
-(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx) 😞)
-
-NOTES:
-- Dan tweeted this in response to a request to add conditionals and loops into JSX
-- I ❤️ JavaScript so the more I can do in JS the better
-- I'm glad that I don't have to learn a new API to do conditionals/loops in React
-- Because it's JS, I can do whatever JS can do
-- But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
-- Before if you were solid at HTML/CSS, you could throw in some jQuery & do really well
-- Looping and conditionals in JSX is not intuitive
-- That's a StackOveflow question about loops that has > 300k views and 520 upvotes!
-- Now it's JS or bust, which takes some getting used to
+- But we're returning the JSX w/in `render()` as if it's a regular object
+- So markup is in the JavaScript right there with the logic
 
 /////
 
@@ -335,6 +255,8 @@ NOTES:
 - There's so much more I'd like to cover
 - But luckily Jay is going to go more into JSX in his talk "Why I love JSX"
 - He's pretty pumped about it. It's got an exclamation point!
+- He's right after me, so you can't leave
+- No bathroom breaks; you're just gonna have to hold it
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -559,6 +481,28 @@ NOTES:
 
 /////
 
+## "Markup-centric" libraries/frameworks
+
+```html
+<section className="section">
+  {{#if headingText}}
+    <h1>{{headingText}}</h1>
+  {{/if}}
+  <p>{{contents}}</p>
+</section>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Traditional UI frameworks, like Backbone, are markup-centric
+- You create your markup templates separately and then layer interactivity in JS with the framework
+- Here's a simple Handlebars template that's conditionally rendering the `<h1>` 
+- As a consequence though, the templates need to have a robust language of their own for conditionals, loops, functions, etc.
+- If not, using the templating language can be a pain
+- Handlebars was so simplistic in its language that it made Backbone a pain to use
+
+/////
+
 ## Conditional Rendering
 
 ```
@@ -568,9 +512,9 @@ class Section extends React.Component {
 
     return (
       <section className="section">
-        if (headingText) {
+        { if (headingText) { }
           <h1>{headingText}</h1>
-        }
+        { } }
         <p>{this.props.children}</p>
       </section>
     )
@@ -580,17 +524,15 @@ class Section extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
-- All the string-based templating languages provide some facility for conditionally including markup
-- In those cases, you're trying to replicate logic in the template
-- May be tempted to do something like this
+- As we start with React, we see that JSX looks like HTML, so we may be tempted to do something like this
 - Or... more likely just wonder how to accomplish conditionally including code
 - Cuz this obviously looks like broken syntax
-- Trying to include the `<h1>` only if `headingText` is defined
+- One again trying to include the `<h1>` only if `headingText` is defined
 - This is a syntax error
 
 /////
 
-## Conditional Rendering
+## "Logic-centric" React
 
 ```
 class Section extends React.Component {
@@ -618,6 +560,7 @@ NOTES:
 - Here's how I would do the conditional
 - We can use normal JS to do conditionals instead of muddying up our JSX
 - Conditionally assign a variable, and put that in our JSX
+- React is logic-centric; you're primarily doing JS logic with a little bit of rendering
 
 /////
 
@@ -659,7 +602,7 @@ class Section extends React.Component {
 
     return (
       <section className="section">
-        {headingText ? (<h1>{headingText}</h1>) : null}
+        {headingText && <h1>{headingText}</h1>}
         <p>{this.props.children}</p>
       </section>
     )
@@ -669,164 +612,27 @@ class Section extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
-- Many people use a ternary for this to keep things short
+- Many people use expressions in JSX for this to keep things short
 - But at Eventbrite we strive to keep the JSX as "clean" as possible
 - This might be "okay", but would get out of hand quickly
-- I've seen ternaries spanning 10+ lines
+- I've seen these spanning 10+ lines
 
 /////
 
-```
-class Section extends React.Component {
-  render() {
-    const headingText = this.props.headingText
-    let headingElem
+[![Dan Abramov's tweet about no special JSX API for loops/conditionals](../../img/why-react/dan-abramov-jsx-tweet.png)](https://twitter.com/dan_abramov/status/929136989085093890)
 
-    if (headingText) {
-      headingElem = (<h1>{headingText}</h1>)
-    }
-
-    return (
-      <section className="section">
-        {headingElem}
-        <p>{this.props.children}</p>
-      </section>
-    )
-  }
-}
-```
-<!-- .element: class="large" -->
-
-<div class="code-highlight" style="height: 80px; top: 43px"></div>
+(...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx) 😞)
 
 NOTES:
-- Going back to the way I like to write it... 😀
-- The nice thing about React, the JavaScript UI lib, tying itself to JavaScript instead of its own API is that as JavaScript evolves, it auto-evolves
-- You probably already noticed that we were using `class` keyword to create our React components
-- That's ES6 and it's become standard way of creating React components
-- I showed `import` w/ `FormField` which is the way of including other components & dependencies (also ES6)
-- This `Section` component _[describe what it does]_
-- But we can take this class-based component and...
-
-/////
-
-## React + ES.next = ❤️
-
-```
-const Section = ({headingText, children}) => {
-  let headingElem
-
-  if (headingText) {
-    headingElem = (<h1>{headingText}</h1>)
-  }
-
-  return (
-    <section className="section">
-      {headingElem}
-      <p>{children}</p>
-    </section>
-  )
-}
-```
-<!-- .element: class="large" -->
-
-<div class="code-highlight" style="height: 80px; top: 133px"></div>
-
-NOTES:
-- ...rewrite it using the latest JavaScript
-- React components can also be written as functions of their props
-- Here we're using an arrow function instead of a standard function
-- And we're immediately destructuring the props into `headerText` & `children`
-- There's plenty more we can do too with new JS features in React
-
-/////
-
-## Gotta have a (modern) build system
-
-<div style="display:flex;align-items:flex-end;justify-content:space-around;margin: 2em 0">
-	<div style="flex:0 0 22%;">
-        <a href="https://babeljs.io/"><img
-            src="../../img/es6/babel-logo.png"
-            style="background:none;box-shadow:none;border:none;"
-        /></a>
-		<a href="https://babeljs.io/">Babel</a>
-  </div>
-	<div style="flex:0 0 22%;">
-        <a href="https://webpack.github.io/"><img
-            src="../../img/nav-react/webpack-logo.png"
-            style="background:none;box-shadow:none;border:none;"
-        /></a>
-		<a href="https://webpack.github.io/">Webpack</a>
-  </div>
-	<div style="flex:0 0 22%;">
-        <a href="https://www.typescriptlang.org/"><img
-            src="../../img/nav-react/typescript-logo.png"
-            style="background:none;box-shadow:none;border:none;"
-        /></a>
-		<a href="https://www.typescriptlang.org/">TypeScript</a>
-  </div>
-	<div style="flex:0 0 22%;">
-        <a href="http://rollupjs.org/"><img
-            src="../../img/nav-react/rollup-logo.svg"
-            style="background:none;box-shadow:none;border:none;"
-        /></a>
-		<a href="http://rollupjs.org/">Rollup</a>
-  </div>
-</div>
-
-Enable fun features like [tree-shaking](https://webpack.js.org/guides/tree-shaking/) &
-[code splitting](https://webpack.js.org/guides/code-splitting/)!
-
-NOTES:
-- But all this goodness comes at a cost
-- We basically are **forced** to have a modern build system that we must configure
-- And that's where some combo of Babel, Webpack, TypeScript, Rollup, etc. come in
-- I'm actually working on a project that uses all 4 of these
-- Frontend Platform team just wrapped up a transition from requirejs to Webpack 3
-- And now Webpack 4 is out!
-- Chances are for any modern production apps you already had _some_ sort of build system
-- Compile SASS -> CSS, minify & bundle JS, CoffeeScript, etc so not end of the world
-- And by paying the upfront cost of the build system, it enables cool features: tree-shaking & code splitting
-
-/////
-
-## Create React App
-
-Create React apps with no build configuration
-
-```
-$> npx create-react-app my-app
-
-$> cd my-app
-
-$> yarn start
-```
-
-<!-- .element: class="large" style="margin:5% 0" -->
-
-Configures Babel, Webpack 3, ESLint, and more!
-
-([`npx`](https://github.com/zkat/npx))
-
-NOTES:
-- Thankfully though, you don't have to roll your own build system w/ React; at least not initially
-- Create React App is a tool that let's you bootstrap an app to start React-ing quickly
-- Run these commands and you'll have an app that does all of the Frontend DevOps for you!
-- `npx` is a new tool from NPM that allows you to easily/quickly run a global CLI tool...
-
-/////
-
-## [React + ES.next = ♥](http://www.benmvp.com/slides/2017/reactconf/react-esnext.html)
-
-<iframe width="1333" height="750" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
-
-### ReactConf 2017
-
-NOTES:
-- Shameless plug alert!
-- I gave a talk called _React + ES.next = ♥_ at React Conf back in March
-- I go through a handful of ES.next features that go great with React
-- So if some of the features I was talking about didn't quite make sense, check it out!
+- Dan tweeted this in response to a request to add conditionals and loops into JSX
+- I ❤️ JavaScript so the more I can do in JS the better
+- I'm glad that I don't have to learn a new API to do conditionals/loops in React
+- Because it's JS, I can do whatever JS can do
+- But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
+- Before if you were solid at HTML/CSS, you could throw in some jQuery & do really well
+- Looping and conditionals in JSX is not intuitive
+- That's a StackOveflow question about loops that has > 300k views and 520 upvotes!
+- Now it's JS or bust, which takes some getting used to
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -848,7 +654,7 @@ NOTES:
 - This is the hardest thing to wrap your head around if you're new to React
 - It's just a different way of building UIs
 - But I've found it to be very compelling
-- And this is the 4th motivator for the transition away from Backbone to React
+- So let's look at how React is state-driven
 
 /////
 
@@ -918,10 +724,13 @@ _click through code highlights_
 
 - Contrast this with the React code equivalent
 - Simplest example of reactivity in React
-- Explanation of code...
+- **First:** Start off with initial state
+- **Second:** Then we render UI based on state (and props)
+- **Third:** Handle user click of `+` button
+- **Fourth:** Take the previous value of the state (`0`), increment by 1 and then update the state (`setState`)
 - It's the handler that does the logic of incrementing the value; separation of concerns!
 - And since `value` is already in `state` we don't have to get it from the DOM
-- Then calling `setState` causes `render` to be called again
+- **Fifth:** Then calling `setState` causes `render` to be called again
 - Click again and the cycle continues
 - In the old world `_handleClick` would've directly manipulated the DOM
 - But instead we update the state and that will indirectly update the DOM
@@ -976,7 +785,8 @@ NOTES:
 - It's really the crux of how React works
 - It's also probably the biggest mental shift when developing in React
 - Luckily Feather's gonna go into way more detail about how it all works
-- And she's speaking right after Jay! You'd think this was planned or something!
+- And she's speaking right after Jay!
+- So that pee you were holding? You'll be holding it for a while! 😉
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -1025,13 +835,18 @@ class Incrementer extends React.Component {
 ```
 <!-- .element: class="large" -->
 
-<div class="code-highlight" style="height: 240px; top: 655px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 370px"></div>
+<div class="code-highlight fragment current-visible" style="height: 240px; top: 655px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 715px; left: 875px; width: 530px"></div>
 
 NOTES:
+_click through code highlights_
+
 - Let's take our example from before...
-- When we call `setState` React calls `render()` w/ updated state
+- **First:** When we call `setState`...
+- **Second:** React calls `render()` w/ updated state
 - So it looks like are re-rendering the `<div>` + children each time
-- When we know all we _really_ are updating is _just_ the `innerHTML` of `<span>`
+- **Third:** When we know all we _really_ are updating is _just_ the `innerHTML` of `<span>`
 - `render()` is **not** updating DOM, but building up element hierarchy
 - Basically a _new_ virtual representation of the DOM
 - The reconciler (aka "Virtual DOM") keeps a copy of DOM, compares w/ newly rendered DOM and only updates changes
@@ -1059,14 +874,12 @@ NOTES:
 <!-- .element: class="title" -->
 
 NOTES:
-- So those were the Core Motivations
+- So that was the Core Stuff
 - The ones that will apply to everyone because they are part of the core lib
-- Before we jump into Additional motivations, let's pause
-- Everyone yell out the most recent JS lib/framework they used (jQuery, React, Vue, etc)
-
-
-- Now let's jump into some additional motivations
-- They applied to us at Eventbrite, but _may_ not apply to your situation
+- Now let's move on to "More Stuff"
+- See what I did there? "Core Stuff" / "More Stuff"?
+- I spent a dispproportionate amount of time on that
+- These are extra things that may or may not apply to you
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -1082,8 +895,8 @@ NOTES:
 </div>
 
 NOTES:
-- Let's talk about the 6th reason: server-side rendering or "Isomorphic React"
-- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on initial server render
+- Let's talk about server-side rendering or "Isomorphic React"
+- "Isomorphic JavaScript" or "Isomorphic React" is the idea of using the same templates rendered client-side on **initial** server render
 
 /////
 
@@ -1101,7 +914,7 @@ NOTES:
 NOTES:
 - Three reasons:
 - Performance: initial page render
-- SEO: google includes page render speed in ranking algorithm
+- SEO: Google doesn't have to execute your JS to get meaningful data + they includes page render speed in ranking algorithm
 - Open Graph: media previews
 - React, unlike other JS frameworks/libraries, is setup to render server-side, as we'll see
 - Want to emphasize that I'm talking about the _initial_ render
@@ -1164,9 +977,10 @@ NOTES:
 _click through code highlights_
 
 - Rendering to the DOM typically happens in the entry point of your app
-- You'll import from `react-dom` and use it's `hydrate()` function (new to React 16)
+- **First:** You'll import from `react-dom`
+- **Second:** Then use it's `hydrate()` function (new to React 16)
 - Inserts your app into the DOM location
-- And then when your app updates, it produces a new component hierarchy
+- When your app updates, it produces a new component hierarchy
 - `react-dom` is what takes that difference from reconciler and applies it to the DOM
 - I bring up that distinction because that separation between building your UI and rendering to DOM...
 
@@ -1215,7 +1029,7 @@ Tanmai Gopal
 (Stay for Day 3!)
 
 NOTES:
-- 
+- If you're gonna be here for the Advanced Conference as well, Tanmai will be giving a lightning talk on this very subject
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -1231,8 +1045,8 @@ NOTES:
 
 NOTES:
 - Who hear likes testing?!?!
-- The same component-based architecture that makes server-side rendering easy, also makes testing React components easy
-- Many other frameworks directly manipulate the DOM, making UI hard to test
+- The same component-based architecture that makes server-side rendering easy, also makes testing React components "minimally-painful
+- Many other frameworks directly manipulate the DOM, making UI also hard to test
 - Pretty much have to run tests in a browser or headless browser which brought a host of issues
 
 /////
@@ -1274,9 +1088,9 @@ NOTES:
 - Except this time after we click and update state, we also call `onIncrement` event handler prop
 - We pass it `this.state.value` as a parameter
 - At the bottom is an example of how you would call it
-- We want to test the component's **public** API:
+- We want to test the component's **public** API only:
 - The markup that it renders and the callback handlers it calls
-- That's it! Don't want to test implementation details like `state` changes
+- That's it! Want to avoid testing implementation details like `state` changes
 
 /////
 
@@ -1297,15 +1111,19 @@ it('renders a `.val`', () => {
 [Jest](https://facebook.github.io/jest/) + [Enzyme](http://airbnb.io/enzyme/) +
 [`jest-enzyme`](https://yarnpkg.com/en/package/jest-enzyme) = 😍
 
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 430px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 485px"></div>
+
 NOTES:
-- We can test `Incrementer` using Jest & Enzyme to test the public API
-- Enzyme has a jQuery-like interface for manipulating React components
-- All w/o a browser
+_click through code highlights_
+
+- We can test `Incrementer` using Enzyme to test the public API
+- Enzyme has a jQuery-like interface for manipulating React components _all without a browser_
 - "Rendering" is creating an enzyme wrapper
 - We use Jest as the test framework & assertion lib; also created by Facebook
 - `jest-enzyme` provides additional enzyme-specific assertions to Jest
-- Here we're asserting that `Incremener` renders an element with `.val` class
-- And that that `.val` element has the text "0" inside of it
+- **First:** Here we're asserting that `Incremener` renders an element with `.val` class
+- **Second:** And that that `.val` element has the text "0" inside of it
 
 /////
 
@@ -1325,6 +1143,7 @@ it('calls `onIncrement` prop with current value', () => {
 
   expect(onIncrement).toHaveBeenCalledTimes(2)
   expect(onIncrement).toHaveBeenLastCalledWith(2)
+  expect(wrapper.find('.val')).toHaveText('2')
 })
 ```
 <!-- .element: class="large" -->
@@ -1369,7 +1188,7 @@ NOTES:
 </div>
 
 NOTES:
-- Let's jump to the 8th reason for transitioning
+- Let's jump right into our 8th topic: React Native
 - Eventbrite has 4 native apps: 2 on iOS & 2 on Android
 - One set for people running events (organizer) / other set for people attending (attendee)
 - We don't have any plans to replace our apps with React Native
@@ -1448,11 +1267,11 @@ class Incrementer extends React.Component {
 NOTES:
 - If replaced `<div>`, `<span>` & `<button>` w/ `View`, `Text` & `TouchableOpacity` components from
   `react-native`
-- You've got the makings a native app!
+- You've got the makings of a native app!
 - I remember when I went to a React Native workshop and was blown away
 - Everything I learned building React web apps, I could leverage in React Native
 - Just like w/ the web there are special considerations for native of course
-- Layout engine is different
+- For instance, layout engine is different
 - But there are a bunch more pre-built components
 - And React is not just for mobile devices...
 
@@ -1510,7 +1329,10 @@ Harry Tormey
 (This afternoon @ 2:55p!)
 
 NOTES:
-- So Harry, a recovering iOS Devleoper, will really clue us in on how React Native works
+- So Harry is a recovering iOS Devleoper
+- And this afternoon he's gonna tell us about how awesome React Native is
+- I actually don't know if that's true or not
+- But I've seen how some of our iOS developers build UIs in Swtift and I know React is better at that
 - Being an iOS developer, he'll really be able to give us a solid comparison
 
 =====
@@ -1548,13 +1370,14 @@ There's no **React way™** 🤷🏾‍♂️
 
 NOTES:
 - There are all these debates about the "right way" to do things
-- Do you always use component classes or use stateless functions until you need state?
-- `setState` gate
-- Inline functions debate
+- Do you always use component classes or should you use stateless functions until you need state?
+- "`setState` gate"
+- Debate about the performance of inline functions for props
 - 4 different ways to do Redux side-effects: thunk, sagas, observables & promise middleware
 - HOCs vs render props
 - How can you decide if you're new to React and don't even know what I just said? So it seems likek a "con"
 - But can be a "pro" because you can look at the team and make decisions based on the skillset
+
 
 - This is how you go can from one team to another doing React and it'll be done completely differently
 
@@ -1622,8 +1445,8 @@ Joe Seifi
 (Right after luch, no napping!)
 
 NOTES:
-- Luckily for us we've got a number of speakers today with a lot of opinions!
-- I work with Joe at Eventbrite, he's gonna share several different ways to style our React components and tradeoffs
+- Luckily for us even though React is unopinionated, we've got a number of speakers today with a lot of opinions!
+- I work with Joe at Eventbrite, he's gonna share several different ways to style our React components and their tradeoffs
 
 /////
 
@@ -1654,8 +1477,8 @@ NOTES:
 </div>
 
 NOTES:
-- Then there are decisions about how you wanna manage your state
-- Do you wanna just use `setState()` from React API that I showed earlier
+- Then there are decisions about how you wanna manage your application state
+- Do you wanna just use `setState()` from the React API that I showed earlier
 - How about Redux? That's super popular
 - There's MobX too!
 
@@ -1672,7 +1495,7 @@ Mark Erikson
 
 NOTES:
 - Guess what? We've got someone who can help us out!
-- Well Mark is a maintainer of Redux, so you know he's got opinions about Redux
+- Mark here is a maintainer of Redux, so you know he's got opinions about Redux
 - He's gonna teach us the fundamentals of Redux!
 
 /////
@@ -1713,8 +1536,9 @@ NOTES:
 NOTES:
 - An app isn't anything without data, and we get that data by requesting it from an API
 - But what sort of API do we interact with?
-- Most of us are probably familiar with interacting with REST APIs
-- But GraphQL is alternative (and easier) way to retrieve data
+- Most of us are probably familiar with interacting with REST APIs (`GET`, `POST`, `PUT` & `DELETE`)
+- We can use the new Fetch API
+- But GraphQL is alternative (and easier) way to interact with an API
 - Relay & Apollo are 2 React clients to interface with GraphQL backeneds
 - Falcor is from Netflix and is a client and server-server side solution for doing pretty much the same thing
 
@@ -1746,7 +1570,7 @@ NOTES:
 </div>
 
 NOTES:
-- Ok, the final reason that Eventbrite wanted to migrate to React is a sort of catch-all
+- Ok, this final one is a sort of catch-all
 - There are many other reason for going for React
 - Don't really deserve their own section (and I don't have hours), but still important...
 
@@ -1776,46 +1600,12 @@ NOTES:
 - **Staff**: is a big reason; it's not just some folks doing it in their spare time
 - **Popular**: not a good enough reason by itself but doesn't hurt for recruiting/perception
 - **Simple API**: I rarely have to go to the docs (except for prop types)
-- **Ecosystem**: Similarly the eco-system is huge so if you need to do something probably already
-  exists
+- **Ecosystem**: Similarly the eco-system is huge so if you need to do something probably already exists
 - **Feedback**: React + webpack makes developing a sync with webpack dev server
-- **Evolving + Stable**: React continues to grow greatly (Fiber) but few breaking changes & there
-  are long deprecations
+- **Evolving + Stable**: React continues to grow greatly (React 16, new context API, Suspense) but few breaking changes & there are long deprecations
 - **Codemods**: enable switching code when features are deprecated
-- **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition
-  (what we're doing)
+- **Existing apps**: React _can_ be used with other libs like Backbone for a gradual transition (what we're doing)
 - This list was lifted from a tweet from Cory, so thanks!
-
-=====
-
-## Recap
-
-<ol style="margin-right: 1em">
-  <li>Declarative JSX</li>
-  <li>Component-driven</li>
-  <li>All JavaScript*</li>
-  <li>State-driven</li>
-  <li class="fragment highlight-red">Sophisticated reconciler</li>
-</ol>
-
-<ol start="6">
-  <li>Server-side rendering</li>
-  <li>Testing</li>
-  <li>React Native</li>
-  <li>Unopionated</li>
-  <li>...and more!</li>
-</ol>
-
-NOTES:
-- Again these are the reasons **we** made the switch to React
-- I really wish I could've gone into more details on each one
-- Each one literally could be its own talk
-- Talked about how JSX provides great developer ergonomics
-- The fact that it's component-driven not only makes it easy to build UIs
-- But also enables the reconciler, server-side rendering, testing & dozens of other renders
-- It's state-driven instead of event-driven and we can use at lot of the latest JavaScript in our apps
-- And many other goodies!
-- My favorite one is the sophisticated reconciler!
 
 =====
 
@@ -1846,10 +1636,24 @@ NOTES:
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
-- So that's all I have for you!
+- Before I got, wanted to share some appreciations
+- **Reactathon:**
+  * Facebook is no longer able/willing to put on their React Conf
+  * Continuation of Bay Area React conference
+  * For inviting me to kick off the conference
+- **Eventbrite:** 
+  * Sponsoring the conference
+  * Sending 25(!!!) folks so we can level-up our skills in the midst of company-wide initiative
+  * We're hiring, come by the booth
+  * If you're w/ coworkers and don't wanna put yourself on blast, find one of us
+  * Head nod, left wink, right handshake
+- **YOU!**
+  * For attending and taking the time outta busy work/school week to grow your skills
+  * Got a great lineup of talks and speakers after me so it's a worthwhile investment
 - Hopefully this gave you a solid intro to what React's about and warmed you up for the rest of today's talks
 - My goal is for you to learn at least one thing you can take away to be a better dev
-- Slides are available on Twitter and Blog
 - Would love to hear from you about things that were unclear, wanna know more about or general questions
-- Ask on Twitter, via AMA or email
+- Ask on Twitter or via AMA 
+- Slides are available on Twitter and Blog
+- So that's all I have for you!
 - I hope you enjoy the rest of Reactathon!
