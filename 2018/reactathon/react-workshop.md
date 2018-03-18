@@ -14,7 +14,7 @@ March 19, 2018
 
 <br />
 
-## http://bit.ly/react-fun-setup
+## http://bit.ly/setup-react-fun
 
 NOTES:
 - Who's done React before??
@@ -55,8 +55,7 @@ NOTES:
 NOTES:
 - Currently a Principal UI Engineer at Eventbrite
 - Eventbrite is an online ticketing & events platform
-- I work on the Frontend Platform team and right now we're in the midst of a transition from Backbone/Marionette to React
-- Was an engineer, became a manager for about a year, returning back to dev
+- I work on the Frontend Platform team and right now we've completed a transition from Backbone/Marionette to React
 
 =====
 
@@ -64,7 +63,7 @@ NOTES:
 
 <br />
 
-# http://bit.ly/react-fun-setup
+# http://bit.ly/setup-react-fun
 
 NOTES:
 - Last chance to get setup before begin
@@ -96,20 +95,21 @@ NOTES:
 
 ## FUNdamental Concepts
 
-- Using JSX syntax ([Step 1](https://github.com/benmvp/react-workshop/blob/master/src/01-jsx/))
-- Writing readable, reusable and composable components ([Step 2](https://github.com/benmvp/react-workshop/blob/master/src/02-components/))
-- Maintaining component state ([Step 4](https://github.com/benmvp/react-workshop/blob/master/src/04-email-view/))
-- Handling user interaction ([Step 4](https://github.com/benmvp/react-workshop/blob/master/src/04-email-view/))
-- Handling HTML forms & form elements ([Step 5](https://github.com/benmvp/react-workshop/blob/master/src/05-email-form/))
-- Leveraging ES6+ to maintain application state ([Step 6](https://github.com/benmvp/react-workshop/blob/master/src/06-submit-email-form/))
-- Making API calls ([Step 8](https://github.com/benmvp/react-workshop/blob/master/src/08-api/))
-- Hooking into the component lifecycle ([Step 8](https://github.com/benmvp/react-workshop/blob/master/src/08-api/))
-- Applying component styling with CSS classes ([Step 9](https://github.com/benmvp/react-workshop/blob/master/src/09-styling/))
+- JSX ([Step 1](https://github.com/benmvp/react-workshop/blob/master/src/01-jsx/))
+- Components ([Step 2](https://github.com/benmvp/react-workshop/blob/master/src/02-components/))
+- Component state ([Step 4](https://github.com/benmvp/react-workshop/blob/master/src/04-email-view/))
+- User interactions ([Step 4](https://github.com/benmvp/react-workshop/blob/master/src/04-email-view/))
+- Forms ([Step 5](https://github.com/benmvp/react-workshop/blob/master/src/05-email-form/))
+- Application state ([Step 6](https://github.com/benmvp/react-workshop/blob/master/src/06-submit-email-form/))
+- API calls ([Step 8](https://github.com/benmvp/react-workshop/blob/master/src/08-api/))
+- Component lifecycle ([Step 8](https://github.com/benmvp/react-workshop/blob/master/src/08-api/))
+- Component styling ([Step 9](https://github.com/benmvp/react-workshop/blob/master/src/09-styling/))
 
 NOTES:
 - With these steps, we'll learn these FUNdamentals React concepts
 - These are all you need in order to build anything in React
 - Everything else is just more sophisticated applications of these core concepts
+- Learning other little things as we go
 
 /////
 
@@ -200,27 +200,16 @@ NOTES:
 
 /////
 
-![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
-<!-- .element: style="width: 50%" -->
-
-## Feedback: [bit.ly/react-fun-feedback]()
-
-
-/////
-
 ![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
 <!-- .element: style="width: 50%" -->
 
 ## Ben Ilegbodu
 
 [benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-<br />
+[github/benmvp](https://github.com/benmvp)
+<br /><br />
 
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
-
-<br />
-
-Feedback: [bit.ly/react-fun-feedback]()
 
 NOTES:
 - So that's it!
