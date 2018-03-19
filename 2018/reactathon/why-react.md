@@ -587,9 +587,8 @@ class Section extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
-- This is what the JSX would be transformed into
-- So it really **is** all JavaScript
-- It seems like a lot more code, so...
+- If you strip away the JSX into the transpiled version
+- You see it really **is** all JavaScript
 
 /////
 
@@ -612,7 +611,7 @@ class Section extends React.Component {
 <!-- .element: class="large" -->
 
 NOTES:
-- Many people use expressions in JSX for this to keep things short
+- BTW - many people use expressions in JSX for this to keep things short
 - But at Eventbrite we strive to keep the JSX as "clean" as possible
 - This might be "okay", but would get out of hand quickly
 - I've seen these spanning 10+ lines
