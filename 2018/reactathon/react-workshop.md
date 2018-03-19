@@ -132,10 +132,11 @@ NOTES:
 NOTES:
 - There are many different ways that people learn
 - I actually learn best with written tutorials because I can go at my own pace and follow links
-- Live workshops like these help me because I can ask questions and here explanations
-- I'm going to live code building a fake email app and explain React as I go
+- Live workshops like these help me because I can ask questions and hear explanations
+- I'm going to live code building a fake email app and teach React as I go
 - I will go slowly enough that you can code along with me; some people like to do that
 - But in order to cover what we need to cover, I'm going to move w/ pace so it _may_ be hard to type & grasp
+- Won't be able to stop and debug
 - Alternatively you can just watch and follow along
 - The nice thing is that you can switch back and forth because you have the opportunity to start from any given step
 
@@ -174,7 +175,8 @@ Any more questions?
 
 =====
 
-# Let's get started!
+![Minions Let's Get Started](../../img/giphy/lets-get-started.gif)
+<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 75%" -->
 
 =====
 
