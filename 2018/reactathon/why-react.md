@@ -112,6 +112,8 @@ NOTES:
 <!-- .element: class="title" -->
 
 NOTES:
+_[5 minutes]_
+
 - Split this up into 2 main sections
 - Start off with the Core Stuff
 - Core ones will apply to everyone using React
@@ -271,6 +273,8 @@ NOTES:
 </div>
 
 NOTES:
+_[9 minutes]_
+
 - The next aspect of React is that it's component-driven
 
 /////
@@ -387,6 +391,8 @@ NOTES:
 </div>
 
 NOTES:
+_[12 minutes]_
+
 - The 3rd reason was React being exclusively JavaScript based
 - I have the asterisk there because obviously we're building web apps so CSS is obviously involved
 - But I'm conveniently ignoring that for now 😀
@@ -560,6 +566,8 @@ NOTES:
 </div>
 
 NOTES:
+_[19 minutes]_
+
 - So far we've talked about (1) JSX, (2) Component-driven & (3) JavaScript
 - And so far we've basically been creating static user-interfaces; not user interaction
 - To do that the state of the UI has to change over time
@@ -714,6 +722,8 @@ NOTES:
 </div>
 
 NOTES:
+_[23 minutes]_
+
 - Let's jump into the 5th aspect of React
 - The killer feature of React: the Reconciler aka "Virtual DOM"
 - Whenever anyone talks about React it's the cool feature they talk about
@@ -785,13 +795,17 @@ NOTES:
 # MORE STUFF
 <!-- .element: class="title" -->
 
+
 NOTES:
+_[25 minutes]_
+
 - So that was the Core Stuff
 - The ones that will apply to everyone because they are part of the core lib
 - Now let's move on to "More Stuff"
 - See what I did there? "Core Stuff" / "More Stuff"?
 - I spent a dispproportionate amount of time on that
 - These are extra things that may or may not apply to you
+
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -956,6 +970,8 @@ NOTES:
 </div>
 
 NOTES:
+_[29 minutes]_
+
 - Who hear likes testing?!?!
 - The same component-based architecture that makes server-side rendering easy, also makes testing React components what I call "minimally-painful"
 - Many other frameworks directly manipulate the DOM, making UI also hard to test
@@ -992,7 +1008,6 @@ class Incrementer extends React.Component {
 <Incrementer onIncrement={this._handleIncrement} />
 ```
 <!-- .element: class="large" -->
-
 
 
 NOTES:
@@ -1110,21 +1125,13 @@ NOTES:
 </div>
 
 NOTES:
+_[32 minutes]_
+
 - Let's jump right into our 8th topic: React Native
 - Eventbrite has 4 native apps: 2 on iOS & 2 on Android
 - One set for people running events (organizer) / other set for people attending (attendee)
 - We don't have any plans to replace our apps with React Native
 - But should we need other native apps, being able to use React Native is appealing
-
-/////
-
-![Learn Once, Write Anywhere screenshot from react homepage](../../img/why-react/react-learn-once-write-anywhere.png)
-<!-- .element: style="width: 50%" -->
-
-NOTES:
-- One of the benefits React mentions on its home page is that you can "Learn Once, Write Anywhere"
-- Basically saying that once you learn React and its paradigms, you can build apps for _any_ environment
-- Not just the web
 
 /////
 
@@ -1266,6 +1273,8 @@ NOTES:
 <!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none; width: 60%" -->
 
 NOTES:
+_[36 minutes]_
+
 - Honestly this 9th reason can be seen as a pro or con depending on how you look at it
 - React is pretty unopinionated on how your apps should be built
 
@@ -1492,6 +1501,8 @@ NOTES:
 </div>
 
 NOTES:
+_[41 minutes]_
+
 - Ok, this final one is a sort of catch-all
 - There are many other reason for going for React
 - Don't really deserve their own section (and I don't have hours), but still important...
@@ -1542,6 +1553,8 @@ NOTES:
 
 
 NOTES:
+_[43 minutes]_
+
 - Mark (w/ help) has collection a bazillion links to resources covering React, Redux, ES6 and more!
 
 =====
