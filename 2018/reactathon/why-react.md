@@ -15,7 +15,7 @@ March 20, 2018
 NOTES:
 - My name is Ben Ilegbodu
 - Super excited to be kicking of Reactathon and the Fundamentals conference
-- Wanna introduce you to React and warm you up to many of the concepts you will hear the rest of today
+- Wanna introduce you to React and warm you up to many of the concepts you will hear in the rest of the talks today
 - Called this talk "Why React?"...
 - But another title for the talk could've been...
 
@@ -112,8 +112,8 @@ NOTES:
 <!-- .element: class="title" -->
 
 NOTES:
-- Split this up into 2 main sections:
-- Core Stuff & More Stuff
+- Split this up into 2 main sections
+- Start off with the Core Stuff
 - Core ones will apply to everyone using React
 - Part of the core React lib
 
@@ -271,7 +271,7 @@ NOTES:
 </div>
 
 NOTES:
-- The next motivation for the transition was React's component-based architecture
+- The next aspect of React is that it's component-driven
 
 /////
 
@@ -280,12 +280,12 @@ NOTES:
 ```js
 export default class FormField extends React.Component {
   render() {
-    const name = this.props.name
+    const id = this.props.id
     return (
       <div>
-        <Label inputId={name}>{this.props.label}</Label>
+        <Label inputId={id}>{this.props.label}</Label>
         <TextInput
-          id={name}
+          id={id}
           value={this.props.value}
           onChange={this.props.onChange}
         />
@@ -296,14 +296,23 @@ export default class FormField extends React.Component {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 253px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 423px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 594px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 654px"></div>
+
+
 NOTES:
+_click through code highlights_
+
 - The sole way you build your UI in React is with "custom" components
 - Everything is a component!
 - And you build bigger components by combining smaller components w/ markup
 - One way we create components is by creating a `class` and extending from `React.Component`
 - The component has a `render()` method which is where you define the UI & return JSX
-- Here we have a `FormField` component made up of existing `Label` & `TextInput` components
-- It defines 4 `props` (`name`, `label`, `value` & `onChange`), which are how the component is configured
+- Here we have a `FormField` component made up of already defined `Label` & `TextInput` components
+- Props are how a component is configured; it's an object
+- **Click through props:** `FormField` defines 4 `props` (`id`, `label`, `value` & `onChange`)
 - It lays out the `Label` & `TextInput` w/in `<div>` and then passes along those props as configuration
 
 /////
@@ -317,12 +326,12 @@ export default class NameForm extends React.Component {
     return (
       <form onSubmit={this._handleSubmit}>
         <FormField
-          name="fName"
+          id="fName"
           label="First"
           value={this.props.fields.fName}
           onChange={this.props.onFieldChange.bind(null, 'fName')}
         />
-        <FormField name="lName" ... />
+        <FormField id="lName" ... />
       </form>
     )
   }
@@ -362,105 +371,8 @@ export default class App extends React.Component {
 
 NOTES:
 - And keep doing that until you have a full-fledged app
-
-/////
-
-## Explicitly passing data DOWN the tree
-
-`App.js`
-```
-<NameForm fields={ ... } />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`NameForm.js`
-```
-<FormField name="fName" value={props.fields.fName} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`FormField.js`
-```
-<TextInput value={props.value} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`TextInput.js`
-```
-<input type="text" value={props.value} />
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- It's not all sunshine & roses; at least not for everyone
-- If in my `App` I want to set the value of the HTML input for the first name...
-- I pass it from `App` -> `NameForm` -> `FormField` -> `TextInput` that reners `<input>`
-- This is _very_ explicit; you can clearly see how data flows down the component hierarchy
-- I personally don't have a problem with it because I prefer the clarity; especially in code reviews
-- But some find it verbose. If they could, they'd rather jump levels of the hierarchy to get it where it should
-- But I've seen that introduce other gnarliness
-
-/////
-
-## Explicitly passing data UP the tree 
-
-`App.js`
-```
-<NameForm onFieldChange={this._handleFieldChange} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`NameForm.js`
-```
-<FormField onChange={props.onFieldChange.bind(null, 'first')} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`FormField.js`
-```
-<TextInput onChange={props.onChange} />
-```
-<!-- .element: class="large" style="margin-bottom: 1.5em" -->
-
-`TextInput.js`
-```
-<input type="text" onChange={props.onChange} />
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Similarly getting data back **up** the tree is also explicit
-- Let's say the top-level App wants to react to changes in the `<input>` field
-- Well we have to pass callback handlers down the tree as props
-- So when `onChange` happens on `TextInput` -> `FormField` -> `NameForm` -> `App`
-- In Backbone/Marionette we had global "radios" & components could register channels
-- But no enforcement on who was sending/receiving
-
-/////
-
-## `<App />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<NameForm />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<FormField />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<TextInput />`
-
-## ↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑
-
-## `<input />`
-
-
-
-NOTES:
-- This one-way circular data flow is a completely different way of thinking than traditional MVC
-- It's probably the hardest thing to grasp in React, but one you do everything else falls into place
+- `App` contains `NameForm` component
+- And probably would contain other big components as well: header, footer, navigation, etc.
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -610,6 +522,8 @@ class Section extends React.Component {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight" style="height: 80px; top: 479px"></div>
+
 NOTES:
 - BTW - many people use expressions in JSX for this to keep things short
 - But at Eventbrite we strive to keep the JSX as "clean" as possible
@@ -623,14 +537,14 @@ NOTES:
 (...but [StackOverflow](https://stackoverflow.com/questions/22876978/loop-inside-react-jsx) 😞)
 
 NOTES:
-- Dan tweeted this in response to a request to add conditionals and loops into JSX
+- Dan Abramov, one of the React maintainers, tweeted this last year in response to a request to add conditionals and loops into JSX
 - I ❤️ JavaScript so the more I can do in JS the better
 - I'm glad that I don't have to learn a new API to do conditionals/loops in React
 - Because it's JS, I can do whatever JS can do
 - But for some though, this is a drawback because you _have_ to know JS pretty well to be effective
 - Before if you were solid at HTML/CSS, you could throw in some jQuery & do really well
 - Looping and conditionals in JSX is not intuitive
-- That's a StackOveflow question about loops that has > 300k views and 520 upvotes!
+- That's a StackOveflow question about loops that has > 430k views and 625 upvotes!
 - Now it's JS or bust, which takes some getting used to
 
 =====
@@ -749,10 +663,10 @@ NOTES:
 - So basically we do work in two main areas:
 - 1/ Define what we're going to `render()` based on `props` & `state`
 - Can have conditional logic, loops, other sophisticated logic to determine what to render
-- Skill: Ability to build layouts with HTML & CSS
+- **Skill:** Ability to build layouts with HTML & CSS
 - 2/ When events happen, do stuff to transform data to generate new `state` (and `render` again)
 - Can also do async transformation by making API calls
-- Skill: Ability to transform data efficiently; algorithms are really handy
+- **Skill:** Ability to transform data efficiently; algorithms are really handy
 - And the loop continues
 
 /////
@@ -765,7 +679,6 @@ NOTES:
 - So you end up spending more time explicitly wiring things up together
 - Buuuut... structure of your code can more or less stay the same as complexity grows
 - Certainly not the case with jQuery or Backbone; things got cray
-- So if an app grew organically, it never was rearchitected
 - But prepare yourself for the fact that it'll feel like you're writing "more code" in the beginning
 
 /////
@@ -793,7 +706,7 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content:space-around;">
     <div>
       <h1>5. Sophisticated reconciler</h1>
-      <h2>(aka Virtual DOM)</h2>
+      <h2>(aka "Virtual DOM")</h2>
     </div>
     <div style="flex: 0 0 50%">
       <img src="../../img/giphy/shia-magic.gif" style="width:100%;height:auto;border: 0; background: none; margin: 0; box-shadow: none;" alt="Shia displays magic" />
@@ -801,10 +714,10 @@ NOTES:
 </div>
 
 NOTES:
-- Let's talk about our 5th reason for the transition:
-- The killer feature of React: the Reconciler aka Virtual DOM
+- Let's jump into the 5th aspect of React
+- The killer feature of React: the Reconciler aka "Virtual DOM"
 - Whenever anyone talks about React it's the cool feature they talk about
-- Technically "Virtual DOM" is a misnomer
+- Technically "Virtual DOM" is a misnomer, but we'll get into why that is later
 
 
 - So up until this point, it's looked like `render()` was rendering to the DOM
@@ -1044,7 +957,7 @@ NOTES:
 
 NOTES:
 - Who hear likes testing?!?!
-- The same component-based architecture that makes server-side rendering easy, also makes testing React components "minimally-painful
+- The same component-based architecture that makes server-side rendering easy, also makes testing React components what I call "minimally-painful"
 - Many other frameworks directly manipulate the DOM, making UI also hard to test
 - Pretty much have to run tests in a browser or headless browser which brought a host of issues
 
@@ -1147,16 +1060,26 @@ it('calls `onIncrement` prop with current value', () => {
 ```
 <!-- .element: class="large" -->
 
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 317px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 373px"></div>
+<div class="code-highlight fragment current-visible" style="height: 140px; top: 593px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 771px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 829px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 886px"></div>
+
 NOTES:
 - If you recall, when we click the button we call our `onIncrement` handler
 - We want to verify that when we click the button that `onIncrement` gets called w/ the right parameter
 - Well with enzyme we can simulate clicking the button w/o running in a browser!
-- And with Jest we can provide a mock function using `jest.fn()`
+- **First:** First with Jest we can create a mock function using `jest.fn()`
+- **Second:** Then we pass that mock function as `onIncrement` when we shallow render the component
+- **Third:** Then we simulate clicking button inside `Incrementer`
 - Then we can assert things on that mock:
-- How many times it was called (twice for 2 clicks)
-- What arguments it was last called with (2)
+- **Fourth:** How many times it was called (twice for 2 clicks)
+- **Fifth:** What arguments it was last called with (2)
 - Again: we shouldn't inspect the `state` of the component (which would be 2)
 - Instead we assert on the value in the handler (the public API)
+- **Sixth:** Lastly we can assert that the display value has been updated
 - Being able to unit test like this is a game-changer
 
 /////
@@ -1374,7 +1297,7 @@ NOTES:
 - Debate about the performance of inline functions for props
 - 4 different ways to do Redux side-effects: thunk, sagas, observables & promise middleware
 - HOCs vs render props
-- How can you decide if you're new to React and don't even know what I just said? So it seems likek a "con"
+- How can you decide if you're new to React and don't even know what I just said? So it seems like a "con"
 - But can be a "pro" because you can look at the team and make decisions based on the skillset
 
 
