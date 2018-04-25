@@ -852,7 +852,7 @@ import App from './App'
 
 const props = window.__SERVER_DATA__ || {}
 
-ReactDOM.hyrdate(
+ReactDOM.hydrate(
   <App {..props} />,
   document.getElementById('root')
 )

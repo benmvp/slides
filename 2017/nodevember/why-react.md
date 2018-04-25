@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#nodevember2017](https://twitter.com/hashtag/nodevember2017)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#nodevember2017](https://twitter.com/hashtag/nodevember2017)
 
 <br />
 
-November 28, 2017  
+November 28, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -1199,7 +1199,7 @@ import App from './App'
 
 const props = window.__SERVER_DATA__ || {}
 
-ReactDOM.hyrdate(
+ReactDOM.hydrate(
   <App {..props} />,
   document.getElementById('root')
 )
@@ -1574,30 +1574,30 @@ NOTES:
 ## Fiber makes React renderers easier to build
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
-  [`ink`](https://github.com/vadimdemedes/ink)  
-  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
-  [`rax`](https://github.com/alibaba/rax)  
-  [`react-art`](https://github.com/reactjs/react-art)  
-  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
-  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
-  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
-  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
-  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
-  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
-  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
-  [`react-html-email`](https://github.com/chromakode/react-html-email)  
-  [`react-konsul`](https://github.com/mohebifar/konsul)  
-  [_**`react-native`**_](https://github.com/facebook/react-native)  
-  [`react-pdf`](https://github.com/diegomura/react-pdf)  
-  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
-  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
-  [`react-three`](https://github.com/Izzimach/react-three)  
-  [`react-titanium`](https://github.com/yuchi/react-titanium)  
-  [`react-tvml`](https://github.com/ramitos/react-tvml)  
-  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
-  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
-  [`react-x11`](https://github.com/sidorares/react-x11)  
-  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+  [`ink`](https://github.com/vadimdemedes/ink)
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)
+  [`rax`](https://github.com/alibaba/rax)
+  [`react-art`](https://github.com/reactjs/react-art)
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)
+  [`react-html-email`](https://github.com/chromakode/react-html-email)
+  [`react-konsul`](https://github.com/mohebifar/konsul)
+  [_**`react-native`**_](https://github.com/facebook/react-native)
+  [`react-pdf`](https://github.com/diegomura/react-pdf)
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)
+  [`react-three`](https://github.com/Izzimach/react-three)
+  [`react-titanium`](https://github.com/yuchi/react-titanium)
+  [`react-tvml`](https://github.com/ramitos/react-tvml)
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)
+  [`react-x11`](https://github.com/sidorares/react-x11)
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)
 </div>
 
 Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
@@ -1978,7 +1978,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 <br /><br />
 
