@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#reactathon](https://twitter.com/hashtag/reactathon)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#reactathon](https://twitter.com/hashtag/reactathon)
 
 <br />
 
-March 20, 2018  
+March 20, 2018
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -30,11 +30,11 @@ NOTES:
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#reactathon](https://twitter.com/hashtag/reactathon)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#reactathon](https://twitter.com/hashtag/reactathon)
 
 <br />
 
-March 20, 2018  
+March 20, 2018
 
 NOTES:
 - It was 2 years ago that we (Eventbrite) embarked on the journey of transitioning our frontend from Backbone to React
@@ -241,7 +241,7 @@ NOTES:
 
 /////
 
-![Jay Phelps](../../img/reactathon/jay-phelps.png)  <!-- .element: style="width: 500px" -->  
+![Jay Phelps](../../img/reactathon/jay-phelps.png)  <!-- .element: style="width: 500px" -->
 Jay Phelps
 
 <br />
@@ -408,7 +408,7 @@ NOTES:
 NOTES:
 - Traditional UI frameworks, like Backbone, are markup-centric
 - You create your markup templates separately and then layer interactivity in JS with the framework
-- Here's a simple Handlebars template that's conditionally rendering the `<h1>` 
+- Here's a simple Handlebars template that's conditionally rendering the `<h1>`
 - As a consequence though, the templates need to have a robust language of their own for conditionals, loops, functions, etc.
 - If not, using the templating language can be a pain
 - Handlebars was so simplistic in its language that it made Backbone a pain to use
@@ -683,7 +683,7 @@ NOTES:
 
 /////
 
-![Feather Knee](../../img/reactathon/feather-knee.png)  <!-- .element: style="width: 500px" -->  
+![Feather Knee](../../img/reactathon/feather-knee.png)  <!-- .element: style="width: 500px" -->
 Feather Knee
 
 <br />
@@ -873,7 +873,7 @@ import App from './App'
 
 const props = window.__SERVER_DATA__ || {}
 
-ReactDOM.hyrdate(
+ReactDOM.hydrate(
   <App {..props} />,
   document.getElementById('root')
 )
@@ -931,7 +931,7 @@ NOTES:
 
 /////
 
-![Tanmai Gopal](../../img/reactathon/tanmai-gopal.png)  <!-- .element: style="width: 500px" -->  
+![Tanmai Gopal](../../img/reactathon/tanmai-gopal.png)  <!-- .element: style="width: 500px" -->
 Tanmai Gopal
 
 <br />
@@ -1084,7 +1084,7 @@ NOTES:
 
 /////
 
-![Rachel Ralston](../../img/reactathon/rachel-ralston.png)  <!-- .element: style="width: 500px" -->  
+![Rachel Ralston](../../img/reactathon/rachel-ralston.png)  <!-- .element: style="width: 500px" -->
 Rachel Ralston
 
 <br />
@@ -1202,30 +1202,30 @@ NOTES:
 ## React exists in many environments
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
-  [`ink`](https://github.com/vadimdemedes/ink)  
-  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
-  [`rax`](https://github.com/alibaba/rax)  
-  [`react-art`](https://github.com/reactjs/react-art)  
-  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
-  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
-  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
-  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
-  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
-  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
-  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
-  [`react-html-email`](https://github.com/chromakode/react-html-email)  
-  [`react-konsul`](https://github.com/mohebifar/konsul)  
-  [_**`react-native`**_](https://github.com/facebook/react-native)  
-  [`react-pdf`](https://github.com/diegomura/react-pdf)  
-  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
-  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
-  [`react-three`](https://github.com/Izzimach/react-three)  
-  [`react-titanium`](https://github.com/yuchi/react-titanium)  
-  [`react-tvml`](https://github.com/ramitos/react-tvml)  
-  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
-  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
-  [`react-x11`](https://github.com/sidorares/react-x11)  
-  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+  [`ink`](https://github.com/vadimdemedes/ink)
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)
+  [`rax`](https://github.com/alibaba/rax)
+  [`react-art`](https://github.com/reactjs/react-art)
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)
+  [`react-html-email`](https://github.com/chromakode/react-html-email)
+  [`react-konsul`](https://github.com/mohebifar/konsul)
+  [_**`react-native`**_](https://github.com/facebook/react-native)
+  [`react-pdf`](https://github.com/diegomura/react-pdf)
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)
+  [`react-three`](https://github.com/Izzimach/react-three)
+  [`react-titanium`](https://github.com/yuchi/react-titanium)
+  [`react-tvml`](https://github.com/ramitos/react-tvml)
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)
+  [`react-x11`](https://github.com/sidorares/react-x11)
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)
 </div>
 
 Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
@@ -1241,7 +1241,7 @@ NOTES:
 
 /////
 
-![Harry Tormey](../../img/reactathon/harry-tormey.png)  <!-- .element: style="width: 500px" -->  
+![Harry Tormey](../../img/reactathon/harry-tormey.png)  <!-- .element: style="width: 500px" -->
 Harry Tormey
 
 <br />
@@ -1357,7 +1357,7 @@ NOTES:
 
 /////
 
-![Joe Seifi](../../img/reactathon/joe-seifi.png)  <!-- .element: style="width: 500px" -->  
+![Joe Seifi](../../img/reactathon/joe-seifi.png)  <!-- .element: style="width: 500px" -->
 Joe Seifi
 
 <br />
@@ -1406,7 +1406,7 @@ NOTES:
 
 /////
 
-![Mark Erikson](../../img/reactathon/mark-erikson.png)  <!-- .element: style="width: 500px" -->  
+![Mark Erikson](../../img/reactathon/mark-erikson.png)  <!-- .element: style="width: 500px" -->
 Mark Erikson
 
 <br />
@@ -1466,7 +1466,7 @@ NOTES:
 
 /////
 
-![Jon Wong](../../img/reactathon/jon-wong.png)  <!-- .element: style="width: 500px" -->  
+![Jon Wong](../../img/reactathon/jon-wong.png)  <!-- .element: style="width: 500px" -->
 Jon Wong
 
 <br />
@@ -1477,7 +1477,7 @@ Jon Wong
 
 NOTES:
 - If you haven't gotten the trend yet, we have someone who will introduce GraphQL to us as well
-- My buddy Jon is going to give us a gentle introduction 
+- My buddy Jon is going to give us a gentle introduction
 
 =====
 <!-- .slide: data-background="#ddd" -->
@@ -1551,7 +1551,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 <br /><br />
 
@@ -1563,7 +1563,7 @@ NOTES:
   * Facebook is no longer able/willing to put on their React Conf
   * Continuation of Bay Area React conference
   * For inviting me to kick off the conference
-- **Eventbrite:** 
+- **Eventbrite:**
   * Sponsoring the conference
   * Sending 25(!!!) folks so we can level-up our skills in the midst of company-wide initiative
   * We're hiring, come by the booth
@@ -1575,7 +1575,7 @@ NOTES:
 - Hopefully this gave you a solid intro to what React's about and warmed you up for the rest of today's talks
 - My goal is for you to learn at least one thing you can take away to be a better dev
 - Would love to hear from you about things that were unclear, wanna know more about or general questions
-- Ask on Twitter or via AMA 
+- Ask on Twitter or via AMA
 - Slides are available on Twitter and Blog
 - So that's all I have for you!
 - I hope you enjoy the rest of Reactathon!
