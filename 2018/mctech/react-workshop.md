@@ -185,6 +185,14 @@ Any more questions?
 - Animation
 - Server rendering
 
+/////
+
+# Questions?
+
+NOTES:
+- What questions can I answer about anything?
+- Things you were hoping I'd cover 
+
 =====
 
 ![React Workshop Stars](../../img/react/workshop-stars.png)
