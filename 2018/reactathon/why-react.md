@@ -43,6 +43,8 @@ NOTES:
 - And in doing so introduce you to how React works
 - Not really planning to teach React; did that yesterday in a full-day workshop
 - But you'll get to see a lot of what React is
+
+
 - BTW - posted link to slides on twitter if you want to follow along
 
 =====
@@ -227,7 +229,7 @@ React JSX props mirror HTML DOM properties!
 ```
 let labelNode = document.getElementById('label')
 labelNode.className = 'is-hidden'
-labelNode.htmlFor = this.props.inputId
+labelNode.htmlFor = props.inputId
 ```
 <!-- .element: class="large" -->
 
@@ -1306,11 +1308,8 @@ NOTES:
 - Debate about the performance of inline functions for props
 - 4 different ways to do Redux side-effects: thunk, sagas, observables & promise middleware
 - HOCs vs render props
-- How can you decide if you're new to React and don't even know what I just said? So it seems like a "con"
+- If you're new to React, how can you decide when you don't even know what I just said? So it seems like a "con"
 - But can be a "pro" because you can look at the team and make decisions based on the skillset
-
-
-- This is how you go can from one team to another doing React and it'll be done completely differently
 
 /////
 
