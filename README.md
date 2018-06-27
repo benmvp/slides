@@ -1,3 +1,3 @@
 # Ben Ilegbodu's Speaking Engagements
 
-http://www.benmvp.com/speaking-engagements/
+http://www.benmvp.com/speak/
