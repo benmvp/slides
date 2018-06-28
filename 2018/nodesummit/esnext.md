@@ -189,70 +189,164 @@ NOTES:
 
 # ES2018
 
+NOTES:
+- Spec was just finalized 2 weeks ago!
+- Wanna show a couple of features I'm excited about
+
 /////
 
-Spread operator with object literals!
+[Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html)
 
 ```js
-let warriors = {Steph: 95, Klay: 82, Draymond: 79}
-let newWarriors = {
-    ...warriors,
-    Kevin: 97
+const warriors = {steph: 95, klay: 82, dray: 79}
+const newWarriors = {
+  ...warriors,
+  kd: 97
 }
 ```
 <!-- .element: class="large" -->
 
 -----
 
-#### ES5 way
+#### Pre-ES2018 way
 
 ```js
-let warriors = {Steph: 95, Klay: 82, Draymond: 79}
-let newWarriors = _.assign({}, warriors, {
-    Kevin: 97
+const warriors = {steph: 95, klay: 82, dray: 79}
+const newWarriors = Object.assign({}, warriors, {
+  kd: 97
 })
 ```
 
-[Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html) (Stage 3)
+<br />
 
 **Node 8+ support! 😎**
 
 NOTES:
+- ES6/ES2015 gave us the ability to use spread operator in arrays & destructuring for objects
+- Now we can officially use spread operator for objects
 - Now we copy objects while adding new properties in one object literal definition
-- It's a Stage 3 ES feature
-- The ES5 way was to use `_.assign()`
-- ES6 did introduce Object.assign() to handle this as well, but I'll always prefer syntax
+- ES2015 introduced `Object.assign()` but you have to make sure to have the empty object first
+
+- You may be surprised that this just now becoming official
+- We've had this for over a year in Node 8
+- And I've been using this in React for over 2 years
+- It had been in the proposal process for a while
 
 /////
 
-Object destructuring + rest operator!
+[Rest Properties](http://2ality.com/2016/10/rest-spread-properties.html)
 
 ```js
-export default class TextInput extends Component {
-    render() {
-        let {type, defaultValue, ...inputProps} = this.props
-        // `inputProps` has everything in `this.props`
-        // except `type` & `defaultValue`
-
-        /* render stuff */
-    }
+const calcChampionships = (warriors) => {
+  const {steph, kd, klay, dray, ...whoCares} = warriors
+  // `whoCares` is an object with rest of warriors players
 }
 ```
 <!-- .element: class="large" -->
 
-[Rest Properties](http://2ality.com/2016/10/rest-spread-properties.html)
+-----
+
+#### Pre-ES2018 way
+
+```js
+const calc = (warriors) => {
+  const {steph, kd, klay, dray} = warriors
+  const whoCares = _.omit(warriors, ['steph', 'kd', 'klay', 'dray'])
+}
+```
+
+<br />
 
 **Node 8+ support! 😎**
 
 NOTES:
-- Rest properties are coming in soon to ECMAScript. They're in Stage 3
-- Not in ES2015, not ES2016, but future JavaScript (maybe ES2017)
+- Flip side of the coin is rest properties
+- Rest operator with destructuring gives us the rest of players as an object
+  * Could be empty
+- We could've used destructuring to get out the players we cared about
+- But had to use `_.omit` to get the rest
+
+/////
+
+Object destructuring + rest operator in function header FTW!
+
+```js
+const calc = ({steph, kd, klay, dray, ...whoCares}) => {
+  // `whoCares` is an object with rest of warriors players
+}
+```
+<!-- .element: class="large" -->
+
+<br />
+
+**Node 8+ support! 😎**
+
+NOTES:
+- Can move the whole destructuring + rest into the function header
+- Named parameters!
 
 /////
 
 [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
 
-**No Node support yet 😔**
+```js
+let connection;
+db.open()
+  .then((conn) => {
+      connection = conn
+      return connection.select({ name: 'Jane' })
+  })
+  .catch( ... )
+  .finally(() => {
+      connection.close()
+  })
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 185px; top: 533px"></div>
+
+
+<br />
+
+**Node 10+ support! 😎**
+
+NOTES:
+- There's now a 3rd method on `Promise` called `.finally()`
+- It gets called no matter if things succeed or if there's an error
+- Like with `try`-`catch`-`finally` this is a great place to do clean up
+
+- Actually works with Node 8 if you turn on a flag
+
+/////
+
+[`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
+
+```js
+let connection;
+db.open()
+  .then((conn) => {
+      connection = conn
+      return connection.select({ name: 'Jane' })
+  })
+  .catch( ... )
+  .then(() => {
+      connection.close()
+  })
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 185px; top: 533px"></div>
+
+<br />
+
+Do we really need `.finally()`??
+
+NOTES:
+- You may be wondering how this is any different than sticking `.then()` on the end instead
+- There are 3 main differences:
+  * If the `.catch()` threw an error, the last `.then()` wouldn't get called
+  * If you didn't have a `.catch()` at all and there was an error, the last `.then()` wouldn't get called
+  * `.finally()` passes the value from the last `.then()` through automatically
 
 /////
 
@@ -269,11 +363,12 @@ NOTES:
 
 <br />
 
-**Most Node 10+ support 😐**
+**Node 10+ support! 😎**
 
 NOTES:
-- Remaining features in ES2018
+- Full list of features in ES2018
 - The spec was just finalized 2 weeks ago
+- Folks are pretty excited about async interation and some of the regex improvements
 
 =====
 
