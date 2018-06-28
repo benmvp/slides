@@ -25,7 +25,7 @@ NOTES:
 
 #### Syntax
 
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:2em">
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:1em">
     <code>\_\_proto\_\_</code>  
     Arrow functions  
     Classes  
@@ -41,7 +41,7 @@ NOTES:
 
 #### Functionality
 
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller">
+<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:1em">
   Array APIs  
   Block scoping  
   `for-of`  
@@ -67,9 +67,12 @@ NOTES:
   WeakSets  
 </div>
 
+**Node 6+ support! 😎**
+
 NOTES:
 - Full list of features included in the ES6 specification
 - That's 30+ features!
+- Works with Node 6 and higher
 
 /////
 
@@ -82,9 +85,13 @@ NOTES:
 
 <br />
 
+**Node 8+ support! 😎**
+
 NOTES:
 - With ES6 they moved to a yearly release cadence so they won't have this huge dump of features
 - Not much happened in ES2016 as everyone was catching their breath
+- `Array.prototype.includes` works with Node 6+
+- Exponentiation with Node 8+
 
 /////
 
@@ -101,7 +108,13 @@ NOTES:
 
 <br />
 
+**Node 8+ support! 😎**
+
 NOTES:
+- Async functions were the big feature of ES2017
+  * Many folks thought it'd be in ES7
+- We got string padding so no more `leftpad` node module!
+- Available in Node 8+
 
 =====
 
@@ -202,6 +215,8 @@ let newWarriors = _.assign({}, warriors, {
 
 [Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html) (Stage 3)
 
+**Node 8+ support! 😎**
+
 NOTES:
 - Now we copy objects while adding new properties in one object literal definition
 - It's a Stage 3 ES feature
@@ -213,7 +228,7 @@ NOTES:
 Object destructuring + rest operator!
 
 ```js
-export default class TextInput extends PureComponent {
+export default class TextInput extends Component {
     render() {
         let {type, defaultValue, ...inputProps} = this.props
         // `inputProps` has everything in `this.props`
@@ -227,6 +242,8 @@ export default class TextInput extends PureComponent {
 
 [Rest Properties](http://2ality.com/2016/10/rest-spread-properties.html)
 
+**Node 8+ support! 😎**
+
 NOTES:
 - Rest properties are coming in soon to ECMAScript. They're in Stage 3
 - Not in ES2015, not ES2016, but future JavaScript (maybe ES2017)
@@ -234,6 +251,8 @@ NOTES:
 /////
 
 [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
+
+**No Node support yet 😔**
 
 /////
 
@@ -250,8 +269,11 @@ NOTES:
 
 <br />
 
+**Most Node 10+ support 😐**
+
 NOTES:
-- Remaining features
+- Remaining features in ES2018
+- The spec was just finalized 2 weeks ago
 
 =====
 
@@ -292,10 +314,6 @@ NOTES:
 - Needs real-world implementations which pass additional acceptance test suite
 - May be in ES2019, may not
 - Object rest/spread sat in Stage 3 for nearly 2 years
-
-/////
-
-[Dynamic module imports](http://2ality.com/2017/01/import-operator.html)
 
 /////
 
@@ -364,18 +382,6 @@ NOTES:
 - Don't even really wanna show any
 - Some have been here since 2014!
 - None were really interesting...
-
-/////
-
-[Decimal](https://docs.google.com/presentation/d/1jPsw7EGsS6BW59_BDRu9o0o3UwSXQeUhi38QG55ZoPI/edit?pli=1#slide=id.p)
-
-=====
-
-# [Inactive](https://github.com/tc39/proposals/blob/master/inactive-proposals.md)
-
-NOTES:
-- The graveyard
-- Typically have been subsumed by other proposals
 
 =====
 
