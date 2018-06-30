@@ -385,7 +385,11 @@ NOTES:
 =====
 
 # Stage 4 (Finished)
-## (ES2019)
+
+- In ES2019
+- Spec is complete
+- In next release
+- 2+ real implementations
 
 NOTES:
 - Feature will be in the next release
@@ -394,9 +398,63 @@ NOTES:
 - Has significant in-the-field experience with **shipping** implementations, such as that provided by two independent VMs
 - Spec is not expected to change except for wording edits to spec
 
+- Let's take a look at one example...
+
 /////
 
-[Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html)
+## Handling exceptions 😔
+
+```js
+let jsonData;
+
+try {
+  jsonData = JSON.parse(str); 
+} catch(ex) {
+  jsonData = DEFAULT_DATA;
+}
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 70px; top: 373px"></div>
+
+<br />
+
+I don't care about `ex`! 😫
+
+NOTES:
+- Have you ever written code like this with a `try`-`catch`?
+- It...
+- In the `catch`, you don't care about the exception
+  * Either because it doesn't matter or you know what it is
+- But we still have to provide a variable for it!
+  * Omitting is a syntax error
+- Unused variable lint rules have to make special concessions for this!
+
+/////
+
+## Handling exceptions 😀
+
+```js
+let jsonData;
+
+try {
+  jsonData = JSON.parse(str); 
+} catch {
+  jsonData = DEFAULT_DATA;
+}
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 70px; top: 373px"></div>
+
+<br />
+
+[Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html) (**Node 10+ support! 😎**)
+
+NOTES:
+- Now with **optional catch binding** now we don't need to specify `ex`
+- Something that exists in many other languages
+- There's a whole Github issue bikeshedding on necessity of the proposal
 
 =====
 
