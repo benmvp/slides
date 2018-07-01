@@ -614,20 +614,17 @@ NOTES:
 
 # Stage 2 (Draft)
 
+- Formalize the specification
+- Expectation to make into overall spec
+
 NOTES:
 - Committee expects the feature to be developed and eventually included in the standard (not guaranteed)
 - There's a _rough_ spec coming in
 - Objective is to formalize the spec
 - There should really only be incremental changes to the spec
 - Still a gamble to use
-
-/////
-
-[Decorators](https://github.com/tc39/proposal-decorators)
-
-NOTES:
-- Not a fan, but folks seem to like them
-- Been languishing for a while, not sure what the hold up is
+- There's nothing sitting at Stage 2 that I really am excited about
+- There are Class Decorators, but I'm not a big fan of those
 
 =====
 
