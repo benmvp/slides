@@ -460,19 +460,155 @@ NOTES:
 
 # Stage 3 (Candidate)
 
+- Maybe in ES2019
+- Spec is complete
+- Needs real implementations
+
 NOTES:
 - Specification is considered complete
-- Spec will only change based upon implementations necessitating one
-- Should be safe to use
+  * Spec will only change based upon implementations necessitating one
 - Needs real-world implementations which pass additional acceptance test suite
 - May be in ES2019, may not
 - Object rest/spread sat in Stage 3 for nearly 2 years
 
 /////
 
-- [Class fields](http://2ality.com/2017/07/class-fields.html)
-- [Private methods](https://github.com/tc39/proposal-private-methods)
-- [Static fields & private static methods](https://github.com/tc39/proposal-static-class-features/)
+## Classes in JavaScript 😕
+
+```js
+class SelectField extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { ... }
+  }
+
+  _getOptions() { ... }
+
+  render() {
+    const options = this._getOptions()
+    ...
+  }
+}
+SelectField.propTypes = { ... }
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 878px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 308px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 483px"></div>
+
+NOTES:
+- ES2015 syntax introduced class syntax in JavaScript
+  * Great start, but lacked some important qualities
+  * The ability to declare/initialize fields
+  * Mark fields/methods as private
+- Here's a React component written using a JS class
+- **First:** Static `propTypes` added to the class afterwards
+- **Second:** Declaring a instance field called `state` w/in the `constructor()`
+- **Third:** Declaring a "private" method called `_getOptions()`
+  * Not truly private, just a convention. Still accessible
+  * There are other ways to make things private using `Symbol` or `WeakMap` but are verbose
+- With 3 new Stage 3 proposals we can make this more legit!
+
+/////
+
+## Classes in JavaScript 😐
+
+```js
+class SelectField extends React.Component {
+  static propTypes = { ... }
+
+  constructor(props) {
+    super(props)
+    this.state = { ... }
+  }
+  _getOptions() { ... }
+  render() {
+    const options = this._getOptions()
+    ...
+  }
+}
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 80px; top: 198px"></div>
+
+[Static class features](https://github.com/tc39/proposal-static-class-features/)
+
+NOTES:
+- First we can bring that static declaration from outside the class to inside
+- We use the `static` keyword for the field
+- ES2015 had `static` methods, but now this proposal adds static fields
+- It's possible if you've been doing React that you've already been using this for `propTypes`
+- Folks have been using this feature since it was introduced at Stage 1
+- We can go further! What about the `state` declaration?
+
+/////
+
+## Classes in JavaScript 😀
+
+```js
+class SelectField extends React.Component {
+  static propTypes = { ... }
+
+  state = { ... }
+
+  _getOptions() { ... }
+
+  render() {
+    const options = this._getOptions()
+    ...
+  }
+}
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 80px; top: 308px"></div>
+
+[Class fields](http://2ality.com/2017/07/class-fields.html)
+
+NOTES:
+- We can move that `state` declaration and initialization outside of the `constructor`
+  * In fact we don't need the `constructor` at all now!
+- It makes the `class` more declarative to because we can see all of the properties it defined
+  * Instead of having to hunt w/in the `constructor` or other methods
+- FYI these class fields get initialized **before** the `constructor` is run
+- Probably have seen/used this before too
+- The class is looking really nice, but we can do more!
+- `_getOptions` is only "private" by convention
+
+/////
+
+## Classes in JavaScript 😁
+
+```js
+class SelectField extends React.Component {
+  static propTypes = { ... }
+
+  state = { ... }
+
+  #getOptions() { ... }
+
+  render() {
+    const options = this.#getOptions()
+    ...
+  }
+}
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight" style="height: 80px; top: 423px"></div>
+<div class="code-highlight fragment current-visible" style="height: 80px; top: 593px"></div>
+
+[Private methods](https://github.com/tc39/proposal-private-methods)
+
+NOTES:
+- We can use the `#` to signal that the `getOptions` method is private
+- It can no longer be accessed outside of the class; truly private
+- **NOTE:** You can make fields private too; even `static` & private
+- Maybe wondering why using `#` instead of `private` keyword
+  * Read explanations and I _think_ it boils down to how these private fields/methods are implemented
+  * The `#` in `this.#getOptions` helps the interpreter know where to find the data
 
 =====
 
@@ -543,6 +679,9 @@ NOTES:
 /////
 
 [TypeScript Node Starter Kit](https://github.com/Microsoft/TypeScript-Node-Starter#typescript--node)
+
+NOTES:
+- Safe to use Stage 3 & higher
 
 =====
 
