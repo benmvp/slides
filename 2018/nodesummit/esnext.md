@@ -449,7 +449,7 @@ try {
 
 <br />
 
-[Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html) (**Node 10+ support! 😎**)
+[Proposal: Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html) (**Node 10+ support! 😎**)
 
 NOTES:
 - Now with **optional catch binding** now we don't need to specify `ex`
@@ -533,7 +533,7 @@ class SelectField extends React.Component {
 
 <div class="code-highlight" style="height: 80px; top: 198px"></div>
 
-[Static class features](https://github.com/tc39/proposal-static-class-features/)
+[Proposal: Static class features](https://github.com/tc39/proposal-static-class-features/)
 
 NOTES:
 - First we can bring that static declaration from outside the class to inside
@@ -565,7 +565,7 @@ class SelectField extends React.Component {
 
 <div class="code-highlight" style="height: 80px; top: 308px"></div>
 
-[Class fields](http://2ality.com/2017/07/class-fields.html)
+[Proposal: Class fields](http://2ality.com/2017/07/class-fields.html)
 
 NOTES:
 - We can move that `state` declaration and initialization outside of the `constructor`
@@ -600,7 +600,7 @@ class SelectField extends React.Component {
 <div class="code-highlight" style="height: 80px; top: 423px"></div>
 <div class="code-highlight fragment current-visible" style="height: 80px; top: 593px"></div>
 
-[Private methods](https://github.com/tc39/proposal-private-methods)
+[Proposal: Private methods](https://github.com/tc39/proposal-private-methods)
 
 NOTES:
 - We can use the `#` to signal that the `getOptions` method is private
@@ -630,6 +630,10 @@ NOTES:
 
 # Stage 1 (Proposal)
 
+- Has a "champion"
+- Identify problem + solution
+- Spec can/will change
+
 NOTES:
 - Has a "champion"
 - Text outlining the problem & potential solution
@@ -637,23 +641,148 @@ NOTES:
 - Discussion of implementation challenges
 - Committee expects to devote time to examining the problem space, solutions and cross-cutting concerns
 - Make the case for the addition
-- Describe the shape of a solution
-- Identify potential challenge
 - Spec can change drastically as its being formalized
 - **HUGE** gamble to use
 - There are some fun ones here
 
 /////
 
-[Optional chaining](https://github.com/tc39/proposal-optional-chaining)
+## Conditional property accessing 😔
+
+```js
+const address = user.address
+```
+<!-- .element: class="large" -->
+
+```js
+const address = user && user.address
+```
+<!-- .element: class="large fragment" -->
+
+```js
+const address = (user || {}).address
+```
+<!-- .element: class="large fragment" -->
+
+```js
+const address = user ? user.address : undefined
+```
+<!-- .element: class="large fragment" -->
+
+```js
+const address = user == null ? user.address : undefined
+```
+<!-- .element: class="large fragment" -->
+
+NOTES:
+- In JS we can access properties simply
+- But what happens if `user` may be `null` or `undefined`?
+- You have to check it first
+- There are several ways we can do this
 
 /////
 
-[Temporal (DateTime) object](https://github.com/tc39/proposal-temporal/blob/master/README.md)
+## Conditional deep property accessing 😭
+
+```js
+const street = user.address.street
+```
+<!-- .element: class="large" -->
+
+```js
+const street = user && user.address && user.address.street
+```
+<!-- .element: class="large fragment" -->
+
+```js
+const street = ((user || {}).address || {}).street
+```
+<!-- .element: class="large fragment" -->
+
+```js
+const street = user 
+  ? (user.address ? user.address.street : undefined)
+  : undefined
+```
+<!-- .element: class="large fragment" -->
+
+NOTES:
+- And what if you have to go multiple levels deep?
+- It gets even more gnarly
 
 /////
 
-[Pipeline operator](https://github.com/tc39/proposal-pipeline-operator)
+After
+```js
+const address = user?.address
+```
+<!-- .element: class="large" -->
+
+Before
+```js
+const address = user == null ? user.address : undefined
+```
+<!-- .element: class="large" -->
+
+<br />
+
+After
+```js
+const street = user?.address?.street
+```
+<!-- .element: class="large" -->
+
+Before
+```js
+const street = user && user.address && user.address.street
+```
+<!-- .element: class="large" -->
+
+<br />
+
+[Proposal: Optional chaining](https://github.com/tc39/proposal-optional-chaining)
+
+NOTES:
+- The optional chaining operator is: `?.`
+- If the expression before it is `undefined`/`null` it'll short-circuit and return that
+  * Otherwise it'll return whatever is after
+
+/////
+
+After
+```js
+user?.update()
+```
+<!-- .element: class="large" -->
+
+Before
+```js
+user && user.update()
+```
+<!-- .element: class="large" -->
+
+<br />
+
+After
+```js
+update?.()
+```
+<!-- .element: class="large" -->
+
+Before
+```js
+update && update()
+```
+<!-- .element: class="large" -->
+
+<br />
+
+[Proposal: Optional chaining](https://github.com/tc39/proposal-optional-chaining)
+
+NOTES:
+- Can also use the optional chaining operator with functions
+- **First:** Check to see if the object exists and if it does call the expected method
+- **Second** If you just have a function reference you can check before calling it!
 
 =====
 
