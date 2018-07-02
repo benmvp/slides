@@ -788,6 +788,12 @@ NOTES:
 
 # [Stage 0 (Strawman)](https://github.com/tc39/proposals/blob/master/stage-0-proposals.md)
 
+[![Rachel Smith: "hey you can use stage 0 features down here"](../../img/esnext/rachel-smith-stage-0-tweet.png)](https://twitter.com/rachsmithtweets/status/892478598765887488/)
+
+- No real spec
+- Public for feedback
+- Don't get 🔥!
+
 NOTES:
 - Of course there's a stage 0
 - It's basically public so others can give feedback
@@ -800,23 +806,34 @@ NOTES:
 
 =====
 
-# Using it now
+## Using it now
 
-/////
-
-[TypeScript Node Starter Kit](https://github.com/Microsoft/TypeScript-Node-Starter#typescript--node)
+<div style="display:flex; align-items:flex-end; justify-content:space-between; margin-top: 2em">
+    <div style="flex:0 0 45%">
+      [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
+      [Babel](https://babeljs.io/)   
+    </div>
+    <div style="flex:0 0 45%">
+      [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
+      [TypeScript](http://www.typescriptlang.org/)  
+    </div>
+</div>
 
 NOTES:
-- Safe to use Stage 3 & higher
+- The way to use features now before they are standard is w/ transpilers
+- Generally safe to use Stage 3 & higher
+- TypeScript tends to **only** support Stage 3 and higher
+- Babel is more configurable with presets & plugins that allow you to use features down to Stage 0
+  * At your own risk
 
 =====
 
 ## Resources
 
+- [ECMAScript Github Repo](https://github.com/tc39/ecma262)
 - [ES2016+ Compatibility Table](http://kangax.github.io/compat-table/es2016plus/)
 - [ES.next Compatibility Table](http://kangax.github.io/compat-table/esnext/)
 - [ECMAScript Living Spec](https://tc39.github.io/ecma262/)
-- [ECMAScript Github Repo](https://github.com/tc39/ecma262)
 - [TC39 Proposal Process](https://tc39.github.io/process-document/)
 - [TC39 Meeting Notes](https://github.com/rwaldron/tc39-notes)
 - [ECMAScript Test Suite](https://github.com/tc39/test262)
