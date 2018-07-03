@@ -1,23 +1,42 @@
-# ES.next features that'll make ya 💃🕺🏾
+<!-- .slide: data-state="title-page" -->
 
-<br />
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 45%;">
+		<img src="../../img/esnext/zac-ong-467632-unsplash.jpg" style="width:100%;height:auto;" alt="Man breakdancing in front of a crowd" class="plain" />
+	</div>
+	<div style="flex:0 0 45%;">
+  
+  <h1>ES.next features that'll make ya 💃🕺🏾</h1>
 
-## Ben Ilegbodu
+  <br />
 
-<br />
+  <h2>Ben Ilegbodu</h2>
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NodeSummit](https://twitter.com/hashtag/NodeSummit)  
+  <br />
 
-<br />
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#NodeSummit](https://twitter.com/hashtag/NodeSummit)</p>
 
-July 24, 2018
+  <br />
+
+  <p>July 24, 2018</p>
+  
+  
+  </div>
+</div>
 
 NOTES:
 - ES.next is just future JavaScript
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
 
 # Recap
+<!-- .element: style="margin-top: 4em; -webkit-text-stroke: black 5px; color: white; font-size: 4em" -->
+
+NOTES:
+- Before we jump into what's coming up next
+- Let's take a quick walk down memory lane
 
 /////
 
@@ -99,7 +118,7 @@ NOTES:
 
 <br />
 
-- [`async` / `await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [`async` / `await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) 🔥
 - [`Object.values`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Object/values) / [`Object.entries`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
 - `String.prototype.(`[`padStart`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)/[`padEnd`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd)`)`
 - [`Object.getOwnPropertyDescriptors`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors)
@@ -117,15 +136,17 @@ NOTES:
 - Available in Node 8+
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/jake-hills-389-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 # ES.next
+<!-- .element: style="margin-top: 2.5em; -webkit-text-stroke: black 5px; color: white; font-size: 4em" -->
 
-/////
+=====
 
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 # Stand Up!
-<!-- .element: style="-webkit-text-stroke: black 10px; color: white; font-size: 5em" -->
+<!-- .element: style="-webkit-text-stroke: black 6px; color: white; font-size: 5em" -->
 
 NOTES:
 - But first, would like everyone to stand up!
@@ -183,11 +204,14 @@ NOTES:
 
 =====
 
+<!-- .slide: data-background="url(../../img/esnext/jake-hills-389-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
 # ES.next
+<!-- .element: style="margin-top: 2.5em; -webkit-text-stroke: black 5px; color: white; font-size: 4em" -->
 
 =====
 
-# ES2018
+<!-- .slide: data-background="url(../../img/esnext/nordwood-themes-467442-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Spec was just finalized 2 weeks ago!
@@ -198,10 +222,10 @@ NOTES:
 [Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html)
 
 ```js
-const warriors = {steph: 95, klay: 82, dray: 79}
+const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
 const newWarriors = {
   ...warriors,
-  kd: 97
+  boogie: 86,
 }
 ```
 <!-- .element: class="large" -->
@@ -211,9 +235,9 @@ const newWarriors = {
 #### Pre-ES2018 way
 
 ```js
-const warriors = {steph: 95, klay: 82, dray: 79}
+const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
 const newWarriors = Object.assign({}, warriors, {
-  kd: 97
+  boogie: 86,
 })
 ```
 
@@ -238,7 +262,7 @@ NOTES:
 
 ```js
 const calcChampionships = (warriors) => {
-  const {steph, kd, klay, dray, ...whoCares} = warriors
+  const {steph, kd, klay, dray, boogie, ...whoCares} = warriors
   // `whoCares` is an object with rest of warriors players
 }
 ```
@@ -250,8 +274,8 @@ const calcChampionships = (warriors) => {
 
 ```js
 const calc = (warriors) => {
-  const {steph, kd, klay, dray} = warriors
-  const whoCares = _.omit(warriors, ['steph', 'kd', 'klay', 'dray'])
+  const {steph, kd, klay, dray, boogie} = warriors
+  const whoCares = _.omit(warriors, ['steph', 'kd', 'klay', 'dray', 'boogie'])
 }
 ```
 
@@ -271,7 +295,7 @@ NOTES:
 Object destructuring + rest operator in function header FTW!
 
 ```js
-const calc = ({steph, kd, klay, dray, ...whoCares}) => {
+const calc = ({steph, kd, klay, dray, boogie, ...whoCares}) => {
   // `whoCares` is an object with rest of warriors players
 }
 ```
@@ -372,7 +396,10 @@ NOTES:
 
 =====
 
-# 4-stage process
+<!-- .slide: data-background="url(../../img/esnext/joanna-kosinska-129039-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+# ECMAScript
+# Proposal Process
 
 NOTES:
 - May be wondering how features get bundled in yearly releases
@@ -384,14 +411,27 @@ NOTES:
 
 =====
 
-# Stage 4 (Finished)
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 45%;">
+		<img src="../../img/esnext/jari-hytonen-538885-unsplash.jpg" style="width:100%;height:auto;" alt="4 kittens climbing out of a basket" class="plain" />
+	</div>
+	<div style="flex:0 0 45%;">
+  
+  <h1>Stage 4</h1>
+  <h2>(Finished)</h2>
 
-- In ES2019
-- Spec is complete
-- In next release
-- 2+ real implementations
+  <ul style="margin-top: 2em">
+    <li>In ES2019</li>
+    <li>Spec is complete</li>
+    <li>2+ real implementations</li>
+  </ul>
+  
+  
+  </div>
+</div>
 
 NOTES:
+- Stage 4 is the final stage
 - Feature will be in the next release
 - Specification is complete
 - Has two compatible implementations which pass additional acceptance test suite
@@ -458,11 +498,23 @@ NOTES:
 
 =====
 
-# Stage 3 (Candidate)
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 45%;">
+		<img src="../../img/esnext/fabian-burghardt-84752-unsplash.jpg" style="width:100%;height:auto;" alt="Three horses standing close to each other and looking at the camera" class="plain" />
+	</div>
+	<div style="flex:0 0 45%;">
+  
+  <h1>Stage 3</h1>
+  <h2>(Candidate)</h2>
 
-- Maybe in ES2019
-- Spec is complete
-- Needs real implementations
+  <ul style="margin-top: 2em">
+    <li><em>Maybe</em> next release</li>
+    <li>Spec is complete</li>
+    <li>Needs implementations</li>
+  </ul>
+  
+  </div>
+</div>
 
 NOTES:
 - Specification is considered complete
@@ -612,10 +664,22 @@ NOTES:
 
 =====
 
-# Stage 2 (Draft)
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;">
+		<img src="../../img/esnext/harshil-gudka-616909-unsplash.jpg" style="width:100%;height:auto;" alt="Two giraffes in the safari" class="plain" />
+	</div>
+	<div style="flex:0 0 45%;">
+  
+  <h1>Stage 2</h1>
+  <h2>(Draft)</h2>
 
-- Formalize the specification
-- Expectation to make into overall spec
+  <ul style="margin-top: 2em">
+    <li>Formalize the specification</li>
+    <li><em>Should</em> eventually release</li>
+  </ul>
+  
+  </div>
+</div>
 
 NOTES:
 - Committee expects the feature to be developed and eventually included in the standard (not guaranteed)
@@ -628,11 +692,23 @@ NOTES:
 
 =====
 
-# Stage 1 (Proposal)
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;">
+		<img src="../../img/esnext/ian-robinson-218271-unsplash.jpg" style="width:100%;height:auto;" alt="Tiger staring at camera at Edinburgh Zoo" class="plain" />
+	</div>
+	<div style="flex:0 0 45%;">
+  
+  <h1>Stage 1</h1>
+  <h2>(Proposal)</h2>
 
-- Has a "champion"
-- Identify problem + solution
-- Spec can/will change
+  <ul style="margin-top: 2em">
+    <li>Has a "champion"</li>
+    <li>Identify problem + solution</li>
+    <li>Spec can/will change</li>
+  </ul>
+  
+  </div>
+</div>
 
 NOTES:
 - Has a "champion"
@@ -722,7 +798,6 @@ Before
 ```js
 const address = user == null ? user.address : undefined
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -736,7 +811,6 @@ Before
 ```js
 const street = user && user.address && user.address.street
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -759,7 +833,6 @@ Before
 ```js
 user && user.update()
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -773,7 +846,6 @@ Before
 ```js
 update && update()
 ```
-<!-- .element: class="large" -->
 
 <br />
 
@@ -786,13 +858,25 @@ NOTES:
 
 =====
 
-# [Stage 0 (Strawman)](https://github.com/tc39/proposals/blob/master/stage-0-proposals.md)
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 45%;">
+    <a href="https://twitter.com/rachsmithtweets/status/892478598765887488/" target="_blank">
+		  <img src="../../img/esnext/rachel-smith-stage-0-tweet.png" style="width:100%;height:auto;" alt="hey you can use stage 0 features down here" class="plain" />
+    </a>
+	</div>
+	<div style="flex:0 0 45%;">
+  
+  <h1>Stage 0</h1>
+  <h2>(Strawman)</h2>
 
-[![Rachel Smith: "hey you can use stage 0 features down here"](../../img/esnext/rachel-smith-stage-0-tweet.png)](https://twitter.com/rachsmithtweets/status/892478598765887488/)
-
-- No real spec
-- Public for feedback
-- Don't get 🔥!
+  <ul style="margin-top: 2em">
+    <li>No real spec</li>
+    <li>Public for feedback</li>
+    <li>Don't get 🔥!</li>
+  </ul>
+  
+  </div>
+</div>
 
 NOTES:
 - Of course there's a stage 0
@@ -810,12 +894,20 @@ NOTES:
 
 <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-top: 2em">
     <div style="flex:0 0 45%">
-      [![Babel Logo](../../img/es6/babel-logo.png)](https://babeljs.io/)   
-      [Babel](https://babeljs.io/)   
+      <a href="https://babeljs.io/" target="_blank">
+        <img src="../../img/es6/babel-logo.png" alt="" class="plain" />
+      </a>
+      <br />
+      <a href="https://babeljs.io/" target="_blank">
+        Babel
+      </a>
     </div>
     <div style="flex:0 0 45%">
-      [![TypeScript Logo](../../img/es6/typescript-logo-square.png)](http://www.typescriptlang.org/)  
-      [TypeScript](http://www.typescriptlang.org/)  
+      <a href="http://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/es6/typescript-logo-square.png" alt="" class="plain" />
+      </a>
+      <br />
+      <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>
     </div>
 </div>
 
@@ -829,6 +921,8 @@ NOTES:
 =====
 
 ## Resources
+
+<br />
 
 - [ECMAScript Github Repo](https://github.com/tc39/ecma262)
 - [ES2016+ Compatibility Table](http://kangax.github.io/compat-table/es2016plus/)
