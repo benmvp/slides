@@ -45,6 +45,18 @@
   width: 96%;
   z-index: 11;
 }
+.reveal .slideFooter {
+  bottom: 10px;
+  font-size: 0.5em;
+  font-weight: bold;
+  left: 10px;
+  position: fixed;
+  transition: opacity ease-in-out 1s;
+  z-index: 11;
+}
+.title-page .slideFooter {
+  opacity: 0;
+}
 
 .reveal .code-highlight {
   width: 100%;
