@@ -6,7 +6,7 @@
 	</div>
 	<div style="flex:0 0 45%;">
   
-  <h1>ES.next features that'll make ya 💃🕺🏾</h1>
+  <h1>ES.next features that'll make ya 💃🕺🏾!</h1>
 
   <br />
 
@@ -170,7 +170,7 @@ NOTES:
   ],
   "location": "Pittsburg, CA",
   "work": "Eventbrite",
-  "role": "Principal UI Engineer",
+  "role": "Principal Frontend Engineer",
   "hobbies": [
     "basketball", "DIY", "movies"
   ]
@@ -261,7 +261,7 @@ NOTES:
 [Rest Properties](http://2ality.com/2016/10/rest-spread-properties.html)
 
 ```js
-const calcChampionships = (warriors) => {
+const calcWins = (warriors) => {
   const {steph, kd, klay, dray, boogie, ...whoCares} = warriors
   // `whoCares` is an object with rest of warriors players
 }
@@ -273,7 +273,7 @@ const calcChampionships = (warriors) => {
 #### Pre-ES2018 way
 
 ```js
-const calc = (warriors) => {
+const calcWins = (warriors) => {
   const {steph, kd, klay, dray, boogie} = warriors
   const whoCares = _.omit(warriors, ['steph', 'kd', 'klay', 'dray', 'boogie'])
 }
@@ -788,6 +788,8 @@ NOTES:
 
 /////
 
+## Conditional property accessing 😀
+
 After
 ```js
 const address = user?.address
@@ -822,6 +824,8 @@ NOTES:
   * Otherwise it'll return whatever is after
 
 /////
+
+## Conditional function calls 😉
 
 After
 ```js
@@ -920,6 +924,26 @@ NOTES:
 
 =====
 
+# Recap
+
+<br />
+
+- [Rest/Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html) (ES2018) ![](../../img/nodejs-logo.png) <!-- .element: class="plain" style="width: 5%; vertical-align: middle; margin: 0" -->
+- [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html) (ES2018) ![](../../img/nodejs-logo.png) <!-- .element: class="plain" style="width: 5%; vertical-align: middle; margin: 0" -->
+- [Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html) (ES2019) ![](../../img/nodejs-logo.png) <!-- .element: class="plain" style="width: 5%; vertical-align: middle; margin: 0" -->
+- [Static class features](https://github.com/tc39/proposal-static-class-features/) (Stage 3)
+- [Class fields](http://2ality.com/2017/07/class-fields.html) (Stage 3)
+- [Private methods](https://github.com/tc39/proposal-private-methods) (Stage 3)
+- [Optional chaining](https://github.com/tc39/proposal-optional-chaining) (Stage 1)
+
+NOTES:
+- Recap of the features we discussed
+- First three are available in Node 10+ right now!
+- Pretty sure the class features will be available in next major version
+  * Already exist in Chrome
+
+/////
+
 ## Resources
 
 <br />
@@ -933,6 +957,8 @@ NOTES:
 - [ECMAScript Test Suite](https://github.com/tc39/test262)
 
 =====
+
+# THANKS!
 
 ![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
 <!-- .element: style="width: 50%" -->
