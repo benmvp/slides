@@ -61,9 +61,9 @@
 		// Full list of configuration options available at:
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
-			controls: true,
-			controlsTutorial: true,
-			progress: true,
+			controls: location.hostname !== 'localhost',
+			controlsTutorial: location.hostname !== 'localhost',
+			progress: location.hostname !== 'localhost',
 			history: true,
 			center: true,
 
