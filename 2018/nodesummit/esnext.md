@@ -1,10 +1,7 @@
-<!-- .slide: data-state="title-page" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/esnext/atharva-tulsi-534150-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 45%;">
-		<img src="../../img/esnext/zac-ong-467632-unsplash.jpg" style="width:100%;height:auto;" alt="Man breakdancing in front of a crowd" class="plain" />
-	</div>
-	<div style="flex:0 0 45%;">
+<div style="display: flex; align-items:center; justify-content: flex-end">
+	<div style="width: 45%;" class="overlay-light">
   
   <h1>ES.next features that'll make ya 💃🕺🏾!</h1>
 
@@ -374,20 +371,23 @@ NOTES:
 
 /////
 
-## ES2018
+<!-- .slide: data-background="url(../../img/esnext/nordwood-themes-467442-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<br />
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light">
+    <h2>ES2018</h2>
 
-- [Rest/Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html)
-- [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
-- [Template Literal Revision](http://2ality.com/2016/09/template-literal-revision.html)
-- [Asynchronous iteration](http://2ality.com/2016/10/asynchronous-iteration.html)
-- [`RegExp` named capture groups](http://2ality.com/2017/05/regexp-named-capture-groups.html)
-- Other regular expression features
+    <ul style="margin-top:1em;margin-bottom:1em">
+      <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest/Spread Properties</a></li>
+      <li><a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a></li>
+      <li><a href="http://2ality.com/2016/09/template-literal-revision.html" target="_blank">Template Literal Revision</a></li>
+      <li><a href="http://2ality.com/2016/10/asynchronous-iteration.html" target="_blank">Asynchronous iteration</a></li>
+      <li><a href="http://2ality.com/2017/05/regexp-named-capture-groups.html" target="_blank"><code>RegExp</code> named capture groups</a></li>
+    </ul>
 
-<br />
-
-**Node 10+ support! 😎**
+    <p><strong>Node 10+ support! 😎</strong></p>
+  </div>
+</div>
 
 NOTES:
 - Full list of features in ES2018
@@ -410,21 +410,19 @@ NOTES:
 - ES2018 was just officially released
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/jari-hytonen-538885-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 45%;">
-		<img src="../../img/esnext/jari-hytonen-538885-unsplash.jpg" style="width:100%;height:auto;" alt="4 kittens climbing out of a basket" class="plain" />
-	</div>
-	<div style="flex:0 0 45%;">
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%">
   
-  <h1>Stage 4</h1>
-  <h2>(Finished)</h2>
+    <h1>Stage 4</h1>
+    <h2>(Finished)</h2>
 
-  <ul style="margin-top: 2em">
-    <li>In ES2019</li>
-    <li>Spec is complete</li>
-    <li>2+ real implementations</li>
-  </ul>
+    <ul style="margin-top: 2em">
+      <li>In ES2019</li>
+      <li>Spec is complete</li>
+      <li>2+ real implementations</li>
+    </ul>
   
   
   </div>
@@ -497,21 +495,19 @@ NOTES:
 - There's a whole Github issue bikeshedding on necessity of the proposal
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/fabian-burghardt-84752-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 45%;">
-		<img src="../../img/esnext/fabian-burghardt-84752-unsplash.jpg" style="width:100%;height:auto;" alt="Three horses standing close to each other and looking at the camera" class="plain" />
-	</div>
-	<div style="flex:0 0 45%;">
+<div style="display:flex;justify-content:center;">
+	<div class="overlay-light" style="width: 50%;">
   
-  <h1>Stage 3</h1>
-  <h2>(Candidate)</h2>
+    <h1>Stage 3</h1>
+    <h2>(Candidate)</h2>
 
-  <ul style="margin-top: 2em">
-    <li><em>Maybe</em> next release</li>
-    <li>Spec is complete</li>
-    <li>Needs implementations</li>
-  </ul>
+    <ul style="margin-top: 2em">
+      <li><em>Maybe</em> next release</li>
+      <li>Spec is complete</li>
+      <li>Needs implementations</li>
+    </ul>
   
   </div>
 </div>
@@ -663,20 +659,18 @@ NOTES:
   * The `#` in `this.#getOptions` helps the interpreter know where to find the data
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/cosmic-timetraveler-28303-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;">
-		<img src="../../img/esnext/harshil-gudka-616909-unsplash.jpg" style="width:100%;height:auto;" alt="Two giraffes in the safari" class="plain" />
-	</div>
-	<div style="flex:0 0 45%;">
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%;">
   
-  <h1>Stage 2</h1>
-  <h2>(Draft)</h2>
+    <h1>Stage 2</h1>
+    <h2>(Draft)</h2>
 
-  <ul style="margin-top: 2em">
-    <li>Formalize the specification</li>
-    <li><em>Should</em> eventually release</li>
-  </ul>
+    <ul style="margin-top: 2em">
+      <li>Formalize the specification</li>
+      <li><em>Should</em> eventually release</li>
+    </ul>
   
   </div>
 </div>
@@ -691,21 +685,20 @@ NOTES:
 - There are Class Decorators, but I'm not a big fan of those
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/ray-hennessy-139970-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;">
-		<img src="../../img/esnext/ian-robinson-218271-unsplash.jpg" style="width:100%;height:auto;" alt="Tiger staring at camera at Edinburgh Zoo" class="plain" />
-	</div>
-	<div style="flex:0 0 45%;">
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%;">
   
-  <h1>Stage 1</h1>
-  <h2>(Proposal)</h2>
+    <h1>Stage 1</h1>
+    <h2>(Proposal)</h2>
+    
+    <ul style="margin-top: 2em">
+      <li>Has a "champion"</li>
+      <li>Identify problem + solution</li>
+      <li>Spec can/will change</li>
+    </ul>
 
-  <ul style="margin-top: 2em">
-    <li>Has a "champion"</li>
-    <li>Identify problem + solution</li>
-    <li>Spec can/will change</li>
-  </ul>
   
   </div>
 </div>
@@ -893,26 +886,32 @@ NOTES:
 - None were really interesting...
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/clement-h-544786-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Using it now
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%;">
 
-<div style="display:flex; align-items:flex-end; justify-content:space-between; margin-top: 2em">
-    <div style="flex:0 0 45%">
-      <a href="https://babeljs.io/" target="_blank">
-        <img src="../../img/es6/babel-logo.png" alt="" class="plain" />
-      </a>
-      <br />
-      <a href="https://babeljs.io/" target="_blank">
-        Babel
-      </a>
+    <h1>Using it now</h1>
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-top: 2em">
+        <div style="flex:0 0 45%">
+          <a href="https://babeljs.io/" target="_blank">
+            <img src="../../img/es6/babel-logo.png" alt="" class="plain" />
+          </a>
+          <br />
+          <a href="https://babeljs.io/" target="_blank">
+            Babel
+          </a>
+        </div>
+        <div style="flex:0 0 45%">
+          <a href="http://www.typescriptlang.org/" target="_blank">
+            <img src="../../img/es6/typescript-logo-square.png" alt="" class="plain" />
+          </a>
+          <br />
+          <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>
+        </div>
     </div>
-    <div style="flex:0 0 45%">
-      <a href="http://www.typescriptlang.org/" target="_blank">
-        <img src="../../img/es6/typescript-logo-square.png" alt="" class="plain" />
-      </a>
-      <br />
-      <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>
-    </div>
+  </div>
 </div>
 
 NOTES:
@@ -923,18 +922,25 @@ NOTES:
   * At your own risk
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Recap
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%;">
+  
+    <h1>Recap</h1>
+    
+    <ul style="margin-top: 2em">
+      <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest/Spread Properties</a> (ES2018)</li>
+      <li><a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a> (ES2018)</li>
+      <li><a href="http://2ality.com/2017/08/optional-catch-binding.html" target="_blank">Optional catch binding</a> (ES2019)</li>
+      <li><a href="https://github.com/tc39/proposal-static-class-features/" target="_blank">Static class features</a> (Stage 3)</li>
+      <li><a href="http://2ality.com/2017/07/class-fields.html" target="_blank">Class fields</a> (Stage 3)</li>
+      <li><a href="https://github.com/tc39/proposal-private-methods" target="_blank">Private methods</a> (Stage 3)</li>
+      <li><a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a> (Stage 1)</li>
+    </ul>
 
-<br />
-
-- [Rest/Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html) (ES2018) ![](../../img/nodejs-logo.png) <!-- .element: class="plain" style="width: 5%; vertical-align: middle; margin: 0" -->
-- [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html) (ES2018) ![](../../img/nodejs-logo.png) <!-- .element: class="plain" style="width: 5%; vertical-align: middle; margin: 0" -->
-- [Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html) (ES2019) ![](../../img/nodejs-logo.png) <!-- .element: class="plain" style="width: 5%; vertical-align: middle; margin: 0" -->
-- [Static class features](https://github.com/tc39/proposal-static-class-features/) (Stage 3)
-- [Class fields](http://2ality.com/2017/07/class-fields.html) (Stage 3)
-- [Private methods](https://github.com/tc39/proposal-private-methods) (Stage 3)
-- [Optional chaining](https://github.com/tc39/proposal-optional-chaining) (Stage 1)
+  </div>
+</div>
 
 NOTES:
 - Recap of the features we discussed
@@ -943,18 +949,26 @@ NOTES:
   * Already exist in Chrome
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-## Resources
+<div style="display: flex; align-items:center; justify-content: flex-start">
+	<div style="flex:0 0 45%;" class="overlay-light">
+  
+  <h1>Resources</h1>
 
-<br />
-
-- [ECMAScript Github Repo](https://github.com/tc39/ecma262)
-- [ES2016+ Compatibility Table](http://kangax.github.io/compat-table/es2016plus/)
-- [ES.next Compatibility Table](http://kangax.github.io/compat-table/esnext/)
-- [ECMAScript Living Spec](https://tc39.github.io/ecma262/)
-- [TC39 Proposal Process](https://tc39.github.io/process-document/)
-- [TC39 Meeting Notes](https://github.com/rwaldron/tc39-notes)
-- [ECMAScript Test Suite](https://github.com/tc39/test262)
+    <ul style="margin-top: 2em">
+      <li><a href="https://github.com/tc39/ecma262" target="_blank">ECMAScript Github Repo</a></li>
+      <li><a href="http://kangax.github.io/compat-table/es2016plus/" target="_blank">ES2016+ Compatibility Table</a></li>
+      <li><a href="http://kangax.github.io/compat-table/esnext/" target="_blank">ES.next Compatibility Table</a></li>
+      <li><a href="https://tc39.github.io/ecma262/" target="_blank">ECMAScript Living Spec</a></li>
+      <li><a href="https://tc39.github.io/process-document/" target="_blank">TC39 Proposal Process</a></li>
+      <li><a href="https://github.com/rwaldron/tc39-notes" target="_blank">TC39 Meeting Notes</a></li>
+      <li><a href="https://github.com/tc39/test262" target="_blank">ECMAScript Test Suite</a></li>
+    </ul>
+  
+  
+  </div>
+</div>
 
 =====
 
