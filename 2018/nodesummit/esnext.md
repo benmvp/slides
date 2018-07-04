@@ -27,21 +27,26 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-
-# Recap
-<!-- .element: style="margin-top: 4em; -webkit-text-stroke: black 5px; color: white; font-size: 4em" -->
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light">
+    <h1 style="font-size: 4em">Recap</h1>
+  </div>
+</div>
 
 NOTES:
 - Before we jump into what's coming up next
 - Let's take a quick walk down memory lane
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## ES6/ES2015
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light">
+    <h1>ES6/ES2015</h1>
 
-#### Syntax
+    <h4>Syntax</h4>
 
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:1em">
+<div style="-webkit-columns:4;-moz-columns:4;columns:4;font-size:smaller;margin-bottom:1em">
     <code>\_\_proto\_\_</code>  
     Arrow functions  
     Classes  
@@ -55,9 +60,9 @@ NOTES:
     Template literals  
 </div>
 
-#### Functionality
+<h4>Functionality</h4>
 
-<div style="columns:3;-webkit-columns:3;-moz-columns:3;font-size:smaller;margin-bottom:1em">
+<div style="-webkit-columns:4;-moz-columns:4;columns:4;font-size:smaller;margin-bottom:1em">
   Array APIs  
   Block scoping  
   `for-of`  
@@ -85,23 +90,31 @@ NOTES:
 
 **Node 6+ support! 😎**
 
+  </div>
+</div>
+
 NOTES:
 - Full list of features included in the ES6 specification
 - That's 30+ features!
 - Works with Node 6 and higher
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## ES7/ES2016
+<div style="display: flex; align-items:center; justify-content: center">
+	<div style="width: 45%" class="overlay-light">
+  
+  <h1>ES7/ES2016</h1>
 
-<br />
+    <ul style="margin-top: 2em;margin-bottom: 2em">
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes" target="_blank"><code>Array.prototype.includes</code></a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation_(**)" target="_blank">Exponentiation operator (<code>**</code>)</a></li>
+    </ul>
+  
+    <p><strong>**Node 8+ support! 😎</strong></p>
+  </div>
+</div>
 
-- [`Array.prototype.includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
-- [Exponentiation operator (`**`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation_(**)
-
-<br />
-
-**Node 8+ support! 😎**
 
 NOTES:
 - With ES6 they moved to a yearly release cadence so they won't have this huge dump of features
@@ -110,23 +123,31 @@ NOTES:
 - Exponentiation with Node 8+
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## ES2017
+<div style="display: flex; align-items:center; justify-content: center">
+	<div style="width: 55%" class="overlay-light">
+  
+  <h1>ES2017</h1>
 
-<br />
-
-- [`async` / `await`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) 🔥
-- [`Object.values`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Object/values) / [`Object.entries`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
-- `String.prototype.(`[`padStart`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)/[`padEnd`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd)`)`
-- [`Object.getOwnPropertyDescriptors`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors)
-- [Trailing function commas](http://2ality.com/2015/11/trailing-comma-parameters.html)
-- [Shared memory and atomics](http://2ality.com/2017/01/shared-array-buffer.html)
-
-<br />
-
-**Node 8+ support! 😎**
+    <ul style="margin-top: 2em;margin-bottom: 2em">
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank"><code>async</code> / <code>await</code></a> 🔥</li>
+      <li>
+        <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Object/values" target="_blank"><code>Object.values</code></a> /
+        <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/entries" target="_blank"><code>Object.entries</code></a>
+      </li>
+      <li><code>String.prototype.(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" target="_blank">padStart</a>/<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd" target="_blank">padEnd</a>)</code></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors" target="_blank"><code>Object.getOwnPropertyDescriptors</code></a></li>
+      <li><a href="http://2ality.com/2015/11/trailing-comma-parameters.html" target="_blank">Trailing function commas</a></li>
+      <li><a href="http://2ality.com/2017/01/shared-array-buffer.html" target="_blank">Shared memory and atomics</a></li>
+    </ul>
+  
+    <p><strong>**Node 8+ support! 😎</strong></p>
+  </div>
+</div>
 
 NOTES:
+- Just named by the year
 - Async functions were the big feature of ES2017
   * Many folks thought it'd be in ES7
 - We got string padding so no more `leftpad` node module!
@@ -135,15 +156,21 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/esnext/jake-hills-389-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# ES.next
-<!-- .element: style="margin-top: 2.5em; -webkit-text-stroke: black 5px; color: white; font-size: 4em" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="overlay-light">
+    <h1 style="font-size: 4em">ES.next</h1>
+  </div>
+</div>
 
 =====
 
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
-# Stand Up!
-<!-- .element: style="-webkit-text-stroke: black 6px; color: white; font-size: 5em" -->
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light">
+    <h1 style="font-size: 5em">Stand Up!</h1>
+  </div>
+</div>
 
 NOTES:
 - But first, would like everyone to stand up!
@@ -203,12 +230,21 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/esnext/jake-hills-389-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# ES.next
-<!-- .element: style="margin-top: 2.5em; -webkit-text-stroke: black 5px; color: white; font-size: 4em" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="overlay-light">
+    <h1 style="font-size: 4em">ES.next</h1>
+  </div>
+</div>
 
 =====
 
-<!-- .slide: data-background="url(../../img/esnext/nordwood-themes-467442-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light">
+    <h1 style="font-size: 4em">ES2018</h1>
+  </div>
+</div>
 
 NOTES:
 - Spec was just finalized 2 weeks ago!
@@ -371,11 +407,11 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(../../img/esnext/nordwood-themes-467442-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="overlay-light">
-    <h2>ES2018</h2>
+    <h1>ES2018</h1>
 
     <ul style="margin-top:1em;margin-bottom:1em">
       <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest/Spread Properties</a></li>
@@ -410,10 +446,10 @@ NOTES:
 - ES2018 was just officially released
 
 =====
-<!-- .slide: data-background="url(../../img/esnext/jari-hytonen-538885-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/esnext/liel-anapolsky-495646-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%">
+<div style="display:flex;justify-content:flex-end">
+	<div class="overlay-light" style="width: 40%">
   
     <h1>Stage 4</h1>
     <h2>(Finished)</h2>
@@ -446,9 +482,9 @@ NOTES:
 let jsonData;
 
 try {
-  jsonData = JSON.parse(str); 
+  jsonData = JSON.parse(str)
 } catch(ex) {
-  jsonData = DEFAULT_DATA;
+  jsonData = DEFAULT_DATA
 }
 ```
 <!-- .element: class="large" -->
@@ -476,9 +512,9 @@ NOTES:
 let jsonData;
 
 try {
-  jsonData = JSON.parse(str); 
+  jsonData = JSON.parse(str)
 } catch {
-  jsonData = DEFAULT_DATA;
+  jsonData = DEFAULT_DATA
 }
 ```
 <!-- .element: class="large" -->
@@ -495,10 +531,10 @@ NOTES:
 - There's a whole Github issue bikeshedding on necessity of the proposal
 
 =====
-<!-- .slide: data-background="url(../../img/esnext/fabian-burghardt-84752-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:center;">
-	<div class="overlay-light" style="width: 50%;">
+<div style="display:flex;justify-content:flex-start;">
+	<div class="overlay-light" style="width: 40%;">
   
     <h1>Stage 3</h1>
     <h2>(Candidate)</h2>
@@ -659,10 +695,10 @@ NOTES:
   * The `#` in `this.#getOptions` helps the interpreter know where to find the data
 
 =====
-<!-- .slide: data-background="url(../../img/esnext/cosmic-timetraveler-28303-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/esnext/sergei-gavrilov-528341-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%;">
+<div style="display:flex;justify-content:flex-start">
+	<div class="overlay-light" style="width: 40%;">
   
     <h1>Stage 2</h1>
     <h2>(Draft)</h2>
@@ -685,10 +721,10 @@ NOTES:
 - There are Class Decorators, but I'm not a big fan of those
 
 =====
-<!-- .slide: data-background="url(../../img/esnext/ray-hennessy-139970-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%;">
+<div style="display:flex;justify-content:flex-end">
+	<div class="overlay-light" style="width: 40%;">
   
     <h1>Stage 1</h1>
     <h2>(Proposal)</h2>
@@ -952,7 +988,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="flex:0 0 45%;" class="overlay-light">
+	<div style="width: 45%" class="overlay-light">
   
   <h1>Resources</h1>
 
