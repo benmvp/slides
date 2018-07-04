@@ -18,8 +18,6 @@ section.has-dark-background h6 {
  * GLOBAL STYLES
  *********************************************/
 body {
-  /* background: #ddd;
-  background-color: #ddd; */
   background: #ddd; /* fallback for old browsers */
   background: -webkit-linear-gradient(to top, #ffffff, #ddd); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
