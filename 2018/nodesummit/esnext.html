@@ -61,8 +61,9 @@
 		// Full list of configuration options available at:
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
-			controls: location.hostname !== 'localhost',
-			progress: location.hostname !== 'localhost',
+			controls: true,
+			controlsTutorial: true,
+			progress: true,
 			history: true,
 			center: true,
 
@@ -73,9 +74,9 @@
 
 			// Optional reveal.js plugins
 			dependencies: [
-				{ src: 'plugin/markdown/marked.js' },
-				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
 				{ src: '../../plugin/notes/notes.js', async: true }
 			]
 		});
