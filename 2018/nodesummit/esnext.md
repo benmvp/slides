@@ -220,7 +220,6 @@ NOTES:
 </div>
 
 =====
-
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
@@ -234,32 +233,30 @@ NOTES:
 - Wanna show a couple of features I'm excited about
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-[Spread Properties](http://2ality.com/2016/10/rest-spread-properties.html)
-
-```js
-const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 90%;">
+    <h1><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Spread Properties</a></h1>
+    <pre class="large"><code class="lang-javascript">const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
 const newWarriors = {
   ...warriors,
   boogie: 86,
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
------
+    <hr />
 
-#### Pre-ES2018 way
-
-```js
-const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
+    <h4>Pre-ES2018 way</h4>
+    <pre><code class="lang-javascript">const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
 const newWarriors = Object.assign({}, warriors, {
   boogie: 86,
-})
-```
+})</code></pre>
 
-<br />
+    <br />
 
-**Node 8+ support! 😎**
+    <strong>Node 8+ support! 😎</strong>
+  </div>
+</div>
 
 NOTES:
 - ES6/ES2015 gave us the ability to use spread operator in arrays & destructuring for objects
@@ -273,31 +270,29 @@ NOTES:
 - It had been in the proposal process for a while
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-[Rest Properties](http://2ality.com/2016/10/rest-spread-properties.html)
-
-```js
-const calcWins = (warriors) => {
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 100%;">
+    <h1><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest Properties</a></h1>
+    <pre class="large"><code class="lang-javascript">const calcWins = (warriors) => {
   const {steph, kd, klay, dray, boogie, ...whoCares} = warriors
-  // `whoCares` is an object with rest of warriors players
-}
-```
-<!-- .element: class="large" -->
+  // whoCares is an object with rest of warriors players
+}</code></pre>
 
------
+    <hr />
 
-#### Pre-ES2018 way
-
-```js
-const calcWins = (warriors) => {
+    <h4>Pre-ES2018 way</h4>
+    <pre><code class="lang-javascript">const calcWins = (warriors) => {
   const {steph, kd, klay, dray, boogie} = warriors
   const whoCares = _.omit(warriors, ['steph', 'kd', 'klay', 'dray', 'boogie'])
-}
-```
+}</code></pre>
 
-<br />
+    <br />
 
-**Node 8+ support! 😎**
+    <strong>Node 8+ support! 😎</strong>
+  </div>
+</div>
 
 NOTES:
 - Flip side of the coin is rest properties
@@ -307,30 +302,33 @@ NOTES:
 - But had to use `_.omit` to get the rest
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-Object destructuring + rest operator in function header FTW!
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 100%;">
+    <h1><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest Properties</a></h1>
+    <pre class="large"><code class="lang-javascript">const calc = ({steph, kd, klay, dray, boogie, ...whoCares}) => {
+  // whoCares is an object with rest of warriors players
+}</code></pre>
 
-```js
-const calc = ({steph, kd, klay, dray, boogie, ...whoCares}) => {
-  // `whoCares` is an object with rest of warriors players
-}
-```
-<!-- .element: class="large" -->
+    <br />
 
-<br />
+    <strong>Node 8+ support! 😎</strong>
+  </div>
+</div>
 
-**Node 8+ support! 😎**
 
 NOTES:
 - Can move the whole destructuring + rest into the function header
 - Named parameters!
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-[`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
-
-```js
-let connection
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 90%;">
+    <h1 style="font-size: 1.6em"><a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a></h1>
+    <pre class="large"><code class="lang-javascript">let connection
 db.open()
   .then((conn) => {
       connection = conn
@@ -339,16 +337,14 @@ db.open()
   .catch((() => { ... }))
   .finally(() => {
       connection.close()
-  })
-```
-<!-- .element: class="large" -->
+  })</code></pre>
 
-<div class="code-highlight" style="height: 185px; top: 533px"></div>
+    <br />
 
-
-<br />
-
-**Node 10+ support! 😎**
+    <strong>Node 10+ support! 😎</strong>
+    <div class="code-highlight" style="height: 185px; top: 541px"></div>
+  </div>
+</div>
 
 NOTES:
 - There's now a 3rd method on `Promise` called `.finally()`
@@ -358,11 +354,12 @@ NOTES:
 - Actually works with Node 8 if you turn on a flag
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-[`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
-
-```js
-let connection
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 90%;">
+    <h3>Do we really need <code>.finally()</code>??</h3>
+    <pre class="large"><code class="lang-javascript">let connection
 db.open()
   .then((conn) => {
       connection = conn
@@ -371,15 +368,14 @@ db.open()
   .catch((() => { ... }))
   .then(() => {
       connection.close()
-  })
-```
-<!-- .element: class="large" -->
+  })</code></pre>
 
-<div class="code-highlight" style="height: 185px; top: 533px"></div>
+    <br />
 
-<br />
-
-Do we really need `.finally()`??
+    YES!
+    <div class="code-highlight" style="height: 185px; top: 541px"></div>
+  </div>
+</div>
 
 NOTES:
 - You may be wondering how this is any different than sticking `.then()` on the end instead
@@ -458,25 +454,27 @@ NOTES:
 - Let's take a look at one example...
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/liel-anapolsky-495646-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Handling exceptions 😔
-
-```js
-let jsonData;
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%;">
+    <h3>Handling exceptions 😔</h3>
+    <pre class="large"><code class="lang-javascript">let jsonData
 
 try {
   jsonData = JSON.parse(str)
 } catch(ex) {
   jsonData = DEFAULT_DATA
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 70px; top: 373px"></div>
+    <br />
 
-<br />
+    I don't care about `ex`! 😫
 
-I don't care about `ex`! 😫
+    <div class="code-highlight" style="height: 70px; top: 382px"></div>
+  </div>
+</div>
+
 
 NOTES:
 - Have you ever written code like this with a `try`-`catch`?
@@ -488,25 +486,26 @@ NOTES:
 - Unused variable lint rules have to make special concessions for this!
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/liel-anapolsky-495646-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Handling exceptions 😀
-
-```js
-let jsonData;
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h1><a href="http://2ality.com/2017/08/optional-catch-binding.html" target="_blank">Optional catch binding</a></h1>
+    <pre class="large"><code class="lang-javascript">let jsonData
 
 try {
   jsonData = JSON.parse(str)
 } catch {
   jsonData = DEFAULT_DATA
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 70px; top: 373px"></div>
+    <br />
 
-<br />
-
-[Proposal: Optional catch binding](http://2ality.com/2017/08/optional-catch-binding.html) (**Node 10+ support! 😎**)
+    <strong>Node 10+ support! 😎</strong>
+    
+    <div class="code-highlight" style="height: 70px; top: 453px"></div>
+  </div>
+</div>
 
 NOTES:
 - Now with **optional catch binding** now we don't need to specify `ex`
@@ -539,11 +538,12 @@ NOTES:
 - Object rest & spread sat in Stage 3 for nearly 2 years
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Classes in JavaScript 😕
-
-```js
-class SelectField extends React.Component {
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h3>Classes in JavaScript 😐</h3>
+    <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   constructor(props) {
     super(props)
     this.state = { ... }
@@ -556,13 +556,14 @@ class SelectField extends React.Component {
     ...
   }
 }
-SelectField.propTypes = { ... }
-```
-<!-- .element: class="large" -->
+SelectField.propTypes = { ... }</code></pre>
 
-<div class="code-highlight fragment current-visible" style="height: 80px; top: 878px"></div>
-<div class="code-highlight fragment current-visible" style="height: 80px; top: 308px"></div>
-<div class="code-highlight fragment current-visible" style="height: 80px; top: 483px"></div>
+    <div class="code-highlight fragment current-visible" style="height: 80px; top: 888px"></div>
+    <div class="code-highlight fragment current-visible" style="height: 80px; top: 318px"></div>
+    <div class="code-highlight fragment current-visible" style="height: 80px; top: 493px"></div>
+  </div>
+</div>
+
 
 NOTES:
 - ES2015 syntax introduced class syntax in JavaScript
@@ -578,29 +579,30 @@ NOTES:
 - With 3 new Stage 3 proposals we can make this more legit!
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Classes in JavaScript 😐
-
-```js
-class SelectField extends React.Component {
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h1><a href="https://github.com/tc39/proposal-static-class-features/" target="_blank">Static class features</a></h1>
+    <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   static propTypes = { ... }
 
   constructor(props) {
     super(props)
     this.state = { ... }
   }
+
   _getOptions() { ... }
+
   render() {
     const options = this._getOptions()
     ...
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 80px; top: 198px"></div>
-
-[Proposal: Static class features](https://github.com/tc39/proposal-static-class-features/)
+    <div class="code-highlight" style="height: 80px; top: 276px"></div>
+  </div>
+</div>
 
 NOTES:
 - First we can bring that static declaration from outside the class to inside
@@ -611,11 +613,12 @@ NOTES:
 - We can go further! What about the `state` declaration?
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Classes in JavaScript 😀
-
-```js
-class SelectField extends React.Component {
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h1><a href="http://2ality.com/2017/07/class-fields.html" target="_blank">Class fields</a></h1>
+    <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   static propTypes = { ... }
 
   state = { ... }
@@ -626,13 +629,11 @@ class SelectField extends React.Component {
     const options = this._getOptions()
     ...
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 80px; top: 308px"></div>
-
-[Proposal: Class fields](http://2ality.com/2017/07/class-fields.html)
+    <div class="code-highlight" style="height: 80px; top: 390px"></div>
+  </div>
+</div>
 
 NOTES:
 - We can move that `state` declaration and initialization outside of the `constructor`
@@ -645,11 +646,12 @@ NOTES:
 - `_getOptions` is only "private" by convention
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Classes in JavaScript 😁
-
-```js
-class SelectField extends React.Component {
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h1><a href="https://github.com/tc39/proposal-private-methods" target="_blank">Private methods</a></h1>
+    <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   static propTypes = { ... }
 
   state = { ... }
@@ -660,14 +662,13 @@ class SelectField extends React.Component {
     const options = this.#getOptions()
     ...
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 80px; top: 423px"></div>
-<div class="code-highlight fragment current-visible" style="height: 80px; top: 593px"></div>
+    <div class="code-highlight" style="height: 80px; top: 505px"></div>
+    <div class="code-highlight fragment current-visible" style="height: 80px; top: 675px"></div>
+  </div>
+</div>
 
-[Proposal: Private methods](https://github.com/tc39/proposal-private-methods)
 
 NOTES:
 - We can use the `#` to signal that the `getOptions` method is private
@@ -675,7 +676,7 @@ NOTES:
 - **NOTE:** You can make fields private too; even `static` & private
 - Maybe wondering why using `#` instead of `private` keyword
   * Read explanations and I _think_ it boils down to how these private fields/methods are implemented
-  * The `#` in `this.#getOptions` helps the interpreter know where to find the data
+  * **First:** The `#` in `this.#getOptions` helps the interpreter know where to find the data
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/sergei-gavrilov-528341-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -734,33 +735,18 @@ NOTES:
 - There are some fun ones here
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Conditional property accessing 😔
-
-```js
-const address = user.address
-```
-<!-- .element: class="large" -->
-
-```js
-const address = user && user.address
-```
-<!-- .element: class="large fragment" -->
-
-```js
-const address = (user || {}).address
-```
-<!-- .element: class="large fragment" -->
-
-```js
-const address = user ? user.address : undefined
-```
-<!-- .element: class="large fragment" -->
-
-```js
-const address = user == null ? user.address : undefined
-```
-<!-- .element: class="large fragment" -->
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 90%;">
+    <h3>Conditional property accessing 😔</h3>
+    <pre class="large"><code class="lang-javascript">const address = user.address</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const address = user && user.address</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const address = (user || {}).address</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const address = user ? user.address : undefined</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const address = user != null ? user.address : undefined</code></pre>
+  </div>
+</div>
 
 NOTES:
 - In JS we can access properties simply
@@ -769,66 +755,44 @@ NOTES:
 - There are several ways we can do this
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Conditional deep property accessing 😭
-
-```js
-const street = user.address.street
-```
-<!-- .element: class="large" -->
-
-```js
-const street = user && user.address && user.address.street
-```
-<!-- .element: class="large fragment" -->
-
-```js
-const street = ((user || {}).address || {}).street
-```
-<!-- .element: class="large fragment" -->
-
-```js
-const street = user 
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 90%;">
+    <h3>Conditional deep property accessing 😭</h3>
+    <pre class="large"><code class="lang-javascript">const street = user.address.street</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const street = user && user.address && user.address.street</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const street = ((user || {}).address || {}).street</code></pre>
+    <pre class="large fragment"><code class="lang-javascript">const street = user 
   ? (user.address ? user.address.street : undefined)
-  : undefined
-```
-<!-- .element: class="large fragment" -->
+  : undefined</code></pre>
+  </div>
+</div>
 
 NOTES:
 - And what if you have to go multiple levels deep?
 - It gets even more gnarly
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Conditional property accessing 😀
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h1><a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a></h1>
+    
+    After
+    <pre class="large"><code class="lang-javascript">const address = user?.address</code></pre>
+    Before
+    <pre><code class="lang-javascript">const address = user != null ? user.address : undefined</code></pre>
+    
+    <br />
 
-After
-```js
-const address = user?.address
-```
-<!-- .element: class="large" -->
-
-Before
-```js
-const address = user == null ? user.address : undefined
-```
-
-<br />
-
-After
-```js
-const street = user?.address?.street
-```
-<!-- .element: class="large" -->
-
-Before
-```js
-const street = user && user.address && user.address.street
-```
-
-<br />
-
-[Proposal: Optional chaining](https://github.com/tc39/proposal-optional-chaining)
+    After
+    <pre class="large"><code class="lang-javascript">const street = user?.address?.street</code></pre>
+    Before
+    <pre><code class="lang-javascript">const street = user && user.address && user.address.street</code></pre>
+  </div>
+</div>
 
 NOTES:
 - The optional chaining operator is: `?.`
@@ -836,39 +800,29 @@ NOTES:
   * Otherwise it'll return whatever is after
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Conditional function calls 😉
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <h1><a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a></h1>
+    
+    After
+    <pre class="large"><code class="lang-javascript">user?.update()</code></pre>
+    Before
+    <pre><code class="lang-javascript">user && user.update()</code></pre>
+    
+    <br />
 
-After
-```js
-user?.update()
-```
-<!-- .element: class="large" -->
+    After
+    <pre class="large"><code class="lang-javascript">update?.()</code></pre>
+    Before
+    <pre><code class="lang-javascript">update && update()</code></pre>
+  </div>
+</div>
 
-Before
-```js
-user && user.update()
-```
-
-<br />
-
-After
-```js
-update?.()
-```
-<!-- .element: class="large" -->
-
-Before
-```js
-update && update()
-```
-
-<br />
-
-[Proposal: Optional chaining](https://github.com/tc39/proposal-optional-chaining)
 
 NOTES:
-- Can also use the optional chaining operator with functions
+- Can also use the optional chaining operator with functions!
 - **First:** Check to see if the object exists and if it does call the expected method
 - **Second** If you just have a function reference you can check before calling it!
 
