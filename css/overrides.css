@@ -81,4 +81,10 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 0.75em;
   padding: 1em;
+  position: relative;
+}
+
+.reveal .overlay-light .code-highlight {
+  left: 1em;
+  width: calc(100% - 2em);
 }
