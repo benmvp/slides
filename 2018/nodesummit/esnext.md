@@ -27,9 +27,10 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: center">
+<div style="display:flex; justify-content: flex-start">
   <div class="overlay-light">
     <h1 style="font-size: 4em">Recap</h1>
+    <h2 style="font-size: 2.5em">(ES2015 - ES2017)</h2>
   </div>
 </div>
 
@@ -111,7 +112,7 @@ NOTES:
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation_(**)" target="_blank">Exponentiation operator (<code>**</code>)</a></li>
     </ul>
   
-    <p><strong>**Node 8+ support! 😎</strong></p>
+    <p><strong>Node 8+ support! 😎</strong></p>
   </div>
 </div>
 
@@ -142,7 +143,7 @@ NOTES:
       <li><a href="http://2ality.com/2017/01/shared-array-buffer.html" target="_blank">Shared memory and atomics</a></li>
     </ul>
   
-    <p><strong>**Node 8+ support! 😎</strong></p>
+    <p><strong>Node 8+ support! 😎</strong></p>
   </div>
 </div>
 
@@ -204,27 +205,9 @@ NOTES:
 </div>
 
 NOTES:
-/////
-
-![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-NOTES:
 - I'm a Principal Frontend Engineer at Eventbrite
-- Eventbrite is an online ticketing & events platform
-- Probably heard of us before; apparently Reactathon organizers haven't because they used one of our competitors
-- Part of our Frontend Platform team
-- We don't typically work on end-user features, but building the frontend platform that other devs build on top of
-- Two main objectives: frontend infrastructure & component library
-
-/////
-
-<!-- .slide: data-background="url(../../img/giphy/james-harden-wesley-johnson-ankles.gif) no-repeat center" data-background-size="contain"-->
-
-NOTES:
-- Even though I've now lived in the Bay Area for over 15 years, I was born and raised in Houston, Texas
-- So I'm a die-hard Rockets fan
-- And this is gonna be our year
+- Been working on FE infra writing shell scripts in Node
+- Been using some of these JS features I'm showing
 
 =====
 
@@ -240,7 +223,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: center">
+<div style="display:flex; justify-content: flex-start">
   <div class="overlay-light">
     <h1 style="font-size: 4em">ES2018</h1>
   </div>
@@ -347,13 +330,13 @@ NOTES:
 [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
 
 ```js
-let connection;
+let connection
 db.open()
   .then((conn) => {
       connection = conn
       return connection.select({ name: 'Jane' })
   })
-  .catch( ... )
+  .catch((() => { ... }))
   .finally(() => {
       connection.close()
   })
@@ -379,13 +362,13 @@ NOTES:
 [`Promise.prototype.finally`](http://2ality.com/2017/07/promise-prototype-finally.html)
 
 ```js
-let connection;
+let connection
 db.open()
   .then((conn) => {
       connection = conn
       return connection.select({ name: 'Jane' })
   })
-  .catch( ... )
+  .catch((() => { ... }))
   .then(() => {
       connection.close()
   })
@@ -414,7 +397,7 @@ NOTES:
     <h1>ES2018</h1>
 
     <ul style="margin-top:1em;margin-bottom:1em">
-      <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest/Spread Properties</a></li>
+      <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest & Spread Properties</a></li>
       <li><a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a></li>
       <li><a href="http://2ality.com/2016/09/template-literal-revision.html" target="_blank">Template Literal Revision</a></li>
       <li><a href="http://2ality.com/2016/10/asynchronous-iteration.html" target="_blank">Asynchronous iteration</a></li>
@@ -553,7 +536,7 @@ NOTES:
   * Spec will only change based upon implementations necessitating one
 - Needs real-world implementations which pass additional acceptance test suite
 - May be in ES2019, may not
-- Object rest/spread sat in Stage 3 for nearly 2 years
+- Object rest & spread sat in Stage 3 for nearly 2 years
 
 /////
 
@@ -960,31 +943,89 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%;">
-  
-    <h1>Recap</h1>
-    
-    <ul style="margin-top: 2em">
-      <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest/Spread Properties</a> (ES2018)</li>
-      <li><a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a> (ES2018)</li>
-      <li><a href="http://2ality.com/2017/08/optional-catch-binding.html" target="_blank">Optional catch binding</a> (ES2019)</li>
-      <li><a href="https://github.com/tc39/proposal-static-class-features/" target="_blank">Static class features</a> (Stage 3)</li>
-      <li><a href="http://2ality.com/2017/07/class-fields.html" target="_blank">Class fields</a> (Stage 3)</li>
-      <li><a href="https://github.com/tc39/proposal-private-methods" target="_blank">Private methods</a> (Stage 3)</li>
-      <li><a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a> (Stage 1)</li>
-    </ul>
-
+<div style="display:flex; justify-content: flex-start">
+  <div class="overlay-light">
+    <h1 style="font-size: 4em">Quick Recap</h1>
   </div>
 </div>
 
 NOTES:
-- Recap of the features we discussed
-- First three are available in Node 10+ right now!
+- Quick recap of the features we discussed
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 95%;">
+    <a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest & Spread Properties</a> (ES2018)
+    <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
+const newWarriors = {...warriors, boogie: 86}
+const {steph, kd, klay, dray, boogie, ...whoCares} = warriors</code></pre>
+
+
+    <a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a> (ES2018)
+    <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">db.open()
+  .then(() => { ... })
+  .catch(() => { ... })
+  .finally(() => { ... })</code></pre>
+
+
+    <a href="http://2ality.com/2017/08/optional-catch-binding.html" target="_blank">Optional catch binding</a> (ES2019)
+    <pre class="large"><code class="lang-javascript">try { ... }
+catch { ... }</code></pre>
+  </div>
+</div>
+
+NOTES:
+- These three are available in Node 10+ right now!
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <a href="https://github.com/tc39/proposal-static-class-features/" target="_blank">Static class features</a> (Stage 3)<br />
+    <a href="http://2ality.com/2017/07/class-fields.html" target="_blank">Class fields</a> (Stage 3)<br />
+    <a href="https://github.com/tc39/proposal-private-methods" target="_blank">Private methods</a> (Stage 3)
+    <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
+  static propTypes = { ... }
+
+  state = { ... }
+
+  #getOptions() { ... }
+
+  render() {
+    const options = this.#getOptions()
+    ...
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
 - Pretty sure the class features will be available in next major version
   * Already exist in Chrome
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 60%;">
+    <a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a> (Stage 1)
+    <pre class="large"><code class="lang-javascript">const address = user?.address
+
+const street = user?.address?.street
+
+user?.update()
+
+update?.()</code></pre>
+  </div>
+</div>
+
+NOTES:
+- 7th and final feature...
+
+=====
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
