@@ -22,6 +22,8 @@
 </div>
 
 NOTES:
+- Welcome!
+- Want to introduce you to future JavaScript features that I'm excited about
 - ES.next is just future JavaScript
 
 =====
@@ -48,17 +50,17 @@ NOTES:
     <h4>Syntax</h4>
 
 <div style="-webkit-columns:4;-moz-columns:4;columns:4;font-size:smaller;margin-bottom:1em">
-    <code>\_\_proto\_\_</code>  
-    Arrow functions  
-    Classes  
-    Default parameters  
-    Destructuring  
-    Enhanced object literals  
-    Modules  
-    Rest parameters  
-    Spread operator  
-    Tagged templates  
-    Template literals  
+  <code>\_\_proto\_\_</code>  
+  Arrow functions  
+  Classes  
+  Default parameters  
+  Destructuring  
+  Enhanced object literals  
+  Modules  
+  Rest parameters  
+  Spread operator  
+  Tagged templates  
+  Template literals  
 </div>
 
 <h4>Functionality</h4>
@@ -119,6 +121,7 @@ NOTES:
 
 NOTES:
 - With ES6 they moved to a yearly release cadence so they won't have this huge dump of features
+- "ES7" was never really a thing: ES2016
 - Not much happened in ES2016 as everyone was catching their breath
 - `Array.prototype.includes` works with Node 6+
 - Exponentiation with Node 8+
@@ -163,6 +166,9 @@ NOTES:
   </div>
 </div>
 
+NOTES:
+- OK, now let's talk about what's coming next
+
 =====
 
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
@@ -176,7 +182,7 @@ NOTES:
 NOTES:
 - But first, would like everyone to stand up!
 - Squats counting down from 10 to 1
-- Now turn to your neighbors, introduce yourself & say hi
+- Now turn to your neighbors, fist bump & say hi
 
 /////
 
@@ -219,6 +225,9 @@ NOTES:
   </div>
 </div>
 
+NOTES:
+- Okay, let's really talk about ES.next now
+
 =====
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -229,6 +238,7 @@ NOTES:
 </div>
 
 NOTES:
+- Starts with ES2018
 - Spec was just finalized 2 weeks ago!
 - Wanna show a couple of features I'm excited about
 
@@ -261,8 +271,10 @@ const newWarriors = Object.assign({}, warriors, {
 NOTES:
 - ES6/ES2015 gave us the ability to use spread operator in arrays & destructuring for objects
 - Now we can officially use spread operator for objects
-- Now we copy objects while adding new properties in one object literal definition
-- ES2015 introduced `Object.assign()` but you have to make sure to have the empty object first
+- _Explain code_
+  * We copy objects while adding new properties in one object literal definition
+  * ES2015 introduced `Object.assign()` but you have to make sure to have the empty object first
+
 
 - You may be surprised that this just now becoming official
 - We've had this for over a year in Node 8
@@ -298,7 +310,7 @@ NOTES:
 - Flip side of the coin is rest properties
 - Rest operator with destructuring gives us the rest of players as an object
   * Could be empty
-- We could've used destructuring to get out the players we cared about
+- ES6 allowed us to use destructuring to get out the players we cared about
 - But had to use `_.omit` to get the rest
 
 /////
@@ -319,7 +331,9 @@ NOTES:
 
 
 NOTES:
-- Can move the whole destructuring + rest into the function header
+- Can take this one step further
+- Move the whole destructuring + rest into the function header
+- Just pass an object to `calc` function
 - Named parameters!
 
 /////
@@ -342,14 +356,16 @@ db.open()
     <br />
 
     <strong>Node 10+ support! 😎</strong>
-    <div class="code-highlight" style="height: 185px; top: 541px"></div>
+    <div class="code-highlight" style="height: 185px; top: 575px"></div>
   </div>
 </div>
 
 NOTES:
-- There's now a 3rd method on `Promise` called `.finally()`
+- There's now a 3rd method on `Promise` objects called `.finally()`
 - It gets called no matter if things succeed or if there's an error
-- Like with `try`-`catch`-`finally` this is a great place to do clean up
+- Like with traditional `try`-`catch`-`finally` this is a great place to do clean up
+- _Explain code_
+
 
 - Actually works with Node 8 if you turn on a flag
 
@@ -373,16 +389,16 @@ db.open()
     <br />
 
     YES!
-    <div class="code-highlight" style="height: 185px; top: 541px"></div>
+    <div class="code-highlight" style="height: 185px; top: 558px"></div>
   </div>
 </div>
 
 NOTES:
-- You may be wondering how this is any different than sticking `.then()` on the end instead
+- How is this any different than sticking `.then()` on the end instead?
 - There are 3 main differences:
   * If the `.catch()` threw an error, the last `.then()` wouldn't get called
   * If you didn't have a `.catch()` at all and there was an error, the last `.then()` wouldn't get called
-  * `.finally()` passes the value from the last `.then()` through automatically
+  * `.finally()` passes the value from the last `.then()` through automatically **(go back)**
 
 /////
 
@@ -406,7 +422,7 @@ NOTES:
 
 NOTES:
 - Full list of features in ES2018
-- The spec was just finalized 2 weeks ago
+- The spec was just finalized a few weeks ago
 - Folks are pretty excited about async interation and some of the regex improvements
 
 =====
@@ -420,7 +436,7 @@ NOTES:
 - May be wondering how features get bundled in yearly releases
 - 4-stage process
 - Features have to be in the final stage by February 1st of the release year
-- Basically the January meeting of the year is when it is finalized
+- Basically the January TC39 meeting is when it is finalized
 - Gets released in July
 - ES2018 was just officially released
 
@@ -444,12 +460,14 @@ NOTES:
 </div>
 
 NOTES:
-- Stage 4 is the final stage
+- Stage 4 is the final stage (`Finished`)
 - Feature will be in the next release
+  * A Stage 4 feature now would be in ES2019
 - Specification is complete
 - Has two compatible implementations which pass additional acceptance test suite
 - Has significant in-the-field experience with **shipping** implementations, such as that provided by two independent VMs
 - Spec is not expected to change except for wording edits to spec
+
 
 - Let's take a look at one example...
 
@@ -478,11 +496,11 @@ try {
 
 NOTES:
 - Have you ever written code like this with a `try`-`catch`?
-- It...
+- _Explain code_
 - In the `catch`, you don't care about the exception
   * Either because it doesn't matter or you know what it is
-- But we still have to provide a variable for it!
-  * Omitting is a syntax error
+- But we still have to provide a variable for it
+  * Omitting is a syntax error!
 - Unused variable lint rules have to make special concessions for this!
 
 /////
@@ -508,9 +526,9 @@ try {
 </div>
 
 NOTES:
-- Now with **optional catch binding** now we don't need to specify `ex`
-- Something that exists in many other languages
-- There's a whole Github issue bikeshedding on necessity of the proposal
+- Now with **optional catch binding**, we don't need to specify `ex`
+- Something that already exists in many other languages
+- FUNNY: There's a whole Github issue bikeshedding on necessity of the proposal
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -531,11 +549,11 @@ NOTES:
 </div>
 
 NOTES:
+- Stage 3 (`Candidate`)
 - Specification is considered complete
   * Spec will only change based upon implementations necessitating one
 - Needs real-world implementations which pass additional acceptance test suite
 - May be in ES2019, may not
-- Object rest & spread sat in Stage 3 for nearly 2 years
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -568,14 +586,13 @@ SelectField.propTypes = { ... }</code></pre>
 NOTES:
 - ES2015 syntax introduced class syntax in JavaScript
   * Great start, but lacked some important qualities
-  * The ability to declare/initialize fields
-  * Mark fields/methods as private
-- Here's a React component written using a JS class
+  * Fixed w/ a few Stage 3 features
+- Here's a React component written using a JS class in ES2015
 - **First:** Static `propTypes` added to the class afterwards
 - **Second:** Declaring a instance field called `state` w/in the `constructor()`
 - **Third:** Declaring a "private" method called `_getOptions()`
   * Not truly private, just a convention. Still accessible
-  * There are other ways to make things private using `Symbol` or `WeakMap` but are verbose
+  * Can make things private using `Symbol` or `WeakMap` but are verbose/convoluted
 - With 3 new Stage 3 proposals we can make this more legit!
 
 /////
@@ -608,8 +625,8 @@ NOTES:
 - First we can bring that static declaration from outside the class to inside
 - We use the `static` keyword for the field
 - ES2015 had `static` methods, but now this proposal adds static fields
-- It's possible if you've been doing React that you've already been using this for `propTypes`
-- Folks have been using this feature since it was introduced at Stage 1
+- Highly likely you've been using `static` for React `propTypes`
+- We've been using this feature since it was introduced at Stage 1 2 years ago!
 - We can go further! What about the `state` declaration?
 
 /////
@@ -636,13 +653,15 @@ NOTES:
 </div>
 
 NOTES:
-- We can move that `state` declaration and initialization outside of the `constructor`
+- Next, we can move that `state` declaration/initialization outside of the `constructor`
   * In fact we don't need the `constructor` at all now!
-- It makes the `class` more declarative to because we can see all of the properties it defined
+- It makes the `class` more declarative too 
+  * We can see all of the properties it defines
   * Instead of having to hunt w/in the `constructor` or other methods
 - FYI these class fields get initialized **before** the `constructor` is run
+- ES2015 intoduced instance methods; now we have fields
 - Probably have seen/used this before too
-- The class is looking really nice, but we can do more!
+- The class is looking really nice, but we can do even more!
 - `_getOptions` is only "private" by convention
 
 /////
@@ -671,12 +690,14 @@ NOTES:
 
 
 NOTES:
-- We can use the `#` to signal that the `getOptions` method is private
+- Lastly, we can use the `#` to signal that the `getOptions` method is private
 - It can no longer be accessed outside of the class; truly private
 - **NOTE:** You can make fields private too; even `static` & private
+- This syntax is pretty controversial; especially those who use TypeScript
 - Maybe wondering why using `#` instead of `private` keyword
   * Read explanations and I _think_ it boils down to how these private fields/methods are implemented
-  * **First:** The `#` in `this.#getOptions` helps the interpreter know where to find the data
+  * Private fields/methods are implemented a special way
+  * **Highlight:** The `#` in `this.#getOptions` helps the interpreter know where to find the data
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/sergei-gavrilov-528341-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -696,8 +717,9 @@ NOTES:
 </div>
 
 NOTES:
+- Stage 2 (`Draft`)
 - Committee expects the feature to be developed and eventually included in the standard (not guaranteed)
-- There's a _rough_ spec coming in
+- There's a _rough_ spec entering into this stage
 - Objective is to formalize the spec
 - There should really only be incremental changes to the spec
 - Still a gamble to use
@@ -724,6 +746,7 @@ NOTES:
 </div>
 
 NOTES:
+- Let's jump to Stag 1 (`Proposal`)
 - Has a "champion"
 - Text outlining the problem & potential solution
 - Example usages & high-level API
@@ -732,7 +755,7 @@ NOTES:
 - Make the case for the addition
 - Spec can change drastically as its being formalized
 - **HUGE** gamble to use
-- There are some fun ones here
+- But there are some fun ones here
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -823,8 +846,8 @@ NOTES:
 
 NOTES:
 - Can also use the optional chaining operator with functions!
-- **First:** Check to see if the object exists and if it does call the expected method
-- **Second** If you just have a function reference you can check before calling it!
+- Check to see if the object exists and if it does call the expected method
+- If you just have a function reference you can check before calling it!
 
 =====
 
@@ -855,8 +878,8 @@ NOTES:
 - It'd be downright criminal for you to use stage 0
 - Decorators were stage 0 after ES2015, and so many folks were burned
 - Don't even really wanna show any
-- Some have been here since 2014!
 - None were really interesting...
+- Some have been here since 2014!
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/clement-h-544786-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -890,7 +913,7 @@ NOTES:
 NOTES:
 - The way to use features now before they are standard is w/ transpilers
 - Generally safe to use Stage 3 & higher
-- TypeScript tends to **only** support Stage 3 and higher
+- TypeScript tends to **only** support Stage 3 and higher because the specs won't* change
 - Babel is more configurable with presets & plugins that allow you to use features down to Stage 0
   * At your own risk
 
@@ -904,7 +927,7 @@ NOTES:
 </div>
 
 NOTES:
-- Quick recap of the features we discussed
+- Let's quickly recap of the features we discussed
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -931,7 +954,7 @@ catch { ... }</code></pre>
 </div>
 
 NOTES:
-- These three are available in Node 10+ right now!
+- These three features are available in Node 10+ right now!
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -957,7 +980,8 @@ NOTES:
 </div>
 
 NOTES:
-- Pretty sure the class features will be available in next major version
+- Talked about 3 features affecting classes
+- Pretty sure the class features will be available in next Node major version
   * Already exist in Chrome
 
 /////
@@ -977,7 +1001,7 @@ update?.()</code></pre>
 </div>
 
 NOTES:
-- 7th and final feature...
+- 7th and final feature, which is likely a ways away
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1001,6 +1025,9 @@ NOTES:
   </div>
 </div>
 
+NOTES:
+- Lots of resources for ya
+
 =====
 
 # THANKS!
@@ -1018,5 +1045,6 @@ Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
 - So that's it!
+- Wanna thank **conference** and **YOU!**
 - Ask questions on Twitter, via email or AMA!
 - Thanks!
