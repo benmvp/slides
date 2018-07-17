@@ -178,6 +178,42 @@ NOTES:
 
 =====
 
+# HTML
+
+=====
+
+# CSS
+
+======
+
+# JavaScript
+
+======
+
+# Server-side
+
+=====
+
+# Debugging
+
+=====
+
+# Source control
+
+=====
+
+# Dev tooling
+
+=====
+
+# Deployment / Hosting
+
+=====
+
+# Shoutout to bootcamp
+
+=====
+
 # THANKS!
 
 ![Animated clay men bowing](../../img/giphy/animated-take-a-bow.gif)
