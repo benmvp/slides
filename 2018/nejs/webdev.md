@@ -64,8 +64,7 @@ NOTES:
 - Been using some of these JS features I'm showing
 
 =====
-
-# TI-83 image
+<!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - My first programming language I learned was `BASIC`
@@ -78,8 +77,7 @@ NOTES:
 - I would've stuffed my ownself in a locker
 
 /////
-
-![Windows 95 Help App](../../img/webdev/win95help.png)
+<!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Started sharing my apps online, and folks would ask how to write TI apps
@@ -92,9 +90,7 @@ NOTES:
 
 /////
 
-# Geocities site screenshot
-
-https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html
+[![Basic Guru Online Geocities circa 2001 Screenshot](../../img/webdev/bgo-geocities-2001-screenshot.png)](https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html)
 
 NOTES:
 - Built "Basic Guru Online" as a Geocities website
@@ -119,20 +115,22 @@ NOTES:
 - **SIXTH:** Weekly poll asks about internet connect speed
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
-# Yahoo site screenshot
-
-https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/
-
-/////
-
-# Amazon site screenshot
-
-https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
+NOTES:
+- For fun...
+- Here's what yahoo.com looked like at the time
+- https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/amazon-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
-# Gatsby blog screenshot
+NOTES:
+- And amazon.com
+- https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/gatsby-blog-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - Fast forward nearly 2 decades
@@ -144,33 +142,41 @@ NOTES:
   * All to build a blog!
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/uc-berkeley-coding-bootcamp.jpg) no-repeat center" data-background-size="cover" -->
 
-# Berkeley Coding Boot Camp
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light">
+    <h1>Berkeley Coding Boot Camp</h1>
 
-- HTML5
-- CSS3
-- JavaScript
-- jQuery
-- Python/Django
-- Bootstrap
-- Express.js
-- React.js
-- Node.js
-- AJAX/REST
-- Database Theory
-- Bookshelf.js
-- MongoDB
-- MySQL
-- Command Line
-- Git
+<div style="-webkit-columns:3;-moz-columns:3;columns:3;margin-bottom:1em;margin-top: 1em">
+  HTML5 
+  CSS3  
+  JavaScript  
+  jQuery  
+  Python/Django  
+  Bootstrap  
+  Express.js  
+  React.js  
+  Node.js  
+  AJAX/REST  
+  Database Theory  
+  Bookshelf.js  
+  MongoDB  
+  MySQL  
+  Command Line  
+  Git  
+</div>
+
+  </div>
+</div>
 
 NOTES:
 - Friend of mine recently graduated from a boot camp
 - They learned all of this in the 12-week course
+- https://bootcamp.berkeley.edu/coding/
 
 /////
-
-# High bar
+<!-- .slide: data-background="url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - The bar for what's "minimally-viable" is so high now
@@ -210,7 +216,7 @@ NOTES:
 
 =====
 
-# Shoutout to bootcamp
+# Shoutout to bootcamp grads
 
 =====
 
