@@ -16,6 +16,9 @@ July 27, 2018
 
 NOTES:
 - Welcome!
+- Before we get started, how many of you were developing in 1999?
+- Hoping to share a little about my dev story and walk down memory lane
+  * Or take a history lesson for most of you
 
 =====
 
@@ -64,7 +67,7 @@ NOTES:
 - Been using some of these JS features I'm showing
 
 =====
-<!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - My first programming language I learned was `BASIC`
@@ -77,7 +80,7 @@ NOTES:
 - I would've stuffed my ownself in a locker
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - Started sharing my apps online, and folks would ask how to write TI apps
@@ -149,7 +152,7 @@ NOTES:
     <h1>Berkeley Coding Boot Camp</h1>
 
 <div style="-webkit-columns:3;-moz-columns:3;columns:3;margin-bottom:1em;margin-top: 1em">
-  HTML5 
+  HTML5   
   CSS3  
   JavaScript  
   jQuery  
@@ -181,38 +184,154 @@ NOTES:
 NOTES:
 - The bar for what's "minimally-viable" is so high now
 - We go to conferences/meetups to hear from industry leaders about all the things we **should** be doing
+- A true "full stack" developer would have to be an expert in everything to create a modern website
 
 =====
 
-# HTML
+# Page Layout
+
+NOTES:
+- Before CSS3, flexbox & grid we needed ways to lay out our pages
+- And many times we had some navigation that we wanted fixed
+  * Either a header menu on top
+  * Left nav
+  * Or in the case of my site I thought a fixed nav footer was a good idea
+- Now you may think I'm talking about using `<table>`s, but no!
+- I'm talking about page layouts that pre-dated `<table>`
+
+/////
+
+```html
+<FRAMESET ROWS="150px,*">
+  <FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
+  <FRAMESET COLS="20%,*,20%">
+    <FRAME SRC="nav.html" FRAMEBORDER=0>
+    <FRAME SRC="home.html" FRAMEBORDER=0 NAME=content>
+    <FRAME SRC="ads.html" FRAMEBORDER=0>
+  </FRAMESET>
+</FRAMESET>
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- Talking about `<frameset>`
+- Before I even try to explain the code, take a look at this HTML!
+- It's in ALL-CAPS
+- Attributes like `MARGINHEIGHT` & `FRAMEBORDER` aren't even quoting the values
+- Fun times!
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/frameset-borders-margins.jpg) no-repeat center" data-background-size="contain" -->
+
+NOTES:
+- This is the layout this contrived example is building
+- Got a "frame" that span the top
+- Then 3 frames in a column
+  * Outer ones are fixed and the middle one flexes
+- So lets say "Frame 1" is your global header
+- "Frame 2" would be a left nav
+- "Frame 4" would be a right-side ads column maybe
+- And "Frame 3" would actually be the main contents
+
+
+/////
+
+```html
+<FRAMESET ROWS="150px,*">
+  <FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
+  <FRAMESET COLS="20%,*,20%">
+    <FRAME SRC="nav.html" FRAMEBORDER=0>
+    <FRAME SRC="home.html" FRAMEBORDER=0 NAME=content>
+    <FRAME SRC="ads.html" FRAMEBORDER=0>
+  </FRAMESET>
+</FRAMESET>
+```
+<!-- .element: class="large" -->
+
+
+NOTES:
+- Back to the code
+- **ONE:** Each `<FRAME>` pointed to a separate actual page
+  * An HTML page with just the header, just the nav, etc.
+- **TWO:** The `<FRAMESET>` can be aligned in either `ROWS` or `COLUMNS`
+  * **THREE:** And they can be nested
+  * **FOUR:** Notice the `*` syntax to signal that the column takes up remaining space
+- Got visual styling mixed right in the markup
+- **FIVE:** Frames by default had borders so they needed to be turned off
+- If you left the borders on, they could be resized
+  * **SIX:** So there was an attribute to turn those off
+- **SEVEN:** So what about that `NAME` attribute? What's that for
+
+/////
+
+nav.html
+```html
+<HTML>
+  <BODY>
+    <UL>
+      <LI><A HREF="home.html" TARGET=content>Home</A></LI>
+      <LI><A HREF="about.html" TARGET="content">About</A></LI>
+      <LI><A HREF="help.html" TARGET="content">Help</A></LI>
+    </UL>
+  </BODY>
+</HTML>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Well in addition to having our grid layout, we also don't want to have to refresh the whole page
+- The header, nav & ads are staying fixed
+- So w/in `nav.html`, we just have our links target the `content` frame
+  * You've probably always just done `target="_blank"` for a new window right?
+  * It had a purpose!
+
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;">
+    <pre class="large"><code class="lang-html">&lt;body>
+  <header> ... </header>
+  <main> ... </main>
+  <nav> ... </nav>
+  <aside> ... </aside>
+&lt;/body></code></pre>
+	</div>
+	<div style="flex:0 0 60%;">
+		<pre><code class="lang-css">header { grid-area: header; }
+main { grid-area: main; }
+nav { grid-area: nav; }
+aside { grid-area: ads; }
+body {
+  display: grid;
+  grid-template-areas: "header"
+                       "nav" 
+                       "main" 
+                       "ads";
+  grid-template-columns: 100%;
+  grid-template-rows: 150px 50px 1fr 30px;
+}
+@media screen and (min-height: 600px) {
+  body {
+    grid-template-areas: "header header header"
+                        "nav main ads";
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 150px 1fr;
+
+  }
+}</code></pre>
+	</div>
+</div>
+
+NOTES:
+- If you've been keeping up with the latest in CSS-land
+  * This sounds awfully similar to CSS Grid that's becoming progressively more avilable in browsers
+- Here's how we could implement the same thing now
+- Notice how `<main>` actually comes before `<nav>` in the markup
+  * For SEO
+  * But Grid layout puts it where we want visually!
 
 =====
-
-# CSS
-
-======
-
-# JavaScript
-
-======
-
-# Server-side
-
-=====
-
-# Debugging
-
-=====
-
-# Source control
-
-=====
-
-# Dev tooling
-
-=====
-
-# Deployment / Hosting
 
 =====
 
