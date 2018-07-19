@@ -112,7 +112,7 @@ NOTES:
   * Still "responsive" nearly 20 years later!
 - **THIRD:** Definitely created the logo in MS Paint using PowerPoint clip-art + Comic Sans
 - **FOURTH:** Trusty-dusty hit counter (broken)
-- **FIFTH:** I suggest using AOL to view the page
+- **FIFTH:** I suggested using AOL to view the page
   * "Should be okay" using Internet Explorer or Netscape Navigator
   * Best viewed on an 800x600 res monitor!
 - **SIXTH:** Weekly poll asks about internet connect speed
@@ -186,6 +186,9 @@ NOTES:
 - We go to conferences/meetups to hear from industry leaders about all the things we **should** be doing
 - A true "full stack" developer would have to be an expert in everything to create a modern website
 
+
+- So I wanted to take a look at various aspects of how we built sites back in the day
+
 =====
 
 # Page Layout
@@ -219,6 +222,8 @@ NOTES:
 - Before I even try to explain the code, take a look at this HTML!
 - It's in ALL-CAPS
 - Attributes like `MARGINHEIGHT` & `FRAMEBORDER` aren't even quoting the values
+- `<FRAME>` isn't even self-closing
+  * Dunno how the browser figured out that one!
 - Fun times!
 
 /////
@@ -237,6 +242,7 @@ NOTES:
 
 /////
 
+site.html
 ```html
 <FRAMESET ROWS="150px,*">
   <FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
@@ -285,6 +291,7 @@ NOTES:
 - So w/in `nav.html`, we just have our links target the `content` frame
   * You've probably always just done `target="_blank"` for a new window right?
   * It had a purpose!
+- BTW, `<frameset>` was actually deprecated in HTML5, so...
 
 /////
 
@@ -325,13 +332,204 @@ body {
 
 NOTES:
 - If you've been keeping up with the latest in CSS-land
-  * This sounds awfully similar to CSS Grid that's becoming progressively more avilable in browsers
+  * This sounds awfully similar to CSS Grid that's becoming progressively more available in browsers
 - Here's how we could implement the same thing now
 - Notice how `<main>` actually comes before `<nav>` in the markup
   * For SEO
   * But Grid layout puts it where we want visually!
 
 =====
+
+# 1x1.gif
+
+NOTES:
+- What's the 1x1.gif you ask?
+- Well...
+
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;text-align:left">
+    <h3>June 22</h3>
+    <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
+    <h3>July 1</h3>
+    <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
+    <h3>July 8</h3>
+    <p style="margin-left:40px">High Earth Orbit (HEO)</p>
+    <h3>July 10</h3>
+    <p style="margin-left:40px">Decaying Orbit</p>
+    <h3>July 27</h3>
+    <p style="margin-left:40px">NEJS CONF!</p>
+	</div>
+  <div style="flex:0 0 65%">
+    <pre class="large"><code class="lang-html"><style type="text/css">
+<!--
+p { margin-left: 40px; }
+-->
+</style>
+
+<h3>June 22</h3>
+<p>Low Earth Orbit (LEO)</p>
+
+<h3>July 1</h3>
+<p>Medium Earth Orbit (MEO)</p></code></pre>
+  </div>
+</div>
+
+NOTES:
+- So let's say we have these list of dates from the NEJS website
+- We just want to indent those descriptions in by 40 pixels
+- Naturally we'd just use some CSS selector to add `margin-left`
+- Simple right?
+- But what do you do if CSS doesn't exist?
+  * Or at least it's not guaranteed to be in all of your user's browsers?
+
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;text-align:left">
+    <h3>June 22</h3>
+    <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
+    <h3>July 1</h3>
+    <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
+    <h3>July 8</h3>
+    <p style="margin-left:40px">High Earth Orbit (HEO)</p>
+    <h3>July 10</h3>
+    <p style="margin-left:40px">Decaying Orbit</p>
+    <h3>July 27</h3>
+    <p style="margin-left:40px">NEJS CONF!</p>
+	</div>
+  <div style="flex:0 0 65%">
+    <pre class="large"><code class="lang-html"><H3>June 22</H3>
+<P><IMG src="/1x1.gif" width="40">Low 
+Earth Orbit (LEO)</P>
+
+<H3>July 1</H3>
+<P><IMG src="/1x1.gif" width="40">Medium 
+Earth Orbit (MEO)</P></code></pre>
+  </div>
+</div>
+
+NOTES:
+- Well you use a 1x1.gif!
+- It's known as a "spacer gif"
+- And yes I say "gif" not "jif" 😀
+- It was 100% transparent, so it was see-thru
+  * Used to do "pixel perfect" spacing before CSS
+- Would work in both horizontal & vertical direction
+- Used all over the place!
+
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-between">
+	<div style="flex:0 0 35%;text-align:left">
+    <h3>June 22</h3>
+    <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
+    <h3>July 1</h3>
+    <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
+    <h3>July 8</h3>
+    <p style="margin-left:40px">High Earth Orbit (HEO)</p>
+    <h3>July 10</h3>
+    <p style="margin-left:40px">Decaying Orbit</p>
+    <h3>July 27</h3>
+    <p style="margin-left:40px">NEJS CONF!</p>
+	</div>
+  <div style="flex:0 0 65%">
+    <pre class="large"><code class="lang-html"><H3>June 22</H3>
+<P>&NBSP;&NBSP;&NBSP;&NBSP;Low 
+Earth Orbit (LEO)</P>
+
+<H3>July 1</H3>
+<P>&NBSP;&NBSP;&NBSP;&NBSP;Medium 
+Earth Orbit (MEO)</P></code></pre>
+  </div>
+</div>
+
+NOTES:
+- For this could use a whole bunch of `&nbsp;` entities
+- But the spacing is dependent on the font
+  * Wouldn't be exact if needed to line things up
+
+=====
+
+# Hooray for CSS!
+
+NOTES:
+- And then CSS became a thing!
+- Awesome!
+
+/////
+
+```html
+<BODY
+  BGCOLOR="#DDDDDD"
+  TEXT="#000000" 
+  LINK="#0000FF"
+  VLINK="#0000FF" 
+  ALINK="#FF0000"
+>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- No longer did we have to put text, link or background colors directly on `<body>`
+
+/////
+
+
+```html
+<FONT FACE="COMIC SANS MS" COLOR="#FF0000" SIZE="-1">
+  Weekly Poll
+</FONT>
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- No longer did we have to use the `<FONT>` tag for styling
+
+/////
+
+
+```html
+<TABLE RULES="NONE" WIDTH="100%" BORDERCOLOR="#00008B" BORDER="1">
+  <TR ALIGN="CENTER" BGCOLOR="#00008B">
+
+  </TR>
+</TABLE>
+
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Still using `<table>` for layout, but no longer need all the styling in the markup
+
+- However...
+- You know what we ended up using CSS most for????
+
+/////
+
+<style>
+<!--
+a.oldStyle { color: red; text-decoration: none; }
+a.oldStyle:hover  { color: black; text-decoration: underline; }
+-->
+</style>
+
+<a class="oldStyle" href="#">Dynamic links!</a>
+
+<br />
+
+```css
+a       { color: red;   text-decoration: none; }
+a:hover { color: black; text-decoration: underline; }
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- To screw with the default link styling
+- Make default links a different color; no underline
+- Change color/underline on hover
+- Look how dynamic it is!
 
 =====
 
