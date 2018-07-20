@@ -36,35 +36,12 @@ NOTES:
 - Now turn to your neighbors, fist bump & say hi
 
 /////
-
-## me.json
-
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;">
-		<img src="../../img/family-tahoe-2018-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family at Tahoe in 2018" />
-	</div>
-	<div style="flex:0 0 60%;">
-		<pre class="large"><code class="lang-json">
-{
-  "name": "Ben Ilegbodu",
-  "priorities": [
-    "Jesus", "family", "work"
-  ],
-  "location": "Pittsburg, CA",
-  "work": "Eventbrite",
-  "role": "Principal Frontend Engineer",
-  "hobbies": [
-    "basketball", "DIY", "movies"
-  ]
-}
-			</code></pre>
-	</div>
-</div>
+<!-- .slide: data-background="url(../../img/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - I'm a Principal Frontend Engineer at Eventbrite
-- Been working on FE infra writing shell scripts in Node
-- Been using some of these JS features I'm showing
+- Work on our Frontend Platform team
+
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="contain" -->
@@ -532,8 +509,149 @@ NOTES:
 - Look how dynamic it is!
 
 =====
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Shoutout to bootcamp grads
+NOTES:
+- You know how BE engineers are always saying JS is a toy language
+- And we get mad saying it's legit
+  * Especially since ES6+
+- Well 2 decades ago it really was a toy language
+  * We did silly things with it
+
+/////
+
+```html
+<head>
+  <script language="javascript">
+    function sayHello() {
+      alert("Welcome to BASIC Guru Online!")
+    }
+  </script>
+</head>
+<body onload="sayHello()">
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
+- Soooo many things we wouldn't do today
+- Including a `<script>` in the `<head>` is bad because it slows down render
+- Just defining `sayHello` on the global scope instead of in a module
+- Just calling the function in `onload` instead of "unobstrusive JS" using `addEventListener`
+  * But we didn't have jQuery
+  * Had to check for both `attachEvent` (IE) & `addEventListener` (standard)
+
+- Imagine debugging and having that `alert()` pop up every time!
+
+/////
+
+```js
+alert('start');
+var num = getNum(new Date());
+
+alert(num);
+
+if (num > 42) {
+  alert('here?????');
+  num = 42;
+}
+
+for (var i = 0; i < num; i++) {
+  document.getElementById('val').innerHTML = num;
+  alert(document.getElementById('val').innerHTML);
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Speaking of debugging, we had no debugging tools!
+- `alert()` debugging is all we had
+  * Not even `console` debugging, which now is consider sub-par
+- And don't accidentally put an `alert()` in a loop or endless loop!
+  * Had to just quit the browser
+
+/////
+
+![IE script error](../../img/webdev/internet-explorer-script-error.jpg)
+
+NOTES:
+- Do remember IE gave some super meager way of debugging
+- Whenever an error would happen everyone get this cryptic message
+- It'd show for **every** error
+
+/////
+
+![IE8 Script debugging message](../../img/webdev/ie-debugging.jpg)
+
+NOTES:
+- But if you went into the settings and turned on debugging
+- Get the option to debug using built-in script debugger
+- It was pretty rough though
+
+/////
+
+# Firebug screenshot
+
+NOTES:
+- The Firebug came along and it changed the game in 2006/2007
+- May never have even heard of it
+- It was a Firefox extension
+  * The reason I moved from IE to FF at the time
+  * And let you *see* the CSS and debug the JS!
+- Paved the way for our amazing web inspectors today
+- I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
+
+/////
+
+- Github
+- SASS/PostCSS
+- TypeScript
+- Uglify
+- Webpack
+- ESLint
+- Travis
+- Netlify
+
+NOTES:
+- And these days we have all this dev tooling to make our lives easier
+  * Ensure we don't ship broken code
+- **Github:** Like table stakes now, but we didn't have version control
+  * It existed but only w/in the biggest of companies
+  * We had our desktop & FTP to transfer the files
+  * Imagine just 2 people working on the site at the same person
+  * Would work directly on the server and break all sorts of things on Production
+  * _Dangling commas were my arch nemesis!_
+- **Travis:** Continuous integration env automatically kicked off w/ git commits!
+  * Can run tests
+  * Even automatically deploy
+- **Netlify:** Allows previewing PRs before they even merge!
+- **Uglify:** Optimizes our code for us
+  * Used to write terse JS/CSS to keep file sizes down
+  * Friend at AOL wasn't allowed to write comments!
+
+=====
+<!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+
+NOTES:
+- Many "thought leaders" today have been around a while
+  * Some around my timeframe of about 2 decades
+  * Some older
+  * Some later
+- But there are some that feel you have to learn web dev the way they did
+  * You have to learn the hard way so you can appreciate what you've got
+- I imagine this can be pretty stressful if you're new to the industry
+  * Especially if you only had a 3- or 6-month accelerated program to learn
+- So I wan to encourage you
+  * Don't stress!
+  * You're not less than / subpar
+  * There are many ways to learn
+  * I know many folks from bootcamps who are flat out killing it
+  * Some I've had the pleasure of mentoring/training
+  * Others who I didn't even know they were bootcamp grads until they told me
+- Even if you just graduated yesterday
+  * You can be just as integral as those of us who were there near the beginning or w/ a traditional background
+- YOU GOT THIS!
 
 =====
 
