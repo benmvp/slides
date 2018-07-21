@@ -1,27 +1,34 @@
-<!-- .slide: data-state="title-page" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Let's web dev like it's 1999!
+<div style="display: flex; align-items:center; justify-content: flex-end">
+	<div style="width: 45%;" class="overlay-light">
+  
+  <h1>Let's web dev like it's 1999!</h1>
 
-<br />
+  <br />
 
-## Ben Ilegbodu
+  <h2>Ben Ilegbodu</h2>
 
-<br />
+  <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@nejsconf](https://twitter.com/nejsconf)
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@nejsconf](https://twitter.com/nejsconf)</p>
 
-<br />
+  <br />
 
-July 27, 2018
+  <p>July 27, 2018</p>
+  
+  
+  </div>
+</div>
 
 NOTES:
 - Welcome!
 - Before we get started, how many of you were developing in 1999?
 - Hoping to share a little about my dev story and walk down memory lane
   * Or take a history lesson for most of you
+- Hopefully learn some new things along the way
 
 =====
-
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
@@ -44,7 +51,7 @@ NOTES:
 
 
 =====
-<!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - My first programming language I learned was `BASIC`
@@ -57,7 +64,7 @@ NOTES:
 - I would've stuffed my ownself in a locker
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Started sharing my apps online, and folks would ask how to write TI apps
@@ -70,7 +77,14 @@ NOTES:
 
 /////
 
-[![Basic Guru Online Geocities circa 2001 Screenshot](../../img/webdev/bgo-geocities-2001-screenshot.png)](https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html)
+<a href="https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html" target="_blank">
+  <img src="../../img/webdev/bgo-geocities-2001-screenshot-top.png" style="width: 100%" alt="Basic Guru Online Geocities circa 2001 Screenshot" />
+</a>
+
+<div class="code-highlight fragment current-visible" style="height: 200px; top: 57px; left: 550px; width: 800px"></div>
+<div class="code-highlight fragment current-visible" style="height: 140px; top: 307px; left: 790px; width: 330px"></div>
+<div class="code-highlight fragment current-visible" style="height: 140px; top: 747px; left: 50px; width: 1320px"></div>
+
 
 NOTES:
 - Built "Basic Guru Online" as a Geocities website
@@ -81,18 +95,31 @@ NOTES:
 - BGO was like a full web application
   * Geocities handled all the backend
   * FTP'd individual files from computer to their server
-- **FIRST:** Overall page layout was frame-based using `<frameset>`
+- 2 column layout definitely using `<table>`
+  * Still "responsive" nearly 20 years later!
+  * `float` pattern came much later
+- **ONE:** Definitely created the logo in MS Paint using PowerPoint clip-art + Comic Sans
+- **TWO:** Trusty-dusty hit counter (broken)
+- **THREE:** I suggested using AOL to view the page
+  * "Should be okay" using Internet Explorer or Netscape Navigator
+  * Best viewed on an 800x600 res monitor!
+
+/////
+
+<a href="https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html" target="_blank" style="-20em">
+  <img src="../../img/webdev/bgo-geocities-2001-screenshot-bottom.png" style="width: 100%" alt="Basic Guru Online Geocities circa 2001 Screenshot" />
+</a>
+
+<div class="code-highlight fragment current-visible" style="height: 470px; top: 56px; left: 1390px; width: 474px"></div>
+<div class="code-highlight fragment current-visible" style="height: 124px; top: 900px; left: 30px; width: 1859px"></div>
+
+
+NOTES:
+- **ONE:** Weekly poll asks about internet connect speed
+- **TWO:** Overall page layout was frame-based using `<frameset>`
   * The bottom frame was fixed height
   * Main section filed rest of the window
   * Didn't get this functionality until recently with flexbox
-- **SECOND:** 2 column layout using `<table>`
-  * Still "responsive" nearly 20 years later!
-- **THIRD:** Definitely created the logo in MS Paint using PowerPoint clip-art + Comic Sans
-- **FOURTH:** Trusty-dusty hit counter (broken)
-- **FIFTH:** I suggested using AOL to view the page
-  * "Should be okay" using Internet Explorer or Netscape Navigator
-  * Best viewed on an 800x600 res monitor!
-- **SIXTH:** Weekly poll asks about internet connect speed
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
@@ -167,8 +194,7 @@ NOTES:
 - So I wanted to take a look at various aspects of how we built sites back in the day
 
 =====
-
-# Page Layout
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Before CSS3, flexbox & grid we needed ways to lay out our pages
@@ -180,18 +206,20 @@ NOTES:
 - I'm talking about page layouts that pre-dated `<table>`
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-```html
-<FRAMESET ROWS="150px,*">
-  <FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
-  <FRAMESET COLS="20%,*,20%">
-    <FRAME SRC="nav.html" FRAMEBORDER=0>
-    <FRAME SRC="home.html" FRAMEBORDER=0 NAME=content>
-    <FRAME SRC="ads.html" FRAMEBORDER=0>
-  </FRAMESET>
-</FRAMESET>
-```
-<!-- .element: class="large" -->
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 85%;">
+    <pre class="large"><code class="lang-html">&lt;FRAMESET ROWS="150px,\*">
+  &lt;FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
+  &lt;FRAMESET COLS="20%,\*,20%">
+    &lt;FRAME SRC="nav.html" FRAMEBORDER=0>
+    &lt;FRAME SRC="home.html" FRAMEBORDER=0 NAME=content>
+    &lt;FRAME SRC="ads.html" FRAMEBORDER=0>
+  &lt;/FRAMESET>
+&lt;/FRAMESET></code></pre>
+  </div>
+</div>
 
 
 NOTES:
@@ -204,7 +232,13 @@ NOTES:
 - Fun times!
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/frameset-borders-margins.jpg) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 100%;">
+    <img src="../../img/webdev/frameset-borders-margins.jpg" style="width: 100%" />
+  </div>
+</div>
 
 NOTES:
 - This is the layout this contrived example is building
@@ -218,19 +252,21 @@ NOTES:
 
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-site.html
-```html
-<FRAMESET ROWS="150px,*">
-  <FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
-  <FRAMESET COLS="20%,*,20%">
-    <FRAME SRC="nav.html" FRAMEBORDER=0>
-    <FRAME SRC="home.html" FRAMEBORDER=0 NAME=content>
-    <FRAME SRC="ads.html" FRAMEBORDER=0>
-  </FRAMESET>
-</FRAMESET>
-```
-<!-- .element: class="large" -->
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 85%;">
+    <p>site.html</p>
+    <pre class="large"><code class="lang-html">&lt;FRAMESET ROWS="150px,\*">
+  &lt;FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
+  &lt;FRAMESET COLS="20%,\*,20%">
+    &lt;FRAME SRC="nav.html" FRAMEBORDER=0>
+    &lt;FRAME SRC="home.html" FRAMEBORDER=0 NAME=content>
+    &lt;FRAME SRC="ads.html" FRAMEBORDER=0>
+  &lt;/FRAMESET>
+&lt;/FRAMESET></code></pre>
+  </div>
+</div>
 
 
 NOTES:
@@ -247,20 +283,22 @@ NOTES:
 - **SEVEN:** So what about that `NAME` attribute? What's that for
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-nav.html
-```html
-<HTML>
-  <BODY>
-    <UL>
-      <LI><A HREF="home.html" TARGET=content>Home</A></LI>
-      <LI><A HREF="about.html" TARGET="content">About</A></LI>
-      <LI><A HREF="help.html" TARGET="content">Help</A></LI>
-    </UL>
-  </BODY>
-</HTML>
-```
-<!-- .element: class="large" -->
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 95%;">
+    <p>nav.html</p>
+    <pre class="large"><code class="lang-html">&lt;HTML>
+  &lt;BODY>
+    &lt;UL>
+      &lt;LI>&lt;A HREF="home.html" TARGET=content>Home&lt;/A>
+      &lt;LI>&lt;A HREF="about.html" TARGET="content">About&lt;/A>
+      &lt;LI>&lt;A HREF="help.html" TARGET="content">Help&lt;/A>
+    &lt;/UL>
+  &lt;/BODY>
+&lt;/HTML></code></pre>
+  </div>
+</div>
 
 NOTES:
 - Well in addition to having our grid layout, we also don't want to have to refresh the whole page
@@ -268,21 +306,26 @@ NOTES:
 - So w/in `nav.html`, we just have our links target the `content` frame
   * You've probably always just done `target="_blank"` for a new window right?
   * It had a purpose!
+- For some reason we liked to not close our `<LI>` tags either
 - BTW, `<frameset>` was actually deprecated in HTML5, so...
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;">
-    <pre class="large"><code class="lang-html">&lt;body>
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 100%;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="flex:0 0 35%;">
+        <pre class="large"><code class="lang-html">&lt;body>
   <header> ... </header>
   <main> ... </main>
   <nav> ... </nav>
   <aside> ... </aside>
 &lt;/body></code></pre>
-	</div>
-	<div style="flex:0 0 60%;">
-		<pre><code class="lang-css">header { grid-area: header; }
+      </div>
+      <div style="flex:0 0 60%;">
+        <pre><code class="lang-css">header { grid-area: header; }
 main { grid-area: main; }
 nav { grid-area: nav; }
 aside { grid-area: ads; }
@@ -298,13 +341,15 @@ body {
 @media screen and (min-height: 600px) {
   body {
     grid-template-areas: "header header header"
-                        "nav main ads";
+                         "nav main ads";
     grid-template-columns: 20% 1fr 20%;
     grid-template-rows: 150px 1fr;
 
   }
 }</code></pre>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 NOTES:
@@ -316,30 +361,33 @@ NOTES:
   * But Grid layout puts it where we want visually!
 
 =====
-
-# 1x1.gif
+<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- What's the 1x1.gif you ask?
-- Well...
+- But CSS Grid is wayyy to modern for us
+- Let's go back 2 decades again...
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;text-align:left">
-    <h3>June 22</h3>
-    <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
-    <h3>July 1</h3>
-    <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
-    <h3>July 8</h3>
-    <p style="margin-left:40px">High Earth Orbit (HEO)</p>
-    <h3>July 10</h3>
-    <p style="margin-left:40px">Decaying Orbit</p>
-    <h3>July 27</h3>
-    <p style="margin-left:40px">NEJS CONF!</p>
-	</div>
-  <div style="flex:0 0 65%">
-    <pre class="large"><code class="lang-html"><style type="text/css">
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 85%;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="flex:0 0 40%;text-align:left">
+        <h3>June 22</h3>
+        <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
+        <h3>July 1</h3>
+        <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
+        <h3>July 8</h3>
+        <p style="margin-left:40px">High Earth Orbit (HEO)</p>
+        <h3>July 10</h3>
+        <p style="margin-left:40px">Decaying Orbit</p>
+        <h3>July 27</h3>
+        <p style="margin-left:40px">NEJS CONF!</p>
+      </div>
+      <div style="flex:0 0 55%">
+        <pre class="large"><code class="lang-html"><style type="text/css">
 <!--
 p { margin-left: 40px; }
 -->
@@ -350,40 +398,49 @@ p { margin-left: 40px; }
 
 <h3>July 1</h3>
 <p>Medium Earth Orbit (MEO)</p></code></pre>
+      </div>
+    </div>
+
   </div>
 </div>
-
 NOTES:
 - So let's say we have these list of dates from the NEJS website
 - We just want to indent those descriptions in by 40 pixels
 - Naturally we'd just use some CSS selector to add `margin-left`
 - Simple right?
+- Or maybe use Bootstrap's grid system
 - But what do you do if CSS doesn't exist?
   * Or at least it's not guaranteed to be in all of your user's browsers?
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;text-align:left">
-    <h3>June 22</h3>
-    <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
-    <h3>July 1</h3>
-    <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
-    <h3>July 8</h3>
-    <p style="margin-left:40px">High Earth Orbit (HEO)</p>
-    <h3>July 10</h3>
-    <p style="margin-left:40px">Decaying Orbit</p>
-    <h3>July 27</h3>
-    <p style="margin-left:40px">NEJS CONF!</p>
-	</div>
-  <div style="flex:0 0 65%">
-    <pre class="large"><code class="lang-html"><H3>June 22</H3>
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 100%;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="flex:0 0 35%;text-align:left">
+        <h3>June 22</h3>
+        <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
+        <h3>July 1</h3>
+        <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
+        <h3>July 8</h3>
+        <p style="margin-left:40px">High Earth Orbit (HEO)</p>
+        <h3>July 10</h3>
+        <p style="margin-left:40px">Decaying Orbit</p>
+        <h3>July 27</h3>
+        <p style="margin-left:40px">NEJS CONF!</p>
+      </div>
+      <div style="flex:0 0 60%">
+        <pre class="large"><code class="lang-html"><H3>June 22</H3>
 <P><IMG src="/1x1.gif" width="40">Low 
 Earth Orbit (LEO)</P>
 
 <H3>July 1</H3>
 <P><IMG src="/1x1.gif" width="40">Medium 
 Earth Orbit (MEO)</P></code></pre>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -397,28 +454,34 @@ NOTES:
 - Used all over the place!
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;align-items:center;justify-content:space-between">
-	<div style="flex:0 0 35%;text-align:left">
-    <h3>June 22</h3>
-    <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
-    <h3>July 1</h3>
-    <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
-    <h3>July 8</h3>
-    <p style="margin-left:40px">High Earth Orbit (HEO)</p>
-    <h3>July 10</h3>
-    <p style="margin-left:40px">Decaying Orbit</p>
-    <h3>July 27</h3>
-    <p style="margin-left:40px">NEJS CONF!</p>
-	</div>
-  <div style="flex:0 0 65%">
-    <pre class="large"><code class="lang-html"><H3>June 22</H3>
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 85%;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="flex:0 0 40%;text-align:left">
+        <h3>June 22</h3>
+        <p style="margin-left:40px">Low Earth Orbit (LEO)</p>
+        <h3>July 1</h3>
+        <p style="margin-left:40px">Medium Earth Orbit (MEO)</p>
+        <h3>July 8</h3>
+        <p style="margin-left:40px">High Earth Orbit (HEO)</p>
+        <h3>July 10</h3>
+        <p style="margin-left:40px">Decaying Orbit</p>
+        <h3>July 27</h3>
+        <p style="margin-left:40px">NEJS CONF!</p>
+      </div>
+      <div style="flex:0 0 55%">
+        <pre class="large"><code class="lang-html"><H3>June 22</H3>
 <P>&NBSP;&NBSP;&NBSP;&NBSP;Low 
 Earth Orbit (LEO)</P>
 
 <H3>July 1</H3>
 <P>&NBSP;&NBSP;&NBSP;&NBSP;Medium 
 Earth Orbit (MEO)</P></code></pre>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -428,54 +491,59 @@ NOTES:
   * Wouldn't be exact if needed to line things up
 
 =====
-
-# Hooray for CSS!
+<!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - And then CSS became a thing!
+- We had HTML AND CSS!
 - Awesome!
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-```html
-<BODY
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 50%;">
+    <pre class="large"><code class="lang-html">&lt;BODY
   BGCOLOR="#DDDDDD"
   TEXT="#000000" 
   LINK="#0000FF"
   VLINK="#0000FF" 
   ALINK="#FF0000"
->
-```
-<!-- .element: class="large" -->
+></code></pre>
+  </div>
+</div>
+
 
 NOTES:
 - No longer did we have to put text, link or background colors directly on `<body>`
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-
-```html
-<FONT FACE="COMIC SANS MS" COLOR="#FF0000" SIZE="-1">
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 85%;">
+    <pre class="large"><code class="lang-html">&lt;FONT FACE="COMIC SANS MS" COLOR="#FF0000" SIZE="-1">
   Weekly Poll
-</FONT>
-```
-<!-- .element: class="large" -->
+&lt;/FONT></code></pre>
+  </div>
+</div>
 
 NOTES:
 - No longer did we have to use the `<FONT>` tag for styling
+- Yep, that was definitely a thing I used **a lot**
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-
-```html
-<TABLE RULES="NONE" WIDTH="100%" BORDERCOLOR="#00008B" BORDER="1">
-  <TR ALIGN="CENTER" BGCOLOR="#00008B">
-
-  </TR>
-</TABLE>
-
-```
-<!-- .element: class="large" -->
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 100%;">
+    <pre class="large"><code class="lang-html">&lt;TABLE RULES="NONE" WIDTH="95" BORDERCOLOR="#00008B" BORDER="1">
+  &lt;TR ALIGN="CENTER" BGCOLOR="#00008B">
+    ...
+  &lt;/TR>
+&lt;/TABLE></code></pre>
+  </div>
+</div>
 
 NOTES:
 - Still using `<table>` for layout, but no longer need all the styling in the markup
@@ -484,23 +552,14 @@ NOTES:
 - You know what we ended up using CSS most for????
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<style>
-<!--
-a.oldStyle { color: red; text-decoration: none; }
-a.oldStyle:hover  { color: black; text-decoration: underline; }
--->
-</style>
-
-<a class="oldStyle" href="#">Dynamic links!</a>
-
-<br />
-
-```css
-a       { color: red;   text-decoration: none; }
-a:hover { color: black; text-decoration: underline; }
-```
-<!-- .element: class="large" -->
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 85%;">
+    <pre class="large"><code class="lang-css">a       { color: red;   text-decoration: none; }
+a:hover { color: black; text-decoration: underline; }</code></pre>
+  </div>
+</div>
 
 NOTES:
 - To screw with the default link styling
@@ -519,18 +578,20 @@ NOTES:
   * We did silly things with it
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-```html
-<head>
-  <script language="javascript">
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <pre class="large"><code class="lang-html">&lt;head>
+  &lt;script language="javascript">
     function sayHello() {
       alert("Welcome to BASIC Guru Online!")
     }
-  </script>
-</head>
-<body onload="sayHello()">
-```
-<!-- .element: class="large" -->
+  &lt;/script>
+&lt;/head>
+&lt;body onload="sayHello()"></code></pre>
+  </div>
+</div>
 
 NOTES:
 - Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
@@ -544,14 +605,16 @@ NOTES:
 - Imagine debugging and having that `alert()` pop up every time!
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-```js
-alert('start');
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 80%;">
+    <pre class="large"><code class="lang-javascript">alert('start');
 var num = getNum(new Date());
 
 alert(num);
 
-if (num > 42) {
+if (num < 42) {
   alert('here?????');
   num = 42;
 }
@@ -559,9 +622,9 @@ if (num > 42) {
 for (var i = 0; i < num; i++) {
   document.getElementById('val').innerHTML = num;
   alert(document.getElementById('val').innerHTML);
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Speaking of debugging, we had no debugging tools!
@@ -571,8 +634,13 @@ NOTES:
   * Had to just quit the browser
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-![IE script error](../../img/webdev/internet-explorer-script-error.jpg)
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <img src="../../img/webdev/internet-explorer-script-error.jpg" alt="IE script error" style="width: 100%" />
+  </div>
+</div>
 
 NOTES:
 - Do remember IE gave some super meager way of debugging
@@ -580,8 +648,13 @@ NOTES:
 - It'd show for **every** error
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-![IE8 Script debugging message](../../img/webdev/ie-debugging.jpg)
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <img src="../../img/webdev/ie-debugging.jpg" alt="IE8 Script debugging message" style="width: 100%" />
+  </div>
+</div>
 
 NOTES:
 - But if you went into the settings and turned on debugging
@@ -589,8 +662,13 @@ NOTES:
 - It was pretty rough though
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Firebug screenshot
+<div style="display:flex;justify-content:center">
+	<div class="overlay-light" style="width: 70%;">
+    <img src="../../img/webdev/firebug-shutdown-screenshot.png" alt="Screenshot of page officially shutting down Firebug" style="width: 100%" />
+  </div>
+</div>
 
 NOTES:
 - The Firebug came along and it changed the game in 2006/2007
@@ -602,36 +680,68 @@ NOTES:
 - I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-- Github
-- SASS/PostCSS
-- TypeScript
-- Uglify
-- Webpack
-- ESLint
-- Travis
-- Netlify
+<div style="display:flex; justify-content: center">
+  <div class="overlay-light" style="width: 75%;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap">
+      <a href="https://code.visualstudio.com/" target="_blank">
+        <img src="../../img/webdev/vscode-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/es6/typescript-logo-square.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.npmjs.com/" target="_blank">
+        <img src="../../img/webdev/npm-cube-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://eslint.org/" target="_blank">
+        <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://jestjs.io/" target="_blank">
+        <img src="../../img/nav-react/jest-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://prettier.io/" target="_blank">
+        <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://github.com/" target="_blank">
+        <img src="../../img/webdev/github-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://travis-ci.org/" target="_blank">
+        <img src="../../img/webdev/travisci-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://gulpjs.com/" target="_blank">
+        <img src="../../img/nav-react/gulp-logo.svg" alt="" class="plain" style="width: 200px" />
+      </a>
+      <a href="https://www.netlify.com/" target="_blank">
+        <img src="../../img/webdev/netlify-logo.jpg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+
 
 NOTES:
 - And these days we have all this dev tooling to make our lives easier
   * Ensure we don't ship broken code
+  * All we had was our desktop & FTP to transfer the files
+- **VSCode:** Editors like VSCode that make writing code so much easier
+  * Intellisense, unused code warning, extensions
 - **Github:** Like table stakes now, but we didn't have version control
   * It existed but only w/in the biggest of companies
-  * We had our desktop & FTP to transfer the files
   * Imagine just 2 people working on the site at the same person
   * Would work directly on the server and break all sorts of things on Production
   * _Dangling commas were my arch nemesis!_
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
   * Can run tests
   * Even automatically deploy
-- **Netlify:** Allows previewing PRs before they even merge!
-- **Uglify:** Optimizes our code for us
+- **Gulp:** Run build scripts
   * Used to write terse JS/CSS to keep file sizes down
   * Friend at AOL wasn't allowed to write comments!
+- **Netlify:** Allows previewing PRs before they even merge!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 
 NOTES:
 - Many "thought leaders" today have been around a while
