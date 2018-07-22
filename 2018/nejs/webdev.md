@@ -361,14 +361,14 @@ NOTES:
   * But Grid layout puts it where we want visually!
 
 =====
-<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - But CSS Grid is wayyy to modern for us
 - Let's go back 2 decades again...
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
 	<div class="overlay-light" style="width: 85%;">
@@ -413,7 +413,7 @@ NOTES:
   * Or at least it's not guaranteed to be in all of your user's browsers?
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
 	<div class="overlay-light" style="width: 100%;">
@@ -454,7 +454,7 @@ NOTES:
 - Used all over the place!
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/sai-kiran-anagani-61187-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
 	<div class="overlay-light" style="width: 85%;">
