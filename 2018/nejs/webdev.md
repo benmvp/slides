@@ -48,6 +48,8 @@ NOTES:
 NOTES:
 - I'm a Principal Frontend Engineer at Eventbrite
 - Work on our Frontend Platform team
+- But I don't wanna talk about me now
+  * Wanna talk about me 20 years ago
 
 
 =====
@@ -57,11 +59,12 @@ NOTES:
 - My first programming language I learned was `BASIC`
   * Summer program in '98
 - Used that to build "apps" for my TI-83 calc in high school
+  * Math apps to help check answers on algebra tests
 - Would type out code in Notepad
 - Print it out
 - Then type out by hand using T-9 keypad on calculator
   * Wasn't a way to get code from comp to calc originally
-- I would've stuffed my ownself in a locker
+- I would've stuffed my own self in a locker
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="cover" -->
@@ -744,17 +747,25 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- Many "thought leaders" today have been around a while
-  * Some around my timeframe of about 2 decades
+- **How many people here have been in the industry less than 2 years?**
+- Great that you're here
+  * Great that you're wanting to learn
+  * Conferences like these were few and far between
+- But most newbies have "imposter syndrome"
+  * Feel like you don't belong
+  * Can come to a conference like this and it can grow _worse_!
+  * So many things you _have_ to learn
+  * So continuously feeling like you're behind
+  * Especially if you only had a 3- or 6-month accelerated program to learn
+- Futhermore there are  "thought leaders" today have been around a while
+  * Some around my time frame of about 2 decades
   * Some older
   * Some later
-- But there are some that feel you have to learn web dev the way they did
+- They feel you have to learn web dev the way they did
   * You have to learn the hard way so you can appreciate what you've got
-- I imagine this can be pretty stressful if you're new to the industry
-  * Especially if you only had a 3- or 6-month accelerated program to learn
 - So I wan to encourage you
   * Don't stress!
-  * You're not less than / subpar
+  * You're not less than / sub par
   * There are many ways to learn
   * I know many folks from bootcamps who are flat out killing it
   * Some I've had the pleasure of mentoring/training
@@ -779,6 +790,7 @@ NOTES:
 Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
 
 NOTES:
-- So that's it!
+- So that's all I have for you!
+- I hope you enjoyed our ride in the wayback machine
 - Ask questions on Twitter, via email or AMA!
 - Thanks!
