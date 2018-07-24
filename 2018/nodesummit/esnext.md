@@ -22,9 +22,11 @@
 </div>
 
 NOTES:
-- Welcome!
+- Good afternoon!
 - Want to introduce you to future JavaScript features that I'm excited about
-- ES.next is just future JavaScript
+- ES.next is just that -- future JavaScript
+- And what's future today will be current very soon
+- BTW: tweeted out a link to slides already
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -91,7 +93,7 @@ NOTES:
   WeakSets  
 </div>
 
-**Node 6+ support! 😎**
+**Node 6+ support*! 😎**
 
   </div>
 </div>
@@ -99,7 +101,15 @@ NOTES:
 NOTES:
 - Full list of features included in the ES6 specification
 - That's 30+ features!
+  * Block scoping
+  * Promises
+  * WeakMaps
+  * Arrow functions
+  * Classes
+  * Modules
+  * etc
 - Works with Node 6 and higher
+  * With a few exceptions
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -120,7 +130,8 @@ NOTES:
 
 
 NOTES:
-- With ES6 they moved to a yearly release cadence so they won't have this huge dump of features
+- Moved to a yearly release cadence
+  * Didn't want this huge dump of features
 - "ES7" was never really a thing: ES2016
 - Not much happened in ES2016 as everyone was catching their breath
 - `Array.prototype.includes` works with Node 6+
@@ -181,6 +192,8 @@ NOTES:
 
 NOTES:
 - But first, would like everyone to stand up!
+- Gonna try to do that break dancing move from the opening slide
+  * Kidding!
 - Squats counting down from 10 to 1
 - Now turn to your neighbors, fist bump & say hi
 
@@ -215,8 +228,8 @@ NOTES:
 </div>
 
 NOTES:
-- Starts with ES2018
-- Spec was just finalized 2 weeks ago!
+- Start with ES2018
+- Spec was just ratified earlier this month!
 - Wanna show a couple of features I'm excited about
 
 /////
@@ -247,7 +260,7 @@ const newWarriors = Object.assign({}, warriors, {
 
 NOTES:
 - ES6/ES2015 gave us the ability to use spread operator in arrays & destructuring for objects
-- Now we can officially use spread operator for objects
+- Now we can "officially" use spread operator for objects
 - _Explain code_
   * We copy objects while adding new properties in one object literal definition
   * ES2015 introduced `Object.assign()` but you have to make sure to have the empty object first
@@ -338,6 +351,7 @@ db.open()
 </div>
 
 NOTES:
+- One other feature
 - There's now a 3rd method on `Promise` objects called `.finally()`
 - It gets called no matter if things succeed or if there's an error
 - Like with traditional `try`-`catch`-`finally` this is a great place to do clean up
@@ -399,8 +413,9 @@ NOTES:
 
 NOTES:
 - Full list of features in ES2018
-- The spec was just finalized a few weeks ago
-- Folks are pretty excited about async interation and some of the regex improvements
+- The spec was just ratified earlier this month
+- Folks are also pretty excited about async iteration and some of the regex improvements
+  * Check out the links for more details
 
 =====
 
@@ -410,11 +425,11 @@ NOTES:
 # Proposal Process
 
 NOTES:
-- May be wondering how features get bundled in yearly releases
+- May be wondering how features get bundled in yearly releases?
 - 4-stage process
 - Features have to be in the final stage by February 1st of the release year
-- Basically the January TC39 meeting is when it is finalized
-- Gets released in July
+  * Basically the January TC39 meeting is when it is finalized
+- Gets officially released in July
 - ES2018 was just officially released
 
 =====
@@ -437,12 +452,13 @@ NOTES:
 </div>
 
 NOTES:
+- Work our way backwards
 - Stage 4 is the final stage (`Finished`)
 - Feature will be in the next release
   * A Stage 4 feature now would be in ES2019
 - Specification is complete
 - Has two compatible implementations which pass additional acceptance test suite
-- Has significant in-the-field experience with **shipping** implementations, such as that provided by two independent VMs
+  * Feature can be in Node well before it's official like object rest/spread
 - Spec is not expected to change except for wording edits to spec
 
 
@@ -477,7 +493,7 @@ NOTES:
 - In the `catch`, you don't care about the exception
   * Either because it doesn't matter or you know what it is
 - But we still have to provide a variable for it
-  * Omitting is a syntax error!
+  * Omitting `ex` is a syntax error!
 - Unused variable lint rules have to make special concessions for this!
 
 /////
@@ -505,7 +521,11 @@ try {
 NOTES:
 - Now with **optional catch binding**, we don't need to specify `ex`
 - Something that already exists in many other languages
+- Already exists in Node 10!
 - FUNNY: There's a whole Github issue bikeshedding on necessity of the proposal
+  * One side: "it's not necessary always handle the error"
+  * Other side: "it doesn't matter!"
+  * Guess who won? My side!
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -531,6 +551,9 @@ NOTES:
   * Spec will only change based upon implementations necessitating one
 - Needs real-world implementations which pass additional acceptance test suite
 - May be in ES2019, may not
+  * Have until January 2019
+
+- Let's look at some features...
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -561,7 +584,7 @@ SelectField.propTypes = { ... }</code></pre>
 
 
 NOTES:
-- ES2015 syntax introduced class syntax in JavaScript
+- ES2015 introduced class syntax in JavaScript
   * Great start, but lacked some important qualities
   * Fixed w/ a few Stage 3 features
 - Here's a React component written using a JS class in ES2015
@@ -603,7 +626,9 @@ NOTES:
 - We use the `static` keyword for the field
 - ES2015 had `static` methods, but now this proposal adds static fields
 - Highly likely you've been using `static` for React `propTypes`
-- We've been using this feature since it was introduced at Stage 1 2 years ago!
+- We've been using this feature since it was introduced at Stage 1 two years ago!
+
+
 - We can go further! What about the `state` declaration?
 
 /////
@@ -638,6 +663,8 @@ NOTES:
 - FYI these class fields get initialized **before** the `constructor` is run
 - ES2015 intoduced instance methods; now we have fields
 - Probably have seen/used this before too
+
+
 - The class is looking really nice, but we can do even more!
 - `_getOptions` is only "private" by convention
 
@@ -667,9 +694,15 @@ NOTES:
 
 
 NOTES:
+- Beware you might feel some kind of way about this feature
+
+
 - Lastly, we can use the `#` to signal that the `getOptions` method is private
+  * No longer need to complain in code reviews about testing private
 - It can no longer be accessed outside of the class; truly private
 - **NOTE:** You can make fields private too; even `static` & private
+
+
 - This syntax is pretty controversial; especially those who use TypeScript
 - Maybe wondering why using `#` instead of `private` keyword
   * Read explanations and I _think_ it boils down to how these private fields/methods are implemented
@@ -694,14 +727,17 @@ NOTES:
 </div>
 
 NOTES:
+- Let's keep working backwards...
 - Stage 2 (`Draft`)
-- Committee expects the feature to be developed and eventually included in the standard (not guaranteed)
+- Committee expects the feature to be developed and eventually included
+  * not guaranteed
 - There's a _rough_ spec entering into this stage
 - Objective is to formalize the spec
 - There should really only be incremental changes to the spec
 - Still a gamble to use
 - There's nothing sitting at Stage 2 that I really am excited about
-- There are Class Decorators, but I'm not a big fan of those
+- There are Class Decorators, but I'm not a big fan of those, yet
+  * I lean more functional
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -723,16 +759,19 @@ NOTES:
 </div>
 
 NOTES:
-- Let's jump to Stag 1 (`Proposal`)
+- Let's jump to Stage 1 (`Proposal`)
+  * The beginning stage
 - Has a "champion"
-- Text outlining the problem & potential solution
-- Example usages & high-level API
-- Discussion of implementation challenges
-- Committee expects to devote time to examining the problem space, solutions and cross-cutting concerns
+  * Text outlining the problem & potential solution
+  * Example usages & high-level API
+  * Discussion of implementation challenges
+  * Committee expects to devote time
 - Make the case for the addition
-- Spec can change drastically as its being formalized
 - **HUGE** gamble to use
+  * Spec can change drastically as its being formalized
 - But there are some fun ones here
+
+- Let's look at one...
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -753,6 +792,7 @@ NOTES:
 - But what happens if `user` may be `null` or `undefined`?
 - You have to check it first
 - There are several ways we can do this
+  * **CLICK THROUGH**
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -772,6 +812,7 @@ NOTES:
 NOTES:
 - And what if you have to go multiple levels deep?
 - It gets even more gnarly
+  * **CLICK THROUGH**
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -796,8 +837,10 @@ NOTES:
 
 NOTES:
 - The optional chaining operator is: `?.`
-- If the expression before it is `undefined`/`null` it'll short-circuit and return that
+- If the expression before it is `undefined`/`null`
+  * Short-circuit and return that
   * Otherwise it'll return whatever is after
+  * Much like a ternary
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -853,7 +896,8 @@ NOTES:
 - It's basically public so others can give feedback
 - There's no real spec
 - It'd be downright criminal for you to use stage 0
-- Decorators were stage 0 after ES2015, and so many folks were burned
+- Decorators were stage 0 after ES2015
+  * So many folks were burned cuz spec changed
 - Don't even really wanna show any
 - None were really interesting...
 - Some have been here since 2014!
@@ -890,7 +934,7 @@ NOTES:
 NOTES:
 - The way to use features now before they are standard is w/ transpilers
 - Generally safe to use Stage 3 & higher
-- TypeScript tends to **only** support Stage 3 and higher because the specs won't* change
+- TypeScript tends to **only** support Stage 3 and higher because the specs won't change*
 - Babel is more configurable with presets & plugins that allow you to use features down to Stage 0
   * At your own risk
 
@@ -932,6 +976,7 @@ catch { ... }</code></pre>
 
 NOTES:
 - These three features are available in Node 10+ right now!
+  * Can use in Production once Node 10 is LTS in October
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -978,7 +1023,9 @@ update?.()</code></pre>
 </div>
 
 NOTES:
-- 7th and final feature, which is likely a ways away
+- 7th and final feature
+  * Likely a ways away
+  * Probably my favorite
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -988,15 +1035,15 @@ NOTES:
   
   <h1>Resources</h1>
 
-    <ul style="margin-top: 2em">
-      <li><a href="https://github.com/tc39/ecma262" target="_blank">ECMAScript Github Repo</a></li>
-      <li><a href="http://kangax.github.io/compat-table/es2016plus/" target="_blank">ES2016+ Compatibility Table</a></li>
-      <li><a href="http://kangax.github.io/compat-table/esnext/" target="_blank">ES.next Compatibility Table</a></li>
-      <li><a href="https://tc39.github.io/ecma262/" target="_blank">ECMAScript Living Spec</a></li>
-      <li><a href="https://tc39.github.io/process-document/" target="_blank">TC39 Proposal Process</a></li>
-      <li><a href="https://github.com/rwaldron/tc39-notes" target="_blank">TC39 Meeting Notes</a></li>
-      <li><a href="https://github.com/tc39/test262" target="_blank">ECMAScript Test Suite</a></li>
-    </ul>
+  <ul style="margin-top: 2em">
+    <li><a href="https://github.com/tc39/ecma262" target="_blank">ECMAScript Github Repo</a></li>
+    <li><a href="http://kangax.github.io/compat-table/es2016plus/" target="_blank">ES2016+ Compatibility Table</a></li>
+    <li><a href="http://kangax.github.io/compat-table/esnext/" target="_blank">ES.next Compatibility Table</a></li>
+    <li><a href="https://tc39.github.io/ecma262/" target="_blank">ECMAScript Living Spec</a></li>
+    <li><a href="https://tc39.github.io/process-document/" target="_blank">TC39 Proposal Process</a></li>
+    <li><a href="https://github.com/rwaldron/tc39-notes" target="_blank">TC39 Meeting Notes</a></li>
+    <li><a href="https://github.com/tc39/test262" target="_blank">ECMAScript Test Suite</a></li>
+  </ul>
   
   
   </div>
@@ -1006,19 +1053,23 @@ NOTES:
 - Lots of resources for ya
 
 =====
+<!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-# THANKS!
+<div style="display: flex; align-items:center; justify-content: flex-start">
+	<div style="width: 40%" class="overlay-light">
+  
+  <h1>Ben Ilegbodu</h1>
 
-![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
-<!-- .element: style="width: 50%" -->
+  <p><a href="/" target="_blank">benmvp.com</a> | <a href="https://twitter.com/benmvp" target="_blank">@benmvp</a></p>
+  <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
+  <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
-## Ben Ilegbodu
+  <br />
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github/benmvp](https://github.com/benmvp)
-<br /><br />
-
-Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
+  <p>Ask me anything!<br /><a href="http://www.benmvp.com/ama/" target="_blank">benmvp.com/ama</a></p>
+  
+  </div>
+</div>
 
 NOTES:
 - So that's it!

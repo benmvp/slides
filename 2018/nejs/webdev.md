@@ -22,7 +22,7 @@
 </div>
 
 NOTES:
-- Welcome!
+- Good afternnon!
 - Before we get started, how many of you were developing in 1999?
 - Hoping to share a little about my dev story and walk down memory lane
   * Or take a history lesson for most of you
@@ -775,22 +775,27 @@ NOTES:
 - YOU GOT THIS!
 
 =====
+<!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-# THANKS!
+<div style="display: flex; align-items:center; justify-content: flex-start">
+	<div style="width: 40%" class="overlay-light">
+  
+  <h1>Ben Ilegbodu</h1>
 
-![Animated clay men bowing](../../img/giphy/animated-take-a-bow.gif)
-<!-- .element: style="width: 35%" -->
+  <p><a href="/" target="_blank">benmvp.com</a> | <a href="https://twitter.com/benmvp" target="_blank">@benmvp</a></p>
+  <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
+  <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
-## Ben Ilegbodu
+  <br />
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github/benmvp](https://github.com/benmvp)
-<br /><br />
-
-Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
+  <p>Ask me anything!<br /><a href="http://www.benmvp.com/ama/" target="_blank">benmvp.com/ama</a></p>
+  
+  </div>
+</div>
 
 NOTES:
 - So that's all I have for you!
 - I hope you enjoyed our ride in the wayback machine
+- Wanna thank **conference** and **YOU!**
 - Ask questions on Twitter, via email or AMA!
 - Thanks!
