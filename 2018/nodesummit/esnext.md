@@ -841,6 +841,7 @@ NOTES:
   * Short-circuit and return that
   * Otherwise it'll return whatever is after
   * Much like a ternary
+- Recently learned that this originated in CoffeeScript
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
