@@ -76,7 +76,7 @@ NOTES:
   * Kind of like a hypercard system where you can link screens
   * Generated a `.hlp` file
   * Hard to distribute
-- Quickly realized the web...
+- Quickly realized the web was a better way to distribute...
 
 /////
 
@@ -86,10 +86,12 @@ NOTES:
 
 <div class="code-highlight fragment current-visible" style="height: 200px; top: 57px; left: 550px; width: 800px"></div>
 <div class="code-highlight fragment current-visible" style="height: 140px; top: 307px; left: 790px; width: 330px"></div>
+<div class="code-highlight fragment current-visible" style="height: 100px; top: 450px; left: 1400px; width: 490px"></div>
 <div class="code-highlight fragment current-visible" style="height: 140px; top: 747px; left: 50px; width: 1320px"></div>
 
 
 NOTES:
+- Went into the Wayback Machine and found my first site
 - Built "Basic Guru Online" as a Geocities website
   * (because apparently I was a "guru")
   * Geocities was like THE hosting service of the day
@@ -103,7 +105,11 @@ NOTES:
   * `float` pattern came much later
 - **ONE:** Definitely created the logo in MS Paint using PowerPoint clip-art + Comic Sans
 - **TWO:** Trusty-dusty hit counter (broken)
-- **THREE:** I suggested using AOL to view the page
+- **THREE:** Current date display still works
+  * For some reason I thought that was necessary
+  * Used `document.write`
+  - This is why JS is backwards compatible so my 20yo site still works
+- **FOUR:** I suggested using AOL to view the page
   * "Should be okay" using Internet Explorer or Netscape Navigator
   * Best viewed on an 800x600 res monitor!
 
@@ -125,7 +131,7 @@ NOTES:
   * Didn't get this functionality until recently with flexbox
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="#000 url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - For fun...
@@ -133,14 +139,14 @@ NOTES:
 - https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/amazon-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="#000 url(../../img/webdev/amazon-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - And amazon.com
 - https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/gatsby-blog-screenshot.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="#000 url(../../img/webdev/gatsby-blog-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - Fast forward nearly 2 decades
@@ -577,6 +583,9 @@ NOTES:
 - You know how BE engineers are always saying JS is a toy language
 - And we get mad saying it's legit
   * Especially since ES6+
+- We use JS to build:
+  * Highly-concurrent / low-latency servers
+  * Super-sophisticated web apps
 - Well 2 decades ago it really was a toy language
   * We did silly things with it
 

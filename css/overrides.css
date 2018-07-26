@@ -69,6 +69,27 @@
   padding: 0.15em;
 }
 
+@-webkit-keyframes fade-in-out {
+  0%,
+  45%,
+  55%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
 .reveal .code-highlight {
   width: 100%;
   position: absolute;
@@ -76,6 +97,7 @@
   border: 10px solid #98bdef;
   opacity: 0.8;
   box-sizing: border-box;
+  animation: fade-in-out 1.5s ease-in-out infinite;
 }
 
 .reveal .overlay-light {
