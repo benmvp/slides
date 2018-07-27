@@ -24,10 +24,12 @@
 NOTES:
 - Good afternoon y'all!
 - This talk is called "Let's web dev like it's 1999!"
-- So how many of you were developing in 1999?
+- **QUESTION: So how many of you were developing in 1999?**
 - Hoping to share a little about my dev story and walk down memory lane
   * Or take a history lesson for most of you
 - Hopefully learn some new things along the way
+  * Appreciate where we are
+- Slides are available
 
 =====
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
@@ -66,7 +68,7 @@ NOTES:
 - Wasn't a way to get code from comp to calc originally
   * Would type out code in this program
   * Print it out
-  * Then type out by hand using T-9 keypad on calculator
+  * Then type out by hand 
 - I would've stuffed my own self in a locker
 
 /////
@@ -95,10 +97,11 @@ NOTES:
 
 NOTES:
 - Went into the Wayback Machine and found my first site
+  * Isn't it a beauty
 - Built "Basic Guru Online" as a Geocities website
   * (because apparently I was a "guru")
   * Geocities was like THE hosting service of the day
-  * There was also Angelfire
+  * There was also Angelfire & Tripod
   * Talking early 2000
 - BGO was like a full web application
   * Geocities handled all the backend
@@ -194,13 +197,14 @@ NOTES:
 - All for enough skills to get an entry-level job
 
 /////
-<!-- .slide: data-background="url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="#000 url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- The bar for what's "minimally-viable" for a site is so high now
-- We go to conferences/meetups like this to hear from "industry leaders" about all the things we **should** be doing
-- Not even sure a modern website could be created by one person
-  - They would have to be great at wide array of skill
+- The bar for "minimally-viable" skills to build a site is so high now
+- We go to meetups/conferences like this to hear about all the things we **should** be doing
+- I don't think a modern website could be created by one person from scratch
+  - You would need multiple people
+  - Or rely heavily on existing OSS tools
 
 
 - But the bar wasn't always so high
@@ -209,7 +213,7 @@ NOTES:
 - So I wanted to take a look at various aspects of how we built sites back in the day
 
 =====
-<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="#000 url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Before CSS3, flexbox & grid we needed ways to lay out our pages
@@ -304,7 +308,7 @@ NOTES:
 - **FIVE:** Frames by default had borders so they needed to be turned off
 - If you left the borders on, they could be resized
   * **SIX:** So there was an attribute to turn those off
-- **SEVEN:** So what about that `NAME` attribute? What's that for
+- **SEVEN:** So what about that `NAME` attribute? What's that for?
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -572,7 +576,6 @@ NOTES:
 NOTES:
 - Still using `<table>` for layout, but no longer need all the styling in the markup
 
-
 - However...
 - You know what we ended up using CSS most for in the beginning????
 
@@ -580,15 +583,16 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 85%;">
-    <pre class="large"><code class="lang-css">a       { color: red;   text-decoration: none; }
-a:hover { color: black; text-decoration: underline; }</code></pre>
+	<div class="overlay-light" style="width: 90%;">
+    <pre class="large"><code class="lang-css">a, a:visited { color: red;   text-decoration: none; }
+a:hover      { color: black; text-decoration: underline; }</code></pre>
   </div>
 </div>
 
 NOTES:
 - To screw with the default link styling
 - Make default links a different color; no underline
+- Visited links used to look different by default; undo that
 - Change color/underline on hover
 - Look how dynamic it is!
 - CSS originally was just about taking styling out of HTML
@@ -677,8 +681,7 @@ NOTES:
 </div>
 
 NOTES:
-- Back then, IE _did_ gave some super meager way of debugging
-- Whenever an error would happen everyone get this cryptic message
+- In IE, whenever an error would happen everyone get this cryptic message
 - It'd show for **every** error
 
 /////
@@ -693,10 +696,11 @@ NOTES:
 NOTES:
 - Then Firebug came along and it changed the game in 2006/2007
 - May never have even heard of it
-- It was a Firefox extension
-  * The reason I moved from IE to FF at the time
+- It was originally a Firefox extension
+  * Got me to move from IE to FF at the time
   * And let you *see* the CSS and debug the JS!
-- Paved the way for our amazing web inspectors today
+  * Truly revolutionary!
+  * Paved the way for our amazing web inspectors today
 - I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
 
 /////
@@ -743,10 +747,11 @@ NOTES:
 
 NOTES:
 - And these days we have all this dev tooling to make our lives easier
-  * Ensure we don't ship broken code
-  * All we had was our desktop & FTP to transfer the files
+  * To ensure we don't ship broken code
+  * _Past:_ All we had was our desktop & FTP to transfer the files
   * Would work directly on the server and break all sorts of things on Production
-  * _Dangling commas were my arch nemesis!_
+  * _One dangling commas would break **everything**_
+- Our code goes thru an incredible journey from idea to Production
 - **VSCode:** Editors like VSCode that make writing code so much easier
   * Intellisense, unused code warning, extensions
 - **Github:** Like table stakes now, but we didn't have version control
@@ -776,10 +781,7 @@ NOTES:
   * So continuously feeling like you're behind
   * Especially if you only had a 3- or 6-month accelerated program to learn
 - Futhermore there are  "thought leaders" today have been around a while
-  * Some around my time frame of about 2 decades
-  * Some older
-  * Some later
-- They feel you have to learn web dev the way they did
+  * They feel you have to learn web dev the way they did
   * You have to learn the hard way so you can appreciate what you've got
 - So I want to encourage you
   * Don't stress!
@@ -800,7 +802,7 @@ NOTES:
   
   <h1>Ben Ilegbodu</h1>
 
-  <p><a href="/" target="_blank">benmvp.com</a> | <a href="https://twitter.com/benmvp" target="_blank">@benmvp</a></p>
+  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="/" target="_blank">benmvp.com</a></p>
   <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
   <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
