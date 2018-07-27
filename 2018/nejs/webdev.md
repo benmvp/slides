@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@nejsconf](https://twitter.com/nejsconf)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#nejsconf](https://twitter.com/hashtag/nejsconf)</p>
 
   <br />
 
@@ -22,8 +22,9 @@
 </div>
 
 NOTES:
-- Good afternnon!
-- Before we get started, how many of you were developing in 1999?
+- Good afternoon y'all!
+- This talk is called "Let's web dev like it's 1999!"
+- So how many of you were developing in 1999?
 - Hoping to share a little about my dev story and walk down memory lane
   * Or take a history lesson for most of you
 - Hopefully learn some new things along the way
@@ -39,15 +40,17 @@ NOTES:
 
 NOTES:
 - But first, would like everyone to stand up!
-- Squats counting down from 10 to 1
+- Squats counting from 0
 - Now turn to your neighbors, fist bump & say hi
 
 /////
 <!-- .slide: data-background="#000 url(../../img/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
+- Christian, Husband, Father
 - I'm a Principal Frontend Engineer at Eventbrite
 - Work on our Frontend Platform team
+  * Doing FE infra + design system work
 - But I don't wanna talk about me now
   * Wanna talk about me 20 years ago
 
@@ -60,10 +63,10 @@ NOTES:
   * Summer program in '98
 - Used that to build "apps" for my TI-83 calc in high school
   * Math apps to help check answers on algebra tests
-- Would type out code in Notepad
-- Print it out
-- Then type out by hand using T-9 keypad on calculator
-  * Wasn't a way to get code from comp to calc originally
+- Wasn't a way to get code from comp to calc originally
+  * Would type out code in this program
+  * Print it out
+  * Then type out by hand using T-9 keypad on calculator
 - I would've stuffed my own self in a locker
 
 /////
@@ -99,19 +102,18 @@ NOTES:
   * Talking early 2000
 - BGO was like a full web application
   * Geocities handled all the backend
-  * FTP'd individual files from computer to their server
-- 2 column layout definitely using `<table>`
-  * Still "responsive" nearly 20 years later!
-  * `float` pattern came much later
+  * FTP'd individual files from computer to their servers
 - **ONE:** Definitely created the logo in MS Paint using PowerPoint clip-art + Comic Sans
 - **TWO:** Trusty-dusty hit counter (broken)
 - **THREE:** Current date display still works
   * For some reason I thought that was necessary
-  * Used `document.write`
+  * Used `document.writeln`
   - This is why JS is backwards compatible so my 20yo site still works
 - **FOUR:** I suggested using AOL to view the page
   * "Should be okay" using Internet Explorer or Netscape Navigator
   * Best viewed on an 800x600 res monitor!
+  * Used `<table>` for 2-column layout
+    * Still "responsive" nearly 20 years later!
 
 /////
 
@@ -125,7 +127,7 @@ NOTES:
 
 NOTES:
 - **ONE:** Weekly poll asks about internet connect speed
-- **TWO:** Overall page layout was frame-based using `<frameset>`
+- **TWO:** Overall page layout was frame-based using `<frameset>` (deprecated)
   * The bottom frame was fixed height
   * Main section filed rest of the window
   * Didn't get this functionality until recently with flexbox
@@ -187,19 +189,23 @@ NOTES:
 </div>
 
 NOTES:
-- Friend of mine recently graduated from a boot camp
-- They learned all of this in the 12-week course
-- https://bootcamp.berkeley.edu/coding/
+- Friend of mine recently graduated from UC Berkely boot camp
+- They learned all of this in the 12-week course!
+- All for enough skills to get an entry-level job
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- The bar for what's "minimally-viable" is so high now
-- We go to conferences/meetups to hear from industry leaders about all the things we **should** be doing
-- A true "full stack" developer would have to be an expert in everything to create a modern website
+- The bar for what's "minimally-viable" for a site is so high now
+- We go to conferences/meetups like this to hear from "industry leaders" about all the things we **should** be doing
+- Not even sure a modern website could be created by one person
+  - They would have to be great at wide array of skill
 
 
+- But the bar wasn't always so high
+  * In fact it was really, really low
+  * Probably non-existent
 - So I wanted to take a look at various aspects of how we built sites back in the day
 
 =====
@@ -233,7 +239,7 @@ NOTES:
 
 NOTES:
 - Talking about `<frameset>`
-- Before I even try to explain the code, take a look at this HTML!
+- Before I even try to explain the code, take in this HTML!
 - It's in ALL-CAPS
 - Attributes like `MARGINHEIGHT` & `FRAMEBORDER` aren't even quoting the values
 - `<FRAME>` isn't even self-closing
@@ -274,6 +280,15 @@ NOTES:
     &lt;FRAME SRC="ads.html" FRAMEBORDER=0>
   &lt;/FRAMESET>
 &lt;/FRAMESET></code></pre>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 216px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 156px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 295px; top: 274px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 274px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 330px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 216px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 388px;"></div>
+
   </div>
 </div>
 
@@ -310,7 +325,7 @@ NOTES:
 </div>
 
 NOTES:
-- Well in addition to having our grid layout, we also don't want to have to refresh the whole page
+- Well in addition to providing grid layout, we also don't want to have to refresh the whole page
 - The header, nav & ads are staying fixed
 - So w/in `nav.html`, we just have our links target the `content` frame
   * You've probably always just done `target="_blank"` for a new window right?
@@ -538,7 +553,7 @@ NOTES:
 </div>
 
 NOTES:
-- No longer did we have to use the `<FONT>` tag for styling
+- No longer did we have to use the `<FONT>` tag (osbsolete) for styling everything
 - Yep, that was definitely a thing I used **a lot**
 
 /////
@@ -557,8 +572,9 @@ NOTES:
 NOTES:
 - Still using `<table>` for layout, but no longer need all the styling in the markup
 
+
 - However...
-- You know what we ended up using CSS most for????
+- You know what we ended up using CSS most for in the beginning????
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -575,17 +591,20 @@ NOTES:
 - Make default links a different color; no underline
 - Change color/underline on hover
 - Look how dynamic it is!
+- CSS originally was just about taking styling out of HTML
+  * It didn't really do anything _cool_ initially
+  * So this was about the coolest thing we could do
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- You know how BE engineers are always saying JS is a toy language
+- You know how BE engineers are always saying JavaScript is a toy language
 - And we get mad saying it's legit
   * Especially since ES6+
 - We use JS to build:
   * Highly-concurrent / low-latency servers
-  * Super-sophisticated web apps
+  * Super-sophisticated web apps w/ service workers
 - Well 2 decades ago it really was a toy language
   * We did silly things with it
 
@@ -609,10 +628,12 @@ NOTES:
 - Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
 - Soooo many things we wouldn't do today
 - Including a `<script>` in the `<head>` is bad because it slows down render
-- Just defining `sayHello` on the global scope instead of in a module
-- Just calling the function in `onload` instead of "unobstrusive JS" using `addEventListener`
-  * But we didn't have jQuery
+- Using `document.writeln` to dynamically write content to the page
+- Unobstrusive JS wasn't a thing yet
+  * Instead of calling the function in `onload`, use `addEventListener`
+  * But we didn't have jQuery (2006)
   * Had to check for both `attachEvent` (IE) & `addEventListener` (standard)
+
 
 - Imagine debugging and having that `alert()` pop up every time!
 
@@ -641,7 +662,8 @@ for (var i = 0; i < num; i++) {
 NOTES:
 - Speaking of debugging, we had no debugging tools!
 - `alert()` debugging is all we had
-  * Not even `console` debugging, which now is consider sub-par
+  * Not even `console` debugging, because there was no console
+  * And console debugging is considered sub-par
 - And don't accidentally put an `alert()` in a loop or endless loop!
   * Had to just quit the browser
 
@@ -655,23 +677,9 @@ NOTES:
 </div>
 
 NOTES:
-- Do remember IE gave some super meager way of debugging
+- Back then, IE _did_ gave some super meager way of debugging
 - Whenever an error would happen everyone get this cryptic message
 - It'd show for **every** error
-
-/////
-<!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
-    <img src="../../img/webdev/ie-debugging.jpg" alt="IE8 Script debugging message" style="width: 100%" />
-  </div>
-</div>
-
-NOTES:
-- But if you went into the settings and turned on debugging
-- Get the option to debug using built-in script debugger
-- It was pretty rough though
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -683,7 +691,7 @@ NOTES:
 </div>
 
 NOTES:
-- The Firebug came along and it changed the game in 2006/2007
+- Then Firebug came along and it changed the game in 2006/2007
 - May never have even heard of it
 - It was a Firefox extension
   * The reason I moved from IE to FF at the time
@@ -737,13 +745,13 @@ NOTES:
 - And these days we have all this dev tooling to make our lives easier
   * Ensure we don't ship broken code
   * All we had was our desktop & FTP to transfer the files
+  * Would work directly on the server and break all sorts of things on Production
+  * _Dangling commas were my arch nemesis!_
 - **VSCode:** Editors like VSCode that make writing code so much easier
   * Intellisense, unused code warning, extensions
 - **Github:** Like table stakes now, but we didn't have version control
   * It existed but only w/in the biggest of companies
   * Imagine just 2 people working on the site at the same person
-  * Would work directly on the server and break all sorts of things on Production
-  * _Dangling commas were my arch nemesis!_
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
   * Can run tests
   * Even automatically deploy
@@ -756,10 +764,11 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+- Quick question before I finish:
 - **How many people here have been in the industry less than 2 years?**
 - Great that you're here
   * Great that you're wanting to learn
-  * Conferences like these were few and far between
+  * Early on, conferences like these were few and far between
 - But most newbies have "imposter syndrome"
   * Feel like you don't belong
   * Can come to a conference like this and it can grow _worse_!
@@ -772,7 +781,7 @@ NOTES:
   * Some later
 - They feel you have to learn web dev the way they did
   * You have to learn the hard way so you can appreciate what you've got
-- So I wan to encourage you
+- So I want to encourage you
   * Don't stress!
   * You're not less than / sub par
   * There are many ways to learn
@@ -781,7 +790,7 @@ NOTES:
   * Others who I didn't even know they were bootcamp grads until they told me
 - Even if you just graduated yesterday
   * You can be just as integral as those of us who were there near the beginning or w/ a traditional background
-- YOU GOT THIS!
+- To sum it up: YOU GOT THIS!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -803,8 +812,7 @@ NOTES:
 </div>
 
 NOTES:
-- So that's all I have for you!
 - I hope you enjoyed our ride in the wayback machine
-- Wanna thank **conference** and **YOU!**
 - Ask questions on Twitter, via email or AMA!
+- Wanna thank **conference** and **YOU!**
 - Thanks!
