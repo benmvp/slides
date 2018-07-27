@@ -815,6 +815,8 @@ NOTES:
 
 NOTES:
 - I hope you enjoyed our ride in the wayback machine
+  * Hopefully it gives us all appreciation for where we've come from
+  * Next time we wanna complain about the current situation
 - Ask questions on Twitter, via email or AMA!
 - Wanna thank **conference** and **YOU!**
 - Thanks!
