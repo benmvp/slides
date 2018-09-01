@@ -127,6 +127,7 @@ NOTES:
 - Can tell whether your app is running in Production mode with React Dev Tools icon
 
 =====
+<!-- .slide: data-background="#000" -->
 
 # Avoiding unnecessary DOM updates
 
@@ -331,6 +332,7 @@ NOTES:
 - Brian Vaughn, been really pushing React perf lately, created `react-virtualized`
 
 =====
+<!-- .slide: data-background="#000" -->
 
 # Avoiding unnecessary reconciliation
 
@@ -761,7 +763,7 @@ NOTES:
 
 /////
 
-1-to-1 action-to-reducer
+1-to-many action-to-reducers
 
 ```js
 const selectedId = (state = -1, action) => {
@@ -788,19 +790,120 @@ NOTES:
 - Only one re-render happens
 
 =====
+<!-- .slide: data-background="#000" -->
 
 # Avoid unnecessary calculations
 
 NOTES:
 - At this point, getting to just normal JavaScript code
 - Probably won't matter unless you're building a DNA design tool, a rich-text editor, full-feature spreadsheet app, etc
-- These calculations Could be the code to determine whether or not to prevent reconciliation
-  * It’s just better to just let reconciliation happen
-- Could just be code to calculate new state
+- These calculations could be the code to determine whether or not to prevent reconciliation
+  * If you have really complex calculations to prevent reconciliation
+  * It’s probably better to just let reconciliation happen
+- Could also be code to calculate new state
 
 =====
 
-## 8. Impact of copying objects/arrays via spread
+## 8. Impact of copying objects/arrays
+
+/////
+
+Copying large objects/arrays takes time
+
+```js
+export const emails = (state = [], action) => {
+  if (action.type === 'DELETE_EMAIL') {
+    state = state.filter(email => email.id !== action.payload);
+  } else if (action.type === 'ADD_EMAIL') {
+    state = [action.payload, ...state]
+  } else if (action.type === 'UPDATE_EMAIL') {
+    state = state.map(email => email.id === action.payload.id ? 
+      {...email, ...action.payload.email} : 
+      email
+    )
+  }
+
+  return state;
+}
+```
+<!-- .element: class="large" -->
+
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 248px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 361px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 240px; top: 481px;"></div>
+
+NOTES:
+- Even if you optimize the DOM with "windowing"
+- Copying the underlying large array or object data can take time
+  * We copy instead of mutating objects in order to keep things immutable
+  * This is how `PureComponent` is able to work 
+  * If data changes it's a new object
+  * But it comes at a cost
+- **ONE:** To delete an email we use `.filter()`
+  * Keep email as long as it does **not** match ID of payload
+  * As we learned earlier this makes a brand new shallow copy of array
+  * If the array is huge, this takes time
+- **TWO:** To add an email to the beginning use spread operator
+  * This also makes a copy adding new to the beginning
+  * Again if array is huge, this takes time
+- **THREE** to update an email we use `.map()`
+  * This also makes a copy
+  * But for the matching email we use spread operator for objects
+  * This makes a copy of the object as well to add in new data
+  * If email has a lot of data or array is huge, takes time
+
+/////
+
+Use immutable collections for JavaScript
+
+<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	<div style="flex:0 0 45%;">
+        <a href="https://facebook.github.io/immutable-js/"><img
+            src="../../img/nav-react/immutable-logo.png"
+            style="background:none;box-shadow:none;border:none;width:100%"
+        /></a>
+    </div>
+    <div style="flex:0 0 45%;">
+		<a href="https://github.com/rtfeldman/seamless-immutable"><code>seamless-immutable</code></a>
+    </div>
+</div>
+
+NOTES:
+- Again, copying arrays and objects usually isn't a big deal
+- But for large amounts of data it can be costly
+- So you can leverage some immutable data structures
+  * Make maintaining immutability more efficient
+- You can use a library like `Immutable` or `seamless-immutable` to have true immutable objects
+- `Immutable` is the big player, yet another library from Facebook
+  * Only used it a bit
+  * Found the API a bit cumbersome
+  * Constantly going to and from Immutable and native objects
+  * Don't _really_ want my React components to have to care, just Redux
+
+
+/////
+
+## `seamless-immutable`
+
+```js
+let array = Immutable(['totally', 'immutable', {hammer: 'no!'}])
+
+array[1] = `I'm going to mutate you!`
+console.log(array[1]) // "immutable"
+
+array[2].hammer = 'hm, surely I can mutate this nested object...'
+console.log(array[2].hammer) // "no!"
+
+console.log(JSON.stringify(array))
+// '["totally", "immutable", {"hammer":"no!"}]'
+```
+<!-- .element class="large" -->
+
+NOTES:
+- `seamless-immutable` is an alternative that has data structures that are backwards-compatible
+  * They work just like Arrays or Objects except they don't mutate and have extra functionality
+  * A lot lighter than Immutable
+- Can pass to libraries like `lodash` or `underscore`
 
 =====
 
