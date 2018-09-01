@@ -933,7 +933,6 @@ NOTES:
 
 1. Use unique value as `key`
 1. Create HOCs outside of `render()`
-1. Using "windowing" to reduce large DOM
 1. Use `PureComponent` for shallow compare
 1. Avoid undoing shallow compare
 1. Break up component markup
