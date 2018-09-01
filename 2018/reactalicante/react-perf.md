@@ -268,7 +268,7 @@ NOTES:
 
 /////
 
-HOC created outside 👍🏾
+Create HOC outside of `render()` 👍🏾
 
 ```js
 const ListWithTitle = withTitle(List)
@@ -808,7 +808,7 @@ NOTES:
 
 /////
 
-Copying large objects/arrays takes time
+Copying large objects/arrays can be expensive
 
 ```js
 export const emails = (state = [], action) => {
@@ -834,7 +834,7 @@ export const emails = (state = [], action) => {
 
 NOTES:
 - Even if you optimize the DOM with "windowing"
-- Copying the underlying large array or object data can take time
+- Copying the underlying large array or object data can be expsensive
   * We copy instead of mutating objects in order to keep things immutable
   * This is how `PureComponent` is able to work 
   * If data changes it's a new object
@@ -854,7 +854,7 @@ NOTES:
 
 /////
 
-Use immutable collections for JavaScript
+Use immutable data structures
 
 <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
 	<div style="flex:0 0 45%;">
@@ -870,7 +870,7 @@ Use immutable collections for JavaScript
 
 NOTES:
 - Again, copying arrays and objects usually isn't a big deal
-- But for large amounts of data it can be costly
+- But for large amounts of data it can be expensive
 - So you can leverage some immutable data structures
   * Make maintaining immutability more efficient
 - You can use a library like `Immutable` or `seamless-immutable` to have true immutable objects
@@ -909,13 +909,200 @@ NOTES:
 
 ## 9. Impact of recomputing derived state
 
+/////
+
+Recalculating derived data can be expensive
+
+```js
+const getVisibleTodos = (todos, filter) => {
+  // filters `todos` array by `filter` string
+}
+const mapStateToProps = (state) => ({
+  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+})
+
+export default connect(mapStateToProps)(TodoList)
+```
+<!-- .element class="large" -->
+
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 533px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 361px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 195px; top: 131px;"></div>
+
+NOTES:
+- **ONE:** Here's a traditional `connect()` from `react-redux`
+- **TWO:** It's got a `mapStateToProps` which calls `getVisibleTodos`
+  * Derives a visible set of todos based on the full list and a filter
+- This is works great, but one thing to know is that this gets called **anytime** the state tree updates
+  * So even if some other piece of state updates, this code will get called
+  * The bigger the state tree, the more likely this will get unnecessarily called
+- **THREE:** Futhermore, if the calculation of `getVisibleTodos` is expensive
+  * Because we're copying arrays like we just talked about
+  * We're making unnecessary + expensive calls
+- And to make matters _even_ worse
+  * Because we're copying, shallow compare will fail even though the data's the same
+  * So reconciliation will happen down the component tree even though nothing's changed
+- It's like THREE compounding errors
+
+/////
+
+Use a memoized selector
+
+```js
+import {createSelector} from 'reselect';
+
+const getTodos = (state) => state.todos
+const getVisibilityFilter = (state) => state.visibilityFilter
+
+const getVisibleTodos = createSelector(
+  [getTodos, getVisibilityFilter],
+  (todos, filter) => {
+    // filters `todos` array by `filter` string
+  }
+)
+const mapStateToProps = (state) => ({
+  todos: getVisibleTodos(state)
+})
+```
+<!-- .element class="large" -->
+
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 421px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 480px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 131px; top: 247px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 191px; top: 529px;"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 820px;"></div>
+
+NOTES:
+- What we need is what's called a "memoized selector"
+  * Cache the results,
+  * If the inputs don't change, nothing is recalculated
+- **ONE:** Use a function from `reselect` called `createSelector` to create memoized selector
+- **TWO:** It takes an array of "input-selectors" as first param
+- **THREE:** `getTodos` & `getVisibilityFilter`
+  * They are simple functions that retrieve properties off of `state`
+- **FOUR:** Then the second parameter is the transformation function that generates derived data
+- **FIVE:** And `getVisibleTodos` is called passing in `state`
+  * Will return the derived visible todos
+  * But will be cached if calculated before
+- Benefit of the cache is:
+  - Save on unnecessary calculation
+  - Save on unnecessary data copying
+  - Save on unnecessary reconciliation cuz object is the same
 =====
+<!-- .slide: data-background="#000" -->
 
 # Debugging tools
+
+/////
+
+## Screenshot showing 4x slowdown anim
+
+<br />
+
+<p class="source">
+  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
+</p>
+
+NOTES:
+- Most of us develop our React apps on machines that are better than our users'
+- Chrome Devtools in the Performance tab
+  * allows you to slow the CPU by 4x or 6x
+  * Can simulate a slow computer or mobile device
+- Will illuminate performance issues
+- And hey, if it's fast 4x slow, it'll be _blazing_ on desktop
+
+/////
+
+## Screenshot of start profiling anim
+
+<br />
+
+<p class="source">
+  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
+</p>
+
+NOTES:
+- Once you've identified a performance issue
+  * Can view a Performance trace
+- React 16 reports to User Timing API
+  * When rendering in DEV mode
+- Click the **Start profiling and reload page** button
+
+/////
+
+## Screenshot of profile result
+
+<br />
+
+<p class="source">
+  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
+</p>
+
+NOTES:
+- Should get something that looks like this
+- As you can see there was a lot of JavaScripting going on
+
+/////
+
+## Screenshot zooming in on section of user timing
+
+<br />
+
+<p class="source">
+  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
+</p>
+
+NOTES:
+- Expand the User Timing accordion on the left
+- Then we can zoom in to a section of the results
+- We see a component called `Pulse` that takes over 500ms to render
+
+/////
+
+## Screenshot bottom-up call timing
+
+<br />
+
+<p class="source">
+  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
+</p>
+
+NOTES:
+- Click on the component to inspect (`Pulse`)
+- Expands more info at the bottom
+- Choose **"Bottom Up"** tab
+- Keep expanding the call stack until you find a culprit
+- In this case a function called `map` is doing a lot of work
+- Click on the file name on the right, `MetricStore.js`
+
+/////
+
+## Screenshot code view
+
+<br />
+
+<p class="source">
+  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
+</p>
+
+NOTES:
+- If you've got sourcemaps set up, it'll take write to the line in code
+- And now that you know where exactly the bottleneck in code is
+  * You can fix it!
 
 =====
 
 # Recap
+
+1. Use unique value as `key`
+1. Create HOCs outside of `render()`
+1. Using "windowing" to reduce large DOM
+1. Use `PureComponent` for shallow compare
+1. Avoid undoing shallow compare
+1. Break up component markup
+1. Combine `dispatch()`
+1. Use immutable data structures
+1. Use memoized selectors
 
 NOTES:
 - All these can help your app run faster

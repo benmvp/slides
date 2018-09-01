@@ -121,3 +121,8 @@
   left: 1em;
   width: calc(100% - 2em);
 }
+.reveal .source {
+  text-align: right;
+  font-style: italic;
+  font-size: 0.5em;
+}
