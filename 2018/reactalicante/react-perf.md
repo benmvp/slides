@@ -100,33 +100,6 @@ NOTES:
 - But since I'm in Spain, giving love to the hometown guys
 
 =====
-
-# Use production builds!
-
-`NODE_ENV=production` + Uglify
-
-372KB (before) → 43KB (after) = 88% reduction
-
-NOTES:
-- Let's just get this one out of the way
-- Use `NODE_ENV=production` + uglify
-- Because `PropType` & other helpful warnings in DEV
-- Also decreases the bundle size
-
-/////
-
-![Screenshot of an app using production build of React](../../img/react-perf/devtools-prod.png)
-<!-- .element: class="plain" style="width: 75%" -->
-
-![Screenshot of an app using development build of React](../../img/react-perf/devtools-dev.png)
-<!-- .element: class="plain" style="width: 75%" -->
-
-[React Developer Tools for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-
-NOTES:
-- Can tell whether your app is running in Production mode with React Dev Tools icon
-
-=====
 <!-- .slide: data-background="#000" -->
 
 # Avoiding unnecessary DOM updates
@@ -294,42 +267,7 @@ class Emails extends React.Component {
 NOTES:
 - Instead define the HOC **outside** of render
 - There'll only be a single definition of the enhanced component
-- Re-renders of `Emails` will work as normal with reconcilation
-
-=====
-
-## 3. Impact of lots of data
-
-NOTES:
-- Let's look at a slighly different type of problem
-
-/////
-
-## Screenshot of list from react-virtualized
-
-NOTES:
-- What if you have a different type of list
-- A list that has hundreds, even thousands of items to display/edit
-- Your typical SASS platform, and the app the guy I mentioned in the beginning had
-- React is fast, but the sheer number of DOM elements will make the app sluggish
-- Can fix this by having a traditional paginated list to limit number of items displayed at a time
-  * But jumping across pages can lead to a subar UX
-
-/////
-
-"windowing" FTW!
-
-## Animated gif of react-virtualized in action
-
-[`react-virtualized`](https://bvaughn.github.io/react-virtualized/)
-
-NOTES:
-- There's a technique called "windowing" where you only render a small subset of the items
-  * typically just the ones that visible
-  * everything else isn't rendered
-  * an idea from video game development
-- Windowing is tricky to implement because you need to keep the correct scroll position as things move off screen and are replaced
-- Brian Vaughn, been really pushing React perf lately, created `react-virtualized`
+- Re-renders of `Emails` will work as normal with reconciliation
 
 =====
 <!-- .slide: data-background="#000" -->
@@ -347,7 +285,7 @@ NOTES:
 
 =====
 
-## 4. Impact of `shouldComponentUpdate()`
+## 3. Impact of `shouldComponentUpdate()`
 
 /////
 
@@ -445,7 +383,7 @@ NOTES:
 
 =====
 
-## 5. Impact of negating shallow comparison
+## 4. Impact of negating shallow comparison
 
 /////
 
@@ -598,7 +536,7 @@ NOTES:
 
 =====
 
-## 6. Impact of big `render()`
+## 5. Impact of big `render()`
 
 /////
 
@@ -669,7 +607,7 @@ NOTES:
 
 =====
 
-## 7. Impact of multiple `dispatch()` calls
+## 6. Impact of multiple `dispatch()` calls
 
 /////
 
@@ -804,7 +742,7 @@ NOTES:
 
 =====
 
-## 8. Impact of copying objects/arrays
+## 7. Impact of copying objects/arrays
 
 /////
 
@@ -907,7 +845,7 @@ NOTES:
 
 =====
 
-## 9. Impact of recomputing derived state
+## 8. Impact of recomputing derived state
 
 /////
 
@@ -988,107 +926,6 @@ NOTES:
   - Save on unnecessary calculation
   - Save on unnecessary data copying
   - Save on unnecessary reconciliation cuz object is the same
-=====
-<!-- .slide: data-background="#000" -->
-
-# Debugging tools
-
-/////
-
-## Screenshot showing 4x slowdown anim
-
-<br />
-
-<p class="source">
-  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
-</p>
-
-NOTES:
-- Most of us develop our React apps on machines that are better than our users'
-- Chrome Devtools in the Performance tab
-  * allows you to slow the CPU by 4x or 6x
-  * Can simulate a slow computer or mobile device
-- Will illuminate performance issues
-- And hey, if it's fast 4x slow, it'll be _blazing_ on desktop
-
-/////
-
-## Screenshot of start profiling anim
-
-<br />
-
-<p class="source">
-  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
-</p>
-
-NOTES:
-- Once you've identified a performance issue
-  * Can view a Performance trace
-- React 16 reports to User Timing API
-  * When rendering in DEV mode
-- Click the **Start profiling and reload page** button
-
-/////
-
-## Screenshot of profile result
-
-<br />
-
-<p class="source">
-  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
-</p>
-
-NOTES:
-- Should get something that looks like this
-- As you can see there was a lot of JavaScripting going on
-
-/////
-
-## Screenshot zooming in on section of user timing
-
-<br />
-
-<p class="source">
-  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
-</p>
-
-NOTES:
-- Expand the User Timing accordion on the left
-- Then we can zoom in to a section of the results
-- We see a component called `Pulse` that takes over 500ms to render
-
-/////
-
-## Screenshot bottom-up call timing
-
-<br />
-
-<p class="source">
-  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
-</p>
-
-NOTES:
-- Click on the component to inspect (`Pulse`)
-- Expands more info at the bottom
-- Choose **"Bottom Up"** tab
-- Keep expanding the call stack until you find a culprit
-- In this case a function called `map` is doing a lot of work
-- Click on the file name on the right, `MetricStore.js`
-
-/////
-
-## Screenshot code view
-
-<br />
-
-<p class="source">
-  Source: <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React performance with React 16 and Chrome Devtools.</a>
-</p>
-
-NOTES:
-- If you've got sourcemaps set up, it'll take write to the line in code
-- And now that you know where exactly the bottleneck in code is
-  * You can fix it!
 
 =====
 
@@ -1113,9 +950,9 @@ NOTES:
 
 # Resources
 
-- [Optimizing Performance](https://reactjs.org/docs/optimizing-performance.html)
-- [Performance Tools](https://reactjs.org/docs/perf.html)
+- ["Windowing" with `react-virtualized`](https://bvaughn.github.io/react-virtualized/)
 - [Debugging React Performance with React 16 and Chrome Devtools](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad)
+- [Optimizing Performance](https://reactjs.org/docs/optimizing-performance.html)
 - [Optimizing React: Virtual DOM explained](https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained)
 
 =====
