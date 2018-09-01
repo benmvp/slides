@@ -667,7 +667,125 @@ NOTES:
 
 =====
 
-## 7. Impact of multiple `setState()` calls
+## 7. Impact of multiple `dispatch()` calls
+
+/////
+
+Multiple `setState()` calls are ok
+
+```js
+_handleClick = (id) => {
+  this.setState({selectedId: id});
+  this.setState({color: 'blue'})
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Because `setState()` is asynchronous calling it multiple times sequentially is ok
+  * The state will actually only get updated once
+  * `render()` will only be called once
+
+/////
+
+Multiple `dispatch()` calls causes multiple `render()`
+
+```js
+const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
+const setColor = (color) => {{type: 'SET_COLOR', payload: color})
+
+export const markUnread = (id) => (
+  (dispatch) => {
+    dispatch(setSelected(id))
+    dispatch(setColor('blue'))
+  }
+)
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- However this isn't the case with multiple Redux `dispatch()` calls
+- Let's say you're using `redux-thunk` and you have an action
+  * Needs to update two parts of your Redux store
+  * Maybe already have existing separate actions that do this
+  * So you may make two `dispatch()` calls
+
+/////
+
+1-to-1 action-to-reducer
+
+```js
+const selectedId = (state = -1, action) => {
+  if (action.type === 'SET_SELECTED') {
+    state = action.payload
+  }
+  return state
+}
+
+const color = (state = null, action) => {
+  if (action.type === 'SET_COLOR') {
+    state = action.payload
+  }
+  return state
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Two actions for the two reducers responsible for that state
+- The problem is that you'll cause two `render()` for every "connected" component!
+- The first one generates new state with `selectedId` updated
+- The next generates new state with `color` updated
+  * The first one is wasted because eye will never see it
+  * But will cause sluggishness
+- If you connect at the top level app, the whole app renders doubly!
+
+/////
+
+Combine `dispatch()` calls using single action
+
+```js
+const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
+const setColor = (color) => {{type: 'SET_COLOR', payload: color})
+
+export const markUnread = (id) => ({
+  type: 'MARK_UNREAD',
+  payload: {id, color: 'blue'},
+})
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- Instead have a single action that passes all the data needed
+- `MARK_UNREAD` action combines `payload` for `SET_SELECTED` & `SET_COLOR`
+
+/////
+
+1-to-1 action-to-reducer
+
+```js
+const selectedId = (state = -1, action) => {
+  if (action.type === 'MARK_UNREAD') {
+    state = action.payload.id
+  }
+  return state
+}
+
+const color = (state = null, action) => {
+  if (action.type === 'MARK_UNREAD') {
+    state = action.payload.color
+  }
+  return state
+}
+```
+<!-- .element: class="large" -->
+
+NOTES:
+- The two reducers can listen to the single action
+  * pull off the necessary data from the `payload`
+- Only updating the state tree once
+  * Both pieces of state get updated at the same time
+- Only one re-render happens
 
 =====
 
