@@ -1,7 +1,7 @@
 <!-- .slide: data-state="title-page" data-background="url(../../img/esnext/atharva-tulsi-534150-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 45%;" class="overlay-light">
+	<div style="width: 45%;" class="content-overlay">
   
   <h1>ES.next features that'll make ya 💃🕺🏾!</h1>
 
@@ -32,7 +32,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 4em">Recap</h1>
     <h2 style="font-size: 2.5em">(ES2015 - ES2017)</h2>
   </div>
@@ -46,7 +46,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1>ES6/ES2015</h1>
 
     <h4>Syntax</h4>
@@ -115,7 +115,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: center">
-	<div style="width: 45%" class="overlay-light">
+	<div style="width: 45%" class="content-overlay">
   
   <h1>ES7/ES2016</h1>
 
@@ -141,7 +141,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: center">
-	<div style="width: 55%" class="overlay-light">
+	<div style="width: 55%" class="content-overlay">
   
   <h1>ES2017</h1>
 
@@ -172,7 +172,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/jake-hills-389-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 4em">ES.next</h1>
   </div>
 </div>
@@ -185,7 +185,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 5em">Stand Up!</h1>
   </div>
 </div>
@@ -210,7 +210,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/jake-hills-389-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 4em">ES.next</h1>
   </div>
 </div>
@@ -222,7 +222,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 4em">ES2018</h1>
   </div>
 </div>
@@ -236,7 +236,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 90%;">
+	<div class="content-overlay" style="width: 90%;">
     <h1><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Spread Properties</a></h1>
     <pre class="large"><code class="lang-javascript">const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
 const newWarriors = {
@@ -275,7 +275,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 100%;">
+	<div class="content-overlay" style="width: 100%;">
     <h1><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest Properties</a></h1>
     <pre class="large"><code class="lang-javascript">const calcWins = (warriors) => {
   const {steph, kd, klay, dray, boogie, ...whoCares} = warriors
@@ -307,7 +307,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 100%;">
+	<div class="content-overlay" style="width: 100%;">
     <h1><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest Properties</a></h1>
     <pre class="large"><code class="lang-javascript">const calc = ({steph, kd, klay, dray, boogie, ...whoCares}) => {
   // whoCares is an object with rest of warriors players
@@ -330,7 +330,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 90%;">
+	<div class="content-overlay" style="width: 90%;">
     <h1 style="font-size: 1.6em"><a href="http://2ality.com/2017/07/promise-prototype-finally.html" target="_blank"><code>Promise.prototype.finally</code></a></h1>
     <pre class="large"><code class="lang-javascript">let connection
 db.open()
@@ -364,7 +364,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 90%;">
+	<div class="content-overlay" style="width: 90%;">
     <h3>Do we really need <code>.finally()</code>??</h3>
     <pre class="large"><code class="lang-javascript">let connection
 db.open()
@@ -396,7 +396,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/ardian-lumi-364255-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1>ES2018</h1>
 
     <ul style="margin-top:1em;margin-bottom:1em">
@@ -436,7 +436,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/liel-anapolsky-495646-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:flex-end">
-	<div class="overlay-light" style="width: 40%">
+	<div class="content-overlay" style="width: 40%">
   
     <h1>Stage 4</h1>
     <h2>(Finished)</h2>
@@ -468,7 +468,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/liel-anapolsky-495646-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%;">
+	<div class="content-overlay" style="width: 50%;">
     <h3>Handling exceptions 😔</h3>
     <pre class="large"><code class="lang-javascript">let jsonData
 
@@ -500,7 +500,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/liel-anapolsky-495646-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h1><a href="http://2ality.com/2017/08/optional-catch-binding.html" target="_blank">Optional catch binding</a></h1>
     <pre class="large"><code class="lang-javascript">let jsonData
 
@@ -531,7 +531,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:flex-start;">
-	<div class="overlay-light" style="width: 40%;">
+	<div class="content-overlay" style="width: 40%;">
   
     <h1>Stage 3</h1>
     <h2>(Candidate)</h2>
@@ -559,7 +559,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h3>Classes in JavaScript 😐</h3>
     <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   constructor(props) {
@@ -599,7 +599,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h1><a href="https://github.com/tc39/proposal-static-class-features/" target="_blank">Static class features</a></h1>
     <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   static propTypes = { ... }
@@ -635,7 +635,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h1><a href="http://2ality.com/2017/07/class-fields.html" target="_blank">Class fields</a></h1>
     <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   static propTypes = { ... }
@@ -672,7 +672,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/slim-emcee-ug-the-poet-truth_from_africa_photography-462985-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h1><a href="https://github.com/tc39/proposal-private-methods" target="_blank">Private methods</a></h1>
     <pre class="large"><code class="lang-javascript">class SelectField extends React.Component {
   static propTypes = { ... }
@@ -713,7 +713,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/sergei-gavrilov-528341-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:flex-start">
-	<div class="overlay-light" style="width: 40%;">
+	<div class="content-overlay" style="width: 40%;">
   
     <h1>Stage 2</h1>
     <h2>(Draft)</h2>
@@ -743,7 +743,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:flex-end">
-	<div class="overlay-light" style="width: 40%;">
+	<div class="content-overlay" style="width: 40%;">
   
     <h1>Stage 1</h1>
     <h2>(Proposal)</h2>
@@ -777,7 +777,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 90%;">
+	<div class="content-overlay" style="width: 90%;">
     <h3>Conditional property accessing 😔</h3>
     <pre class="large"><code class="lang-javascript">const address = user.address</code></pre>
     <pre class="large fragment"><code class="lang-javascript">const address = user && user.address</code></pre>
@@ -798,7 +798,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 90%;">
+	<div class="content-overlay" style="width: 90%;">
     <h3>Conditional deep property accessing 😭</h3>
     <pre class="large"><code class="lang-javascript">const street = user.address.street</code></pre>
     <pre class="large fragment"><code class="lang-javascript">const street = user && user.address && user.address.street</code></pre>
@@ -818,7 +818,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h1><a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a></h1>
     
     After
@@ -847,7 +847,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/kunj-parekh-362219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <h1><a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a></h1>
     
     After
@@ -907,7 +907,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/clement-h-544786-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%;">
+	<div class="content-overlay" style="width: 50%;">
 
     <h1>Using it now</h1>
 
@@ -943,7 +943,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 4em">Quick Recap</h1>
   </div>
 </div>
@@ -955,7 +955,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 95%;">
+	<div class="content-overlay" style="width: 95%;">
     <a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Rest & Spread Properties</a> (ES2018)
     <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">const warriors = {steph: 95, kd: 97, klay: 82, dray: 79}
 const newWarriors = {...warriors, boogie: 86}
@@ -983,7 +983,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <a href="https://github.com/tc39/proposal-static-class-features/" target="_blank">Static class features</a> (Stage 3)<br />
     <a href="http://2ality.com/2017/07/class-fields.html" target="_blank">Class fields</a> (Stage 3)<br />
     <a href="https://github.com/tc39/proposal-private-methods" target="_blank">Private methods</a> (Stage 3)
@@ -1011,7 +1011,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 60%;">
+	<div class="content-overlay" style="width: 60%;">
     <a href="https://github.com/tc39/proposal-optional-chaining" target="_blank">Optional chaining</a> (Stage 1)
     <pre class="large"><code class="lang-javascript">const address = user?.address
 
@@ -1032,7 +1032,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 45%" class="overlay-light">
+	<div style="width: 45%" class="content-overlay">
   
   <h1>Resources</h1>
 
@@ -1057,7 +1057,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 40%" class="overlay-light">
+	<div style="width: 40%" class="content-overlay">
   
   <h1>Ben Ilegbodu</h1>
 

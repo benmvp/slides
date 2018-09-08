@@ -1,7 +1,7 @@
 <!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 45%;" class="overlay-light">
+	<div style="width: 45%;" class="content-overlay">
   
   <h1>Help! My React app is slowwwww! 🐢</h1>
 
@@ -39,7 +39,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 4em">React<br />Reconciliation</h1>
   </div>
 </div>
@@ -60,7 +60,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 5em">Stand Up!</h1>
   </div>
 </div>
@@ -958,7 +958,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 40%" class="overlay-light">
+	<div style="width: 40%" class="content-overlay">
   
   <h1>Ben Ilegbodu</h1>
 

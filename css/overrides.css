@@ -100,23 +100,6 @@
   animation: fade-in-out 1.5s ease-in-out infinite;
 }
 
-.reveal .overlay-light {
-  background: #ddd; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.8),
-    rgba(221, 221, 221, 0.8)
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.8),
-    rgba(221, 221, 221, 0.8)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 0.75em;
-  padding: 1em;
-  position: relative;
-}
-
 .reveal .overlay-light .code-highlight {
   left: 1em;
   width: calc(100% - 2em);

@@ -1,7 +1,7 @@
 <!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 45%;" class="overlay-light">
+	<div style="width: 45%;" class="content-overlay">
   
   <h1>Let's web dev like it's 1999!</h1>
 
@@ -35,7 +35,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1 style="font-size: 5em">Stand Up!</h1>
   </div>
 </div>
@@ -166,7 +166,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/uc-berkeley-coding-bootcamp.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light">
+  <div class="content-overlay">
     <h1>Berkeley Coding Boot Camp</h1>
 
 <div style="-webkit-columns:3;-moz-columns:3;columns:3;margin-bottom:1em;margin-top: 1em">
@@ -228,7 +228,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 85%;">
+	<div class="content-overlay" style="width: 85%;">
     <pre class="large"><code class="lang-html">&lt;FRAMESET ROWS="150px,\*">
   &lt;FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
   &lt;FRAMESET COLS="20%,\*,20%">
@@ -254,7 +254,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 100%;">
+	<div class="content-overlay" style="width: 100%;">
     <img src="../../img/webdev/frameset-borders-margins.jpg" style="width: 100%" />
   </div>
 </div>
@@ -274,7 +274,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 85%;">
+	<div class="content-overlay" style="width: 85%;">
     <p>site.html</p>
     <pre class="large"><code class="lang-html">&lt;FRAMESET ROWS="150px,\*">
   &lt;FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
@@ -314,7 +314,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 95%;">
+	<div class="content-overlay" style="width: 95%;">
     <p>nav.html</p>
     <pre class="large"><code class="lang-html">&lt;HTML>
   &lt;BODY>
@@ -341,7 +341,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 100%;">
+	<div class="content-overlay" style="width: 100%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 35%;">
@@ -399,7 +399,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 85%;">
+	<div class="content-overlay" style="width: 85%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 40%;text-align:left">
@@ -444,7 +444,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 100%;">
+	<div class="content-overlay" style="width: 100%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 35%;text-align:left">
@@ -485,7 +485,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 85%;">
+	<div class="content-overlay" style="width: 85%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 40%;text-align:left">
@@ -530,7 +530,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 50%;">
+	<div class="content-overlay" style="width: 50%;">
     <pre class="large"><code class="lang-html">&lt;BODY
   BGCOLOR="#DDDDDD"
   TEXT="#000000" 
@@ -549,7 +549,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 85%;">
+	<div class="content-overlay" style="width: 85%;">
     <pre class="large"><code class="lang-html">&lt;FONT FACE="COMIC SANS MS" COLOR="#FF0000" SIZE="-1">
   Weekly Poll
 &lt;/FONT></code></pre>
@@ -564,7 +564,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 100%;">
+	<div class="content-overlay" style="width: 100%;">
     <pre class="large"><code class="lang-html">&lt;TABLE RULES="NONE" WIDTH="95" BORDERCOLOR="#00008B" BORDER="1">
   &lt;TR ALIGN="CENTER" BGCOLOR="#00008B">
     ...
@@ -583,7 +583,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 90%;">
+	<div class="content-overlay" style="width: 90%;">
     <pre class="large"><code class="lang-css">a, a:visited { color: red;   text-decoration: none; }
 a:hover      { color: black; text-decoration: underline; }</code></pre>
   </div>
@@ -616,7 +616,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <pre class="large"><code class="lang-html">&lt;head>
   &lt;script language="javascript">
     function sayHello() {
@@ -645,7 +645,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 80%;">
+	<div class="content-overlay" style="width: 80%;">
     <pre class="large"><code class="lang-javascript">alert('start');
 var num = getNum(new Date());
 
@@ -675,7 +675,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <img src="../../img/webdev/internet-explorer-script-error.jpg" alt="IE script error" style="width: 100%" />
   </div>
 </div>
@@ -688,7 +688,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="overlay-light" style="width: 70%;">
+	<div class="content-overlay" style="width: 70%;">
     <img src="../../img/webdev/firebug-shutdown-screenshot.png" alt="Screenshot of page officially shutting down Firebug" style="width: 100%" />
   </div>
 </div>
@@ -707,7 +707,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="overlay-light" style="width: 75%;">
+  <div class="content-overlay" style="width: 75%;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap">
       <a href="https://code.visualstudio.com/" target="_blank">
         <img src="../../img/webdev/vscode-logo.svg" alt="" class="plain" style="width: 250px" />
@@ -798,7 +798,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 40%" class="overlay-light">
+	<div style="width: 40%" class="content-overlay">
   
   <h1>Ben Ilegbodu</h1>
 
