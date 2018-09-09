@@ -1,9 +1,17 @@
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/react-alicante-title-slide.jpg) no-repeat center" data-background-size="cover" -->
+
+/////
+
+<!-- .slide: data-background="url(../../img/react-perf/react-alicante-sponsor-slide.jpg) no-repeat center" data-background-size="cover" -->
+
+/////
+
+<!-- .slide: data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 45%;" class="content-overlay">
   
-  <h1>Help! My React app is slowwwww! 🐢</h1>
+  <h1>Help!<br />My React app is slowwwww! 🐢</h1>
 
   <br />
 
@@ -75,14 +83,15 @@ NOTES:
 
 NOTES:
 - Christian, Husband, Father
+- I'm learning Español so would love to talk with you in Spanish
 
 /////
 <!-- .slide: data-background="#000" -->
 
-![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
+![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
 <!-- .element: class="plain" -->
 
-![Ticketea logo](../../img/eventbrite/ticketea-by-eventbrite.svg)
+![Ticketea logo](../../img/eventbrite/ticketea-by-eventbrite-white.svg)
 <!-- .element: class="plain fragment" style="width: 60%" -->
 
 NOTES: 
@@ -91,29 +100,25 @@ NOTES:
   * Doing FE infra + design system work
 - **ONE:** Recently added Ticketea to the family
 
-/////
-<!-- .slide: data-background="#000 url(../../img/bball/gasol-brothers.jpg) no-repeat center" data-background-size="contain" -->
-
-NOTES:
-- I love basketball; playing and watching
-- My favorite team is the Houston Rockets
-- But since I'm in Spain, giving love to the hometown guys
-
 =====
 <!-- .slide: data-background="#000" -->
 
 # Avoiding unnecessary DOM updates
+<!-- .element: class="statement" -->
 
 NOTES:
 - Touching the DOM is the most expensive thing we can do!
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 1. Impact of `key`
 
 /////
 
-## Animation of index as key from React exposed
+<video data-autoplay loop style="width: 100%">
+  <source data-src="../../img/react-perf/index-as-key.mp4" />
+</video>
 
 NOTES:
 - Here's very simple example of a list
@@ -126,8 +131,8 @@ index as key 😢
 
 ```js
 const List = ({items}) => {
-  const listItems = items.map(({name}, index) => (
-    <li key={index}>{name}</li>
+  const listItems = items.map((item, index) => (
+    <li key={index}>{item.name}</li>
   ))
 
   return (<ul>{listItems}</ul>)
@@ -152,8 +157,8 @@ Unique value as key 😄
 
 ```js
 const List = ({items}) => {
-  const listItems = items.map(({name, value}) => (
-    <li key={value}>{name}</li>
+  const listItems = items.map((item) => (
+    <li key={item.id}>{item.name}</li>
   ))
 
   return (<ul>{listItems}</ul>)
@@ -165,7 +170,9 @@ const List = ({items}) => {
 
 /////
 
-## Animation of unique value as key from React exposed
+<video data-autoplay loop style="width: 100%">
+  <source data-src="../../img/react-perf/unique-value-as-key.mp4" />
+</video>
 
 NOTES:
 - As a result, React can optimize better and _just_ add new item to the beginning
@@ -173,6 +180,7 @@ NOTES:
 - Extrapolate this to a bigger list or bigger an app and it can get sluggish
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 2. Impact of HOCs in `render()`
 
@@ -273,6 +281,7 @@ NOTES:
 <!-- .slide: data-background="#000" -->
 
 # Avoiding unnecessary reconciliation
+<!-- .element: class="statement" -->
 
 NOTES:
 - Reconciliation is React going down the component hierarchy calling `render()` and seeing if any rendered DOM has changed
@@ -284,6 +293,7 @@ NOTES:
   * But some of them are easy to implement if you're thinking ahead
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 3. Impact of `shouldComponentUpdate()`
 
@@ -382,6 +392,7 @@ NOTES:
   * But it hasn't happened yet
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 4. Impact of negating shallow comparison
 
@@ -535,6 +546,7 @@ NOTES:
   * But it's likely that the deep comparison would take longer than reconciliation itself
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 5. Impact of big `render()`
 
@@ -606,6 +618,7 @@ NOTES:
 - And you can even put the helper components in the same file so things aren't spread out
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 6. Impact of multiple `dispatch()` calls
 
@@ -730,7 +743,8 @@ NOTES:
 =====
 <!-- .slide: data-background="#000" -->
 
-# Avoid unnecessary calculations
+# Avoiding unnecessary calculations
+<!-- .element: class="statement" -->
 
 NOTES:
 - At this point, getting to just normal JavaScript code
@@ -741,6 +755,7 @@ NOTES:
 - Could also be code to calculate new state
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 ## 7. Impact of copying objects/arrays
 
@@ -844,8 +859,9 @@ NOTES:
 - Can pass to libraries like `lodash` or `underscore`
 
 =====
+<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## 8. Impact of recomputing derived state
+## 8. Impact of recomputing derived Redux state
 
 /////
 
@@ -929,7 +945,7 @@ NOTES:
 
 =====
 
-# Recap
+# Quick Recap
 
 1. Use unique value as `key`
 1. Create HOCs outside of `render()`
@@ -946,13 +962,23 @@ NOTES:
 - Go and build things!!!
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-# Resources
+<div style="display: flex; align-items:center; justify-content: flex-start">
+	<div style="width: 52%" class="content-overlay">
+  
+  <h1>Resources</h1>
 
-- ["Windowing" with `react-virtualized`](https://bvaughn.github.io/react-virtualized/)
-- [Debugging React Performance with React 16 and Chrome Devtools](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad)
-- [Optimizing Performance](https://reactjs.org/docs/optimizing-performance.html)
-- [Optimizing React: Virtual DOM explained](https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained)
+  <ul style="margin-top: 1em">
+    <li><a href="https://bvaughn.github.io/react-virtualized/" target="_blank">"Windowing" with <code>react-virtualized</code></a></li>
+    <li><a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React Performance with React 16...</a></li>
+    <li><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank">Optimizing Performance</a></li>
+    <li><a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained" target="_blank">Optimizing React: Virtual DOM explained</a></li>
+  </ul>
+  
+  
+  </div>
+</div>
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->

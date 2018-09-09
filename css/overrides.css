@@ -100,7 +100,7 @@
   animation: fade-in-out 1.5s ease-in-out infinite;
 }
 
-.reveal .overlay-light .code-highlight {
+.reveal .content-overlay .code-highlight {
   left: 1em;
   width: calc(100% - 2em);
 }
