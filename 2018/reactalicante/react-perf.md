@@ -6,12 +6,12 @@
 
 /////
 
-<!-- .slide: data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/jeremy-bishop-136488-unsplash-turtle-on-beach.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 45%;" class="content-overlay">
   
-  <h1>Help!<br />My React app is slowwwww! 🐢</h1>
+  <h1>Help!<br />My React app is slowwwww!</h1>
 
   <br />
 
@@ -44,11 +44,11 @@ NOTES:
 - Those plus experience reviewing code were the motivation for this talk
 
 /////
-<!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react/react-logo.png) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1 style="font-size: 4em">React<br />Reconciliation</h1>
+    <h1 style="font-size: 4em">Reconciliation</h1>
   </div>
 </div>
 
@@ -79,14 +79,14 @@ NOTES:
 - Now turn to your neighbors, fist bump & say hi
 
 /////
-<!-- .slide: data-background="#000 url(../../img/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father
 - I'm learning Español so would love to talk with you in Spanish
 
 /////
-<!-- .slide: data-background="#000" -->
+<!-- .slide: data-background="#222" -->
 
 ![Eventbrite logo](../../img/eventbrite/wordmark-orange.png)
 <!-- .element: class="plain" -->
@@ -101,7 +101,16 @@ NOTES:
 - **ONE:** Recently added Ticketea to the family
 
 =====
-<!-- .slide: data-background="#000" -->
+<!-- .slide: data-background="url(../../img/react-perf/jeremy-bishop-136488-unsplash-turtle-on-beach.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- Enough about me, let's talk about React performance
+- Broken it down into 3 main sections of things to avoid
+- Ordered by most hurtful to least
+- And I'll try to provide alternatives to make your apps faster
+
+=====
+<!-- .slide: data-background="#222" -->
 
 # Avoiding unnecessary DOM updates
 <!-- .element: class="statement" -->
@@ -110,15 +119,28 @@ NOTES:
 - Touching the DOM is the most expensive thing we can do!
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
 
-## 1. Impact of `key`
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>1. `key`</h1>
+  </div>
+</div>
+
+NOTES:
+- Impact of `key`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
 
-<video data-autoplay loop style="width: 100%">
-  <source data-src="../../img/react-perf/index-as-key.mp4" />
-</video>
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <video data-autoplay loop style="width: 100%">
+      <source data-src="../../img/react-perf/index-as-key.mp4" />
+    </video>
+  </div>
+</div>
+
 
 NOTES:
 - Here's very simple example of a list
@@ -126,21 +148,23 @@ NOTES:
 - All of the elements are getting updated
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
 
-index as key 😢
-
-```js
-const List = ({items}) => {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const List = ({items}) => {
   const listItems = items.map((item, index) => (
-    <li key={index}>{item.name}</li>
+    &lt;li key={index}>{item.name}&lt;/li>
   ))
 
   return (<ul>{listItems}</ul>)
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 70px; top: 247px;"></div>
+    <p>Index as `key` 😢</p>
+
+    <div class="code-highlight" style="height: 70px; top: 190px;"></div>
+  </div>
+</div>
 
 
 NOTES:
@@ -152,27 +176,34 @@ NOTES:
 - It ends up adding a new element **at the end**
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
 
-Unique value as key 😄
-
-```js
-const List = ({items}) => {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const List = ({items}) => {
   const listItems = items.map((item) => (
-    <li key={item.id}>{item.name}</li>
+    &lt;li key={item.id}>{item.name}&lt;/li>
   ))
 
   return (<ul>{listItems}</ul>)
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 70px; top: 247px;"></div>
+    <p>Unique value as `key` 😄</p>
+
+    <div class="code-highlight" style="height: 70px; top: 190px;"></div>
+  </div>
+</div>
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
 
-<video data-autoplay loop style="width: 100%">
-  <source data-src="../../img/react-perf/unique-value-as-key.mp4" />
-</video>
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <video data-autoplay loop style="width: 100%">
+      <source data-src="../../img/react-perf/unique-value-as-key.mp4" />
+    </video>
+  </div>
+</div>
 
 NOTES:
 - As a result, React can optimize better and _just_ add new item to the beginning
@@ -180,32 +211,37 @@ NOTES:
 - Extrapolate this to a bigger list or bigger an app and it can get sluggish
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/jonathan-chng-751342-unsplash-track-and-field.jpg) no-repeat center" data-background-size="cover" -->
 
-## 2. Impact of HOCs in `render()`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>2. HOCs</h1>
+  </div>
+</div>
 
 NOTES:
+- Impact of HOCs in `render()`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/jonathan-chng-751342-unsplash-track-and-field.jpg) no-repeat center" data-background-size="cover" -->
 
-Definition:
-```js
-const withTitle = (Component) => (
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Declaration:</h2>
+    <pre class="large"><code class="lang-javascript">const withTitle = (Component) => (
   ({title, ...props}) => (
     <div>
       <h3>{title}</h3>
-      <Component {...props} />
+      &lt;Component {...props} />
     </div>
   )
-)
-```
-<!-- .element: class="large" -->
+)</code></pre>
 
-Creation:
-```js
-const ListWithTitle = withTitle(List)
-```
-<!-- .element: class="large" -->
+    <h2>Creation:</h2>
+    <pre class="large"><code class="lang-javascript">const ListWithTitle = withTitle(List)</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Let's say we had this made up HOC called `withTitle`
@@ -215,28 +251,31 @@ NOTES:
 - What it does doesn't matter, but how it is used does...
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/jonathan-chng-751342-unsplash-track-and-field.jpg) no-repeat center" data-background-size="cover" -->
 
-HOC created in `render()` 👎🏾
-
-```js
-class Emails extends React.Component {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class Emails extends React.Component {
   render() {
     const ListWithTitle = withTitle(List)
     const {emails} = this.props
 
     return (
-      <section>
-        <header> ... </header>
-        <ListWithTitle items={emails} title="Your Emails" />
-        <footer> ... </footer>
-      </section>
+      &lt;section>
+        &lt;header> ... &lt;/header>
+        &lt;ListWithTitle items={emails} title="Emails" />
+        &lt;footer> ... &lt;/footer>
+      &lt;/section>
     )
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 70px; top: 247px;"></div>
+    <p>HOC created in `render()` 👎🏾</p>
+
+    <div class="code-highlight" style="height: 70px; top: 195px;"></div>
+  </div>
+</div>
+
 
 NOTES:
 - Initial thought may be to create the HOC w/in `render()`
@@ -248,29 +287,31 @@ NOTES:
 - Even worse than index-as-key because the whole UI gets blown away and recreated
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/jonathan-chng-751342-unsplash-track-and-field.jpg) no-repeat center" data-background-size="cover" -->
 
-Create HOC outside of `render()` 👍🏾
-
-```js
-const ListWithTitle = withTitle(List)
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const ListWithTitle = withTitle(List)
 
 class Emails extends React.Component {
   render() {
     const {emails} = props
 
     return (
-      <section>
-        <header> ... </header>
-        <ListWithTitle items={emails} title="Your Emails" />
-        <footer> ... </footer>
-      </section>
+      &lt;section>
+        &lt;header> ... &lt;/header>
+        &lt;ListWithTitle items={emails} title="Emails" />
+        &lt;footer> ... &lt;/footer>
+      &lt;/section>
     )
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
 
-<div class="code-highlight" style="height: 70px; top: 132px;"></div>
+    <p>Create HOC outside of `render()` 👍🏾</p>
+
+    <div class="code-highlight" style="height: 70px; top: 78px;"></div>
+  </div>
+</div>
 
 NOTES:
 - Instead define the HOC **outside** of render
@@ -278,7 +319,7 @@ NOTES:
 - Re-renders of `Emails` will work as normal with reconciliation
 
 =====
-<!-- .slide: data-background="#000" -->
+<!-- .slide: data-background="#222" -->
 
 # Avoiding unnecessary reconciliation
 <!-- .element: class="statement" -->
@@ -293,27 +334,35 @@ NOTES:
   * But some of them are easy to implement if you're thinking ahead
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
 
-## 3. Impact of `shouldComponentUpdate()`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>3. `shouldComponentUpdate()`</h1>
+  </div>
+</div>
+
+NOTES:
+- Impact of `shouldComponentUpdate()`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
 
-Default `shouldComponentUpdate()`
-
-```js
-class DataTable extends React.Component {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Default `shouldComponentUpdate()`</h2>
+    <pre class="large"><code class="lang-javascript">class DataTable extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return true;
+    return true
   }
 
   render() {
     // gets called every time props/state update
     // even if they have same values
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
 - `shouldComponentUpdate()` allows finer control over reconciliation
@@ -322,11 +371,12 @@ NOTES:
   * even if the props/state are the exactly the same
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
 
-Shallow compare in `shouldComponentUpdate()`
-
-```js
-class DataTable extends React.Component {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Shallow compare</h2>
+    <pre class="large"><code class="lang-javascript">class DataTable extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     const {props, state} = this
     
@@ -338,9 +388,9 @@ class DataTable extends React.Component {
     // only gets called if next props OR state
     // don't shallow equal previous versions
   }
-}
-```
-<!-- .element: class="large" -->
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
 - However, if you know that in some situations your component doesn’t need to update
@@ -354,36 +404,43 @@ NOTES:
   * And that won't shallow equal
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
 
-Use `PureComponent` instead!
-
-```js
-class DataTable extends React.PureComponent {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class DataTable extends React.PureComponent {
   render() {
     // only gets called if next props OR state
     // don't shallow equal previous versions
   }
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
 
-<div class="code-highlight" style="height: 70px; top: 132px;"></div>
+    <p>Just use `PureComponent` instead!</p>
+
+    <div class="code-highlight" style="height: 70px; top: 82px;"></div>
+  </div>
+</div>
+
 
 NOTES:
 - But there's really no reason to write that
   * Because that's exactly what `React.PureComponent` does!
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
 
-🚨 Stateless functional components work like `React.Component` 🚨
 
-```js
-const DataTable = (props) => {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const DataTable = (props) => {
   // gets called every time props update
   // even if it has same values
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>🚨 Stateless component functions work like<br />`React.Component` 🚨</p>
+
+  </div>
+</div>
 
 NOTES:
 - FYI - stateless functional components work like `React.Component`
@@ -392,27 +449,38 @@ NOTES:
   * But it hasn't happened yet
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
 
-## 4. Impact of negating shallow comparison
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>4. Shallow compare</h1>
+  </div>
+</div>
+
+NOTES:
+- Speaking of shallow comparison...
+- Impact of negating shallow compare
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
 
-Array & object literals undo shallow compare
-
-```js
-class Page extends React.Component {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class Page extends React.Component {
   render() {
     return (
-      <DataTable
+      &lt;DataTable
         pageSizes={[5, 10, 25, 50]}
         footerInfo={{label: 'Settings'}}
       />
     )
   }
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>Array & object literals undo shallow compare</p>
+
+  </div>
+</div>
 
 NOTES:
 - Creating array literals & object literals with every render is cheap
@@ -421,25 +489,29 @@ NOTES:
   * Even though they do have the same values (deep comparison)
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
 
-Store in constants!
-
-```js
-const PAGE_SIZES = [5, 10, 25, 50]
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const PAGE_SIZES = [5, 10, 25, 50]
 const FOOTER_INFO = {label: 'Settings'}
 
 class Page extends React.Component {
   render() {
     return (
-      <DataTable
+      &lt;DataTable
         pageSizes={PAGE_SIZES}
         footerInfo={FOOTER_INFO}
       />
     )
   }
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>Store in constants!</p>
+
+  </div>
+</div>
+
 
 NOTES:
 - Instead put those literals in a `const` outside the class
@@ -448,25 +520,29 @@ NOTES:
 - Now `props.footerInfo` does shallow compare to `nextProps.footerInfo`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
 
-One-off functions undo shallow compare too
-
-```js
-class Page extends React.Component {
-  _handleItemSelect() { ... }
-  _handleItemDelete() { ... }
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class Page extends React.Component {
+  _handleSelect() { ... }
+  _handleDelete() { ... }
 
   render() {
     return (
-      <DataTable
-        onItemSelect={(id) => this._handleItemSelect(id)}
-        onItemDelete={this._handleItemDelete.bind(this)}
+      &lt;DataTable
+        onSelect={(id) => this._handleSelect(id)}
+        onDelete={this._handleDelete.bind(this)}
       />
     )
   }
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>One-off functions undo shallow compare too</p>
+
+  </div>
+</div>
+
 
 NOTES:
 - Arrow functions or calling `.bind()` also undoes shallow comparison
@@ -481,58 +557,65 @@ NOTES:
   * all unnecessary
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
 
-Pre-bind functions!
-
-```js
-class Page extends React.Component {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class Page extends React.Component {
   constructor() {
-    this._handleItemSelect = this._handleItemSelect.bind(this)
+    this._handleSelect = this._handleSelect.bind(this)
   }
-  _handleItemSelect() { ... }
-  _handleItemDelete = () => { ... }
-
+  _handleSelect() { ... }
+  _handleDelete = () => { ... }
   render() {
     return (
-      <DataTable
-        onItemSelect={this._handleItemSelect}
-        onItemDelete={this._handleItemDelete}
+      &lt;DataTable
+        onSelect={this._handleSelect}
+        onDelete={this._handleDelete}
       />
     )
   }
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
 
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 246px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 420px;"></div>
+    <p>Pre-bind functions!</p>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 195px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 366px;"></div>
+  </div>
+</div>
+
 
 NOTES:
 - The fix is to just bind `this` only once
 - There are two ways to do this
 - **ONE:** Override the method with a bound function property in the `constructor`
+  * Not a fan
 - **TWO:** Using Stage 3 future JavaScript define a bound arrow function property
 - In either case, the function we pass to the handlers will have the correct `this`
   * And we only had to bind one time
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
 
-Derived data in `render()` doesn't shallow compare
-
-```js
-class Page extends React.Component {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class Page extends React.Component {
   render() {
     const {items} = this.props
     const {query} = this.state
-    const newItems = items.filter((item) => item.contains(query))
+    const newItems = items.filter(
+      (item) => item.contains(query)
+    )
 
-    return (<List items={newItems} />)
+    return (&lt;List items={newItems} />)
   }
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
 
-<div class="code-highlight" style="height: 70px; top: 363px;"></div>
+    <p>Derived data in `render()` doesn't shallow compare</p>
+
+    <div class="code-highlight" style="height: 187px; top: 311px;"></div>
+  </div>
+</div>
 
 NOTES:
 - Derived arrays/objects in `render()` inherently are new each `render()`
@@ -541,40 +624,49 @@ NOTES:
   * Just know that even if `List` was a `PureComponent`
   * And items had the same values
   * It would still `render()` every time because they don't shallow compare
-- May be considering making `List` do a *deep*-comparison instead of shallow
+- _May_ be considering making `List` do a *deep*-comparison instead of shallow
   * That would work, and prevent reconciliation
   * But it's likely that the deep comparison would take longer than reconciliation itself
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/markus-spiske-544020-unsplash-cyclists.jpg) no-repeat center" data-background-size="cover" -->
 
-## 5. Impact of big `render()`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>5. `render()`</h1>
+  </div>
+</div>
+
+NOTES:
+- Impact of large `render()`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/markus-spiske-544020-unsplash-cyclists.jpg) no-repeat center" data-background-size="cover" -->
 
-Huge component renders cannot break reconciliation
-
-```js
-class Page extends React.Component {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre><code class="lang-javascript">class Page extends React.Component {
   return (
-    <main>
-      <nav className="nav">
-        { /* 300 lines of left nav markup */ }
-      <nav>
+    &lt;main>
+      &lt;nav className="nav">
+        { /\* 300 lines of left nav markup \*/ }
+      &lt;/nav>
 
-      <SearchForm query={this.state.query} onChange={this._handleSearchChange} />
+      &lt;SearchForm query={this.state.query} onChange={this._handleChange} />
 
-      <section className="data-table">
-        { /* 200 lines of data-table markup */ }
-      </section>
+      &lt;section className="data-table">
+        { /\* 200 lines of data-table markup \*/ }
+      &lt;/section>
 
-      <aside className="stuff">
-        { /* 400 lines of more stuff! */ }
-      </aside>
-    </main>
-  );
-)
-```
+      &lt;aside className="pagination">
+        { /\* 400 lines of more pagination! \*/ }
+      &lt;/aside>
+    &lt;/main>
+  )
+)</code></pre>
+    <p>Huge component renders cannot halt reconciliation</p>
+  </div>
+</div>
 
 NOTES:
 - Let's say you have a big component with hundreds of lines in `render()`
@@ -587,29 +679,31 @@ NOTES:
 - There are no component boundaries to even have a `PureComponent`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/markus-spiske-544020-unsplash-cyclists.jpg) no-repeat center" data-background-size="cover" -->
 
-Leverage helper components to break things up
-
-```js
-import DataTable from './DataTable';
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre><code class="lang-javascript">import DataTable from './DataTable';
 
 class Nav extends React.PureComponent { ... }
-class Stuff extends React.PureComponent { ... }
+class Pagination extends React.PureComponent { ... }
 
 class Page extends React.Component {
   return (
-    <main>
-      <Nav navItems={NAV_ITEMS} />
+    &lt;main>
+      &lt;Nav navItems={NAV_ITEMS} />
 
-      <SearchForm query={this.state.query} onChange={this._handleSearchChange} />
+      &lt;SearchForm query={this.state.query} onChange={this._handleChange} />
 
-      <DataTable rows={this.props.data} />
+      &lt;DataTable rows={this.props.data} />
 
-      <Stuff type="blue" />
-    </main>
-  );
-)
-```
+      &lt;Pagination theme="blue" />
+    &lt;/main>
+  )
+)</code></pre>
+    <p>Leverage helper components to break things up</p>
+  </div>
+</div>
 
 NOTES:
 - By componentizing the markup, create component boundaries
@@ -618,21 +712,32 @@ NOTES:
 - And you can even put the helper components in the same file so things aren't spread out
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
-## 6. Impact of multiple `dispatch()` calls
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>6. Redux `dispatch()`</h1>
+  </div>
+</div>
+
+NOTES:
+- Impact of multiple `dispatch()` calls
+- Leaving the React world
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
-Multiple `setState()` calls are ok
-
-```js
-_handleClick = (id) => {
-  this.setState({selectedId: id});
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">_handleMarkUnreadClick = (id) => {
+  this.setState({selectedId: id})
   this.setState({color: 'blue'})
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>Multiple `setState()` calls are ok</p>
+  </div>
+</div>
+
 
 NOTES:
 - Because `setState()` is asynchronous calling it multiple times sequentially is ok
@@ -640,11 +745,11 @@ NOTES:
   * `render()` will only be called once
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
-Multiple `dispatch()` calls causes multiple `render()`
-
-```js
-const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
 const setColor = (color) => {{type: 'SET_COLOR', payload: color})
 
 export const markUnread = (id) => (
@@ -652,9 +757,12 @@ export const markUnread = (id) => (
     dispatch(setSelected(id))
     dispatch(setColor('blue'))
   }
-)
-```
-<!-- .element: class="large" -->
+)</pre></code>
+
+    <p>Multiple `dispatch()` calls cause multiple `render()`!</p>
+  </div>
+</div>
+
 
 NOTES:
 - However this isn't the case with multiple Redux `dispatch()` calls
@@ -664,11 +772,11 @@ NOTES:
   * So you may make two `dispatch()` calls
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
-1-to-1 action-to-reducer
-
-```js
-const selectedId = (state = -1, action) => {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const selectedId = (state = -1, action) => {
   if (action.type === 'SET_SELECTED') {
     state = action.payload
   }
@@ -680,9 +788,11 @@ const color = (state = null, action) => {
     state = action.payload
   }
   return state
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>1-to-1 action-to-reducer</p>
+  </div>
+</div>
 
 NOTES:
 - Two actions for the two reducers responsible for that state
@@ -694,30 +804,33 @@ NOTES:
 - If you connect at the top level app, the whole app renders doubly!
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
-Combine `dispatch()` calls using single action
-
-```js
-const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
 const setColor = (color) => {{type: 'SET_COLOR', payload: color})
 
 export const markUnread = (id) => ({
   type: 'MARK_UNREAD',
   payload: {id, color: 'blue'},
-})
-```
-<!-- .element: class="large" -->
+})</pre></code>
+
+    <p>Combine `dispatch()` calls using single action</p>
+  </div>
+</div>
+
 
 NOTES:
 - Instead have a single action that passes all the data needed
 - `MARK_UNREAD` action combines `payload` for `SET_SELECTED` & `SET_COLOR`
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
-1-to-many action-to-reducers
-
-```js
-const selectedId = (state = -1, action) => {
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const selectedId = (state = -1, action) => {
   if (action.type === 'MARK_UNREAD') {
     state = action.payload.id
   }
@@ -729,9 +842,12 @@ const color = (state = null, action) => {
     state = action.payload.color
   }
   return state
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
+
+    <p>1-to-many action-to-reducers</p>
+  </div>
+</div>
+
 
 NOTES:
 - The two reducers can listen to the single action
@@ -741,7 +857,7 @@ NOTES:
 - Only one re-render happens
 
 =====
-<!-- .slide: data-background="#000" -->
+<!-- .slide: data-background="#222" -->
 
 # Avoiding unnecessary calculations
 <!-- .element: class="statement" -->
@@ -755,16 +871,23 @@ NOTES:
 - Could also be code to calculate new state
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-## 7. Impact of copying objects/arrays
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>7. Copying objects</h1>
+  </div>
+</div>
+
+NOTES:
+- Impact of copying objects/arrays
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-Copying large objects/arrays can be expensive
-
-```js
-export const emails = (state = [], action) => {
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">export const emails = (state = [], action) => {
   if (action.type === 'DELETE_EMAIL') {
     state = state.filter(email => email.id !== action.payload);
   } else if (action.type === 'ADD_EMAIL') {
@@ -777,13 +900,15 @@ export const emails = (state = [], action) => {
   }
 
   return state;
-}
-```
-<!-- .element: class="large" -->
+}</pre></code>
 
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 248px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 361px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 240px; top: 481px;"></div>
+    <p>Copying large objects/arrays can be expensive</p>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 196px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 309px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 240px; top: 429px;"></div>
+  </div>
+</div>
 
 NOTES:
 - Even if you optimize the DOM with "windowing"
@@ -806,20 +931,25 @@ NOTES:
   * If email has a lot of data or array is huge, takes time
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-Use immutable data structures
-
-<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 45%;">
-        <a href="https://facebook.github.io/immutable-js/"><img
-            src="../../img/nav-react/immutable-logo.png"
-            style="background:none;box-shadow:none;border:none;width:100%"
-        /></a>
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 70%">
+    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+      <div style="flex:0 0 45%;">
+          <a href="https://facebook.github.io/immutable-js/"><img
+              src="../../img/nav-react/immutable-logo.png"
+              style="background:none;box-shadow:none;border:none;width:100%"
+          /></a>
+        </div>
+        <div style="flex:0 0 45%;">
+          <a href="https://github.com/rtfeldman/seamless-immutable">`seamless-immutable`</a>
+        </div>
     </div>
-    <div style="flex:0 0 45%;">
-		<a href="https://github.com/rtfeldman/seamless-immutable"><code>seamless-immutable</code></a>
-    </div>
+    <p>Use immutable data structures</p>
+  </div>
 </div>
+
 
 NOTES:
 - Again, copying arrays and objects usually isn't a big deal
@@ -835,22 +965,24 @@ NOTES:
 
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-## `seamless-immutable`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>`seamless-immutable`</h2>
+    <pre class="large"><code class="lang-javascript">const array = Immutable(['one', 'two', {count: 3}])
 
-```js
-let array = Immutable(['totally', 'immutable', {hammer: 'no!'}])
+array[1] = 'I will mutate you!'
+console.log(array[1]) // 'two'
 
-array[1] = `I'm going to mutate you!`
-console.log(array[1]) // "immutable"
-
-array[2].hammer = 'hm, surely I can mutate this nested object...'
-console.log(array[2].hammer) // "no!"
+array[2].count = 'Mutate an object mwahaha!!!'
+console.log(array[2].count) // 3
 
 console.log(JSON.stringify(array))
-// '["totally", "immutable", {"hammer":"no!"}]'
-```
-<!-- .element class="large" -->
+// '["one","two",{"count":3}]'</pre></code>
+  </div>
+</div>
+
 
 NOTES:
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
@@ -859,29 +991,36 @@ NOTES:
 - Can pass to libraries like `lodash` or `underscore`
 
 =====
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/react-perf/joe-neric-223562-unsplash-motorcycle-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-## 8. Impact of recomputing derived Redux state
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>8. Derived Redux state</h1>
+  </div>
+</div>
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/joe-neric-223562-unsplash-motorcycle-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-Recalculating derived data can be expensive
-
-```js
-const getVisibleTodos = (todos, filter) => {
-  // filters `todos` array by `filter` string
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const getVisibleTodos = (todos, filter) => {
+  // filters \`todos\` array by \`filter\` string
 }
 const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  todos: getVisibleTodos(state.todos, state.filter)
 })
 
-export default connect(mapStateToProps)(TodoList)
-```
-<!-- .element class="large" -->
+export default connect(mapStateToProps)(TodoList)</pre></code>
 
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 533px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 361px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 195px; top: 131px;"></div>
+    <p>Recalculating derived data can be expensive</p>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 485px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 307px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 195px; top: 77px;"></div>
+  </div>
+</div>
+
 
 NOTES:
 - **ONE:** Here's a traditional `connect()` from `react-redux`
@@ -899,32 +1038,34 @@ NOTES:
 - It's like THREE compounding errors
 
 /////
+<!-- .slide: data-background="url(../../img/react-perf/joe-neric-223562-unsplash-motorcycle-racing.jpg) no-repeat center" data-background-size="cover" -->
 
-Use a memoized selector
-
-```js
-import {createSelector} from 'reselect';
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">import {createSelector} from 'reselect';
 
 const getTodos = (state) => state.todos
-const getVisibilityFilter = (state) => state.visibilityFilter
+const getVisibilityFilter = (state) => state.filter
 
 const getVisibleTodos = createSelector(
   [getTodos, getVisibilityFilter],
   (todos, filter) => {
-    // filters `todos` array by `filter` string
+    // filters \`todos\` array by \`filter\` string
   }
 )
 const mapStateToProps = (state) => ({
   todos: getVisibleTodos(state)
-})
-```
-<!-- .element class="large" -->
+})</pre></code>
 
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 421px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 480px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 131px; top: 247px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 191px; top: 529px;"></div>
-<div class="code-highlight fragment current-visible" style="height: 70px; top: 820px;"></div>
+    <p>Use a "memoized" selector</p>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 367px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 426px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 131px; top: 193px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 191px; top: 475px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 766px;"></div>
+  </div>
+</div>
 
 NOTES:
 - What we need is what's called a "memoized selector"
@@ -944,17 +1085,25 @@ NOTES:
   - Save on unnecessary reconciliation cuz object is the same
 
 =====
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Quick Recap
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 50%">
+    <h1>Quick Recap</h1>
 
-1. Use unique value as `key`
-1. Create HOCs outside of `render()`
-1. Use `PureComponent` for shallow compare
-1. Avoid undoing shallow compare
-1. Break up component markup
-1. Combine `dispatch()`
-1. Use immutable data structures
-1. Use memoized selectors
+    <ol>
+      <li>Use unique value as `key`</li>
+      <li>Create HOCs outside of `render()`</li>
+      <li>Use `PureComponent` for shallow compare</li>
+      <li>Avoid undoing shallow compare</li>
+      <li>Break up component markup</li>
+      <li>Combine `dispatch()`</li>
+      <li>Use immutable data structures</li>
+      <li>Use memoized selectors</li>
+    </ol>
+
+  </div>
+</div>
 
 NOTES:
 - All these can help your app run faster
@@ -973,6 +1122,7 @@ NOTES:
     <li><a href="https://bvaughn.github.io/react-virtualized/" target="_blank">"Windowing" with <code>react-virtualized</code></a></li>
     <li><a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React Performance with React 16...</a></li>
     <li><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank">Optimizing Performance</a></li>
+    <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
     <li><a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained" target="_blank">Optimizing React: Virtual DOM explained</a></li>
   </ul>
   
