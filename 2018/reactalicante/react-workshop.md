@@ -19,8 +19,18 @@
 NOTES:
 - Who's done React before??
 
+/////
+
+# Introductions!
+
+<br />
+
+## Name
+## Where You're From
+## 1st Programming Language
+
 =====
-<!-- .slide: data-background="#000 url(../../img/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="url(../../img/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father
