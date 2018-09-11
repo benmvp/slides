@@ -104,6 +104,8 @@ NOTES:
 <!-- .slide: data-background="url(../../img/react-perf/jeremy-bishop-136488-unsplash-turtle-on-beach.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+**_[6 minutes]_**
+
 - Enough about me, let's talk about React performance
 - Broken it down into 3 main sections of things to avoid
 - Ordered by most hurtful to least
@@ -128,6 +130,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[7 minutes]_**
+
 - Impact of `key`
 
 /////
@@ -220,6 +224,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[11 minutes]_**
+
 - Impact of HOCs in `render()`
 
 /////
@@ -325,6 +331,8 @@ NOTES:
 <!-- .element: class="statement" -->
 
 NOTES:
+**_[14 minutes]_**
+
 - Reconciliation is React going down the component hierarchy calling `render()` and seeing if any rendered DOM has changed
 - Even if nothing in the DOM changes, the reconciliation calculation itself can be costly for large apps
 - So after we avoid actually updating the DOM unnecessarily
@@ -343,6 +351,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[15 minutes]_**
+
 - Impact of `shouldComponentUpdate()`
 
 /////
@@ -413,7 +423,7 @@ NOTES:
     // only gets called if next props OR state
     // don't shallow equal previous versions
   }
-}</pre></code>
+}</code></pre>
 
     <p>Just use `PureComponent` instead!</p>
 
@@ -435,7 +445,7 @@ NOTES:
     <pre class="large"><code class="lang-javascript">const DataTable = (props) => {
   // gets called every time props update
   // even if it has same values
-}</pre></code>
+}</code></pre>
 
     <p>🚨 Stateless component functions work like<br />`React.Component` 🚨</p>
 
@@ -458,6 +468,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[19 minutes]_**
+
 - Speaking of shallow comparison...
 - Impact of negating shallow compare
 
@@ -475,7 +487,7 @@ NOTES:
       />
     )
   }
-}</pre></code>
+}</code></pre>
 
     <p>Array & object literals undo shallow compare</p>
 
@@ -505,7 +517,7 @@ class Page extends React.Component {
       />
     )
   }
-}</pre></code>
+}</code></pre>
 
     <p>Store in constants!</p>
 
@@ -536,7 +548,7 @@ NOTES:
       />
     )
   }
-}</pre></code>
+}</code></pre>
 
     <p>One-off functions undo shallow compare too</p>
 
@@ -575,7 +587,7 @@ NOTES:
       />
     )
   }
-}</pre></code>
+}</code></pre>
 
     <p>Pre-bind functions!</p>
 
@@ -609,7 +621,7 @@ NOTES:
 
     return (&lt;List items={newItems} />)
   }
-}</pre></code>
+}</code></pre>
 
     <p>Derived data in `render()` doesn't shallow compare</p>
 
@@ -638,6 +650,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[24 minutes]_**
+
 - Impact of large `render()`
 
 /////
@@ -700,7 +714,7 @@ class Page extends React.Component {
       &lt;Pagination theme="blue" />
     &lt;/main>
   )
-)</code></pre>
+}</code></pre>
     <p>Leverage helper components to break things up</p>
   </div>
 </div>
@@ -721,6 +735,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[26 minutes]_**
+
 - Impact of multiple `dispatch()` calls
 - Leaving the React world
 
@@ -732,7 +748,7 @@ NOTES:
     <pre class="large"><code class="lang-javascript">_handleMarkUnreadClick = (id) => {
   this.setState({selectedId: id})
   this.setState({color: 'blue'})
-}</pre></code>
+}</code></pre>
 
     <p>Multiple `setState()` calls are ok</p>
   </div>
@@ -757,7 +773,7 @@ export const markUnread = (id) => (
     dispatch(setSelected(id))
     dispatch(setColor('blue'))
   }
-)</pre></code>
+)</code></pre>
 
     <p>Multiple `dispatch()` calls cause multiple `render()`!</p>
   </div>
@@ -788,7 +804,7 @@ const color = (state = null, action) => {
     state = action.payload
   }
   return state
-}</pre></code>
+}</code></pre>
 
     <p>1-to-1 action-to-reducer</p>
   </div>
@@ -814,7 +830,7 @@ const setColor = (color) => {{type: 'SET_COLOR', payload: color})
 export const markUnread = (id) => ({
   type: 'MARK_UNREAD',
   payload: {id, color: 'blue'},
-})</pre></code>
+})</code></pre>
 
     <p>Combine `dispatch()` calls using single action</p>
   </div>
@@ -842,7 +858,7 @@ const color = (state = null, action) => {
     state = action.payload.color
   }
   return state
-}</pre></code>
+}</code></pre>
 
     <p>1-to-many action-to-reducers</p>
   </div>
@@ -863,6 +879,8 @@ NOTES:
 <!-- .element: class="statement" -->
 
 NOTES:
+**_[31 minutes]_**
+
 - At this point, getting to just normal JavaScript code
 - Probably won't matter unless you're building a DNA design tool, a rich-text editor, full-feature spreadsheet app, etc
 - These calculations could be the code to determine whether or not to prevent reconciliation
@@ -880,6 +898,8 @@ NOTES:
 </div>
 
 NOTES:
+**_[32 minutes]_**
+
 - Impact of copying objects/arrays
 
 /////
@@ -900,7 +920,7 @@ NOTES:
   }
 
   return state;
-}</pre></code>
+}</code></pre>
 
     <p>Copying large objects/arrays can be expensive</p>
 
@@ -979,7 +999,7 @@ array[2].count = 'Mutate an object mwahaha!!!'
 console.log(array[2].count) // 3
 
 console.log(JSON.stringify(array))
-// '["one","two",{"count":3}]'</pre></code>
+// '["one","two",{"count":3}]'</code></pre>
   </div>
 </div>
 
@@ -999,6 +1019,11 @@ NOTES:
   </div>
 </div>
 
+NOTES:
+**_[35 minutes]_**
+
+- Impact of recomputing Redux derived state
+
 /////
 <!-- .slide: data-background="url(../../img/react-perf/joe-neric-223562-unsplash-motorcycle-racing.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1011,7 +1036,7 @@ const mapStateToProps = (state) => ({
   todos: getVisibleTodos(state.todos, state.filter)
 })
 
-export default connect(mapStateToProps)(TodoList)</pre></code>
+export default connect(mapStateToProps)(TodoList)</code></pre>
 
     <p>Recalculating derived data can be expensive</p>
 
@@ -1055,7 +1080,7 @@ const getVisibleTodos = createSelector(
 )
 const mapStateToProps = (state) => ({
   todos: getVisibleTodos(state)
-})</pre></code>
+})</code></pre>
 
     <p>Use a "memoized" selector</p>
 
@@ -1088,27 +1113,114 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 50%">
+  <div class="content-overlay">
     <h1>Quick Recap</h1>
-
-    <ol>
-      <li>Use unique value as `key`</li>
-      <li>Create HOCs outside of `render()`</li>
-      <li>Use `PureComponent` for shallow compare</li>
-      <li>Avoid undoing shallow compare</li>
-      <li>Break up component markup</li>
-      <li>Combine `dispatch()`</li>
-      <li>Use immutable data structures</li>
-      <li>Use memoized selectors</li>
-    </ol>
-
   </div>
 </div>
 
 NOTES:
+**_[37 minutes]_**
+
 - All these can help your app run faster
 - But don't prematurely optimize!
+- React is already super fast
 - Go and build things!!!
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    1. Use unique value as `key`
+    <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">const listItems = items.map((item) => (
+  &lt;li key={item.id}>{item.name}&lt;/li>
+))</code></pre>
+
+    2. Create HOCs outside of `render()`
+    <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">const ListWithTitle = withTitle(List)
+
+class Emails extends React.Component { ... }</code></pre>
+
+    3. Use `PureComponent` for shallow compare
+    <pre class="large"><code class="lang-javascript">class DataTable extends React.PureComponent { ... }</code></pre>
+  </div>
+</div>
+
+NOTES:
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    4. Avoid undoing shallow compare
+    <pre class="large"><code class="lang-javascript">const PAGE_SIZES = [5, 10, 25, 50]
+
+class Page extends React.Component {
+  _handleSelect() { ... }
+  render() {
+    return (
+      &lt;DataTable
+        pageSizes={PAGE_SIZES}
+        onSelect={this._handleSelect}
+      />
+    )
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Avoid undoing shallow compare by storing object constants outside and pre-binding functions
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    5. Break up component markup
+    <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">const Page = (props) => (
+  &lt;main>
+    &lt;Nav navItems={NAV_ITEMS} />
+    &lt;DataTable rows={props.data} />
+    &lt;Pagination theme="blue" />
+  &lt;/main>
+)</code></pre>
+
+    6. Combine `dispatch()`
+    <pre class="large"><code class="lang-javascript">export const markUnread = (id) => ({
+  type: 'MARK_UNREAD',
+  payload: {id, color: 'blue'},
+})</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Break up component markup into helper components so that reconciliation can be prematurely halted
+- Combine multiple `dispatch()` calls into one to prevent multiple state updates
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    7. Use immutable data structures
+    <pre class="large" style="margin-bottom: 1em"><code class="lang-javascript">const array = Immutable(['one', 'two', {count: 3}])
+
+array[1] = 'I will mutate you!'
+console.log(array[1]) // 'two'</code></pre>
+
+    8. Use memoized selectors
+    <pre class="large"><code class="lang-javascript">const getVisibleTodos = createSelector(
+  [getTodos, getVisibilityFilter],
+  (todos, filter) => { ... }
+)</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Immutable data structures will reduce the copying of data structures
+- Using memoized selectors will help reduce unnecessary recomputation of derived data
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1116,19 +1228,29 @@ NOTES:
 <div style="display: flex; align-items:center; justify-content: flex-start">
 	<div style="width: 52%" class="content-overlay">
   
-  <h1>Resources</h1>
+    <h1>Resources</h1>
 
-  <ul style="margin-top: 1em">
-    <li><a href="https://bvaughn.github.io/react-virtualized/" target="_blank">"Windowing" with <code>react-virtualized</code></a></li>
-    <li><a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React Performance with React 16...</a></li>
-    <li><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank">Optimizing Performance</a></li>
-    <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
-    <li><a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained" target="_blank">Optimizing React: Virtual DOM explained</a></li>
-  </ul>
+    <ul style="margin-top: 1em">
+      <li><a href="https://bvaughn.github.io/react-virtualized/" target="_blank">"Windowing" with <code>react-virtualized</code></a></li>
+      <li><a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React Performance with React 16...</a></li>
+      <li><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank">Optimizing Performance</a></li>
+      <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
+      <li><a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained" target="_blank">Optimizing React: Virtual DOM explained</a></li>
+    </ul>
   
   
   </div>
 </div>
+
+NOTES:
+**_[40 minutes]_**
+
+- Lots of resources for you
+- Didn't have time to discuss how to debug performance issues
+  * These articles discuss this in details
+  * My favorite one is running Chrome 4x slower to expose issues
+- The first one, though, is a library for "windowing"
+  * Only displaying a subset of a list to limit DOM nodes
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
