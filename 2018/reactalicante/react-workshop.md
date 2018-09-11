@@ -1,4 +1,4 @@
-# "Minimally-painful" React-Redux testing Workshop
+# "Minimally-painful" React-Redux Testing Workshop
 
 <br />
 
@@ -14,7 +14,7 @@
 
 <br />
 
-## http://bit.ly/react-fun-begin
+## http://bit.ly/react-test-begin
 
 NOTES:
 - Who's done React before??
@@ -103,7 +103,7 @@ NOTES:
 
 /////
 
-# Follow along
+# Watch along
 
 ### --or--
 
@@ -184,6 +184,8 @@ NOTES:
 
 =====
 
+=====
+
 ## More functionality
 
 - [Redux Reducers](https://github.com/benmvp/react-workshop/blob/master/src/testing/07-reducers/)
@@ -197,7 +199,7 @@ NOTES:
 
 /////
 
-# Questions?
+# Final Questions?
 
 NOTES:
 - What questions can I answer about anything?
@@ -205,8 +207,9 @@ NOTES:
 
 =====
 
-![React Workshop Stars](../../img/react/workshop-stars.png)
-<!-- .element: style="width:75%" -->
+<a href="https://github.com/benmvp/react-workshop/stargazers" target="_blank">
+  <img src="../../img/react/workshop-stars.png" class="plain" style="width: 75%" alt="Ben Ilegbodu's React Workshop Stars" />
+</a>
 
 <div class="code-highlight" style="height: 250px; top: 33px; left: 820px; width: 460px"></div>
 

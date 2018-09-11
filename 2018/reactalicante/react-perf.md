@@ -1157,7 +1157,7 @@ NOTES:
     <pre class="large"><code class="lang-javascript">const PAGE_SIZES = [5, 10, 25, 50]
 
 class Page extends React.Component {
-  _handleSelect() { ... }
+  _handleSelect = () => { ... }
   render() {
     return (
       &lt;DataTable
@@ -1187,7 +1187,7 @@ NOTES:
   &lt;/main>
 )</code></pre>
 
-    6. Combine `dispatch()`
+    6. Combine Redux `dispatch()` calls
     <pre class="large"><code class="lang-javascript">export const markUnread = (id) => ({
   type: 'MARK_UNREAD',
   payload: {id, color: 'blue'},
@@ -1210,7 +1210,7 @@ NOTES:
 array[1] = 'I will mutate you!'
 console.log(array[1]) // 'two'</code></pre>
 
-    8. Use memoized selectors
+    8. Use memoized Redux selectors
     <pre class="large"><code class="lang-javascript">const getVisibleTodos = createSelector(
   [getTodos, getVisibilityFilter],
   (todos, filter) => { ... }
@@ -1234,8 +1234,8 @@ NOTES:
       <li><a href="https://bvaughn.github.io/react-virtualized/" target="_blank">"Windowing" with <code>react-virtualized</code></a></li>
       <li><a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React Performance with React 16...</a></li>
       <li><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank">Optimizing Performance</a></li>
-      <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
       <li><a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained" target="_blank">Optimizing React: Virtual DOM explained</a></li>
+      <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
     </ul>
   
   
@@ -1246,11 +1246,13 @@ NOTES:
 **_[40 minutes]_**
 
 - Lots of resources for you
+- The first one is a library for "windowing"
+  * Only displaying a subset of a list to limit DOM nodes
 - Didn't have time to discuss how to debug performance issues
   * These articles discuss this in details
-  * My favorite one is running Chrome 4x slower to expose issues
-- The first one, though, is a library for "windowing"
-  * Only displaying a subset of a list to limit DOM nodes
+- My favorite one is running Chrome 4x slower to expose issues
+- The 4th is a Egghead lesson from Elijah Manor on using new profiler enabled with React 16.5.0
+  * Brian Vaughn has been doing a lot of work in this area
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1272,9 +1274,11 @@ NOTES:
 </div>
 
 NOTES:
-- I hope you enjoyed our ride in the wayback machine
-  * Hopefully it gives us all appreciation for where we've come from
-  * Next time we wanna complain about the current situation
+- So that's it!
+- Hopefully 1, 2 or all 8 of these suggestions will prove useful to you
+  * But again, do not prematurely optimize
+  * Some suggestions you can just do while building
+  * But most of them make sense to build first, optimize later
 - Ask questions on Twitter, via email or AMA!
 - Wanna thank **conference** and **YOU!**
 - Thanks!
