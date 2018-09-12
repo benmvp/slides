@@ -93,7 +93,7 @@ NOTES:
 </div>
 
 NOTES:
-- FYI - I'm making an assumption that you already now React & Redux
+- FYI - I'm making an assumption that you already know React & Redux
   * Won't be able to spend time teaching concepts
 - However, certain implementations can make things easier to test
   * So we'll probably discuss the actual source code
@@ -113,7 +113,7 @@ NOTES:
 - There are many different ways that people learn
 - I actually learn best with written tutorials because I can go at my own pace and follow links
 - Live workshops like these help me because I can ask questions and hear explanations
-- I'm going to live code building a fake email app and teach React as I go
+- I'm going to live code testing a React/Redux application
 - I will go slowly enough that you can code along with me; some people like to do that
 - But in order to cover what we need to cover, I'm going to move w/ pace so it _may_ be hard to type & grasp
 - Won't be able to stop and debug
@@ -171,7 +171,7 @@ NOTES:
 
 /////
 
-# Questions?
+# Questions
 
 NOTES:
 - What questions so far?
@@ -199,7 +199,7 @@ NOTES:
 
 /////
 
-# Final Questions?
+# Final Questions
 
 NOTES:
 - What questions can I answer about anything?
