@@ -766,7 +766,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <pre class="large"><code class="lang-javascript">const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
-const setColor = (color) => {{type: 'SET_COLOR', payload: color})
+const setColor = (color) => ({type: 'SET_COLOR', payload: color})
 
 export const markUnread = (id) => (
   (dispatch) => {
