@@ -54,17 +54,6 @@
   transition: opacity ease-in-out 1s;
   z-index: 11;
 
-  background: #ddd; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.6),
-    rgba(221, 221, 221, 0.6)
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.6),
-    rgba(221, 221, 221, 0.6)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 0.25em;
   padding: 0.15em;
 }
@@ -88,6 +77,12 @@
   50% {
     opacity: 0.5;
   }
+}
+
+.reveal .content-overlay {
+  border-radius: 0.75em;
+  padding: 1em;
+  position: relative;
 }
 
 .reveal .code-highlight {
