@@ -1,8 +1,20 @@
 <!-- .slide: data-background="url(../../img/react-perf/react-alicante-title-slide.jpg) no-repeat center" data-background-size="cover" -->
 
+
+NOTES:
+- Buenas tardes React Alicante!
+- Excited to be here
+  * Saw some videos from last year's conference
+  * Really wanted to make it out this year
+- Excited to be in Spain; it's my first time!
+
 /////
 
 <!-- .slide: data-background="url(../../img/react-perf/react-alicante-sponsor-slide.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- Had a fun React/Redux testing workshop yesterday
+- But talking about something totally different now
 
 /////
 
@@ -30,18 +42,11 @@
 </div>
 
 NOTES:
-- Buenas tardes!
-- Excited to be here at React Alicante
-- Excited to be in Spain; it's my first time!
-- Had a fun React/Redux testing workshop yesterday
-- But talking about something totally different now
-
-
 - Was speaking at Chain React in Portland, Oregon last year
 - Spoke about React Native + ES.next
 - But an attendee came up to me asking me to help diagnose a slow app
 - Then 2 days later, Trey Huffine talked about React performance at SF React meetup
-- Those plus experience reviewing code were the motivation for this talk
+- Those plus experience reviewing code at Eventbrite were the genesis for this talk
 
 /////
 <!-- .slide: data-background="url(../../img/react/react-logo.png) no-repeat center" data-background-size="cover" -->
@@ -94,11 +99,17 @@ NOTES:
 ![Ticketea logo](../../img/eventbrite/ticketea-by-eventbrite-white.svg)
 <!-- .element: class="plain fragment" style="width: 60%" -->
 
-NOTES: 
+NOTES:
+- I work for Eventbrite
+- Wanted to brag that Eventbrite is sponsoring the Wi-Fi
+  * But it's not that good
+  * So I don't wanna really take credit for it
+  * But we did sponsor lunch which was tasty
+- **ONE:** We recently added Ticketea to the family
+  * Have a number of folks from both offices here
 - I'm a Principal Frontend Engineer at Eventbrite
 - Work on our Frontend Platform team
   * Doing FE infra + design system work
-- **ONE:** Recently added Ticketea to the family
 
 =====
 <!-- .slide: data-background="url(../../img/react-perf/jeremy-bishop-136488-unsplash-turtle-on-beach.jpg) no-repeat center" data-background-size="cover" -->
@@ -109,12 +120,12 @@ NOTES:
 - Enough about me, let's talk about React performance
 - Broken it down into 3 main sections of things to avoid
 - Ordered by most hurtful to least
-- And I'll try to provide alternatives to make your apps faster
+- And I'll try to provide fixes/alternatives to make your apps faster
 
 =====
 <!-- .slide: data-background="#222" -->
 
-# Avoiding unnecessary DOM updates
+# Avoid unnecessary DOM updates
 <!-- .element: class="statement" -->
 
 NOTES:
@@ -148,8 +159,8 @@ NOTES:
 
 NOTES:
 - Here's very simple example of a list
-- And as we add something to the beginning of the list
-- All of the elements are getting updated
+- And as we add something to the beginning of the list in UI
+- Elements panel shows that all of the elements are getting updated
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
@@ -173,9 +184,9 @@ NOTES:
 
 NOTES:
 - This is because it's using "index as key"
-- React uses `key` to associate items between render
+- React uses `key` to associate items across successive renders
 - When we add a new item to the list, what was previously index 0 is now index 1
-- And since new 1 is different than old 1, it updates the DOM
+- And since new 0 is different than old 0, it updates the DOM
 - And continues down the list
 - It ends up adding a new element **at the end**
 
@@ -197,6 +208,14 @@ NOTES:
     <div class="code-highlight" style="height: 70px; top: 190px;"></div>
   </div>
 </div>
+
+NOTES:
+- The fix is to use a unique value as the `key`
+- This way the `key` remains constant for the same piece of content
+- Usually have some sort of unique identifier
+  * ID from the API
+  * timestamp
+  * Can concatenate to create unique value
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/george-brynzan-720804-unsplash-race-car.jpg) no-repeat center" data-background-size="cover" -->
@@ -227,6 +246,7 @@ NOTES:
 **_[11 minutes]_**
 
 - Impact of HOCs in `render()`
+- Short for "higher-order components"
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/jonathan-chng-751342-unsplash-track-and-field.jpg) no-repeat center" data-background-size="cover" -->
@@ -250,10 +270,14 @@ NOTES:
 </div>
 
 NOTES:
-- Let's say we had this made up HOC called `withTitle`
-- It will enhance the component passed to it to take a `label` prop
+- HOCs are a way to share UI logic across components
+  * You wrap your component in an HOC and it provides the shared functionality
+  * It "enhances" it
+  * There are other ways to accomplish this, but this is a popular way
+- Let's say we had this HOC called `withTitle`
+- It will enhance the component passed to it to accept a `label` prop
   * Wrap the component in a `<div>`
-  * Include a `<label>`
+  * Include `label` prop in a `<label>` tag
 - What it does doesn't matter, but how it is used does...
 
 /////
@@ -285,12 +309,17 @@ NOTES:
 
 NOTES:
 - Initial thought may be to create the HOC w/in `render()`
+  * This will work just fine
 - But this has big consequences!
-- It's creating a new component time every time `Emails` is re-rendered
+- It's creating a new component type every time `Emails` is re-rendered
   * Even though the have the same name
-- As a result, the previous `<ListWithTitle />` keeps completely unmounted
+- The result
+  * On each render, the previous `<ListWithTitle />` is different than the new
+  * So the previous one gets completely unmounted
   * And the new one is mounted
 - Even worse than index-as-key because the whole UI gets blown away and recreated
+  * May not notice in a small app
+  * But will become painfully obvious in a large one
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/jonathan-chng-751342-unsplash-track-and-field.jpg) no-repeat center" data-background-size="cover" -->
@@ -320,26 +349,30 @@ class Emails extends React.Component {
 </div>
 
 NOTES:
-- Instead define the HOC **outside** of render
+- The fix is simple
+- Instead, define the HOC **outside** of render
 - There'll only be a single definition of the enhanced component
 - Re-renders of `Emails` will work as normal with reconciliation
 
 =====
 <!-- .slide: data-background="#222" -->
 
-# Avoiding unnecessary reconciliation
+# Avoid unnecessary reconciliation
 <!-- .element: class="statement" -->
 
 NOTES:
 **_[14 minutes]_**
 
-- Reconciliation is React going down the component hierarchy calling `render()` and seeing if any rendered DOM has changed
-- Even if nothing in the DOM changes, the reconciliation calculation itself can be costly for large apps
-- So after we avoid actually updating the DOM unnecessarily
+- Reconciliation is React going down the entire component hierarchy calling `render()`
+  * All to see if any rendered DOM has changed
+- Even if nothing in the DOM changes
+  * The reconciliation calculation itself can be costly for large apps
+- So after we avoid updating the DOM unnecessarily
   * Work on avoiding unnecessary reconciliation
-  * These are all super-micro optimizations
+  * Now, these are all micro optimizations
   * Don't have to do anything of them
-  * But some of them are easy to implement if you're thinking ahead
+  * But doing them can have positive impacts
+  * AND some of them are easy to implement if you think ahead
 
 =====
 <!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
@@ -376,9 +409,10 @@ NOTES:
 
 NOTES:
 - `shouldComponentUpdate()` allows finer control over reconciliation
-- By default it returns `true` which is what `React.Component` does
+- The default for `React.Component` is to always return `true`
 - And that means reconciliation will happen every time
   * even if the props/state are the exactly the same
+  * reconciliation can be so fast that we don't even notice
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
@@ -404,13 +438,13 @@ NOTES:
 
 NOTES:
 - However, if you know that in some situations your component doesn’t need to update
-  * you can return `false` to skip `render()`
-- In this case we'll `render()` if:
-  * next `props` doesn't shallow equal previous props **OR**
-  * next `state` doesn't shallow equal previous state
+  * you can return `false` as a hint to skip calling `render()`
+- In this example we'll `render()` if:
+  * next `props` doesn't shallow-equal previous `props` **OR**
+  * next `state` doesn't shallow-equal previous `state`
   * Basically when anything changes
 - This works as long as you don't mutate objects in `props` or `state`
-  * Because the only way to change the data is to create a new version
+  * Instead when you want to change data, you make a copy first
   * And that won't shallow equal
 
 /////
@@ -435,6 +469,8 @@ NOTES:
 NOTES:
 - But there's really no reason to write that
   * Because that's exactly what `React.PureComponent` does!
+- If you're mutating your data in a "pure" way
+  * You can use `PureComponent`
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/gentrit-sylejmani-723365-unsplash-butterfly-stroke.jpg) no-repeat center" data-background-size="cover" -->
@@ -471,7 +507,9 @@ NOTES:
 **_[19 minutes]_**
 
 - Speaking of shallow comparison...
-- Impact of negating shallow compare
+- Impact of accidentally negating shallow compare
+- You may be thinking: I'll just make everything `PureComponent` to make my app faster!
+  * Some things to consider
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
@@ -495,10 +533,11 @@ NOTES:
 </div>
 
 NOTES:
-- Creating array literals & object literals with every render is cheap
+- Creating array & object literals with every render is cheap
 - But if `DataTable` is `PureComponent`...
-  * `props.pageSizes` doesn't shallow compare to `nextProps.pageSizes`
+  * `props.pageSizes` won't shallow compare to `nextProps.pageSizes`
   * Even though they do have the same values (deep comparison)
+- Reconciliation happens even though it didn't need to
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
@@ -526,10 +565,10 @@ class Page extends React.Component {
 
 
 NOTES:
-- Instead put those literals in a `const` outside the class
+- Instead put those literals in a `const` variables outside the class
 - That way for every render of `Page`
-  * passing the same values for `pageSizes` & `footerInfo`
-- Now `props.footerInfo` does shallow compare to `nextProps.footerInfo`
+  * It's passing the same values for `pageSizes` & `footerInfo`
+- Now `props.pageSizes` *does* shallow compare to `nextProps.pageSizes`
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
@@ -557,16 +596,16 @@ NOTES:
 
 
 NOTES:
-- Arrow functions or calling `.bind()` also undoes shallow comparison
+- Inline arrow functions or calling `.bind()` also undo shallow comparison
   * They create a new function on each `render()`
   * This is so that when the function is called it has the right `this` scope
-  * Which will not match the previous value too
-- People say that creating these functions every `render()` is poor-performing
+  * But `props.onDelete` won't shallow compare to `nextProps.onDelete`
+- People say that creating these functions every `render()` is the poor-performing part
   * I think the bigger issue is undoing `PureComponent`
   * Because now the code is...
   * doing the shallow comparison (fails)
-  * doing the reconciliation (nothing changes)
-  * all unnecessary
+  * and doing the reconciliation (nothing changes)
+  * which is unnecessary
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
@@ -602,9 +641,11 @@ NOTES:
 - There are two ways to do this
 - **ONE:** Override the method with a bound function property in the `constructor`
   * Not a fan
+  * Very prevalent in early days of React w/ ES6 classes
 - **TWO:** Using Stage 3 future JavaScript define a bound arrow function property
 - In either case, the function we pass to the handlers will have the correct `this`
   * And we only had to bind one time
+  * So `props.onDelete` _will_ shallow compare to `nextProps.onDelete`
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/emma-paillex-543169-unsplash-skiing-downhill.jpg) no-repeat center" data-background-size="cover" -->
@@ -632,10 +673,10 @@ NOTES:
 NOTES:
 - Derived arrays/objects in `render()` inherently are new each `render()`
 - Here we're filtering the `items` in `props` by the `query` in `state`
-- There's no simple fix for this
-  * Just know that even if `List` was a `PureComponent`
-  * And items had the same values
-  * It would still `render()` every time because they don't shallow compare
+  * Even if `newItems` is the same because `items` & `query` haven't changed
+  * `props.newItems` won't shallow compare to `nextProps.newItems`
+  * No simple fix
+  * Can do some caching of data
 - _May_ be considering making `List` do a *deep*-comparison instead of shallow
   * That would work, and prevent reconciliation
   * But it's likely that the deep comparison would take longer than reconciliation itself
@@ -679,18 +720,20 @@ NOTES:
   )
 )</code></pre>
     <p>Huge component renders cannot halt reconciliation</p>
+
+    <div class="code-highlight" style="height: 70px; top: 372px;"></div>
   </div>
 </div>
 
 NOTES:
 - Let's say you have a big component with hundreds of lines in `render()`
   * This is already bad for readability, but let's go with it 😄
-- If the `<SearchQuery />` triggers a change which updates `this.state.query`
+- If the `<SearchForm />` triggers a change which updates `state`
   * All of `render()` will happen
   * We'll render the hundreds of lines of markup
-- Reconciliation will of course figure out nothing has changed and not touched DOM
-  * But it's unnecessary reconciliation
-- There are no component boundaries to even have a `PureComponent`
+- Of course reconciliation will figure out nothing has changed and not touch DOM
+  * But it's a whole bunch of unnecessary reconciliation
+- There are no component boundaries to even have a `PureComponent` do shallow compare
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/markus-spiske-544020-unsplash-cyclists.jpg) no-repeat center" data-background-size="cover" -->
@@ -720,8 +763,9 @@ class Page extends React.Component {
 </div>
 
 NOTES:
-- By componentizing the markup, create component boundaries
-  * The can implement `PureComponent` to stop reconciliation when props don't change
+- By componentizing the markup, we create component boundaries
+  * They can implement `PureComponent` to stop reconciliation when props don't change
+  * So now `<Nav />`, `<DataTable />` & `<Pagination />` can avoid reconciliation if props don't change
 - Also just makes sense to break things up logically
 - And you can even put the helper components in the same file so things aren't spread out
 
@@ -737,8 +781,8 @@ NOTES:
 NOTES:
 **_[26 minutes]_**
 
-- Impact of multiple `dispatch()` calls
 - Leaving the React world
+- Impact of multiple Redux `dispatch()` calls
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
@@ -756,17 +800,21 @@ NOTES:
 
 
 NOTES:
+- But first let's take a quick look at `setState()`
 - Because `setState()` is asynchronous calling it multiple times sequentially is ok
-  * The state will actually only get updated once
+  * The state will only get updated once
   * `render()` will only be called once
+  * Because React will merge the objects together into one state mutation
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <pre class="large"><code class="lang-javascript">const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
-const setColor = (color) => ({type: 'SET_COLOR', payload: color})
+    <pre class="large"><code class="lang-javascript">export const setSelected = (id) => 
+  ({type: 'SET_SELECTED', payload: id})
+export const setColor = (color) => 
+  ({type: 'SET_COLOR', payload: color})
 
 export const markUnread = (id) => (
   (dispatch) => {
@@ -782,10 +830,12 @@ export const markUnread = (id) => (
 
 NOTES:
 - However this isn't the case with multiple Redux `dispatch()` calls
-- Let's say you're using `redux-thunk` and you have an action
+- Let's say you're using `redux-thunk` and you have an async action
   * Needs to update two parts of your Redux store
   * Maybe already have existing separate actions that do this
-  * So you may make two `dispatch()` calls
+  * You have existing `setSelected` & `setColor` actions called directly
+  * So you may make two successive `dispatch()` calls to reuse them
+  * One for `SET_SELECTED` the next for `SET_COLOR`
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
@@ -811,21 +861,26 @@ const color = (state = null, action) => {
 </div>
 
 NOTES:
-- Two actions for the two reducers responsible for that state
-- The problem is that you'll cause two `render()` for every "connected" component!
+- You have two actions for the two reducers responsible for that state
+  * `selectedId` & `color`
+- The problem is that you'll cause two `render()` calls for **every** "connected" component!
 - The first one generates new state with `selectedId` updated
+  * And causes `render()` to be called
 - The next generates new state with `color` updated
-  * The first one is wasted because eye will never see it
-  * But will cause sluggishness
-- If you connect at the top level app, the whole app renders doubly!
+  * And `render()` is called again
+- First `render()` is wasted because the eye will never see the UI
+  * But you'll be ale to feel the sluggishness
+- If you `connect()` at the top level app, the whole app renders doubly!
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <pre class="large"><code class="lang-javascript">const setSelected = (id) => ({type: 'SET_SELECTED', payload: id})
-const setColor = (color) => ({type: 'SET_COLOR', payload: color})
+    <pre class="large"><code class="lang-javascript">export const setSelected = (id) => 
+  ({type: 'SET_SELECTED', payload: id})
+export const setColor = (color) => 
+  ({type: 'SET_COLOR', payload: color})
 
 export const markUnread = (id) => ({
   type: 'MARK_UNREAD',
@@ -838,8 +893,8 @@ export const markUnread = (id) => ({
 
 
 NOTES:
-- Instead have a single action that passes all the data needed
-- `MARK_UNREAD` action combines `payload` for `SET_SELECTED` & `SET_COLOR`
+- Instead have a single action that passes all the data needed for the reducers
+- `MARK_UNREAD` action combines `payload` for both `SET_SELECTED` & `SET_COLOR`
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/san-fermin-pamplona-navarra-768233-unsplash-running-of-the-bulls.jpg) no-repeat center" data-background-size="cover" -->
@@ -868,25 +923,29 @@ const color = (state = null, action) => {
 NOTES:
 - The two reducers can listen to the single action
   * pull off the necessary data from the `payload`
-- Only updating the state tree once
+- This only updates the state tree once
   * Both pieces of state get updated at the same time
-- Only one re-render happens
+- Only one re-`render()` happens
 
 =====
 <!-- .slide: data-background="#222" -->
 
-# Avoiding unnecessary calculations
+# Avoid unnecessary calculations
 <!-- .element: class="statement" -->
 
 NOTES:
 **_[31 minutes]_**
 
+- Talked about **Avoiding DOM updates** & **Avoiding Reconciliation**
+- Now let's avoid unnecessary calculations or JavaScript
 - At this point, getting to just normal JavaScript code
 - Probably won't matter unless you're building a DNA design tool, a rich-text editor, full-feature spreadsheet app, etc
-- These calculations could be the code to determine whether or not to prevent reconciliation
+  * Has crazy data requirements
+- 1/ These calculations could the code to determine whether or not to prevent reconciliation
   * If you have really complex calculations to prevent reconciliation
   * It’s probably better to just let reconciliation happen
-- Could also be code to calculate new state
+- 2/ Could also be code to calculate new state after user interactions
+  * That's what I wanna focus on
 
 =====
 <!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
@@ -900,7 +959,8 @@ NOTES:
 NOTES:
 **_[32 minutes]_**
 
-- Impact of copying objects/arrays
+- Impact of copying objects/arrays to avoid mutations
+  * Keep things "pure"
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
@@ -931,24 +991,25 @@ NOTES:
 </div>
 
 NOTES:
-- Even if you optimize the DOM with "windowing"
-- Copying the underlying large array or object data can be expsensive
+- Copying a large array or object can be expensive
   * We copy instead of mutating objects in order to keep things immutable
   * This is how `PureComponent` is able to work 
   * If data changes it's a new object
   * But it comes at a cost
+- Here's a reducer for a dummy email app I use in my workshops
 - **ONE:** To delete an email we use `.filter()`
-  * Keep email as long as it does **not** match ID of payload
+  * Pretty cool algorithm
+  * Keep an email as long as it does **not** match ID of payload
   * As we learned earlier this makes a brand new shallow copy of array
   * If the array is huge, this takes time
-- **TWO:** To add an email to the beginning use spread operator
-  * This also makes a copy adding new to the beginning
+- **TWO:** To add an email to the beginning of an array use spread operator
+  * This also makes a copy and then adds new one to the beginning
   * Again if array is huge, this takes time
 - **THREE** to update an email we use `.map()`
   * This also makes a copy
-  * But for the matching email we use spread operator for objects
+  * But for the updating email we use spread operator for objects
   * This makes a copy of the object as well to add in new data
-  * If email has a lot of data or array is huge, takes time
+  * If email has a lot of data or emails list is huge, takes time
 
 /////
 <!-- .slide: data-background="url(../../img/react-perf/gene-devine-430971-unsplash-horse-racing.jpg) no-repeat center" data-background-size="cover" -->
@@ -972,10 +1033,10 @@ NOTES:
 
 
 NOTES:
-- Again, copying arrays and objects usually isn't a big deal
+- To reemphasize, copying arrays and objects usually isn't a big deal
 - But for large amounts of data it can be expensive
 - So you can leverage some immutable data structures
-  * Make maintaining immutability more efficient
+  * To make maintaining immutability more efficient
 - You can use a library like `Immutable` or `seamless-immutable` to have true immutable objects
 - `Immutable` is the big player, yet another library from Facebook
   * Only used it a bit
@@ -1007,7 +1068,7 @@ console.log(JSON.stringify(array))
 NOTES:
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
   * They work just like Arrays or Objects except they don't mutate and have extra functionality
-  * A lot lighter than Immutable
+  * A lot lighter than `Immutable`
 - Can pass to libraries like `lodash` or `underscore`
 
 =====
@@ -1049,13 +1110,16 @@ export default connect(mapStateToProps)(TodoList)</code></pre>
 
 NOTES:
 - **ONE:** Here's a traditional `connect()` from `react-redux`
+  * `connect()` subscribes to changes in Redux stores
+  * Causes the connected component to re-render w/ new props
 - **TWO:** It's got a `mapStateToProps` which calls `getVisibleTodos`
-  * Derives a visible set of todos based on the full list and a filter
+  * Derives a visible list of todos based on the full list and a filter
 - This is works great, but one thing to know is that this gets called **anytime** the state tree updates
   * So even if some other piece of state updates, this code will get called
+  * Generate the same derived data since the list & filter wouldn't have changed
   * The bigger the state tree, the more likely this will get unnecessarily called
 - **THREE:** Futhermore, if the calculation of `getVisibleTodos` is expensive
-  * Because we're copying arrays like we just talked about
+  * Because we're copying arrays like we just talked about in Section 7
   * We're making unnecessary + expensive calls
 - And to make matters _even_ worse
   * Because we're copying, shallow compare will fail even though the data's the same
@@ -1097,17 +1161,17 @@ NOTES:
   * Cache the results,
   * If the inputs don't change, nothing is recalculated
 - **ONE:** Use a function from `reselect` called `createSelector` to create memoized selector
-- **TWO:** It takes an array of "input-selectors" as first param
+- **TWO:** It takes an array of "input-selectors" as first parameter
 - **THREE:** `getTodos` & `getVisibilityFilter`
   * They are simple functions that retrieve properties off of `state`
-- **FOUR:** Then the second parameter is the transformation function that generates derived data
-- **FIVE:** And `getVisibleTodos` is called passing in `state`
+- **FOUR:** Then the second parameter of `createSelector` is the transformation function that generates derived data
+- **FIVE:** And `getVisibleTodos` is called passing in entire `state`
   * Will return the derived visible todos
   * But will be cached if calculated before
 - Benefit of the cache is:
-  - Save on unnecessary calculation
-  - Save on unnecessary data copying
-  - Save on unnecessary reconciliation cuz object is the same
+  - 1/ Save on unnecessary calculation
+  - 2/ Save on unnecessary data copying
+  - 3/ Save on unnecessary reconciliation because object will be the same
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1125,6 +1189,7 @@ NOTES:
 - But don't prematurely optimize!
 - React is already super fast
 - Go and build things!!!
+- Quick tl;dr in case you missed anything
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1147,6 +1212,11 @@ class Emails extends React.Component { ... }</code></pre>
 </div>
 
 NOTES:
+- 1/ Use unique value as `key`
+  * For smarter DOM updates
+- 2/ Create HOCs outside of `render()`
+  * To prevent unnecessary unmounting/remounting
+- 3/ Use `PureComponent` for shallow compare
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1171,7 +1241,10 @@ class Page extends React.Component {
 </div>
 
 NOTES:
-- Avoid undoing shallow compare by storing object constants outside and pre-binding functions
+- 4/ Avoid undoing shallow compare by...
+ * 1/ storing object constants outside
+ * 2/ pre-binding functions
+- All so values remain constant across renders
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1196,8 +1269,10 @@ NOTES:
 </div>
 
 NOTES:
-- Break up component markup into helper components so that reconciliation can be prematurely halted
-- Combine multiple `dispatch()` calls into one to prevent multiple state updates
+- 5/ Break up component markup into helper components
+ * so that reconciliation can be prematurely halted
+- 6/ Combine multiple `dispatch()` calls into one
+ * To prevent multiple state updates
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1219,8 +1294,10 @@ console.log(array[1]) // 'two'</code></pre>
 </div>
 
 NOTES:
-- Immutable data structures will reduce the copying of data structures
-- Using memoized selectors will help reduce unnecessary recomputation of derived data
+- 7/ Use Immutable data structures 
+  * To reduce the copying of data structures
+- 8/ Usie memoized selectors
+  * To help reduce unnecessary recomputation of derived data
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1241,6 +1318,10 @@ NOTES:
 
   </div>
 </div>
+
+NOTES:
+- tl;dr of the tl;dr
+- All in one nice place for ya
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1268,7 +1349,7 @@ NOTES:
 - The first one is a library for "windowing"
   * Only displaying a subset of a list to limit DOM nodes
 - Didn't have time to discuss how to debug performance issues
-  * These articles discuss this in details
+  * These articles discuss this in detail
 - My favorite one is running Chrome 4x slower to expose issues
 
 /////
@@ -1290,7 +1371,7 @@ NOTES:
 NOTES:
 - Elijah Manor has an Egghead lesson on using the new profiler enabled with React 16.5.0
   * Can generate flame charts
-  * Brian Vaughn has been doing a lot of work in this area
+  * Brian Vaughn did a lot of the work to enable this
   * This just landed last week!
 
 =====
@@ -1318,6 +1399,21 @@ NOTES:
   * But again, do not prematurely optimize
   * Some suggestions you can just do while building
   * But most of them make sense to build first, optimize later
-- Ask questions on Twitter, via email or AMA!
-- Wanna thank **conference** and **YOU!**
+
+
+- If you wanna reach out
+  * `benmvp` on all of the networks
+- **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
+  * Also putting on a conference is a lot of hard work
+  * Talks have been great so far
+  * Join me in celebrating Victoria, Nacho & the rest of the team!
+- **Eventbrite:** Allowing me all the way out here
+  * Supportive of my speaking
+  * But also wanting to invest in the local Alicante region
+  * It's a growing hub of tech and we wanna be a part of it
+- **YOU!** For attending the conference
+  * Last year there were about 200
+  * This year there's 350+!
+  * I go through the stress of preparing and delivering so you can learn
+  * So even if you only learned one little thing it was worth it
 - Thanks!
