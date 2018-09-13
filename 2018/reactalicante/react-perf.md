@@ -1222,6 +1222,26 @@ NOTES:
 - Immutable data structures will reduce the copying of data structures
 - Using memoized selectors will help reduce unnecessary recomputation of derived data
 
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 50%">
+    <h2>tl;dr</h2>
+    <ol>
+      <li>Use unique value as `key`</li>
+      <li>Create HOCs outside of `render()`</li>
+      <li>Use `PureComponent` for shallow compare</li>
+      <li>Avoid undoing shallow compare</li>
+      <li>Break up component markup</li>
+      <li>Combine Redux `dispatch()` calls</li>
+      <li>Use immutable data structures</li>
+      <li>Use memoized Redux selectors</li>
+    </ol>
+
+  </div>
+</div>
+
 =====
 <!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
@@ -1238,7 +1258,6 @@ NOTES:
       <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
     </ul>
   
-  
   </div>
 </div>
 
@@ -1251,8 +1270,28 @@ NOTES:
 - Didn't have time to discuss how to debug performance issues
   * These articles discuss this in details
 - My favorite one is running Chrome 4x slower to expose issues
-- The 4th is a Egghead lesson from Elijah Manor on using new profiler enabled with React 16.5.0
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/anna-demianenko-12400-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
+
+<div style="display: flex; align-items:center; justify-content: flex-start">
+	<div class="content-overlay">
+    <video data-autoplay loop style="width: 100%">
+      <source data-src="../../img/react-perf/elijah-manor-using-new-profiler.mp4" />
+    </video>
+
+    <p>
+      <a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use the New Profiler in React Developer Tools</a><br />
+      by <a href="https://twitter.com/elijahmanor/status/1038057481057050624" target="_blank">Elijah Manor</a>
+    </p>
+  </div>
+</div>
+
+NOTES:
+- Elijah Manor has an Egghead lesson on using the new profiler enabled with React 16.5.0
+  * Can generate flame charts
   * Brian Vaughn has been doing a lot of work in this area
+  * This just landed last week!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
