@@ -8,13 +8,21 @@ NOTES:
   * Really wanted to make it out this year
 - Excited to be in Spain; it's my first time!
 
+
+- Had a fun React/Redux testing workshop yesterday
+- But talking about something totally different now
+
 /////
 
 <!-- .slide: data-background="url(../../img/react-perf/react-alicante-sponsor-slide.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- Had a fun React/Redux testing workshop yesterday
-- But talking about something totally different now
+- Shout-out to the sponsors making the conference possible
+- Wanna call out Eventbrite specifically
+- We sponsored the lunch which was yummy paella
+- Wanted to brag that we sponsored the Wi-Fi too
+  * But it's not that good
+  * So I don't wanna really take credit for it
 
 /////
 
@@ -43,10 +51,14 @@ NOTES:
 
 NOTES:
 - Was speaking at Chain React in Portland, Oregon last year
+  * With Gant (who talked about Testing before lunch)
 - Spoke about React Native + ES.next
-- But an attendee came up to me asking me to help diagnose a slow app
+  * Got plenty of questions about it
+- But one attendee came up to me asking me to help diagnose a slow app
 - Then 2 days later, Trey Huffine talked about React performance at SF React meetup
 - Those plus experience reviewing code at Eventbrite were the genesis for this talk
+
+- BTW, slides are available online
 
 /////
 <!-- .slide: data-background="url(../../img/react/react-logo.png) no-repeat center" data-background-size="cover" -->
@@ -101,13 +113,11 @@ NOTES:
 
 NOTES:
 - I work for Eventbrite
-- Wanted to brag that Eventbrite is sponsoring the Wi-Fi
-  * But it's not that good
-  * So I don't wanna really take credit for it
-  * But we did sponsor lunch which was tasty
 - **ONE:** We recently added Ticketea to the family
+  * Offices in Madrid & Villena
   * Have a number of folks from both offices here
-- I'm a Principal Frontend Engineer at Eventbrite
+  * If you're interested, stop by the booth or find EB shirts
+- I'm a Principal Frontend Engineer in our San Francisco office
 - Work on our Frontend Platform team
   * Doing FE infra + design system work
 
@@ -273,7 +283,9 @@ NOTES:
 - HOCs are a way to share UI logic across components
   * You wrap your component in an HOC and it provides the shared functionality
   * It "enhances" it
-  * There are other ways to accomplish this, but this is a popular way
+  * There are other ways to accomplish this
+  * **Forbes** will talk about one way tomorrow in his talk on render props
+  * But this is a really popular way
 - Let's say we had this HOC called `withTitle`
 - It will enhance the component passed to it to accept a `label` prop
   * Wrap the component in a `<div>`
@@ -1333,10 +1345,10 @@ NOTES:
 
     <ul style="margin-top: 1em">
       <li><a href="https://bvaughn.github.io/react-virtualized/" target="_blank">"Windowing" with <code>react-virtualized</code></a></li>
+      <li><a href="https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html" target="_blank">Introducing the React Profiler</a></li>
       <li><a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad" target="_blank">Debugging React Performance with React 16...</a></li>
       <li><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank">Optimizing Performance</a></li>
       <li><a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained" target="_blank">Optimizing React: Virtual DOM explained</a></li>
-      <li><a href="https://egghead.io/lessons/react-use-the-new-profiler-in-react-developer-tools-to-generate-flame-charts-and-interactions" target="_blank">Use New Profiler in React Dev Tools</a> 📺</li>
     </ul>
   
   </div>
@@ -1401,15 +1413,16 @@ NOTES:
   * But most of them make sense to build first, optimize later
 
 
-- If you wanna reach out
+- Would love to hear if you're able to see improvements with these
   * `benmvp` on all of the networks
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
   * Also putting on a conference is a lot of hard work
   * Talks have been great so far
   * Join me in celebrating Victoria, Nacho & the rest of the team!
-- **Eventbrite:** Allowing me all the way out here
+- **Eventbrite:** Allowing me to come all the way out here
   * Supportive of my speaking
-  * But also wanting to invest in the local Alicante region
+  * But also sponsoring the conference
+  * We want to invest in the local Alicante region
   * It's a growing hub of tech and we wanna be a part of it
 - **YOU!** For attending the conference
   * Last year there were about 200
