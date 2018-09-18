@@ -1320,24 +1320,30 @@ NOTES:
 </div>
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-# Uranus: App Data Management
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>8. App Data Management</h1>
+  </div>
+</div>
 
 NOTES:
+- **Next planet:** Uranus
 - We're starting to get further out from the center
-- Gonna call it Uranus, but as we'll see learning these libraries can be a pain in the Uranus
 - Up until this point, we've been using React to store application data
 - Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Flux Design pattern
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 75%">
+    <h2>Flux Design pattern</h2>
 
-![Flux Diagram](../../img/nav-react/flux-diagram.png)
-<!-- .element style="width:90%" -->
+    <img src="../../img/nav-react/flux-diagram.png" alt="Flux Design Pattern Diagram" />
+  </div>
+</div>
 
 NOTES:
 - Enter the Flux design pattern
@@ -1346,48 +1352,31 @@ NOTES:
 - And if you're like me, it didn't make sense the second time either
 - I think I had to see it at least 3 or four times until I really got it
 - And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
-- That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Flux at the same time
+- That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Redux at the same time
 - The Flux pattern is basically about making application state mutations predictable
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Flux Implementations
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Flux Implementations</h2>
+    <p>Make application state mutations predictable</p>
 
-Make application state mutations predictable
-
-<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 18%;">
-        <a href="http://facebook.github.io/flux/"><img
-            src="../../img/nav-react/flux-logo.svg"
-            class="plain"
-        /></a>
-		<a href="http://facebook.github.io/flux/">Flux</a>
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" /></a>
+		    <a href="http://redux.js.org/" target="_blank">Redux</a>
+      </div>
+	    <div style="flex:0 0 45%;">
+        <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" /></a>
+		    <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
+      </div>
     </div>
-	<div style="flex:0 0 18%;">
-        <a href="http://redux.js.org/"><img
-            src="../../img/nav-react/redux-logo.png"
-            class="plain" 
-        /></a>
-		<a href="http://redux.js.org/">Redux</a>
-    </div>
-	<div style="flex:0 0 18%;">
-        <a href="http://mobxjs.github.io/mobx/"><img
-            src="../../img/nav-react/mobx-logo.png"
-            class="plain" 
-        /></a>
-		<a href="http://mobxjs.github.io/mobx/">MobX</a>
-    </div>
-    <div style="flex:0 0 18%;">
-		<a href="https://github.com/reflux/refluxjs">Reflux</a>
-    </div>
-	<div style="flex:0 0 18%;">
-        <a href="http://alt.js.org/"><img
-            src="../../img/nav-react/alt-logo.png"
-            class="plain" 
-        /></a>
-		<a href="http://alt.js.org/">Alt</a>
-    </div>
+  </div>
 </div>
+
+
 
 NOTES:
 - Number of implementations of Flux
@@ -1395,59 +1384,68 @@ NOTES:
 - At Eventbrite we created our own Flux implementation using Backbone (not that great)
 - The Facebook came out with Flux due to demand
 - Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
-- Look we're talking about Redux wayyyy later!
+  * Look we're talking about Redux at Step 8!
+- Redux uses the concept of reducers where you generate new state on actions
+- Mobx uses Observables that subscribe to mutations to state
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Immutability
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Immutability</h2>
+    <p>Provide immutable collections for JavaScript</p>
 
-Provide immutable collections for JavaScript
-
-<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 45%;">
-        <a href="https://facebook.github.io/immutable-js/"><img
-            src="../../img/nav-react/immutable-logo.png"
-            class="plain"
-        /></a>
+    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="https://facebook.github.io/immutable-js/" target="_blank"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
+      </div>
+	    <div style="flex:0 0 45%;">
+        <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
+      </div>
     </div>
-    <div style="flex:0 0 45%;">
-		<a href="https://github.com/rtfeldman/seamless-immutable"><code>seamless-immutable</code></a>
-    </div>
+  </div>
 </div>
+
 
 NOTES:
 - While on the subject of mutating state...
 - By default, JavaScript arrays, objects and other collections are mutable
-- Normally you would just enforce a standard that data cannot be mutated. That's how React works
-- This leads to a lot of defensive copying with the spread operator
-- Making lots of copies can hurt performance
+  * Normally you would just enforce a standard that data cannot be mutated
+  * That's how React works
+  * This leads to a lot of defensive copying with the spread operator
+  * Making lots of copies can hurt performance
 - Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
-- Immutable is the big player, yet another library from Facebook
-- Only used it a bit, but found the API a bit cumbersome and then I was constantly going to and from Immutable objects. Don't _really_ want my React components to have to care, just Redux
+- `Immutable` is the big player, yet another library from Facebook
+  * Only used it a bit
+  * Found the API a bit cumbersome
+  * Constantly going to and from Immutable and native objects
+  * Don't _really_ want my React components to have to care, just Redux
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
 - The work just like Arrays or Objects except they don't mutate and have extra functionality
 - A lot lighter than Immutable
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-## `seamless-immutable`
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>`seamless-immutable`</h2>
+    <pre class="large"><code class="lang-javascript">const array = Immutable(['one', 'two', {count: 3}])
 
-```js
-let array = Immutable(['totally', 'immutable', {hammer: 'no!'}])
+array[1] = 'I will mutate you!'
+console.log(array[1]) // 'two'
 
-array[1] = `I'm going to mutate you!`
-console.log(array[1]) // "immutable"
-
-array[2].hammer = 'hm, surely I can mutate this nested object...'
-console.log(array[2].hammer) // "no!"
+array[2].count = 'Mutate an object mwahaha!!!'
+console.log(array[2].count) // 3
 
 console.log(JSON.stringify(array))
-// '["totally", "immutable", {"hammer":"no!"}]'
-```
-<!-- .element class="large" -->
+// '["one","two",{"count":3}]'</code></pre>
+  </div>
+</div>
 
 NOTES:
-- Looks and acts just like arrays and objects and can pass to libraries like underscore or lodash
+- Can pass to libraries like `lodash` or `underscore`
 
 =====
 
@@ -1498,6 +1496,12 @@ NOTES:
 - It has a JavaScript API
 - In both cases you get only the data you want, nothing more, nothing less
 - Gotta change your traditional REST API to be compatible
+
+/////
+
+NOTES:
+- Don't need much global state management as each component declares its own data dependencies
+- Gatsby uses GraphQL
 
 =====
 
