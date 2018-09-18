@@ -1377,7 +1377,6 @@ NOTES:
 </div>
 
 
-
 NOTES:
 - Number of implementations of Flux
 - Originally there was just the pattern and we're on our own
@@ -1448,193 +1447,246 @@ NOTES:
 - Can pass to libraries like `lodash` or `underscore`
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
 
-# Neptune: API Optimization
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>9. API Optimization</h1>
+  </div>
+</div>
 
 NOTES:
-
+- **Last planet:** Neptune
 - As your app grows larger you may find that you're making lots of Rest API requests
 - A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
 - There are cutting-edge technologies to tackle this problem
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
 
-## API Optimization
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>API Optimization</h2>
+    <p>Retrieve only the data you need</p>
 
-<div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/relay/"><img
-            src="../../img/nav-react/relay-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:100%;"
-        /></a>
-		<a href="https://facebook.github.io/relay/">Relay</a>
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+      <div style="flex:0 0 30%;">
+        <a href="https://facebook.github.io/relay/"><img src="../../img/nav-react/relay-logo.svg" class="plain" style="width:100%;" /></a>
+        <a href="https://facebook.github.io/relay/">Relay</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="http://dev.apollodata.com/"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:100%;margin:2em 0" /></a>
+        <a href="http://dev.apollodata.com/">Apollo</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="http://netflix.github.io/falcor/"><img src="../../img/nav-react/falcor-logo.svg" class="plain" style="width:100%;margin:3em 0" /></a>
+        <a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
+      </div>
     </div>
-	<div style="flex:0 0 30%;">
-        <a href="http://dev.apollodata.com/"><img
-            src="../../img/nav-react/apollo-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:100%;width:100%;margin:4em 0"
-        /></a>
-		<a href="http://dev.apollodata.com/">Apollo</a>
-    </div>
-	<div style="flex:0 0 30%;">
-        <a href="http://netflix.github.io/falcor/"><img
-            src="../../img/nav-react/falcor-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:100%;margin:5.25em 0"
-        /></a>
-		<a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
-    </div>
+  </div>
 </div>
+
 
 NOTES:
 - Facebook & Netflix tackled the same problem with different approaches
 - Facebook came up with GraphQL, a generic query language for APIs
-- Relay is a connection of React to GraphQL
-- Falcor models all backend data as a single Virtual JSON object & clients request a subset of the model on-demand
-- It has a JavaScript API
+- Relay & Apollo are connections of React to GraphQL
+- Falcor models all backend data as a single Virtual JSON object
+  * Clients request a subset of the model on-demand
+  * It has a JavaScript API
 - In both cases you get only the data you want, nothing more, nothing less
 - Gotta change your traditional REST API to be compatible
+  * Can start by putting this in front of REST
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Apollo</h2>
+
+    <pre><code class="lang-javascript">export default graphql(gql\`{
+  feed(type: TOP, limit: 10) {
+    repo {
+      name
+      owner { login }
+    }
+    postedBy { login }
+  }
+}\`)((props) => {
+  const items = props.data.feed.map((item) => {
+    const title = item.repo.owner.login + item.repo.name
+    const subtitle = \`Posted by ${item.postedBy.login}\`
+
+    return (&lt;ListItem title={title} subtitle={subtitle} />)
+  })
+
+  return (&lt;List item={items} />)
+});</code></pre>
+  </div>
+</div>
+
 
 NOTES:
 - Don't need much global state management as each component declares its own data dependencies
 - Gatsby uses GraphQL
 
+/////
+<!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>API Optimization Resources</h2>
+  
+    <ul>
+      <li><a href="https://github.com/bitinn/node-fetch" target="_blank">///Learn to GraphQL///</a></li>
+      <li><a href="https://github.com/apollographql/apollo-client-devtools" target="_blank">Apollo Client Devtools</a></li>
+    </ul>
+  </div>
+</div>
+
 =====
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Review
-
-0. React
-0. JavaScript
-0. Tooling
-0. Styling
-0. Single-Page Apps
-0. Testing
-0. Performance & SEO
-0. App Data Management
-0. API Optimization
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>Quick Recap</h1>
+  </div>
+</div>
 
 NOTES:
-- Excited that there are now only 8 planets.
-- If Pluto was still a planet I would've had to develop a new set of libraries just to make my metaphor work
+- Quick tl;dr in case you missed anything
 
 /////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Facebook Libraries
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 80%">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
+	    <div style="flex:0 0 33%">
+        <p>1. React & JavaScript</p>
+        <a href="https://facebook.github.io/react/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width: 33%" /></a>
+        <a href="/learning-es6-series/" target="_blank"><img src="../../img/es6/es6-logo.png" class="plain" style="width: 30%" /></a>
+      </div>
+      <div style="flex:0 0 33%">
+        <p>2. Tooling</p>
+        <a href="https://github.com/facebook/create-react-app" target="_blank" style="margin-top: 2em;display: block">Create React App</a>
+      </div>
+      <div style="flex:0 0 33%">
+        <p>3. Styling</p>
+        <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/emotion-logo.png" class="plain" style="width: 33%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
+        <p>4. Single-Page Apps</p>
+        <a href="https://github.com/ReactTraining/react-router"><img src="../../img/nav-react/react-router-logo.png" class="plain" style="width: 50%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
+        <p>5. Forms</p>
+        <a href="http://final-form.org/"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 33%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
+        <p>6. Testing</p>
+        <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:30%" /></a>
+        <a href="http://airbnb.io/enzyme/" target="_blank"><img src="../../img/nav-react/enzyme-logo.png" class="plain" style="width: 33%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
+        <p>7. Performance & SEO</p>
+        <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
+        <p>8. App Data Management</p>
+        <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width: 33%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
+        <p>9. API Optimization</p>
+        <a href="http://dev.apollodata.com/"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:50%" /></a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center">
-	<div style="flex:0 0 25%">
-		<a href="https://facebook.github.io/react/"><img
-			src="../../img/react/react-logo.png"
-			class="plain" 
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="https://yarnpkg.com/"><img
-			src="../../img/nav-react/yarn-logo.png"
-			class="plain" 
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="https://flowtype.org/" style="display:block"><img
-			src="../../img/nav-react/flow-logo.png"
-			style="background:none;box-shadow:none;border:none;max-width:100%;"
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="https://facebook.github.io/jest/"><img
-			src="../../img/nav-react/jest-logo.svg"
-			style="background:none;box-shadow:none;border:none;width:40%;"
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="http://redux.js.org/"><img
-			src="../../img/nav-react/redux-logo.png"
-			style="background:none;box-shadow:none;border:none;width:50%"
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="http://facebook.github.io/flux/"><img
-			src="../../img/nav-react/flux-logo.svg"
-			style="background:none;box-shadow:none;border:none;width:50%"
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="http://graphql.org/"><img
-			src="../../img/nav-react/graphql-logo.svg"
-			style="background:none;box-shadow:none;border:none;width:50%;"
-		/></a>
-	</div>
-	<div style="flex:0 0 25%">
-		<a href="https://facebook.github.io/relay/"><img
-			src="../../img/nav-react/relay-logo.svg"
-			style="background:none;box-shadow:none;border:none;width:50%;"
-		/></a>
-	</div>
+NOTES:
+- 1/ Obviously start off with React & ES.next
+- 2/ For tooling using Create React App
+- 3/ For styling trying learning & using Emotion
+- 4/ You'll most likely use React Router
+- 5/ Give React Final Form a try for sophisticated form handling
+- 6/ Use Jest + Enzyme for your unit testing
+- 7/ For SSR rendering look into Next.js
+  * (but use Gatsby for any sort of static site)
+- 8/ Redux for app state management
+- 9/ If you jump into GraphQL take a look at Apollo
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 80%">
+    <h2>Facebook Libraries</h2>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center">
+      <div style="flex:0 0 25%">
+        <a href="https://facebook.github.io/react/"><img src="../../img/react/react-logo.png" class="plain" /></a>
+      </div>
+      <div style="flex:0 0 25%">
+        <a href="https://yarnpkg.com/"><img src="../../img/nav-react/yarn-logo.png" class="plain" /></a>
+      </div>
+      <div style="flex: 0 0 25%">
+        <a href="http://prepack.io/" target="_blank"><img src="../../img/nav-react/prepack-logo.png" class="plain" style="width: 50%" /></a>
+      </div>
+      <div style="flex:0 0 25%">
+        <a href="https://flowtype.org/" style="display:block"><img src="../../img/nav-react/flow-logo.png" class="plain" style="max-width:100%;" /></a>
+      </div>
+      <div style="flex:0 0 25%">
+        <a href="https://facebook.github.io/jest/"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%;" /></a>
+      </div>
+      <div style="flex:0 0 25%">
+        <a href="http://redux.js.org/"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width:50%" /></a>
+      </div>
+      <div style="flex:0 0 25%">
+        <a href="http://graphql.org/"><img src="../../img/nav-react/graphql-logo.svg" class="plain" style="width:50%;" /></a>
+      </div>
+      <div style="flex:0 0 25%">
+        <a href="https://facebook.github.io/relay/"><img src="../../img/nav-react/relay-logo.svg" class="plain" style="width:50%;" /></a>
+      </div>
+    </div>
+  </div>
 </div>
 
 NOTES:
 - So here are ALL the open-source libraries Facebook has put out
-- I think all that's missing is routing (react-router) & bundling (Webpack)
+- I think all that's missing is routing (react-router)
 - Makes me wonder if Facebook is a social networking company or an OSS company
 
 =====
+<!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-![Usain Bolt Thumbs Up](../../img/giphy/usain-bolt-thumbs-up.gif)
-<!-- .element: style="width: 60%" -->
+<div style="display: flex; align-items:center; justify-content: flex-start">
+	<div style="width: 40%" class="content-overlay">
+  
+  <h1>Ben Ilegbodu</h1>
 
-NOTES:
-- So some quick shoutouts before I wrap
+  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="/" target="_blank">benmvp.com</a></p>
+  <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
+  <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
-/////
+  <br />
 
-![Revolution Conference logo](../../img/conf-logos/revolution-conf-logo.png)
-<!-- .element: style="width: 50%; border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-NOTES:
--
-
-/////
-
-![Eventbrite logo](../../img/eventbrite/wordmark-white.png)
-<!-- .element: style="border: 0; background: none; margin: 0; box-shadow: none;" -->
-
-/////
-
-# YOU!
-<!-- .element: style="font-size:12em" -->
+  <p>Ask me anything!<br /><a href="http://www.benmvp.com/ama/" target="_blank">benmvp.com/ama</a></p>
+  
+  </div>
+</div>
 
 NOTES:
-- It's my hope that, the main reason I do this, is so you learn something new to make you a better developer
-- Any feedback would be appreciated!
+- So that's it!
+- Hopefully 1, 2 or all 9 of these suggestions will prove useful to you
+  * You don't need to be overwhelmed and try to learn at once
+  * Get good at one and build on it
 
-=====
-
-![Jack Sparrow Thanks](../../img/giphy/thanks-jack-sparrow.gif)
-<!-- .element: style="width: 75%" -->
-
-# THANKS!     <!-- .element: style="-webkit-text-stroke: white 2px" -->
-
-NOTES:
-
-/////
-
-# Questions?
-
-<br />
-
-## Ben Ilegbodu
-
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github/benmvp](https://github.com/benmvp)
-
-<br />
-
-Ask me anything! [benmvp.com/ama](http://www.benmvp.com/ama/)
-
-NOTES:
-- Slides are available on Twitter and Blog
-- Ask questions on Twitter, via email or AMA!
+- Would love to hear if you're able to see improvements with these
+  * `benmvp` on all of the networks
+- **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
+- **YOU!** For attending the conference
+  * I go through the stress of preparing and delivering so you can learn
+  * So even if you only learned one little thing it was worth it
+- Thanks!
