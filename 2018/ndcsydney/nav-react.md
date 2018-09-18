@@ -83,8 +83,10 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[5 minutes]_
+
 - Ok, enough about me
-- Let's talk about the React Solar Systems
+- Let's talk about the React Solar System
 
 =====
 
@@ -302,6 +304,8 @@ NOTES:
 </div>
 
 NOTES:
+_[11 minutes]_
+
 - **First planet:** Mercury
 - Probably the biggest complaint w/ React isn't React itself
   * But the tooling needed to get setup
@@ -677,6 +681,8 @@ NOTES:
 
 
 NOTES:
+_[21 minutes]_
+
 -**Next planet:** Venus
 - Let's talking about styling because visuals are just as important as interaction
 - There are _at least_ 5 ways to tackle the styling problem
@@ -1015,6 +1021,8 @@ NOTES:
 </div>
 
 NOTES:
+_[32 minutes]_
+
 - **Next planet:** Earth
 - Moving along to libraries needed for Single Page Apps
 
@@ -1123,6 +1131,8 @@ NOTES:
 </div>
 
 NOTES:
+_[36 minutes]_
+
 - **Next planet:** Mars
 - Let's be real, forms are hard
 - And in React, it's no different
@@ -1189,6 +1199,8 @@ NOTES:
 </div>
 
 NOTES:
+_[38 minutes]_
+
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build apps
 - But there's more to cover
@@ -1204,6 +1216,8 @@ NOTES:
 </div>
 
 NOTES:
+_[39 minutes]_
+
 - **Next planet:** Jupiter
 - I hate to put testing so far, but the previous 4 really are more important
 
@@ -1290,6 +1304,8 @@ it('adds CSS class for style primary', () => {
 </div>
 
 NOTES:
+_[42 minutes]_
+
 - **Next planet:** Saturn
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
 - Rendering server-side can help both
@@ -1382,6 +1398,8 @@ NOTES:
 </div>
 
 NOTES:
+_[45 minutes]_
+
 - **Next planet:** Uranus
 - We're starting to get further out from the center
 - Up until this point, we've been using React to store application data
@@ -1509,6 +1527,8 @@ NOTES:
 </div>
 
 NOTES:
+_[50 minutes]_
+
 - **Last planet:** Neptune
 - As your app grows larger you may find that you're making lots of Rest API requests
 - A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
@@ -1608,6 +1628,8 @@ NOTES:
 </div>
 
 NOTES:
+_[53 minutes]_
+
 - Quick tl;dr in case you missed anything
 
 /////
