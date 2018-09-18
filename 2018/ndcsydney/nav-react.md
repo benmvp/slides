@@ -1116,11 +1116,13 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
 
-# Asteroid Belt
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>Asteroid Belt</h1>
+  </div>
+</div>
 
 NOTES:
 - At this point we've hit the asteroid belt
@@ -1129,46 +1131,42 @@ NOTES:
 - Moving into the needs of large-scale apps
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-# Jupiter: Testing
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>5. Testing</h1>
+  </div>
+</div>
 
 NOTES:
-- Now the TDD proponents are prolly shaking their fists at me that this is all the way at Jupiter!
+- I hate to put testing so far, but the previous 4 really are more important
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-## Testing Stacks
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Testing Stacks</h2>
 
-<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 30%;">
-        <a href="https://mochajs.org"><img
-            src="../../img/nav-react/mocha-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:45%;"
-        /></a>
-        <a href="http://chaijs.com/"><img
-            src="../../img/nav-react/chai-logo.png"
-            style="background:none;box-shadow:none;border:none;width:38%;"
-        /></a>
-		<a href="https://mochajs.org">Mocha</a> + <a href="http://chaijs.com/">Chai</a>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
+      <div style="flex:0 0 30%;">
+        <a href="https://mochajs.org"><img src="../../img/nav-react/mocha-logo.svg" class="plain" style="width:45%;" /></a>
+        <a href="http://chaijs.com/"><img src="../../img/nav-react/chai-logo.png" class="plain" style="width:38%;" /></a>
+        <a href="https://mochajs.org">Mocha</a> + <a href="http://chaijs.com/">Chai</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="https://facebook.github.io/jest/"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%" /></a>
+        <a href="https://facebook.github.io/jest/" style="display:block">Jest</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="https://github.com/avajs/ava"><img src="../../img/nav-react/ava-logo.png" class="plain" /></a>
+        <a href="https://github.com/avajs/ava">Ava</a>
+      </div>
     </div>
-	<div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/jest/"><img
-            src="../../img/nav-react/jest-logo.svg"
-            style="background:none;box-shadow:none;border:none;width:40%;"
-        /></a>
-		<a href="https://facebook.github.io/jest/" style="display:block">Jest</a>
-    </div>
-	<div style="flex:0 0 30%;">
-        <a href="https://github.com/avajs/ava"><img
-            src="../../img/nav-react/ava-logo.png"
-            class="plain" 
-        /></a>
-		<a href="https://github.com/avajs/ava">Ava</a>
-    </div>
+  </div>
 </div>
+
 
 NOTES:
 - Much like how there are many options for JS frameworks, there are many for JS testing frameworks
@@ -1179,50 +1177,43 @@ NOTES:
 - There's also Ava that had some buzz around it, but it seems like for React testing it hasn't caught on
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-## Jest + Enzyme
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Jest + Enzyme</h2>
 
-```js
-import {mount} from 'enzyme'
-import toJson from 'enzyme-to-json'
-import Link from './Link'
+    <pre class="large"><code class="lang-javascript">import {mount} from 'enzyme'
+import Button from './Button'
 
-it('renders correctly', () => {
-  let wrapper = mount(
-     <Link page="http://www.facebook.com">Facebook</Link>
+it('adds CSS class for style primary', () => {
+  const component = mount(
+    &lt;Button style="primary">Go&lt;/Button>
   )
+  const container = component.find('button')
 
-  expect(toJson(wrapper)).toMatchSnapshot()
-})
-```
-<!-- .element class="large" style="margin:5% 0" -->
-
-(See: [`enzyme-to-json`](https://github.com/adriantoine/enzyme-to-json))
-
-/////
-
-## Jest Snapshots
-
-```js
-exports[`Link renders correctly 1`] = `
-<a
-  className="normal"
-  href="http://www.facebook.com"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}>
-  Facebook
-</a>
-`;
-```
-<!-- .element class="large" -->
+  expect(container).toHaveClassName('btn--primary')
+})</code></pre>
+  </div>
+</div>
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-## Testing Resources
-
-- [Eventbrite React Testing Best Practices](https://github.com/eventbrite/javascript/blob/master/react/testing.md)
-- [Jest 14.0: React Tree Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
-- [Ava + React](https://github.com/avajs/ava/blob/master/docs/recipes/react.md)
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Testing Resources</h2>
+  
+    <ul>
+      <li><a href="http://airbnb.io/enzyme/" target="_blank">Enzyme</a></li>
+      <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
+      <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
+      <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
+      <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">Jest 14.0: React Tree Snapshot Testing</a></li>
+      <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
+    </ul>
+  </div>
+</div>
 
 =====
 
