@@ -302,7 +302,7 @@ NOTES:
 </div>
 
 NOTES:
-- First planet: Mercury
+- **First planet:** Mercury
 - Probably the biggest complaint w/ React isn't React itself
   * But the tooling needed to get setup
 - I think there problem is that there's so much choice
@@ -642,6 +642,7 @@ NOTES:
   * Allows you to bootstrap super quick
   * And if you need to do something it doesn't support you can "eject"
   * Get the existing configuration
+- Also creates an optimized bundle you can ship to production
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -668,7 +669,7 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h1>3. Styling</h1>
   </div>
@@ -676,14 +677,14 @@ NOTES:
 
 
 NOTES:
-- Next planet is Venus
+-**Next planet:** Venus
 - Let's talking about styling because visuals are just as important as interaction
 - There are _at least_ 5 ways to tackle the styling problem
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Global CSS</h2>
     <p>Use CSS that exists on the page outside of React</p>
@@ -708,7 +709,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Global CSS</h2>
 
@@ -738,7 +739,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Component CSS</h2>
     <p>Associate React components with CSS snippet</p>
@@ -762,7 +763,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Component CSS</h2>
     <p>Associate React components with CSS snippet</p>
@@ -784,7 +785,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>CSS Modules</h2>
     <p>Automatically scope CSS class names to the component</p>
@@ -808,7 +809,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>CSS Modules</h2>
     <p>Automatically scope CSS class names to the component</p>
@@ -829,7 +830,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>CSS Modules</h2>
     <p>Automatically scope CSS class names to the component</p>
@@ -850,7 +851,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Inline styles</h2>
     <p>Forgo CSS classes in favor of inline styles</p>
@@ -877,7 +878,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Inline styles</h2>
     <p>Forgo CSS classes in favor of inline styles</p>
@@ -899,7 +900,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 75%">
     <h2>`css-in-js`</h2>
     <p>Define your CSS using JavaScript</p>
@@ -935,7 +936,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Emotion</h2>
 
@@ -965,7 +966,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Emotion</h2>
     <p>Auto-generated class names</p>
@@ -984,7 +985,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Styling Resources</h2>
   
@@ -1007,19 +1008,20 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h1>4. Single-Page Apps</h1>
   </div>
 </div>
 
 NOTES:
+- **Next planet:** Earth
 - Moving along to libraries needed for Single Page Apps
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Fetch API</h2>
     <p>Handle AJAX natively</p>
@@ -1044,7 +1046,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Fetch Resources</h2>
   
@@ -1063,14 +1065,14 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 45%">
     <h2>Routing</h2>
     <p>Keep your UI in sync with the URL</p>
   
    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
       <div style="flex:0 0 45%;">
-        <a href="https://github.com/ReactTraining/react-router" target="_blank"><img src="../../img/nav-react/react-router-logo.png" class="plain" style="background: #fff; padding: 1em" /></a>
+        <a href="https://github.com/ReactTraining/react-router" target="_blank"><img src="../../img/nav-react/react-router-logo.png" class="plain" /></a>
         <a href="https://github.com/ReactTraining/react-router" target="_blank">React Router</a>
       </div>
     </div>
@@ -1086,7 +1088,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>React Router</h2>
 
@@ -1115,6 +1117,15 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>5. Forms</h1>
+  </div>
+</div>
+
+NOTES:
+- **Next planet:** Mars
+
 =====
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1133,35 +1144,36 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h1>5. Testing</h1>
+    <h1>6. Testing</h1>
   </div>
 </div>
 
 NOTES:
+- **Next planet:** Jupiter
 - I hate to put testing so far, but the previous 4 really are more important
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 65%">
     <h2>Testing Stacks</h2>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
       <div style="flex:0 0 30%;">
-        <a href="https://mochajs.org"><img src="../../img/nav-react/mocha-logo.svg" class="plain" style="width:45%;" /></a>
-        <a href="http://chaijs.com/"><img src="../../img/nav-react/chai-logo.png" class="plain" style="width:38%;" /></a>
-        <a href="https://mochajs.org">Mocha</a> + <a href="http://chaijs.com/">Chai</a>
+        <a href="https://mochajs.org" target="_blank"><img src="../../img/nav-react/mocha-logo.svg" class="plain" style="width:45%;" /></a>
+        <a href="http://chaijs.com/" target="_blank"><img src="../../img/nav-react/chai-logo.png" class="plain" style="width:38%;" /></a>
+        <a href="https://mochajs.org" target="_blank">Mocha</a> + <a href="http://chaijs.com/" target="_blank">Chai</a>
       </div>
       <div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/jest/"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%" /></a>
-        <a href="https://facebook.github.io/jest/" style="display:block">Jest</a>
+        <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%" /></a>
+        <a href="https://facebook.github.io/jest/" target="_blank" style="display:block">Jest</a>
       </div>
       <div style="flex:0 0 30%;">
-        <a href="https://github.com/avajs/ava"><img src="../../img/nav-react/ava-logo.png" class="plain" /></a>
-        <a href="https://github.com/avajs/ava">Ava</a>
+        <a href="https://github.com/avajs/ava" target="_blank"><img src="../../img/nav-react/ava-logo.png" class="plain" /></a>
+        <a href="https://github.com/avajs/ava" target="_blank">Ava</a>
       </div>
     </div>
   </div>
@@ -1179,7 +1191,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Jest + Enzyme</h2>
 
@@ -1200,7 +1212,7 @@ it('adds CSS class for style primary', () => {
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Testing Resources</h2>
   
@@ -1216,13 +1228,16 @@ it('adds CSS class for style primary', () => {
 </div>
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
 
-# Saturn: Performance & SEO
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>7. Performance & SEO</h1>
+  </div>
+</div>
 
 NOTES:
+- **Next planet:** Saturn
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
 - Rendering server-side can help both
 - This is called "Isomorphic/Universal React"
@@ -1232,31 +1247,77 @@ NOTES:
 - React provides a method that will render the component tree to a string which you can include in server response
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
 
-## Server-side Rendering
-<!-- .element style="margin-bottom: 5%" -->
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Server-side rendering</h2>
 
-### With a Node back-end...
-<!-- .element style="margin-bottom: 2.5%" -->
-
-- [Express](https://expressjs.com/) server
-- React Router
-- [`node-fetch`](https://github.com/bitinn/node-fetch) or [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch)
+    <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
+      <div style="flex:0 0 30%;">
+        <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" /></a>
+        <a href="https://nextjs.org/">Next.js</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="https://www.gatsbyjs.org/"><img src="../../img/nav-react/gatsby-logo.svg" class="plain" /></a>
+        <a href="https://www.gatsbyjs.org/" style="display:block">Gatsby</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="https://expressjs.com/"><img src="../../img/nav-react/express-logo.png" class="plain" /></a>
+        <a href="https://expressjs.com/">Express</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 NOTES:
-- If your back-end is on Node, the solution is pretty easy
+- A couple of different options for server-side rendering
+- Next.js
+  * A minimalist framework for server-rendered React applications
+  * Has built in routing, code-splitting, CSS support, data fetching, etc
+- Gatsby is an amazing static-site generator
+  * Use it for my site benmvp.com
+  * Basically does similar things as Next.js but does it all at build time
+  * It's all HTML, CSS & JS
+  * Creates a progressive web app, with data-prefetching
+- Lastly, you can roll your own solution
+  * When you have a Node backend
+  * Using Node server lib, like Express
+  * Router like React Router
+  * Data fetching with `isomorphic-fetch`
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
 
-## Server-side Rendering
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2><a href="http://www.benmvp.com/slides/2017/render/iso-react.html" target="_blank">SSR without a Node back-end...</a></h2>
 
-### [Without a Node back-end...](http://www.benmvp.com/slides/2017/render/iso-react.html)
+    <iframe width="880" height="550" src="https://www.youtube.com/embed/zxtcr8Zuvfs" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="1333" height="750" src="https://www.youtube.com/embed/zxtcr8Zuvfs" frameborder="0" allowfullscreen></iframe>
+    <p>RenderConf 2017</p>
+  </div>
+</div>
+
 
 NOTES:
 - If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
 - But I have a talk that explains it all!
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Server-side Rendering Resources</h2>
+  
+    <ul>
+      <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
+      <li><a href="" target="_blank">`react-helmet`</a></li>
+      <li><a href="" target="_blank">///Express alternative///</a></li>
+    </ul>
+  </div>
+</div>
 
 =====
 
