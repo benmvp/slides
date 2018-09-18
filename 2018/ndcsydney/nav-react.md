@@ -666,7 +666,6 @@ NOTES:
 - Here are some miscellaneous resources regarding all the tools we talked about
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
@@ -985,13 +984,13 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Styling Resources</h2>
   
     <ul>
       <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank">_A Unified Styling Language_</a></li>
-      <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Moduless</a></li>
+      <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Modules</a></li>
       <li><a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a> / <a href="http://www.material-ui.com/" target="_blank">Material UI</a> / <a href="https://react.foundation/" target="_blank">React + Foundation</a></li>
       <li><a href="https://github.com/JedWatson/classnames" target="_blank">`classnames`</a></li>
       <li><a href="https://polished.js.org/" target="_blank">polished</a></li>
@@ -1006,31 +1005,34 @@ NOTES:
 
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-# Mars: Single-Page Apps
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>4. Single-Page Apps</h1>
+  </div>
+</div>
 
 NOTES:
 - Moving along to libraries needed for Single Page Apps
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-## Fetch API
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Fetch API</h2>
+    <p>Handle AJAX natively</p>
 
-Handle AJAX natively
-
-```js
-fetch('http://www.benmvp.com/', {method: 'get'})
+    <pre class="large"><code class="lang-javascript">fetch('api.benmvp.com', {method: 'GET'})
   .then((response) => {
-	// do something w/ response
+    // do something w/ response
   })
   .catch((err) => {
-	// handle error
-  })
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+    // handle error
+  })</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Your favorite "walled garden" JS framework had a mechanism for making AJAX requests
@@ -1040,70 +1042,70 @@ NOTES:
 - Works with ES2015 Promises
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-## Fetch API
-
-Handle AJAX natively
-<!-- .element: style="margin-bottom:5%" -->
-
-- [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-- [Learning ES6: Promises](http://www.benmvp.com/learning-es6-promises/)
-- [`window.fetch` polyfill](https://github.com/github/fetch)
-- [Load Initial Data via AJAX](https://facebook.github.io/react/tips/initial-ajax.html)
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Fetch Resources</h2>
+  
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Using Fetch</a></li>
+      <li><a href="http://www.benmvp.com/learning-es6-promises/" target="_blank">Learning ES6: Promises</a></li>
+      <li><a href="https://github.com/github/fetch" target="_blank">`window.fetch` polyfill</a></li>
+      <li><a href="https://github.com/benmvp/react-workshop/blob/master/04-fetch/" target="_blank">React Fundamentals Workshop - Fetch</a></li>
+    </ul>
+  </div>
+</div>
 
 NOTES:
 -
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-## Routing
-
-Keep your UI in sync with the URL
-
-<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 45%;">
-        <a href="https://github.com/ReactTraining/react-router"><img
-            src="../../img/nav-react/react-router-logo.png"
-            style="background:none;box-shadow:none;border:none;width:100%;"
-        /></a>
-		<a href="https://github.com/ReactTraining/react-router">React Router</a>
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 45%">
+    <h2>Routing</h2>
+    <p>Keep your UI in sync with the URL</p>
+  
+   <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+      <div style="flex:0 0 45%;">
+        <a href="https://github.com/ReactTraining/react-router" target="_blank"><img src="../../img/nav-react/react-router-logo.png" class="plain" style="background: #fff; padding: 1em" /></a>
+        <a href="https://github.com/ReactTraining/react-router" target="_blank">React Router</a>
+      </div>
     </div>
-	<div style="flex:0 0 45%;text-align:center">
-        <a href="https://github.com/swipely/aviator"><img
-            src="../../img/nav-react/aviator-logo.png"
-            style="background:none;box-shadow:none;border:none;width:50%"
-        /></a>
-		<a href="https://github.com/swipely/aviator" style="display:block">Aviator</a>
-    </div>
+  </div>
 </div>
+
+
 
 NOTES:
 - React Router is the obvious choice. Major player
 - There are many others but most aren't actively developed anymore
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
-## React Router
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>React Router</h2>
 
-```js
-import {render} from 'react-dom'
-import {BrowserRouter, Route, Link} from 'react-router-dom'
-// import App, About & Repos components
+    <pre class="large"><code class="lang-javascript">import {BrowserRouter, Route, Link} from 'react-router-dom'
 
-render((
-  <BrowserRouter>
-    <ul role="nav">
-	  <li><Link to="/about">About</Link></li>
-	  <li><Link to="/repos">Repos</Link></li>
-    </ul>
+const App = () => (
+  &lt;BrowserRouter>
+    &lt;ul role="nav">
+      &lt;li>&lt;Link to="/about">About&lt;/Link>&lt;/li>
+      &lt;li>&lt;Link to="/repos">Repos&lt;/Link>&lt;/li>
+    &lt;/ul>
 
-    <Route exact={true} path="/" component={App}/>
-    <Route path="/repos" component={Repos}/>
-    <Route path="/about" component={About}/>
-  </BrowserRouter>
-), document.getElementById('app'))
-```
-<!-- .element: class="large" -->
+    &lt;Route exact={true} path="/" component={Home}/>
+    &lt;Route path="/repos" component={Repos}/>
+    &lt;Route path="/about" component={About}/>
+  &lt;/BrowserRouter>
+)</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Can set up your routes with the same JSX syntax pointing to components
