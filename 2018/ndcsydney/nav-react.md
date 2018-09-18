@@ -58,7 +58,7 @@ NOTES:
 
 /////
 
-![Eventbrite logo](../../img/eventbrite/wordmark-orange.svg)
+![Eventbrite wordmark logo](../../img/eventbrite/wordmark-orange.svg)
 <!-- .element: class="plain" style="width: 85%" -->
 
 NOTES:
@@ -90,7 +90,7 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h1>1. React</h1>
   </div>
@@ -103,7 +103,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 75%">
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <img src="../../img/react/react-logo.png" class="plain" style="width: 45%" />
@@ -135,7 +135,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Imperative jQuery</h2>
       <pre class="large"><code class="lang-html"><div>
@@ -162,7 +162,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Declarative React</h2>
       <pre class="large"><code class="lang-javascript">class Incrementer extends React.Component {
@@ -191,7 +191,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 65%">
     <a href="https://facebook.github.io/react/tutorial/tutorial.html" target="_blank">
       <img src="../../img/nav-react/react-tutorial.png" alt="Screenshot of React official tutorial" style="width: 100%" />
@@ -212,7 +212,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 65%">
     <a href="https://github.com/benmvp/react-workshop/tree/master/src/react" target="_blank">
       <img src="../../img/nav-react/react-fundamentals-workshop.png" alt="Screenshot of Ben Ilegbodu's React FUNdamentals Workshop" style="width: 100%" />
@@ -234,7 +234,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Useful ES.next features w/ React</h2>
 
@@ -261,7 +261,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2><a href="http://www.benmvp.com/slides/2017/reactconf/react-esnext.html" target="_blank">React + ES.next = ♥</a></h2>
   
@@ -279,7 +279,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>JavaScript Resources</h2>
   
@@ -295,7 +295,7 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h1>2. Tooling</h1>
   </div>
@@ -311,7 +311,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 50%">
     <h2>React Dev Tools</h2>
     <p>Help debug React props, state & perf</p>
@@ -332,7 +332,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 50%">
     <h2>Package managers</h2>
     <p>Help install & manage dependencies</p>
@@ -362,7 +362,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 70%">
 
     <div style="display:flex;align-items:center;justify-content:space-around;margin-bottom: 5%">
@@ -395,7 +395,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 70%">
     <h2>Bundlers</h2>
     <p>Help gather dependencies, transpile ES6+, etc.</p>
@@ -410,8 +410,8 @@ NOTES:
         <a href="http://rollupjs.org/" target="_blank">Rollup</a>
       </div>
       <div style="flex:0 0 22%;">
-        <a href="http://prepack.io/" target="_blank"><img src="../../img/nav-react/prepack-logo.jpg" class="plain" /></a>
-        <a href="http://prepack.io/" target="_blank">Prepack</a>
+        <a href="http://prepack.io/" target="_blank"><img src="../../img/nav-react/prepack-logo.png" class="plain" style="width: 100%" /></a>
+        <a href="http://prepack.io/" target="_blank">Prepack*</a>
       </div>
       <div style="flex:0 0 25%;">
         <a href="http://requirejs.org/" target="_blank"><img src="../../img/nav-react/requirejs-logo.png" class="plain" /></a>
@@ -428,10 +428,10 @@ NOTES:
   * Introduced the concept of "tree-shaking" feature that results in less generated code
   * Instead of bundling the code into one file, it transpiles individual files
   * Good for libraries
-- Prepack just recently burst on the scene
-  * Claims to be "zero config"
-  * In opposition to Webpack that takes a lot of setup
-  * Works really fast too
+- Prepack is a new tool for making JS code run faster
+  * From Facebook
+  * Computations that can be done at compile-time instead of run-time get eliminated
+  * Still in early DEV stage so not quite ready for production
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - I'd say go with Webpack, especially because of `webpack-dev-server`
   * Webpack has "tree-shaking" too
@@ -442,7 +442,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 90%">
     <h2>Tree-Shaking</h2>
 
@@ -480,7 +480,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 60%">
     <h2>Task runners</h2>
     <p>Help execute shell commands, generate files, etc.</p>
@@ -516,7 +516,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>NPM/Yarn Scripts</h2>
 
@@ -547,7 +547,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 60%">
     <h2>Static Analyzers</h2>
     <p>Help catch errors in written code before runtime</p>
@@ -587,7 +587,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Flow type inference</h2>
 
@@ -612,7 +612,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Create React App</h2>
     <p>Create React apps with no build configuration</p>
@@ -646,7 +646,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Tooling resources</h2>
 
@@ -669,99 +669,113 @@ NOTES:
 
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-# Earth: Styling
-<!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>3. Styling</h1>
+  </div>
+</div>
+
 
 NOTES:
 - Next planet is Venus
 - Let's talking about styling because visuals are just as important as interaction
-- There are _at least_ 4 ways to tackle the styling problem
+- There are _at least_ 5 ways to tackle the styling problem
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Global CSS
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Global CSS</h2>
+    <p>Use CSS that exists on the page outside of React</p>
 
-Use CSS that exists on the page outside of React
-
-```js
-const Card = ({title, imageUrl, message}) => (
-  <div className="card">
-    <h2 className="card__title">{title}</h2>
-	<img src={imageUrl} className="card__image" />
-	<p className="card__message">{message}</p>
+    <pre class="large"><code class="lang-javascript">const Card = ({title, imageUrl, message}) => (
+  &lt;div className="card">
+    &lt;h2 className="card\__title">{title}&lt;/h2>
+    &lt;img src={imageUrl} className="card\__image" />
+    &lt;p className="card\__message">{message}&lt;/p>
+  &lt;/div>
+)</code></pre>
   </div>
-)
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+</div>
 
 NOTES:
-- You'd use the Global CSS option if you are transitioning to React and already have your CSS being built by some other process
+- You'd use the Global CSS option if you are transitioning to React
+  * Already have your CSS being built by some other process
 - You probably already have components that you're transitioning to React so you keep the same "global" CSS classes
+- Bootstrap or Foundation would call under this as well
 
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Global CSS
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Global CSS</h2>
 
-Use CSS that exists on the page outside of React
+    <pre class="large"><code class="lang-css">
+/\* global.scss \*/
 
-```css
-/* global.scss */
-
-/* lots of other styles before */
+/\* lots of other styles before \*/
 
 .card { }
-.card__title { }
-.card__image { }
-.card__message { }
+.card\__title { }
+.card\__image { }
+.card\__message { }
 
-/* lots of other styles after */
-```
-<!-- .element: class="large" -->
+/\* lots of other styles after \*/</code></pre>
 
-Use [BEM](http://getbem.com/), [SMACSS](https://smacss.com/) or [OOCSS](https://github.com/stubbornella/oocss/wiki) for class name-spacing
+  <p>
+    <a href="http://getbem.com/" target="_blank">BEM</a>,
+    <a href="https://smacss.com/" target="_blank">SMACSS</a> or
+    <a href="https://github.com/stubbornella/oocss/wiki">OOCSS</a> for class name-spacing
+  </p>
+  </div>
+</div>
 
 NOTES:
 - Use BEM syntax as a convention to prevent name collisions
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Component CSS
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Component CSS</h2>
+    <p>Associate React components with CSS snippet</p>
 
-Associate React components with CSS snippet
-
-```js
-import './Card.scss'
+    <pre class="large"><code class="lang-javascript">import './Card.scss'
 
 const Card = ({title, imageUrl, message}) => (
-  <div className="card">
-    <h2 className="card__title">{title}</h2>
-	<img src={imageUrl} className="card__image" />
-	<p className="card__message">{message}</p>
+  &lt;div className="card">
+    &lt;h2 className="card\__title">{title}&lt;/h2>
+    &lt;img src={imageUrl} className="card\__image" />
+    &lt;p className="card\__message">{message}&lt;/p>
+  &lt;/div>
+)</code></pre>
   </div>
-)
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+</div>
 
 NOTES:
 - This is the exact same as Global CSS except the CSS is imported by the Component
 - Therefore if the Component isn't used the CSS won't be included in the bundle
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Component CSS
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Component CSS</h2>
+    <p>Associate React components with CSS snippet</p>
 
-Associate React components with CSS snippet
-
-```css
-/* Card.scss */
+    <pre class="large"><code class="lang-css">/\* Card.scss \*/
 
 .card { }
-.card__title { }
-.card__image { }
-.card__message { }
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+.card\__title { }
+.card\__image { }
+.card\__message { }</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Same BEM style CSS class names convention because eventually it'll all be merged
@@ -769,85 +783,91 @@ NOTES:
 - Hopefully your global CSS was already modularized, so this transition shouldn't be tough
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## CSS Modules
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>CSS Modules</h2>
+    <p>Automatically scope CSS class names to the component</p>
 
-Automatically scope CSS class names to the component
-
-```js
-import css from './Card.scss'
+    <pre class="large"><code class="lang-javascript">import css from './Card.scss'
 
 const Card = ({title, imageUrl, message}) => (
-  <div className={css.root}>
-    <h2 className={css.title}>{title}</h2>
-	<img src={imageUrl} className={css.image} />
-	<p className={css.message}>{message}</p>
+  &lt;div className={css.root}>
+    &lt;h2 className={css.title}>{title}&lt;/h2>
+    &lt;img src={imageUrl} className={css.image} />
+    &lt;p className={css.message}>{message}&lt;/p>
+  &lt;/div>
+)</code></pre>
   </div>
-)
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+</div>
+
 
 NOTES:
 - Similar to Component CSS except the import of the CSS will return an object lookup with a generated class name
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## CSS Modules
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>CSS Modules</h2>
+    <p>Automatically scope CSS class names to the component</p>
 
-Automatically scope CSS class names to the component
-
-```css
-/* Card.scss (source) */
+    <pre class="large"><code class="lang-css">/\* Card.scss (source) \*/
 
 .root { }
 .title { }
 .image { }
-.message { }
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+.message { }</code></pre>
+  </div>
+</div>
 
 NOTES:
 - No need for naming conventions
 - Just name the classes what they are w/o worry about collision
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## CSS Modules
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>CSS Modules</h2>
+    <p>Automatically scope CSS class names to the component</p>
 
-Automatically scope CSS class names to the component
+    <pre class="large"><code class="lang-css">/\* Card.scss (generated) \*/
 
-```css
-/* Card.scss (generated) */
-
-.Card__root___d74hQ { }
-.Card__title___37fhU { }
-.Card__image___ndh2e { }
-.Card__message___84QQj { }
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+.Card\__root\__\_d74hQ { }
+.Card\__title\__\_37fhU { }
+.Card\__image\__\_ndh2e { }
+.Card\__message\__\_84QQj { }</code></pre>
+  </div>
+</div>
 
 NOTES:
 - The generated CSS classes will be unique so there's no way they can collide
 - The generated markup will also have the same class names
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Inline styles
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Inline styles</h2>
+    <p>Forgo CSS classes in favor of inline styles</p>
 
-Forgo CSS classes in favor of inline styles
-
-```js
-import styles from './Card.styles'
+    <pre class="large"><code class="lang-javascript">import styles from './Card.styles'
 
 const Card = ({title, imageUrl, message}) => (
-  <div style={styles.root}>
-    <h2 style={styles.title}>{title}</h2>
-	<img src={imageUrl} style={styles.image} />
-	<p style={styles.message}>{message}</p>
+  &lt;div style={styles.root}>
+    &lt;h2 style={styles.title}>{title}&lt;/h2>
+    &lt;img src={imageUrl} style={styles.image} />
+    &lt;p style={styles.message}>{message}&lt;/p>
+  &lt;/div>
+)</code></pre>
   </div>
-)
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+</div>
+
 
 NOTES:
 - The last option is to just go with inline styles
@@ -856,66 +876,56 @@ NOTES:
 - If you want to share components across React & React Native you can't use CSS
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Inline styles
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Inline styles</h2>
+    <p>Forgo CSS classes in favor of inline styles</p>
 
-Forgo CSS classes in favor of inline styles
-
-```js
-const styles = {
+    <pre class="large"><code class="lang-javascript">export default {
   root: {
-	  display: 'flex',
-	  flexDirection: 'row'
+    display: 'flex',
+    flexDirection: 'row'
   },
   title: {
-	  fontWeight: 'bold',
-	  fontSize: '2em'
-  }
+    fontWeight: 'bold',
+    fontSize: '2em'
+  },
   ...
-}
-export default styles
-```
-<!-- .element: class="large" style="margin:5% 0" -->
+}</code></pre>
+  </div>
+</div>
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## "css-in-js"
-
-Define your CSS using JavaScript
-
-<div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	<div style="flex:0 0 14%;">
-		<a href="https://github.com/khan/aphrodite">Aphrodite</a>
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 75%">
+    <h2>`css-in-js`</h2>
+    <p>Define your CSS using JavaScript</p>
+    
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+      <div style="flex:0 0 22%;">
+        <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/emotion-logo.png" class="plain" /></a>
+        <a href="https://emotion.sh/" target="_blank">Emotion</a>
+      </div>
+      <div style="flex:0 0 24%;">
+        <a href="https://github.com/cssinjs/react-jss" target="_blank"><img src="../../img/nav-react/jss-logo.png" class="plain" /></a>
+        <a href="https://github.com/cssinjs/react-jss" target="_blank">JSS</a>
+      </div>
+      <div style="flex:0 0 24%;">
+        <a href="https://formidable.com/open-source/radium/" target="_blank"><img src="../../img/nav-react/radium-logo.svg" class="plain" /></a>
+        <a href="https://formidable.com/open-source/radium/" target="_blank">Radium</a>
+      </div>
+      <div style="flex:0 0 28%;">
+        <a href="http://styled-components.com/" target="_blank"><img src="../../img/nav-react/styled-components-logo.png" class="plain" /></a>
+        <a href="http://styled-components.com/" target="_blank">styled components</a>
+      </div>
     </div>
-	<div style="flex:0 0 18%;">
-        <a href="https://github.com/paypal/glamorous"><img
-            src="../../img/nav-react/glamorous-logo.png"
-            class="plain" 
-        /></a>
-		<a href="https://github.com/paypal/glamorous">Glamorous</a>
-    </div>
-	<div style="flex:0 0 18%;">
-        <a href="https://github.com/cssinjs/react-jss"><img
-            src="../../img/nav-react/jss-logo.png"
-            style="background:white;box-shadow:none;border:none;"
-        /></a>
-		<a href="https://github.com/cssinjs/react-jss">JSS</a>
-    </div>
-	<div style="flex:0 0 18%;">
-        <a href="https://formidable.com/open-source/radium/"><img
-            src="../../img/nav-react/radium-logo.svg"
-            class="plain" 
-        /></a>
-		<a href="https://formidable.com/open-source/radium/">Radium</a>
-    </div>
-    <div style="flex:0 0 22%;">
-        <a href="http://styled-components.com/"><img
-            src="../../img/nav-react/styled-components-logo.png"
-            class="plain" 
-        /></a>
-		<a href="http://styled-components.com/">styled-components</a>
-    </div>
+  </div>
 </div>
+
 
 NOTES:
 - Problem with inline styles is that it only supports what inline styles support
@@ -924,84 +934,71 @@ NOTES:
 - Most take what's defined as inline styles but map to unique CSS classes
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Glamorous
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Emotion</h2>
 
-Custom-styled components
+    <pre class="large"><code class="lang-javascript">import styled from 'react-emotion'
 
-```js
-import {glamorous} from 'glamorous'
-
-const Root = glamorous.div({display:'flex',flexDirection:'row'})
-const Title = glamorous.h2({fontWeight:'bold', fontSize:'2em'})
-const Image = glamorous.img({...})
-const Message = glamorous.p({...})
+const Root = styled.div({display: 'flex'})
+const Title = styled.h2({fontWeight: 'bold'})
+const Image = styled.img({ ... })
+const Message = styled.p({ ... })
 
 const Card = ({title, imageUrl, message}) => (
-  <Root>
-    <Title>{title}</Title>
-	<Image src={imageUrl} />
-	<Message>{message}</Message>
-  </Root>
-)
-```
-<!-- .element: class="large" -->
+  &lt;Root>
+    &lt;Title>{title}&lt;/Title>
+    &lt;Image src={imageUrl} />
+    &lt;Message>{message}&lt;/Message>
+  &lt;/Root>
+)</code></pre>
+  </div>
+</div>
+
 
 NOTES:
-- Quick look at how Glamorous works
+- Quick look at how Emotion works
 - Create a custom elements/components with the styling you want
 - Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Glamorous
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Emotion</h2>
+    <p>Auto-generated class names</p>
 
-Built-in glamorous components
-
-```js
-import {Div, H2, Img, P} from 'glamorous'
-
-const Card = ({title, imageUrl, message}) => (
-  <Div display="flex" flexDirection="row">
-    <H2 fontWeight="bold" fontSize="2em">{title}</H2>
-	<Img src={imageUrl} ... />
-	<P ... >{message}</P>
-  </div>
-)
-```
-<!-- .element: class="large" -->
-
-NOTES:
-- Alternatively, if you have some simple styling you can use one of the built-in predefined components and add props!
-
-/////
-
-## Glamorous
-
-Auto-generated class names
-
-```html
-<div class="css-1sa0cvf">
+    <pre class="large"><code class="lang-html"><div class="css-1sa0cvf">
   <h2 class="css-1un7ufz">Card Title</h2>
   <img class="css-1e9pfwo" src="..." />
-  <p class="css-1b9v3at">This is the card message</p>
+  <p class="css-1b9v3at">Card message</p>
+</div></code></pre>
+  </div>
 </div>
-```
-<!-- .element: class="large" -->
 
 NOTES:
-- Alternatively, if you have some simple styling you can use one of the built-in predefined components and add props!
+- Here's what the generated markup will look like
 
 /////
+<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
 
-## Styling resources
-
-- [_A Unified Styling Language_](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660) by [Mark Dalgleish](https://twitter.com/markdalgleish)
-- [CSS Modules](https://github.com/css-modules/css-modules) & [React CSS Modules](https://github.com/gajus/react-css-modules)
-- [React-Bootstrap](https://react-bootstrap.github.io/) / [Material UI](http://www.material-ui.com/#/) / [React + Foundation](https://react.foundation/)
-- [Classnames](https://github.com/JedWatson/classnames)
-- [polished](https://polished.js.org/)
-- [PostCSS](http://postcss.org/)
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Styling Resources</h2>
+  
+    <ul>
+      <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank">_A Unified Styling Language_</a></li>
+      <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Moduless</a></li>
+      <li><a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a> / <a href="http://www.material-ui.com/" target="_blank">Material UI</a> / <a href="https://react.foundation/" target="_blank">React + Foundation</a></li>
+      <li><a href="https://github.com/JedWatson/classnames" target="_blank">`classnames`</a></li>
+      <li><a href="https://polished.js.org/" target="_blank">polished</a></li>
+      <li><a href="http://postcss.org/" target="_blank">PostCSS</a></li>
+    </ul>
+  </div>
+</div>
 
 NOTES:
 - Here are some miscellaneous resources regarding styling
@@ -1011,10 +1008,6 @@ NOTES:
 =====
 
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
-
-=====
-
-<!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
 # Mars: Single-Page Apps
 <!-- .element: style="-webkit-text-stroke: black 4px; color: white" -->
@@ -1115,6 +1108,10 @@ render((
 NOTES:
 - Can set up your routes with the same JSX syntax pointing to components
 - Then replace `<a>` tags with special `<Link>` tags
+
+=====
+
+<!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
 =====
 
