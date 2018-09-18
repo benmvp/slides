@@ -1114,7 +1114,6 @@ NOTES:
 - Then replace `<a>` tags with special `<Link>` tags
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
@@ -1125,6 +1124,60 @@ NOTES:
 
 NOTES:
 - **Next planet:** Mars
+- Let's be real, forms are hard
+- And in React, it's no different
+- Forms are hard because, the requirements are always different
+  * Form level errors
+  * Form element level errors
+  * Synchronous validation
+  * Async validation via AJAX
+  * Validation that depends on the values of multiple fields
+  * Errors that should show immediately (used username)
+  * Errors that should wait until form submission
+- React has a guide on Forms
+  * But speaks mostly about how to maintain form state
+  * Nothing about form validation & the complications
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Form state managers</h2>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
+      <div style="flex:0 0 30%;">
+        <a href="http://final-form.org/" target="_blank"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 65%" /></a>
+        <a href="http://final-form.org/" target="_blank" style="display: block">Final Form</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="https://jaredpalmer.com/formik/" target="_blank"><img src="../../img/nav-react/formik-logo.svg" class="plain" style="width: 60%" /></a>
+        <a href="https://jaredpalmer.com/formik/" target="_blank" style="display: block">Formik</a>
+      </div>
+      <div style="flex:0 0 30%;">
+        <a href="https://redux-form.com/" target="_blank"><img src="../../img/nav-react/redux-form-logo.png" class="plain" /></a>
+        <a href="https://redux-form.com/" target="_blank">Redux Form</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+NOTES:
+- The original is Redux Form
+  * But relied on having Redux (we haven't gotten to)
+  * It's also a pretty big lib for simple forms
+  * Kept adding on feature requests
+- Erik decided to do a rebuild
+  * Created React Final Form
+  * No dependencies; small footprint
+  * Works with React render props
+  * Battle-proven with all of the existing features of Redux Form
+  * Has 30+ examples/recipes
+- While React Final Form was happening
+  * Jared created Formik
+  * Also wanted a Redux-free form implementation
+  * Basically built at the same time
+  * More or less feature parity
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
@@ -1679,12 +1732,13 @@ NOTES:
 
 NOTES:
 - So that's it!
+- Just flooded you with a lot of information
+  * Slides are available online
 - Hopefully 1, 2 or all 9 of these suggestions will prove useful to you
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one and build on it
 
-- Would love to hear if you're able to see improvements with these
-  * `benmvp` on all of the networks
+
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
 - **YOU!** For attending the conference
   * I go through the stress of preparing and delivering so you can learn
