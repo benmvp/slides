@@ -1082,6 +1082,10 @@ NOTES:
         <a href="https://github.com/ReactTraining/react-router" target="_blank"><img src="../../img/nav-react/react-router-logo.png" class="plain" /></a>
         <a href="https://github.com/ReactTraining/react-router" target="_blank">React Router</a>
       </div>
+      <div style="flex:0 0 45%;">
+        <a href="https://reach.tech/router" target="_blank"><img src="../../img/nav-react/reach-router-logo.svg" class="plain" style="margin-bottom: 2em" /></a>
+        <a href="https://reach.tech/router" target="_blank">Reach Router</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1089,36 +1093,49 @@ NOTES:
 
 
 NOTES:
-- React Router is the obvious choice. Major player
-- There are many others but most aren't actively developed anymore
+- React Router is the main router
+  * v4 was a complete API change which had drawbacks
+  * Most prevalent in use
+- Reach Router was a complete rethink by Ryan Florence
+  * Intended to be accessible by default
+  * Manages focus of your app on route transitions
+  * Has ambiguous path ranking algorithm
+  * Relative links, "not found" components, etc.
+- Don't think active dev is happening on React Router v4
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h2>React Router</h2>
+    <h2>Reach Router</h2>
 
-    <pre class="large"><code class="lang-javascript">import {BrowserRouter, Route, Link} from 'react-router-dom'
+    <pre><code class="lang-javascript">import {Router, Link} from '@reach/router'
 
+const Home = () => (
+  &lt;div>
+    &lt;h1>Home&lt;/h1>
+    &lt;nav>
+      &lt;Link to="/">Home&lt;/Link> |
+      &lt;Link to="dashboard">Dashboard&lt;/Link>
+    &lt;/nav>
+  &lt;/div>
+)
+const Dash = () => (&lt;div>Dash&lt;/div>)
 const App = () => (
-  &lt;BrowserRouter>
-    &lt;ul role="nav">
-      &lt;li>&lt;Link to="/about">About&lt;/Link>&lt;/li>
-      &lt;li>&lt;Link to="/repos">Repos&lt;/Link>&lt;/li>
-    &lt;/ul>
-
-    &lt;Route exact={true} path="/" component={Home}/>
-    &lt;Route path="/repos" component={Repos}/>
-    &lt;Route path="/about" component={About}/>
-  &lt;/BrowserRouter>
+  &lt;Router>
+    &lt;Home path="/" />
+    &lt;Dash path="dashboard" />
+  &lt;/Router>
 )</code></pre>
   </div>
 </div>
 
 NOTES:
-- Can set up your routes with the same JSX syntax pointing to components
-- Then replace `<a>` tags with special `<Link>` tags
+- Can set up your routes with the same JSX syntax
+  * Within the `<Router>` just have your normal child components
+  * Just add special `path` prop (similar to special `key` prop)
+- Then you can `<Link>` to different sections using relative paths too
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
@@ -1337,15 +1354,19 @@ _[42 minutes]_
     <h2>Server-side rendering</h2>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
-      <div style="flex:0 0 30%;">
-        <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" /></a>
+      <div style="flex:0 0 22%;">
+        <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="margin-bottom: 1em" /></a>
         <a href="https://nextjs.org/">Next.js</a>
       </div>
-      <div style="flex:0 0 30%;">
+      <div style="flex:0 0 28%;">
+        <a href="https://github.com/jaredpalmer/razzle"><img src="../../img/nav-react/razzle-logo.png" class="plain" style="background-color: #ddd; margin-bottom: 2em" /></a>
+        <a href="https://github.com/jaredpalmer/razzle" style="display:block">Razzle</a>
+      </div>
+      <div style="flex:0 0 22%;">
         <a href="https://www.gatsbyjs.org/"><img src="../../img/nav-react/gatsby-logo.svg" class="plain" /></a>
         <a href="https://www.gatsbyjs.org/" style="display:block">Gatsby</a>
       </div>
-      <div style="flex:0 0 30%;">
+      <div style="flex:0 0 22%;">
         <a href="https://expressjs.com/">Express</a>
       </div>
     </div>
@@ -1362,6 +1383,9 @@ NOTES:
   * Basically does similar things as Next.js but does it all at build time
   * It's all HTML, CSS & JS
   * Creates a progressive web app, with data-prefetching
+- Razzle is a library for bootstrapping server-side rendering
+  * Works with Vue, Angular & other libs as well
+  * You still figure out your framework, data fetching, etc
 - Lastly, you can roll your own solution
   * When you have a Node backend
   * Using Node server lib, like Express
@@ -1656,42 +1680,41 @@ _[53 minutes]_
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 80%">
     <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
-	    <div style="flex:0 0 33%">
-        <p>1. React & JavaScript</p>
+	    <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+        <div>1. React & JavaScript</div>
         <a href="https://facebook.github.io/react/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width: 33%" /></a>
         <a href="/learning-es6-series/" target="_blank"><img src="../../img/es6/es6-logo.png" class="plain" style="width: 30%" /></a>
       </div>
-      <div style="flex:0 0 33%">
-        <p>2. Tooling</p>
-        <a href="https://github.com/facebook/create-react-app" target="_blank" style="margin-top: 2em;display: block">Create React App</a>
+      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+        <div>2. Tooling</div>
+        <a href="https://github.com/facebook/create-react-app" target="_blank" style="margin-top: 0.5em;display: block">Create React App</a>
       </div>
-      <div style="flex:0 0 33%">
-        <p>3. Styling</p>
+      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+        <div>3. Styling</div>
         <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/emotion-logo.png" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%">
-        <p>4. Single-Page Apps</p>
-        <a href="https://github.com/ReactTraining/react-router"><img src="../../img/nav-react/react-router-logo.png" class="plain" style="width: 50%" /></a>
+      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+        <div>4. Single-Page Apps</div>
+        <a href="https://reach.tech/router"><img src="../../img/nav-react/reach-router-logo.svg" class="plain" style="width: 65%; margin-top: 0.5em" /></a>
       </div>
-      <div style="flex: 0 0 33%">
-        <p>5. Forms</p>
+      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+        <div>5. Forms</div>
         <a href="http://final-form.org/"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%">
-        <p>6. Testing</p>
+      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+        <div>6. Testing</div>
         <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:30%" /></a>
-        <a href="http://airbnb.io/enzyme/" target="_blank"><img src="../../img/nav-react/enzyme-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <p>7. Performance & SEO</p>
+        <div>7. Performance & SEO</div>
         <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <p>8. App Data Management</p>
+        <div>8. App Data Management</div>
         <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <p>9. API Optimization</p>
+        <div>9. API Optimization</div>
         <a href="http://dev.apollodata.com/"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:50%" /></a>
       </div>
     </div>
@@ -1702,7 +1725,7 @@ NOTES:
 - 1/ Obviously start off with React & ES.next
 - 2/ For tooling using Create React App
 - 3/ For styling trying learning & using Emotion
-- 4/ You'll most likely use React Router
+- 4/ Give new Reach Router a try
 - 5/ Give React Final Form a try for sophisticated form handling
 - 6/ Use Jest + Enzyme for your unit testing
 - 7/ For SSR rendering look into Next.js
