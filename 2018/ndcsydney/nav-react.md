@@ -79,7 +79,6 @@ NOTES:
 - Favorite team in the NBA is the rockets
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
@@ -87,9 +86,9 @@ _[5 minutes]_
 
 - Ok, enough about me
 - Let's talk about the React Solar System
+- **Who here considers themselves React newbies?** 
 
 =====
-
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
@@ -110,11 +109,11 @@ NOTES:
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <img src="../../img/react/react-logo.png" class="plain" style="width: 45%" />
       <div>
-        <h2><a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">Functional & Reactive</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state">Uni-directional</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">Declarative JSX</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/reconciliation.html">"Virtual DOM"</a></h2>
-        <h2><a href="https://facebook.github.io/react/docs/top-level-api.html">Narrow API</a></h2>
+        <h2><a href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">Functional & Reactive</a></h2>
+        <h2><a href="https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down">Uni-directional</a></h2>
+        <h2><a href="https://reactjs.org/docs/jsx-in-depth.html">Declarative JSX</a></h2>
+        <h2><a href="https://reactjs.org/docs/reconciliation.html">"Virtual DOM"</a></h2>
+        <h2><a href="https://reactjs.org/docs/react-api.html">Narrow API</a></h2>
       </div>
     </div>
   </div>
@@ -419,7 +418,7 @@ NOTES:
       </div>
       <div style="flex:0 0 25%;">
         <a href="http://requirejs.org/" target="_blank"><img src="../../img/nav-react/requirejs-logo.png" class="plain" /></a>
-        <a href="http://requirejs.org/" target="_blank">RequireJS</a> (no!)
+        <a href="http://requirejs.org/" target="_blank" style="text-decoration: line-through">RequireJS</a>
       </div>
     </div>
   </div>
@@ -656,12 +655,12 @@ NOTES:
     <h2>Tooling resources</h2>
 
     <ul>
-      <li><a href="https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html" target="_blank">Create React App</a></li>
+      <li><a href="https://github.com/facebook/create-react-app" target="_blank">Create React App</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
-      <li><a href="https://webpack.github.io/docs/webpack-dev-server.html" target="_blank">`webpack-dev-server`</a></li>
-      <li><a href="https://flowtype.org/docs/react.html" target="_blank">Flow + React</a></li>
+      <li><a href="https://webpack.js.org/configuration/dev-server/" target="_blank">`webpack-dev-server`</a></li>
+      <li><a href="https://flow.org/en/docs/react/" target="_blank">Flow + React</a></li>
       <li><a href="https://www.typescriptlang.org/docs/handbook/react-&-webpack.html" target="_blank">TypeScript & React</a></li>
     </ul>
   </div>
@@ -917,8 +916,8 @@ NOTES:
         <a href="https://emotion.sh/" target="_blank">Emotion</a>
       </div>
       <div style="flex:0 0 24%;">
-        <a href="https://github.com/cssinjs/react-jss" target="_blank"><img src="../../img/nav-react/jss-logo.png" class="plain" /></a>
-        <a href="https://github.com/cssinjs/react-jss" target="_blank">JSS</a>
+        <a href="http://cssinjs.org/react-jss/" target="_blank"><img src="../../img/nav-react/jss-logo.png" class="plain" /></a>
+        <a href="http://cssinjs.org/react-jss/" target="_blank">JSS</a>
       </div>
       <div style="flex:0 0 24%;">
         <a href="https://formidable.com/open-source/radium/" target="_blank"><img src="../../img/nav-react/radium-logo.svg" class="plain" /></a>
@@ -998,7 +997,7 @@ NOTES:
     <ul>
       <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank">_A Unified Styling Language_</a></li>
       <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Modules</a></li>
-      <li><a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a> / <a href="http://www.material-ui.com/" target="_blank">Material UI</a> / <a href="https://react.foundation/" target="_blank">React + Foundation</a></li>
+      <li><a href="http://www.material-ui.com/" target="_blank">Material UI</a> / <a href="https://react.foundation/" target="_blank">React + Foundation</a> / <a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a></li>
       <li><a href="https://github.com/JedWatson/classnames" target="_blank">`classnames`</a></li>
       <li><a href="https://polished.js.org/" target="_blank">polished</a></li>
       <li><a href="http://postcss.org/" target="_blank">PostCSS</a></li>
@@ -1189,6 +1188,21 @@ NOTES:
   * Basically built at the same time
   * More or less feature parity
 
+///// 
+
+<!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Form Resources</h2>
+  
+    <ul>
+      <li><a href="https://reactjs.org/docs/forms.html" target="_blank">Forms in React</a></li>
+      <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/react/05-email-form" target="_blank">React FUNdamentals Workshop - Forms</a></li>
+    </ul>
+  </div>
+</div>
+
 =====
 <!-- .slide: data-background="url(../../img/nav-react/asteroid-belt.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1312,7 +1326,7 @@ _[42 minutes]_
 - This is called "Isomorphic/Universal React"
 - Rendering the same components server-side improves initial startup performance because content is already there
 - Google includes rendering speed in their ranking algorithm which affects SEO
-- There's also Open Graph previews as well
+- There's also SMO (social media optimization) as well
 - React provides a method that will render the component tree to a string which you can include in server response
 
 /////
@@ -1332,7 +1346,6 @@ _[42 minutes]_
         <a href="https://www.gatsbyjs.org/" style="display:block">Gatsby</a>
       </div>
       <div style="flex:0 0 30%;">
-        <a href="https://expressjs.com/"><img src="../../img/nav-react/express-logo.png" class="plain" /></a>
         <a href="https://expressjs.com/">Express</a>
       </div>
     </div>
@@ -1381,9 +1394,10 @@ NOTES:
     <h2>Server-side Rendering Resources</h2>
   
     <ul>
+      <li><a href="https://github.com/brillout/awesome-ssr" target="_blank">Awesome SSR</a>
       <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
-      <li><a href="" target="_blank">`react-helmet`</a></li>
-      <li><a href="" target="_blank">///Express alternative///</a></li>
+      <li><a href="https://github.com/nfl/react-helmet" target="_blank">`react-helmet`</a></li>
+      <li><a href="https://koajs.com/" target="_blank">Koa</a></li>
     </ul>
   </div>
 </div>
@@ -1595,7 +1609,7 @@ NOTES:
   })
 
   return (&lt;List item={items} />)
-});</code></pre>
+})</code></pre>
   </div>
 </div>
 
@@ -1612,11 +1626,15 @@ NOTES:
     <h2>API Optimization Resources</h2>
   
     <ul>
-      <li><a href="https://github.com/bitinn/node-fetch" target="_blank">///Learn to GraphQL///</a></li>
+      <li><a href="https://www.howtographql.com/" target="_blank">How to GraphQL</a></li>
       <li><a href="https://github.com/apollographql/apollo-client-devtools" target="_blank">Apollo Client Devtools</a></li>
+      <li><a href="https://github.com/chentsulin/awesome-graphql" target="_blank">Awesome GraphQL</a></li>
     </ul>
   </div>
 </div>
+
+NOTES:
+- How to GraphQL is a full-stack tutorial for GraphQL
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
