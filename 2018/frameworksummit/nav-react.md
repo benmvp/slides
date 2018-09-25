@@ -1,7 +1,7 @@
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 50%;" class="content-overlay">
+	<div style="width: 55%;" class="content-overlay">
   
   <h1>Navigating the React Solar System</h1>
 
@@ -21,12 +21,7 @@
 </div> 
 
 NOTES:
-- Good morning!
-- Really excited to be here in Australia
-  * Expected to see kangaroos hoping by
-  * Everyone saying "G'day mate"
-  * But I guess that's just an American stereotype
-
+**RESTART THE TIMER!!!!**
 
 - If you're new to React you might hear that on top of learning React
   * You need to know ES6, Redux, inline styles, server-side rendering, etc.
@@ -85,7 +80,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-_[5 minutes]_
+_[4 minutes]_
 
 - Ok, enough about me
 - Let's talk about the React Solar System
@@ -104,38 +99,6 @@ _[5 minutes]_
 
 NOTES:
 - At the center of this solar system obviously is React
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 75%">
-    <div style="display:flex;align-items:center;justify-content:space-between;">
-      <img src="../../img/react/react-logo.png" class="plain" style="width: 45%" />
-      <div>
-        <h2><a href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">Functional & Reactive</a></h2>
-        <h2><a href="https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down">Uni-directional</a></h2>
-        <h2><a href="https://reactjs.org/docs/jsx-in-depth.html">Declarative JSX</a></h2>
-        <h2><a href="https://reactjs.org/docs/reconciliation.html">"Virtual DOM"</a></h2>
-        <h2><a href="https://reactjs.org/docs/react-api.html">Narrow API</a></h2>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-NOTES:
-- First, learn React and learn it _really_ well
-  * Sounds like an obvious statement
-  * But there's a lot to learn
-- React is highly functional & reactive with a uni-directional data flow
-- If you're used to MVC with Angular or backend
-  * It'll take some time to wrap your head around the concepts
-- Then of course there's JSX syntax
-- Ensuring that you're fully leveraging the Virtual DOM
-  * Not directly manipulating DOM nodes takes time
-- But thankfully the API is really narrow so there's not that much learn
-- You can build a lot of great UIs with just JSX & the React API
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -197,7 +160,7 @@ NOTES:
 
 NOTES:
 - Combine the markup with the JavaScript
-  * UI is described as a "function" of its state
+  * UI is described as a "function of its state"
 - **ONE:** Initialize the `state` to have `value` which defaults to `0`
 - **TWO:** Render out the UI, specifically the input with the `state`
   * Initial value is `0` cuz that's the default value of `this.state.value`
@@ -209,6 +172,40 @@ NOTES:
   * Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
 - For this most basic example of interactivity, imperative seems more straightforward, right?
   * As the UI gets more sophisticated React will scale much better
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 75%">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <img src="../../img/react/react-logo.png" class="plain" style="width: 45%" />
+      <div>
+        <h2><a href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">Functional & Reactive</a></h2>
+        <h2><a href="https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down">Uni-directional</a></h2>
+        <h2><a href="https://reactjs.org/docs/jsx-in-depth.html">Declarative JSX</a></h2>
+        <h2><a href="https://reactjs.org/docs/reconciliation.html">"Virtual DOM"</a></h2>
+        <h2><a href="https://reactjs.org/docs/react-api.html">Narrow API</a></h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+NOTES:
+- First, learn React and learn it _really_ well
+  * Sounds like an obvious statement
+  * But there's a lot to learn
+- React is highly functional & reactive with a uni-directional data flow
+- If you're used to MVC with Angular or backend
+  * It'll take some time to wrap your head around the concepts
+- Then of course there's JSX syntax
+  * Inverted concept of most frameworks where markup is in the JavaScript
+  * Instead of having markup which has JS-lite in it
+- Ensuring that you're fully leveraging the Virtual DOM
+  * Not directly manipulating DOM nodes takes time
+- But thankfully the API is really narrow so there's not that much learn
+- You can build a lot of great UIs with just JSX & the React API
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -254,71 +251,6 @@ NOTES:
 - I've also created my own step-by-step workshop
   * Called "React FUNdamentals Workshop"
   * Can check that out for a more in-depth tutorial
-- Both the official tutorial and my workshop are written in ES6/ES.next, so...
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Useful ES.next features w/ React</h2>
-
-    <ul>
-      <li><a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank">Modules</a></li>
-      <li><a href="http://www.benmvp.com/learning-es6-classes/" target="_blank">Classes</a></li>
-      <li><a href="http://2ality.com/2016/10/rest-spread-properties.html" target="_blank">Spread operator</a></li>
-      <li><a href="http://www.benmvp.com/learning-es6-destructuring/" target="_blank">Destructuring</a></li>
-      <li><a href="http://www.benmvp.com/learning-es6-block-level-scoping-let-const/" target="_blank">Block scoping</a></li>
-      <li><a href="http://www.benmvp.com/learning-es6-arrow-functions/" target="_blank">Arrow functions</a></li>
-      <li><a href="http://www.benmvp.com/learning-es6-enhanced-object-literals" target="_blank">Object literal shorthand</a></li>
-      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank">Async functions</a></li>
-      <li>and more...</li>
-    </ul>    
-  </div>
-</div>
-
-NOTES:
-- React IMO is even easier to write with ES.next (modern JavaScript)
-- Outside of the JSX syntax, React is just JavaScript
-  * And even JSX is transpiled down to regular JavaScript
-  * So learning ES.next makes writing React easier
-- Chances are if you learn React, you're gonna learn it with some ES.next concepts
-- Here's a super quick look at some features
-  * Likely been using some of these already in your JS framework of choice
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2><a href="http://www.benmvp.com/slides/2017/reactconf/react-esnext.html" target="_blank">React + ES.next = ♥</a></h2>
-  
-    <iframe width="888" height="500" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
-
-    <p>ReactConf 2017</p>
-  </div>
-</div>
-
-NOTES:
-- I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
-- What I just talked about was just a small snippet of all the different features
-- Feel free to watch the video (not now)
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>JavaScript Resources</h2>
-  
-    <ul>
-      <li><a href="/learning-es6-series/" target="_blank">_Learning ES6_ series</a></li>
-      <li><a href="http://es6katas.org/" target="_blank">ES6 Katas</a></li>
-      <li><a href="https://github.com/eventbrite/javascript/tree/master/es6" target="_blank">Eventbrite ES6+ coding style guide</a></li>
-      <li><a href="https://github.com/eventbrite/javascript/tree/master/packages/eslint-config-eventbrite" target="_blank">Eventbrite ES6+ ESLint configuration</a></li>
-    </ul>
-  </div>
-</div>
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -330,7 +262,6 @@ NOTES:
 </div>
 
 NOTES:
-_[11 minutes]_
 
 - **First planet:** Mercury
 - Probably the biggest complaint w/ React isn't React itself
@@ -344,7 +275,7 @@ _[11 minutes]_
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 50%">
     <h2>React Dev Tools</h2>
-    <p>Help debug React props, state & perf</p>
+    <p>Help debug React props, state & performance</p>
 
     <img src="../../img/nav-react/react-dev-tools-2018.jpg" alt="Screenshot of React Dev Tools install" style="width: 100%" />
 
@@ -364,85 +295,28 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 50%">
-    <h2>Package managers</h2>
-    <p>Help install & manage dependencies</p>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:5%">
-      <div style="flex:0 0 45%;">
-        <a href="https://www.npmjs.com" target="_blank"><img src="../../img/nav-react/npm-logo.png" class="plain" /></a>
-        <a href="https://www.npmjs.com" target="_blank">NPM</a>
-      </div>
-      <div style="flex:0 0 45%;">
-        <a href="https://yarnpkg.com/" target="_blank"><img src="../../img/nav-react/yarn-logo.png" class="plain" /></a>
-        <a href="https://yarnpkg.com/" target="_blank">Yarn</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-NOTES:
-- Two major players are NPM & Yarn
-  * Now they more or less do the same thing
-- I currently use Yarn, by Facebook
-  * But am considering switching back to NPM
-  * Facebook no longer has a dedicated team on Yarn
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 70%">
-
-    <div style="display:flex;align-items:center;justify-content:space-around;margin-bottom: 5%">
-      <div style="flex:0 0 40%;">
-        <img src="../../img/nav-react/yarn-logo.png" class="plain" />
-      </div>
-      <div style="flex:0 0 55%;">
-        <h2>Flat Mode</h2>
-        <h2>Offline Mode</h2>
-        <h2>Deterministic</h2>
-        <h2>Network Resilience</h2>
-        <h2>Network Performance</h2>
-      </div>
-    </div>
-  </div>
-</div>
-
-NOTES:
-- Yarn changed the game
-  * There was really only NPM and they weren't innovating IMO
-  * Yarn's feature-set caused NPM to update as well and now they match
-- **Flat Mode:** Resolve mismatching versions of dependencies to a single version to avoid creating duplicates.
-- **Offline Mode:** If you've installed a package before, you can install it again without any internet connection.
-- **Deterministic:** The same dependencies will be installed the same exact way across every machine regardless of install order.
-- **Network Resilience:** A single request failing won't cause an install to fail. Requests are retried upon failure.
-- **Network Performance:** Yarn efficiently queues up requests and avoids request waterfalls in order to maximize network utilization.
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 70%">
     <h2>Bundlers</h2>
     <p>Help gather dependencies, transpile ES6+, etc.</p>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-      <div style="flex:0 0 22%;">
+      <div style="flex:0 0 18%;">
         <a href="https://webpack.github.io/" target="_blank"><img src="../../img/nav-react/webpack-logo.png" class="plain" /></a>
         <a href="https://webpack.github.io/" target="_blank">Webpack</a>
       </div>
-      <div style="flex:0 0 22%;">
+      <div style="flex:0 0 18%;">
         <a href="http://rollupjs.org/" target="_blank"><img src="../../img/nav-react/rollup-logo.svg" class="plain" /></a>
         <a href="http://rollupjs.org/" target="_blank">Rollup</a>
       </div>
-      <div style="flex:0 0 22%;">
+      <div style="flex:0 0 18%;">
+        <a href="https://parceljs.org/" target="_blank"><img src="../../img/nav-react/parcel-logo.png" class="plain" style="width: 100%" /></a>
+        <a href="https://parceljs.org/" target="_blank">Parcel</a>
+      </div>
+      <div style="flex:0 0 18%;">
         <a href="http://prepack.io/" target="_blank"><img src="../../img/nav-react/prepack-logo.png" class="plain" style="width: 100%" /></a>
         <a href="http://prepack.io/" target="_blank">Prepack*</a>
       </div>
-      <div style="flex:0 0 25%;">
+      <div style="flex:0 0 22%;">
         <a href="http://requirejs.org/" target="_blank"><img src="../../img/nav-react/requirejs-logo.png" class="plain" /></a>
         <a href="http://requirejs.org/" target="_blank" style="text-decoration: line-through">RequireJS</a>
       </div>
@@ -453,11 +327,14 @@ NOTES:
 NOTES:
 - This is space has a lot of players
 - Webpack is the prevailing bundler right now
+  * But you have to add loaders and other configurations to make it do what you need
 - Rollup works specifically with ES6 modules
   * Introduced the concept of "tree-shaking" feature that results in less generated code
   * But instead of bundling the code into one file, it transpiles individual files
   * Good for libraries
-- Prepack is a new tool for making JS code run faster
+- Parcel is a new tool that boasts blazing fast build times
+  * It also is "zero-config" so it has a lot of functionality out of the box
+- Prepack is another new tool for making JS code run faster
   * From Facebook
   * Computations that can be done at compile-time instead of run-time get eliminated
   * Still in early DEV stage so not quite ready for production
@@ -469,44 +346,6 @@ NOTES:
 - It's at this step where the "JavaScript fatigue" really kicks in
   * Your typical JS developer doesn't want to or know how to configure these bundlers
   * Just work please
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 90%">
-    <h2>Tree-Shaking</h2>
-
-    <div style="display:flex;justify-content:space-between;margin-top:1%">
-      <div style="flex:0 0 63%;">
-        ES2015 modules go in...
-        <pre class="large"><code class="lang-js">// maths.js
-
-// This function gets excluded
-export const square = (x) => x \* x
-
-// This function gets included
-export const cube = (x) => x \* x \* x</code></pre>
-
-		    <pre class="large"><code class="lang-js">// main.js
-import {cube} from './maths.js'
-
-console.log(cube(5)) // 125</code></pre>
-	    </div>
-	    <div style="flex:0 0 33%;">
-		    ...bundle comes out
-		    <pre class="large"><code class="lang-js">function cube(x) {
-  return x \* x \* x
-}
-
-console.log(cube(5))</code></pre>
-      </div>
-    </div>
-  </div>
-</div>
-
-NOTES:
-- With tree-shaking, functions in a reference module that aren't used don't get bundled
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -543,39 +382,6 @@ NOTES:
   * Essentially wrappers around command line calls
 - If things are simple, use npm scripts.
 - If things are complex, use Gulp since it's functional
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h2>NPM/Yarn Scripts</h2>
-
-    <pre class="large"><code class="lang-json">{
-  "scripts": {
-    "start": "webpack-dev-server --hot --inline --open",
-    "build": "webpack --progress --colors",
-    "eslint": "eslint .",
-    "lint": "yarn run scss-lint && yarn run eslint",
-    "scss-lint": "scss-lint .",
-    "test": "jest",
-    "validate": "yarn run lint && yarn run test"
-  }
-}</code></pre>
-    <pre class="large"><code class="lang-json">$> yarn run validate</code></pre>
-  </div>
-</div>
-
-
-NOTES:
-- For something simple like this, NPM scripts are great!
-- But I have some package.json files that have 25+ scripts that generate files, etc
-  * In that case, and actual build system like Gulp makes sense
-  * But it's good to always have NPM scripts to abstract the build system
-  * So if things change underneath the commands the user calls stay the same
-
-
-- Speaking of linting...
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -623,31 +429,6 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h2>Flow type inference</h2>
-
-    <pre class="large"><code class="lang-javascript">// @flow
-const foo = (x) => x \* 10
-
-foo('Hello, world!')</code></pre>
-    <pre class="large"><code>$> flow
-
-2:   x \* 10
-     ^ string. This type is incompatible with number</code></pre>
-  </div>
-</div>
-
-NOTES:
-- Flow supports type inference
-  * So without even changing the code, it can start providing helpful feedback
-- Just add `@flow` to the top
-- In this case we're trying to multiply a passed string by `10` which is obviously wrong
-  * Flow won't compile and will let us know something is wrong
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
     <h2>Create React App</h2>
     <p>Create React apps with no build configuration</p>
 
@@ -675,6 +456,7 @@ NOTES:
   * They created Create React App
   * Allows you to bootstrap super quick w/ zero-config
   * And if you need to config something it doesn't support you can "eject"
+- Much better than the (bloated) boilerplates / starter-kits
 - Also creates an optimized bundle you can ship to production
 
 /////
@@ -686,6 +468,7 @@ NOTES:
 
     <ul>
       <li><a href="https://github.com/facebook/create-react-app" target="_blank">Create React App</a></li>
+      <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
@@ -710,7 +493,6 @@ NOTES:
 
 
 NOTES:
-_[21 minutes]_
 
 -**Next planet:** Venus
 - Let's talking about styling because visuals are just as important as interaction
@@ -979,57 +761,6 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h2>Emotion</h2>
-
-    <pre class="large"><code class="lang-javascript">import styled from 'react-emotion'
-
-const Root = styled.div({display: 'flex'})
-const Title = styled.h2({fontWeight: 'bold'})
-const Image = styled.img({ ... })
-const Message = styled.p({ ... })
-
-const Card = ({title, imageUrl, message}) => (
-  &lt;Root>
-    &lt;Title>{title}&lt;/Title>
-    &lt;Image src={imageUrl} />
-    &lt;Message>{message}&lt;/Message>
-  &lt;/Root>
-)</code></pre>
-  </div>
-</div>
-
-
-NOTES:
-- Quick look at how Emotion works
-- Create a custom elements/components with the styling you want
-- Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
-  * There's also themeing support as well
-  * Been recently looking into for Eventbrite
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Emotion</h2>
-    <p>Auto-generated class names</p>
-
-    <pre class="large"><code class="lang-html"><div class="css-1sa0cvf">
-  <h2 class="css-1un7ufz">Card Title</h2>
-  <img class="css-1e9pfwo" src="..." />
-  <p class="css-1b9v3at">Card message</p>
-</div></code></pre>
-  </div>
-</div>
-
-NOTES:
-- Here's what the generated markup will look like
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
     <h2>Styling Resources</h2>
   
     <ul>
@@ -1056,7 +787,6 @@ NOTES:
 </div>
 
 NOTES:
-_[32 minutes]_
 
 - **Next planet:** Earth
 - Moving along to libraries needed for Single Page Apps
@@ -1142,40 +872,6 @@ NOTES:
 - Don't think active dev is happening on React Router v4
   * Go with Reach Router
 
-/////
-<!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h2>Reach Router</h2>
-
-    <pre><code class="lang-javascript">import {Router, Link} from '@reach/router'
-
-const Home = () => (
-  &lt;div>
-    &lt;h1>Home&lt;/h1>
-    &lt;nav>
-      &lt;Link to="/">Home&lt;/Link> |
-      &lt;Link to="dashboard">Dashboard&lt;/Link>
-    &lt;/nav>
-  &lt;/div>
-)
-const Dash = () => (&lt;div>Dash&lt;/div>)
-const App = () => (
-  &lt;Router>
-    &lt;Home path="/" />
-    &lt;Dash path="dashboard" />
-  &lt;/Router>
-)</code></pre>
-  </div>
-</div>
-
-NOTES:
-- Can set up your routes with the same JSX syntax
-  * Within the `<Router>` just have your normal child components
-  * Just add special `path` prop (similar to special `key` prop)
-- Then you can `<Link>` to different sections using relative paths too
-
 =====
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1186,7 +882,6 @@ NOTES:
 </div>
 
 NOTES:
-_[36 minutes]_
 
 - **Next planet:** Mars
 - Let's be real, forms are hard
@@ -1271,7 +966,6 @@ NOTES:
 </div>
 
 NOTES:
-_[38 minutes]_
 
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build Production-level apps
@@ -1293,7 +987,6 @@ _[38 minutes]_
 </div>
 
 NOTES:
-_[39 minutes]_
 
 - **Next planet:** Jupiter
 - I hate to put testing so far, but the previous 5 really are more important
@@ -1373,6 +1066,7 @@ NOTES:
   
     <ul>
       <li><a href="http://airbnb.io/enzyme/" target="_blank">Enzyme</a></li>
+      <li><a href="https://github.com/kentcdodds/react-testing-library" target="_blank">`react-testing-library`</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
       <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
       <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
@@ -1392,7 +1086,6 @@ NOTES:
 </div>
 
 NOTES:
-_[42 minutes]_
 
 - **Next planet:** Saturn
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
@@ -1497,7 +1190,6 @@ NOTES:
 </div>
 
 NOTES:
-_[45 minutes]_
 
 - **Next planet:** Uranus
 - We're starting to get further out from the center
@@ -1594,28 +1286,6 @@ NOTES:
 - The work just like Arrays or Objects except they don't mutate and have extra functionality
 - A lot lighter than Immutable
 
-/////
-<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h2>`seamless-immutable`</h2>
-    <pre class="large"><code class="lang-javascript">const array = Immutable(['one', 'two', {count: 3}])
-
-array[1] = 'I will mutate you!'
-console.log(array[1]) // 'two'
-
-array[2].count = 'Mutate an object mwahaha!!!'
-console.log(array[2].count) // 3
-
-console.log(JSON.stringify(array))
-// '["one","two",{"count":3}]'</code></pre>
-  </div>
-</div>
-
-NOTES:
-- Can pass to libraries like `lodash` or `underscore`
-
 =====
 <!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1626,7 +1296,6 @@ NOTES:
 </div>
 
 NOTES:
-_[50 minutes]_
 
 - **Last planet:** Neptune
 - As your app grows larger you may find that you're making lots of Rest API requests
@@ -1675,44 +1344,13 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h2>Apollo</h2>
-
-    <pre><code class="lang-javascript">export default graphql(gql\`{
-  feed(type: TOP, limit: 10) {
-    repo {
-      name
-      owner { login }
-    }
-    postedBy { login }
-  }
-}\`)((props) => {
-  const items = props.data.feed.map((item) => {
-    const title = item.repo.owner.login + item.repo.name
-    const subtitle = \`Posted by ${item.postedBy.login}\`
-
-    return (&lt;ListItem title={title} subtitle={subtitle} />)
-  })
-
-  return (&lt;List item={items} />)
-})</code></pre>
-  </div>
-</div>
-
-
-NOTES:
-- Don't need much global state management as each component declares its own data dependencies
-- Gatsby uses GraphQL
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
     <h2>API Optimization Resources</h2>
   
     <ul>
       <li><a href="https://www.howtographql.com/" target="_blank">How to GraphQL</a></li>
       <li><a href="https://github.com/apollographql/apollo-client-devtools" target="_blank">Apollo Client Devtools</a></li>
+      <li><a href="https://www.prisma.io/" target="_blank">Prisma</a></li>
+      <li><a href="https://www.graph.cool/" target="_blank">Graphcool</a></li>
       <li><a href="https://github.com/chentsulin/awesome-graphql" target="_blank">Awesome GraphQL</a></li>
     </ul>
   </div>
@@ -1731,7 +1369,6 @@ NOTES:
 </div>
 
 NOTES:
-_[53 minutes]_
 
 - Quick tl;dr in case you missed anything
 
