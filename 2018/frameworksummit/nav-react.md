@@ -85,8 +85,12 @@ _[4 minutes]_
 - Ok, enough about me
 - Let's talk about the React Solar System
 - **Who here considers themselves React newbies?**
-  * Going to be *a lot* of stuff covered
-  * Tweeted a link to slides cuz there will be **a lot** of resources
+  * Going to be info for everyone
+- Going to be *a lot* of stuff covered
+  * Probably not going to teach you how to use any given lib
+  * Instead my goal is to expose you to the libs so you can investigate
+  * Will also give my opinion
+- Tweeted a link to slides cuz there will be **a lot** of resources
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -439,8 +443,6 @@ $> cd awesome-app
 $> yarn start</code></pre>
 
     <p>NPM/Yarn, Babel, Webpack, ESLint, and more!</p>
-
-    <p>(<a href="https://github.com/zkat/npx" target="_blank">`npx`</a>)</p>
   </div>
 </div>
 
@@ -470,6 +472,7 @@ NOTES:
       <li><a href="https://github.com/facebook/create-react-app" target="_blank">Create React App</a></li>
       <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
+      <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
       <li><a href="https://webpack.js.org/configuration/dev-server/" target="_blank">`webpack-dev-server`</a></li>
@@ -576,7 +579,8 @@ const Card = ({title, imageUrl, message}) => (
 NOTES:
 - Component CSS is the exact same as Global CSS
   * Except the CSS is imported by the Component
-  * Therefore if the Component isn't used the CSS won't be included in the bundle
+  * Instead of some external process that bundles everything
+  * Therefore if the Component isn't used in the app the CSS won't be included in the bundle
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -719,6 +723,8 @@ NOTES:
 
 NOTES:
 - Inline styles use `camelCase` version of the property names instead of `kebab-case`
+- Problem with inline styles is that it only supports what inline styles support
+  * No media queries, pseudo-selectors, etc
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -751,10 +757,9 @@ NOTES:
 
 
 NOTES:
-- Problem with inline styles is that it only supports what inline styles support
-  * No media queries, pseudo-selectors, etc
 - New libraries have popped up to try to solve that issue in various clever ways
  * Most take what's defined as inline styles but map to unique CSS classes
+ * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -1066,10 +1071,10 @@ NOTES:
   
     <ul>
       <li><a href="http://airbnb.io/enzyme/" target="_blank">Enzyme</a></li>
+      <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
       <li><a href="https://github.com/kentcdodds/react-testing-library" target="_blank">`react-testing-library`</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
       <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
-      <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
       <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">Jest 14.0: React Tree Snapshot Testing</a></li>
       <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
     </ul>
@@ -1081,13 +1086,119 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>7. Performance & SEO</h1>
+    <h1>7. App Data Management</h1>
   </div>
 </div>
 
 NOTES:
 
 - **Next planet:** Saturn
+- We're starting to get further out from the center
+- Up until this point, we've been using React to store application data
+- Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 75%">
+    <h2>Flux Design pattern</h2>
+
+    <img src="../../img/nav-react/flux-diagram.png" alt="Flux Design Pattern Diagram" />
+  </div>
+</div>
+
+NOTES:
+- Enter the Flux design pattern
+- If you've seen anything about Flux, no doubt you've seen this diagram
+  * And if you're like me, the first time it was explained to you, it didn't make sense
+  * And if you're like me, it didn't make sense the second time either
+  * I think I had to see it at least 3 or four times until I really got it
+  * And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
+- That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Redux at the same time
+- The Flux pattern is basically about making application state mutations predictable
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Flux Implementations</h2>
+    <p>Make application state mutations predictable</p>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" /></a>
+		    <a href="http://redux.js.org/" target="_blank">Redux</a>
+      </div>
+	    <div style="flex:0 0 45%;">
+        <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" /></a>
+		    <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+NOTES:
+- Number of implementations of Flux
+- Originally there was just the pattern and we're on our own
+- At Eventbrite we created our own Flux implementation using Backbone (not that great)
+- The Facebook came out with Flux due to demand
+- Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
+  * Look we're talking about Redux at Step 8!
+- Redux uses the concept of reducers where you generate new state on actions
+- Mobx uses Observables that subscribe to mutations to state
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Immutability</h2>
+    <p>Provide immutable collections for JavaScript</p>
+
+    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="https://facebook.github.io/immutable-js/" target="_blank"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
+      </div>
+	    <div style="flex:0 0 45%;">
+        <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+NOTES:
+- While on the subject of mutating state...
+- By default, JavaScript arrays, objects and other collections are mutable
+  * Normally you would just enforce a standard that data cannot be mutated
+  * That's how React works
+  * This leads to a lot of defensive copying with the spread operator
+  * Making lots of copies can hurt performance
+- Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
+- `Immutable` is the big player, yet another library from Facebook
+  * Only used it a bit
+  * Found the API a bit cumbersome
+  * Constantly going to and from Immutable and native objects
+  * Don't _really_ want my React components to have to care, just Redux
+- `seamless-immutable` is an alternative that has data structures that are backwards-compatible
+- The work just like Arrays or Objects except they don't mutate and have extra functionality
+- A lot lighter than Immutable
+
+=====
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>8. Performance & SEO</h1>
+  </div>
+</div>
+
+NOTES:
+
+- **Next planet:** Uranus
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
 - Rendering server-side can help both
   * This is called "Isomorphic/Universal React"
@@ -1100,9 +1211,9 @@ NOTES:
 - React provides a method that will render the component tree to a string which you can include in server response
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 65%">
     <h2>Server-side rendering</h2>
 
@@ -1147,9 +1258,9 @@ NOTES:
   * Data fetching with `isomorphic-fetch`
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2><a href="http://www.benmvp.com/slides/2017/render/iso-react.html" target="_blank">SSR without a Node back-end...</a></h2>
 
@@ -1165,9 +1276,9 @@ NOTES:
 - But I have a talk that explains it all!
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Server-side Rendering Resources</h2>
   
@@ -1179,112 +1290,6 @@ NOTES:
     </ul>
   </div>
 </div>
-
-=====
-<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h1>8. App Data Management</h1>
-  </div>
-</div>
-
-NOTES:
-
-- **Next planet:** Uranus
-- We're starting to get further out from the center
-- Up until this point, we've been using React to store application data
-- Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 75%">
-    <h2>Flux Design pattern</h2>
-
-    <img src="../../img/nav-react/flux-diagram.png" alt="Flux Design Pattern Diagram" />
-  </div>
-</div>
-
-NOTES:
-- Enter the Flux design pattern
-- If you've seen anything about Flux, no doubt you've seen this diagram
-  * And if you're like me, the first time it was explained to you, it didn't make sense
-  * And if you're like me, it didn't make sense the second time either
-  * I think I had to see it at least 3 or four times until I really got it
-  * And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
-- That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Redux at the same time
-- The Flux pattern is basically about making application state mutations predictable
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 65%">
-    <h2>Flux Implementations</h2>
-    <p>Make application state mutations predictable</p>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
-        <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" /></a>
-		    <a href="http://redux.js.org/" target="_blank">Redux</a>
-      </div>
-	    <div style="flex:0 0 45%;">
-        <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" /></a>
-		    <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-NOTES:
-- Number of implementations of Flux
-- Originally there was just the pattern and we're on our own
-- At Eventbrite we created our own Flux implementation using Backbone (not that great)
-- The Facebook came out with Flux due to demand
-- Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
-  * Look we're talking about Redux at Step 8!
-- Redux uses the concept of reducers where you generate new state on actions
-- Mobx uses Observables that subscribe to mutations to state
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 65%">
-    <h2>Immutability</h2>
-    <p>Provide immutable collections for JavaScript</p>
-
-    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
-        <a href="https://facebook.github.io/immutable-js/" target="_blank"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
-      </div>
-	    <div style="flex:0 0 45%;">
-        <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-NOTES:
-- While on the subject of mutating state...
-- By default, JavaScript arrays, objects and other collections are mutable
-  * Normally you would just enforce a standard that data cannot be mutated
-  * That's how React works
-  * This leads to a lot of defensive copying with the spread operator
-  * Making lots of copies can hurt performance
-- Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
-- `Immutable` is the big player, yet another library from Facebook
-  * Only used it a bit
-  * Found the API a bit cumbersome
-  * Constantly going to and from Immutable and native objects
-  * Don't _really_ want my React components to have to care, just Redux
-- `seamless-immutable` is an alternative that has data structures that are backwards-compatible
-- The work just like Arrays or Objects except they don't mutate and have extra functionality
-- A lot lighter than Immutable
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
@@ -1393,27 +1398,27 @@ NOTES:
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
         <div>4. Single-Page Apps</div>
-        <a href="https://reach.tech/router"><img src="../../img/nav-react/reach-router-logo.svg" class="plain" style="width: 65%; margin-top: 0.5em" /></a>
+        <a href="https://reach.tech/router" target="_blank"><img src="../../img/nav-react/reach-router-logo.svg" class="plain" style="width: 65%; margin-top: 0.5em" /></a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
         <div>5. Forms</div>
-        <a href="http://final-form.org/"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 33%" /></a>
+        <a href="http://final-form.org/" target="_blank"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
         <div>6. Testing</div>
         <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:30%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <div>7. Performance & SEO</div>
-        <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
-      </div>
-      <div style="flex: 0 0 33%">
-        <div>8. App Data Management</div>
+        <div>7. App Data Management</div>
         <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%">
+        <div>8. Performance & SEO</div>
+        <a href="https://nextjs.org/" target="_blank"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
+      </div>
+      <div style="flex: 0 0 33%">
         <div>9. API Optimization</div>
-        <a href="http://dev.apollodata.com/"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:50%" /></a>
+        <a href="http://dev.apollodata.com/" target="_blank"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:50%" /></a>
       </div>
     </div>
   </div>
