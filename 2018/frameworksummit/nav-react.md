@@ -86,85 +86,12 @@ _[4 minutes]_
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>1. React</h1>
+    <h1>0. React</h1>
   </div>
 </div>
 
 NOTES:
 - At the center of this solar system obviously is React
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Imperative jQuery</h2>
-      <pre class="large"><code class="lang-html"><div>
-  <input type="number" value="0" />
-  <button>+</button>
-</div></code></pre>
-      <pre class="large"><code class="lang-javascript">$('button').click(function() {
-  var $input = $('input'),
-    value = parseInt($input.val(), 10);
-
-  $input.val(value + 1);
-});</code></pre>
-
-    <div>
-      <input type="text" class="valueBox" value="0" size="1" style="font-size: 2em;text-align: center" />
-      <button class="btnUp" style="font-size: 2em" onclick="$('.valueBox').val(+$('.valueBox').val() + 1)">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
-    </div>
-  </div>
-</div>
-
-NOTES:
-- For simple task, imperative code is easy to follow
-- But as we all know, as things get more complicated, this sort of code gets pretty crazy
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Declarative React</h2>
-      <pre class="large"><code class="lang-javascript">class Incrementer extends React.Component {
-  state = {value: 0}
-
-  _handleClick = () => {
-    this.setState((prevState) => ({value: prevState.value + 1}))
-  }
-  render() {
-    return (
-      <div>
-        &lt;input type="number" defaultValue={this.state.value} />
-        &lt;button onClick={this._handleClick}>+&lt;/button>
-      </div>
-    )
-  }
-}</code></pre>
-
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 229px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 684px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 741px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 401px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 684px;"></div>
-  </div>
-</div>
-
-NOTES:
-- Combine the markup with the JavaScript
-  * UI is described as a "function of its state"
-- **ONE:** Initialize the `state` to have `value` which defaults to `0`
-- **TWO:** Render out the UI, specifically the input with the `state`
-  * Initial value is `0` cuz that's the default value of `this.state.value`
-- **THREE:** Click the button which calls `_handleClick` handler
-- **FOUR:** Call `setState()` which updates `state` to be previous value `+ 1`
-- **FIVE:** As a result, `render()` is called again
-  * New value is back in input field
-  * Updating state causes an optimized re-render via the reconciler (aka "Virtual DOM")
-  * Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
-- For this most basic example of interactivity, imperative seems more straightforward, right?
-  * As the UI gets more sophisticated React will scale much better
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -250,12 +177,12 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h1>2. Tooling</h1>
+    <h1>1. Tooling</h1>
   </div>
 </div>
 
 NOTES:
-_[8 minutes]_
+_[6 minutes]_
 
 - **First planet:** Mercury
 - Probably the biggest complaint w/ React isn't React itself
@@ -481,13 +408,13 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>3. Styling</h1>
+    <h1>2. Styling</h1>
   </div>
 </div>
 
 
 NOTES:
-_[11 minutes]_
+_[9 minutes]_
 
 -**Next planet:** Venus
 - Let's talking about styling because visuals are just as important as interaction
@@ -770,7 +697,9 @@ NOTES:
     <ul>
       <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank">_A Unified Styling Language_</a></li>
       <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Modules</a></li>
-      <li><a href="http://www.material-ui.com/" target="_blank">Material UI</a> / <a href="https://react.foundation/" target="_blank">React + Foundation</a> / <a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a></li>
+      <li><a href="http://www.material-ui.com/" target="_blank">Material UI</a></li>
+      <li><a href="https://react.foundation/" target="_blank">React + Foundation</a></li>
+      <li><a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a></li>
       <li><a href="https://github.com/JedWatson/classnames" target="_blank">`classnames`</a></li>
       <li><a href="https://polished.js.org/" target="_blank">polished</a></li>
       <li><a href="http://postcss.org/" target="_blank">PostCSS</a></li>
@@ -786,12 +715,12 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h1>4. Single-Page Apps</h1>
+    <h1>3. Single-Page Apps</h1>
   </div>
 </div>
 
 NOTES:
-_[16 minutes]_
+_[14 minutes]_
 
 - **Next planet:** Earth
 - Moving along to libraries needed for Single Page Apps
@@ -882,12 +811,12 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>5. Forms</h1>
+    <h1>4. Forms</h1>
   </div>
 </div>
 
 NOTES:
-_[18 minutes]_
+_[16 minutes]_
 
 - **Next planet:** Mars
 - Let's be real, forms are hard
@@ -972,7 +901,7 @@ NOTES:
 </div>
 
 NOTES:
-_[19 minutes]_
+_[17 minutes]_
 
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build Production-level apps
@@ -989,12 +918,12 @@ _[19 minutes]_
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h1>6. Testing</h1>
+    <h1>5. Testing</h1>
   </div>
 </div>
 
 NOTES:
-_[20 minutes]_
+_[18 minutes]_
 
 - **Next planet:** Jupiter
 - I hate to put testing so far, but the previous 5 really are more important
@@ -1092,12 +1021,12 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>7. App Data Management</h1>
+    <h1>6. App Data Management</h1>
   </div>
 </div>
 
 NOTES:
-_[22 minutes]_
+_[20 minutes]_
 
 - **Next planet:** Saturn
 - We're starting to get further out from the center
@@ -1188,12 +1117,12 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h1>8. Performance & SEO</h1>
+    <h1>7. Performance & SEO</h1>
   </div>
 </div>
 
 NOTES:
-_[24 minutes]_
+_[22 minutes]_
 
 - **Next planet:** Uranus
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
@@ -1293,12 +1222,12 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>9. API Optimization</h1>
+    <h1>8. API Optimization</h1>
   </div>
 </div>
 
 NOTES:
-_[26 minutes]_
+_[24 minutes]_
 
 - **Last planet:** Neptune
 - As your app grows larger you may find that you're making lots of Rest API requests
@@ -1376,7 +1305,7 @@ NOTES:
 </div>
 
 NOTES:
-_[27 minutes]_
+_[25 minutes]_
 
 - Quick tl;dr in case you missed anything
 
@@ -1387,40 +1316,40 @@ _[27 minutes]_
   <div class="content-overlay" style="width: 80%">
     <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
 	    <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>1. React & JavaScript</div>
+        <div>0. React & JavaScript</div>
         <a href="https://facebook.github.io/react/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width: 33%" /></a>
         <a href="/learning-es6-series/" target="_blank"><img src="../../img/es6/es6-logo.png" class="plain" style="width: 30%" /></a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>2. Tooling</div>
+        <div>1. Tooling</div>
         <a href="https://github.com/facebook/create-react-app" target="_blank" style="margin-top: 0.5em;display: block">Create React App</a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>3. Styling</div>
+        <div>2. Styling</div>
         <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/emotion-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>4. Single-Page Apps</div>
+        <div>3. Single-Page Apps</div>
         <a href="https://reach.tech/router" target="_blank"><img src="../../img/nav-react/reach-router-logo.svg" class="plain" style="width: 65%; margin-top: 0.5em" /></a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>5. Forms</div>
+        <div>4. Forms</div>
         <a href="http://final-form.org/" target="_blank"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>6. Testing</div>
+        <div>5. Testing</div>
         <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:30%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <div>7. App Data Management</div>
+        <div>6. App Data Management</div>
         <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <div>8. Performance & SEO</div>
+        <div>7. Performance & SEO</div>
         <a href="https://nextjs.org/" target="_blank"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <div>9. API Optimization</div>
+        <div>8. API Optimization</div>
         <a href="http://dev.apollodata.com/" target="_blank"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:50%" /></a>
       </div>
     </div>
@@ -1428,16 +1357,16 @@ _[27 minutes]_
 </div>
 
 NOTES:
-- 1/ Obviously start off with React & ES.next
-- 2/ For tooling using Create React App
-- 3/ For styling trying learning & using Emotion
-- 4/ Give new Reach Router a try
-- 5/ Give React Final Form a try for sophisticated form handling
-- 6/ Use Jest + Enzyme for your unit testing
-- 7/ For SSR rendering look into Next.js
+- 0/ Obviously start off with React & ES.next
+- 1/ For tooling using Create React App
+- 2/ For styling trying learning & using Emotion
+- 3/ Give new Reach Router a try
+- 4/ Give React Final Form a try for sophisticated form handling
+- 5/ Use Jest + Enzyme for your unit testing
+- 6/ For SSR rendering look into Next.js
   * (but use Gatsby for any sort of static site)
-- 8/ Redux for app state management
-- 9/ If you jump into GraphQL take a look at Apollo
+- 7/ Redux for app state management
+- 8/ If you jump into GraphQL take a look at Apollo
 - **Cool thing:** Can tailor your stack to your team and existing codebase
 
 =====
@@ -1463,12 +1392,14 @@ NOTES:
 - So that's it!
 - Just flooded you with a lot of information
   * Slides are available online
-- Hopefully 1, 2 or all 9 of these suggestions will prove useful to you
+- Hopefully 1, 2 or all 8 of these suggestions will prove useful to you
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one and build on it
 
 
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
+  * Such a novel idea for a conference
+  * Bringing all the frameworks together
 - **YOU!** For attending the conference
   * I go through the stress of preparing and delivering so you can learn
   * So even if you only learned one little thing it was worth it
