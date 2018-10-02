@@ -67,15 +67,6 @@ NOTES:
   * We've been using React for 2.5 years
   * Migrated from Backbone and have never looked back
 
-/////
-
-<!-- .slide: data-background="url(../../img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain" -->
-
-NOTES:
-- Originally from Houston
-- Love Basketball
-- Favorite team in the NBA is the Rockets
-
 =====
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -84,12 +75,10 @@ _[4 minutes]_
 
 - Ok, enough about me
 - Let's talk about the React Solar System
-- **Who here considers themselves React newbies?**
-  * Going to be info for everyone
 - Going to be *a lot* of stuff covered
   * Probably not going to teach you how to use any given lib
   * Instead my goal is to expose you to the libs so you can investigate
-  * Will also give my opinion
+  * Will also give my preferences
 - Tweeted a link to slides cuz there will be **a lot** of resources
 
 =====
@@ -266,6 +255,7 @@ NOTES:
 </div>
 
 NOTES:
+_[8 minutes]_
 
 - **First planet:** Mercury
 - Probably the biggest complaint w/ React isn't React itself
@@ -460,6 +450,7 @@ NOTES:
   * And if you need to config something it doesn't support you can "eject"
 - Much better than the (bloated) boilerplates / starter-kits
 - Also creates an optimized bundle you can ship to production
+- v2 just shipped Monday!
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -469,7 +460,7 @@ NOTES:
     <h2>Tooling resources</h2>
 
     <ul>
-      <li><a href="https://github.com/facebook/create-react-app" target="_blank">Create React App</a></li>
+      <li><a href="https://reactjs.org/blog/2018/10/01/create-react-app-v2.html" target="_blank">Create React App</a></li>
       <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
       <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
@@ -496,6 +487,7 @@ NOTES:
 
 
 NOTES:
+_[11 minutes]_
 
 -**Next planet:** Venus
 - Let's talking about styling because visuals are just as important as interaction
@@ -573,6 +565,8 @@ const Card = ({title, imageUrl, message}) => (
     &lt;p className="card\__message">{message}&lt;/p>
   &lt;/div>
 )</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 253px;"></div>
   </div>
 </div>
 
@@ -621,6 +615,8 @@ const Card = ({title, imageUrl, message}) => (
     &lt;p className={css.message}>{message}&lt;/p>
   &lt;/div>
 )</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 253px;"></div>
   </div>
 </div>
 
@@ -658,7 +654,7 @@ NOTES:
     <h2>CSS Modules</h2>
     <p>Automatically scope CSS class names to the component</p>
 
-    <pre class="large"><code class="lang-css">/\* Card.scss (generated) \*/
+    <pre class="large"><code class="lang-css">/\* Card.css (generated) \*/
 
 .Card\__root\__\_d74hQ { }
 .Card\__title\__\_37fhU { }
@@ -688,6 +684,8 @@ const Card = ({title, imageUrl, message}) => (
     &lt;p style={styles.message}>{message}&lt;/p>
   &lt;/div>
 )</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 253px;"></div>
   </div>
 </div>
 
@@ -707,7 +705,8 @@ NOTES:
     <h2>Inline styles</h2>
     <p>Forgo CSS classes in favor of inline styles</p>
 
-    <pre class="large"><code class="lang-javascript">export default {
+    <pre class="large"><code class="lang-javascript">// Card.styles.js
+export default {
   root: {
     display: 'flex',
     flexDirection: 'row'
@@ -792,6 +791,7 @@ NOTES:
 </div>
 
 NOTES:
+_[16 minutes]_
 
 - **Next planet:** Earth
 - Moving along to libraries needed for Single Page Apps
@@ -804,7 +804,7 @@ NOTES:
     <h2>Fetch API</h2>
     <p>Handle AJAX natively</p>
 
-    <pre class="large"><code class="lang-javascript">fetch('api.benmvp.com', {method: 'GET'})
+    <pre class="large"><code class="lang-javascript">window.fetch('api.benmvp.com', {method: 'GET'})
   .then((response) => {
     // do something w/ response
   })
@@ -874,8 +874,8 @@ NOTES:
   * Manages focus of your app on route transitions
   * Has ambiguous path ranking algorithm
   * Relative links, "not found" default components, etc.
-- Don't think active dev is happening on React Router v4
-  * Go with Reach Router
+- Active development is happening on both
+- Give Reach Router a try
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
@@ -887,6 +887,7 @@ NOTES:
 </div>
 
 NOTES:
+_[18 minutes]_
 
 - **Next planet:** Mars
 - Let's be real, forms are hard
@@ -971,6 +972,7 @@ NOTES:
 </div>
 
 NOTES:
+_[19 minutes]_
 
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build Production-level apps
@@ -992,6 +994,7 @@ NOTES:
 </div>
 
 NOTES:
+_[20 minutes]_
 
 - **Next planet:** Jupiter
 - I hate to put testing so far, but the previous 5 really are more important
@@ -1056,11 +1059,14 @@ it('adds CSS class for style primary', () => {
 </div>
 
 NOTES:
+- This is how we can unit test a component
+- It still blows my mind that we can do this **without** a browser
 - When unit testing React components, you want to test the logic in the component
   * But only via its public API
   * What it renders, and the callback handler props it calls
 - Enzyme is a helper library that allows us to render React components w/o a browser
   * Has a very jQuery-like interface for inspecting components
+  * Provides lots of utility methods
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
@@ -1091,32 +1097,12 @@ NOTES:
 </div>
 
 NOTES:
+_[22 minutes]_
 
 - **Next planet:** Saturn
 - We're starting to get further out from the center
 - Up until this point, we've been using React to store application data
 - Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 75%">
-    <h2>Flux Design pattern</h2>
-
-    <img src="../../img/nav-react/flux-diagram.png" alt="Flux Design Pattern Diagram" />
-  </div>
-</div>
-
-NOTES:
-- Enter the Flux design pattern
-- If you've seen anything about Flux, no doubt you've seen this diagram
-  * And if you're like me, the first time it was explained to you, it didn't make sense
-  * And if you're like me, it didn't make sense the second time either
-  * I think I had to see it at least 3 or four times until I really got it
-  * And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
-- That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Redux at the same time
-- The Flux pattern is basically about making application state mutations predictable
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
@@ -1141,12 +1127,10 @@ NOTES:
 
 
 NOTES:
-- Number of implementations of Flux
-- Originally there was just the pattern and we're on our own
-- At Eventbrite we created our own Flux implementation using Backbone (not that great)
-- The Facebook came out with Flux due to demand
-- Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
-  * Look we're talking about Redux at Step 8!
+- Most people use Redux
+  * Been a bit of a backlash
+  * Mainly because people have been using it before they need it and w/o understanding it
+  * Look we're talking about Redux at Step 7!
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 
@@ -1159,11 +1143,14 @@ NOTES:
     <p>Provide immutable collections for JavaScript</p>
 
     <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
+	    <div style="flex:0 0 30%;">
         <a href="https://facebook.github.io/immutable-js/" target="_blank"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
       </div>
-	    <div style="flex:0 0 45%;">
+	    <div style="flex:0 0 30%;">
         <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
+      </div>
+	    <div style="flex:0 0 30%;">
+        <a href="https://github.com/mweststrate/immer" target="_blank"><img src="../../img/nav-react/immer-logo.png" class="plain" /></a>
       </div>
     </div>
   </div>
@@ -1177,15 +1164,24 @@ NOTES:
   * That's how React works
   * This leads to a lot of defensive copying with the spread operator
   * Making lots of copies can hurt performance
-- Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
+- Instead you can use a library like `Immutable`, `seamless-immutable` or `immer` to have true immutable objects
 - `Immutable` is the big player, yet another library from Facebook
   * Only used it a bit
   * Found the API a bit cumbersome
   * Constantly going to and from Immutable and native objects
   * Don't _really_ want my React components to have to care, just Redux
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
-- The work just like Arrays or Objects except they don't mutate and have extra functionality
-- A lot lighter than Immutable
+  * They work just like Arrays or Objects except they don't mutate and have extra functionality
+  * A lot lighter than Immutable
+- `immer` takes a completely different approach
+  * Just found out about this last week
+  * Instead of creating a whole new set of immutable objects with their own API
+  * It provides a `produce()` helper
+  * You give the function the object you want to mutate & a function that does the mutation
+  * And it returns the "next state" of the object
+  * Very similar to the "reducer" concept introduced by Redux
+  * Seems almost built for React
+  * Huge pro is that it works w/ normal JS objects/arrays
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/uranus.jpg) no-repeat center" data-background-size="cover" -->
@@ -1197,6 +1193,7 @@ NOTES:
 </div>
 
 NOTES:
+_[24 minutes]_
 
 - **Next planet:** Uranus
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
@@ -1222,13 +1219,13 @@ NOTES:
         <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="margin-bottom: 1em" /></a>
         <a href="https://nextjs.org/">Next.js</a>
       </div>
-      <div style="flex:0 0 28%;">
-        <a href="https://github.com/jaredpalmer/razzle"><img src="../../img/nav-react/razzle-logo.png" class="plain" style="background-color: #ddd; margin-bottom: 2em" /></a>
-        <a href="https://github.com/jaredpalmer/razzle" style="display:block">Razzle</a>
-      </div>
       <div style="flex:0 0 22%;">
         <a href="https://www.gatsbyjs.org/"><img src="../../img/nav-react/gatsby-logo.svg" class="plain" /></a>
         <a href="https://www.gatsbyjs.org/" style="display:block">Gatsby</a>
+      </div>
+      <div style="flex:0 0 28%;">
+        <a href="https://github.com/jaredpalmer/razzle"><img src="../../img/nav-react/razzle-logo.png" class="plain" style="background-color: #ddd; margin-bottom: 2em" /></a>
+        <a href="https://github.com/jaredpalmer/razzle" style="display:block">Razzle</a>
       </div>
       <div style="flex:0 0 22%;">
         <a href="https://expressjs.com/">Express</a>
@@ -1254,7 +1251,7 @@ NOTES:
 - Lastly, you can roll your own solution
   * When you have a Node backend
   * Using Node server lib, like Express or Koa
-  * Router like Reach Router
+  * Hook in one of the routers
   * Data fetching with `isomorphic-fetch`
 
 /////
@@ -1301,6 +1298,7 @@ NOTES:
 </div>
 
 NOTES:
+_[26 minutes]_
 
 - **Last planet:** Neptune
 - As your app grows larger you may find that you're making lots of Rest API requests
@@ -1343,6 +1341,10 @@ NOTES:
 - In both cases you get only the data you want, nothing more, nothing less
 - Gotta change your traditional REST API to be compatible
   * Can start by putting this in front of REST
+- Be aware that Apollo will basically take over your app
+  * Can be good or bad
+  * Good in the sense that it basically reducers your need for Redux
+  * Bad if you already have Redux and you need to move things around
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
@@ -1374,6 +1376,7 @@ NOTES:
 </div>
 
 NOTES:
+_[27 minutes]_
 
 - Quick tl;dr in case you missed anything
 
@@ -1435,47 +1438,7 @@ NOTES:
   * (but use Gatsby for any sort of static site)
 - 8/ Redux for app state management
 - 9/ If you jump into GraphQL take a look at Apollo
-
-/////
-<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 80%">
-    <h2>Facebook Libraries</h2>
-
-    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center">
-      <div style="flex:0 0 25%">
-        <a href="https://facebook.github.io/react/"><img src="../../img/react/react-logo.png" class="plain" /></a>
-      </div>
-      <div style="flex:0 0 25%">
-        <a href="https://yarnpkg.com/"><img src="../../img/nav-react/yarn-logo.png" class="plain" /></a>
-      </div>
-      <div style="flex: 0 0 25%">
-        <a href="http://prepack.io/" target="_blank"><img src="../../img/nav-react/prepack-logo.png" class="plain" style="width: 50%" /></a>
-      </div>
-      <div style="flex:0 0 25%">
-        <a href="https://flowtype.org/" style="display:block"><img src="../../img/nav-react/flow-logo.png" class="plain" style="max-width:100%;" /></a>
-      </div>
-      <div style="flex:0 0 25%">
-        <a href="https://facebook.github.io/jest/"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%;" /></a>
-      </div>
-      <div style="flex:0 0 25%">
-        <a href="http://redux.js.org/"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width:50%" /></a>
-      </div>
-      <div style="flex:0 0 25%">
-        <a href="http://graphql.org/"><img src="../../img/nav-react/graphql-logo.svg" class="plain" style="width:50%;" /></a>
-      </div>
-      <div style="flex:0 0 25%">
-        <a href="https://facebook.github.io/relay/"><img src="../../img/nav-react/relay-logo.svg" class="plain" style="width:50%;" /></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-NOTES:
-- So here are ALL the open-source libraries Facebook has put out
-- I think all that's missing is routing (react-router)
-- Makes me wonder if Facebook is a social networking company or an OSS company
+- **Cool thing:** Can tailor your stack to your team and existing codebase
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
