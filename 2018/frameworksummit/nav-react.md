@@ -24,15 +24,16 @@ NOTES:
 **RESTART THE TIMER!!!!**
 
 - If you're new to React you might hear that on top of learning React
-  * You need to know ES6, Redux, inline styles, server-side rendering, etc.
+  * You need to know Redux, css-in-js, server-side rendering, etc.
   * All at the same time
   * It can be so overwhelming
-- And then React is just a UI library
+- And then like Andrew mentioned yesterday React is just a UI library
   * Need to pick libraries for fetching data, managing, data, etc.
   * How can you pick something if you don't yet know what you need?
+  * How can you pick the right thing, if you've never used it before?
 - So I want to walk through the different "planets" in the React solar system
-  * So you can get an idea of how to prioritize what to learn
-  * I'll also try to give a list of options for each category and my preference
+  * 1/ So you can get an idea of how to prioritize what to learn
+  * 2/ I'll also try to give a list of options for each category and my preference
 
 /////
 
@@ -49,6 +50,14 @@ NOTES:
 =====
 
 <!-- .slide: data-background="url(../../img/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start" class="fragment current-visible">
+  <div class="content-overlay">
+    <video data-autoplay loop style="width: 100%">
+      <source data-src="../../img/family/gender-reveal-short.mp4" />
+    </video>
+  </div>
+</div>
 
 NOTES:
 - Christian, Husband, Father
@@ -115,13 +124,13 @@ NOTES:
 NOTES:
 - First, learn React and learn it _really_ well
   * Sounds like an obvious statement
-  * But there's a lot to learn
+  * But it's important to focus on this first
 - React is highly functional & reactive with a uni-directional data flow
 - If you're used to MVC with Angular or backend
   * It'll take some time to wrap your head around the concepts
 - Then of course there's JSX syntax
   * Inverted concept of most frameworks where markup is in the JavaScript
-  * Instead of having markup which has JS-lite in it
+  * Instead of having markup which has "JS-lite" in it
 - Ensuring that you're fully leveraging the Virtual DOM
   * Not directly manipulating DOM nodes takes time
 - But thankfully the API is really narrow so there's not that much learn
@@ -188,7 +197,7 @@ _[6 minutes]_
 - Probably the biggest complaint w/ React isn't React itself
   * But the tooling needed to get set up
 - I think the problem is that there's so much choice in this area
-  * You need to know how the tools work before you can get up and running
+  * You need to know how the tools work before you could get up and running
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -206,7 +215,7 @@ _[6 minutes]_
 
 NOTES:
 - Let's start easy
-- The React Dev Tools are super helpful in debugging React props & state
+- The React Dev Tools are super helpful in debugging React components
 - You just browse the React component tree just like the DOM tree
   * And you can look at the component props as well as the state
 - Available for Chrome & Firefox. Sorry Edge users.
@@ -416,7 +425,7 @@ NOTES:
 NOTES:
 _[9 minutes]_
 
--**Next planet:** Venus
+- **Next planet:** Venus
 - Let's talking about styling because visuals are just as important as interaction
 - There are _at least_ 5 ways to tackle the styling problem
 
@@ -619,7 +628,8 @@ const Card = ({title, imageUrl, message}) => (
 
 NOTES:
 - Then there's the "screw CSS" option w/ inline styles
-- As a result there's no chance of class name collisions or unexpected CSS cascade
+  * Tired of dealing with class name collisions, specificity, unexpected cascade
+  * Have lots of dynamic styles which can be challenging with CSS
 - There was a big huge push for this in React mainly because of React Native
   * it doesn't support CSS, only inline styles
 - If you want to share components across React & React Native you can't use CSS
@@ -649,8 +659,8 @@ export default {
 
 NOTES:
 - Inline styles use `camelCase` version of the property names instead of `kebab-case`
-- Problem with inline styles is that it only supports what inline styles support
-  * No media queries, pseudo-selectors, etc
+- Problem with inline styles in React is that it only supports what inline styles support
+  * No media queries, pseudo-selectors, keyframe animations, etc
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -684,8 +694,11 @@ NOTES:
 
 NOTES:
 - New libraries have popped up to try to solve that issue in various clever ways
- * Most take what's defined as inline styles but map to unique CSS classes
- * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
+  * Most take what's defined as inline styles but map to unique CSS classes
+  * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
+- So if you're starting out, you may wanna start with vanilla CSS
+  * But as you start bumping up against these problems, `css-in-js` solves those problems
+  * And once you get comfortable with a `css-in-js` library then you can use it all the time
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -744,9 +757,9 @@ _[14 minutes]_
 </div>
 
 NOTES:
-- Your favorite "walled garden" JS framework (like Angular) has a mechanism for making AJAX requests
+- Your favorite batteries-included JS framework (like Angular) has a mechanism for making AJAX requests
   * React does not come with one because it's just the UI side
-  * So the second you need to make an AJAX request, you need to figure out what to do
+  * So the second you need to make an AJAX request, you need to figure out how to do it
 - You could use jQuery, but that could lead you to to using it improperly with React
 - Instead we're going to use a native AJAX implementation, new Fetch API
   * Works with ES2015 Promises
@@ -905,8 +918,8 @@ _[17 minutes]_
 
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build Production-level apps
-  * React & ES.next
-  * Tooling
+  * React (obviously)
+  * Tooling w/ CRA that creates production builds
   * Styling
   * Single Page-Apps
   * Forms
@@ -926,7 +939,7 @@ NOTES:
 _[18 minutes]_
 
 - **Next planet:** Jupiter
-- I hate to put testing so far, but the previous 5 really are more important
+- I hate to put testing so far, but the previous 4 really are more important
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
@@ -976,14 +989,18 @@ NOTES:
     <pre class="large"><code class="lang-javascript">import {mount} from 'enzyme'
 import Button from './Button'
 
-it('adds CSS class for style primary', () => {
+it('toggles active state onClick', () => {
   const component = mount(
     &lt;Button style="primary">Go&lt;/Button>
   )
-  const container = component.find('button')
+  const button = component.find('button')
 
-  expect(container).toHaveClassName('btn--primary')
+  button.simulate('click')
+
+  expect(button).toHaveClassName('btn--active')
 })</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 687px;"></div>
   </div>
 </div>
 
@@ -994,7 +1011,7 @@ NOTES:
   * But only via its public API
   * What it renders, and the callback handler props it calls
 - Enzyme is a helper library that allows us to render React components w/o a browser
-  * Has a very jQuery-like interface for inspecting components
+  * Has a very jQuery-like interface for inspecting & interacting w/ components
   * Provides lots of utility methods
 
 /////
@@ -1030,7 +1047,7 @@ _[20 minutes]_
 
 - **Next planet:** Saturn
 - We're starting to get further out from the center
-- Up until this point, we've been using React to store application data
+- Up until this point, we've implicitly been using React to store application data
 - Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
 
 /////
@@ -1059,7 +1076,7 @@ NOTES:
 - Most people use Redux
   * Been a bit of a backlash
   * Mainly because people have been using it before they need it and w/o understanding it
-  * Look we're talking about Redux at Step 7!
+  * Look we're talking about Redux at Step 6!
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 
@@ -1357,15 +1374,19 @@ _[25 minutes]_
 </div>
 
 NOTES:
-- 0/ Obviously start off with React & ES.next
+- 0/ Obviously start off with React & learn it well
+  * Can't emphasize this enough!
 - 1/ For tooling using Create React App
-- 2/ For styling trying learning & using Emotion
+  * Until you know what part of the infra you want to invest your time
+- 2/ For styling probably start of with CSS
+  * But then take a look at Emotion
 - 3/ Give new Reach Router a try
+  * Of course the Fetch API
 - 4/ Give React Final Form a try for sophisticated form handling
-- 5/ Use Jest + Enzyme for your unit testing
-- 6/ For SSR rendering look into Next.js
+- 5/ Use Jest + Enzyme (or `react-testing-library`) for your unit testing
+- 6/ Redux for app state management
+- 7/ For SSR rendering look into Next.js
   * (but use Gatsby for any sort of static site)
-- 7/ Redux for app state management
 - 8/ If you jump into GraphQL take a look at Apollo
 - **Cool thing:** Can tailor your stack to your team and existing codebase
 
@@ -1393,6 +1414,7 @@ NOTES:
 - Just flooded you with a lot of information
   * Slides are available online
 - Hopefully 1, 2 or all 8 of these suggestions will prove useful to you
+  * Got some notes scribbled to go check things out
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one and build on it
 
@@ -1400,6 +1422,7 @@ NOTES:
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
   * Such a novel idea for a conference
   * Bringing all the frameworks together
+  * Someone like me deep in React can learn more about Angular or Vue
 - **YOU!** For attending the conference
   * I go through the stress of preparing and delivering so you can learn
   * So even if you only learned one little thing it was worth it
