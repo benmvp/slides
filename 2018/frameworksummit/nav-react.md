@@ -53,7 +53,7 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start" class="fragment current-visible">
   <div class="content-overlay">
-    <video data-autoplay loop style="width: 100%">
+    <video data-autoplay style="width: 100%">
       <source data-src="../../img/family/gender-reveal-short.mp4" />
     </video>
   </div>
@@ -61,7 +61,12 @@ NOTES:
 
 NOTES:
 - Christian, Husband, Father
-- We live in a small town outside of San Francisco
+- _Family introductions_
+- Wife Rashida is pregnant with our 3rd child
+  * And we just had a gender reveal party on Saturday
+  * **ONE:** And we're having a...
+  * BOY!
+  * Was very confused by the white balloons
 
 /////
 
@@ -69,7 +74,7 @@ NOTES:
 <!-- .element: class="plain" style="width: 85%" -->
 
 NOTES:
-- I'm a Principal Frontend Engineer at Eventbrite
+- I'm a Principal Frontend Engineer at Eventbrite in San Francisco
 - We're an online Events & Ticketing platform
 - Work on our Frontend Platform team
   * Doing FE infra + design system work
@@ -110,7 +115,7 @@ NOTES:
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <img src="../../img/react/react-logo.png" class="plain" style="width: 45%" />
       <div>
-        <h2><a href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">Functional & Reactive</a></h2>
+        <h2><a href="https://reactjs.org/docs/components-and-props.html">Component-based</a></h2>
         <h2><a href="https://reactjs.org/docs/state-and-lifecycle.html#the-data-flows-down">Uni-directional</a></h2>
         <h2><a href="https://reactjs.org/docs/jsx-in-depth.html">Declarative JSX</a></h2>
         <h2><a href="https://reactjs.org/docs/reconciliation.html">"Virtual DOM"</a></h2>
@@ -125,8 +130,9 @@ NOTES:
 - First, learn React and learn it _really_ well
   * Sounds like an obvious statement
   * But it's important to focus on this first
-- React is highly functional & reactive with a uni-directional data flow
-- If you're used to MVC with Angular or backend
+- React is all component-based
+  * Good to learn thoroughly the component patterns we learned yesterday
+- If you're used to MVC with Angular or backend, uni-directional data flow can trip you up
   * It'll take some time to wrap your head around the concepts
 - Then of course there's JSX syntax
   * Inverted concept of most frameworks where markup is in the JavaScript
@@ -362,9 +368,9 @@ NOTES:
     <h2>Create React App</h2>
     <p>Create React apps with no build configuration</p>
 
-    <pre class="large" style="margin:5% 0"><code>$> npx create-react-app awesome-app
+    <pre class="large" style="margin:5% 0"><code>$> npx create-react-app frameworksummit
 
-$> cd awesome-app
+$> cd frameworksummit
 
 $> yarn start</code></pre>
 
@@ -1000,7 +1006,7 @@ it('toggles active state onClick', () => {
   expect(button).toHaveClassName('btn--active')
 })</code></pre>
 
-    <div class="code-highlight" style="height: 70px; top: 687px;"></div>
+    <div class="code-highlight" style="height: 70px; top: 685px;"></div>
   </div>
 </div>
 
