@@ -96,7 +96,7 @@ NOTES:
 - Now turn to your neighbors, fist bump & say hi
 
 /////
-<!-- .slide: data-background="url(../../img/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/family/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father

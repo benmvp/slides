@@ -42,7 +42,7 @@ NOTES:
 
 <div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-house-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family standing in front of their house" />
+		<img src="../../img/family/family-house-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family standing in front of their house" />
 	</div>
 	<div style="flex:0 0 50%;">
 		<pre class="large"><code class="lang-json">

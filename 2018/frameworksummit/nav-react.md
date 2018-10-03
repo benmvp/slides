@@ -49,7 +49,7 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(../../img/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/family/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start" class="fragment current-visible">
   <div class="content-overlay">

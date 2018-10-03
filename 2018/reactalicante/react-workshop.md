@@ -30,7 +30,7 @@ NOTES:
 ## 1st Programming Language
 
 =====
-<!-- .slide: data-background="url(../../img/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/family/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father

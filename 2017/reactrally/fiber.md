@@ -58,7 +58,7 @@ NOTES:
 			</code></pre>
 	</div>
 	<div style="flex:0 0 50%;">
-		<img src="../../img/family-house-selfie-anim.gif" style="width:100%;height:auto" alt="Animatino of Ilegbodu standing in front of their house" />
+		<img src="../../img/family/family-house-selfie-anim.gif" style="width:100%;height:auto" alt="Animatino of Ilegbodu standing in front of their house" />
 	</div>
 </div>
 

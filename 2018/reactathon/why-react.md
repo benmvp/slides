@@ -65,7 +65,7 @@ NOTES:
 
 <div style="display:flex;align-items:center;justify-content:space-between">
 	<div style="flex:0 0 35%;">
-		<img src="../../img/family-tahoe-2018-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family at Tahoe in 2018" />
+		<img src="../../img/family/family-tahoe-2018-selfie.jpg" style="width:100%;height:auto" alt="Ilegbodu family at Tahoe in 2018" />
 	</div>
 	<div style="flex:0 0 60%;">
 		<pre class="large"><code class="lang-json">

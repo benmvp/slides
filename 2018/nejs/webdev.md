@@ -46,7 +46,7 @@ NOTES:
 - Now turn to your neighbors, fist bump & say hi
 
 /////
-<!-- .slide: data-background="#000 url(../../img/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="#000 url(../../img/family/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - Christian, Husband, Father

@@ -79,7 +79,7 @@ NOTES:
 
 <div style="display:flex;align-items:center;justify-content:space-between">
 	<div style="flex:0 0 35%;">
-		<img src="../../img/family-pajamas-stairs.jpg" style="width:90%;height:auto" alt="Ilegbodu family in matching pajamas sitting on the stairs" />
+		<img src="../../img/family/family-pajamas-stairs.jpg" style="width:90%;height:auto" alt="Ilegbodu family in matching pajamas sitting on the stairs" />
 	</div>
 	<div style="flex:0 0 60%;">
 		<pre class="large"><code class="lang-json">
