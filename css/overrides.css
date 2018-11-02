@@ -104,3 +104,7 @@
   font-style: italic;
   font-size: 0.5em;
 }
+.reveal .speaker-headshot {
+  width: 30%;
+  border-radius: 50%;
+}
