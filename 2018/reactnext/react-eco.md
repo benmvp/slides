@@ -208,7 +208,7 @@ NOTES:
 </div>
 
 NOTES:
-_[6 minutes]_
+_[7 minutes]_
 
 - But enough about React itself
   * The purpose of this talk is to look at the libs in the ecosystem
@@ -470,7 +470,7 @@ NOTES:
 
 
 NOTES:
-_[9 minutes]_
+_[10 minutes]_
 
 - Let's talking about styling because visuals are just as important as interaction
 - There are _at least_ 5 ways to tackle the styling problem
@@ -800,7 +800,7 @@ NOTES:
 </div>
 
 NOTES:
-_[14 minutes]_
+_[15 minutes]_
 
 - Moving along to libraries needed for Single Page Apps
 - Two main groups of libs
@@ -929,7 +929,7 @@ NOTES:
 </div>
 
 NOTES:
-_[16 minutes]_
+_[18 minutes]_
 
 - Let's be real, forms are hard
   * Forms with validation are hard
@@ -1007,7 +1007,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-_[17 minutes]_
+_[20 minutes]_
 
 - At this point we actually have everything we need to build Production-level apps
   * React (obviously)
@@ -1028,7 +1028,7 @@ _[17 minutes]_
 </div>
 
 NOTES:
-_[18 minutes]_
+_[21 minutes]_
 
 - I hate to put testing so far, but the previous 4 really are more important
 
@@ -1134,7 +1134,7 @@ NOTES:
 </div>
 
 NOTES:
-_[20 minutes]_
+_[24 minutes]_
 
 - We're starting to get further out from the center
 - Up until this point, we've implicitly been using React to store application data
@@ -1272,7 +1272,7 @@ NOTES:
 </div>
 
 NOTES:
-_[22 minutes]_
+_[27 minutes]_
 
 - There are other considerations too
 - Don't have time to discuss them but at least wanted y'all to see 'em
@@ -1370,7 +1370,7 @@ NOTES:
 </div>
 
 NOTES:
-_[25 minutes]_
+_[28 minutes]_
 
 - Quick tl;dr in case you missed anything
 
