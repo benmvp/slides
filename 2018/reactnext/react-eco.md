@@ -116,6 +116,7 @@ NOTES:
         <h2><a href="https://reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab">Performance</a> <sup style="font-size: .5em">16.5</sup></h2>
         <h2><a href="https://reactjs.org/docs/fragments.html">Fragments</a> <sup style="font-size: .5em">16.2</sup></h2>
         <h2><a href="https://reactjs.org/docs/code-splitting.html#reactlazy">Suspense</a> <sup style="font-size: .5em">16.6</sup></h2>
+        <h2><a href="https://reactjs.org/docs/hooks-intro.html">Hooks\*</a> <sup style="font-size: .5em">16.7*</sup></h2>
         <h2><a href="https://reactjs.org/docs/context.html">Context</a> <sup style="font-size: .5em">16.3</sup></h2>
       </div>
     </div>
@@ -136,6 +137,10 @@ NOTES:
 - Implementing error boundaries
 - Monitoring and optimizing performance
 - Leveraging new Suspense system with auto-code splitting
+- And then there are hooks that were just introduced last week
+  * They're an open RFC (request for comments)
+  * So many libs have been built around them already
+  * Slated for upcoming 16.7
 - If you're interested in learning more about React fundamentals...
 
 /////
