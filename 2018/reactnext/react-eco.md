@@ -23,6 +23,7 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
+- Good morning React Next!
 - So excited to be here in Israel
   * One of my bucket list countries to visit
 - If you're new to React you might hear that on top of learning React
@@ -54,13 +55,16 @@ NOTES:
 NOTES:
 
 =====
-
 <!-- .slide: data-background="url(../../img/family/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father
 - _Family introductions_
-- Wife Rashida is pregnant with our 3rd child
+- Wife Rashida is pregnant with our 3rd child, a boy
+- Live outside of San Francisco, California
+  * Had a direct flight that landed last night at 9PM
+  * And on top of that there was Daylight Savings time
+  * So my body is all upset with me
 
 /////
 
@@ -412,7 +416,7 @@ NOTES:
   * How to get started
 
 
-- If you don't need highly custom stack, you can use Create React App
+- If you are just getting started or don't need highly custom stack, you can use Create React App
   * Created by the React team
   * Allows you to bootstrap super quick w/ zero-config
   * And if you need to config something it doesn't support you can "eject"
@@ -429,8 +433,8 @@ NOTES:
 
     <ul>
       <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
-      <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
       <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
+      <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
       <li><a href="https://webpack.js.org/configuration/dev-server/" target="_blank">`webpack-dev-server`</a></li>
@@ -577,6 +581,8 @@ NOTES:
 .card\__title { }
 .card\__image { }
 .card\__message { }</code></pre>
+
+    <p>(name-spacing still needed)</p>
   </div>
 </div>
 
@@ -679,7 +685,7 @@ const Card = ({title, imageUrl, message}) => (
 
 NOTES:
 - Then there's the "screw CSS" option w/ inline styles
-  * Tired of dealing with class name collisions, specificity, unexpected cascade
+  * Tired of dealing with specificity wars, unexpected cascade, having to name things, etc.
   * Have lots of dynamic styles which can be challenging with CSS
 - There was a big huge push for this in React mainly because of React Native
   * it doesn't support CSS, only inline styles
@@ -748,6 +754,7 @@ NOTES:
   * Most take what's defined as inline styles but map to unique CSS classes
   * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
 - So if you're starting out, you may wanna start with vanilla CSS
+  * `css-in-js` libs are another API to learn
   * But as you start bumping up against these problems, `css-in-js` solves those problems
   * And once you get comfortable with a `css-in-js` library then you can use it all the time
 
@@ -841,9 +848,9 @@ NOTES:
   * Need to polyfill for unsupported browsers
 - `axios`
   * Existed before Fetch API
-  * Watch to do requests w/o jQuery
+  * A way to do requests w/o jQuery
   * Also promised-based
-  * Has IE-11 support
+  * Has IE11 support
   * Also includes request aliases like `get`, `post`, `delete`, etc.
   * Supports cancelling requests too
 - Actually never used `axios`, always used Fetch API
@@ -922,6 +929,8 @@ NOTES:
   * Has ambiguous path ranking algorithm
   * Relative links, "not found" default components, etc.
 - Active development is happening on both
+  * Both are trying to create an API that leverages React as much as possible
+  * Especially with Suspense in React 16.6
 - Give Reach Router a try
 
 =====
@@ -1009,21 +1018,6 @@ NOTES:
 </div>
 
 =====
-<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-NOTES:
-_[20 minutes]_
-
-- At this point we actually have everything we need to build Production-level apps
-  * React (obviously)
-  * Tooling w/ CRA that creates production builds
-  * Styling
-  * Single Page-Apps
-  * Forms
-- But there's more to cover
-- Moving into the needs of large-scale apps
-
-=====
 <!-- .slide: data-background="url(../../img/nav-react/jong-marshes-452773-sea-turtle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
@@ -1033,9 +1027,12 @@ _[20 minutes]_
 </div>
 
 NOTES:
-_[21 minutes]_
+_[20 minutes]_
 
-- I hate to put testing so far, but the previous 4 really are more important
+- Testing is super important for the integrity of your app
+- It's funny, none of us _really_ enjoy writing tests
+  * But we wish there were a lot of tests when we're refactoring
+  * Like bumping packages
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jong-marshes-452773-sea-turtle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1130,6 +1127,22 @@ NOTES:
 </div>
 
 =====
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+_[23 minutes]_
+
+- At this point we actually have everything we need to build Production-level apps
+  * React (obviously)
+  * Tooling w/ CRA that creates production builds
+  * Styling
+  * Single Page-Apps
+  * Forms
+  * Testing
+- But there's more to cover
+- Moving into the needs of large-scale apps
+
+=====
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
@@ -1141,9 +1154,10 @@ NOTES:
 NOTES:
 _[24 minutes]_
 
-- We're starting to get further out from the center
-- Up until this point, we've implicitly been using React to store application data
-- Once the data becomes too complex or too many components want to modify that data it's time for a data management library!
+- Up until this point, we've implicitly been using React components to store application data
+  * Possibly using Context API to pass data to various components
+- Once the data becomes too complex or too many components want to modify that data
+  * _THEN_ it's time for a data management library!
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1171,8 +1185,9 @@ NOTES:
 - Most people use Redux
   * Been a bit of a backlash
   * Mainly because people have been using it before they need it and w/o understanding it
-  * Using it before they really needed it
+  * They're data isn't really changing, just needed it passed to multiple components
   * Look we're talking about Redux at Step 6!
+  * This is when I think it makes sense to learn and add it in
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 
@@ -1280,7 +1295,7 @@ NOTES:
 _[27 minutes]_
 
 - There are other considerations too
-- Don't have time to discuss them but at least wanted y'all to see 'em
+- But in the interest of time I won't be able to go into much details
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1414,7 +1429,7 @@ _[28 minutes]_
         <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width: 33%" /></a>
       </div>
       <div style="flex: 0 0 33%">
-        <div>7. Performance & SEO</div>
+        <div>7. Server-side Rendering</div>
         <a href="https://nextjs.org/" target="_blank"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
       </div>
       <div style="flex: 0 0 33%">
@@ -1471,12 +1486,13 @@ NOTES:
   * Got some notes scribbled to go check things out
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one and build on it
-
-
+- I was only able to highlight just a few of the talks happening today
+  * Those were the ones that flowed in with my talk
+  * Don't think you should only go to those
+  * But they all look fantastic
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
-- **YOU!** For being such an engaged audience
-  * If you've got questions feel free to find me during the conference
-  * Or ping me in Twitter or my AMA
-
-
-- Thanks!
+  * Organizing such a great conference
+- **YOU!** For being such an engaged audience so early in the AM
+  * If you've got questions, feel free to find me during the conference
+  * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
+- Thank you so much and enjoy the rest of the conference!
