@@ -23,7 +23,7 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- Good morning React Next!
+- Shalom React Next!
 - So excited to be here in Israel
   * One of my bucket list countries to visit
 - If you're new to React you might hear that on top of learning React
@@ -35,7 +35,7 @@ NOTES:
   * How can you pick something if you don't yet know what you need?
   * How can you pick the right thing, if you've never used it before?
 - So I want to walk through the different libs in the React ecosystem
-  * 1/ So you can get an idea of how to prioritize what to learn
+  * 1/ Provide my opinion of which category of libs you should prioritize first
   * 2/ I'll also try to give a list of options for each category and my preference
 - For those of you who have been doing React for a while
   * Hopefully there'll be a thing or two that'll be new for you
@@ -61,7 +61,7 @@ NOTES:
 - Christian, Husband, Father
 - _Family introductions_
 - Wife Rashida is pregnant with our 3rd child, a boy
-- Live outside of San Francisco, California
+- Live in a city outside of San Francisco, California
   * Had a direct flight that landed last night at 9PM
   * And on top of that there was Daylight Savings time
   * So my body is all upset with me
@@ -73,10 +73,11 @@ NOTES:
 
 NOTES:
 - I'm a Principal Frontend Engineer at Eventbrite in San Francisco
+- Hopefully you're familiar with us
 - We're an online Events & Ticketing platform
 - Work on our Frontend Platform team
   * Doing FE infra + design system work
-  * We've been using React for 2.5 years
+  * We've been using React since early 2016
   * Migrated from Backbone and have never looked back
 
 =====
@@ -86,7 +87,7 @@ NOTES:
 _[4 minutes]_
 
 - Ok, enough about me
-- Let's talk about the React Solar System
+- Let's talk about the React ecosystem
 - Going to be *a lot* of stuff covered
   * Probably not going to teach you how to use any given lib
   * Instead my goal is to expose you to the libs so you can investigate
@@ -136,7 +137,7 @@ NOTES:
 - After the basics, keep up with the latest features...
 - Advanced component patterns
   * Presentational vs. container components
-  * Sharing component logic with higher-order components or render props (or future "hooks")
+  * Sharing component logic with higher-order components or render props (or "hooks")
 - Using Fragments & Context API
 - Implementing error boundaries
 - Monitoring and optimizing performance
@@ -248,7 +249,7 @@ NOTES:
 - You just browse the React component tree just like the DOM tree
   * And you can look at the component props as well as the state
 - Available for Chrome & Firefox. Sorry Edge users.
-- And just recently with the release of React 16.5.0 enabling performance debugging
+- And just recently with the release of React 16.5 enabling performance debugging
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -685,7 +686,7 @@ const Card = ({title, imageUrl, message}) => (
 
 NOTES:
 - Then there's the "screw CSS" option w/ inline styles
-  * Tired of dealing with specificity wars, unexpected cascade, having to name things, etc.
+  * Tired of dealing with specificity wars, unexpected cascade, etc.
   * Have lots of dynamic styles which can be challenging with CSS
 - There was a big huge push for this in React mainly because of React Native
   * it doesn't support CSS, only inline styles
@@ -815,7 +816,7 @@ NOTES:
 _[15 minutes]_
 
 - Moving along to libraries needed for Single Page Apps
-- Two main groups of libs
+- Two main subcategories
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1190,6 +1191,7 @@ NOTES:
   * This is when I think it makes sense to learn and add it in
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
+- Quite possible that with React Context & Hooks we won't even need Redux or MobX
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1201,7 +1203,7 @@ NOTES:
 
     <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
 	    <div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/immutable-js/" target="_blank"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
+        <a href="https://facebook.github.io/immutable-js/" target="_blank" style="background-color: #fff;display:block"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
       </div>
 	    <div style="flex:0 0 30%;">
         <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
