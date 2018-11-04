@@ -24,6 +24,8 @@ NOTES:
 **RESTART THE TIMER!!!!**
 
 - Shalom React Next!
+- Heard so many great things about this conference
+  * Honored to be able to speak here
 - So excited to be here in Israel
   * One of my bucket list countries to visit
 - If you're new to React you might hear that on top of learning React
@@ -40,7 +42,7 @@ NOTES:
 - For those of you who have been doing React for a while
   * Hopefully there'll be a thing or two that'll be new for you
   * If not, you can use the info I provide when your coworkers ask you why you picked a lib
-  * It no longer has to be "Because... I liked it?"
+  * Have a better argument than just "Because... I liked it?"
 
 /////
 
