@@ -1,4 +1,4 @@
-<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 50%;" class="content-overlay">
@@ -11,11 +11,11 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@ReactNext](https://twitter.com/ReactNext)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@reactathon](https://twitter.com/reactathon)</p>
 
   <br />
 
-  <p>November 4, 2018</p>
+  <p>March 31, 2019</p>
   
   </div>
 </div> 
@@ -57,7 +57,7 @@ NOTES:
 NOTES:
 
 =====
-<!-- .slide: data-background="url(../../img/family/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/family/simone-avery-baby-asher.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father
@@ -70,7 +70,7 @@ NOTES:
 
 /////
 
-![Eventbrite wordmark logo](../../img/eventbrite/wordmark-orange.svg)
+![Eventbrite wordmark logo](../../img/eventbrite/wordmark-white.svg)
 <!-- .element: class="plain" style="width: 85%" -->
 
 NOTES:
@@ -83,7 +83,7 @@ NOTES:
   * Migrated from Backbone and have never looked back
 
 =====
-<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 _[4 minutes]_
@@ -123,7 +123,7 @@ NOTES:
         <h2><a href="https://reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab">Performance</a> <sup style="font-size: .5em">16.5</sup></h2>
         <h2><a href="https://reactjs.org/docs/fragments.html">Fragments</a> <sup style="font-size: .5em">16.2</sup></h2>
         <h2><a href="https://reactjs.org/docs/code-splitting.html#reactlazy">Suspense</a> <sup style="font-size: .5em">16.6</sup></h2>
-        <h2><a href="https://reactjs.org/docs/hooks-intro.html">Hooks\*</a> <sup style="font-size: .5em">16.7*</sup></h2>
+        <h2><a href="https://reactjs.org/docs/hooks-intro.html">Hooks</a> <sup style="font-size: .5em">16.8</sup></h2>
         <h2><a href="https://reactjs.org/docs/context.html">Context</a> <sup style="font-size: .5em">16.3</sup></h2>
       </div>
     </div>
@@ -154,64 +154,31 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/react-next/robert-herbst.jpg" alt="Robert Herbst" class="speaker-headshot" />
-      <br />
-      Robert Herbst
-    </p>
+  <div class="content-overlay" style="width: 75%">
+    <h2>Interactivity in React (classes)</h2>
 
-    <h2>Advanced Patterns</h2>
-
-    <p>10:30 (Hall A)</p>
+    <pre><code class="lang-javascript">// code</code></pre>
   </div>
 </div>
 
 NOTES:
-- Robert is giving a talk right after this on advanced component patterns
 
 /////
+
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/react-next/patrick-hund.png" alt="Patrick Hund" class="speaker-headshot" />
-      <br />
-      Patrick Hund
-    </p>
+  <div class="content-overlay" style="width: 75%">
+    <h2>Interactivity in React (hooks)</h2>
 
-    <h2>Breaking Down Your Web App</h2>
-
-    <p>12:30 (Hall A)</p>
+    <pre><code class="lang-javascript">// code</code></pre>
   </div>
 </div>
 
 NOTES:
-- Patrick's talk is on properly compenentizing your app
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/react-next/yoav-niran.jpg" alt="Yoav Niran" class="speaker-headshot" />
-      <br />
-      Yoav Niran
-    </p>
-
-    <h2>React Responsively, Render Responsibly</h2>
-
-    <p>13:05 (Hall B)</p>
-  </div>
-</div>
-
-NOTES:
-- Yoav is going to teach us how to analyze and improve the performance of our apps
 
 =====
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -230,7 +197,7 @@ _[7 minutes]_
   * You need to know how the tools work before you could get up and running
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 40%">
@@ -254,7 +221,7 @@ NOTES:
 - And just recently with the release of React 16.5 enabling performance debugging
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 70%">
@@ -313,7 +280,7 @@ NOTES:
   * Just work please
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 60%">
@@ -349,7 +316,7 @@ NOTES:
 - If things are complex, use Gulp since it's functional
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 60%">
@@ -390,7 +357,7 @@ NOTES:
   * But it's more "all-in" than Flow
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -428,7 +395,7 @@ NOTES:
 - v2 just shipped last month!
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -449,27 +416,6 @@ NOTES:
 
 NOTES:
 - Here are some miscellaneous resources regarding all the tools we talked about
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/react-next/gil-fink.jpg" alt="Gil Fink" class="speaker-headshot" />
-      <br />
-      Gil Fink
-    </p>
-
-    <h2>Wiring TypeScript into React</h2>
-
-    <p>13:20 (Hall B)</p>
-  </div>
-</div>
-
-NOTES:
-- Very quickly mentioned TypeScript
-- Gil in his lightning talk will go over it much more!
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -766,6 +712,57 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
+    <h2>Emotion</h2>
+
+    <pre class="large"><code class="lang-javascript">import styled from '@emotion/styled'
+
+const Root = styled.div({display: 'flex'})
+const Title = styled.h2({fontWeight: 'bold'})
+const Image = styled.img({ ... })
+const Message = styled.p({ ... })
+
+const Card = ({title, imageUrl, message}) => (
+  &lt;Root>
+    &lt;Title>{title}&lt;/Title>
+    &lt;Image src={imageUrl} />
+    &lt;Message>{message}&lt;/Message>
+  &lt;/Root>
+)</code></pre>
+  </div>
+</div>
+
+
+NOTES:
+- Quick look at how Emotion works
+- Create a custom elements/components with the styling you want
+- Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
+  * There's also theming support as well
+  * Been recently looking into for Eventbrite
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Emotion</h2>
+    <p>Auto-generated class names</p>
+
+    <pre class="large"><code class="lang-html"><div class="css-1sa0cvf">
+  <h2 class="css-1un7ufz">Card Title</h2>
+  <img class="css-1e9pfwo" src="..." />
+  <p class="css-1b9v3at">Card message</p>
+</div></code></pre>
+  </div>
+</div>
+
+NOTES:
+- Here's what the generated markup will look like
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
     <h2>Styling Resources</h2>
   
     <ul>
@@ -783,27 +780,6 @@ NOTES:
 
 NOTES:
 - Here are some miscellaneous resources regarding styling
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/react-next/kaylie-kwon.jpg" alt="Kaylie Kwon" class="speaker-headshot" />
-      <br />
-      Kaylie Kwon
-    </p>
-
-    <h2>Motion in React</h2>
-
-    <p>11:05 (Hall B)</p>
-  </div>
-</div>
-
-NOTES:
-- Kaylie is going to talk about styling in React
-- Specifically about ways in which we can apply motion to increase user delight
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -936,6 +912,40 @@ NOTES:
   * Especially with Suspense in React 16.6
 - Give Reach Router a try
 
+/////
+<!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Reach Router</h2>
+
+    <pre><code class="lang-javascript">import {Router, Link} from '@reach/router'
+
+const Home = () => (
+  &lt;div>
+    &lt;h1>Home&lt;/h1>
+    &lt;nav>
+      &lt;Link to="/">Home&lt;/Link> |
+      &lt;Link to="dashboard">Dashboard&lt;/Link>
+    &lt;/nav>
+  &lt;/div>
+)
+const Dash = () => (&lt;div>Dash&lt;/div>)
+const App = () => (
+  &lt;Router>
+    &lt;Home path="/" />
+    &lt;Dash path="dashboard" />
+  &lt;/Router>
+)</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Can set up your routes with the same JSX syntax
+  * Within the `<Router>` just have your normal child components
+  * Just add special `path` prop (similar to special `key` prop)
+- Then you can `<Link>` to different sections using relative paths too
+
 =====
 <!-- .slide: data-background="url(../../img/nav-react/tomoe-steineck-787193-blue-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1020,6 +1030,25 @@ NOTES:
   </div>
 </div>
 
+/////
+<!-- .slide: data-background="url(../../img/nav-react/tomoe-steineck-787193-blue-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/reactathon/zach-gotsch.jpg" alt="Zach Gotsch" class="speaker-headshot" />
+      <br />
+      Zach Gotsch
+    </p>
+
+    <h2>Type-safe forms in React</h2>
+
+    <p>1:50p</p>
+  </div>
+</div>
+
+NOTES:
+
 =====
 <!-- .slide: data-background="url(../../img/nav-react/jong-marshes-452773-sea-turtle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -1046,8 +1075,8 @@ _[20 minutes]_
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between; margin-top:5%">
       <div style="flex:0 0 30%;">
-        <a href="https://reactjs.org/docs/test-utils.html" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width:45%;" /></a>
-        <a href="https://reactjs.org/docs/test-utils.html" target="_blank">ReactTestUtils</a>
+        <a href="https://cypress.io" target="_blank"><img src="../../img/nav-react/cypress-logo.png" class="plain" style="width:45%;" /></a>
+        <a href="https://cypress.io" target="_blank">Cypress</a>
       </div>
       <div style="flex:0 0 30%;">
         <a href="http://airbnb.io/enzyme" target="_blank" style="display:block">Enzyme</a>
@@ -1063,9 +1092,10 @@ _[20 minutes]_
 
 NOTES:
 - The utilities are about unit testing your components *without* having to run in a browser
-- `ReactTestUtils`
-  * Has rudimentary utilities
-  * Likely don't want to use
+- Cypress
+  * Predimonently used for end-to-end testing
+  * But can also used a development platform for TDD
+  * Much better than selenium or web driver
 - Enzyme is the dominant one
   * Been around basically since the beginning of React
   * Has a very jQuery-like interface for inspecting & interacting w/ components
@@ -1122,6 +1152,7 @@ NOTES:
     <ul>
       <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
+      <li>Cypress video</li>
       <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
       <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">Jest 14.0: React Tree Snapshot Testing</a></li>
       <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
@@ -1130,7 +1161,7 @@ NOTES:
 </div>
 
 =====
-<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 _[23 minutes]_
@@ -1166,16 +1197,20 @@ _[24 minutes]_
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 50%">
-    <h2>Flux Implementations</h2>
+  <div class="content-overlay" style="width: 60%">
+    <h2>State Managers</h2>
     <p>Make application state mutations predictable</p>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
+      <div style="flex:0 0 37%;">
+        <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank"><img src="../../img/react/react-logo.png" class="plain" /></a>
+        <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank">Context + Hooks</a>
+      </div>
+	    <div style="flex:0 0 30%;">
         <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" /></a>
 		    <a href="http://redux.js.org/" target="_blank">Redux</a>
       </div>
-	    <div style="flex:0 0 45%;">
+	    <div style="flex:0 0 30%;">
         <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" /></a>
 		    <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
       </div>
@@ -1194,6 +1229,21 @@ NOTES:
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 - Quite possible that with React Context & Hooks we won't even need Redux or MobX
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>React Context + Hooks</h2>
+
+    <pre class="large"><code class="lang-javascript"></code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 685px;"></div>
+  </div>
+</div>
+
+NOTES:
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1235,7 +1285,7 @@ NOTES:
   * They work just like Arrays or Objects except they don't mutate and have extra functionality
   * A lot lighter than Immutable
 - `immer` takes a completely different approach
-  * Just found out about it last month
+  * Just found out about it recently
   * Instead of creating a whole new set of immutable objects with their own API
   * It provides a `produce()` helper
   * You give the function the object you want to mutate & a function that does the mutation
@@ -1248,22 +1298,16 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/react-next/michel-weststrate.jpg" alt="Michel Weststrate" class="speaker-headshot" />
-      <br />
-      Michel Weststrate
-    </p>
+  <div class="content-overlay">
+    <h2>immer</h2>
 
-    <h2>Immer, Immutability and the Wonderful World of Proxies</h2>
+    <pre class="large"><code class="lang-javascript"></code></pre>
 
-    <p>12:30 (Hall A)</p>
+    <div class="code-highlight" style="height: 70px; top: 685px;"></div>
   </div>
 </div>
 
 NOTES:
-- Luckily for us (and me) Michel is going to dive deep into how immer works
-- You'll be able to see the positive developer experience it gives
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1271,44 +1315,53 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 40%">
     <p>
-      <img src="../../img/react-next/adam-klein.jpg" alt="Adam Klein" class="speaker-headshot" />
+      <img src="../../img/reactathon/mark-erikson.png" alt="Mark Erikson" class="speaker-headshot" />
       <br />
-      Adam Klein
+      Mark Erikson
     </p>
 
-    <h2>How to Write Bad Code in Redux</h2>
+    <h2>The State of Redux</h2>
 
-    <p>14:30 (Hall A)</p>
+    <p>11:00a</p>
   </div>
 </div>
 
 NOTES:
-- And Adam is going to talk to us about how to write bad Redux code
-- Cuz he's fed up of us all writing good Redux 😉
+- Mark's one of the core maintainers of Redux
+- He's going to catch us up on the latest news/updates with Redux
+- Of most interest: how React-Redux will take advantage of some of the new React features
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h1>Other considerations</h1>
+    <h1>7. Server-side Rendering</h1>
   </div>
 </div>
 
 NOTES:
 _[27 minutes]_
 
-- There are other considerations too
-- But in the interest of time I won't be able to go into much details
+- Chances are if you're building an app of significant size SEO & initial render speed will matter
+- Rendering server-side can help both
+  * This is called "Isomorphic/Universal React"
+- Rendering the same components server-side improves initial startup performance because content is already there
+- Google includes rendering speed in their ranking algorithm which affects SEO
+  * Even though now they execute JavaScript
+- There's also SMO (social media optimization) as well
+  * Having content for social media sites like Twitter, Instagram can use for previews
+  * They're likely not executing JavaScript
+- React provides a method that will render the component tree to a string which you can include in server response
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start;">
-  <div class="content-overlay" style="width: 45%">
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Server-side rendering</h2>
 
-    <h2>7. Server-side Rendering</h2>
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
       <div style="flex:0 0 22%;">
         <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="margin-bottom: 1em" /></a>
         <a href="https://nextjs.org/">Next.js</a>
@@ -1327,10 +1380,86 @@ _[27 minutes]_
     </div>
   </div>
 </div>
+
+NOTES:
+- A couple of different options for server-side rendering
+- Next.js
+  * A minimalist framework for server-rendered React applications
+  * Has built-in routing, code-splitting, CSS support, data fetching, etc
+- Gatsby is an amazing static-site generator
+  * Use it for my site benmvp.com
+  * Basically does similar things as Next.js but does it all at build time
+  * It's all HTML, CSS & JS
+  * Creates a progressive web app, with data-prefetching
+  * Uses GraphQL to retrieve data for components
+- Razzle is a library for bootstrapping server-side rendering
+  * Works with Vue, Angular & other libs as well
+  * You still figure out your routing, data fetching, etc
+- Lastly, you can roll your own solution
+  * When you have a Node backend
+  * Using Node server lib, like Express or Koa
+  * Hook in one of the routers
+  * Data fetching with `isomorphic-fetch`
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2><a href="http://www.benmvp.com/slides/2017/render/iso-react.html" target="_blank">SSR without a Node back-end...</a></h2>
+
+    <iframe width="880" height="550" src="https://www.youtube.com/embed/zxtcr8Zuvfs" frameborder="0" allowfullscreen></iframe>
+
+    <p>RenderConf 2017</p>
+  </div>
+</div>
+
+
+NOTES:
+- If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
+- But I have a talk that explains it all!
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Server-side Rendering Resources</h2>
+  
+    <ul>
+      <li><a href="https://github.com/brillout/awesome-ssr" target="_blank">Awesome SSR</a>
+      <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
+      <li><a href="https://github.com/nfl/react-helmet" target="_blank">`react-helmet`</a></li>
+      <li><a href="https://koajs.com/" target="_blank">Koa</a></li>
+    </ul>
+  </div>
+</div>
+
+=====
+<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 40%">
-    <h2>8. API Optimization</h2>
-    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:-10%">
+  <div class="content-overlay">
+    <h1>8. API Optimization</h1>
+  </div>
+</div>
+
+NOTES:
+_[24 minutes]_
+
+- As your app grows larger you may find that you're making lots of Rest API requests
+- A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
+- There are cutting-edge technologies to tackle this problem
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>API Optimization</h2>
+    <p>Retrieve only the data you need</p>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
       <div style="flex:0 0 30%;">
         <a href="https://facebook.github.io/relay/"><img src="../../img/nav-react/relay-logo.svg" class="plain" style="width:100%;" /></a>
         <a href="https://facebook.github.io/relay/">Relay</a>
@@ -1343,29 +1472,28 @@ _[27 minutes]_
         <a href="http://netflix.github.io/falcor/"><img src="../../img/nav-react/falcor-logo.svg" class="plain" style="width:100%;margin:3em 0" /></a>
         <a href="http://netflix.github.io/falcor/" style="display:block">Falcor</a>
       </div>
+    </div>
   </div>
 </div>
+
 
 NOTES:
-- For **Performance & SEO** you want to server-side render
-- Also have options for **optimizing REST API** requests
-- Don't have time to get into these, but...
+- Facebook & Netflix tackled the same problem with different approaches
+- Facebook came up with GraphQL, a generic query language for APIs
+- Relay & Apollo are connections of React to GraphQL
+- Falcor models all backend data as a single Virtual JSON object
+  * Clients request a subset of the model on-demand
+  * It has a JavaScript API
+- In both cases you get only the data you want, nothing more, nothing less
+- Gotta change your traditional REST API to be compatible
+  * Can start by putting this in front of REST
+- Be aware that Apollo will basically take over your app
+  * Can be good or bad
+  * Good in the sense that it basically reducers your need for Redux
+  * Bad if you already have Redux and you need to move things around
 
 /////
-<!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start; margin-bottom: 1em">
-  <div class="content-overlay">
-    <h2>Server-side Rendering Resources</h2>
-  
-    <ul>
-      <li><a href="https://github.com/brillout/awesome-ssr" target="_blank">Awesome SSR</a>
-      <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
-      <li><a href="https://github.com/nfl/react-helmet" target="_blank">`react-helmet`</a></li>
-      <li><a href="https://koajs.com/" target="_blank">Koa</a></li>
-    </ul>
-  </div>
-</div>
+<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -1382,7 +1510,7 @@ NOTES:
 </div>
 
 NOTES:
-- ...here are some resources for each
+- How to GraphQL is a full-stack tutorial for GraphQL
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
