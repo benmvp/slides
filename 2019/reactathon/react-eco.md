@@ -62,11 +62,6 @@ NOTES:
 NOTES:
 - Christian, Husband, Father
 - _Family introductions_
-- Wife Rashida is pregnant with our 3rd child, a boy
-- Live in a city outside of San Francisco, California
-  * Had a direct flight that landed last night at 9PM
-  * And on top of that there was Daylight Savings time
-  * So my body is all upset with me
 
 /////
 
@@ -123,7 +118,7 @@ NOTES:
         <h2><a href="https://reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab">Performance</a> <sup style="font-size: .5em">16.5</sup></h2>
         <h2><a href="https://reactjs.org/docs/fragments.html">Fragments</a> <sup style="font-size: .5em">16.2</sup></h2>
         <h2><a href="https://reactjs.org/docs/code-splitting.html#reactlazy">Suspense</a> <sup style="font-size: .5em">16.6</sup></h2>
-        <h2><a href="https://reactjs.org/docs/hooks-intro.html">Hooks</a> <sup style="font-size: .5em">16.8</sup></h2>
+        <h2><a href="https://reactjs.org/docs/hooks-intro.html">Hooks</a>🔥 <sup style="font-size: .5em">16.8</sup></h2>
         <h2><a href="https://reactjs.org/docs/context.html">Context</a> <sup style="font-size: .5em">16.3</sup></h2>
       </div>
     </div>
@@ -154,14 +149,47 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 75%">
+  <div class="content-overlay" style="width: 100%">
     <h2>Interactivity in React (classes)</h2>
 
-    <pre><code class="lang-javascript">// code</code></pre>
+    <pre class="large"><code class="lang-javascript">class Incrementer extends React.Component {
+  state = {val: 0}
+
+  _handleClick = () => {
+    this.setState((prevState) => ({val: prevState.val + 1}))
+  }
+  render() {
+    return (
+      <div>
+        &lt;input type="number" defaultValue={this.state.val} />
+        &lt;button onClick={this._handleClick}>+&lt;/button>
+      </div>
+    )
+  }
+}</code></pre>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 229px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 684px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 741px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 401px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 684px;"></div>
   </div>
 </div>
 
 NOTES:
+- Combine the markup with the JavaScript
+  * UI is described as a "function" of its state
+- **ONE:** Initialize the `state` to have `value` which defaults to `0`
+- **TWO:** Render out the UI, specifically the input with the `state`
+  * Initial value is `0` cuz that's the default value of `this.state.value`
+- **THREE:** Click the button which calls `_handleClick` handler
+- **FOUR:** Call `setState()` which updates `state` to be previous value `+ 1`
+- **FIVE:** As a result, `render()` is called again
+  * New value is back in input field
+  * Updating state causes an optimized re-render via the reconciler (aka "Virtual DOM")
+  * Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
+- For this most basic example of interactivity, imperative seems more straightforward, right?
+  * As the UI gets more sophisticated React will scale much better
 
 /////
 
@@ -171,11 +199,43 @@ NOTES:
   <div class="content-overlay" style="width: 75%">
     <h2>Interactivity in React (hooks)</h2>
 
-    <pre><code class="lang-javascript">// code</code></pre>
+    <pre class="large"><code class="lang-javascript">import React, {useState} from 'react';
+
+const Incrementer = () => {
+  const [val, setVal] = useState(0)
+  const _handleClick = () => { setVal(val + 1) }
+
+  return (
+    <div>
+      &lt;input type="number" defaultValue={val} />
+      &lt;button onClick={_handleClick}>+&lt;/button>
+    </div>
+  )
+}</code></pre>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 171px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 344px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 628px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 684px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 401px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 344px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 628px;"></div>
   </div>
 </div>
 
 NOTES:
+- With hooks we can now use a functional component to maintain state
+- **ONE:** React provides the `useState` hook for maintain component state
+- **TWO:** We then use it to declare our state value with the initial value `0`
+  * We receive back the state value as a variable and a function to update it
+- **THREE:** Render out the UI, specifically the input with the `val`
+  * Initial value is `0` cuz that's the initial value of `val`
+- **FOUR:** Click the button which calls `_handleClick` handler
+- **FIVE:** Call `setVal()` updater function given to us by `useState`
+  * We update `val` to be current value `+ 1`
+- **SIX:** As a result, functional component is rendered again
+  * `useState` gives the new `val` of `1` & same state updater function
+- **SEVEN:** We render that new value back into the UI
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
