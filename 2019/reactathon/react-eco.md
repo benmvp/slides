@@ -1108,6 +1108,7 @@ NOTES:
 </div>
 
 NOTES:
+- Zach is gonna discuss the challenges with large & complex forms
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/jong-marshes-452773-sea-turtle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1135,7 +1136,7 @@ _[20 minutes]_
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between; margin-top:5%">
       <div style="flex:0 0 30%;">
-        <a href="https://cypress.io" target="_blank"><img src="../../img/nav-react/cypress-logo.png" class="plain" style="width:45%;" /></a>
+        <a href="https://cypress.io" target="_blank"><img src="../../img/nav-react/cypress-logo.png" class="plain" style="background:white" /></a>
         <a href="https://cypress.io" target="_blank">Cypress</a>
       </div>
       <div style="flex:0 0 30%;">
@@ -1154,8 +1155,8 @@ NOTES:
 - The utilities are about unit testing your components *without* having to run in a browser
 - Cypress
   * Predimonently used for end-to-end testing
+  * Runs in a browser, but isn't Selenium or Webdriver
   * But can also used a development platform for TDD
-  * Much better than selenium or web driver
 - Enzyme is the dominant one
   * Been around basically since the beginning of React
   * Has a very jQuery-like interface for inspecting & interacting w/ components
@@ -1212,7 +1213,7 @@ NOTES:
     <ul>
       <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
-      <li>Cypress video</li>
+      <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a> at AssertJS 2018</li>
       <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
       <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">Jest 14.0: React Tree Snapshot Testing</a></li>
       <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
