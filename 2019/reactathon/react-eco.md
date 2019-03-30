@@ -1296,15 +1296,33 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h2>React Context + Hooks</h2>
+    <h2>Standard Redux reducer</h2>
 
-    <pre class="large"><code class="lang-javascript"></code></pre>
+    <pre class="large"><code class="lang-javascript">const todos = (state = [], action) => {
+  if (action.type === 'ADD_TODO') {
+    return [
+      ...state,
+      {
+        id: action.id, 
+        text: action.text, 
+        completed: false,
+      }
+    ]
+  }
 
-    <div class="code-highlight" style="height: 70px; top: 685px;"></div>
+  return state
+}</code></pre>
+
+    <div class="code-highlight" style="height: 470px; top: 286px;"></div>
   </div>
 </div>
 
 NOTES:
+- While on the subject of mutating state...
+- By default, JavaScript arrays, objects and other collections are mutable
+- With Redux you cannot mutate the state
+- This leads to a lot of defensive copying with the spread operator
+- Making lots of copies can hurt performance at scale...
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1330,12 +1348,6 @@ NOTES:
 
 
 NOTES:
-- While on the subject of mutating state...
-- By default, JavaScript arrays, objects and other collections are mutable
-  * Normally you would just enforce a standard that data cannot be mutated
-  * That's how React works
-  * This leads to a lot of defensive copying with the spread operator
-  * Making lots of copies can hurt performance
 - Instead you can use a library like `Immutable`, `seamless-immutable` or `immer` to have true immutable objects
 - `Immutable` is the big player, yet another library from Facebook
   * Only used it a bit
@@ -1347,28 +1359,57 @@ NOTES:
   * A lot lighter than Immutable
 - `immer` takes a completely different approach
   * Just found out about it recently
-  * Instead of creating a whole new set of immutable objects with their own API
-  * It provides a `produce()` helper
-  * You give the function the object you want to mutate & a function that does the mutation
-  * And it returns the "next state" of the object
-  * Very similar to the "reducer" concept introduced by Redux
-  * Seems almost built for React
-  * Huge pro is that it works w/ normal JS objects/arrays
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h2>immer</h2>
+    <h2>`immer` reducer</h2>
 
-    <pre class="large"><code class="lang-javascript"></code></pre>
+    <pre class="large"><code class="lang-javascript">import produce from 'immer'
 
-    <div class="code-highlight" style="height: 70px; top: 685px;"></div>
+const todos = (state = [], action) => (
+  produce(state, (draft) => {
+    if (action.type === 'ADD_TODO') {
+      draft.push({
+        id: action.id,
+        text: action.text,
+        completed: false,
+      })
+    }
+  })
+)</code></pre>
+
+    <div class="code-highlight" style="height: 530px; top: 340px;"></div>
   </div>
 </div>
 
 NOTES:
+- Instead of creating a whole new set of immutable objects with their own API
+- It provides a `produce()` helper
+- You give the function the object you want to mutate & a function that does the mutation
+- Get to write the mutations in "normal" JavaScript
+- Batches up the mutations & it returns the "next state" of the object
+- Huge pro is that it works w/ normal JS objects/arrays
+- You can do even more fanciness with currying with `produce()` to make it your reducer
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>App Data Management Resources</h2>
+  
+    <ul>
+      <li><a href="https://github.com/jamiebuilds/unstated" target="_blank">Unstated</a></li>
+      <li><a href="https://github.com/jamiebuilds/reduxxx" target="_blank">Reduxxx</a></li>
+      <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank">Replace Redux with React Hooks + Context</a></li>
+      <li><a href="https://github.com/markerikson/redux-ecosystem-links" target="_blank">Redux Ecosystem</li>
+      <li><a href="https://github.com/xgrommx/mobx-ecosystem" target="_blank">MobX Ecosystem</li>
+    </ul>
+  </div>
+</div>
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
