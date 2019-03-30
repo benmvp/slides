@@ -23,11 +23,6 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- Shalom React Next!
-- Heard so many great things about this conference
-  * Honored to be able to speak here
-- So excited to be here in Israel
-  * One of my bucket list countries to visit
 - If you're new to React you might hear that on top of learning React
   * You need to know Redux, css-in-js, server-side rendering, etc.
   * All at the same time
@@ -44,59 +39,12 @@ NOTES:
   * If not, you can use the info I provide when your coworkers ask you why you picked a lib
   * Have a better argument than just "Because... I liked it?"
 
-/////
-
-<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1 style="font-size: 5em">Stand Up!</h1>
-  </div>
-</div>
-
-NOTES:
-
-=====
-<!-- .slide: data-background="url(../../img/family/simone-avery-baby-asher.jpg) no-repeat center" data-background-size="cover" -->
-
-NOTES:
-- Christian, Husband, Father
-- _Family introductions_
-
-/////
-
-![Eventbrite wordmark logo](../../img/eventbrite/wordmark-white.svg)
-<!-- .element: class="plain" style="width: 85%" -->
-
-NOTES:
-- I'm a Principal Frontend Engineer at Eventbrite in San Francisco
-- Hopefully you're familiar with us
-- We're an online Events & Ticketing platform
-- Work on our Frontend Platform team
-  * Doing FE infra + design system work
-  * We've been using React since early 2016
-  * Migrated from Backbone and have never looked back
-
-=====
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-NOTES:
-_[4 minutes]_
-
-- Ok, enough about me
-- Let's talk about the React ecosystem
-- Going to be *a lot* of stuff covered
-  * Probably not going to teach you how to use any given lib
-  * Instead my goal is to expose you to the libs so you can investigate
-  * Will also give my preferences
-- Tweeted a link to slides cuz there will be **a lot** of resources
-
 =====
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1>0. React</h1>
+    <h1>React</h1>
   </div>
 </div>
 
@@ -106,7 +54,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 75%">
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <a href="https://facebook.github.io/react/tutorial/tutorial.html" target="_blank" style="width: 45%">
@@ -134,34 +82,30 @@ NOTES:
 - After the basics, keep up with the latest features...
 - Advanced component patterns
   * Presentational vs. container components
-  * Sharing component logic with higher-order components or render props (or "hooks")
-- Using Fragments & Context API
-- Implementing error boundaries
-- Monitoring and optimizing performance
-- Leveraging new Suspense system with auto-code splitting
-- And then there are hooks that were just introduced last week
-  * They're an open RFC (request for comments)
-  * So many libs have been built around them already
-  * Slated for upcoming 16.7
-- If you're interested in learning more about React fundamentals...
+  * Sharing component logic with higher-order components / render props / hooks
+- Using Fragments (v16.2) & Context API (v16.3)
+- Implementing error boundaries (v16)
+- Monitoring and optimizing performance (v16.5)
+- Leveraging new Suspense system with auto-code splitting (v16.6)
+- And then there are hooks that finally landed in v16.8
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 100%">
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
     <h2>Interactivity in React (classes)</h2>
 
     <pre class="large"><code class="lang-javascript">class Incrementer extends React.Component {
   state = {val: 0}
 
   _handleClick = () => {
-    this.setState((prevState) => ({val: prevState.val + 1}))
+    this.setState((oState) => ({val: oState.val + 1}))
   }
   render() {
     return (
       <div>
-        &lt;input type="number" defaultValue={this.state.val} />
+        &lt;input defaultValue={this.state.val} />
         &lt;button onClick={this._handleClick}>+&lt;/button>
       </div>
     )
@@ -177,8 +121,8 @@ NOTES:
 </div>
 
 NOTES:
-- Combine the markup with the JavaScript
-  * UI is described as a "function" of its state
+- Simplest example of interactivity in React
+  * First with classes
 - **ONE:** Initialize the `state` to have `value` which defaults to `0`
 - **TWO:** Render out the UI, specifically the input with the `state`
   * Initial value is `0` cuz that's the default value of `this.state.value`
@@ -188,14 +132,12 @@ NOTES:
   * New value is back in input field
   * Updating state causes an optimized re-render via the reconciler (aka "Virtual DOM")
   * Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
-- For this most basic example of interactivity, imperative seems more straightforward, right?
-  * As the UI gets more sophisticated React will scale much better
 
 /////
 
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-end">
+<div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 75%">
     <h2>Interactivity in React (hooks)</h2>
 
@@ -207,7 +149,7 @@ const Incrementer = () => {
 
   return (
     <div>
-      &lt;input type="number" defaultValue={val} />
+      &lt;input defaultValue={val} />
       &lt;button onClick={_handleClick}>+&lt;/button>
     </div>
   )
@@ -224,7 +166,8 @@ const Incrementer = () => {
 </div>
 
 NOTES:
-- With hooks we can now use a functional component to maintain state
+- With hooks we can now use a functional component to maintain state!
+  * There's no real reason to use classes now
 - **ONE:** React provides the `useState` hook for maintain component state
 - **TWO:** We then use it to declare our state value with the initial value `0`
   * We receive back the state value as a variable and a function to update it
@@ -238,6 +181,54 @@ NOTES:
 - **SEVEN:** We render that new value back into the UI
 
 =====
+
+<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1 style="font-size: 5em">Stand Up!</h1>
+  </div>
+</div>
+
+NOTES:
+- Before we continue can I get everyone to stand up?
+
+/////
+<!-- .slide: data-background="url(../../img/family/simone-avery-baby-asher.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- My name is Ben Ilegbodu
+- Christian, Husband, Father
+- _Family introductions_
+- We live in Pittsburg, CA (far east bay)
+
+/////
+
+![Eventbrite wordmark logo](../../img/eventbrite/wordmark-white.svg)
+<!-- .element: class="plain" style="width: 85%" -->
+
+NOTES:
+- I'm a Principal Frontend Engineer at Eventbrite in San Francisco
+- Hopefully you're familiar with us
+- We're an online Events & Ticketing platform
+- Work on our Frontend Platform team
+  * Doing FE infra + design system work
+  * We've been using React since early 2016
+  * Migrated from Backbone and have never looked back
+
+=====
+<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- Ok, enough about me
+- Let's talk about the React ecosystem
+- Going to be *a lot* of stuff covered
+  * Probably not going to teach you how to use any given lib
+  * Instead my goal is to expose you to the libs so you can investigate
+  * Will also give my preferences
+- Tweeted a link to slides cuz there will be **a lot** of resources
+
+=====
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
@@ -247,8 +238,6 @@ NOTES:
 </div>
 
 NOTES:
-_[7 minutes]_
-
 - But enough about React itself
   * The purpose of this talk is to look at the libs in the ecosystem
 - Probably the biggest complaint w/ React isn't React itself
@@ -318,19 +307,20 @@ NOTES:
 
 - First you have to figure out which bundling system you'll use
   * This is space has a lot of players
-- Webpack is the prevailing bundler right now
+- **Webpack** is the prevailing bundler right now
   * But you have to add loaders and other configurations to make it do what you need
-- Rollup works specifically with ES6 modules
+  * It has its own huge ecosystem
+- **Rollup** works specifically with ES6 modules
   * Introduced the concept of "tree-shaking" feature that results in less generated code
   * But instead of bundling the code into one file, it transpiles individual files
   * Good for libraries
-- Parcel is a new tool that boasts blazing fast build times
+- **Parcel** is a new tool that boasts blazing fast build times
   * It also is "zero-config" so it has a lot of functionality out of the box
-- Prepack is another new tool for making JS code run faster
+- **Prepack** is another new tool for making JS code run faster
   * From Facebook
   * Computations that can be done at compile-time instead of run-time get eliminated
   * Still in early DEV stage so not quite ready for production
-- RequireJS is the original, but just isn't well suited at all for modern web development practices
+- **RequireJS** is the original, but just isn't well suited at all for modern web development practices
 - I'd say go with Webpack
   * It's still constantly evolving
   * Webpack has "tree-shaking" too
@@ -411,10 +401,7 @@ NOTES:
 - TypeScript is a superset of JavaScript that includes type checking plus future JavaScript;
   * It introduced classes before they were in ES2015
   * It has interfaces which JS does not
-- I have used Flow, and in practice is not so great
-  * Leaning more towards TypeScript
-  * Seems to just be better at typing
-  * But it's more "all-in" than Flow
+- 2018 seemed to be the "Year of TypeScript"
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -488,8 +475,6 @@ NOTES:
 
 
 NOTES:
-_[10 minutes]_
-
 - Let's talking about styling because visuals are just as important as interaction
 - There are _at least_ 5 ways to tackle the styling problem
 
@@ -695,6 +680,7 @@ const Card = ({title, imageUrl, message}) => (
 NOTES:
 - Then there's the "screw CSS" option w/ inline styles
   * Tired of dealing with specificity wars, unexpected cascade, etc.
+  * Was adding `!important` everywhere
   * Have lots of dynamic styles which can be challenging with CSS
 - There was a big huge push for this in React mainly because of React Native
   * it doesn't support CSS, only inline styles
@@ -798,6 +784,8 @@ NOTES:
 - Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
   * There's also theming support as well
   * Been recently looking into for Eventbrite
+- There's another mode where you can specify a `css` prop and just pass styling to the object
+  * No need to create "styled components"
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -851,8 +839,6 @@ NOTES:
 </div>
 
 NOTES:
-_[15 minutes]_
-
 - Moving along to libraries needed for Single Page Apps
 - Two main subcategories
 
@@ -914,6 +900,7 @@ NOTES:
 
 NOTES:
 - Example using the native fetch API
+  * There's a polyfill for older browsers
 - There's also an implementation for Node called `node-fetch`
   * `isomorphic-fetch` so your code can run in both environments
 
@@ -1016,8 +1003,6 @@ NOTES:
 </div>
 
 NOTES:
-_[18 minutes]_
-
 - Let's be real, forms are hard
   * Forms with validation are hard
   * And in React, it's no different
@@ -1108,6 +1093,7 @@ NOTES:
 </div>
 
 NOTES:
+- I won't go into too much detail about forms because...
 - Zach is gonna discuss the challenges with large & complex forms
 
 =====
@@ -1120,8 +1106,6 @@ NOTES:
 </div>
 
 NOTES:
-_[20 minutes]_
-
 - Testing is super important for the integrity of your app
 - It's funny, none of us _really_ enjoy writing tests
   * But we wish there were a lot of tests when we're refactoring
@@ -1157,6 +1141,7 @@ NOTES:
   * Predimonently used for end-to-end testing
   * Runs in a browser, but isn't Selenium or Webdriver
   * But can also used a development platform for TDD
+  * Becoming increasingly popular
 - Enzyme is the dominant one
   * Been around basically since the beginning of React
   * Has a very jQuery-like interface for inspecting & interacting w/ components
@@ -1181,7 +1166,7 @@ NOTES:
     <pre class="large"><code class="lang-javascript">import {mount} from 'enzyme'
 import Button from './Button'
 
-test('toggles active state onClick', () => {
+test('toggles active state on click', () => {
   const component = mount(
     &lt;Button style="primary">Go&lt;/Button>
   )
@@ -1225,8 +1210,6 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-_[23 minutes]_
-
 - At this point we actually have everything we need to build Production-level apps
   * React (obviously)
   * Tooling w/ CRA that creates production builds
@@ -1247,8 +1230,7 @@ _[23 minutes]_
 </div>
 
 NOTES:
-_[24 minutes]_
-
+- Everybody's favorite topic!
 - Up until this point, we've implicitly been using React components to store application data
   * Possibly using Context API to pass data to various components
 - Once the data becomes too complex or too many components want to modify that data
@@ -1281,15 +1263,18 @@ _[24 minutes]_
 
 
 NOTES:
-- Most people use Redux
+- Most people use **Redux**
   * Been a bit of a backlash
+  * I know Mark & the maintainers have felt that
   * Mainly because people have been using it before they need it and w/o understanding it
+  * Or using a lib (like `redux-form`) that's forcing them
   * They're data isn't really changing, just needed it passed to multiple components
-  * Look we're talking about Redux at Step 6!
+- Look we're talking about Redux at Step 6!
   * This is when I think it makes sense to learn and add it in
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 - Quite possible that with React Context & Hooks we won't even need Redux or MobX
+  * More likely that they'll bake it in
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1402,6 +1387,7 @@ NOTES:
     <h2>App Data Management Resources</h2>
   
     <ul>
+      <li><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank">Redux DevTools Extension</a></li>
       <li><a href="https://github.com/jamiebuilds/unstated" target="_blank">Unstated</a></li>
       <li><a href="https://github.com/jamiebuilds/reduxxx" target="_blank">Reduxxx</a></li>
       <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank">Replace Redux with React Hooks + Context</a></li>
@@ -1431,7 +1417,7 @@ NOTES:
 NOTES:
 - Mark's one of the core maintainers of Redux
 - He's going to catch us up on the latest news/updates with Redux
-- Of most interest: how React-Redux will take advantage of some of the new React features
+- Of most interest to me: how React-Redux will take advantage of some of the new React features
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1443,8 +1429,6 @@ NOTES:
 </div>
 
 NOTES:
-_[27 minutes]_
-
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
 - Rendering server-side can help both
   * This is called "Isomorphic/Universal React"
@@ -1519,7 +1503,7 @@ NOTES:
 
 NOTES:
 - If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
-- But I have a talk that explains it all!
+- But I have a 2-yr old talk that explains it all!
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1547,8 +1531,6 @@ NOTES:
 </div>
 
 NOTES:
-_[24 minutes]_
-
 - As your app grows larger you may find that you're making lots of Rest API requests
 - A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
 - There are cutting-edge technologies to tackle this problem
@@ -1624,8 +1606,6 @@ NOTES:
 </div>
 
 NOTES:
-_[28 minutes]_
-
 - Quick tl;dr in case you missed anything
 
 /////
@@ -1704,10 +1684,6 @@ NOTES:
   * Got some notes scribbled to go check things out
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one and build on it
-- I was only able to highlight just a few of the talks happening today
-  * Those were the ones that flowed in with my talk
-  * Don't think you should only go to those
-  * But they all look fantastic
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
   * Organizing such a great conference
 - **YOU!** For being such an engaged audience so early in the AM
