@@ -451,6 +451,7 @@ NOTES:
     <ul>
       <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
       <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
+      <li><a href="https://github.com/pikapkg/web" target="_blank">`@pika/web`</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
@@ -463,6 +464,7 @@ NOTES:
 
 NOTES:
 - Here are some miscellaneous resources regarding all the tools we talked about
+- `@pika/web` boasts of being able to run NPM dependencies in the browser **without** bundler like Webpack
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -816,6 +818,7 @@ NOTES:
     <ul>
       <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank">_A Unified Styling Language_</a></li>
       <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Modules</a></li>
+      <li><a href="https://github.com/nairinarinyan/react-scoped-styles" target="_blank">`react-scoped-styles`</a></li>
       <li><a href="http://www.material-ui.com/" target="_blank">Material UI</a></li>
       <li><a href="https://react.foundation/" target="_blank">React + Foundation</a></li>
       <li><a href="https://react-bootstrap.github.io/" target="_blank">React-Bootstrap</a></li>
@@ -1069,6 +1072,8 @@ NOTES:
     <h2>Form Resources</h2>
   
     <ul>
+      <li><a href="https://github.com/rmolinamir/react-formalized" target="_blank">`react-formalized`</a></li>
+      <li><a href="https://upmostly.com/tutorials/form-validation-using-custom-react-hooks/" target="_blank">Form Validation using Custom React Hooks</a></li>
       <li><a href="https://reactjs.org/docs/forms.html" target="_blank">Forms in React</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/react/05-email-form" target="_blank">React FUNdamentals Workshop - Forms</a></li>
     </ul>
@@ -1197,14 +1202,18 @@ NOTES:
   
     <ul>
       <li><a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
+      <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a></li>
+      <li><a href="https://github.com/Raathigesh/majestic/" target="_blank">Majestic</li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
-      <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a> at AssertJS 2018</li>
       <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
-      <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">Jest 14.0: React Tree Snapshot Testing</a></li>
+      <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">React Tree Snapshot Testing</a></li>
       <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
     </ul>
   </div>
 </div>
+
+NOTES:
+- Majestic is a zero-config GUI for Jest
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1513,6 +1522,7 @@ NOTES:
     <h2>Server-side Rendering Resources</h2>
   
     <ul>
+      <li><a href="https://tylermcginnis.com/react-router-server-rendering/" target="_blank">Server Rendering with React Router</a>
       <li><a href="https://github.com/brillout/awesome-ssr" target="_blank">Awesome SSR</a>
       <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
       <li><a href="https://github.com/nfl/react-helmet" target="_blank">`react-helmet`</a></li>
@@ -1585,6 +1595,7 @@ NOTES:
   
     <ul>
       <li><a href="https://www.howtographql.com/" target="_blank">How to GraphQL</a></li>
+      <li><a href="https://www.youtube.com/watch?v=F_M8v6MK0Sc" target="_blank">GraphQL in 3 Components</a></li>
       <li><a href="https://github.com/apollographql/apollo-client-devtools" target="_blank">Apollo Client Devtools</a></li>
       <li><a href="https://www.prisma.io/" target="_blank">Prisma</a></li>
       <li><a href="https://www.graph.cool/" target="_blank">Graphcool</a></li>
