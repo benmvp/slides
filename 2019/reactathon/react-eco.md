@@ -27,9 +27,9 @@ NOTES:
   * You need to know Redux, css-in-js, server-side rendering, etc.
   * All at the same time
   * It can be so overwhelming
-- And then React is just a UI library
-  * Need to pick libraries for fetching data, managing, data, etc.
-  * How can you pick something if you don't yet know what you need?
+- For those of us with React experience
+  * React is still just a UI library
+  * Need to pick libraries for fetching data, managing, data, etc. for full framework
   * How can you pick the right thing, if you've never used it before?
 - So I want to walk through the different libs in the React ecosystem
   * 1/ Provide my opinion of which category of libs you should prioritize first
@@ -49,7 +49,8 @@ NOTES:
 </div>
 
 NOTES:
-- At the beginning obviously is React
+- Before we jump in the ecosystem
+  * Of course we need to quickly chat about React first
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -75,16 +76,17 @@ NOTES:
 
 
 NOTES:
-- First, learn React and learn it _really_ well
+- For those just starting out, learn React and learn it _really_ well
   * Sounds like an obvious statement
   * But it's important to focus on this first
   * Learn how to maintain state properly & leverage "virtual DOM"
 - After the basics, keep up with the latest features...
+  * React continues to evolve
 - Advanced component patterns
   * Presentational vs. container components
   * Sharing component logic with higher-order components / render props / hooks
-- Using Fragments (v16.2) & Context API (v16.3)
 - Implementing error boundaries (v16)
+- Using Fragments (v16.2) & Context API (v16.3)
 - Monitoring and optimizing performance (v16.5)
 - Leveraging new Suspense system with auto-code splitting (v16.6)
 - And then there are hooks that finally landed in v16.8
@@ -100,7 +102,7 @@ NOTES:
   state = {val: 0}
 
   _handleClick = () => {
-    this.setState((oState) => ({val: oState.val + 1}))
+    this.setState((state) => ({val: state.val + 1}))
   }
   render() {
     return (
@@ -119,11 +121,15 @@ NOTES:
     <div class="code-highlight fragment current-visible" style="height: 70px; top: 684px;"></div>
   </div>
 </div>
+<div style="position: absolute; top: 260px; right: 200px">
+  <input type="text" class="valueBox" value="0" size="1" style="font-size: 2em;text-align: center" />
+  <button class="btnUp" style="font-size: 2em" onclick="$('.valueBox').val(+$('.valueBox').val() + 1)">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+</div>
 
 NOTES:
 - Simplest example of interactivity in React
-  * First with classes
-- **ONE:** Initialize the `state` to have `value` which defaults to `0`
+  * Using classes
+- **ONE:** Initialize the `state` to have `value` which starts off at `0`
 - **TWO:** Render out the UI, specifically the input with the `state`
   * Initial value is `0` cuz that's the default value of `this.state.value`
 - **THREE:** Click the button which calls `_handleClick` handler
@@ -164,21 +170,29 @@ const Incrementer = () => {
     <div class="code-highlight fragment current-visible" style="height: 70px; top: 628px;"></div>
   </div>
 </div>
+<div style="position: absolute; top: 260px; right: 270px">
+  <input type="text" class="valueBox" value="0" size="1" style="font-size: 2em;text-align: center" />
+  <button class="btnUp" style="font-size: 2em" onclick="$('.valueBox').val(+$('.valueBox').val() + 1)">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+</div>
 
 NOTES:
 - With hooks we can now use a functional component to maintain state!
-  * There's no real reason to use classes now
-- **ONE:** React provides the `useState` hook for maintain component state
+  * There's no real reason to use classes anymore
+- **ONE:** React provides the `useState` hook for maintaining component state
 - **TWO:** We then use it to declare our state value with the initial value `0`
   * We receive back the state value as a variable and a function to update it
 - **THREE:** Render out the UI, specifically the input with the `val`
   * Initial value is `0` cuz that's the initial value of `val`
 - **FOUR:** Click the button which calls `_handleClick` handler
-- **FIVE:** Call `setVal()` updater function given to us by `useState`
-  * We update `val` to be current value `+ 1`
+- **FIVE:** `_handleClick` is a closure defined within functional component
+  * Call `setVal()` updater function given to us by `useState`
+  * We update `val` to be current `val + 1`
 - **SIX:** As a result, functional component is rendered again
   * `useState` gives the new `val` of `1` & same state updater function
+  * That's why it's called `useState` instead of `createState`
+  * The state is only created the first time
 - **SEVEN:** We render that new value back into the UI
+  * Cycle continues
 
 =====
 
@@ -215,6 +229,7 @@ NOTES:
   * Doing FE infra + design system work
   * We've been using React since early 2016
   * Migrated from Backbone and have never looked back
+  * This talk came from having to set up our React "framework"
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -223,7 +238,7 @@ NOTES:
 - Ok, enough about me
 - Let's talk about the React ecosystem
 - Going to be *a lot* of stuff covered
-  * Probably not going to teach you how to use any given lib
+  * Not going to be able to teach you how to use any given lib
   * Instead my goal is to expose you to the libs so you can investigate
   * Will also give my preferences
 - Tweeted a link to slides cuz there will be **a lot** of resources
@@ -238,8 +253,6 @@ NOTES:
 </div>
 
 NOTES:
-- But enough about React itself
-  * The purpose of this talk is to look at the libs in the ecosystem
 - Probably the biggest complaint w/ React isn't React itself
   * But the tooling needed to get set up
 - I think the problem is that there's so much choice in this area
@@ -266,8 +279,9 @@ NOTES:
 - The React Dev Tools are super helpful in debugging React components
 - You just browse the React component tree just like the DOM tree
   * And you can look at the component props as well as the state
+  * Keeps improving to provide more debugging capability
+  * Just recently with the release of React 16.5 enabling performance debugging
 - Available for Chrome & Firefox. Sorry Edge users.
-- And just recently with the release of React 16.5 enabling performance debugging
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -304,6 +318,7 @@ NOTES:
 
 NOTES:
 - If you're building out your own custom stack there's a lot to think about
+
 
 - First you have to figure out which bundling system you'll use
   * This is space has a lot of players
@@ -411,9 +426,9 @@ NOTES:
     <h2>Create React App</h2>
     <p>Create React apps with no build configuration</p>
 
-    <pre class="large" style="margin:5% 0"><code>$> npx create-react-app react-next
+    <pre class="large" style="margin:5% 0"><code>$> npx create-react-app reactathon
 
-$> cd react-next
+$> cd reactathon
 
 $> yarn start
 
@@ -439,7 +454,7 @@ NOTES:
   * And if you need to config something it doesn't support you can "eject"
 - Creates an optimized bundle you can ship to production
 - Much better than the (bloated) boilerplates / starter-kits
-- v2 just shipped last month!
+- v2 just shipped with lots of updated infra
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -453,6 +468,7 @@ NOTES:
       <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
       <li><a href="https://github.com/pikapkg/web" target="_blank">`@pika/web`</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
+      <li><a href="https://github.com/jaiebuilds/scritch" target="_blank">`scritch`</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
       <li><a href="https://webpack.js.org/configuration/dev-server/" target="_blank">`webpack-dev-server`</a></li>
@@ -464,6 +480,7 @@ NOTES:
 
 NOTES:
 - Here are some miscellaneous resources regarding all the tools we talked about
+- Guppy is a GUI for managing React app infra and running tasks
 - `@pika/web` boasts of being able to run NPM dependencies in the browser **without** bundler like Webpack
 
 =====
@@ -750,7 +767,7 @@ NOTES:
 - New libraries have popped up to try to solve that issue in various clever ways
   * Most take what's defined as inline styles but map to unique CSS classes
   * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
-- So if you're starting out, you may wanna start with vanilla CSS
+- So if you're starting out, you may wanna start with vanilla CSS or SASS
   * `css-in-js` libs are another API to learn
   * But as you start bumping up against these problems, `css-in-js` solves those problems
   * And once you get comfortable with a `css-in-js` library then you can use it all the time
@@ -831,6 +848,8 @@ NOTES:
 
 NOTES:
 - Here are some miscellaneous resources regarding styling
+- `react-scoped-styles` is similar to CSS Modules but you don't have to import the CSS module
+  * Works on file naming convention
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -924,7 +943,7 @@ NOTES:
 </div>
 
 NOTES:
--
+
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1062,6 +1081,7 @@ NOTES:
   * Also wanted a Redux-free form implementation
   * Basically built at the same time
   * More or less feature parity
+- If you've used Redux Form, React Final Form has similar API
 
 ///// 
 
@@ -1079,6 +1099,9 @@ NOTES:
     </ul>
   </div>
 </div>
+
+NOTES:
+- `react-formalized` is a collection of pre-styled HTML form elements
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/tomoe-steineck-787193-blue-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1213,6 +1236,7 @@ NOTES:
 </div>
 
 NOTES:
+- `jest-enzyme` has a collection of Jest matchers for enzyme objects
 - Majestic is a zero-config GUI for Jest
 
 =====
@@ -1272,14 +1296,14 @@ NOTES:
 
 
 NOTES:
+- Look we're talking about Redux at Step 6!
+  * This is when I think it makes sense to learn and add it in
 - Most people use **Redux**
   * Been a bit of a backlash
   * I know Mark & the maintainers have felt that
   * Mainly because people have been using it before they need it and w/o understanding it
   * Or using a lib (like `redux-form`) that's forcing them
   * They're data isn't really changing, just needed it passed to multiple components
-- Look we're talking about Redux at Step 6!
-  * This is when I think it makes sense to learn and add it in
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 - Quite possible that with React Context & Hooks we won't even need Redux or MobX
@@ -1315,7 +1339,7 @@ NOTES:
 - While on the subject of mutating state...
 - By default, JavaScript arrays, objects and other collections are mutable
 - With Redux you cannot mutate the state
-- This leads to a lot of defensive copying with the spread operator
+- This leads to a lot of copying with the spread operator to generate new state
 - Making lots of copies can hurt performance at scale...
 
 /////
@@ -1386,7 +1410,7 @@ NOTES:
 - Get to write the mutations in "normal" JavaScript
 - Batches up the mutations & it returns the "next state" of the object
 - Huge pro is that it works w/ normal JS objects/arrays
-- You can do even more fanciness with currying with `produce()` to make it your reducer
+- You can do even more fanciness with currying with `produce()` to make **it** your reducer
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1397,14 +1421,25 @@ NOTES:
   
     <ul>
       <li><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank">Redux DevTools Extension</a></li>
+      <li><a href="https://redux-starter-kit.js.org/" target="_blank">Redux Starter Kit</a></li>
+      <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank">Replace Redux with React Hooks + Context</a></li>
       <li><a href="https://github.com/jamiebuilds/unstated" target="_blank">Unstated</a></li>
       <li><a href="https://github.com/jamiebuilds/reduxxx" target="_blank">Reduxxx</a></li>
-      <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank">Replace Redux with React Hooks + Context</a></li>
       <li><a href="https://github.com/markerikson/redux-ecosystem-links" target="_blank">Redux Ecosystem</li>
       <li><a href="https://github.com/xgrommx/mobx-ecosystem" target="_blank">MobX Ecosystem</li>
     </ul>
   </div>
 </div>
+
+NOTES:
+- Redux Starter Kit - batteries-include toolset for making using Redux easier
+  * Helpers for creating actions, reducers, selectors, etc
+- Unstated is a Redux alternative to get rid of the boilerplate
+  * Manage app state, much like component state
+- Reduxxx - eliminates implicit dependencies by having components subscribe directly to app state
+  * "Redux, explicit" hence the XXX
+  * Makes code-splitting a lot easier because you don't have to try to inject new reducers
+  * Designed as an API change to React itself
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1606,6 +1641,7 @@ NOTES:
 
 NOTES:
 - How to GraphQL is a full-stack tutorial for GraphQL
+- _GraphQL in 3 Components_ is a talk from our very own Eve Porcello from React Rally 2018
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1696,6 +1732,7 @@ NOTES:
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one and build on it
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
+  * Ben Dunphy
   * Organizing such a great conference
 - **YOU!** For being such an engaged audience so early in the AM
   * If you've got questions, feel free to find me during the conference
