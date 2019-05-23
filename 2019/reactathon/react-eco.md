@@ -79,7 +79,7 @@ NOTES:
 - For those just starting out, learn React and learn it _really_ well
   * Sounds like an obvious statement
   * But it's important to focus on this first
-  * Learn how to maintain state properly & leverage "virtual DOM"
+  * Learn how to maintain state properly & leverage reconciler (aka "virtual DOM")
 - After the basics, keep up with the latest features...
   * React continues to evolve
 - Advanced component patterns
