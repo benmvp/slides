@@ -47,7 +47,7 @@ NOTES:
 - Squats counting from 0
 
 /////
-<!-- .slide: data-background="#000 url(../../img/family/family-naima-wedding.png) no-repeat center" data-background-size="contain" -->
+<!-- .slide: data-background="#000 url(../../img/family/family-under-gazebo.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father
@@ -128,6 +128,7 @@ NOTES:
 NOTES:
 - For fun...
 - Here's what yahoo.com looked like at the time
+- "Powered by Compaq" at the bottom
 - https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/
 
 /////
@@ -135,6 +136,7 @@ NOTES:
 
 NOTES:
 - And amazon.com
+- "Microsoft XP is now shipping!" at the bottom
 - https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
 
 =====
@@ -315,7 +317,7 @@ NOTES:
 - Notice how `<main>` actually comes before `<nav>` in the markup
   * For SEO
   * But Grid layout puts it where we want visually!
-  * And has a mobile-friendly layout as well
+  * And has a responsive, mobile-friendly layout as well
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -340,8 +342,6 @@ NOTES:
         <p style="margin-left:40px">Ben Ilegbodu</p>
         <h3>14:55</h3>
         <p style="margin-left:40px">Manuel Rego</p>
-        <h3>15:30</h3>
-        <p style="margin-left:40px"Estefany Aguilar</p>
       </div>
       <div style="flex:0 0 55%">
         <pre class="large"><code class="lang-html"><style type="text/css">
@@ -385,8 +385,6 @@ NOTES:
         <p style="margin-left:40px">Ben Ilegbodu</p>
         <h3>14:55</h3>
         <p style="margin-left:40px">Manuel Rego</p>
-        <h3>15:30</h3>
-        <p style="margin-left:40px"Estefany Aguilar</p>
       </div>
       <div style="flex:0 0 75%">
         <pre class="large"><code class="lang-html"><H3>13:05</H3>
@@ -410,6 +408,7 @@ NOTES:
   * Used to do "pixel perfect" spacing before CSS
 - Would work in both horizontal & vertical direction
 - Used all over the place!
+- Again, responsive design & development wasn't a thing
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -427,8 +426,6 @@ NOTES:
         <p style="margin-left:40px">Ben Ilegbodu</p>
         <h3>14:55</h3>
         <p style="margin-left:40px">Manuel Rego</p>
-        <h3>15:30</h3>
-        <p style="margin-left:40px"Estefany Aguilar</p>
       </div>
       <div style="flex:0 0 65%">
         <pre class="large"><code class="lang-html"><H3>13:05</H3>
@@ -600,11 +597,11 @@ NOTES:
       <a href="https://www.npmjs.com/" target="_blank">
         <img src="../../img/webdev/npm-cube-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://eslint.org/" target="_blank">
-        <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
+      <a href="https://sass-lang.com/" target="_blank">
+        <img src="../../img/why-react/sass-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://jestjs.io/" target="_blank">
-        <img src="../../img/nav-react/jest-logo.svg" alt="" class="plain" style="width: 250px" />
+      <a href="https://github.com/postcss/postcss" target="_blank">
+        <img src="../../img/webdev/postcss-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
@@ -643,13 +640,12 @@ NOTES:
   * Can run tests
   * Even automatically deploy
 - **Gulp:** Run build scripts
-  * Used to write terse JS/CSS to keep file sizes down
+  * Used to write terse CSS/JS to keep file sizes down
   * Friend at AOL wasn't allowed to write comments!
 - **Netlify:** Allows previewing PRs before they even merge!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 
 NOTES:
 - Quick question before I finish:
