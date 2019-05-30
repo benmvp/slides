@@ -24,14 +24,15 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- Good afternoon y'all!
+- Good afternoon everyone!
+  * Welcome back from lunch
 - This talk is called "Let's web dev like it's 1999!"
 - **QUESTION: So how many of you were developing in 1999?**
 - Hoping to share a little about my dev story and walk down memory lane
   * Or take a history lesson for most of you
 - Hopefully learn some new things along the way
-  * Appreciate where we are
-- Slides are available
+  * Appreciate where we are based on where we've come from
+- **Slides are available online**
 
 =====
 <!-- .slide: data-background="url(../../img/giphy/stand-up-kevin-durant.gif) no-repeat center" data-background-size="cover" -->
@@ -44,16 +45,20 @@ NOTES:
 
 NOTES:
 - But first, would like everyone to stand up!
-- Squats counting from 0
 
 /////
 <!-- .slide: data-background="#000 url(../../img/family/family-under-gazebo.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 - Christian, Husband, Father
+  * Live in the San Francisco Bay Area
 - I'm a Principal Frontend Engineer at Eventbrite
-- Work on our Data & Recommendations team
+- Work on our new Data & Recommendations team
   * Focused on providing insights to event organizers to help them be more successful
+- Also a huge basketball / NBA fan
+  * Missed Game 1 overnight
+  * Will miss Game 2 too
+  * It's worth it, happy to be here!
 - But I don't wanna talk about me now
   * Wanna talk about me 20 years ago
 
@@ -65,7 +70,7 @@ NOTES:
 - My first programming language I learned was `BASIC`
   * Summer program in '98
 - Used that to build "apps" for my TI-83 calc in high school
-  * Math apps to help check answers on algebra tests
+  * Math apps to help check answers on math homework & tests
   * That's not cheating right?
 
 /////
@@ -84,7 +89,7 @@ NOTES:
 - Wanted a way to teach others how to program TI calculators
   * So naturally I created a website
 - Went into the Wayback Machine and found my first site
-  * Isn't it a beauty
+  * Isn't it beautiful
 - Built "Basic Guru Online" as a Geocities website
   * (because apparently I was a "guru")
   * Geocities was like THE hosting service of the day
@@ -92,12 +97,11 @@ NOTES:
   * Talking early 2000
 - BGO was like a full web application
   * Geocities handled all the backend
-  * Updated site by pushing new files to their servers with FTP (File Transfer Protocol)
+  * Updated site by pushing new static files directly to their servers with FTP (File Transfer Protocol)
 - **ONE:** Definitely created the logo in Microsoft Paint using PowerPoint clip-art + Comic Sans
 - **TWO:** Trusty-dusty hit counter (broken)
 - **THREE:** Current date display still works
   * For some reason I thought that was necessary
-  * Used `document.writeln`
   - This is why JS is backwards compatible - so my 20yo site still works
 - **FOUR:** I suggested using AOL to view the page
   * "Should be okay" using Internet Explorer or Netscape Navigator
@@ -121,6 +125,7 @@ NOTES:
 - **TWO:** The bottom frame was fixed height
   * Main section filled rest of the window
   * More on this in a bit
+- Surprisingly I didn't use `<marquee>` or `<blink>` tags
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
@@ -235,8 +240,9 @@ NOTES:
 - Got visual styling mixed right in the markup
 - **FIVE:** Frames by default had borders so they needed to be turned off
 - If you left the borders on, they could be resized
-  * **SIX:** So there was an attribute to turn those off
+  * **SIX:** So there was an attribute to turn prevent resizing
 - **SEVEN:** So what about that `NAME` attribute? What's that for?
+  * Lemme explain
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -257,7 +263,8 @@ NOTES:
 </div>
 
 NOTES:
-- Well in addition to providing grid layout, we also don't want to have to refresh the whole page
+- Well in addition to providing a grid-like layout
+  * We also don't want to have to refresh the whole page
 - The header, nav & ads are staying fixed
 - So w/in `nav.html`, we just have our links target the `content` frame
   * You've probably always just done `target="_blank"` for a new window right?
@@ -317,7 +324,7 @@ NOTES:
 - Notice how `<main>` actually comes before `<nav>` in the markup
   * For SEO
   * But Grid layout puts it where we want visually!
-  * And has a responsive, mobile-friendly layout as well
+  * And has a responsive, mobile-first layout as well
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -361,13 +368,13 @@ p { margin-left: 40px; }
   </div>
 </div>
 NOTES:
-- So let's say we have the schedule for CSSConf EU
+- So let's say we have the schedule for CSSConf EU 2019
 - We just want to indent the speakers in by 40 pixels
 - Naturally we'd just use some CSS selector to add `margin-left`
-- Simple enought right?
+- Simple enough right?
 - Or maybe use Bootstrap's grid system
 - But what do you do if CSS doesn't exist?
-  * Or at least it's not guaranteed to be in all of your user's browsers?
+  * Or at least it's not guaranteed to be available in all browsers?
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -444,6 +451,7 @@ NOTES:
 - For this, we could use a whole bunch of `&nbsp;` entities
 - But the spacing is dependent on the font
   * Wouldn't be exact if needed to line things up
+- So the spacer gif was the solution
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -486,6 +494,7 @@ NOTES:
 NOTES:
 - No longer did we have to use the `<FONT>` tag (osbsolete) for styling everything
 - Yep, that was definitely a thing I used **a lot**
+  * No `<span>` just `<font>`, `<font>`, `<font>`
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -501,7 +510,10 @@ NOTES:
 </div>
 
 NOTES:
-- Still using `<table>` for layout then, but no longer need all the styling **in** the markup
+- Still using `<table>` for layout then of course
+  * But no longer need all the styling **in** the markup
+  * Could put it in a separate file
+
 
 - However...
 - You know what we ended up using CSS most for in the beginning????
@@ -533,7 +545,7 @@ NOTES:
 - There's this camp of people who thing CSS is so easy
 - And there's another camp that thinks it's so hard styling should be replaced with JS
 - I don't want to get in the middle of _that_ war
-  * But 20 years ago debugging styling  was a pain!
+  * But 20 years ago debugging styling was definitely a pain!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -552,16 +564,21 @@ NOTES:
 </div>
 
 NOTES:
-- When I would have sizing, layout or z-index issues
-  * Would throw dummy background or border to get a sense of bounding boxes
-  * Kind of like the `console.log` of CSS
-- No way of knowing what the browser was rendering
+- No way of easily knowing what the browser was rendering
   * Or even what classes were being applied
+  * Compound that with sizing, layout or z-index issues
+- Would throw dummy background or border colors
+  * Just to see if a CSS class was being applied
+  * Or a sense of bounding boxes
+  * Kind of like the `console.log` of CSS
 - And of course when testing or debugging had to...
   * Make change
   * Save
   * Reload browser
   * See result
+  * Scratch my head
+  * Wish StackOverlay existed
+  * Repeat...
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -574,6 +591,7 @@ NOTES:
 
 NOTES:
 - Then Firebug came along and it changed the game in 2006/2007
+  * Right when I was starting full-time
 - May never have even heard of it
 - It was originally a Firefox extension
   * Got me to move from IE to FF at the time
@@ -636,12 +654,12 @@ NOTES:
 - **Github:** Like table stakes now, but we didn't have version control
   * It existed but only w/in the biggest of companies
   * Imagine just 2 people working on the site at the same person
+- **Gulp:** Run build scripts to transform SASS into minified/optimized CSS
+  * Used to write terse CSS/JS to keep file sizes down
+  * Friend at AOL wasn't allowed to write comments!
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
   * Can run tests
   * Even automatically deploy
-- **Gulp:** Run build scripts
-  * Used to write terse CSS/JS to keep file sizes down
-  * Friend at AOL wasn't allowed to write comments!
 - **Netlify:** Allows previewing PRs before they even merge!
 
 =====
@@ -650,10 +668,11 @@ NOTES:
 NOTES:
 - Quick question before I finish:
 - **How many people here have been in the industry less than 2 years?**
+- I was fortunate that I was exposed to software dev at 15
 - Great that you're here
   * Great that you're wanting to learn
   * Early on, conferences like these were few and far between
-- But most newbies have "imposter syndrome"
+- But most new devs have "imposter syndrome"
   * The bar for "minimally-viable" skills to build a site is so high now
   * Feel like you don't belong
   * Can come to a conference like this and it can grow _worse_!
@@ -668,10 +687,8 @@ NOTES:
   * You're not less than / sub par
   * There are many ways to learn
   * I know many folks from bootcamps who are flat out killing it
-  * Some I've had the pleasure of mentoring/training
-  * Others who I didn't even know they were bootcamp grads until they told me
 - Even if you just graduated yesterday
-  * You can be just as integral as those of us who were there near the beginning or w/ a traditional background
+  * You can be just as integral to the community as those of us who were there near the beginning or w/ a traditional background
 - To sum it up: YOU GOT THIS!
 
 =====
@@ -694,9 +711,14 @@ NOTES:
 </div>
 
 NOTES:
+- That's it!
+- Wanted to thank the organizers
+  * Inviting me to speak
+  * Putting on such a welcoming & inclusive conference
+  * Closed captioning & child care!
+  * _Applause_
 - I hope you enjoyed our ride in the wayback machine
   * Hopefully it gives us all appreciation for where we've come from
   * Next time we wanna complain about the current situation
-- Ask questions on Twitter, via email or AMA!
-- Wanna thank **conference** and **YOU!**
+- Ask questions on Twitter
 - Thanks!
