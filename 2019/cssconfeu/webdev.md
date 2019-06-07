@@ -24,7 +24,7 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- Good afternoon everyone!
+- Guten tag CSS Conf!
   * Welcome back from lunch
 - This talk is called "Let's web dev like it's 1999!"
 - **QUESTION: So how many of you were developing in 1999?**
@@ -32,6 +32,8 @@ NOTES:
   * Or take a history lesson for most of you
 - Hopefully learn some new things along the way
   * Appreciate where we are based on where we've come from
+
+
 - **Slides are available online**
 
 =====
@@ -50,6 +52,8 @@ NOTES:
 <!-- .slide: data-background="#000 url(../../img/family/family-under-gazebo.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[3 minutes]_
+
 - Christian, Husband, Father
   * Live in the San Francisco Bay Area
 - I'm a Principal Frontend Engineer at Eventbrite
@@ -67,9 +71,11 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[4 minutes]_
+
 - My first programming language I learned was `BASIC`
   * Summer program in '98
-- Used that to build "apps" for my TI-83 calc in high school
+- Used that skill to build "apps" for my TI-83 calc in high school
   * Math apps to help check answers on math homework & tests
   * That's not cheating right?
 
@@ -86,6 +92,8 @@ NOTES:
 
 
 NOTES:
+_[5 minutes]_
+
 - Wanted a way to teach others how to program TI calculators
   * So naturally I created a website
 - Went into the Wayback Machine and found my first site
@@ -120,6 +128,8 @@ NOTES:
 
 
 NOTES:
+_[7 minutes]_
+
 - **ONE:** Weekly poll asks about internet connect speed
   * Wish I had the results
 - **TWO:** The bottom frame was fixed height
@@ -148,6 +158,8 @@ NOTES:
 <!-- .slide: data-background="#000 url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[9 minutes]_
+
 - Before CSS3, flexbox & grid we needed ways to lay out our pages
 - And many times we had some navigation that we wanted fixed
   * Either a header menu on top
@@ -192,6 +204,8 @@ NOTES:
 </div>
 
 NOTES:
+_[11 minutes]_
+
 - This is the layout that this contrived example is building
 - Got a "frame" that span the top
 - Then 3 frames in a column
@@ -263,6 +277,8 @@ NOTES:
 </div>
 
 NOTES:
+_[13 minutes]_
+
 - Well in addition to providing a grid-like layout
   * We also don't want to have to refresh the whole page
 - The header, nav & ads are staying fixed
@@ -318,6 +334,8 @@ body {
 </div>
 
 NOTES:
+_[14 minutes]_
+
 - If you've been keeping up with the latest in CSS-land
   * This sounds awfully similar to CSS Grid that Rachel was talking about earlier
 - Here's how we could implement the same thing now
@@ -367,7 +385,10 @@ p { margin-left: 40px; }
 
   </div>
 </div>
+
 NOTES:
+_[15 minutes]_
+
 - So let's say we have the schedule for CSSConf EU 2019
 - We just want to indent the speakers in by 40 pixels
 - Naturally we'd just use some CSS selector to add `margin-left`
@@ -407,6 +428,8 @@ NOTES:
 </div>
 
 NOTES:
+_[16 minutes]_
+
 - Well you use `1x1.gif`!
 - It's known as a "spacer gif"
 - And yes I say "gif" not "jif" 😀
@@ -448,6 +471,8 @@ NOTES:
 </div>
 
 NOTES:
+_[17 minutes]_
+
 - For this, we could use a whole bunch of `&nbsp;` entities
 - But the spacing is dependent on the font
   * Wouldn't be exact if needed to line things up
@@ -478,6 +503,8 @@ NOTES:
 
 
 NOTES:
+_[18 minutes]_
+
 - No longer did we have to put text, link or background colors directly on `<body>`
 
 /////
@@ -492,7 +519,7 @@ NOTES:
 </div>
 
 NOTES:
-- No longer did we have to use the `<FONT>` tag (osbsolete) for styling everything
+- No longer did we have to use the `<FONT>` tag for styling everything (now obsolete)
 - Yep, that was definitely a thing I used **a lot**
   * No `<span>` just `<font>`, `<font>`, `<font>`
 
@@ -529,6 +556,8 @@ a:hover      { color: black; text-decoration: underline; }</code></pre>
 </div>
 
 NOTES:
+_[19 minutes]_
+
 - To screw with the default link styling
 - Make default links a different color; no underline
 - Visited links used to look different by default; undo that
@@ -542,6 +571,8 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[20 minutes]_
+
 - There's this camp of people who thing CSS is so easy
 - And there's another camp that thinks it's so hard styling should be replaced with JS
 - I don't want to get in the middle of _that_ war
@@ -590,6 +621,8 @@ NOTES:
 </div>
 
 NOTES:
+_[21 minutes]_
+
 - Then Firebug came along and it changed the game in 2006/2007
   * Right when I was starting full-time
 - May never have even heard of it
@@ -599,6 +632,9 @@ NOTES:
   * Truly revolutionary!
   * Paved the way for our amazing web inspectors today
 - I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
+- Hui Jing & Jason just showed us all the benefits of DevTools to go further
+  * Firefox grid inspector allows us to inspect our CSS grid
+  * Firefox font inspector
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -641,8 +677,9 @@ NOTES:
 </div>
 
 
-
 NOTES:
+_[22 minutes]_
+
 - And these days we have all this dev tooling to make our lives easier
   * To ensure we don't ship broken code
   * _Past:_ All we had was our desktop & FTP to transfer the files
@@ -650,7 +687,7 @@ NOTES:
   * _One dangling commas would break **everything**_
 - Our code goes thru an incredible journey from idea to Production
 - **VSCode:** Editors like VSCode that make writing code so much easier
-  * Intellisense, unused code warning, extensions
+  * Intellisense, warnings for typos, extensions
 - **Github:** Like table stakes now, but we didn't have version control
   * It existed but only w/in the biggest of companies
   * Imagine just 2 people working on the site at the same person
@@ -666,6 +703,8 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[23 minutes]_
+
 - Quick question before I finish:
 - **How many people here have been in the industry less than 2 years?**
 - I was fortunate that I was exposed to software dev at 15
@@ -711,6 +750,8 @@ NOTES:
 </div>
 
 NOTES:
+_[24 minutes]_
+
 - That's it!
 - Wanted to thank the organizers
   * Inviting me to speak
