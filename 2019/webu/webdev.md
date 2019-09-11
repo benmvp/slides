@@ -655,6 +655,128 @@ _[19 minutes]_
   * So this was about the coolest thing we could do
 
 =====
+<!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+![Basic Guru Online table w/o rounded corners](../../img/webdev/bgo-internet-speed-poll-table.png)
+<!-- .element: style="width:50%" -->
+
+/////
+
+<div style="display:flex;justify-content:center">
+  <section style="border-radius:75px;width:50%;background:#ddd;overflow:hidden;border:10px solid #00008b">
+    <header style="background:#00008b">
+      <h3>Weekly Poll</h3>
+    </header>
+    <main style="height:750px">
+    </main>
+  </section>
+</div>
+
+NOTES:
+- Really wanted to do it with rounded corners
+  * But I didn't know how
+- It was starting to be a thing with these "pods"
+- I think Yahoo! started doing it
+- Then rounded corners went out of fashion in the late 2000s with Material Design
+- And now they're coming back!
+- It's all cyclical
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+	<div class="content-overlay" style="width: 85%;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-html">&lt;section>
+  <header>
+    <h1>Weekly Poll</h1>
+  </header>
+  <main> ... </main>
+&lt;/section></code></pre>
+      </div>
+      <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-css">section {
+  border-radius: 3px;
+  border: 2px solid #0000b;
+  background: #ddd;
+  overflow: hidden;
+}
+header {
+  background: #0000b;
+}</code></pre>
+      </div>
+    </div>
+
+
+
+<div class="code-highlight" style="height:70px;top:137px;left:850px;width:852px"></div>
+
+  </div>
+</div>
+
+NOTES:
+- You would think you could just throw `border-radius` on it and be done with it
+- But `border-radius` wasn't introduced until 2005
+  * And wasn't widely supported 'til years later
+- So what did we do?
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+  <aside style="border-radius:75px;width:50%;background:#ddd;overflow:hidden;border:10px solid #00008b;box-sizing:border-box">
+    <header style="background:#00008b;">
+      <h3>Weekly Poll</h3>
+    </header>
+    <main style="height:750px">
+    </main>
+  </aside>
+
+  <table style="width:50%;height:860px;position:absolute;border-collapse:separate;border-spacing:2px;border-color:#000;border:5px dashed #fff">
+    <tr>
+      <td style="width:75px;height:75px;padding:0;border:5px dashed #fff;border-width:0 5px 5px 0"></td>
+      <td style="width:calc(100% - 75px - 75px);height:75px;padding:0;border:5px dashed #fff;border-width:0 0 5px 0"></td>
+      <td style="width:75px;height:75px;padding:0;border:5px dashed #fff;border-width:0 0 5px 5px"></td>
+    </tr>
+    <tr>
+      <td style="width:75px;padding:0;border:5px dashed #000;border-width:0 5px 0 0"></td>
+      <td style="width:calc(100% - 75px - 75px);padding:0;border:5px dashed #000;border-width:0 0 0 0"></td>
+      <td style="width:75px;padding:0;border:5px dashed #000;border-width:0 0 0 5px"></td>
+    </tr>
+    <tr>
+      <td style="width:75px;height:75px;padding:0;border:5px dashed #000;border-width:5px 5px 0 0"></td>
+      <td style="width:calc(100% - 75px - 75px);height:75px;padding:0;border:5px dashed #000;border-width:5px 0 0 0"></td>
+      <td style="width:75px;height:75px;padding:0;border:5px dashed #000;border-width:5px 0 0 5px"></td>
+    </tr>
+  </table>
+</div>
+
+NOTES:
+- `<table>`s to the rescue
+- To make a "pod" with rounded corners I would cut it up into a 3x3 grid `<table>`
+- The corners would be the rounder corners exported from Photoshop or equivalent
+  * `blue-top-left-5px.gif`, `blue-bottom-right-5px.gif`, etc
+- Header could be styled all in HTML but had to line up in height with the images
+  * Same with the footer
+- The sides were also images, 1 pixel high, width of the corner image
+  * border thickness on the side and background color was the remaining, repeated
+  * Now that I think of it I think I could've done it w/o these images, but I'm pretty sure I did
+- To create a "pod" took at least 6 images!
+  * Imagine the web performance of the pages 😂
+  * But also imagine... anytime the border radius or color changed
+  * Had to export new images
+  * No iterating going on here
+- There _was_ a time where `<table>`-based layouts were shunned, but `border-radius` didn't exist
+  * We don't talk about those times 😭
+
+=====
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
@@ -757,6 +879,7 @@ NOTES:
   * Truly revolutionary!
   * Paved the way for our amazing web inspectors today
 - I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
+  * Changing CSS values!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
