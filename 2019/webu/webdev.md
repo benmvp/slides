@@ -67,12 +67,18 @@ _[3 minutes]_
 NOTES:
 - Also a huge basketball / NBA fan
   * Congrats to the Toronto Raptors on the championship
-  * I'm from Houston & a Rockets fan so I was rooting for y'al against the Warriors!
-- But I don't wanna talk about me now
-  * Wanna talk about me 20 years ago
+  * I'm from Houston & a Rockets fan so I was rooting for y'all against the Warriors!
 
 
 =====
+
+<!-- .slide: data-background="url(../../img/webdev/nikita-kostrykin-JmUl_t_v3dw-ps1-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- But I don't wanna talk about me now
+  * Wanna talk about me 20 years ago
+
+/////
 <!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
@@ -88,7 +94,9 @@ _[4 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- Started sharing my apps online, and folks would ask how to write TI apps
+- Started sharing my apps online
+  * No Github, no App store
+- Folks would ask how to write TI apps
 - So I started writing TI calculator tutorials
 - Initially I wrote them as Windows Help Applications
   * Kind of like a hypercard system where you can link screens
@@ -111,8 +119,7 @@ NOTES:
 NOTES:
 _[5 minutes]_
 
-- Wanted a way to teach others how to program TI calculators
-  * So naturally I created a website
+- So naturally I created a website
 - Went into the Wayback Machine and found my first site
   * Isn't it beautiful
 - Built "Basic Guru Online" as a Geocities website
@@ -172,20 +179,13 @@ NOTES:
 - https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
 
 /////
-<!-- .slide: data-background="#000 url(../../img/webdev/amazon-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
-
-NOTES:
-- And amazon.com
-- https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
-
-/////
 <!-- .slide: data-background="#000 url(../../img/webdev/gatsby-blog-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 - Fast forward nearly 2 decades
-- Just updated my blog: benmvp.com
+- Have my blog: benmvp.com
 - Uses Gatsby for static site generation
-  * Basically to generate the static HTML pages I did by hand way back when
+  * It generates the static HTML pages I did by hand way back when
 - Written all in React
   * Uses Redux, GraphQL, JSS, Material-UI, Algolia, Webpack, Babel & more!
   * All to build a blog!
@@ -220,19 +220,17 @@ NOTES:
 </div>
 
 NOTES:
-- Friend of mine recently graduated from UC Berkely boot camp
-- They learned all of this in the 12-week course!
-- All for enough skills to get an entry-level job
+- Friend of mine recently graduated from UC Berkely coding boot camp
+- Look at all these skills they learned in just 12 weeks
+- And it's _just_ enough to get an entry-level job
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+- Wow!
 - The bar for "minimally-viable" skills to build a site is so high now
 - We go to meetups/conferences like this to hear about all the things we **should** be doing
-- I don't think a modern website could be created by one person from scratch
-  - You would need multiple people
-  - Or rely heavily on existing OSS tools
 
 
 - But the bar wasn't always so high
@@ -342,7 +340,7 @@ NOTES:
 - **FIVE:** Frames by default had borders so they needed to be turned off
 - If you left the borders on, they could be resized
   * **SIX:** So there was an attribute to turn prevent resizing
-- **SEVEN:** So what about that `NAME` attribute? What's that for?
+- **SEVEN:** So what about that `NAME=content`? What's that for?
   * Lemme explain
 
 /////
@@ -424,7 +422,7 @@ NOTES:
 _[14 minutes]_
 
 - If you've been keeping up with the latest in CSS-land
-  * This sounds awfully similar to CSS Grid that Rachel was talking about earlier
+  * This sounds awfully similar to CSS Grid
 - Here's how we could implement the same thing now
 - Notice how `<main>` actually comes before `<nav>` in the markup
   * For SEO
@@ -435,7 +433,7 @@ _[14 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- But CSS Grid is wayyy to modern for us
+- But CSS Grid is wayyy too modern for us
 - Let's go back 2 decades again...
 
 /////
@@ -476,8 +474,8 @@ p { margin-left: 40px; }
 NOTES:
 _[15 minutes]_
 
-- So let's say we have the schedule for CSSConf EU 2019
-- We just want to indent the speakers in by 40 pixels
+- So let's say we have the schedule for Web Unleashed 2019
+- We just want to indent the speaker name by 40 pixels
 - Naturally we'd just use some CSS selector to add `margin-left`
 - Simple enough right?
 - Or maybe use Bootstrap's grid system
@@ -561,17 +559,20 @@ NOTES:
 _[17 minutes]_
 
 - For this, we could use a whole bunch of `&nbsp;` entities
+  * This was also used heavily
+  * Because HTML ignores multiple whitespace characters
 - But the spacing is dependent on the font
   * Wouldn't be exact if needed to line things up
 - So the spacer gif was the solution
+- And then...
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- And then CSS became a thing!
-- We had HTML AND CSS!
-- Awesome!
+- CSS became a thing!
+- We had HTML **AND** CSS!
+- Sos awesome!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -650,7 +651,7 @@ _[19 minutes]_
 - Visited links used to look different by default; undo that
 - Change color/underline on hover
 - Look how dynamic it is!
-- CSS originally was just about taking styling out of HTML
+- Really, CSS originally was just about taking styling out of HTML
   * It didn't really do anything _cool_ initially
   * So this was about the coolest thing we could do
 
@@ -658,6 +659,11 @@ _[19 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+- So we've talked about
+  * `<FRAMESET>`
+  * spacer.gif
+  * And just link styling
+- Now I wanna share something near dear to my heart
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -665,21 +671,26 @@ NOTES:
 ![Basic Guru Online table w/o rounded corners](../../img/webdev/bgo-internet-speed-poll-table.png)
 <!-- .element: style="width:50%" -->
 
+NOTES:
+- This was the poll I had on the right-hand-side of my site
+- Asking about connection speed
+- It has hard corners
+
 /////
 
 <div style="display:flex;justify-content:center">
-  <section style="border-radius:75px;width:50%;background:#ddd;overflow:hidden;border:10px solid #00008b">
+  <aside style="border-radius:75px;width:50%;background:#ddd;overflow:hidden;border:10px solid #00008b">
     <header style="background:#00008b">
       <h3>Weekly Poll</h3>
     </header>
     <main style="height:750px">
     </main>
-  </section>
+  </aside>
 </div>
 
 NOTES:
-- Really wanted to do it with rounded corners
-  * But I didn't know how
+- But I really wanted to have rounded corners
+  * But I didn't really know how to that
 - It was starting to be a thing with these "pods"
 - I think Yahoo! started doing it
 - Then rounded corners went out of fashion in the late 2000s with Material Design
@@ -759,21 +770,47 @@ NOTES:
 </div>
 
 NOTES:
-- `<table>`s to the rescue
-- To make a "pod" with rounded corners I would cut it up into a 3x3 grid `<table>`
+- To make a "pod" with rounded corners I would cut it up into a 3x3 grid
 - The corners would be the rounder corners exported from Photoshop or equivalent
-  * `blue-top-left-5px.gif`, `blue-bottom-right-5px.gif`, etc
+  * `blue-top-left-5px.gif`, `gray-bottom-right-5px.gif`, etc
+  * Web didn't support it, so we had to resort to images
+- And what HTML element did we use to build this?
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+	<div class="content-overlay" style="width: 70%;">
+    <pre class="large"><code class="lang-html">&lt;table>
+  &lt;tr>
+    &lt;td class="pod--top-left">&lt;/td>
+    &lt;td class="pod--header">Weekly Poll&lt;/td>
+    &lt;td class="pod--top-right">&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td class="pod--left">&lt;/td>
+    &lt;td class="pod--content"> ... &lt;/td>
+    &lt;td class="pod--right">&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td class="pod--bottom-left">&lt;/td>
+    &lt;td class="pod--bottom">&lt;/td>
+    &lt;td class="pod--bottom-right">&lt;/td>
+  &lt;/tr>
+&lt;/table></code></pre>
+  </div>
+</div>
+
+NOTES:
+- HTML `<table>`s of course
 - Header could be styled all in HTML but had to line up in height with the images
   * Same with the footer
-- The sides were also images, 1 pixel high, width of the corner image
-  * border thickness on the side and background color was the remaining, repeated
-  * Now that I think of it I think I could've done it w/o these images, but I'm pretty sure I did
-- To create a "pod" took at least 6 images!
+- To create a "pod" took at least 4 images!
   * Imagine the web performance of the pages 😂
   * But also imagine... anytime the border radius or color changed
   * Had to export new images
   * No iterating going on here
-- There _was_ a time where `<table>`-based layouts were shunned, but `border-radius` didn't exist
+- There _was_ a small amount of time where `<table>`-based layouts were shunned, but `border-radius` couldn't be used yet
   * We don't talk about those times 😭
 
 =====
@@ -784,8 +821,8 @@ NOTES:
 - And we get mad saying it's legit
   * Especially since ES6+
 - We use JS to build:
-  * Highly-concurrent / low-latency servers
-  * Super-sophisticated web apps w/ service workers
+  * Highly-concurrent / low-latency servers in Node
+  * Super-sophisticated web apps w/ service workers on the client
 - Well 2 decades ago it really was a toy language
   * We did silly things with it
 
@@ -808,10 +845,10 @@ NOTES:
 NOTES:
 - Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
 - Soooo many things we wouldn't do today
-- Including a `<script>` in the `<head>` is bad because it slows down render
+- Like including a `<script>` in the `<head>` is bad because it blocks down render
 - Using `document.writeln` to dynamically write content to the page
 - Unobstrusive JS wasn't a thing yet
-  * Instead of calling the function in `onload`, use `addEventListener`
+  * Instead of calling the function in `onload`, we should use `addEventListener`
   * But we didn't have jQuery (2006)
   * Had to check for both `attachEvent` (IE) & `addEventListener` (standard)
 
@@ -860,6 +897,8 @@ NOTES:
 NOTES:
 - In IE, whenever an error would happen everyone get this cryptic message
 - It'd show for **every** error
+  * Usability nightmare
+  * That's some motivation to write bug-free code
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -921,8 +960,6 @@ NOTES:
   </div>
 </div>
 
-
-
 NOTES:
 - And these days we have all this dev tooling to make our lives easier
   * To ensure we don't ship broken code
@@ -934,45 +971,14 @@ NOTES:
   * Intellisense, unused code warning, extensions
 - **Github:** Like table stakes now, but we didn't have version control
   * It existed but only w/in the biggest of companies
-  * Imagine just 2 people working on the site at the same person
+  * Imagine just 2 people working on the site at the same time w/o VC
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
   * Can run tests
   * Even automatically deploy
-- **Gulp:** Run build scripts
+- **Gulp:** Run build scripts (minification)
   * Used to write terse JS/CSS to keep file sizes down
   * Friend at AOL wasn't allowed to write comments!
 - **Netlify:** Allows previewing PRs before they even merge!
-
-=====
-<!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-NOTES:
-_[23 minutes]_
-
-- Quick question before I finish:
-- **How many people here have been in the industry less than 2 years?**
-- I was fortunate that I was exposed to software dev at 15
-- Great that you're here
-  * Great that you're wanting to learn
-  * Early on, conferences like these were few and far between
-- But most new devs have "imposter syndrome"
-  * The bar for "minimally-viable" skills to build a site is so high now
-  * Feel like you don't belong
-  * Can come to a conference like this and it can grow _worse_!
-  * So many things you _have_ to learn
-  * So continuously feeling like you're behind
-  * Especially if you only had a 3- or 6-month accelerated program to learn
-- Futhermore there are  "thought leaders" today have been around a while
-  * They feel you have to learn web dev the way they did
-  * You have to learn the hard way so you can appreciate what you've got
-- So I want to encourage you
-  * Don't stress!
-  * You're not less than / sub par
-  * There are many ways to learn
-  * I know many folks from bootcamps who are flat out killing it
-- Even if you just graduated yesterday
-  * You can be just as integral to the community as those of us who were there near the beginning or w/ a traditional background
-- To sum it up: YOU GOT THIS!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -999,9 +1005,12 @@ _[24 minutes]_
 - That's it!
 - Wanted to thank the organizers
   * Inviting me to speak
-  *
+  * Putting on such a great conference
+  * _Applause_
 - I hope you enjoyed our ride in the wayback machine
   * Hopefully it gives us all appreciation for where we've come from
-  * Next time we wanna complain about the current situation
+  * Next time we wanna complain about Webpack configuration
+  * Remember the spacer.gif
 - Ask questions on Twitter
 - Thanks!
+- Enjoy the rest of the conference
