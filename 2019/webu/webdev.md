@@ -117,8 +117,6 @@ NOTES:
 
 
 NOTES:
-_[5 minutes]_
-
 - So naturally I created a website
 - Went into the Wayback Machine and found my first site
   * Isn't it beautiful
@@ -187,7 +185,7 @@ NOTES:
 - Uses Gatsby for static site generation
   * It generates the static HTML pages I did by hand way back when
 - Written all in React
-  * Uses Redux, GraphQL, JSS, Material-UI, Algolia, Webpack, Babel & more!
+  * Uses Redux, GraphQL, css-in-js, Algolia, Webpack, Babel & more!
   * All to build a blog!
 
 /////
@@ -222,6 +220,11 @@ NOTES:
 NOTES:
 - Friend of mine recently graduated from UC Berkely coding boot camp
 - Look at all these skills they learned in just 12 weeks
+  * Not just HTML, CSS & JavaScript
+  * Command Line & Git (table stakes)
+  * jQuery, Bootstrap, React
+  * Django, Express & MongoDB
+  * Exactly what Chris was talking about in the morning keynote
 - And it's _just_ enough to get an entry-level job
 
 /////
@@ -479,6 +482,7 @@ _[15 minutes]_
 - Naturally we'd just use some CSS selector to add `margin-left`
 - Simple enough right?
 - Or maybe use Bootstrap's grid system
+  * Burn columns with offset
 - But what do you do if CSS doesn't exist?
   * Or at least it's not guaranteed to be available in all browsers?
 
@@ -572,7 +576,7 @@ _[17 minutes]_
 NOTES:
 - CSS became a thing!
 - We had HTML **AND** CSS!
-- Sos awesome!
+- So awesome!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -607,9 +611,10 @@ _[18 minutes]_
 </div>
 
 NOTES:
-- No longer did we have to use the `<FONT>` tag for styling everything (now obsolete)
+- No longer did we have to use the `<FONT>` tag for styling everything
 - Yep, that was definitely a thing I used **a lot**
   * No `<span>` just `<font>`, `<font>`, `<font>`
+- No obsolete
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -660,9 +665,9 @@ _[19 minutes]_
 
 NOTES:
 - So we've talked about
-  * `<FRAMESET>`
-  * spacer.gif
-  * And just link styling
+  * `<FRAMESET>` - building page layouts
+  * spacer.gif - "pixel-perfect" spacing
+  * And just link styling - rudimentary CSS
 - Now I wanna share something near dear to my heart
 
 /////
@@ -671,12 +676,15 @@ NOTES:
 ![Basic Guru Online table w/o rounded corners](../../img/webdev/bgo-internet-speed-poll-table.png)
 <!-- .element: style="width:50%" -->
 
+
 NOTES:
 - This was the poll I had on the right-hand-side of my site
 - Asking about connection speed
 - It has hard corners
 
 /////
+<!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
 
 <div style="display:flex;justify-content:center">
   <aside style="border-radius:75px;width:50%;background:#ddd;overflow:hidden;border:10px solid #00008b">
@@ -687,6 +695,7 @@ NOTES:
     </main>
   </aside>
 </div>
+
 
 NOTES:
 - But I really wanted to have rounded corners
@@ -844,6 +853,8 @@ NOTES:
 
 NOTES:
 - Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
+  * Kinda similar to those permission to send Notifications or read Location pop-ups
+  * It's all cyclical
 - Soooo many things we wouldn't do today
 - Like including a `<script>` in the `<head>` is bad because it blocks down render
 - Using `document.writeln` to dynamically write content to the page
@@ -895,7 +906,8 @@ NOTES:
 </div>
 
 NOTES:
-- In IE, whenever an error would happen everyone get this cryptic message
+- In IE, whenever an error would happen **everyone** get this cryptic message
+  * "An error has occurred in this script, do you want to continue running scripts?"
 - It'd show for **every** error
   * Usability nightmare
   * That's some motivation to write bug-free code
@@ -915,10 +927,11 @@ NOTES:
 - It was originally a Firefox extension
   * Got me to move from IE to FF at the time
   * And let you *see* the CSS and debug the JS!
+  * Could change CSS values w/o refreshing the page!
   * Truly revolutionary!
   * Paved the way for our amazing web inspectors today
 - I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
-  * Changing CSS values!
+- Henri gave a great breakdown of web inspectors before lunch
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -973,10 +986,10 @@ NOTES:
   * It existed but only w/in the biggest of companies
   * Imagine just 2 people working on the site at the same time w/o VC
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
-  * Can run tests
+  * Can run tests (written in Jest)
   * Even automatically deploy
 - **Gulp:** Run build scripts (minification)
-  * Used to write terse JS/CSS to keep file sizes down
+  * Yahoo: Used to write terse JS/CSS to keep file sizes down
   * Friend at AOL wasn't allowed to write comments!
 - **Netlify:** Allows previewing PRs before they even merge!
 
@@ -1009,7 +1022,7 @@ _[24 minutes]_
   * _Applause_
 - I hope you enjoyed our ride in the wayback machine
   * Hopefully it gives us all appreciation for where we've come from
-  * Next time we wanna complain about Webpack configuration
+  * Next time we wanna complain about flexbox & weird property names
   * Remember the spacer.gif
 - Ask questions on Twitter
 - Thanks!
