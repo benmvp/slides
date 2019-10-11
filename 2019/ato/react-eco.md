@@ -27,8 +27,7 @@ NOTES:
   * You need to know Redux, css-in-js, server-side rendering, etc.
   * All at the same time
   * It can be so overwhelming
-- For those of us with React experience
-  * React is still just a UI library
+- React is still just a UI library
   * Need to pick libraries for fetching data, managing, data, etc. for full framework
   * How can you pick the right thing, if you've never used it before?
 - So I want to walk through the different libs in the React ecosystem
@@ -50,7 +49,7 @@ NOTES:
 
 NOTES:
 - Before we jump in the ecosystem
-  * Of course we need to quickly chat about React first
+  * Lemme quickly chat about React first
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -80,6 +79,7 @@ NOTES:
   * Sounds like an obvious statement
   * But it's important to focus on this first
   * Learn how to maintain state properly & leverage reconciler (aka "virtual DOM")
+  * If you're coming from MVC model, one-way data flow can be counter-intuitive
 - After the basics, keep up with the latest features...
   * React continues to evolve
 - Advanced component patterns
@@ -128,7 +128,7 @@ NOTES:
 
 NOTES:
 - Simplest example of interactivity in React
-  * Using classes
+  * First using "legacy" classes
 - **ONE:** Initialize the `state` to have `value` which starts off at `0`
 - **TWO:** Render out the UI, specifically the input with the `state`
   * Initial value is `0` cuz that's the default value of `this.state.value`
@@ -138,6 +138,7 @@ NOTES:
   * New value is back in input field
   * Updating state causes an optimized re-render via the reconciler (aka "Virtual DOM")
   * Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
+- This is the cyclical, one-way data flow
 
 /////
 
@@ -178,16 +179,17 @@ const Incrementer = () => {
 NOTES:
 - With hooks we can now use a functional component to maintain state!
   * There's no real reason to use classes anymore
+  * Same one-way data flow, but now with functions
 - **ONE:** React provides the `useState` hook for maintaining component state
 - **TWO:** We then use it to declare our state value with the initial value `0`
   * We receive back the state value as a variable and a function to update it
-- **THREE:** Render out the UI, specifically the input with the `val`
-  * Initial value is `0` cuz that's the initial value of `val`
+- **THREE:** Render out the same UI
+  * Value comes from local variable `val` instead of `this.state.val`
 - **FOUR:** Click the button which calls `_handleClick` handler
 - **FIVE:** `_handleClick` is a closure defined within functional component
   * Call `setVal()` updater function given to us by `useState`
   * We update `val` to be current `val + 1`
-- **SIX:** As a result, functional component is rendered again
+- **SIX:** As a result, functional component is magically rendered again
   * `useState` gives the new `val` of `1` & same state updater function
   * That's why it's called `useState` instead of `createState`
   * The state is only created the first time
@@ -212,8 +214,9 @@ NOTES:
 </div>
 
 NOTES:
-- If you wanna know more of the basics of building React components...
-- Justin is giving an intro to React later this afternoon
+- That was a quick 2-minute overview...
+- If you wanna know more of the basics of building React components
+  * Justin is giving an intro to React later this afternoon
 - UI / UX / Design track
 
 /////
@@ -267,7 +270,6 @@ NOTES:
 
 NOTES:
 - I'm a Principal Frontend Engineer at Eventbrite in San Francisco
-- Hopefully you're familiar with us
 - We're an online Events & Ticketing platform
 - Work on our Frontend Platform team
   * Doing FE infra + design system work
@@ -321,11 +323,11 @@ NOTES:
 NOTES:
 - Let's start easy
 - The React Dev Tools are super helpful in debugging React components
-- You just browse the React component tree just like the DOM tree
+- You browse the React component tree just like the DOM tree
   * And you can look at the component props as well as the state
   * Keeps improving to provide more debugging capability
   * Just recently with the release of React 16.5 enabling performance debugging
-- Available for Chrome & Firefox. Sorry Edge users.
+- Available for Chrome, Firefox, and now Chromium-based Edge
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -375,15 +377,16 @@ NOTES:
   * Good for libraries
 - **Parcel** is a new tool that boasts blazing fast build times
   * It also is "zero-config" so it has a lot of functionality out of the box
-- **Prepack** is another new tool for making JS code run faster
+- **Prepack** is yet another new tool for making JS code run faster
   * From Facebook
   * Computations that can be done at compile-time instead of run-time get eliminated
   * Still in early DEV stage so not quite ready for production
-- **`@pika/web` is relatively new
+  * It's been that way for a while now
+- **`@pika/web`** is relatively new
   * Installs modern npm dependencies in a way that lets them run natively in the browser
   * **Without** a bundler like webpack
   * Even if they have dependencies themselves
-  * Like rollup, works with ESM packages
+  * Like Rollup, works with ESM packages
 - I'd say go with Webpack
   * It's still constantly evolving
   * Webpack has "tree-shaking" too
@@ -410,9 +413,10 @@ NOTES:
 </div>
 
 NOTES:
-- At this same time in the FE track
-- If you wanna know more about how React's efficient rendering engine works
-- Anthony is explaining the Virtual "DOM", reconciliation and more
+- I'm pretty intrigued by `@pika/web`
+- Drew is going to be talking about it
+  * And the ES modules it depends on
+- Tomorrow afternoon in the FE track
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -440,10 +444,12 @@ NOTES:
 </div>
 
 NOTES:
-- Build files, run shell scripts, etc.
+- Continuing on we have task runners
+  * Build files, run shell scripts, etc.
 - Grunt was the original & dominant
-  * Then because grunt files became so unmanageable
+  * Then because Grunt files became so unmanageable
 - Gulp approached it with streams in a functional way
+  * But still can have large Gulp files
 - But with "building fatigue" and the fact that webpack could do so much of this for us
 - NPM scripts have lately become the most popular
   * Essentially wrappers around command line calls
@@ -483,10 +489,13 @@ NOTES:
   * Can catch common errors, including in JSX
 - Flow & Typescript are both static _type_ checkers
 - Flow is exclusively for type checking
-- TypeScript is a superset of JavaScript that includes type checking plus future JavaScript;
+- TypeScript is a superset of JavaScript that includes type checking plus future JavaScript:
   * It introduced classes before they were in ES2015
-  * It has interfaces which JS does not
+  * It has interfaces and enums which JS does not
 - 2018 seemed to be the "Year of TypeScript"
+  * Excitement continues to grow now in 2019
+  * The industry has seemed to have selected TypeScript
+  * The integration with VSCode is 👍🏾
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -512,19 +521,21 @@ $> yarn build</code></pre>
 
 
 NOTES:
-- So this is everything you need to set up your React app!
+- So that was everything you need to set up your React app!
   * And I didn't even go into a bunch of nitty gritty details
 - This had been the biggest complaint about React
   * How to get started
 
+-----
 
 - If you are just getting started or don't need highly custom stack, you can use Create React App
   * Created by the React team
   * Allows you to bootstrap super quick w/ zero-config
+  * Can still configure it a great deal
   * And if you need to config something it doesn't support you can "eject"
 - Creates an optimized bundle you can ship to production
 - Much better than the (bloated) boilerplates / starter-kits
-- v2 just shipped with lots of updated infra
+- v2 shipped a year ago with lots of updated infra
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -537,12 +548,12 @@ NOTES:
       <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
       <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
       <li><a href="https://github.com/creationix/nvm" target="_blank">Node Version Manager</a></li>
-      <li><a href="https://github.com/jamiebuilds/scritch" target="_blank">`scritch`</a></li>
+      <li><a href="https://www.typescriptlang.org/docs/handbook/react-&-webpack.html" target="_blank">TypeScript & React</a></li>
       <li><a href="https://github.com/sindresorhus/awesome-npm" target="_blank">Awesome npm resources and tips</a></li>
+      <li><a href="https://github.com/jamiebuilds/scritch" target="_blank">`scritch`</a></li>
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank">Yarn vs NPM</a></li>
       <li><a href="https://webpack.js.org/configuration/dev-server/" target="_blank">`webpack-dev-server`</a></li>
       <li><a href="https://flow.org/en/docs/react/" target="_blank">Flow + React</a></li>
-      <li><a href="https://www.typescriptlang.org/docs/handbook/react-&-webpack.html" target="_blank">TypeScript & React</a></li>
     </ul>
   </div>
 </div>
@@ -563,7 +574,7 @@ NOTES:
 
 NOTES:
 - Let's talking about styling because visuals are just as important as interaction
-- There are _at least_ 5 ways to tackle the styling problem
+- There are _at least_ **5 ways** to tackle the styling problem
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -618,7 +629,7 @@ NOTES:
 </div>
 
 NOTES:
-- Use BEM syntax as a convention to prevent name collisions
+- You can use BEM syntax as a convention to prevent name collisions
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -643,10 +654,13 @@ const Card = ({title, imageUrl, message}) => (
 </div>
 
 NOTES:
+- Next way is Component CSS
 - Component CSS is the exact same as Global CSS
   * Except the CSS is imported by the Component
   * Instead of some external process that bundles everything
   * Therefore if the Component isn't used in the app the CSS won't be included in the bundle
+- Need a bundler that can handle bundling CSS
+  * Processing SASS in our case
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -668,9 +682,11 @@ NOTES:
 </div>
 
 NOTES:
-- Same BEM style CSS class names convention because eventually it'll all be merged
-- If the convention is broken you could still have collisions
-- Hopefully your global CSS was already modularized, so this transition shouldn't be tough
+- Same BEM style CSS class names convention
+  * Eventually it'll all be merged into a bundle
+  * If the convention is broken you could still have collisions
+- Hopefully your global CSS was already modularized
+  * So this transition shouldn't be tough
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -696,6 +712,8 @@ const Card = ({title, imageUrl, message}) => (
 
 
 NOTES:
+- 3rd option is CSS Modules
+  * There's lots to like about CSS Modules
 - CSS Modules are similar to Component CSS
   * except the import of the CSS will return an object lookup with a generated class name
 
@@ -739,7 +757,9 @@ NOTES:
 
 NOTES:
 - The generated CSS classes will be unique so there's no way they can collide
-- The generated markup will also have the same class names
+- These class names are the same one passed into the object lookup
+- Similarly, you'll need a bundler that can process CSS modules
+  * There are webpack loaders
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -765,13 +785,18 @@ const Card = ({title, imageUrl, message}) => (
 
 
 NOTES:
-- Then there's the "screw CSS" option w/ inline styles
+- So far we've had global CSS, component CSS & CSS modules
+  * They all leverage CSS: cascading style sheets
+
+-----
+
+- The folks who choose this 4th option are in the "screw CSS" camp
   * Tired of dealing with specificity wars, unexpected cascade, etc.
-  * Was adding `!important` everywhere
-  * Have lots of dynamic styles which can be challenging with CSS
-- There was a big huge push for this in React mainly because of React Native
+  * Were adding `!important` everywhere
+  * Having lots of dynamic styles which can be challenging with CSS
+- There was a big huge push for this early in React when React Native came out
   * it doesn't support CSS, only inline styles
-- If you want to share components across React & React Native you can't use CSS
+  * If you want to share components across React & React Native you can't use CSS
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -797,8 +822,11 @@ export default {
 </div>
 
 NOTES:
-- Inline styles use `camelCase` version of the property names instead of `kebab-case`
-- Problem with inline styles in React is that it only supports what inline styles support
+- Inline styles use `camelCase` version of the property names
+  * instead of `kebab-case`
+  * this is the form of the JavaScript CSS DOM API
+- Problem with inline styles in React...
+  * it only supports what inline styles support
   * No media queries, pseudo-selectors, keyframe animations, etc
 
 /////
@@ -835,9 +863,15 @@ NOTES:
 - New libraries have popped up to try to solve that issue in various clever ways
   * Most take what's defined as inline styles but map to unique CSS classes
   * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
+- Emotion is the newest and super popular
+  * It's taken learnings from all the others to create a flexible API
+
+-----
+
 - So if you're starting out, you may wanna start with vanilla CSS or SASS
-  * `css-in-js` libs are another API to learn
-  * But as you start bumping up against these problems, `css-in-js` solves those problems
+  * Because `css-in-js` libs are yet another API to learn
+  * But as you start bumping up against problems w/ CSS
+  * Try out `css-in-js` solution like Emotion
   * And once you get comfortable with a `css-in-js` library then you can use it all the time
 
 /////
@@ -868,11 +902,12 @@ const Card = ({title, imageUrl, message}) => (
 NOTES:
 - Quick look at how Emotion works
 - Create a custom elements/components with the styling you want
+  * The `render()` ends up looking very semantic
 - Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
   * There's also theming support as well
-  * Been recently looking into for Eventbrite
 - There's another mode where you can specify a `css` prop and just pass styling to the object
-  * No need to create "styled components"
+  * No need to create these "styled components"
+  * I prefer that API
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -978,13 +1013,18 @@ NOTES:
     <h2>Fetch API</h2>
     <p>Handle AJAX natively</p>
 
-    <pre class="large"><code class="lang-javascript">window.fetch('api.benmvp.com', {method: 'GET'})
-  .then((response) => {
-    // do something w/ response
+    <pre class="large"><code class="lang-javascript">import React, {useState, useEffect} from 'react';
+
+const Posts = () => {
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    window.fetch('api.benmvp.com', {method: 'GET'})
+      .then((response) => {
+        setPosts(response.posts)
+      })
   })
-  .catch((err) => {
-    // handle error
-  })</code></pre>
+}</code></pre>
   </div>
 </div>
 
@@ -993,6 +1033,7 @@ NOTES:
   * There's a polyfill for older browsers
 - There's also an implementation for Node called `node-fetch`
   * `isomorphic-fetch` so your code can run in both environments
+- `useEffect` which basically replaces `componentDidMount` & `componentDidUpdate` lifecycle methods
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1005,6 +1046,7 @@ NOTES:
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Using Fetch</a></li>
       <li><a href="http://www.benmvp.com/learning-es6-promises/" target="_blank">Learning ES6: Promises</a></li>
       <li><a href="https://github.com/github/fetch" target="_blank">`window.fetch` polyfill</a></li>
+      <li><a href="https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects" target="_blank">Using the Effect Hook</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/blob/master/04-fetch/" target="_blank">React Fundamentals Workshop - Fetch</a></li>
     </ul>
   </div>
@@ -1217,7 +1259,7 @@ NOTES:
   * Runs in a browser, but isn't Selenium or Webdriver
   * But can also used a development platform for TDD
   * Becoming increasingly popular
-- Enzyme is the dominant one
+- Enzyme is probably most common
   * Been around basically since the beginning of React
   * Has a very jQuery-like interface for inspecting & interacting w/ components
   * We use it at Eventbrite
@@ -1226,8 +1268,9 @@ NOTES:
   * Too easy to write tests that assume implementation details of your components
 - `react-testing-library`
   * Created by Kent C. Dodds in response to Enzyme problem
-  * Gaining in popularity
+  * Gained a popularity
   * Enables & encourages writing tests that use your components as end users use them
+  * It's in between traditional unit tests and E2E tests
   * Wanna try it out on my next projects
 - All work in your favorite test runner: Jest, Mocha + Chai, etc.
 
