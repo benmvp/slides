@@ -1255,7 +1255,7 @@ NOTES:
 NOTES:
 - The utilities are about unit testing your components *without* having to run in a browser
 - Cypress
-  * Predimonently used for end-to-end testing
+  * Predominantly used for end-to-end testing
   * Runs in a browser, but isn't Selenium or Webdriver
   * But can also used a development platform for TDD
   * Becoming increasingly popular
@@ -1268,9 +1268,10 @@ NOTES:
   * Too easy to write tests that assume implementation details of your components
 - `react-testing-library`
   * Created by Kent C. Dodds in response to Enzyme problem
-  * Gained a popularity
+  * Gaining a popularity
   * Enables & encourages writing tests that use your components as end users use them
-  * It's in between traditional unit tests and E2E tests
+  * Best used as component integratino tests
+  * In between traditional unit tests and E2E tests
   * Wanna try it out on my next projects
 - All work in your favorite test runner: Jest, Mocha + Chai, etc.
 
@@ -1279,20 +1280,20 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h2>Jest + Enzyme</h2>
+    <h2>Jest + React Testing Library</h2>
 
-    <pre class="large"><code class="lang-javascript">import {mount} from 'enzyme'
+    <pre class="large"><code class="lang-javascript">import {render, fireEvent} from '@testing-library/react'
 import Button from './Button'
 
 test('toggles active state on click', () => {
-  const component = mount(
+  const {getByTestId} = render(
     &lt;Button style="primary">Go&lt;/Button>
   )
-  const button = component.find('button')
+  const button = getByTestId('button')
 
-  button.simulate('click')
+  fireEvent.click(button)
 
-  expect(button).toHaveClassName('btn--active')
+  expect(button).toHaveClass('btn--active')
 })</code></pre>
 
     <div class="code-highlight" style="height: 70px; top: 685px;"></div>
@@ -1301,6 +1302,7 @@ test('toggles active state on click', () => {
 
 NOTES:
 - This is how we can unit test a component
+  * In this case a reusable `<Button>` component (maybe in design system?)
 - It still blows my mind that we can do this **without** a browser
 - When unit testing React components, you want to test the logic in the component
   * But only via its public API
@@ -1315,13 +1317,13 @@ NOTES:
 
     <ul>
       <li><a href="https://github.com/testing-library/jest-dom" target="_blank">`jest-dom`</a> / <a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
+      <li><a href="https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change" target="_blank"><em>Making your UI tests resilient to change</em></a></li>
       <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a></li>
       <li><a href="https://github.com/Raathigesh/majestic/" target="_blank">Majestic</li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
       <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
       <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">React Tree Snapshot Testing</a></li>
       <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
-      <li><a href="https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change" target="_blank"><em>Making your UI tests resilient to change</em></a></li>
     </ul>
   </div>
 </div>
@@ -1335,12 +1337,12 @@ NOTES:
 
 NOTES:
 - At this point we actually have everything we need to build Production-level apps
-  * React (obviously)
-  * Tooling w/ CRA that creates production builds
-  * Styling
-  * Single Page-Apps
-  * Forms
-  * Testing
+  * 0. React (obviously)
+  * 1. Tooling w/ CRA that creates production builds
+  * 2. Styling
+  * 3. Single Page-Apps
+  * 4. Forms
+  * 5. Testing
 - But there's more to cover
 - Moving into the needs of large-scale apps
 
@@ -1391,12 +1393,14 @@ NOTES:
   * This is when I think it makes sense to learn and add it in
 - Most people use **Redux**
   * Been a bit of a backlash
-  * I know Mark & the maintainers have felt that
+  * I know the maintainers have felt that
   * Mainly because people have been using it before they need it and w/o understanding it
   * Or using a lib (like `redux-form`) that's forcing them
-  * They're data isn't really changing, just needed it passed to multiple components
+  * Their data isn't really changing, just need it passed to multiple components
 - Redux uses the concept of reducers where you generate new state on actions
+  * Immutability is key!
 - Mobx uses Observables that subscribe to mutations to state
+  * Get to change the state with traditional methods
 - Quite possible that with React Context & Hooks we won't even need Redux or MobX
   * More likely that they'll bake it in
 
@@ -1461,13 +1465,14 @@ NOTES:
 - `Immutable` is the big player, yet another library from Facebook
   * Only used it a bit
   * Found the API a bit cumbersome
+  * Has its own set of objects: Collections, Dictionaries, etc.
   * Constantly going to and from Immutable and native objects
   * Don't _really_ want my React components to have to care, just Redux
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
   * They work just like Arrays or Objects except they don't mutate and have extra functionality
-  * A lot lighter than Immutable
+  * A lot lighter than `Immutable`
 - `immer` takes a completely different approach
-  * Just found out about it recently
+  * It's a newer solution
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1497,11 +1502,15 @@ const todos = (state = [], action) => (
 NOTES:
 - Instead of creating a whole new set of immutable objects with their own API
 - It provides a `produce()` helper
-- You give the function the object you want to mutate & a function that does the mutation
+- You give the function the object you want to mutate
+  * and a function that performs the mutation
 - Get to write the mutations in "normal" JavaScript
-- Batches up the mutations & it returns the "next state" of the object
+- It efficiently batches up the mutations
+  * Returns the "next state" of the object
 - Huge pro is that it works w/ normal JS objects/arrays
-- You can do even more fanciness with currying with `produce()` to make **it** your reducer
+- You can do even more fanciness with currying with `produce()`
+  * Makes **it** your reducer
+  * Check out the docs
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1511,6 +1520,7 @@ NOTES:
     <h2>App Data Management Resources</h2>
 
     <ul>
+      <li><a href="https://kentcdodds.com/blog/state-colocation-will-make-your-react-app-faster" target="_blank"><em>State Colocation will make your React app faster</em></a></li>
       <li><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank">Redux DevTools Extension</a></li>
       <li><a href="https://redux-starter-kit.js.org/" target="_blank">Redux Starter Kit</a></li>
       <li><a href="https://github.com/jamiebuilds/unstated" target="_blank">Unstated</a></li>
@@ -1518,7 +1528,6 @@ NOTES:
       <li><a href="https://github.com/markerikson/redux-ecosystem-links" target="_blank">Redux Ecosystem</li>
       <li><a href="https://github.com/xgrommx/mobx-ecosystem" target="_blank">MobX Ecosystem</li>
       <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank"><em>Replace Redux with React Hooks + Context</em></a></li>
-      <li><a href="https://kentcdodds.com/blog/state-colocation-will-make-your-react-app-faster" target="_blank"><em>State Colocation will make your React app faster</em></a></li>
     </ul>
   </div>
 </div>
@@ -1543,16 +1552,20 @@ NOTES:
 </div>
 
 NOTES:
-- Chances are if you're building an app of significant size SEO & initial render speed will matter
+- Chances are if you're building an app of significant size...
+  * SEO & initial render speed will matter
 - Rendering server-side can help both
   * This is called "Isomorphic/Universal React"
-- Rendering the same components server-side improves initial startup performance because content is already there
+- Rendering the same components server-side improves initial startup performance
+  * Because content is already there
 - Google includes rendering speed in their ranking algorithm which affects SEO
   * Even though now they execute JavaScript
 - There's also SMO (social media optimization) as well
-  * Having content for social media sites like Twitter, Instagram can use for previews
+  * Having content for social media sites like Twitter, Slack
+  * They can use for richer previews
   * They're likely not executing JavaScript
-- React provides a method that will render the component tree to a string which you can include in server response
+- React provides a method that will render the component tree to a string
+  * You can then include in server response
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1575,7 +1588,8 @@ NOTES:
         <a href="https://github.com/jaredpalmer/razzle" style="display:block">Razzle</a>
       </div>
       <div style="flex:0 0 22%;">
-        <a href="https://expressjs.com/">Express</a>
+        <a href="https://nodejs.org"><img src="../../img/browsers/nodejs-logo.png" class="plain" /></a>
+        <a href="https://nodejs.org">Node</a>
       </div>
     </div>
   </div>
@@ -1583,22 +1597,22 @@ NOTES:
 
 NOTES:
 - A couple of different options for server-side rendering
-- Next.js
+- **Next.js**
   * A minimalist framework for server-rendered React applications
   * Has built-in routing, code-splitting, CSS support, data fetching, etc
-- Gatsby is an amazing static-site generator
+- **Gatsby** is an amazing static-site generator
   * Use it for my site benmvp.com
   * Basically does similar things as Next.js but does it all at build time
-  * It's all HTML, CSS & JS
-  * Creates a progressive web app, with data-prefetching
+  * It's all static pages: HTML, CSS & JS
+  * Creates a progressive web app, with data-prefetching for performance
   * Uses GraphQL to retrieve data for components
-- Razzle is a library for bootstrapping server-side rendering
+- **Razzle** is a library for bootstrapping server-side rendering
   * Works with Vue, Angular & other libs as well
   * You still figure out your routing, data fetching, etc
 - Lastly, you can roll your own solution
-  * When you have a Node backend
-  * Using Node server lib, like Express or Koa
-  * Hook in one of the routers
+  * When you have a **Node** backend
+  * Using Node server library, like _Express_ or _Koa_
+  * Hook in one of the routers (`reach-router` / `react-router`)
   * Data fetching with `isomorphic-fetch`
 
 /////
@@ -1627,14 +1641,20 @@ NOTES:
     <h2>Server-side Rendering Resources</h2>
 
     <ul>
-      <li><a href="https://tylermcginnis.com/react-router-server-rendering/" target="_blank">Server Rendering with React Router</a>
+      <li><a href="https://tylermcginnis.com/react-router-server-rendering/" target="_blank">_Server Rendering with React Router_</a>
       <li><a href="https://github.com/brillout/awesome-ssr" target="_blank">Awesome SSR</a>
+      <li><a href="https://expressjs.com/" target="_blank">Express</a> / <a href="https://koajs.com/" target="_blank">Koa</a></li>
       <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
       <li><a href="https://github.com/nfl/react-helmet" target="_blank">`react-helmet`</a></li>
-      <li><a href="https://koajs.com/" target="_blank">Koa</a></li>
     </ul>
   </div>
 </div>
+
+NOTES:
+- Traditionally your React app sits within a `<div>` in the HTML doc
+  * Doesn't have access to anything in the `<head>`
+  * `react-helmet` (by the NFL) provides and API to update it
+  * server-side too
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1647,7 +1667,13 @@ NOTES:
 
 NOTES:
 - As your app grows larger you may find that you're making lots of Rest API requests
-- A single user action can result in 3 or more AJAX requests because of how the micro-services are divided
+- A single user action can result in 3+ AJAX requests
+  * Because of how the micro-services are divided
+  * Managing sequential or parallel requests can get tricky
+  * Also can create sluggish UI
+- We sometimes solve this with rest by creating "uber APIs"
+  * But then we're requesting a whole bunch of data we're not using
+  * Bad for mobile
 - There are cutting-edge technologies to tackle this problem
 
 /////
@@ -1678,18 +1704,18 @@ NOTES:
 
 NOTES:
 - Facebook & Netflix tackled the same problem with different approaches
-- Facebook came up with GraphQL, a generic query language for APIs
-- Relay & Apollo are connections of React to GraphQL
-- Falcor models all backend data as a single Virtual JSON object
+- Facebook came up with **GraphQL**, a generic query language for APIs
+- **Relay** & **Apollo** are connections of React to GraphQL
+- **Falcor** (from Netflix) models all backend data as a single Virtual JSON object
   * Clients request a subset of the model on-demand
   * It has a JavaScript API
 - In both cases you get only the data you want, nothing more, nothing less
 - Gotta change your traditional REST API to be compatible
-  * Can start by putting this in front of REST
+  * Can start by putting this in front of backend REST APIs
 - Be aware that Apollo will basically take over your app
   * Can be good or bad
-  * Good in the sense that it basically reducers your need for Redux
-  * Bad if you already have Redux and you need to move things around
+  * __Good__ in the sense that it basically reducers your need for Redux
+  * __Bad__ if you already have Redux and you need to move things around
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1711,7 +1737,7 @@ NOTES:
 
 NOTES:
 - How to GraphQL is a full-stack tutorial for GraphQL
-- _GraphQL in 3 Components_ is a talk from our very own Eve Porcello from React Rally 2018
+- _GraphQL in 3 Components_ is a talk from Eve Porcello from React Rally 2018
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1723,7 +1749,11 @@ NOTES:
 </div>
 
 NOTES:
-- Quick tl;dr in case you missed anything
+- So that was a lot
+  * You probably didn't catch everything
+  * Chances are you got distracted by Slack or text
+  * Or the squats wore you out
+- Here's a quick tl;dr if you just want the answer
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1773,6 +1803,15 @@ NOTES:
 
 NOTES:
   - **Cool thing:** Can tailor your stack to your team and existing codebase
+  - 0 - Learn **React** _really well_ (especially hooks)
+  - 1 - Use **Create React App** to get bootstrapped (eject when necessary)
+  - 2 - Try out **Emotion** from styling (probably start off with Component CSS)
+  - 3 - Use **`@react/router`** for your routes (**`react-router`** if there are many)
+  - 4 - Use **`react-final-form`** for form validation w/o Redux
+  - 5 - Use **React Testing Library** for testing components
+  - 6 - Use **Redux**, but only if your data dictates the need
+  - 7 - Try out **Next** if you need server-side rendering
+  - 8 - Go ahead and use **Apollo** when you're requesting lots of data
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1796,15 +1835,17 @@ NOTES:
 NOTES:
 - So that's it!
 - Just flooded you with a lot of information
-  * Slides are available online
+  * Reminder; slides are available online
 - Hopefully 1, 2 or all 8 of these suggestions will prove useful to you
-  * Got some notes scribbled to go check things out
+  * You've got some notes scribbled to go check things out
   * You don't need to be overwhelmed and try to learn at once
-  * Get good at one and build on it
-- **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
-  * Ben Dunphy
+  * Get good at one thing and build on it
+- **Conference:** Inviting me to share my knowledge/experience with y'all
+  * Danny, Todd & the rest of the crew
   * Organizing such a great conference
-- **YOU!** For being such an engaged audience so early in the AM
+  * I love the tracks so you can focus or dabble in something new
+- **YOU!** For being such an engaged audience after lunch
+  * There were also 24 also talks going and you chose to _stay_ here
   * If you've got questions, feel free to find me during the conference
   * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
 - Thank you so much and enjoy the rest of the conference!
