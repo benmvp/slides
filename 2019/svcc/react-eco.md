@@ -203,22 +203,23 @@ NOTES:
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 40%">
     <p>
-      <img src="../../img/ato/justin-reock.jpg" alt="Justin Reock" class="speaker-headshot" />
+      <img src="../../img/svcc/eve-porcello.jpg" alt="Eve Porcello" class="speaker-headshot" />
       <br />
-      Justin Reock
+      Eve Porcello
     </p>
 
-    <h2>Intro to React</h2>
+    <h2>A Gentle Intro to the React Library</h2>
 
-    <p>Today @ 4:15p (306A)</p>
+    <p>9:30a (Town Square B)</p>
   </div>
 </div>
 
 NOTES:
 - That was a quick 2-minute overview...
 - If you wanna know more of the basics of building React components
-  * **Justin** is giving an intro to React later this afternoon
-- UI / UX / Design track
+  * **Eve** just finished an intro to React in
+  * Hopefully you were able to check it out
+  * If not it was recorded, so you can check it out later
 
 =====
 
@@ -1502,6 +1503,29 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/svcc/eric-bishard.jpg" alt="Eric Bishard" class="speaker-headshot" />
+      <br />
+      Eric Bishard
+    </p>
+
+    <h2>Managing State in React Functionally with React Hooks</h2>
+
+    <p>1p (Town Square B)</p>
+  </div>
+</div>
+
+NOTES:
+- If you wanna learn more about managing state
+- **Eric** will be going into great detail
+  * Teaching us how us to manage state with hooks
+- Happening right after lunch back in Town Square B
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>App Data Management Resources</h2>
@@ -1700,14 +1724,41 @@ NOTES:
 - Facebook came up with **GraphQL**, a generic query language for APIs
 - **Relay** & **Apollo** are connections of React to GraphQL on the client
   * You have to build out your GraphQL server
-- **Falcor** is both a client & server solution
-  * models all backend data as a single Virtual JSON object
-  * Clients request a subset of the model on-demand
-  * It has a JavaScript API
+- **Falcor**
+  * I mention Falcor because it was a thing
+  * But Netflix doesn't even support it
+  * GraphQL "won"
 - Be aware that **Apollo** will basically take over your app
   * Can be good or bad
   * _Good_ in the sense that it basically reducers your need for Redux
   * _Bad_ if you already have Redux and you need to move things around
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/svcc/shawn-wang.jpg" alt="Shawn Wang" class="speaker-headshot" />
+      <br />
+      Shawn Wang
+    </p>
+
+    <h2>STAR Apps</h2>
+
+    <p>3:45p (Fireside D)</p>
+  </div>
+</div>
+
+NOTES:
+- Later this afternoon **Shawn** will be talking about STAR apps
+  * Design systems
+  * TypeScript
+  * Apollo GraphQL
+  * React
+- Basically how we take everything we've learned and put it together
+  * To make modern React apps
+- In Fireside D
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
