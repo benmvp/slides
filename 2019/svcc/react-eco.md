@@ -222,19 +222,6 @@ NOTES:
   * If not it was recorded, so you can check it out later
 
 =====
-
-<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1 style="font-size: 5em">Stand Up!</h1>
-  </div>
-</div>
-
-NOTES:
-- Before we continue can I get everyone to stand up?
-
-/////
 <!-- .slide: data-background="#000 url(../../img/family/ilegbodu-family-photo-2019.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
@@ -1892,12 +1879,7 @@ NOTES:
   * You don't need to be overwhelmed and try to learn at once
   * Get good at one thing and build on it
 - **Conference:** Inviting me to share my knowledge/experience with y'all
-  * **Danny, Todd & the rest of the crew**
-  * Organizing such a great conference
-  * I love the tracks so you can focus or dabble in something new
-  * _Applause_
-- **YOU!** For being such an engaged audience after lunch
-  * There were also 24 other talks going and you chose to _stay_ here
-  * If you've got questions, feel free to find me during the conference
+- **YOU!** For being such an engaged audience right before lunch
+  * If you've got questions, feel free to find me afterwards
   * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
 - Thank you so much and enjoy the rest of the conference!
