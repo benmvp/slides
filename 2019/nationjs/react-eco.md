@@ -98,6 +98,31 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 40%">
+    <h2>React Dev Tools</h2>
+    <p>Help debug React props & state</p>
+
+    <img src="../../img/nav-react/react-dev-tools-v4.png" alt="Screenshot of React Dev Tools v4" style="width: 100%" />
+
+    <p>Available for <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" target="_blank">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/" target="_blank">Firefox</a></p>
+
+    <p>(Performance debugging in v16.5)</p>
+  </div>
+</div>
+
+NOTES:
+- Let's start easy
+- The React Dev Tools are super helpful in debugging React components
+- You browse the React component tree just like the DOM tree
+  * And you can look at the component props as well as the state
+  * Keeps improving to provide more debugging capability
+  * Just recently with the release of React 16.5 enabling performance debugging
+- Available for Chrome, Firefox, and now Chromium-based Edge
+
+/////
+<!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
     <p>
       <img src="../../img/nationjs/kathryn-grayson-nanz.jpg" alt="Kathryn Grayson Nanz" class="speaker-headshot" />
       <br />
@@ -183,31 +208,6 @@ NOTES:
   * But the tooling needed to get set up
 - I think the problem is that there's so much choice in this area
   * You need to know how the tools work before you could get up and running
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 40%">
-    <h2>React Dev Tools</h2>
-    <p>Help debug React props & state</p>
-
-    <img src="../../img/nav-react/react-dev-tools-v4.png" alt="Screenshot of React Dev Tools v4" style="width: 100%" />
-
-    <p>Available for <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" target="_blank">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/" target="_blank">Firefox</a></p>
-
-    <p>(Performance debugging in v16.5)</p>
-  </div>
-</div>
-
-NOTES:
-- Let's start easy
-- The React Dev Tools are super helpful in debugging React components
-- You browse the React component tree just like the DOM tree
-  * And you can look at the component props as well as the state
-  * Keeps improving to provide more debugging capability
-  * Just recently with the release of React 16.5 enabling performance debugging
-- Available for Chrome, Firefox, and now Chromium-based Edge
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -409,6 +409,7 @@ NOTES:
     <h2>Tooling resources</h2>
 
     <ul>
+      <li><a href="https://medium.com/@ajmeyghani/javascript-bundlers-a-comparison-e63f01f2a364" target="_blank"><em>JavaScript Bundlers, a Comparison</em></a></li>
       <li><a href="https://www.youtube.com/watch?v=QFKZmBMgvus" target="_blank">What's New with React Dev Tools 4</a> ⏯️</li>
       <li><a href="https://github.com/joshwcomeau/guppy" target="_blank">Guppy</a></li>
       <li><a href="https://github.com/zkat/npx" target="_blank">`npx`</a></li>
@@ -419,7 +420,6 @@ NOTES:
       <li><a href="https://blog.risingstack.com/yarn-vs-npm-node-js-package-managers/" target="_blank"><em>Yarn vs NPM</em></a></li>
       <li><a href="https://webpack.js.org/configuration/dev-server/" target="_blank">`webpack-dev-server`</a></li>
       <li><a href="https://flow.org/en/docs/react/" target="_blank">Flow + React</a></li>
-      <li><a href="https://medium.com/@ajmeyghani/javascript-bundlers-a-comparison-e63f01f2a364" target="_blank"><em>JavaScript Bundlers, a Comparison</em></a></li>
 
     </ul>
   </div>
@@ -478,16 +478,12 @@ NOTES:
 </div>
 
 NOTES:
-- You'd use the **Global CSS** option if you are transitioning to React
-  * Already have your CSS being built by some other process
-  * Create new React components with existing CSS classes
-  * Bootstrap or Foundation would fall under this
-- **Component CSS** is the exact same as Global CSS
-  * Except the CSS is imported by the Component
-  * Instead of some external process that bundles everything
+- **Global CSS** and **Component CSS** are similar
+  * Components reference CSS classes that have to be appropriately namespaced to prevent collisions
+  * **Global CSS** would be something like Bootstrap or Foundation which is built completely separate
+  * **Component CSS** is actually imported by the component
   * Therefore if the Component isn't used in the app the CSS won't be included in the bundle
-  * Need a bundler that can handle bundling CSS
-  * CRA handles this
+  * Need a bundler that can handle bundling CSS (like CRA)
 - 3rd option is **CSS Modules**
   * There's lots to like about CSS Modules
   * CSS Modules are similar to Component CSS
@@ -596,9 +592,11 @@ NOTES:
 
    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:3em">
       <div style="flex:0 0 45%;">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank"><img src="../../img/nav-react/fetch-logo.svg" class="plain" /></a>
         <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Fetch API</a>
       </div>
       <div style="flex:0 0 45%;">
+        <a href="https://github.com/axios/axios" target="_blank"><h3 style="margin-bottom: 2.5em"><code>axios</code></h3></a>
         <a href="https://github.com/axios/axios" target="_blank">axios</a>
       </div>
     </div>
@@ -629,46 +627,16 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h2>Fetch API</h2>
-    <p>Handle AJAX natively</p>
-
-    <pre class="large"><code class="lang-javascript">import React, {useState, useEffect} from 'react';
-
-const Posts = () => {
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    window.fetch('api.benmvp.com', {method: 'GET'})
-      .then((response) => {
-        setPosts(response.posts)
-      })
-  })
-  // render UI</code></pre>
-
-    <div class="code-highlight" style="height: 70px; top: 596px;"></div>
-  </div>
-</div>
-
-NOTES:
-- Example using the native fetch API
-  * There's a polyfill for older browsers
-- There's also an implementation for Node called `node-fetch`
-  * `isomorphic-fetch` so your code can run in both environments
-- `useEffect` which basically replaces `componentDidMount` & `componentDidUpdate` lifecycle methods
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/ishan-seefromthesky-798062-school-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
     <h2>Fetch Resources</h2>
 
     <ul>
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Using Fetch</a></li>
-      <li><a href="http://www.benmvp.com/learning-es6-promises/" target="_blank">Learning ES6: Promises</a></li>
       <li><a href="https://github.com/github/fetch" target="_blank">`window.fetch` polyfill</a></li>
       <li><a href="https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects" target="_blank">Using the Effect Hook</a></li>
-      <li><a href="https://github.com/benmvp/react-workshop/blob/master/04-fetch/" target="_blank">React Fundamentals Workshop - Fetch</a></li>
+      <li><a href="https://use-http.com/" target="_blank"><code>use-http</code></a> / <a href="https://github.com/simoneb/axios-hooks" target="_blank"><code>axios-hooks</code></a></li>
+      <li><a href="https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/" target="_blank"><em>How to make HTTP requests like a pro with Axios</em></a></li>
+      <li><a href="https://codeburst.io/how-to-fetch-data-from-an-api-with-react-hooks-9e7202b8afcd" target="_blank"><em>How To Fetch Data From An API With React Hooks</em></a></li>
+      <li><a href="http://www.benmvp.com/learning-es6-promises/" target="_blank">Learning ES6: Promises</a></li>
     </ul>
   </div>
 </div>
@@ -717,36 +685,19 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
-    <h2>Reach Router</h2>
+    <h2>Routing Resources</h2>
 
-    <pre><code class="lang-javascript">import {Router, Link} from '@reach/router'
-
-const Home = () => (
-  &lt;div>
-    &lt;h1>Home&lt;/h1>
-    &lt;nav>
-      &lt;Link to="/">Home&lt;/Link> |
-      &lt;Link to="dashboard">Dashboard&lt;/Link>
-    &lt;/nav>
-  &lt;/div>
-)
-const Dash = () => (&lt;div>Dash&lt;/div>)
-const App = () => (
-  &lt;Router>
-    &lt;Home path="/" />
-    &lt;Dash path="dashboard" />
-  &lt;/Router>
-)</code></pre>
-    <div class="code-highlight" style="height: 70px; top: 766px;"></div>
+    <ul>
+      <li><a href="https://reacttraining.com/blog/reach-react-router-future/" target="_blank"><em>The Future of React Router and @reach/router</em></a></li>
+      <li><a href="https://redux.js.org/advanced/usage-with-react-router" target="_blank">Redux Usage with React Router</a></li>
+      <li><a href="https://tylermcginnis.com/react-router-code-splitting/" target="_blank"><em>Redux Usage with React Router</em></a></li>
+      <li><a href="https://tylermcginnis.com/react-router-recursive-paths/" target="_blank"><em>Recursive paths with React Router</em></a></li>
+      <li><a href="https://tylermcginnis.com/react-router-sidebar-breadcrumbs/" target="_blank"><em>Rendering a Sidebar or Breadcrumbs with React Router v4</em></a></li>
+    </ul>
   </div>
 </div>
 
 NOTES:
-- Can set up your routes with the same JSX syntax
-  * Within the `<Router>` just have your normal child components
-  * Just add special `path` prop (similar to special `key` prop)
-  * `<Home>` is a component we created with `path` prop
-- Then you can `<Link>` to different sections using relative paths too
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/tomoe-steineck-787193-blue-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -762,6 +713,9 @@ NOTES:
   * Forms are not that hard
   * But forms **with validation** are definitely hard
   * And in React, it's no different
+- Forms of different size
+  * Two-field login form
+  * Many-field and nested checkout form
 - The validation requirements are always different
   * Form level errors
   * Form element level errors
@@ -780,6 +734,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 65%">
     <h2>Form state managers</h2>
+    <p>Manage complex form validity</p>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
       <div style="flex:0 0 30%;">
@@ -878,8 +833,7 @@ NOTES:
 
 
 NOTES:
-- **Cypress**
-  * Predominantly used for end-to-end testing
+- **Cypress** is predominantly used for end-to-end testing
   * Runs in a browser, but isn't slow Selenium or Webdriver
   * But can also used a development platform for TDD
   * Becoming increasingly popular
@@ -929,7 +883,7 @@ NOTES:
     <h2>Testing Resources</h2>
 
     <ul>
-      <li><a href="https://github.com/testing-library/jest-dom" target="_blank">`jest-dom`</a> / <a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank">`jest-enzyme`</a></li>
+      <li><a href="https://github.com/testing-library/jest-dom" target="_blank"><code>jest-dom</code></a> / <a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank"><code>jest-enzyme</code></a></li>
       <li><a href="https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change" target="_blank"><em>Making your UI tests resilient to change</em></a></li>
       <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a> ⏯️</li>
       <li><a href="https://medium.com/@nitinpatel_20236/unit-testing-custom-react-hooks-caa86f58510" target="_blank"><em>Unit Testing Custom React Hooks</em></a></li>
@@ -989,15 +943,15 @@ NOTES:
         <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank">Hooks</a> + <a href="https://reactjs.org/docs/context.html" target="_blank">Context</a>
       </div>
 	    <div style="flex:0 0 20%;">
-        <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" /></a>
+        <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" style="margin-bottom: 1.5em;" /></a>
 		    <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
       </div>
 	    <div style="flex:0 0 20%;">
-        <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" /></a>
+        <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" style="margin-bottom: 1.5em;" /></a>
 		    <a href="http://redux.js.org/" target="_blank">Redux</a>
       </div>
 	    <div style="flex:0 0 30%;">
-        <a href="https://xstate.js.org/docs/" target="_blank"><img src="../../img/nav-react/xstate-logo.svg" class="plain" /></a>
+        <a href="https://xstate.js.org/docs/" target="_blank"><img src="../../img/nav-react/xstate-logo.svg" class="plain" style="margin-bottom: 2.5em;" /></a>
 		    <a href="https://xstate.js.org/docs/" target="_blank">XState</a>
       </div>
     </div>
@@ -1073,44 +1027,6 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>`immer` reducer</h2>
-
-    <pre class="large"><code class="lang-javascript">import produce from 'immer'
-
-const todos = (state = [], action) => (
-  produce(state, (draft) => {
-    if (action.type === 'ADD_TODO') {
-      draft.push({
-        id: action.id,
-        text: action.text,
-        completed: false,
-      })
-    }
-  })
-)</code></pre>
-
-    <div class="code-highlight" style="height: 530px; top: 340px;"></div>
-  </div>
-</div>
-
-NOTES:
-- Instead of creating a whole new set of immutable objects with their own API
-- It provides a `produce()` helper
-- You give `produce()` the object you want to mutate
-  * and a function that performs the mutation
-- Get to write the mutations in "normal" JavaScript
-- It efficiently batches up the mutations
-  * Returns the "next state" of the object
-- Huge pro is that it works w/ normal JS objects/arrays
-- You can do even more fanciness with currying with `produce()`
-  * Makes **it** your reducer
-  * Check out the docs
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 40%">
     <p>
       <img src="../../img/nationjs/dillon-mulroy.jpg" alt="Dillon Mulroy" class="speaker-headshot" />
@@ -1141,11 +1057,11 @@ NOTES:
       <li><a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank"><em>Application State Management with React</em></a></li>
       <li><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank">Redux DevTools Extension</a></li>
       <li><a href="https://redux-starter-kit.js.org/" target="_blank">Redux Starter Kit</a></li>
-      <li><a href="https://github.com/jamiebuilds/unstated" target="_blank">Unstated</a></li>
-      <li><a href="https://github.com/jamiebuilds/reduxxx" target="_blank">Reduxxx</a></li>
+      <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank"><em>Replace Redux with React Hooks + Context</em></a></li>
       <li><a href="https://github.com/markerikson/redux-ecosystem-links" target="_blank">Redux Ecosystem</li>
       <li><a href="https://github.com/xgrommx/mobx-ecosystem" target="_blank">MobX Ecosystem</li>
-      <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank"><em>Replace Redux with React Hooks + Context</em></a></li>
+      <li><a href="https://github.com/jamiebuilds/unstated" target="_blank">Unstated</a></li>
+      <li><a href="https://github.com/jamiebuilds/reduxxx" target="_blank">Reduxxx</a></li>
     </ul>
   </div>
 </div>
@@ -1194,20 +1110,20 @@ NOTES:
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between ;margin-top:5%">
       <div style="flex:0 0 22%;">
+        <a href="https://www.gatsbyjs.org/"><img src="../../img/nav-react/gatsby-logo.svg" class="plain" /></a>
+        <a href="https://www.gatsbyjs.org/" style="display:block">Gatsby</a>
+      </div>
+      <div style="flex:0 0 22%;">
         <a href="https://nextjs.org/"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="margin-bottom: 1em" /></a>
         <a href="https://nextjs.org/">Next.js</a>
       </div>
       <div style="flex:0 0 22%;">
-        <a href="https://www.gatsbyjs.org/"><img src="../../img/nav-react/gatsby-logo.svg" class="plain" /></a>
-        <a href="https://www.gatsbyjs.org/" style="display:block">Gatsby</a>
+        <a href="https://nodejs.org"><img src="../../img/browsers/nodejs-logo.png" class="plain" /></a>
+        <a href="https://nodejs.org">Node</a>
       </div>
       <div style="flex:0 0 28%;">
         <a href="https://github.com/jaredpalmer/razzle"><img src="../../img/nav-react/razzle-logo.png" class="plain" style="background-color: #ddd; margin-bottom: 2em" /></a>
         <a href="https://github.com/jaredpalmer/razzle" style="display:block">Razzle</a>
-      </div>
-      <div style="flex:0 0 22%;">
-        <a href="https://nodejs.org"><img src="../../img/browsers/nodejs-logo.png" class="plain" /></a>
-        <a href="https://nodejs.org">Node</a>
       </div>
     </div>
   </div>
@@ -1215,23 +1131,25 @@ NOTES:
 
 NOTES:
 - A couple of different options for server-side rendering
-- **Next.js**
-  * A minimalist framework for server-rendered React applications
-  * Has built-in routing, code-splitting, CSS support, data fetching, etc
+- Original option was to roll your own solution
+  * When you have a **Node** backend
+  * Using Node server library, like _Express_ or _Koa_
+  * Hook in one of the routers (`reach-router` / `react-router`)
+  * Data fetching with `isomorphic-fetch`
 - **Gatsby** is an amazing static-site generator
   * Use it for my site benmvp.com
   * Basically does similar things as Next.js but does it all at build time
   * It's all static pages: HTML, CSS & JS
   * Creates a progressive web app, with data-prefetching for performance
   * Uses GraphQL to retrieve data for components
+- **Next.js** is a framework for server-rendered React applications by Zeit
+  * Has built-in routing, code-splitting, CSS support, data fetching, etc
+  * Adding static generation so that the app can be hybrid
 - **Razzle** is a library for bootstrapping server-side rendering
+  * Abstracts all complex configuration needed for SSR into a single dependency
+  * Great if you're not ready to buy into `Next.js` or React Server
   * Works with Vue, Angular & other libs as well
   * You still figure out your routing, data fetching, etc
-- Lastly, you can roll your own solution
-  * When you have a **Node** backend
-  * Using Node server library, like _Express_ or _Koa_
-  * Hook in one of the routers (`reach-router` / `react-router`)
-  * Data fetching with `isomorphic-fetch`
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/francisco-jesus-navarro-hernandez-534560-yellow-purple-starfish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1461,7 +1379,7 @@ NOTES:
 - 4/ Use **`react-final-form`** for form validation w/o Redux
 - 5/ Use **React Testing Library** for testing components w/o a browser
   * But you'll probably want **Cypress** too for happy path E2E tests
-- 6/ See how far you can go with Hooks + Contet
+- 6/ See how far you can go with Hooks + Context
   * Only reach for **Redux** as a last resort
 - 7/ Try out **Next.js** if you need server-side rendering
 - 8/ Go ahead and use **Apollo** when you're requesting lots of data
