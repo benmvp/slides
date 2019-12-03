@@ -55,29 +55,6 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/nationjs/kathryn-grayson-nanz.jpg" alt="Kathryn Grayson Nanz" class="speaker-headshot" />
-      <br />
-      Kathryn Grayson Nanz
-    </p>
-
-    <h2>Creating a Component Library in React</h2>
-
-    <p>10:45a</p>
-  </div>
-</div>
-
-NOTES:
-- This is a high-level overview talk
-  * And the purpose is the ecosystem, not React itself
-- If you wanna know more of the basics of building React components
-  * **Kathryn** will be providing insights on creating a component lib from scratch
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 75%">
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <a href="https://facebook.github.io/react/tutorial/tutorial.html" target="_blank" style="width: 45%">
@@ -116,9 +93,32 @@ NOTES:
 - Hooks which completely changed how we write components (v16.8)
 - Concurrent Mode which was announced at React Conf in October (still experimental)
 
+/////
+<!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/nationjs/kathryn-grayson-nanz.jpg" alt="Kathryn Grayson Nanz" class="speaker-headshot" />
+      <br />
+      Kathryn Grayson Nanz
+    </p>
+
+    <h2>Creating a Component Library in React</h2>
+
+    <p>10:45a</p>
+  </div>
+</div>
+
+NOTES:
+- This is a high-level overview talk
+  * And the purpose is the ecosystem, not React itself
+- If you wanna know more of the basics of building React components
+  * **Kathryn** will be providing insights on creating a component lib from scratch
+
 =====
 
-<!-- .slide: data-background="url(../../img/giphy/stand-up.gif) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/giphy/stand-up-steph-curry.gif) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
@@ -448,17 +448,32 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Global CSS</h2>
-    <p>Use CSS that exists on the page outside of React</p>
+  <div class="content-overlay" style="width: 85%">
+    <h2>Styling</h2>
+    <p>Style your components</p>
 
-    <pre class="large"><code class="lang-javascript">const Card = ({title, imageUrl, message}) => (
-  &lt;div className="card">
-    &lt;h2 className="card\__title">{title}&lt;/h2>
-    &lt;img src={imageUrl} className="card\__image" />
-    &lt;p className="card\__message">{message}&lt;/p>
-  &lt;/div>
-)</code></pre>
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+      <div style="flex:0 0 18%;">
+        <a href="https://getbootstrap.com/" target="_blank"><img src="../../img/nav-react/bootstrap-logo.svg" class="plain" /></a>
+        <a href="https://getbootstrap.com/" target="_blank">Global CSS</a>
+      </div>
+      <div style="flex:0 0 22%;">
+        <a href="https://create-react-app.dev/docs/adding-a-stylesheet/" target="_blank"><img src="../../img/why-react/css-3-logo.svg" class="plain" style="width: 60%" /></a>
+        <a href="https://create-react-app.dev/docs/adding-a-stylesheet/" target="_blank">Component CSS</a>
+      </div>
+      <div style="flex:0 0 18%;">
+        <a href="https://github.com/gajus/babel-plugin-react-css-modules" target="_blank"><img src="../../img/nav-react/react-css-modules-logo.png" class="plain" /></a>
+        <a href="https://github.com/gajus/babel-plugin-react-css-modules" target="_blank">CSS Modules</a>
+      </div>
+      <div style="flex:0 0 18%;">
+        <a href="https://reactjs.org/docs/dom-elements.html#style" target="_blank"><img src="../../img/react/react-logo.png" class="plain" /></a>
+        <a href="https://reactjs.org/docs/dom-elements.html#style" target="_blank">Inline Styles</a>
+      </div>
+      <div style="flex:0 0 18%;">
+        <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/css-in-js-logo.svg" class="plain" /></a>
+        <a href="https://emotion.sh/" target="_blank">css-in-js</a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -466,236 +481,29 @@ NOTES:
 - You'd use the **Global CSS** option if you are transitioning to React
   * Already have your CSS being built by some other process
   * Create new React components with existing CSS classes
-- Bootstrap or Foundation would fall under this as well
-
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Global CSS</h2>
-
-    <pre class="large"><code class="lang-css">
-/\* global.scss \*/
-
-/\* lots of other styles before \*/
-
-.card { }
-.card\__title { }
-.card\__image { }
-.card\__message { }
-
-/\* lots of other styles after \*/</code></pre>
-
-  <p>
-    <a href="http://getbem.com/" target="_blank">BEM</a>,
-    <a href="https://smacss.com/" target="_blank">SMACSS</a> or
-    <a href="https://github.com/stubbornella/oocss/wiki">OOCSS</a> for class name-spacing
-  </p>
-  </div>
-</div>
-
-NOTES:
-- You can use BEM syntax as a convention to prevent name collisions
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Component CSS</h2>
-    <p>Associate React components with CSS snippet</p>
-
-    <pre class="large"><code class="lang-javascript">import './Card.scss'
-
-const Card = ({title, imageUrl, message}) => (
-  &lt;div className="card">
-    &lt;h2 className="card\__title">{title}&lt;/h2>
-    &lt;img src={imageUrl} className="card\__image" />
-    &lt;p className="card\__message">{message}&lt;/p>
-  &lt;/div>
-)</code></pre>
-
-    <div class="code-highlight" style="height: 70px; top: 253px;"></div>
-  </div>
-</div>
-
-NOTES:
-- Next way is **Component CSS**
-- Component CSS is the exact same as Global CSS
+  * Bootstrap or Foundation would fall under this
+- **Component CSS** is the exact same as Global CSS
   * Except the CSS is imported by the Component
   * Instead of some external process that bundles everything
   * Therefore if the Component isn't used in the app the CSS won't be included in the bundle
-- Need a bundler that can handle bundling CSS
-  * Processing SASS in our case
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Component CSS</h2>
-    <p>Associate React components with CSS snippet</p>
-
-    <pre class="large"><code class="lang-css">/\* Card.scss \*/
-
-.card { }
-.card\__title { }
-.card\__image { }
-.card\__message { }</code></pre>
-
-    <p>(name-spacing still needed)</p>
-  </div>
-</div>
-
-NOTES:
-- Same BEM style CSS class names convention
-  * Eventually it'll all be merged into a bundle
-  * Without the convention is broken you could still have collisions
-- Hopefully your global CSS was already modularized
-  * So this transition shouldn't be tough
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>CSS Modules</h2>
-    <p>Automatically scope CSS class names to the component</p>
-
-    <pre class="large"><code class="lang-javascript">import css from './Card.scss'
-
-const Card = ({title, imageUrl, message}) => (
-  &lt;div className={css.root}>
-    &lt;h2 className={css.title}>{title}&lt;/h2>
-    &lt;img src={imageUrl} className={css.image} />
-    &lt;p className={css.message}>{message}&lt;/p>
-  &lt;/div>
-)</code></pre>
-
-    <div class="code-highlight" style="height: 70px; top: 253px;"></div>
-  </div>
-</div>
-
-
-NOTES:
+  * Need a bundler that can handle bundling CSS
+  * CRA handles this
 - 3rd option is **CSS Modules**
   * There's lots to like about CSS Modules
-- CSS Modules are similar to Component CSS
-  * except the import of the CSS will return an object lookup with a generated class name
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>CSS Modules</h2>
-    <p>Automatically scope CSS class names to the component</p>
-
-    <pre class="large"><code class="lang-css">/\* Card.scss (source) \*/
-
-.root { }
-.title { }
-.image { }
-.message { }</code></pre>
-  </div>
-</div>
-
-NOTES:
-- No need for naming conventions
-- Just name the classes what they are w/o worry about collision
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>CSS Modules</h2>
-    <p>Automatically scope CSS class names to the component</p>
-
-    <pre class="large"><code class="lang-css">/\* Card.css (generated) \*/
-
-.Card\__root\__\_d74hQ { }
-.Card\__title\__\_37fhU { }
-.Card\__image\__\_ndh2e { }
-.Card\__message\__\_84QQj { }</code></pre>
-  </div>
-</div>
-
-NOTES:
-- The generated CSS classes will be unique so there's no way they can collide
-- These class names are the same one passed into the object lookup
-- Similarly, you'll need a bundler that can process CSS modules
-  * There are webpack loaders
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Inline styles</h2>
-    <p>Forgo CSS classes in favor of inline styles</p>
-
-    <pre class="large"><code class="lang-javascript">import styles from './Card.styles'
-
-const Card = ({title, imageUrl, message}) => (
-  &lt;div style={styles.root}>
-    &lt;h2 style={styles.title}>{title}&lt;/h2>
-    &lt;img src={imageUrl} style={styles.image} />
-    &lt;p style={styles.message}>{message}&lt;/p>
-  &lt;/div>
-)</code></pre>
-
-    <div class="code-highlight" style="height: 70px; top: 253px;"></div>
-  </div>
-</div>
-
-
-NOTES:
-- So far we've had global CSS, component CSS & CSS modules
-  * They all leverage CSS: cascading style sheets
-
------
-
+  * CSS Modules are similar to Component CSS
+  * Except the import of the CSS returns sandboxed class names
+  * The generated CSS classes will be unique so there's no way they can collide
+  * Also need a bundler, there's a babel plugin
 - The folks who choose the **Inline Styles** option are in the "screw CSS" camp
   * Tired of dealing with specificity wars, unexpected cascade, etc.
   * Were adding `!important` everywhere
   * Having lots of dynamic styles which can be challenging with CSS
-- There was a big huge push for this early in React when React Native came out
-  * it doesn't support CSS, only inline styles
-  * If you want to share components across React & React Native you can't use CSS
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Inline styles</h2>
-    <p>Forgo CSS classes in favor of inline styles</p>
-
-    <pre class="large"><code class="lang-javascript">// Card.styles.js
-export default {
-  root: {
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: '2em'
-  },
-  ...
-}</code></pre>
-  </div>
-</div>
-
-NOTES:
-- Inline styles use `camelCase` version of the property names
-  * instead of `kebab-case`
-  * this is the form of the JavaScript CSS DOM API
-- Problem with inline styles in React...
-  * it only supports what inline styles support
-  * No media queries, pseudo-selectors, keyframe animations, etc
+  * There was a big huge push for this early in React when React Native came out
+  * But it doesn't support CSS, only inline styles
+  * If you want to try to share components across React & React Native you can't use CSS
+- New **`css-in-js`** libraries have popped up to try to solve that issue in various clever ways
+  * Most take what's defined as inline styles but map to unique CSS classes
+  * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -728,9 +536,6 @@ NOTES:
 
 
 NOTES:
-- New libraries have popped up to try to solve that issue in various clever ways
-  * Most take what's defined as inline styles but map to unique CSS classes
-  * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
 - Emotion is the newest and super popular
   * It's taken learnings from all the others to create a flexible API
 
@@ -747,65 +552,11 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h2>Emotion</h2>
-
-    <pre class="large"><code class="lang-javascript">import styled from '@emotion/styled'
-
-const Root = styled.div({display: 'flex'})
-const Title = styled.h2({fontWeight: 'bold'})
-const Image = styled.img({ ... })
-const Message = styled.p({ ... })
-
-const Card = ({title, imageUrl, message}) => (
-  &lt;Root>
-    &lt;Title>{title}&lt;/Title>
-    &lt;Image src={imageUrl} />
-    &lt;Message>{message}&lt;/Message>
-  &lt;/Root>
-)</code></pre>
-  </div>
-</div>
-
-
-NOTES:
-- Quick look at how Emotion works
-- Create a custom elements/components with the styling you want
-  * The `render()` ends up looking very semantic
-- Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
-  * There's also theming support as well
-- There's another mode where you can specify a `css` prop and just pass styling to the object
-  * No need to create these "styled components"
-  * I prefer that API
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>Emotion</h2>
-    <p>Auto-generated class names</p>
-
-    <pre class="large"><code class="lang-html"><div class="css-1sa0cvf">
-  <h2 class="css-1un7ufz">Card Title</h2>
-  <img class="css-1e9pfwo" src="..." />
-  <p class="css-1b9v3at">Card message</p>
-</div></code></pre>
-  </div>
-</div>
-
-NOTES:
-- Here's what the generated markup will look like
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/james-thornton-741535-sea-anemone-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
     <h2>Styling Resources</h2>
 
     <ul>
-      <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank"><em>A Unified Styling Language</em></a></li>
-      <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Modules</a></li>
+      <li><a href="https://medium.com/dailyjs/what-is-actually-css-in-js-f2f529a2757" target="_blank"><em>What actually is CSS-in-JS</em></a></li>
+      <li><a href="https://github.com/gajus/babel-plugin-react-css-modules" target="_blank">React CSS Modules</a></li>
       <li><a href="https://github.com/nairinarinyan/react-scoped-styles" target="_blank">`react-scoped-styles`</a></li>
       <li><a href="http://www.material-ui.com/" target="_blank">Material UI</a></li>
       <li><a href="https://react.foundation/" target="_blank">React + Foundation</a></li>
@@ -1183,8 +934,7 @@ NOTES:
       <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a> ⏯️</li>
       <li><a href="https://medium.com/@nitinpatel_20236/unit-testing-custom-react-hooks-caa86f58510" target="_blank"><em>Unit Testing Custom React Hooks</em></a></li>
       <li><a href="https://github.com/Raathigesh/majestic/" target="_blank">Majestic</li>
-      <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
-      <li><a href="https://github.com/eventbrite/javascript/blob/master/react/testing.md" target="_blank">Eventbrite React Testing Best Practices</a></li>
+      <li><a href="https://testingjavascript.com/" target="_blank">Testing JavaScript with Kent C. Dodds</a></li>
       <li><a href="https://facebook.github.io/jest/blog/2016/07/27/jest-14.html" target="_blank">React Tree Snapshot Testing</a></li>
       <li><a href="https://github.com/avajs/ava/blob/master/docs/recipes/react.md" target="_blank">Ava + React</a></li>
     </ul>
