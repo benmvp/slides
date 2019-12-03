@@ -27,8 +27,9 @@ NOTES:
   * You need to know Redux, css-in-js, server-side rendering, etc.
   * All at the same time
   * It can be so overwhelming
+_ **How many of you have used React before?**
 - React is still just a UI library
-  * Need to pick libraries for fetching data, managing, data, etc. for full framework
+  * Need to pick libraries for fetching data, managing state, etc. for full framework
   * How can you pick the right thing, if you've never used it before?
 - So I want to walk through the different libs in the React ecosystem
   * 1/ Provide my opinion of which category of libs you should prioritize first
@@ -110,8 +111,8 @@ NOTES:
 </div>
 
 NOTES:
-- Let's start easy
-- The React Dev Tools are super helpful in debugging React components
+- Also want to point out the React Dev Tools
+  * They are super helpful in debugging React components
 - You browse the React component tree just like the DOM tree
   * And you can look at the component props as well as the state
   * Keeps improving to provide more debugging capability
@@ -140,6 +141,7 @@ NOTES:
   * And the purpose is the ecosystem, not React itself
 - If you wanna know more of the basics of building React components
   * **Kathryn** will be providing insights on creating a component lib from scratch
+  * Right after this talk
 
 =====
 
@@ -174,13 +176,14 @@ NOTES:
   * As a Frontend Architect
   * Which I'm super excited about
 - Stitch Fix is an online personal styling service
-  * Take the effort out of shopping by curating a selection of clothes picked just for you
-  * And sent to your door on a frequency of your choosing
+  * Take the effort out of shopping by providing a selection of clothes picked just for you
+  * And sent to your door on a frequency that you choose
   * Combines technology & data science
   * With an actual human stylist
 - We're hiring!
   * Headquarters is in SF
   * But we have remote engineers all over the country
+  * Colleague **Ross** is here!
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -373,11 +376,11 @@ NOTES:
 
 $> cd nationjs
 
-$> yarn start
+$> npm start
 
 ### For production
 
-$> yarn build</code></pre>
+$> npm run build</code></pre>
 
     <p><a href="https://reactjs.org/blog/2018/10/01/create-react-app-v2.html" target="_blank">CRA 2.0</a>: Babel 7, Webpack 4, TypeScript, CSS Modules, etc.</p>
   </div>
@@ -483,7 +486,7 @@ NOTES:
   * **Global CSS** would be something like Bootstrap or Foundation which is built completely separate
   * **Component CSS** is actually imported by the component
   * Therefore if the Component isn't used in the app the CSS won't be included in the bundle
-  * Need a bundler that can handle bundling CSS (like CRA)
+  * Need a bundler that can handle importing CSS (like CRA)
 - 3rd option is **CSS Modules**
   * There's lots to like about CSS Modules
   * CSS Modules are similar to Component CSS
@@ -495,8 +498,8 @@ NOTES:
   * Were adding `!important` everywhere
   * Having lots of dynamic styles which can be challenging with CSS
   * There was a big huge push for this early in React when React Native came out
-  * But it doesn't support CSS, only inline styles
-  * If you want to try to share components across React & React Native you can't use CSS
+  * Problem is it only supports what inline styles support
+  * No media queries, pseudo-selectors, keyframe animations, etc
 - New **`css-in-js`** libraries have popped up to try to solve that issue in various clever ways
   * Most take what's defined as inline styles but map to unique CSS classes
   * Get the best of both worlds: JavaScript-scoped styling + full CSS functionality
@@ -668,12 +671,13 @@ NOTES:
 NOTES:
 - Then there's routing to keep your UI in sync w/ the URL
 - **React Router** is the main router
-  * v4 was a complete API change which had drawbacks
-  * Most prevalent in use
+  * v4 was a complete API change to be more component-based
+  * But it had some drawbacks
+  * However, it's still most prevalent in use
 - **Reach Router** was a complete rethink
   * Intended to be accessible by default
   * Manages focus of your app on route transitions
-  * Has ambiguous path ranking algorithm
+  * Has flexible routing to figure out which route matches
   * Relative links, "not found" default components, etc.
 - They are going to merge together  (hooks-based API)
   * Into `react-router`, but the API will be similar to `@reach/router`
@@ -837,7 +841,7 @@ NOTES:
   * Runs in a browser, but isn't slow Selenium or Webdriver
   * But can also used a development platform for TDD
   * Becoming increasingly popular
-  * Call also use it with a visual regression utility like Percy
+  * Call also use it with a visual testing utility like Percy
 - **Enzyme** is probably most common
   * Been around basically since the beginning of React
   * Has a very jQuery-like interface for inspecting & interacting w/ components
@@ -872,8 +876,9 @@ NOTES:
 
 NOTES:
 - There's so much more I could say about testing
-  * Especially `enzyme` v `react-testing-library`
-  * But thankfully **Matt** will be teaching how to rewrite effective, no brittle tests for our apps
+  * Especially `enzyme` vs `react-testing-library`
+  * But thankfully **Matt** will be teaching how to rewrite effective, non-brittle tests for our apps
+- After the break!
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jong-marshes-452773-sea-turtle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -886,6 +891,7 @@ NOTES:
       <li><a href="https://github.com/testing-library/jest-dom" target="_blank"><code>jest-dom</code></a> / <a href="https://github.com/FormidableLabs/enzyme-matchers" target="_blank"><code>jest-enzyme</code></a></li>
       <li><a href="https://kentcdodds.com/blog/making-your-ui-tests-resilient-to-change" target="_blank"><em>Making your UI tests resilient to change</em></a></li>
       <li><a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">Intro to Cypress</a> ⏯️</li>
+      <li><a href="https://www.youtube.com/watch?v=MXfZeE9RQDw" target="_blank">Cypress.io + Percy</a> ⏯️</li>
       <li><a href="https://medium.com/@nitinpatel_20236/unit-testing-custom-react-hooks-caa86f58510" target="_blank"><em>Unit Testing Custom React Hooks</em></a></li>
       <li><a href="https://github.com/Raathigesh/majestic/" target="_blank">Majestic</li>
       <li><a href="https://testingjavascript.com/" target="_blank">Testing JavaScript with Kent C. Dodds</a></li>
@@ -925,7 +931,7 @@ NOTES:
 NOTES:
 - Everybody's favorite topic!
 - Up until this point, we've implicitly been using components to store application data
-  * Possibly using Context API to pass data down to various components
+  * Possibly using Context API to pass down global props like language, theme, etc.
 - Once the data becomes too complex or too many components want to modify that data
   * _THEN_ it maybe time for a data management library!
 
@@ -978,7 +984,7 @@ NOTES:
   * Diagram all the states of your app state and the events that trigger between the states
   * The goal is that you make sure you handle all the states and prevent mutually exclusive states
   * It's probably more difficult to set-up because it's based on mathematical finite state machines
-  * Worth bringing up if you have lots of states and transitions (events)
+  * Worth using if you have lots of states and transitions (events)
 - Quite possible that with React **Context & Hooks** we won't even need Redux or MobX
   * We reach for Redux to easily get data to multiple components
   * Or to abstract manipulations of data into easily-testable utilities (reducers)
@@ -1022,6 +1028,9 @@ NOTES:
 - **`immer`** takes a completely different approach
   * It doesn't use objects at all
   * It's a newer solution
+  * You give `produce()` the object you want to mutate and a function that performs the mutation
+  * Get to write the mutations in "normal" JavaScript
+  * It efficiently batches up the mutations & returns the "next state" of the object
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1042,9 +1051,10 @@ NOTES:
 
 NOTES:
 - If you wanna learn more about managing state
-- **Eric** will be challenging the status quo on Redux best practices
+- **Dillon** will be challenging the status quo on Redux best practices
   * Wants to shift our mental model to be more event-driven
   * May be the same spirit as `xstate`
+- Right before lunch!
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1138,8 +1148,8 @@ NOTES:
   * Data fetching with `isomorphic-fetch`
 - **Gatsby** is an amazing static-site generator
   * Use it for my site benmvp.com
-  * Basically does similar things as Next.js but does it all at build time
   * It's all static pages: HTML, CSS & JS
+  * Generated at build time
   * Creates a progressive web app, with data-prefetching for performance
   * Uses GraphQL to retrieve data for components
 - **Next.js** is a framework for server-rendered React applications by Zeit
@@ -1378,7 +1388,7 @@ NOTES:
   * Or **`react-router`** if you have lots
 - 4/ Use **`react-final-form`** for form validation w/o Redux
 - 5/ Use **React Testing Library** for testing components w/o a browser
-  * But you'll probably want **Cypress** too for happy path E2E tests
+  * But you'll probably want **Cypress** + **Percy** too for happy path E2E tests
 - 6/ See how far you can go with Hooks + Context
   * Only reach for **Redux** as a last resort
 - 7/ Try out **Next.js** if you need server-side rendering
@@ -1406,13 +1416,15 @@ NOTES:
 NOTES:
 - So that's it!
 - Just flooded you with a lot of information
-  * Reminder; slides are available online
+  * Reminder: slides are available online
 - Hopefully 1, 2 or all 8 of these suggestions will prove useful to you
   * You've got some notes scribbled to go check things out later
   * You don't need to be overwhelmed and try to learn at once
-  * Get good at one thing and build on it
-- **Conference:** Inviting me to share my knowledge/experience with y'all
-- **YOU!** For being such an engaged audience right before lunch
-  * If you've got questions, feel free to find me afterwards
+  * Get good at **one thing** and build on it
+- **Conference:** Inviting me to share my knowledge/experience with y'all (**Grey**)
+- **YOU!** For being such an engaged audience
+  * Not going to take any questions
+  * But if you've got questions, feel free to find me afterwards
+  * I also have swag to give away!
   * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
 - Thank you so much and enjoy the rest of the conference!
