@@ -185,6 +185,16 @@ NOTES:
   * But we have remote engineers all over the country
   * Colleague **Ross** is here!
 
+/////
+<!-- .slide: data-background="url(../../img/nationjs/nationals-world-series-champs.jpg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+- Even though I live in the Bay Area, I'm originally from Houston
+- Not a huge MLB fan, but will follow the Astros in the Playoffs
+- I was excited to come in gloat how we won
+- But I got served humble pie
+- It was a great series
+
 =====
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
