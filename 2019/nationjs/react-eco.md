@@ -27,17 +27,13 @@ NOTES:
   * You need to know Redux, css-in-js, server-side rendering, etc.
   * All at the same time
   * It can be so overwhelming
-_ **How many of you have used React before?**
 - React is still just a UI library
   * Need to pick libraries for fetching data, managing state, etc. for full framework
   * How can you pick the right thing, if you've never used it before?
+- **How many of you have used React before?**
 - So I want to walk through the different libs in the React ecosystem
   * 1/ Provide my opinion of which category of libs you should prioritize first
   * 2/ I'll also try to give a list of options for each category and my preference
-- For those of you who have been doing React for a while
-  * Hopefully there will be a thing or two that'll be new for you
-  * If not, you can use the info I provide when your coworkers ask you why you picked a lib
-  * Have a better argument than just "Because... I liked it?"
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -49,6 +45,8 @@ _ **How many of you have used React before?**
 </div>
 
 NOTES:
+_[1 minute]_
+
 - Before we jump in the ecosystem
   * Lemme quickly chat about React first
 
@@ -84,40 +82,8 @@ NOTES:
   * If you're coming from MVC model, one-way data flow can be counter-intuitive
 - After the basics, keep up with the latest features...
   * React continues to evolve
-- Advanced component patterns
-  * Presentational vs. container components
-  * Sharing component logic with higher-order components / render props / hooks
-- Implementing error boundaries (v16)
-- Using Fragments (v16.2) & Context API (v16.3)
-- We can monitor and optimize performance (v16.5)
-- Leveraging new Suspense system with auto-code splitting (v16.6)
-- Hooks which completely changed how we write components (v16.8)
-- Concurrent Mode which was announced at React Conf in October (still experimental)
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 40%">
-    <h2>React Dev Tools</h2>
-    <p>Help debug React props & state</p>
-
-    <img src="../../img/nav-react/react-dev-tools-v4.png" alt="Screenshot of React Dev Tools v4" style="width: 100%" />
-
-    <p>Available for <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" target="_blank">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/" target="_blank">Firefox</a></p>
-
-    <p>(Performance debugging in v16.5)</p>
-  </div>
-</div>
-
-NOTES:
-- Also want to point out the React Dev Tools
-  * They are super helpful in debugging React components
-- You browse the React component tree just like the DOM tree
-  * And you can look at the component props as well as the state
-  * Keeps improving to provide more debugging capability
-  * Just recently with the release of React 16.5 enabling performance debugging
-- Available for Chrome, Firefox, and now Chromium-based Edge
+- **Hooks** which completely changed how we write components (v16.8)
+- **Concurrent Mode** which was announced at React Conf in October (still experimental)
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/craig-lovelidge-362228-yellow-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -137,8 +103,8 @@ NOTES:
 </div>
 
 NOTES:
-- This is a high-level overview talk
-  * And the purpose is the ecosystem, not React itself
+_[2 minutes]_
+
 - If you wanna know more of the basics of building React components
   * **Kathryn** will be providing insights on creating a component lib from scratch
   * Right after this talk
@@ -160,6 +126,8 @@ NOTES:
 <!-- .slide: data-background="#000 url(../../img/family/ilegbodu-family-photo-2019.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[3 minutes]_
+
 - My name is Ben Ilegbodu
 - Christian, Husband, Father
 - _Family introductions_
@@ -172,6 +140,8 @@ NOTES:
 <!-- .element: class="plain" style="width: 75%" -->
 
 NOTES:
+_[4 minutes]_
+
 - Just recently started working at Stitch Fix
   * As a Frontend Architect
   * Which I'm super excited about
@@ -194,6 +164,7 @@ NOTES:
 - I was excited to come in gloat how we won
 - But I got served humble pie
 - It was a great series
+- Congrats...
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -204,7 +175,6 @@ NOTES:
 - Going to be *a lot* of stuff covered
   * Not going to be able to teach you how to use any given lib
   * Instead my goal is to expose you to the libs so you can investigate
-  * Will also give my preferences
 - Tweeted a link to slides cuz there will be **a lot** of resources
 
 =====
@@ -217,6 +187,8 @@ NOTES:
 </div>
 
 NOTES:
+_[6 minutes]_
+
 - Probably the biggest complaint w/ React isn't React itself
   * But the tooling needed to get set up
 - I think the problem is that there's so much choice in this area
@@ -398,6 +370,8 @@ $> npm run build</code></pre>
 
 
 NOTES:
+_[7 minutes]_
+
 - So that was everything you need to set up your React app!
   * And I didn't even go into a bunch of nitty gritty details
 - This had been the biggest complaint about React
@@ -453,6 +427,8 @@ NOTES:
 
 
 NOTES:
+_[8 minutes]_
+
 - Now that we can build an app, we need to make it look good
   * Because visuals are just as important as interaction
 - There are _at least_ **5 ways** to tackle the styling problem
@@ -491,18 +467,10 @@ NOTES:
 </div>
 
 NOTES:
-- **Global CSS** and **Component CSS** are similar
-  * Components reference CSS classes that have to be appropriately namespaced to prevent collisions
-  * **Global CSS** would be something like Bootstrap or Foundation which is built completely separate
-  * **Component CSS** is actually imported by the component
-  * Therefore if the Component isn't used in the app the CSS won't be included in the bundle
-  * Need a bundler that can handle importing CSS (like CRA)
-- 3rd option is **CSS Modules**
-  * There's lots to like about CSS Modules
-  * CSS Modules are similar to Component CSS
-  * Except the import of the CSS returns sandboxed class names
-  * The generated CSS classes will be unique so there's no way they can collide
-  * Also need a bundler, there's a babel plugin
+- First 3 all use CSS
+  * First is **Global CSS** like using Bootstrap or Foundation
+  * Second is **Component CSS** where you import a CSS snippet in the component
+  * Third is **CSS Modules** where you also import but CSS classes are sandboxed
 - The folks who choose the **Inline Styles** option are in the "screw CSS" camp
   * Tired of dealing with specificity wars, unexpected cascade, etc.
   * Were adding `!important` everywhere
@@ -545,6 +513,8 @@ NOTES:
 
 
 NOTES:
+_[9 minutes]_
+
 - Emotion is the newest and super popular
   * It's taken learnings from all the others to create a flexible API
 
@@ -592,6 +562,8 @@ NOTES:
 </div>
 
 NOTES:
+_[10 minutes]_
+
 - Moving along to libraries needed for Single Page Apps
 - Two main subcategories
 
@@ -617,6 +589,8 @@ NOTES:
 </div>
 
 NOTES:
+_[11 minutes]_
+
 - Your favorite batteries-included JS framework (like Angular) has a mechanism for making AJAX requests
   * React does not come with one because it's just the UI side
   * So the second you need to make an AJAX request, you need to figure out how to do it
@@ -679,6 +653,9 @@ NOTES:
 </div>
 
 NOTES:
+_[12 minutes]_
+
+
 - Then there's routing to keep your UI in sync w/ the URL
 - **React Router** is the main router
   * v4 was a complete API change to be more component-based
@@ -723,6 +700,8 @@ NOTES:
 </div>
 
 NOTES:
+_[13 minutes]_
+
 - Let's be real, no one _really_ likes forms
   * Forms are not that hard
   * But forms **with validation** are definitely hard
@@ -768,6 +747,8 @@ NOTES:
 </div>
 
 NOTES:
+_[14 minutes]_
+
 - The original is **Redux Form**
   * But relied on having Redux (we haven't gotten to)
   * It's also a pretty big lib for simple forms
@@ -817,6 +798,8 @@ NOTES:
 </div>
 
 NOTES:
+_[15 minutes]_
+
 - Testing is super important for the integrity of your app
 - It's funny, none of us _really_ enjoy writing tests
   * But we wish there were a lot of tests when we're refactoring
@@ -919,6 +902,8 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[17 minutes]_
+
 - At this point we actually have everything we need to build Production-level apps
   * 0/ React (obviously)
   * 1/ Tooling w/ CRA that creates production builds
@@ -939,6 +924,8 @@ NOTES:
 </div>
 
 NOTES:
+_[18 minutes]_
+
 - Everybody's favorite topic!
 - Up until this point, we've implicitly been using components to store application data
   * Possibly using Context API to pass down global props like language, theme, etc.
@@ -1004,48 +991,6 @@ NOTES:
 <!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 65%">
-    <h2>Immutability</h2>
-    <p>Provide immutable collections for JavaScript</p>
-
-    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/immutable-js/" target="_blank" style="background-color: #fff;display:block"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
-      </div>
-	    <div style="flex:0 0 30%;">
-        <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
-      </div>
-	    <div style="flex:0 0 30%;">
-        <a href="https://github.com/mweststrate/immer" target="_blank"><img src="../../img/nav-react/immer-logo.png" class="plain" /></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-NOTES:
-- Instead you can use a libraries to have true immutable objects
-- **`Immutable`** is the big player, yet another library from Facebook
-  * Only used it a bit
-  * Found the API a bit cumbersome
-  * Has its own set of objects: Collections, Dictionaries, etc.
-  * Constantly going to and from Immutable and native objects
-  * Don't _really_ want my React components to have to care, just Redux
-- **`seamless-immutable`**
-  * Alternative that has data structures that are backwards-compatible
-  * They work just like Arrays/Objects except they don't mutate & have extra functionality
-  * A lot lighter than `Immutable`
-- **`immer`** takes a completely different approach
-  * It doesn't use objects at all
-  * It's a newer solution
-  * You give `produce()` the object you want to mutate and a function that performs the mutation
-  * Get to write the mutations in "normal" JavaScript
-  * It efficiently batches up the mutations & returns the "next state" of the object
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/eva-tillmann-677057-clown-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 40%">
     <p>
       <img src="../../img/nationjs/dillon-mulroy.jpg" alt="Dillon Mulroy" class="speaker-headshot" />
@@ -1106,6 +1051,8 @@ NOTES:
 </div>
 
 NOTES:
+_[20 minutes]_
+
 - Chances are if you're building an app of significant size...
   * SEO & initial render speed will matter
 - Rendering server-side can help both
@@ -1247,6 +1194,8 @@ NOTES:
 </div>
 
 NOTES:
+_[22 minutes]_
+
 - As your app grows larger you may find that you're making lots of REST API requests
 - A single user action can result in 3+ AJAX requests
   * ...because of how the micro-services are divided
@@ -1332,6 +1281,8 @@ NOTES:
 </div>
 
 NOTES:
+_[23 minutes]_
+
 - _Deep breath_
 - So that was a lot
   * Let's be real, you probably didn't catch everything
@@ -1386,6 +1337,8 @@ NOTES:
 </div>
 
 NOTES:
+_[24 minutes]_
+
 - Here are all the categories and my opinions
   * **Cool thing:** Can tailor your stack to your team and existing codebase
 - 0/ Learn **React** _really well_
@@ -1424,6 +1377,8 @@ NOTES:
 </div>
 
 NOTES:
+_[25 minutes]_
+
 - So that's it!
 - Just flooded you with a lot of information
   * Reminder: slides are available online
