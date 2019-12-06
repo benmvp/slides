@@ -159,12 +159,7 @@ _[4 minutes]_
 <!-- .slide: data-background="url(../../img/nationjs/nationals-world-series-champs.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- Even though I live in the Bay Area, I'm originally from Houston
-- Not a huge MLB fan, but will follow the Astros in the Playoffs
-- I was excited to come in gloat how we won
-- But I got served humble pie
-- It was a great series
-- Congrats...
+- Wanted to give a quick congrats to the Nationals fans out there!
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/shaun-low-498556-blue-gray-coral-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -364,7 +359,7 @@ $> npm start
 
 $> npm run build</code></pre>
 
-    <p><a href="https://reactjs.org/blog/2018/10/01/create-react-app-v2.html" target="_blank">CRA 2.0</a>: Babel 7, Webpack 4, TypeScript, CSS Modules, etc.</p>
+    <p>Babel, Webpack, ESLint, TypeScript, CSS Modules, Jest, etc.</p>
   </div>
 </div>
 
@@ -386,7 +381,6 @@ _[7 minutes]_
   * And if you need to config something it doesn't support you can "eject"
 - Creates an optimized bundle you can ship to production
 - Much better than the (bloated) boilerplates / starter-kits
-- v2 shipped a year ago with lots of updated infra
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/erin-simmons-382355-sea-life-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1021,7 +1015,7 @@ NOTES:
     <ul>
       <li><a href="https://kentcdodds.com/blog/application-state-management-with-react" target="_blank"><em>Application State Management with React</em></a></li>
       <li><a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank">Redux DevTools Extension</a></li>
-      <li><a href="https://redux-starter-kit.js.org/" target="_blank">Redux Starter Kit</a></li>
+      <li><a href="https://redux-toolkit.js.org/" target="_blank">Redux Toolkit</a></li>
       <li><a href="https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533" target="_blank"><em>Replace Redux with React Hooks + Context</em></a></li>
       <li><a href="https://github.com/markerikson/redux-ecosystem-links" target="_blank">Redux Ecosystem</li>
       <li><a href="https://github.com/xgrommx/mobx-ecosystem" target="_blank">MobX Ecosystem</li>
@@ -1051,7 +1045,7 @@ NOTES:
 </div>
 
 NOTES:
-_[20 minutes]_
+_[21 minutes]_
 
 - Chances are if you're building an app of significant size...
   * SEO & initial render speed will matter
@@ -1185,93 +1179,6 @@ NOTES:
   * server-side too
 
 =====
-<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h1>8. API Optimization</h1>
-  </div>
-</div>
-
-NOTES:
-_[22 minutes]_
-
-- As your app grows larger you may find that you're making lots of REST API requests
-- A single user action can result in 3+ AJAX requests
-  * ...because of how the micro-services are divided
-  * Managing sequential or parallel requests can get tricky
-  * Also can create sluggish UI
-- We sometimes solve this with rest by creating "uber APIs"
-  * But then we're requesting a whole bunch of data we're not using
-  * Bad for mobile
-- There are cutting-edge technologies to tackle this problem
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 65%">
-    <h2>API Optimization</h2>
-    <p>Retrieve only the data you need</p>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-      <div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/relay/"><img src="../../img/nav-react/relay-logo.svg" class="plain" style="width:100%;" /></a>
-        <a href="https://facebook.github.io/relay/">Relay</a>
-      </div>
-      <div style="flex:0 0 30%;">
-        <a href="http://dev.apollodata.com/"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:100%;margin:2em 0" /></a>
-        <a href="http://dev.apollodata.com/">Apollo</a>
-      </div>
-      <div style="flex:0 0 30%;">
-        <a href="http://netflix.github.io/falcor/"><img src="../../img/nav-react/falcor-logo.svg" class="plain" style="width:100%;margin:3em 0" /></a>
-        <a href="http://netflix.github.io/falcor/" style="display:block"><strike>Falcor</strike></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-NOTES:
-- Facebook & Netflix tackled the same problem with different approaches
-- In both cases you get only the data you want, nothing more, nothing less
-- Can no longer use your traditional REST APIs
-  * However, you can start by putting this in front of backend REST APIs
-- Facebook came up with **GraphQL**, a generic query language for APIs
-- **Relay** & **Apollo** are connections of React to GraphQL on the client
-  * You have to build out your GraphQL server
-- **Falcor**
-  * I mention Falcor because it was a thing
-  * But Netflix doesn't even support it
-  * GraphQL "won"
-- Be aware that **Apollo** will basically take over your app
-  * Can be good or bad
-  * _Good_ in the sense that it basically reducers your need for Redux
-  * _Bad_ if you already have Redux and you need to move things around
-
-/////
-<!-- .slide: data-background="url(../../img/nav-react/vlad-tchompalov-446902-brown-pepper-fish-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>API Optimization Resources</h2>
-
-    <ul>
-      <li><a href="https://www.howtographql.com/" target="_blank">How to GraphQL</a></li>
-      <li><a href="https://www.youtube.com/watch?v=F_M8v6MK0Sc" target="_blank">GraphQL in 3 Components</a> ⏯️</li>
-      <li><a href="https://github.com/apollographql/apollo-client-devtools" target="_blank">Apollo Client Devtools</a></li>
-      <li><a href="https://www.prisma.io/" target="_blank">Prisma</a></li>
-      <li><a href="https://www.graph.cool/" target="_blank">Graphcool</a></li>
-      <li><a href="https://github.com/chentsulin/awesome-graphql" target="_blank">Awesome GraphQL</a></li>
-    </ul>
-  </div>
-</div>
-
-NOTES:
-- How to GraphQL is a full-stack tutorial for GraphQL
-- _GraphQL in 3 Components_ is a talk from Eve Porcello from React Rally 2018
-
-=====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
@@ -1294,43 +1201,39 @@ _[23 minutes]_
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 80%">
+  <div class="content-overlay" style="width: 90%">
     <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
-	    <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+	    <div style="flex: 0 0 25%; margin-bottom: 0.8em">
         <div>0. React</div>
         <a href="https://facebook.github.io/react/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%; margin-bottom: 0.8em;display:flex;flex-direction:column;justify-content:flex-end">
+      <div style="flex: 0 0 25%; margin-bottom: 0.8em;display:flex;flex-direction:column;justify-content:flex-end">
         <div>1. Tooling</div>
         <a href="https://github.com/facebook/create-react-app" target="_blank" style="display: block"><img src="../../img/nav-react/create-react-app-logo.svg" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+      <div style="flex: 0 0 25%; margin-bottom: 0.8em">
         <div>2. Styling</div>
         <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/emotion-logo.png" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
-        <div>3. Single-Page Apps</div>
+      <div style="flex: 0 0 25%; margin-bottom: 0.8em">
+        <div>3. SPAs</div>
         <a href="https://reach.tech/router" target="_blank"><img src="../../img/nav-react/reach-router-logo.svg" class="plain" style="width: 65%; margin-top: 1.0em" /></a>
       </div>
-      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+      <div style="flex: 0 0 25%; margin-bottom: 0.8em">
         <div>4. Forms</div>
         <a href="http://final-form.org/" target="_blank"><img src="../../img/nav-react/react-final-form-logo.png" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+      <div style="flex: 0 0 25%; margin-bottom: 0.8em">
         <div>5. Testing</div>
         <a href="https://testing-library.com/react" target="_blank"><img src="../../img/nav-react/react-testing-library-logo.png" class="plain" style="width:30%" /></a>
       </div>
-      <div style="flex: 0 0 33%">
-        <div>6. App Data Management</div>
+      <div style="flex: 0 0 25%">
+        <div>6. App Data</div>
         <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width: 33%" /></a>
       </div>
-      <div style="flex: 0 0 33%">
-        <div>7. Server-side Rendering</div>
+      <div style="flex: 0 0 25%">
+        <div>7. SSR</div>
         <a href="https://nextjs.org/" target="_blank"><img src="../../img/nav-react/nextjs-logo.svg" class="plain" style="width: 50%" /></a>
-      </div>
-      <div style="flex: 0 0 33%">
-        <div>8. API Optimization</div>
-        <a href="http://dev.apollodata.com/" target="_blank"><img src="../../img/nav-react/apollo-logo.svg" class="plain" style="width:50%" /></a>
       </div>
     </div>
   </div>
@@ -1355,7 +1258,6 @@ _[24 minutes]_
 - 6/ See how far you can go with Hooks + Context
   * Only reach for **Redux** as a last resort
 - 7/ Try out **Next.js** if you need server-side rendering
-- 8/ Go ahead and use **Apollo** when you're requesting lots of data
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1386,7 +1288,7 @@ _[25 minutes]_
   * You've got some notes scribbled to go check things out later
   * You don't need to be overwhelmed and try to learn at once
   * Get good at **one thing** and build on it
-- **Conference:** Inviting me to share my knowledge/experience with y'all (**Grey**)
+- **Conference:** Inviting me to share my knowledge/experience with y'all (**Gray**)
 - **YOU!** For being such an engaged audience
   * Not going to take any questions
   * But if you've got questions, feel free to find me afterwards
