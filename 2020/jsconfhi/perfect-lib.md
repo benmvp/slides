@@ -50,7 +50,7 @@ NOTES:
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 70%">
     <a href="https://kentcdodds.com/blog/why-users-care-about-how-you-write-code" target="_blank">
-      <img src="../../img/perfect-lib/kent-c-dodds-why-users-care-about-how-you-write-code.png" alt="Article by Kent C. Dodds entitled 'Why users care about how your write code'" />
+      <img src="../../img/perfect-lib/kent-c-dodds-why-users-care-about-how-you-write-code.png" alt="Article by Kent C. Dodds entitled 'Why users care about how your write code'" class="plain" />
     </a>
     <p>
       <a href="https://kentcdodds.com/blog/why-users-care-about-how-you-write-code" target="_blank">
@@ -314,19 +314,108 @@ NOTES:
 
 
 NOTES:
-- Maybe be bit controversial
-  * My own bias
+- With helpful docs, the dev can develop their app
+- In which case they'll need and want TypeScript types
+- TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+- Now this may be be bit controversial
+  * It's certainly my own bias
+  * But the numbers back me up (from State of JS survey)
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 75%">
+    <h2>TypeScript adoption</h2>
+
+    <div style="height: 750px; width:25%; margin:0 auto; position:relative; ">
+      <div style="width: 50%; height: 100%; box-sizing: border-box; border: 10px solid black"></div>
+      <div style="width: 100%; border-bottom: 3px solid black; display: flex; justify-content: space-around; position: absolute; bottom: 21%; left: 0">
+        <span>21%</span>
+        <a href="http://2016.stateofjs.com/2016/flavors/" target="_blank">2016</a>
+      </div>
+      <div style="width: 100%; border-bottom: 3px solid black; display: flex; justify-content: space-around; position: absolute; bottom: 33%; left: 0">
+        <span>33%</span>
+        <a href="https://2017.stateofjs.com/2017/flavors/results/" target="_blank">2017</a>
+      </div>
+      <div style="width: 100%; border-bottom: 3px solid black; display: flex; justify-content: space-around; position: absolute; bottom: 46.7%; left: 0">
+        <span>47%</span>
+        <a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">2018</a>
+      </div>
+      <div style="width: 100%; border-bottom: 3px solid black; display: flex; justify-content: space-around; position: absolute; bottom: 58.5%; left: 0">
+        <span>59%</span>
+        <a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">2019</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+NOTES:
+- TypeScript has become super popular
+- 2018 was the year everyone "discovered" TypeScript
+- Only 1/3 of devs had used TypeScript in 2017
+- In 2018, it was 47%
+- In 2019, it was nearly 60%
+  * Add in those that are interested in learning: **80%**
+- 8 out of every 10 developer will need TypeScript definitions from your lib
+  * In order to build their app using your lib
+- Question: **So what makes it possible to make TypeScript definitions available?**
+
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 85%">
+    <a href="http://definitelytyped.org/" target="_blank">
+      <img src="../../img/perfect-lib/definitelytyped-screenshot.png" alt="A screenshot of the DefinitelyTyped homepage" class="plain" />
+    </a>
+    <p>
+      <a href="http://definitelytyped.org/" target="_blank">DefinitelyTyped</a>
+    </p>
 
   </div>
 </div>
 
 NOTES:
+- One option is build your app in JavaScript
+  * And then add TypeScript type declaration files to DefinitelyTyped
+  * A repo of high quality TypeScript type definitions
+- Nearly 7000 library type definition files are in the repo
+  * `React`, `lodash`, `node`, etc
+- The drawback is that you have to know quite a bit of TypeScript to generate these files manually
+- And as your library updates, you'll have to keep the types in sync
+- This can be a lot of work, so my suggestion is...
+
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 75%">
+    <a href="http://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html" target="_blank">
+      <img src="../../img/perfect-lib/typescript-migrating-from-javascript-tutorial.png" alt="A TypeScript tutorial on how to migrate from JavaScript" class="plain" />
+    </a>
+    <p>
+      <a href="https://code.visualstudio.com/docs/languages/typescript" target="_blank">VS Code + TypeScript = ❤️</a>
+    </p>
+  </div>
+</div>
+
+NOTES:
+- Write your library in TypeScript of course!
+- There's definitely a learning curve to TypeScript, no doubt
+- But in the interest of serving your users (the developers)
+  * Writing in TypeScript is the best way to provide type definition files
+  * Because they will be auto-generated
+  * (more on how they make it into your package later)
+- Written definition files are often buggy
+  * It's almost better to have no definitions, than buggy ones
+- It's also difficult to write types for code written un-typed
+  * When code is untyped, we can make shortcut assumptions
+  * These aren't allowed in TypeScript
+  * So writing types could be challenging or impossible
+- Visual Studio Code has great integrations with TypeScript too!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
