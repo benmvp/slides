@@ -427,17 +427,149 @@ NOTES:
 </div>
 
 NOTES:
+- So now I know how it works w/ the docs & have my TypeScript types to develop with
+- While developing, there's nothing more frustrating than coming across a library bug
+- Because we're pretty trusting initially, and think it's us
+  * And spend countless hours debugging trying to figure out why it isn't working
+- So for our library to be "perfect"
+  * Need to do our absolute best to prevent 100% of bugs
+- The question of course is
+  * **What makes this possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 45%">
-
+  <div class="content-overlay" style="width: 65%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 31%;">
+        <a href="https://www.typescriptlang.org/" target="_blank" style="display: block"><img src="../../img/nav-react/typescript-logo.png" class="plain" style="width: 95%" /></a>
+		    Type checking
+      </div>
+      <div style="flex:0 0 31%;">
+        <a href="http://eslint.org/" target="_blank" style="display: block"><img src="../../img/nav-react/eslint-logo.svg" class="plain" style="width: 95%"/></a>
+        Linting
+      </div>
+      <div style="flex:0 0 31%;">
+        <a href="https://jestjs.io/" target="_blank" style="display: block"><img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width: 95%"/></a>
+        Testing + Coverage
+      </div>
   </div>
 </div>
 
 NOTES:
+- The 3-headed monster of Type checking, Linting & Testing + Coverage
+- **Type checking** comes with developing in TypeScript, which we just discussed
+  * So not only is developing w/ TypeScript good for providing types for our users
+  * It's also good for our users because it helps us avoid bugs!
+  * The kind of bugs where things are unexpectedly `undefined`
+  * Or you refactor a function and forget to update it somewhere
+  * With VS Code this can happen _as you develop_
+- **Linting** comes via ESLint
+  * This also can happen _as you develop_ in your favorite editor
+  * TypeScript catches a lot of the non-stylist errors ESLint catches
+  * There are still some that are _likely_ errors
+  * And then there are additional plugins for environments like React
+- **Testing + Coverage** comes with Jest
+  * Allows you to write unit tests
+  * Can also check what percentage of your code has been tested
+  * Unit testing is huge in keeping your lib bug-free
+  * But of course it depends on you actually writing tests
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Jest Projects</h2>
+    <p>Run typing, linting & tests all within Jest</p>
+
+    <pre class="large"><code class="lang-javascript">{
+  "projects": [
+    { "displayName": "test" },
+    {
+      "displayName": "lint",
+      "runner": "jest-runner-eslint",
+      "testMatch": ["&lt;rootDir>/**/*.ts"]
+    }, {
+      "displayName": "type",
+      "runner": "jest-runner-tsc",
+      "testMatch": ["&lt;rootDir>/**/*.ts"]
+    }
+  ]
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Typically you'd run typing, linting & testing with 3 separate commands
+  * But with Jest projects, you can run them all through Jest
+- Jest is a platform that's broken up into 3 main parts
+  * The "file collector" in the beginning that determines which files to run on
+  * The "error reporter" at the end that displays success or failure
+  * The "runner" in the middle which runs what we're validating
+- Instead of running the Jest test runner, we can run eslint or `tsc` for Typescript
+- This enables to run linting in watch mode, which `eslint` command doesn't support
+  * Allows them to be run in parallel
+  * But w/ consistent and grouped error messaging
+- Simply call `jest` as the `"test"` script in `package.json`
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-yaml">name: CI
+on: [push, pull_request]
+jobs:
+  main:
+    strategy:
+      matrix:
+        node: [10, 12, 13]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+        env:
+          CI: true</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Lastly, it's not enough that we run our tests locally
+  * Need to ensure that all code pushed to origin is validated
+- It's vital that you have continuous integration (CI) setup
+  * There are many CI tools out there
+  * But lately I've been using Github actions and loving it
+  * Can use it Github actions w/o registering for another service
+- Here's a Github workflow to run tests on Node 10, 12 & 13
+  * I always run on the even versions (LTS) and latest odd
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Resources</h2>
+
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=ZJ43STkmK-4" target="_blank">Jest as a Platform</a> ⏯️</li>
+      <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
+      <li><a href="https://github.com/jest-community/jest-runner-eslint" target="_blank"><code>jest-runner-eslint</code></a> + <a href="https://github.com/azz/jest-runner-tsc" target="_blank"><code>jest-runner-tsc</code></a></li>
+      <li><a href="https://github.com/jest-community/jest-watch-typeahead" target="_blank"><code>jest-watch-typeahead</code></a></li>
+      <li><a href="https://github.com/features/actions" target="_blank">Github Actions</a></li>
+    </ul>
+  </div>
+</div>
+
+NOTES:
+- Here's a video to talk by Rogelio Guzman on "Jest as a Platform"
+- Miscellaneous packages for setting up TypeScript + Eslint + Jest
+- All about Github actions
+
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -524,7 +656,6 @@ NOTES:
 NOTES:
 - My friend Jonathan Creamer is passionate about Frontend tooling
 - He's coined the term "divops" for the industry
--
 
 =====
 
@@ -551,11 +682,9 @@ NOTES:
 - So that's it!
 - Just flooded you with a lot of information
   * Reminder: slides are available online
-- Hopefully 1, 2 or all 8 of these suggestions will prove useful to you
-  * You've got some notes scribbled to go check things out later
-  * You don't need to be overwhelmed and try to learn at once
-  * Get good at **one thing** and build on it
-- **Conference:** Inviting me to share my knowledge/experience with y'all (**Gray**)
+- Hopefully there are a few new things you've learned
+  * I've also likely forgotten some things so I'd love your feedback!
+- **Conference:** Inviting me to share my knowledge/experience with y'all (**Kelly** + crew)
 - **YOU!** For being such an engaged audience
   * Not going to take any questions
   * But if you've got questions, feel free to find me afterwards
