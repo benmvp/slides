@@ -427,6 +427,7 @@ NOTES:
 </div>
 
 NOTES:
+- Let's start to get a bit tactical
 - So now I know how it works w/ the docs & have my TypeScript types to develop with
 - While developing, there's nothing more frustrating than coming across a library bug
 - Because we're pretty trusting initially, and think it's us
@@ -547,6 +548,7 @@ NOTES:
   * Can use it Github actions w/o registering for another service
 - Here's a Github workflow to run tests on Node 10, 12 & 13
   * I always run on the even versions (LTS) and latest odd
+  * It's important that you test on multiple Node versions!
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -576,22 +578,257 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <h1>4. Fixes come quickly</h1>
+    <h1>4. Changes come quickly</h1>
   </div>
 </div>
 
 NOTES:
+- Discussed: **Helpful docs**, **TypeScript types** & **Bug free**
+  * Let's bring it home
+- No matter how hard you test and test, there will inevitably still be bugs
+- Or even if you write perfect code...
+  - Your users (the developers) will have requests for features you haven't thought of
+- So you want to be able to get those changes to your users ASAP
+  - From initial request, to up in the npm registry
+- **What makes this possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 45%">
-
+  <div class="content-overlay" style="width: 60%">
+    <img src="../../img/perfect-lib/bad-github-issue-example.png" alt="A screenshot of an example of a poor Github issue" class="plain" />
+    <h1>🤦🏾‍♂️</h1>
   </div>
 </div>
 
 NOTES:
+- Well it first starts with the issue itself
+- Whether it's a bug or a feature request we want as much details as possible
+  - Cryptic issues w/ just some console text are totally unhelpful
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 75%">
+    <img src="../../img/perfect-lib/github-issue-template-options-ui.png" alt="A screenshot of Github UI enabling choosing from a set of issue templates" class="plain" />
+    <h1>👏🏾</h1>
+  </div>
+</div>
+
+NOTES:
+- Instead with issue templates you can guide the developer into a flow based on their situation
+  - Bug report
+  - Feature propsoal
+  - Question / Help
+  - Regression Report
+- And you can tie an issue label w/ each type so that your issues are pre-classified
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code>&gt; npx envinfo --system --binaries
+
+System:
+  OS: macOS High Sierra 10.13.6
+  CPU: (4) x64 Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+  Memory: 47.79 MB / 8.00 GB
+  Shell: 3.2.57 - /bin/bash
+Binaries:
+  Node: 12.14.1 - ~/.nvm/versions/node/v12.14.1/bin/node
+  Yarn: 1.15.2 - /usr/local/bin/yarn
+  npm: 6.13.4 - ~/.nvm/versions/node/v12.14.1/bin/npm
+  Watchman: 4.9.0 - /usr/local/bin/watchman</code></pre>
+
+    <a href="https://github.com/tabrindle/envinfo#readme" target="_blank"><code>envinfo</code></a>
+  </div>
+</div>
+
+NOTES:
+- With each template you can have the dev run `envinfo` and include the results
+- It's a quick way to get helpful system information
+- There are many more CLI options, check out the docs
+- There's plenty more advanced things you can do with issues
+  - Including bots that respond to messages
+  - But this is the bare minimum for a good user experience
+- I've got a link to the actual issue templates at the end
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Development Experience files</h2>
+
+    <ul>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/CONTRIBUTING.md" target="_blank"><code>CONTRIBUTING.md</code></a></li>
+      <li><a href="https://github.com/nvm-sh/nvm#nvmrc" target="_blank"><code>.nvmrc</code></a></li>
+      <li><a href="https://prettier.io/" target="_blank"><code>.prettierrc.json</code></a></li>
+      <li><a href="https://help.github.com/en/enterprise/2.19/user/github/building-a-strong-community/creating-a-pull-request-template-for-your-repository" target="_blank"><code>.github/pull_request_template.md</code></a></li>
+      <li><a href="https://www.contributor-covenant.org/" target="_blank"><code>CODE_OF_CONDUCT.md</code></a></li>
+    </ul>
+  </div>
+</div>
+
+NOTES:
+- So now you're making the fix or development the new feature
+  - What makes that go fastest?
+- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library
+- **`.nvmrc`** - Locks down your version of Node with NVM so that everyone's using the same version
+- **`.prettierrc.json`** - Prettier formats your code the same way for everyone so no arguments
+- **`pull_request_template.md`** - Ensures that the correct format is followed for PRs, including necessary info
+- **`CODE_OF_CONDUCT.md`** - Covers everything to make sure everyone is behaving properly
+- These are all basically communication files to streamline the process
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code>npx license mit > LICENSE.md
+npx gitignore node
+npx covgen ben@benmvp.com
+git init
+npm init -y</code></pre>
+
+    <a href="https://www.swyx.io/writing/oss-repo-setup/" target="_blank">Best Practice Open Source Repo Setup</a>
+  </div>
+</div>
+
+NOTES:
+- In fact, if you're starting out the library there are a couple of scripts you can run
+- Setup MIT license
+- Setup `.gitignore` for Node files
+- Generate the `CODE_OF_CONDUCT.md` we talked about
+- Initialize `git`
+- And initialize your `package.json`
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-json">{
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "jsnext:main": "lib/esm/index.js",
+  "sideEffects": false,
+  "types": "lib/types/index.d.ts",
+  "files": ["lib"],
+  "scripts": {
+    "build:cjs": "babel src --out-dir lib/cjs --presets babel-cjs.js",
+    "build:esm": "babel src --out-dir lib/esm --presets babel-esm.js",
+    "build:types": "tsc --declaration --declarationDir lib/types",
+    "build": "npx npm-run-all build:**"
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- After the code is written, the PR is created, passes CI & merged
+  * We need to get the code out ASAP
+- First step is ensuring we're generating the correct formats that can be consumed
+  * These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
+  * `"main"` field for CJS
+  * `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
+  * `"types"` for TypeScript types
+  * `"files"` tells which files to include in package instead of using `.npmignore`
+- Use `babel` for transpiling TypeScript to vanilla JS
+- Use TypeScript for generating TypeScript definition files
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-yaml">name: Release
+on:
+  push:
+    branches: [master]
+jobs:
+  main:
+    steps:
+      # Setup & install
+      - name: Build package
+        run: npm run build
+
+      - name: Release new version
+        run: npx semantic-release</code></pre>
+
+    <a href="https://github.com/semantic-release/semantic-release" target="_blank"><code>semantic-release</code></a>
+  </div>
+</div>
+
+NOTES:
+- With building in place, we can achieve continuous deployment with `semantic-release`
+  * Meant to be executed in CI env after every successful build on release branch
+  * Makes releases "unromantic & unsentimental"
+  * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
+  * No having to manually push a version commit or run a script locally
+- Follows Angular Commit Message Conventions to determine wheter it's major, minor or patch release
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 80%">
+    <a href="https://github.com/benmvp/benmvp-cli/releases" target="_blank">
+      <img src="../../img/perfect-lib/github-releases.png" alt="A screenshot Github releases tab" class="plain" />
+    </a>
+  </div>
+</div>
+
+NOTES:
+- The releases show up in the Github releases tab
+- But the `package.json` in git is never updated
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 80%">
+    <a href="https://www.npmjs.com/package/url-lib" target="_blank">
+      <img src="../../img/perfect-lib/npm-explore-tab.png" alt="A screenshot of npm Explore tab" class="plain" />
+    </a>
+
+    <p><a href="https://www.npmjs.com/package/url-lib" target="_blank">npm</a> (beta) | <a href="https://unpkg.com/browse/url-lib@3.0.3/" target="_blank">unpkg</a> | <a href="https://www.jsdelivr.com/package/npm/url-lib" target="_blank">jsDelivr</a></p>
+  </div>
+</div>
+
+NOTES:
+- Lastly, you can browse the package to make sure everything was released properly
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>Resources</h2>
+
+    <ul>
+      <li><a href="https://github.com/benmvp/benmvp-cli/tree/master/.github/ISSUE_TEMPLATE" target="_blank">Example Issue templates</li>
+      <li><a href="https://raw.githubusercontent.com/benmvp/benmvp-cli/master/.github/pull_request_template.md" target="_blank">Example PR template</li>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/.github/workflows/validate-pr.yml" target="_blank">Example PR Validator</a></li>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/src/commands/build/babel-config-cjs.js" target="_blank">Example <code>babel-cjs.js</code></a>  / <a href="https://github.com/benmvp/benmvp-cli/blob/master/src/commands/build/babel-config-esm.js" target="_blank"><code>babel-esm.js</code></a></li>
+      <li><a href="https://github.com/prettier/eslint-plugin-prettier" target="_blank"><code>eslint-plugin-prettier</code></a></li>
+      <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
+      <li><a href="https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free" target="_blank"><code>sideEffects</code> in <code>package.json</code></a></li>
+      <li><a href="https://medium.com/@jdxcode/for-the-love-of-god-dont-use-npmignore-f93c08909d8d" target="_blank"><em>For the love of god, don’t use .npmignore</em></a></li>
+      <li><a href="https://medium.com/@vcarl/problems-with-npm-link-and-an-alternative-4dbdd3e66811" target="_blank"><em>Testing npm packages before publishing</em></a></li>
+      <li><a href="https://greenkeeper.io/" target="_blank">Greenkeeper</li>
+    </ul>
+  </div>
+</div>
+
+NOTES:
+- Tons more resources on little details I wasn't able to cover
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -614,6 +851,30 @@ NOTES:
 </div>
 
 NOTES:
+- As you can see it's a mix of technical things and communication things
+- Just like the "perfect" developer is a mix of technical skills and comm skills
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Resources</h2>
+
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=ZJ43STkmK-4" target="_blank">Jest as a Platform</a> ⏯️</li>
+      <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
+      <li><a href="https://github.com/jest-community/jest-runner-eslint" target="_blank"><code>jest-runner-eslint</code></a> + <a href="https://github.com/azz/jest-runner-tsc" target="_blank"><code>jest-runner-tsc</code></a></li>
+      <li><a href="https://github.com/jest-community/jest-watch-typeahead" target="_blank"><code>jest-watch-typeahead</code></a></li>
+      <li><a href="https://github.com/features/actions" target="_blank">Github Actions</a></li>
+    </ul>
+  </div>
+</div>
+
+NOTES:
+- Here's a video to talk by Rogelio Guzman on "Jest as a Platform"
+- Miscellaneous packages for setting up TypeScript + Eslint + Jest
+- All about Github actions
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -641,13 +902,12 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 45%">
-    <a href="https://twitter.com/jcreamer898/status/1217857477427040258" target="_blank">
-      <img src="../../img/perfect-lib/jonathan-creamer-divops-tweet.png" alt="Jonathan Creamer tweet about starting a community for Frontend tooling called #divops" />
+  <div class="content-overlay" style="width: 70%">
+    <a href="https://www.jonathancreamer.com/announcing-div-ops/" target="_blank">
+      <img src="../../img/perfect-lib/jonathan-creamer-divops-blog-post.png" alt="Jonathan Creamer blog post about starting a community for Frontend tooling called #divops" />
     </a>
     <p>
-      <a href="https://bit.ly/div-ops-slack" target="_blank">Slack</a>
-      | <a href="https://www.reddit.com/r/divops/" target="_blank">Subreddit</a>
+      <a href="https://www.jonathancreamer.com/announcing-div-ops/" target="_blank">Announcing Div Ops as the Slack and Reddit communities</a>
     </p>
   </div>
 </div>
@@ -655,7 +915,8 @@ NOTES:
 
 NOTES:
 - My friend Jonathan Creamer is passionate about Frontend tooling
-- He's coined the term "divops" for the industry
+- He's coined the term "divops" for the community
+- There's a Slack group & sub-Redit to join
 
 =====
 
