@@ -23,6 +23,7 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
+- **Aloha!**
 - It's "perfect" (in quotes) because it's obviously highly subjective
   * These are naturally my opinions
 - But they're birthed out building and consuming hundreds of libraries
@@ -416,6 +417,7 @@ NOTES:
   * These aren't allowed in TypeScript
   * So writing types could be challenging or impossible
 - Visual Studio Code has great integrations with TypeScript too!
+- TypeScript also gives us modern JavaScript so it's a win for us too!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -690,6 +692,7 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
+    <h2>Library Starter Commands</h2>
     <pre class="large"><code>npx license mit > LICENSE.md
 npx gitignore node
 npx covgen ben@benmvp.com
@@ -772,7 +775,7 @@ NOTES:
   * Makes releases "unromantic & unsentimental"
   * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
   * No having to manually push a version commit or run a script locally
-- Follows Angular Commit Message Conventions to determine wheter it's major, minor or patch release
+- Follows Angular Commit Message Conventions to determine whether it's major, minor or patch release
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -840,41 +843,82 @@ NOTES:
 </div>
 
 NOTES:
-
-/////
-<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 90%">
-
-  </div>
-</div>
-
-NOTES:
-- As you can see it's a mix of technical things and communication things
+- Wow! That was a lot of stuff!
+- Chances are you responded to that Slack message 😉
+- Let's quickly recap what we discussed
+- But instead of grouping by user need
+- Let's group it by how you'll be implementing the infra
+- As we'll see it's a mix of technical things and communication things
 - Just like the "perfect" developer is a mix of technical skills and comm skills
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h2>Resources</h2>
-
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=ZJ43STkmK-4" target="_blank">Jest as a Platform</a> ⏯️</li>
-      <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
-      <li><a href="https://github.com/jest-community/jest-runner-eslint" target="_blank"><code>jest-runner-eslint</code></a> + <a href="https://github.com/azz/jest-runner-tsc" target="_blank"><code>jest-runner-tsc</code></a></li>
-      <li><a href="https://github.com/jest-community/jest-watch-typeahead" target="_blank"><code>jest-watch-typeahead</code></a></li>
-      <li><a href="https://github.com/features/actions" target="_blank">Github Actions</a></li>
-    </ul>
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 70%">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
+      <div style="flex: 0 0 50%; margin-bottom: 1em;text-align: left;">
+        <h3>Development</h3>
+        <ul>
+          <li><a href="https://www.typescriptlang.org/" target="_blank">Modern JS</a></li>
+          <li><a href="https://prettier.io/" target="_blank">Prettier</a></li>
+          <li><a href="https://eslint.org/" target="_blank">ESLint</a></li>
+          <li><a href="https://www.typescriptlang.org/" target="_blank">Type checking</a></li>
+          <li><a href="https://code.visualstudio.com/" target="_blank">Editor integrations</a></li>
+        </ul>
+      </div>
+      <div style="flex: 0 0 50%; margin-bottom: 1em;text-align: left;">
+        <h3>Test / CI</h3>
+        <ul>
+          <li><a href="https://github.com/features/actions" target="_blank">Github actions</a></li>
+          <li><a href="https://jestjs.io/" target="_blank">Unit testing + coverage</a></li>
+          <li><a href="https://eslint.org/" target="_blank">Linting</a></li>
+          <li><a href="https://www.typescriptlang.org/" target="_blank">Type checking</a></li>
+          <li><a href="https://www.youtube.com/watch?v=ZJ43STkmK-4" target="_blank">Jest as a platform</a></li>
+        </ul>
+      </div>
+	    <div style="flex: 0 0 50%; text-align: left;">
+        <h3>Build / CD</h3>
+        <ul>
+          <li><a href="https://github.com/features/actions" target="_blank">Github actions</a></li>
+          <li><a href="https://babeljs.io/" target="_blank">Transpilation targets</a></li>
+          <li><a href="https://docs.npmjs.com/files/package.json" target="_blank"><code>package.json</code> metadata</a></li>
+          <li><a href="https://medium.com/@vcarl/problems-with-npm-link-and-an-alternative-4dbdd3e66811" target="_blank">Library verification</a></li>
+          <li><a href="https://github.com/semantic-release/semantic-release" target="_blank">Semantic release</a></li>
+          <li><a href="https://unpkg.com/" target="_blank">Package browsing</a></li>
+        </ul>
+      </div>
+      <div style="flex: 0 0 50%; text-align: left;">
+        <h3>Repo files</h3>
+        <ul>
+          <li>API & example docs</li>
+          <li>Badges</li>
+          <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/CONTRIBUTING.md" target="_blank"><code>CONTRIBUTING.md</code></a></li>
+          <li><a href="https://github.com/simonv3/covenant-generator" target="_blank"><code>CODE_OF_CONDUCT.md</code></a></li>
+          <li><a href="https://www.npmjs.com/package/license" target="_blank"><code>LICENSE</code></a></li>
+          <li><a href="https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates" target="_blank">Issue & PR templates</a></li>
+        </ul>
+      </div>
   </div>
 </div>
 
 NOTES:
-- Here's a video to talk by Rogelio Guzman on "Jest as a Platform"
-- Miscellaneous packages for setting up TypeScript + Eslint + Jest
-- All about Github actions
+- Here it all is in one slide!
+- Your **development experience** starts with getting to write in modern JS (via TypeScript)
+- And with a nice editor like VS Code...
+  * Can get prettier formatting, eslint & type checking in the editor
+- For **testing & continuous integration (CI)**, try use the new Github actions
+- And with Jest as a platform...
+  * You can run Unit test, linting & type checking all at once
+- **Build & continuous delivery (CD)** are key
+- Use Babel for transpiling (TypeScript for type-checking)
+  * Probably only need to target CommonJS & ES Module formats
+  * And there are a plethora of `package.json` fields to set
+- You'll wanna your CI tool to automatically release new versions from commits merged to `master`
+- And we now have ways to ensure that what we release looks good
+- Lastly there are lots of other **repo files**
+  * Docs for your users to figure out how to use your library
+  * Other files to make communication with you easy & safe
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -886,22 +930,51 @@ NOTES:
 </div>
 
 NOTES:
+- Sooooo that's a lot of things to try to do
+  * Especially if you haven't set up some of them before
+  * I count over **20** different things!
+- Even for me I don't wanna try to set those up each time
+- So I created a zero-config CLI tool, called `@benmvp/cli` to abstract all that work
+  * Everything but the docs
+- The CLI has some options, so you could totally use it
+  * But I built it for myself, so don't expect any PRs to make it more configurable!
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 45%">
-
+    <h2><code>@benmvp/cli</code></h2>
+    <ul>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/docs/cli/create.md" target="_blank"><code>npx @benmvp/cli create</code></a></li>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/docs/cli/test.md" target="_blank"><code>benmvp test</code></a></li>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/docs/cli/start.md" target="_blank"><code>benmvp start</code></a></li>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/docs/cli/build.md" target="_blank"><code>benmvp build</code></a></li>
+      <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/docs/cli/integrate.md" target="_blank"><code>benmvp integrate</code></a></li>
+    </ul>
   </div>
 </div>
 
 NOTES:
+- It works a lot like `react-scripts` if you've ever used Create React App before
+- You run `npx @benmvp/cli create` (with name of app) and it initializes an app for you
+  * Includes everything
+  * Github actions CI/CD, repo files, sets all the `package.json` fields
+  * Adds `@benmvp/cli` as a dev dependency & adds scripts for the other commands
+- `test` runs unit tests, linting & type checking with Jest
+- `start` is for dev, it runs `test` in watch mode based on any changes
+- `build` transpiles into the module targets & generates type definitions
+- `integrate` is something pretty cool that ideally deserves some devoted time
+  * Basically packages up the library just like it'll be in the registry
+  * Then run "integration" tests on it to make sure the lib can be used just like user would
+  * Catches cases where all unit tests pass but I forgot to `export`
+- It uses itself to dev, test & build itself
+  * The "perfect" repo creating other "perfect" repos
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: center">
+<div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 70%">
     <a href="https://www.jonathancreamer.com/announcing-div-ops/" target="_blank">
       <img src="../../img/perfect-lib/jonathan-creamer-divops-blog-post.png" alt="Jonathan Creamer blog post about starting a community for Frontend tooling called #divops" />
@@ -914,9 +987,13 @@ NOTES:
 
 
 NOTES:
-- My friend Jonathan Creamer is passionate about Frontend tooling
-- He's coined the term "divops" for the community
-- There's a Slack group & sub-Redit to join
+- One last thing...
+- If you find this stuff interesting
+- My friend Jonathan Creamer is also passionate about Frontend tooling
+- It's becoming more of a thing and even a role at companies
+- He's wanting to build a community around this skillset
+- He coined the term **"DivOps"** for this community
+- There's a Slack group & sub-Reddit to join
 
 =====
 
@@ -946,9 +1023,12 @@ NOTES:
 - Hopefully there are a few new things you've learned
   * I've also likely forgotten some things so I'd love your feedback!
 - **Conference:** Inviting me to share my knowledge/experience with y'all (**Kelly** + crew)
-- **YOU!** For being such an engaged audience
+- **YOU!** For coming to the talk
+  * The "hallway track" is always an option
+  * And it is Hawaii, so you've got lots of options!
   * Not going to take any questions
   * But if you've got questions, feel free to find me afterwards
-  * I also have swag to give away!
+  * I also have **swag** to give away!
   * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
 - Thank you so much and enjoy the rest of the conference!
+- **Mahalo!**
