@@ -36,18 +36,6 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-NOTES:
-- Whenever we're talking about non-end-user features
-  * We need to ask ourselves what exactly is the benefit
-  * Does this even matter?
-- If it's not a feature for the end user
-  * Then it needs to be a feature for the dev
-  * So that they can build faster/better for end user
-- Otherwise, we find ourselves bike-shedding
-
-/////
-<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 70%">
     <a href="https://kentcdodds.com/blog/why-users-care-about-how-you-write-code" target="_blank">
@@ -62,6 +50,13 @@ NOTES:
 </div>
 
 NOTES:
+- Whenever we're talking about non-end-user features
+  * We need to ask ourselves what exactly is the benefit
+  * Does this even matter?
+- If it's not a feature for the end user
+  * Then it needs to be a feature for the dev
+  * So that they can build faster/better for end user
+- Otherwise, we find ourselves bike-shedding
 - Kent C. Dodds wrote a blog post entitled _Why users care about how you write code_
 - He asserts: "The only thing that matters in software is the experience of the user."
 - But: "The experience of the user is indirectly, but strongly coupled to how we build software"
@@ -141,6 +136,8 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/jeshoots-com-VdOO4_HFTWM-tools-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+_[5 minutes]_
+
 - Ok, enough about me
 - Let's talk about making this perfect repo
 - Remember we're shifting are perspective to what our users, the developers, need
@@ -160,7 +157,7 @@ NOTES:
   * How to install the library
   * Examples of how to use the library
   * Full API spec once I know how to use the library
-- Question: **So what makes this possible?**
+- Question: **So what makes Helpful Docs possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -173,46 +170,18 @@ NOTES:
 
 NOTES:
 - My suggestion is to write the docs first **before** implementation
-- Why? Becase writting docs is hard
-- It ensures that the docs actually get written!
-  * There's nothing fun or exiciting about writing docs
-  * We don't really wanna write them after we have a working implementation
-- **NEXT SLIDE**
-
-/////
-<!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 70%">
-    <img src="../../img/perfect-lib/no-docs-example.png" alt="An example of a repo with no docs" />
-  </div>
-</div>
-
-NOTES:
-- How many times have you seen repo with no docs?
-  * I see this happen a lot with monorepo packages
-- **NEXT SLIDE**
-
-/////
-<!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h1>Write docs first!</h1>
-  </div>
-</div>
-
-NOTES:
-- We write the docs when we know how it works the least
+- Why? Because writing **good** docs is hard
+  * So writing docs first makes it a bit easier
+- 1/ We write the docs when we know how it works **the least**
   * After we've implemented, it's much harder to explain
-  * It's harder to put yourself in the shoes of a newbie
-  * We're more likely to add examples to tell **ourselves** how it should work
-- We're more likely to have a cohesive API
+  * Cuz it's harder to put yourself in the shoes of a newbie
+  * We're more likely to add examples to tell **ourselves** how it should work in the beginning
+- 2/ We're more likely to have a cohesive API
   * As we try to make the API easy to use
   * We may need to revise functions we've already documented
   * But not a big deal cuz it's just Markdown files
-- We can get feedback from others before implementation
-  * In a format that's much better than an implementation spec
+- 3/ We can get feedback from others **before** implementation
+  * And it's in a format that's much better than an implementation spec
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -266,16 +235,16 @@ NOTES:
   * Let's use `lodash` as an example
 - **References** would be the API docs
   * Here are the parameters `pick()` takes and its return value
-  * These are great for those who already know how to use `lodash`
-- **How-to guides** are examples showing common use cases for lodash functions
+  * These are great for those who already know how to use `lodash` in general and need specifics
+- **How-to guides** are examples showing common use cases for `lodash` functions
   * These are typically paired with API docs
-  * More complex ones are recipes or sample repos of how to use one or multiple functions
-- **Explanations** are blogs/talks/videos to explain why using `_.chain` is bad
+  * More complex ones are recipes or sample repos of how to use one or multiple functions together
+- **Explanations** are blogs/talks/videos to explain why using `_.chain` may be a bad idea
   * They clarify and illuminate a particular topic
   * They go more in depth than the API doc's coverage of a topic
 - **Tutorials** would be `lodash` workshops we'd find **Egghead** or **Frontend Masters** or online
   * Lessons that take the reader by the hand to build an app with `lodash`
-  * These are perfect newbies who may not even know what `lodash` is
+  * These are perfect for newbies who may not even know what `lodash` is
 - For your "perfect" library, you should have **References** & **How-to guides**
 
 /////
@@ -288,17 +257,18 @@ NOTES:
 </div>
 
 NOTES:
-- So in summary, my suggestion for the repo's `README` is:
-- First, ALL the badges you can think of
-  * Package version, build states, downloads, etc.
-- Short description of the library's purpose
+- So in summary, my suggestion for the repo's `README.md` is **in this order**:
+- First, add ALL the badges you can think of
+  * Package version, build states, # of downloads, etc.
+- Next, a short description of the library's purpose
 - Installation instructions, _including any necessary peer dependencies_
-  * Need to include both `npm` & `yarn` instructions
+  * Still need to include both `npm` & `yarn` instructions, unfortunately
 - Quick guide on how to do common things
 - Full API docs
   * May link to other Markdown files
   * Each function or configuration should include a **real-world example**
-- Technical details
+  * No `foo`/`bar` as they can be confusing to newbies
+- Then a the bottom: Technical details
   * How it's faster, tech used, etc.
   * I hate when this is up top for multiple page scrolls!
 - Contribution Guidelines
@@ -315,12 +285,14 @@ NOTES:
 
 
 NOTES:
-- With helpful docs, the dev can develop their app
-- In which case they'll need and want TypeScript types
-- TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+_[9 minutes]_
+
+- With helpful docs, now I can develop my app using your lib
+- In which case some will need and want TypeScript types
+- TypeScript is a typed superset of JavaScript that compiles to plain JavaScript
 - Now this may be be bit controversial
   * It's certainly my own bias
-  * But the numbers back me up (from State of JS survey)
+  * But the numbers back me up (from the State of JavaScript survey)
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -357,8 +329,8 @@ NOTES:
 - Only 1/3 of devs had used TypeScript in 2017
 - In 2018, it was 47%
 - In 2019, it was nearly 60%
-  * Add in those that are interested in learning: **80%**
-- 8 out of every 10 developer will need TypeScript definitions from your lib
+  * If we add in those that are interested in learning: **80%**
+- 8 out of every 10 developers will need TypeScript definitions from your lib
   * In order to build their app using your lib
 - Question: **So what makes it possible to make TypeScript definitions available?**
 
@@ -429,15 +401,17 @@ NOTES:
 </div>
 
 NOTES:
+_[12 minutes]_
+
 - Let's start to get a bit tactical
-- So now I know how it works w/ the docs & have my TypeScript types to develop with
+- So now I know how your lib works w/ the docs & have my TypeScript types to develop with
 - While developing, there's nothing more frustrating than coming across a library bug
-- Because we're pretty trusting initially, and think it's us
+- We're pretty trusting initially, and think it's us
   * And spend countless hours debugging trying to figure out why it isn't working
 - So for our library to be "perfect"
   * Need to do our absolute best to prevent 100% of bugs
 - The question of course is
-  * **What makes this possible?**
+  * **What makes our library as Bug-free possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -465,19 +439,19 @@ NOTES:
 - **Type checking** comes with developing in TypeScript, which we just discussed
   * So not only is developing w/ TypeScript good for providing types for our users
   * It's also good for our users because it helps us avoid bugs!
-  * The kind of bugs where things are unexpectedly `undefined`
-  * Or you refactor a function and forget to update it somewhere
-  * With VS Code this can happen _as you develop_
+  * The edge cases where things are unexpectedly `undefined`
+  * Or you refactor a function and forget to change parameters somewhere
+  * With VS Code type-checking can happen _as you develop_
 - **Linting** comes via ESLint
   * This also can happen _as you develop_ in your favorite editor
-  * TypeScript catches a lot of the non-stylist errors ESLint catches
+  * TypeScript catches a lot of the non-stylistic errors ESLint catches
   * There are still some that are _likely_ errors
   * And then there are additional plugins for environments like React
 - **Testing + Coverage** comes with Jest
   * Allows you to write unit tests
   * Can also check what percentage of your code has been tested
   * Unit testing is huge in keeping your lib bug-free
-  * But of course it depends on you actually writing tests
+  * But of course it depends on you actually _writing_ tests
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -505,15 +479,16 @@ NOTES:
 </div>
 
 NOTES:
+- I'm guessing you probably already knew all of that
 - Typically you'd run typing, linting & testing with 3 separate commands
-  * But with Jest projects, you can run them all through Jest
+  * But with Jest projects, you can run them **all** through Jest
 - Jest is a platform that's broken up into 3 main parts
   * The "file collector" in the beginning that determines which files to run on
   * The "error reporter" at the end that displays success or failure
-  * The "runner" in the middle which runs what we're validating
-- Instead of running the Jest test runner, we can run eslint or `tsc` for Typescript
-- This enables to run linting in watch mode, which `eslint` command doesn't support
-  * Allows them to be run in parallel
+  * The "runner" in the middle which runs whatever we're validating
+- Instead of running the Jest test runner, we can run `eslint` or `tsc` for Typescript
+- This enables linting in watch mode, which `eslint` command doesn't support
+  * Also allows them to be run in parallel
   * But w/ consistent and grouped error messaging
 - Simply call `jest` as the `"test"` script in `package.json`
 
@@ -543,13 +518,13 @@ jobs:
 
 NOTES:
 - Lastly, it's not enough that we run our tests locally
-  * Need to ensure that all code pushed to origin is validated
+  * Need to ensure that **all** code pushed to `origin` is validated
 - It's vital that you have continuous integration (CI) setup
   * There are many CI tools out there
-  * But lately I've been using Github actions and loving it
-  * Can use it Github actions w/o registering for another service
+  * But lately I've been using **Github actions** and loving it
+  * Can use Github actions w/o registering for another service
 - Here's a Github workflow to run tests on Node 10, 12 & 13
-  * I always run on the even versions (LTS) and latest odd
+  * I always run on the LTS versions (even) and latest odd
   * It's important that you test on multiple Node versions!
 
 /////
@@ -585,29 +560,16 @@ NOTES:
 </div>
 
 NOTES:
+_[16 minutes]_
+
 - Discussed: **Helpful docs**, **TypeScript types** & **Bug free**
   * Let's bring it home
 - No matter how hard you test and test, there will inevitably still be bugs
 - Or even if you write perfect code...
-  - Your users (the developers) will have requests for features you haven't thought of
+  - Your users (the developers) will have requests for nice features you haven't thought of
 - So you want to be able to get those changes to your users ASAP
-  - From initial request, to up in the npm registry
-- **What makes this possible?**
-
-/////
-<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 60%">
-    <img src="../../img/perfect-lib/bad-github-issue-example.png" alt="A screenshot of an example of a poor Github issue" class="plain" />
-    <h1>🤦🏾‍♂️</h1>
-  </div>
-</div>
-
-NOTES:
-- Well it first starts with the issue itself
-- Whether it's a bug or a feature request we want as much details as possible
-  - Cryptic issues w/ just some console text are totally unhelpful
+  - From initial request, to published in the npm registry
+- **What makes Quick Changes possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -615,14 +577,15 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 75%">
     <img src="../../img/perfect-lib/github-issue-template-options-ui.png" alt="A screenshot of Github UI enabling choosing from a set of issue templates" class="plain" />
-    <h1>👏🏾</h1>
   </div>
 </div>
 
 NOTES:
-- Instead with issue templates you can guide the developer into a flow based on their situation
+- Well it first starts with the issue itself
+- Whether it's a bug or a feature request we want as much details as possible
+- With issue templates you can guide the developer into a flow based on their situation
   - Bug report
-  - Feature propsoal
+  - Feature proposal
   - Question / Help
   - Regression Report
 - And you can tie an issue label w/ each type so that your issues are pre-classified
@@ -651,13 +614,8 @@ Binaries:
 </div>
 
 NOTES:
-- With each template you can have the dev run `envinfo` and include the results
+- BTW - for bugs you can have the dev run the `envinfo` package & include the results
 - It's a quick way to get helpful system information
-- There are many more CLI options, check out the docs
-- There's plenty more advanced things you can do with issues
-  - Including bots that respond to messages
-  - But this is the bare minimum for a good user experience
-- I've got a link to the actual issue templates at the end
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -677,14 +635,16 @@ NOTES:
 </div>
 
 NOTES:
-- So now you're making the fix or development the new feature
+- So now you're making the fix or developing the new feature
   - What makes that go fastest?
-- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library
-- **`.nvmrc`** - Locks down your version of Node with NVM so that everyone's using the same version
-- **`.prettierrc.json`** - Prettier formats your code the same way for everyone so no arguments
-- **`pull_request_template.md`** - Ensures that the correct format is followed for PRs, including necessary info
+- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library (more hands make light work)
+- **`.nvmrc`** - Locks down the version of Node with NVM so that everyone's using the same version
+- **`.prettierrc.json`** - Prettier provides consistent formatting for everyone
+  * No time wasted arguing of code format
+  * Also makes developing faster cuz your editor can auto-format with Prettier
+- **`pull_request_template.md`** - Ensures that the correct format is followed for PRs and includes necessary info
 - **`CODE_OF_CONDUCT.md`** - Covers everything to make sure everyone is behaving properly
-- These are all basically communication files to streamline the process
+- These are all various communication files to streamline the process
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -705,11 +665,11 @@ npm init -y</code></pre>
 
 NOTES:
 - In fact, if you're starting out the library there are a couple of scripts you can run
-- Setup MIT license
-- Setup `.gitignore` for Node files
-- Generate the `CODE_OF_CONDUCT.md` we talked about
-- Initialize `git`
-- And initialize your `package.json`
+  - Setup MIT license
+  - Setup `.gitignore` for Node files
+  - Generate the `CODE_OF_CONDUCT.md` we talked about
+  - Initialize `git`
+  - And initialize your `package.json`
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -740,10 +700,11 @@ NOTES:
   * These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
   * `"main"` field for CJS
   * `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
-  * `"types"` for TypeScript types
-  * `"files"` tells which files to include in package instead of using `.npmignore`
-- Use `babel` for transpiling TypeScript to vanilla JS
-- Use TypeScript for generating TypeScript definition files
+  * `"types"` for TypeScript definition types (from Part 2)
+  * `"files"` tells which files to include in package (instead of using `.npmignore`)
+- So we use `babel` for transpiling TypeScript to vanilla JS
+  * With TypeScript plugin
+- Use `tsc` for generating TypeScript definition files
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -770,27 +731,12 @@ jobs:
 </div>
 
 NOTES:
-- With building in place, we can achieve continuous deployment with `semantic-release`
+- With building in place, we can achieve continuous deployment (CD) with `semantic-release`
   * Meant to be executed in CI env after every successful build on release branch
   * Makes releases "unromantic & unsentimental"
   * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
   * No having to manually push a version commit or run a script locally
-- Follows Angular Commit Message Conventions to determine whether it's major, minor or patch release
-
-/////
-<!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 80%">
-    <a href="https://github.com/benmvp/benmvp-cli/releases" target="_blank">
-      <img src="../../img/perfect-lib/github-releases.png" alt="A screenshot Github releases tab" class="plain" />
-    </a>
-  </div>
-</div>
-
-NOTES:
-- The releases show up in the Github releases tab
-- But the `package.json` in git is never updated
+- Follows **Angular Commit Message Conventions** to determine whether it's `major`, `minor` or `patch` release
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -807,6 +753,7 @@ NOTES:
 
 NOTES:
 - Lastly, you can browse the package to make sure everything was released properly
+  * With unkpg, jsDelivr, and now on the npm site itself
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -823,6 +770,7 @@ NOTES:
       <li><a href="https://github.com/prettier/eslint-plugin-prettier" target="_blank"><code>eslint-plugin-prettier</code></a></li>
       <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
       <li><a href="https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free" target="_blank"><code>sideEffects</code> in <code>package.json</code></a></li>
+      <li><a href="https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm" target="_blank"><em>What are CJS, AMD, UMD, and ESM in Javascript?</em></a></li>
       <li><a href="https://medium.com/@jdxcode/for-the-love-of-god-dont-use-npmignore-f93c08909d8d" target="_blank"><em>For the love of god, don’t use .npmignore</em></a></li>
       <li><a href="https://medium.com/@vcarl/problems-with-npm-link-and-an-alternative-4dbdd3e66811" target="_blank"><em>Testing npm packages before publishing</em></a></li>
       <li><a href="https://greenkeeper.io/" target="_blank">Greenkeeper</li>
@@ -843,6 +791,8 @@ NOTES:
 </div>
 
 NOTES:
+_[21 minutes]_
+
 - Wow! That was a lot of stuff!
 - Chances are you responded to that Slack message 😉
 - Let's quickly recap what we discussed
@@ -930,6 +880,8 @@ NOTES:
 </div>
 
 NOTES:
+_[22 minutes]_
+
 - Sooooo that's a lot of things to try to do
   * Especially if you haven't set up some of them before
   * I count over **20** different things!
@@ -987,6 +939,7 @@ NOTES:
 
 
 NOTES:
+
 - One last thing...
 - If you find this stuff interesting
 - My friend Jonathan Creamer is also passionate about Frontend tooling
@@ -1016,7 +969,6 @@ NOTES:
 </div>
 
 NOTES:
-
 - So that's it!
 - Just flooded you with a lot of information
   * Reminder: slides are available online
@@ -1025,6 +977,7 @@ NOTES:
 - **Conference:** Inviting me to share my knowledge/experience with y'all (**Kelly** + crew)
 - **YOU!** For coming to the talk
   * The "hallway track" is always an option
+  * Get a head start on lunch
   * And it is Hawaii, so you've got lots of options!
   * Not going to take any questions
   * But if you've got questions, feel free to find me afterwards
