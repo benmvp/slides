@@ -23,15 +23,19 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- **Aloha!**
-- It's "perfect" (in quotes) because it's obviously highly subjective
-  * These are naturally my opinions
-- But they're birthed out building and consuming hundreds of libraries
+- **Aloha everyone!**
+  * Fully aware that I'm standing between you and lunch
+  * So I'll jump right in!
+- It the "perfect" (in quotes) library tooling because it's obviously highly subjective
+  * These are naturally my own opinions
+- But they're birthed out building and consuming hundreds of different libraries
 - I'm always obsessed with doing things the "best way"
   * Even when I'm just starting
-- So these are learnings over the years doing platform-y things
+- So these are learnings over the years doing tooling-type things
   * In open-source & on the job
-  * As well as watch how more prolific folks have done it
+  * As well as watching how other more prolific folks have done it
+- It's the talk I would've liked to have heard when I was starting
+- **TWEETED OUT THE SLIDES!**
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -51,16 +55,17 @@ NOTES:
 
 NOTES:
 - Whenever we're talking about non-end-user features
-  * We need to ask ourselves what exactly is the benefit
+  * We need to ask ourselves what exactly is the benefit?
   * Does this even matter?
-- If it's not a feature for the end user
-  * Then it needs to be a feature for the dev
-  * So that they can build faster/better for end user
+- Because if it's not a feature for the end user
+  * Then it needs to be a feature for the developer
+  * So that _they_ can build faster/better for end user
 - Otherwise, we find ourselves bike-shedding
 - Kent C. Dodds wrote a blog post entitled _Why users care about how you write code_
 - He asserts: "The only thing that matters in software is the experience of the user."
-- But: "The experience of the user is indirectly, but strongly coupled to how we build software"
-- Therefore the post can be summed up as:
+- But he adds...
+  * "The experience of the user is indirectly, but strongly coupled to how we build software"
+- Therefore, the post can be summed up as:
   * "Our measure of success should be how well we deliver what the user wants (and no more)"
   * So "our choice of tools should be based on that fundamental goal"
 
@@ -74,13 +79,14 @@ NOTES:
 </div>
 
 NOTES:
-- In this case of our "perfect" library the "focus on the user" principle still applies too
+- In this case of our "perfect" library the "focus on the user" principle still applies
   * Except, this time the "user" **is** the developer
-- The library should provide the functionality it's designed to provide
-  * In a well thought out API
-  * I **won't** be talking about any of that today
+- Obviously, the library should provide the functionality it's designed to provide
+  * And in a well thought out API
+  * But I **won't** be talking about any of that today
 - Everything else related to the repo has to also enable developers to build better user experiences
-  * It's all the "other stuff" that we'll be talking about today
+  * It's all that "other stuff" that we'll be talking about today
+  * Which I believe is equally important 😄
 
 =====
 
@@ -109,7 +115,7 @@ NOTES:
 - My name is Ben Ilegbodu
 - Christian, Husband, Father
 - _Family introductions_
-- We live in Pittsburg, CA (far east bay)
+- We live in Pittsburg, CA (SF Bay Area)
 - Also a Google Developer Expert & Microsoft MVP in Web Technologies
 
 /////
@@ -140,7 +146,9 @@ _[5 minutes]_
 
 - Ok, enough about me
 - Let's talk about making this perfect repo
-- Remember we're shifting are perspective to what our users, the developers, need
+- Remember we're shifting are focus to what our users need (the developers)
+  * Not necessarily what we care about
+- So let's jump in!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -152,12 +160,12 @@ _[5 minutes]_
 </div>
 
 NOTES:
-- The first thing we need are helpful docs
+- The first thing we need are Helpful Docs
 - Docs that explain:
   * How to install the library
   * Examples of how to use the library
-  * Full API spec once I know how to use the library
-- Question: **So what makes Helpful Docs possible?**
+  * Full API spec once I already know how to use the library
+- Question for us: **So what makes Helpful Docs possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -175,13 +183,13 @@ NOTES:
 - 1/ We write the docs when we know how it works **the least**
   * After we've implemented, it's much harder to explain
   * Cuz it's harder to put yourself in the shoes of a newbie
-  * We're more likely to add examples to tell **ourselves** how it should work in the beginning
+  * We're more likely to add code examples to guide our implementation as well
 - 2/ We're more likely to have a cohesive API
   * As we try to make the API easy to use
   * We may need to revise functions we've already documented
   * But not a big deal cuz it's just Markdown files
 - 3/ We can get feedback from others **before** implementation
-  * And it's in a format that's much better than an implementation spec
+  * And it's in a format that's much more approachable than an implementation spec
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -231,7 +239,7 @@ NOTES:
 NOTES:
 - So what sort of docs should you write?
 - Turns out that there are at least **four types** of docs
-- Tutorials, How-to guides, Explanation & Reference
+- Tutorials, How-to guides, Explanations & References
   * Let's use `lodash` as an example
 - **References** would be the API docs
   * Here are the parameters `pick()` takes and its return value
@@ -246,6 +254,7 @@ NOTES:
   * Lessons that take the reader by the hand to build an app with `lodash`
   * These are perfect for newbies who may not even know what `lodash` is
 - For your "perfect" library, you should have **References** & **How-to guides**
+  * API docs & examples
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -258,21 +267,21 @@ NOTES:
 
 NOTES:
 - So in summary, my suggestion for the repo's `README.md` is **in this order**:
-- First, add ALL the badges you can think of
+- 1/ Add ALL the badges you can think of
   * Package version, build states, # of downloads, etc.
-- Next, a short description of the library's purpose
-- Installation instructions, _including any necessary peer dependencies_
+- 2/ A short description of the library's purpose
+- 3/ Installation instructions, _including any necessary peer dependencies_
   * Still need to include both `npm` & `yarn` instructions, unfortunately
-- Quick guide on how to do common things
-- Full API docs
+- 4/ Quick guide on how to do common things
+- 5/ Full API docs
   * May link to other Markdown files
   * Each function or configuration should include a **real-world example**
   * No `foo`/`bar` as they can be confusing to newbies
-- Then a the bottom: Technical details
+- 6/ Then at the bottom: Technical details
   * How it's faster, tech used, etc.
   * I hate when this is up top for multiple page scrolls!
-- Contribution Guidelines
-- License info
+- 7/ Contribution Guidelines
+- 8/ License info
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -287,10 +296,10 @@ NOTES:
 NOTES:
 _[9 minutes]_
 
-- With helpful docs, now I can develop my app using your lib
-- In which case some will need and want TypeScript types
+- With Helpful Docs, now I can develop my app using your lib
+- But the very next thing I'll need are TypeScript types
 - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript
-- Now this may be be bit controversial
+- Now this suggestion may be be bit controversial
   * It's certainly my own bias
   * But the numbers back me up (from the State of JavaScript survey)
 
@@ -329,10 +338,10 @@ NOTES:
 - Only 1/3 of devs had used TypeScript in 2017
 - In 2018, it was 47%
 - In 2019, it was nearly 60%
-  * If we add in those that are interested in learning: **80%**
-- 8 out of every 10 developers will need TypeScript definitions from your lib
-  * In order to build their app using your lib
-- Question: **So what makes it possible to make TypeScript definitions available?**
+  * If we add in those devs that are interested in learning TS: **80%**
+- 8 out of every 10 developers will need **TypeScript definitions** from your lib
+  * In order to write their app in TypeScript that uses your lib
+- Question for us: **So what makes it possible to make TypeScript definitions available?**
 
 
 /////
@@ -351,8 +360,8 @@ NOTES:
 </div>
 
 NOTES:
-- One option is build your app in JavaScript
-  * And then add TypeScript type declaration files to DefinitelyTyped
+- One option is build your app in regular JavaScript
+  * And then add TypeScript type declaration files to `DefinitelyTyped`
   * A repo of high quality TypeScript type definitions
 - Nearly 7000 library type definition files are in the repo
   * `React`, `lodash`, `node`, etc
@@ -383,13 +392,13 @@ NOTES:
   * Because they will be auto-generated
   * (more on how they make it into your package later)
 - Written definition files are often buggy
-  * It's almost better to have no definitions, than buggy ones
-- It's also difficult to write types for code written un-typed
+- Because it's difficult to write types for un-typed JS code
   * When code is untyped, we can make shortcut assumptions
   * These aren't allowed in TypeScript
   * So writing types could be challenging or impossible
-- Visual Studio Code has great integrations with TypeScript too!
-- TypeScript also gives us modern JavaScript so it's a win for us too!
+- VS Code has great integrations with TypeScript too!
+  * We get type checking on the fly while developing
+- TypeScript also gives us modern JavaScript, so it's a win for us in our library development too!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -403,14 +412,16 @@ NOTES:
 NOTES:
 _[12 minutes]_
 
-- Let's start to get a bit tactical
-- So now I know how your lib works w/ the docs & have my TypeScript types to develop with
+- Let's start to get a bit tactical now
+- So now I know how your lib works w/ the Helpful Docs
+  * I have my TypeScript Types to develop with
+  * So I'm good
 - While developing, there's nothing more frustrating than coming across a library bug
 - We're pretty trusting initially, and think it's us
   * And spend countless hours debugging trying to figure out why it isn't working
 - So for our library to be "perfect"
   * Need to do our absolute best to prevent 100% of bugs
-- The question of course is
+- The question of course for us is...
   * **What makes our library as Bug-free possible?**
 
 /////
@@ -438,18 +449,20 @@ NOTES:
 - The 3-headed monster of Type checking, Linting & Testing + Coverage
 - **Type checking** comes with developing in TypeScript, which we just discussed
   * So not only is developing w/ TypeScript good for providing types for our users
-  * It's also good for our users because it helps us avoid bugs!
+  * It's **also** good for our users because it helps us avoid bugs!
   * The edge cases where things are unexpectedly `undefined`
-  * Or you refactor a function and forget to change parameters somewhere
+  * Or you refactor a function and forget to change the parameters somewhere
   * With VS Code type-checking can happen _as you develop_
 - **Linting** comes via ESLint
   * This also can happen _as you develop_ in your favorite editor
-  * TypeScript catches a lot of the non-stylistic errors ESLint catches
-  * There are still some that are _likely_ errors
+  * So TypeScript catches a lot of the non-stylistic errors that ESLint also catches
+  * But ESLint can warn us of _likely_ or _potential_ errors
   * And then there are additional plugins for environments like React
 - **Testing + Coverage** comes with Jest
   * Allows you to write unit tests
+  * Test the public API of your library
   * Can also check what percentage of your code has been tested
+  * The goal with coverage is to make sure you cover edge case branches
   * Unit testing is huge in keeping your lib bug-free
   * But of course it depends on you actually _writing_ tests
 
@@ -479,13 +492,13 @@ NOTES:
 </div>
 
 NOTES:
-- I'm guessing you probably already knew all of that
+- I'm guessing you probably already knew most if not all of that
 - Typically you'd run typing, linting & testing with 3 separate commands
   * But with Jest projects, you can run them **all** through Jest
 - Jest is a platform that's broken up into 3 main parts
-  * The "file collector" in the beginning that determines which files to run on
-  * The "error reporter" at the end that displays success or failure
-  * The "runner" in the middle which runs whatever we're validating
+  * The **"file collector"** in the beginning that determines which files to run on
+  * The **"error reporter"** at the end that displays success or failure
+  * The **"runner"** in the middle which runs whatever we're validating
 - Instead of running the Jest test runner, we can run `eslint` or `tsc` for Typescript
 - This enables linting in watch mode, which `eslint` command doesn't support
   * Also allows them to be run in parallel
@@ -520,10 +533,10 @@ NOTES:
 - Lastly, it's not enough that we run our tests locally
   * Need to ensure that **all** code pushed to `origin` is validated
 - It's vital that you have continuous integration (CI) setup
-  * There are many CI tools out there
+  * There are many CI services out there
   * But lately I've been using **Github actions** and loving it
   * Can use Github actions w/o registering for another service
-- Here's a Github workflow to run tests on Node 10, 12 & 13
+- Here's a Github workflow to run the tests on Node 10, 12 & 13
   * I always run on the LTS versions (even) and latest odd
   * It's important that you test on multiple Node versions!
 
@@ -569,7 +582,7 @@ _[16 minutes]_
   - Your users (the developers) will have requests for nice features you haven't thought of
 - So you want to be able to get those changes to your users ASAP
   - From initial request, to published in the npm registry
-- **What makes Quick Changes possible?**
+- The question for us is: **What makes Quick Changes possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -582,7 +595,7 @@ _[16 minutes]_
 
 NOTES:
 - Well it first starts with the issue itself
-- Whether it's a bug or a feature request we want as much details as possible
+- Whether it's a bug or a feature request we want _as much details as possible_
 - With issue templates you can guide the developer into a flow based on their situation
   - Bug report
   - Feature proposal
@@ -637,7 +650,7 @@ NOTES:
 NOTES:
 - So now you're making the fix or developing the new feature
   - What makes that go fastest?
-- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library (more hands make light work)
+- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library (PRs are welcome! 😂)
 - **`.nvmrc`** - Locks down the version of Node with NVM so that everyone's using the same version
 - **`.prettierrc.json`** - Prettier provides consistent formatting for everyone
   * No time wasted arguing of code format
@@ -695,7 +708,7 @@ NOTES:
 
 NOTES:
 - After the code is written, the PR is created, passes CI & merged
-  * We need to get the code out ASAP
+  * We need to get the code out ASAP to npm registry
 - First step is ensuring we're generating the correct formats that can be consumed
   * These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
   * `"main"` field for CJS
@@ -731,7 +744,8 @@ jobs:
 </div>
 
 NOTES:
-- With building in place, we can achieve continuous deployment (CD) with `semantic-release`
+- With the `build` script in place, we can achieve continuous delivery (CD)
+  * With the `semantic-release`
   * Meant to be executed in CI env after every successful build on release branch
   * Makes releases "unromantic & unsentimental"
   * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
@@ -794,12 +808,12 @@ NOTES:
 _[21 minutes]_
 
 - Wow! That was a lot of stuff!
-- Chances are you responded to that Slack message 😉
+- Chances are you missed something when you responded to that Slack message 😉
 - Let's quickly recap what we discussed
 - But instead of grouping by user need
 - Let's group it by how you'll be implementing the infra
-- As we'll see it's a mix of technical things and communication things
-- Just like the "perfect" developer is a mix of technical skills and comm skills
+- As we'll see the "perfect" repo is a mix of technical and communication things
+- Just like the "perfect" developer should also be a mix of technical and comm skills
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -821,9 +835,9 @@ _[21 minutes]_
         <h3>Test / CI</h3>
         <ul>
           <li><a href="https://github.com/features/actions" target="_blank">Github actions</a></li>
-          <li><a href="https://jestjs.io/" target="_blank">Unit testing + coverage</a></li>
-          <li><a href="https://eslint.org/" target="_blank">Linting</a></li>
           <li><a href="https://www.typescriptlang.org/" target="_blank">Type checking</a></li>
+          <li><a href="https://eslint.org/" target="_blank">Linting</a></li>
+          <li><a href="https://jestjs.io/" target="_blank">Unit testing + coverage</a></li>
           <li><a href="https://www.youtube.com/watch?v=ZJ43STkmK-4" target="_blank">Jest as a platform</a></li>
         </ul>
       </div>
@@ -859,12 +873,12 @@ NOTES:
   * Can get prettier formatting, eslint & type checking in the editor
 - For **testing & continuous integration (CI)**, try use the new Github actions
 - And with Jest as a platform...
-  * You can run Unit test, linting & type checking all at once
+  * You can run type checking, linting, unit tests & code coverage all at once
 - **Build & continuous delivery (CD)** are key
 - Use Babel for transpiling (TypeScript for type-checking)
   * Probably only need to target CommonJS & ES Module formats
   * And there are a plethora of `package.json` fields to set
-- You'll wanna your CI tool to automatically release new versions from commits merged to `master`
+- You'll want to your CI service to auto release new versions from commits merged to `master`
 - And we now have ways to ensure that what we release looks good
 - Lastly there are lots of other **repo files**
   * Docs for your users to figure out how to use your library
@@ -882,13 +896,17 @@ NOTES:
 NOTES:
 _[22 minutes]_
 
-- Sooooo that's a lot of things to try to do
+- So that was **all** the info I wanted to know 4+ years ago when I was starting
+  * But to be honest, it probably would've been too overwhelming
+  * I wanted to have the right tooling, but I was more interested in building my lib
+- I count over **20** different things!
+  * That's a lot of things to try to do
   * Especially if you haven't set up some of them before
-  * I count over **20** different things!
-- Even for me I don't wanna try to set those up each time
+- Even for me, now knowing it all...
+  * I still don't wanna try to set those up each time
 - So I created a zero-config CLI tool, called `@benmvp/cli` to abstract all that work
-  * Everything but the docs
-- The CLI has some options, so you could totally use it
+  * Everything but the docs (and the source code)
+- The CLI has some options, so you _could_ totally use it
   * But I built it for myself, so don't expect any PRs to make it more configurable!
 
 /////
@@ -913,15 +931,15 @@ NOTES:
   * Includes everything
   * Github actions CI/CD, repo files, sets all the `package.json` fields
   * Adds `@benmvp/cli` as a dev dependency & adds scripts for the other commands
-- `test` runs unit tests, linting & type checking with Jest
+- `test` runs type checking, linting & unit tests with Jest
 - `start` is for dev, it runs `test` in watch mode based on any changes
-- `build` transpiles into the module targets & generates type definitions
+- `build` transpiles into ESM/CJS & generates type definitions
 - `integrate` is something pretty cool that ideally deserves some devoted time
   * Basically packages up the library just like it'll be in the registry
   * Then run "integration" tests on it to make sure the lib can be used just like user would
   * Catches cases where all unit tests pass but I forgot to `export`
 - It uses itself to dev, test & build itself
-  * The "perfect" repo creating other "perfect" repos
+  * It itself is the "perfect" repo creating other "perfect" repos
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -941,7 +959,7 @@ NOTES:
 NOTES:
 
 - One last thing...
-- If you find this stuff interesting
+- If you find any of this stuff interesting
 - My friend Jonathan Creamer is also passionate about Frontend tooling
 - It's becoming more of a thing and even a role at companies
 - He's wanting to build a community around this skillset
@@ -979,8 +997,7 @@ NOTES:
   * The "hallway track" is always an option
   * Get a head start on lunch
   * And it is Hawaii, so you've got lots of options!
-  * Not going to take any questions
-  * But if you've got questions, feel free to find me afterwards
+- If you've got questions, feel free to find me afterwards
   * I also have **swag** to give away!
   * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
 - Thank you so much and enjoy the rest of the conference!
