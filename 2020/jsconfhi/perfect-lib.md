@@ -448,11 +448,11 @@ NOTES:
     {
       "displayName": "lint",
       "runner": "jest-runner-eslint",
-      "testMatch": ["&lt;rootDir>/**/*.ts"]
+      "testMatch": ["&lt;rootDir>/\*\*/\*.ts"]
     }, {
       "displayName": "type",
       "runner": "jest-runner-tsc",
-      "testMatch": ["&lt;rootDir>/**/*.ts"]
+      "testMatch": ["&lt;rootDir>/\*\*/\*.ts"]
     }
   ]
 }</code></pre>
@@ -495,6 +495,8 @@ jobs:
       - run: npm test
         env:
           CI: true</code></pre>
+
+    <div class="code-highlight" style="height: 180px; top: 825px;"></div>
   </div>
 </div>
 
@@ -660,12 +662,19 @@ NOTES:
   "types": "lib/types/index.d.ts",
   "files": ["lib"],
   "scripts": {
-    "build:cjs": "babel src --out-dir lib/cjs --presets babel-cjs.js",
-    "build:esm": "babel src --out-dir lib/esm --presets babel-esm.js",
-    "build:types": "tsc --declaration --declarationDir lib/types",
+    "build:cjs": "babel src -d lib/cjs --presets cjs.js",
+    "build:esm": "babel src -d lib/esm --presets esm.js",
+    "build:types": "tsc -d --declarationDir lib/types",
     "build": "npx npm-run-all build:**"
   }
 }</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 137px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 180px; top: 194px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 364px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 421px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 533px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 648px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 705px;"></div>
   </div>
 </div>
 
@@ -674,13 +683,14 @@ NOTES:
   * We need to get the code out ASAP to npm registry
 - First step is ensuring we're generating the correct formats that can be consumed
   * These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
-  * `"main"` field for CJS
-  * `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
-  * `"types"` for TypeScript definition types (from Part 2)
-  * `"files"` tells which files to include in package (instead of using `.npmignore`)
-- So we use `babel` for transpiling TypeScript to vanilla JS
+  * **ONE**: `"main"` field for CJS
+  * **TWO**: `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
+  * **THREE**: `"types"` for TypeScript definition types (from Part 2)
+  * **FOUR**: `"files"` tells which files to include in package (instead of using `.npmignore`)
+- **FIVE**: So we use `babel` for transpiling TypeScript to vanilla JS
   * With TypeScript plugin
-- Use `tsc` for generating TypeScript definition files
+- **SIX**: Use `tsc` for generating TypeScript definition files
+- **SEVEN**: Wrap it all up in a nice `"build"` script
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -703,12 +713,17 @@ jobs:
         run: npx semantic-release</code></pre>
 
     <a href="https://github.com/semantic-release/semantic-release" target="_blank"><code>semantic-release</code></a>
+
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 537px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 712px;"></div>
+
   </div>
 </div>
 
 NOTES:
 - With the `build` script in place, we can achieve continuous delivery (CD)
-  * With the `semantic-release`
+  * **ONE**: First we run the `build` script to generate all the files
+  * **TWO**: Then we run the `semantic-release` package to release
   * Meant to be executed in CI env after every successful build on release branch
   * Makes releases "unromantic & unsentimental"
   * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
