@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@jsconfhi](https://twitter.com/jsconfhi)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#jsconfhi](https://twitter.com/hashtag/jsconfhi)</p>
 
   <br />
 
@@ -26,9 +26,10 @@ NOTES:
 - **Aloha everyone!**
   * Fully aware that I'm standing between you and lunch
   * So I'll jump right in!
-- It's the "perfect" (in quotes) library tooling because it's obviously highly subjective
+- It's the "perfect" (in quotes) JavaScript library tooling because it's obviously highly subjective
   * These are naturally my own opinions
 - But it's the talk I would've liked to have heard when I was starting building libraries
+  * Because libraries have different concerns than apps
 - So these are learnings over the years doing tooling-type things
   * In open-source & on the job
   * As well as watching how other more prolific folks have done it
@@ -74,7 +75,9 @@ NOTES:
 NOTES:
 - In this case, our "focus on the user" principle still applies
   * Except, this time the "user" **is** the developer
-- And instead of talking about API design
+  * The libraries we build will be used by other developers
+- And instead of talking about how to write the code
+  * Malte already covered some of that
   * We're gonna focus on **everything else**
   * Everything that enables developers to build user experiences with our library
 
@@ -133,7 +136,7 @@ NOTES:
 _[5 minutes]_
 
 - Ok, enough about me
-- Let's talk about making this perfect library
+- Let's talk about making this perfect JavaScript library
   * This info applies for an open-source package or internal to your company
 - Remember we're shifting are focus to what our users need (the developers)
   * Not necessarily what we care about
@@ -172,7 +175,8 @@ NOTES:
 - 1/ We're more likely to have a cohesive docs
   * The formatting, inclusion of examples will all be the same
 - 2/ We will write the docs when we know how it works **the least**
-  * We're able to better put ourselves in the shoes of a newcomer
+  * We're able to **empathy** for newcomers
+  * As **Malte** mentioned in his talk
 - 3/ We can get feedback from others **before** implementation
   * And it's in a format that's much more approachable than an implementation spec
 
