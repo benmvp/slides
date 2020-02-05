@@ -928,12 +928,14 @@ NOTES:
 
 =====
 
-<!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
+<!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
-<div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 40%" class="content-overlay">
+<div style="display: flex; align-items:center; justify-content: flex-end">
+	<div style="width: 30%" class="content-overlay closing">
 
-  <h1>Ben Ilegbodu</h1>
+  <h1 class=>Ben Ilegbodu</h1>
+
+  <br />
 
   <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="/" target="_blank">benmvp.com</a></p>
   <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
@@ -949,7 +951,7 @@ NOTES:
 NOTES:
 - So that's it!
 - Just flooded you with a lot of information
-  * Reminder: slides are available online
+  * **Reminder: slides are available online**
 - Hopefully there are a few new things you've learned
   * I've also likely forgotten some things so I'd love your feedback!
 - **Conference:** Inviting me to share my knowledge/experience with y'all (**Kelly** + crew)
