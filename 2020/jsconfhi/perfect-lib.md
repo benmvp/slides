@@ -26,15 +26,12 @@ NOTES:
 - **Aloha everyone!**
   * Fully aware that I'm standing between you and lunch
   * So I'll jump right in!
-- It the "perfect" (in quotes) library tooling because it's obviously highly subjective
+- It's the "perfect" (in quotes) library tooling because it's obviously highly subjective
   * These are naturally my own opinions
-- But they're birthed out building and consuming hundreds of different libraries
-- I'm always obsessed with doing things the "best way"
-  * Even when I'm just starting
+- But it's the talk I would've liked to have heard when I was starting building libraries
 - So these are learnings over the years doing tooling-type things
   * In open-source & on the job
   * As well as watching how other more prolific folks have done it
-- It's the talk I would've liked to have heard when I was starting
 - **TWEETED OUT THE SLIDES!**
 
 =====
@@ -57,17 +54,13 @@ NOTES:
 - Whenever we're talking about non-end-user features
   * We need to ask ourselves what exactly is the benefit?
   * Does this even matter?
-- Because if it's not a feature for the end user
-  * Then it needs to be a feature for the developer
+- Because if it's **not** a feature for the end user
+  * Then it **needs** to be a feature for the developer
   * So that _they_ can build faster/better for end user
 - Otherwise, we find ourselves bike-shedding
-- Kent C. Dodds wrote a blog post entitled _Why users care about how you write code_
-- He asserts: "The only thing that matters in software is the experience of the user."
-- But he adds...
-  * "The experience of the user is indirectly, but strongly coupled to how we build software"
-- Therefore, the post can be summed up as:
-  * "Our measure of success should be how well we deliver what the user wants (and no more)"
-  * So "our choice of tools should be based on that fundamental goal"
+- Kent C. Dodds wrote a blog post says exactly that
+  * We need to measure success based on how well we can deliver what the user wants
+  * Our choice of tooling should be based on that goal (and no more)
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -79,14 +72,11 @@ NOTES:
 </div>
 
 NOTES:
-- In this case of our "perfect" library the "focus on the user" principle still applies
+- In this case, our "focus on the user" principle still applies
   * Except, this time the "user" **is** the developer
-- Obviously, the library should provide the functionality it's designed to provide
-  * And in a well thought out API
-  * But I **won't** be talking about any of that today
-- Everything else related to the repo has to also enable developers to build better user experiences
-  * It's all that "other stuff" that we'll be talking about today
-  * Which I believe is equally important 😄
+- And instead of talking about API design
+  * We're gonna focus on **everything else**
+  * Everything that enables developers to build user experiences with our library
 
 =====
 
@@ -125,9 +115,7 @@ NOTES:
 
 NOTES:
 
-- Just recently started working at Stitch Fix
-  * As a Frontend Architect
-  * Which I'm super excited about
+- I'm a Principal Frontend Engineer at Stitch Fix
 - Stitch Fix is an online personal styling service
   * Take the effort out of shopping by providing a selection of clothes picked just for you
   * And sent to your door on a frequency that you choose
@@ -145,7 +133,8 @@ NOTES:
 _[5 minutes]_
 
 - Ok, enough about me
-- Let's talk about making this perfect repo
+- Let's talk about making this perfect library
+  * This info applies for an open-source package or internal to your company
 - Remember we're shifting are focus to what our users need (the developers)
   * Not necessarily what we care about
 - So let's jump in!
@@ -180,14 +169,10 @@ NOTES:
 - My suggestion is to write the docs first **before** implementation
 - Why? Because writing **good** docs is hard
   * So writing docs first makes it a bit easier
-- 1/ We write the docs when we know how it works **the least**
-  * After we've implemented, it's much harder to explain
-  * Cuz it's harder to put yourself in the shoes of a newbie
-  * We're more likely to add code examples to guide our implementation as well
-- 2/ We're more likely to have a cohesive API
-  * As we try to make the API easy to use
-  * We may need to revise functions we've already documented
-  * But not a big deal cuz it's just Markdown files
+- 1/ We're more likely to have a cohesive docs
+  * The formatting, inclusion of examples will all be the same
+- 2/ We will write the docs when we know how it works **the least**
+  * We're able to better put ourselves in the shoes of a newcomer
 - 3/ We can get feedback from others **before** implementation
   * And it's in a format that's much more approachable than an implementation spec
 
@@ -225,7 +210,7 @@ NOTES:
         <h3>Tutorials</h3>
         <ul>
           <li>is <strong>learning-oriented</strong></li>
-          <li>allows newbie to get started</li>
+          <li>allows newcomer to get started</li>
           <li>is a lesson</li>
         </ul>
       </div>
@@ -238,21 +223,13 @@ NOTES:
 
 NOTES:
 - So what sort of docs should you write?
-- Turns out that there are at least **four types** of docs
+- Keep in mind there are at least **four types** of docs
 - Tutorials, How-to guides, Explanations & References
   * Let's use `lodash` as an example
-- **References** would be the API docs
-  * Here are the parameters `pick()` takes and its return value
-  * These are great for those who already know how to use `lodash` in general and need specifics
+- **References** would be the traditional API docs for `lodash`
 - **How-to guides** are examples showing common use cases for `lodash` functions
-  * These are typically paired with API docs
-  * More complex ones are recipes or sample repos of how to use one or multiple functions together
 - **Explanations** are blogs/talks/videos to explain why using `_.chain` may be a bad idea
-  * They clarify and illuminate a particular topic
-  * They go more in depth than the API doc's coverage of a topic
 - **Tutorials** would be `lodash` workshops we'd find **Egghead** or **Frontend Masters** or online
-  * Lessons that take the reader by the hand to build an app with `lodash`
-  * These are perfect for newbies who may not even know what `lodash` is
 - For your "perfect" library, you should have **References** & **How-to guides**
   * API docs & examples
 
@@ -260,28 +237,31 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 70%">
-    <img src="../../img/perfect-lib/benmvp-cli-readme-table-of-contents.png" alt="An example table of contents from the @benmvp/cli repo" />
+  <div class="content-overlay" style="width: 90%">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around">
+      <div style="flex: 0 0 80%;">
+        <img src="../../img/perfect-lib/benmvp-cli-readme-table-of-contents.png" alt="An example table of contents from the @benmvp/cli repo" />
+      </div>
+      <div style="flex: 0 0 20%; text-align: left;">
+        <ul>
+          <li>Badges</li>
+          <li>Description</li>
+          <li>Installation</li>
+          <li>Quick Guide</li>
+          <li>API</li>
+          <li>Tech Details</li>
+          <li>Contributing</li>
+          <li>License</li>
+        </ul>
+      </div>
   </div>
 </div>
 
 NOTES:
-- So in summary, my suggestion for the repo's `README.md` is **in this order**:
-- 1/ Add ALL the badges you can think of
-  * Package version, build states, # of downloads, etc.
-- 2/ A short description of the library's purpose
-- 3/ Installation instructions, _including any necessary peer dependencies_
-  * Still need to include both `npm` & `yarn` instructions, unfortunately
-- 4/ Quick guide on how to do common things
-- 5/ Full API docs
-  * May link to other Markdown files
-  * Each function or configuration should include a **real-world example**
-  * No `foo`/`bar` as they can be confusing to newbies
-- 6/ Then at the bottom: Technical details
+- So in summary, my suggestion for the repo's `README.md` is **in this order**
+- Key is putting Technical Details at the bottom
   * How it's faster, tech used, etc.
   * I hate when this is up top for multiple page scrolls!
-- 7/ Contribution Guidelines
-- 8/ License info
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -366,8 +346,7 @@ NOTES:
 - Nearly 7000 library type definition files are in the repo
   * `React`, `lodash`, `node`, etc
 - The drawback is that you have to know quite a bit of TypeScript to generate these files manually
-- And as your library updates, you'll have to keep the types in sync
-- This can be a lot of work, so my suggestion is...
+- Therefore, my suggestion is...
 
 
 /////
@@ -391,14 +370,12 @@ NOTES:
   * Writing in TypeScript is the best way to provide type definition files
   * Because they will be auto-generated
   * (more on how they make it into your package later)
-- Written definition files are often buggy
-- Because it's difficult to write types for un-typed JS code
+- It's also difficult to write types for un-typed JS code
   * When code is untyped, we can make shortcut assumptions
   * These aren't allowed in TypeScript
   * So writing types could be challenging or impossible
-- VS Code has great integrations with TypeScript too!
-  * We get type checking on the fly while developing
-- TypeScript also gives us modern JavaScript, so it's a win for us in our library development too!
+- TypeScript also gives us modern JavaScript
+  * So it's a win for us in our library development too!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -446,25 +423,16 @@ _[12 minutes]_
 </div>
 
 NOTES:
-- The 3-headed monster of Type checking, Linting & Testing + Coverage
-- **Type checking** comes with developing in TypeScript, which we just discussed
+- The 3-headed monster of
+  * Unit Testing w/ Coverage (Jest)
+  * Linting (eslint)
+  * Type checking (Typescript)
+- **Type checking**
   * So not only is developing w/ TypeScript good for providing types for our users
   * It's **also** good for our users because it helps us avoid bugs!
-  * The edge cases where things are unexpectedly `undefined`
+  * Those edge cases where things are unexpectedly `undefined`
   * Or you refactor a function and forget to change the parameters somewhere
   * With VS Code type-checking can happen _as you develop_
-- **Linting** comes via ESLint
-  * This also can happen _as you develop_ in your favorite editor
-  * So TypeScript catches a lot of the non-stylistic errors that ESLint also catches
-  * But ESLint can warn us of _likely_ or _potential_ errors
-  * And then there are additional plugins for environments like React
-- **Testing + Coverage** comes with Jest
-  * Allows you to write unit tests
-  * Test the public API of your library
-  * Can also check what percentage of your code has been tested
-  * The goal with coverage is to make sure you cover edge case branches
-  * Unit testing is huge in keeping your lib bug-free
-  * But of course it depends on you actually _writing_ tests
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -492,7 +460,8 @@ NOTES:
 </div>
 
 NOTES:
-- I'm guessing you probably already knew most if not all of that
+- I'm guessing most of you already knew that
+  * More interested in taking it to the next level
 - Typically you'd run typing, linting & testing with 3 separate commands
   * But with Jest projects, you can run them **all** through Jest
 - Jest is a platform that's broken up into 3 main parts
@@ -500,9 +469,9 @@ NOTES:
   * The **"error reporter"** at the end that displays success or failure
   * The **"runner"** in the middle which runs whatever we're validating
 - Instead of running the Jest test runner, we can run `eslint` or `tsc` for Typescript
-- This enables linting in watch mode, which `eslint` command doesn't support
-  * Also allows them to be run in parallel
-  * But w/ consistent and grouped error messaging
+- This enables linting in **watch mode**, which `eslint` command doesn't support
+  * Also allows them to be run in **parallel**
+  * But w/ consistent and **grouped error messaging**
 - Simply call `jest` as the `"test"` script in `package.json`
 
 /////
@@ -530,13 +499,11 @@ jobs:
 </div>
 
 NOTES:
-- Lastly, it's not enough that we run our tests locally
-  * Need to ensure that **all** code pushed to `origin` is validated
-- It's vital that you have continuous integration (CI) setup
-  * There are many CI services out there
+- Can take the `"test"` script and run it in continuous integration (CI) env
+  * There are many CI services out there (Travis CI, Circle CI, etc.)
   * But lately I've been using **Github actions** and loving it
   * Can use Github actions w/o registering for another service
-- Here's a Github workflow to run the tests on Node 10, 12 & 13
+- Here's an example Github workflow to run the tests on Node 10, 12 & 13
   * I always run on the LTS versions (even) and latest odd
   * It's important that you test on multiple Node versions!
 
@@ -558,9 +525,9 @@ NOTES:
 </div>
 
 NOTES:
-- Here's a video to talk by Rogelio Guzman on "Jest as a Platform"
-- Miscellaneous packages for setting up TypeScript + Eslint + Jest
-- All about Github actions
+- Really wanna spend more time unpacking all of that
+  * But I have more things to share
+- Here are resources that dive deeper into what I just talked about
 
 
 =====
@@ -650,14 +617,10 @@ NOTES:
 NOTES:
 - So now you're making the fix or developing the new feature
   - What makes that go fastest?
-- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library (PRs are welcome! 😂)
-- **`.nvmrc`** - Locks down the version of Node with NVM so that everyone's using the same version
+- There are all these various communication files to streamline the process
 - **`.prettierrc.json`** - Prettier provides consistent formatting for everyone
   * No time wasted arguing of code format
   * Also makes developing faster cuz your editor can auto-format with Prettier
-- **`pull_request_template.md`** - Ensures that the correct format is followed for PRs and includes necessary info
-- **`CODE_OF_CONDUCT.md`** - Covers everything to make sure everyone is behaving properly
-- These are all various communication files to streamline the process
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -750,7 +713,6 @@ NOTES:
   * Makes releases "unromantic & unsentimental"
   * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
   * No having to manually push a version commit or run a script locally
-- Follows **Angular Commit Message Conventions** to determine whether it's `major`, `minor` or `patch` release
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -898,10 +860,8 @@ _[22 minutes]_
 
 - So that was **all** the info I wanted to know 4+ years ago when I was starting
   * But to be honest, it probably would've been too overwhelming
+  * I count over **20** different things!
   * I wanted to have the right tooling, but I was more interested in building my lib
-- I count over **20** different things!
-  * That's a lot of things to try to do
-  * Especially if you haven't set up some of them before
 - Even for me, now knowing it all...
   * I still don't wanna try to set those up each time
 - So I created a zero-config CLI tool, called `@benmvp/cli` to abstract all that work
@@ -930,10 +890,10 @@ NOTES:
 - You run `npx @benmvp/cli create` (with name of app) and it initializes an app for you
   * Includes everything
   * Github actions CI/CD, repo files, sets all the `package.json` fields
-  * Adds `@benmvp/cli` as a dev dependency & adds scripts for the other commands
-- `test` runs type checking, linting & unit tests with Jest
-- `start` is for dev, it runs `test` in watch mode based on any changes
-- `build` transpiles into ESM/CJS & generates type definitions
+  * Adds `@benmvp/cli` as a dev dependency
+  * Adds scripts for the other commands
+- `test` & `build` do what we've already described
+- `start` is for dev, it runs `test` in watch mode based on any `git` changes
 - `integrate` is something pretty cool that ideally deserves some devoted time
   * Basically packages up the library just like it'll be in the registry
   * Then run "integration" tests on it to make sure the lib can be used just like user would
