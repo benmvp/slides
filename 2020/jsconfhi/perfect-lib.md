@@ -29,7 +29,7 @@ NOTES:
 - It's the "perfect" (in quotes) JavaScript library tooling because it's obviously highly subjective
   * These are naturally my own opinions
 - But it's the talk I would've liked to have heard when I was starting building libraries
-  * Because libraries have different concerns than apps
+  * Because libraries for developers have different concerns than apps for users
 - So these are learnings over the years doing tooling-type things
   * In open-source & on the job
   * As well as watching how other more prolific folks have done it
