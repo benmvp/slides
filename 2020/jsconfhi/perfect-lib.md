@@ -127,7 +127,7 @@ NOTES:
 - We're hiring!
   * Headquarters is in SF
   * But we have remote engineers all over the country
-  * Colleagues **James** & **Nathan** are here!
+  * Colleagues **James** & **Logan** are here!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/jeshoots-com-VdOO4_HFTWM-tools-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -311,6 +311,10 @@ _[9 minutes]_
       <div style="width: 100%; border-bottom: 3px solid black; display: flex; justify-content: space-around; position: absolute; bottom: 58.5%; left: 0">
         <span>59%</span>
         <a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">2019</a>
+      </div>
+      <div style="width: 100%; border-bottom: 3px dashed black; display: flex; justify-content: space-around; position: absolute; bottom: 80%; left: 0">
+        <span>80%</span>
+        <span>(<a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">2019</a>)</span>
       </div>
     </div>
   </div>
