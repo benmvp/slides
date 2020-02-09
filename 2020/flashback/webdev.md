@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#FlashbackCon](https://twitter.com/hashtag/FlashbackCon)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#FlashbackConf](https://twitter.com/hashtag/FlashbackConf)</p>
 
   <br />
 
@@ -25,12 +25,11 @@ NOTES:
 **RESTART THE TIMER!!!!**
 
 - Welcome back from lunch!
-- This talk is called "Let's web dev like it's 1999!"
-- **QUESTION: So how many of you were developing in 1999?**
+- **QUESTION: So how many of you were developing back in 1999?**
 - Hoping to share a little about my dev story and walk down memory lane
-  * Or take a history lesson for most of you
-- Hopefully learn some new things along the way
-  * Appreciate where we are based on where we've come from
+  * Or have a history lesson for most of you
+- We'll hopefully learn some new things along the way
+  * And appreciate where we are, based on where we've come from
 - Not try to wreck your brain too much right after lunch
 
 
@@ -75,10 +74,10 @@ NOTES:
 
 - I'm a Principal Frontend Engineer at Stitch Fix
 - Stitch Fix is an online personal styling service
-  * Take the effort out of shopping by providing a selection of clothes picked just for you
-  * And sent to your door on a frequency that you choose
   * Combines technology & data science
   * With an actual human stylist
+  * Take the effort out of shopping by providing a selection of clothes picked just for you
+  * And sent to your door on a frequency that you choose
 - We're hiring!
   * Headquarters is in SF
   * But we have remote engineers all over the country
@@ -89,7 +88,7 @@ NOTES:
 NOTES:
 - Also a huge basketball / NBA fan
 - Originally from Houston, so a huge Rockets fan
-- Y'all have a team here too...
+- And y'all have a team here too...
   * Moving right along!
 
 
@@ -105,12 +104,10 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-_[4 minutes]_
-
 - My first programming language I learned was `BASIC`
   * Summer program in '98
 - Used that skill to build "apps" for my TI-83 calc in high school
-  * Math apps to help check answers on math homework & tests
+  * Built math apps to help check answers on math homework & tests
   * That's not cheating right?
 
 /////
@@ -129,34 +126,42 @@ NOTES:
 
 /////
 
-<a href="https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html" target="_blank">
+<a href="http://bgo.benmvp.com/" target="_blank">
   <img src="../../img/webdev/bgo-geocities-2001-screenshot-top.png" style="width: 100%" alt="Basic Guru Online Geocities circa 2001 Screenshot" />
 </a>
 
 <div class="code-highlight fragment current-visible" style="height: 200px; top: 57px; left: 550px; width: 800px"></div>
 <div class="code-highlight fragment current-visible" style="height: 140px; top: 307px; left: 790px; width: 330px"></div>
 <div class="code-highlight fragment current-visible" style="height: 100px; top: 450px; left: 1400px; width: 490px"></div>
+<div class="code-highlight fragment current-visible" style="height: 70px; top: 607px; left: 1400px; width: 490px"></div>
 <div class="code-highlight fragment current-visible" style="height: 140px; top: 747px; left: 50px; width: 1320px"></div>
 
 
 NOTES:
 - So naturally I created a website
-- Went into the Wayback Machine and found my first site
+- Went into the Wayback Machine and found my very first site
   * Isn't it beautiful
 - Built "Basic Guru Online" as a Geocities website
-  * (because apparently I was a "guru")
+  * (because apparently I was a "guru" at 16)
   * Geocities was like THE hosting service of the day
   * There was also Angelfire & Tripod
   * Talking early 2000
 - BGO was like a full web application
   * Geocities handled all the backend
-  * Updated site by pushing new static files directly to their servers with FTP (File Transfer Protocol)
+- Now we have sophisticated deployment processes
+  * But back the, I pushed new static files directly to their servers
+  * Using FTP (File Transfer Protocol)
+  * No source control
 - **ONE:** Definitely created the logo in Microsoft Paint using PowerPoint clip-art + Comic Sans
+  * Comic Sans was 🔥 back then
 - **TWO:** Trusty-dusty hit counter (broken)
+  * No need for Google Analytics! 😂
 - **THREE:** Current date display still works
   * For some reason I thought that was necessary
-  - This is why JS is backwards compatible - so my 20yo site still works
-- **FOUR:** I suggested using AOL to view the page
+  * This is why JS is backwards compatible - so my 20yo site still works
+- **FOUR:** According to the Recent Updates
+  * I had at least 70 members!
+- **FIVE:** I suggested using AOL to view the page
   * "Should be okay" using Internet Explorer or Netscape Navigator
   * Best viewed on an 800x600 res monitor!
   * Used `<table>` for 2-column layout
@@ -164,7 +169,7 @@ NOTES:
 
 /////
 
-<a href="https://web.archive.org/web/20010405113755/http://www.geocities.com/basicguruonline/index.html" target="_blank" style="-20em">
+<a href="http://bgo.benmvp.com/" target="_blank" style="-20em">
   <img src="../../img/webdev/bgo-geocities-2001-screenshot-bottom.png" style="width: 100%" alt="Basic Guru Online Geocities circa 2001 Screenshot" />
 </a>
 
@@ -173,14 +178,17 @@ NOTES:
 
 
 NOTES:
-_[7 minutes]_
-
 - **ONE:** Weekly poll asks about internet connect speed
   * Wish I had the results
 - **TWO:** The bottom frame was fixed height
   * Main section filled rest of the window
   * More on this in a bit
-- Surprisingly I didn't use `<marquee>` or `<blink>` tags
+- Surprisingly, I didn't use `<marquee>` or `<blink>` tags
+- I was going through my backup hard drive the other day
+  * Found a version of the old code
+  * Put it on Github and hosted it on Netlify
+  * No building necessary 😂
+  * At http://bgo.benmvp.com/
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
@@ -206,10 +214,11 @@ NOTES:
 - Fast forward nearly 2 decades
 - Have my blog: benmvp.com
 - Uses Gatsby for static site generation
+  * Written all in React
   * It generates the static HTML pages I did by hand way back when
-- Written all in React
   * Uses Redux, GraphQL, css-in-js, Algolia, Webpack, Babel & more!
   * All to build a blog!
+- **NEXT SLIDE!**
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/uc-berkeley-coding-bootcamp.jpg) no-repeat center" data-background-size="cover" -->
@@ -241,36 +250,38 @@ NOTES:
 </div>
 
 NOTES:
-- Friend of mine recently graduated from UC Berkely coding boot camp
+- Which reminds me of a friend of mine
+- He graduated from UC Berkeley coding boot camp not too long ago
 - Look at all these skills they learned in just 12 weeks
   * Not just HTML, CSS & JavaScript
   * Command Line & Git (table stakes)
   * jQuery, Bootstrap, React
   * Django, Express & MongoDB
-  * Exactly what Chris was talking about in the morning keynote
-- And it's _just_ enough to get an entry-level job
+- And it's _just_ enough to get an junior-level job
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- Wow!
-- The bar for "minimally-viable" skills to build a site is so high now
-- We go to meetups/conferences like this to hear about all the things we **should** be doing
+- I mean, wow!
+- The bar for the "minimally-viable" skills to build a site is so high now
+- And we go to meetups & conferences like this to hear about all the things we **should** be doing
+  * All to stay current
 
+-----
 
 - But the bar wasn't always so high
   * In fact it was really, really low
-  * Probably non-existent
+  * To be honest, it probably non-existent
+  * We were making things up as we went
 - So I wanted to take a look at various aspects of how we built sites back in the day
+  * And compare them to how things work now
 
 =====
 <!-- .slide: data-background="#000 url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-_[9 minutes]_
-
-- Before CSS3, flexbox & grid we needed ways to lay out our pages
+- Before CSS3 flexbox & grid we needed ways to lay out our pages
 - And many times we had some navigation that we wanted fixed
   * Either a header menu on top
   * Left nav
@@ -315,8 +326,6 @@ NOTES:
 </div>
 
 NOTES:
-_[11 minutes]_
-
 - This is the layout that this contrived example is building
 - Got a "frame" that span the top
 - Then 3 frames in a column
@@ -356,14 +365,14 @@ _[11 minutes]_
 
 NOTES:
 - Back to the code
-- **ONE:** Each `<FRAME>` pointed to a separate actual page
-  * An HTML page with just the header, just the nav, etc.
+- **ONE:** Each `<FRAME>` pointed to a separate actual HTML page
+  * A page with just the header, just the nav, etc.
 - **TWO:** The `<FRAMESET>` can be aligned in either `ROWS` or `COLUMNS`
   * **THREE:** And they can be nested
   * **FOUR:** Notice the `*` syntax to signal that the column takes up remaining space
   * Pretty fancy for 20 years ago right?
 - Got visual styling mixed right in the markup
-- **FIVE:** Frames by default had borders so they needed to be turned off
+- **FIVE:** Frames by default had ugly borders so they needed to be turned off
 - If you left the borders on, they could be resized
   * **SIX:** So there was an attribute to turn prevent resizing
 - **SEVEN:** So what about that `NAME=content`? What's that for?
@@ -388,8 +397,6 @@ NOTES:
 </div>
 
 NOTES:
-_[13 minutes]_
-
 - Well in addition to providing a grid-like layout
   * We also don't want to have to refresh the whole page
 - The header, nav & ads are staying fixed
@@ -442,13 +449,11 @@ body {
 </div>
 
 NOTES:
-_[14 minutes]_
-
 - If you've been keeping up with the latest in CSS-land
   * This sounds awfully similar to CSS Grid
 - Here's how we could implement the same thing now
 - Notice how `<main>` actually comes before `<nav>` in the markup
-  * For SEO
+  * For SEO purposes
   * But Grid layout puts it where we want visually!
   * And has a responsive, mobile-first layout as well
 
@@ -457,7 +462,7 @@ _[14 minutes]_
 
 NOTES:
 - But CSS Grid is wayyy too modern for us
-- Let's go back 2 decades again...
+- Let's rewind 2 decades again...
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -495,9 +500,7 @@ p { margin-left: 40px; }
 </div>
 
 NOTES:
-_[15 minutes]_
-
-- So let's say we have the schedule for Web Unleashed 2019
+- So let's say we have the schedule for Flashback Conference
 - We just want to indent the speaker name by 40 pixels
 - Naturally we'd just use some CSS selector to add `margin-left`
 - Simple enough right?
@@ -505,6 +508,7 @@ _[15 minutes]_
   * Burn columns with offset
 - But what do you do if CSS doesn't exist?
   * Or at least it's not guaranteed to be available in all browsers?
+  * Yeah there was a time when CSS didn't exist!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -537,8 +541,6 @@ _[15 minutes]_
 </div>
 
 NOTES:
-_[16 minutes]_
-
 - Well you use `1x1.gif`!
 - It's known as a "spacer gif"
 - And yes I say "gif" not "jif" 😀
@@ -547,6 +549,7 @@ _[16 minutes]_
   * Used to do "pixel perfect" spacing before CSS
 - Would work in both horizontal & vertical direction
 - Used all over the place!
+  * Here we set the pixel to be 40px in width to indent
 - Again, responsive design & development wasn't a thing
 
 /////
@@ -580,8 +583,6 @@ _[16 minutes]_
 </div>
 
 NOTES:
-_[17 minutes]_
-
 - For this, we could use a whole bunch of `&nbsp;` entities
   * This was also used heavily
   * Because HTML ignores multiple whitespace characters
@@ -615,8 +616,6 @@ NOTES:
 
 
 NOTES:
-_[18 minutes]_
-
 - No longer did we have to put text, link or background colors directly on `<body>`
 
 /////
@@ -634,7 +633,7 @@ NOTES:
 - No longer did we have to use the `<FONT>` tag for styling everything
 - Yep, that was definitely a thing I used **a lot**
   * No `<span>` just `<font>`, `<font>`, `<font>`
-- No obsolete
+- Now obsolete
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -651,9 +650,10 @@ NOTES:
 
 NOTES:
 - Still using `<table>` for layout then of course
-  * But no longer need all the styling **in** the markup
-  * Could put it in a separate file
+  * But we no longer needed all the styling **in** the markup
+  * Could put it in a separate CSS file
 
+-----
 
 - However...
 - You know what we ended up using CSS most for in the beginning????
@@ -669,8 +669,6 @@ a:hover      { color: black; text-decoration: underline; }</code></pre>
 </div>
 
 NOTES:
-_[19 minutes]_
-
 - To screw with the default link styling
 - Make default links a different color; no underline
 - Visited links used to look different by default; undo that
@@ -678,6 +676,7 @@ _[19 minutes]_
 - Look how dynamic it is!
 - Really, CSS originally was just about taking styling out of HTML
   * It didn't really do anything _cool_ initially
+  * No animations, transformations and the like
   * So this was about the coolest thing we could do
 
 =====
@@ -687,7 +686,7 @@ NOTES:
 - So we've talked about
   * `<FRAMESET>` - building page layouts
   * spacer.gif - "pixel-perfect" spacing
-  * And just link styling - rudimentary CSS
+  * And link styling - rudimentary CSS
 - Now I wanna share something near dear to my heart
 
 /////
@@ -719,11 +718,12 @@ NOTES:
 
 NOTES:
 - But I really wanted to have rounded corners
-  * But I didn't really know how to that
-- It was starting to be a thing with these "pods"
-- I think Yahoo! started doing it
+  * But I didn't really know how to that at the time
+- These "pods" w/ rounded corners were starting to be a thing
+- I think Yahoo! popularized it
 - Then rounded corners went out of fashion in the late 2000s with Material Design
-- And now they're coming back!
+  * Everything was flat!
+- But now they're coming back!
 - It's all cyclical
 
 /////
@@ -763,7 +763,7 @@ header {
 
 NOTES:
 - You would think you could just throw `border-radius` on it and be done with it
-- But `border-radius` wasn't introduced until 2005
+- But `border-radius` wasn't introduced into CSS until 2005
   * And wasn't widely supported 'til years later
 - So what did we do?
 
@@ -799,8 +799,9 @@ NOTES:
 </div>
 
 NOTES:
-- To make a "pod" with rounded corners I would cut it up into a 3x3 grid
-- The corners would be the rounder corners exported from Photoshop or equivalent
+- Back then, to make a "pod" with rounded corners...
+  * I would cut it up into a 3x3 grid
+- The corners would be the rounder cornerimages exported from Photoshop or equivalent
   * `blue-top-left-5px.gif`, `gray-bottom-right-5px.gif`, etc
   * Web didn't support it, so we had to resort to images
 - And what HTML element did we use to build this?
@@ -852,8 +853,9 @@ NOTES:
 - We use JS to build:
   * Highly-concurrent / low-latency servers in Node
   * Super-sophisticated web apps w/ service workers on the client
+  * Power CLIs and build tooling as well
 - Well 2 decades ago it really was a toy language
-  * We did silly things with it
+  * And we did silly things with it
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -874,13 +876,13 @@ NOTES:
 NOTES:
 - Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
   * Kinda similar to those permission to send Notifications or read Location pop-ups
-  * It's all cyclical
+  * Like I said, it's all cyclical
 - Soooo many things we wouldn't do today
 - Like including a `<script>` in the `<head>` is bad because it blocks down render
 - Using `document.writeln` to dynamically write content to the page
 - Unobstrusive JS wasn't a thing yet
-  * Instead of calling the function in `onload`, we should use `addEventListener`
-  * But we didn't have jQuery (2006)
+  * Instead of calling the function in `<body onload>` here, we should use `addEventListener`
+  * But we didn't have jQuery yet (2006)
   * Had to check for both `attachEvent` (IE) & `addEventListener` (standard)
 
 
@@ -909,12 +911,12 @@ for (var i = 0; i < num; i++) {
 </div>
 
 NOTES:
-- Speaking of debugging, we had no debugging tools!
+- Speaking of debugging, we had no debugging tools either!
 - `alert()` debugging is all we had
   * Not even `console` debugging, because there was no console
-  * And console debugging is considered sub-par
+  * And even console debugging is considered sub-par
 - And don't accidentally put an `alert()` in a loop or endless loop!
-  * Had to just quit the browser
+  * Had to just `Ctrl`+`Alt`+`Delete` to quit the browser
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -928,6 +930,8 @@ NOTES:
 NOTES:
 - In IE, whenever an error would happen **everyone** get this cryptic message
   * "An error has occurred in this script, do you want to continue running scripts?"
+  * Our users would see this!
+  * And this is before people were even somewhat web-savvy
 - It'd show for **every** error
   * Usability nightmare
   * That's some motivation to write bug-free code
@@ -944,14 +948,13 @@ NOTES:
 NOTES:
 - Then Firebug came along and it changed the game in 2006/2007
 - May never have even heard of it
-- It was originally a Firefox extension
+- It was originally a extension to Firefox
   * Got me to move from IE to FF at the time
-  * And let you *see* the CSS and debug the JS!
+  * And it let you **see** the CSS and **debug** the JS!
   * Could change CSS values w/o refreshing the page!
   * Truly revolutionary!
   * Paved the way for our amazing web inspectors today
-- I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
-- Henri gave a great breakdown of web inspectors before lunch
+- I don't think "Web 2.0" with the AJAX revolution happens w/o the debugging from Firebug
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -998,19 +1001,19 @@ NOTES:
   * To ensure we don't ship broken code
   * _Past:_ All we had was our desktop & FTP to transfer the files
   * Would work directly on the server and break all sorts of things on Production
-  * _One dangling commas would break **everything**_
+  * _One dangling commas would break **everything** in IE_
 - Our code goes thru an incredible journey from idea to Production
 - **VSCode:** Editors like VSCode that make writing code so much easier
-  * Intellisense, unused code warning, extensions
+  * Intellisense, unused code warning, integrations with TypeScript, other extensions
 - **Github:** Like table stakes now, but we didn't have version control
-  * It existed but only w/in the biggest of companies
+  * VC existed but only w/in the biggest of companies
   * Imagine just 2 people working on the site at the same time w/o VC
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
   * Can run tests (written in Jest)
   * Even automatically deploy
 - **Gulp:** Run build scripts (minification)
-  * Yahoo: Used to write terse JS/CSS to keep file sizes down
-  * Friend at AOL wasn't allowed to write comments!
+  * Yahoo: Intentionally used to write terse JS/CSS to keep file sizes down
+  * Friend at AOL wasn't allowed to write any comments!
 - **Netlify:** Allows previewing PRs before they even merge!
 
 =====
@@ -1019,27 +1022,10 @@ NOTES:
 NOTES:
 - Quick question before I finish:
 - **How many people here have been in the industry less than 2 years?**
-- I was fortunate that I was exposed to software dev at 15
 - Great that you're here
-  * Great that you're wanting to learn
-  * Early on, conferences like these were few and far between
 - But most new devs have "imposter syndrome"
-  * The bar for "minimally-viable" skills to build a site is so high now
-  * Feel like you don't belong
-  * Can come to a conference like this and it can grow _worse_!
-  * So many things you _have_ to learn
-  * So continuously feeling like you're behind
-  * Especially if you only had a 3- or 6-month accelerated program to learn
-- Futhermore there are  "thought leaders" today have been around a while
-  * They feel you have to learn web dev the way they did
-  * You have to learn the hard way so you can appreciate what you've got
+- "Thought leaders" who feel you should learn their way
 - So I want to encourage you
-  * Don't stress!
-  * You're not less than / sub par
-  * There are many ways to learn
-  * I know many folks from bootcamps who are flat out killing it
-- Even if you just graduated yesterday
-  * You can be just as integral to the community as those of us who were there near the beginning or w/ a traditional background
 - To sum it up: YOU GOT THIS!
 
 =====
@@ -1073,6 +1059,6 @@ NOTES:
   * Hopefully it gives us all appreciation for where we've come from
   * Next time we wanna complain about flexbox & weird property names
   * Remember the spacer.gif
-- Ask questions on Twitter
+- Ask questions on Twitter or find me at the conference
 - Thanks!
 - Enjoy the rest of the conference
