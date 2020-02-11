@@ -107,6 +107,7 @@ NOTES:
 - My first programming language I learned was `BASIC`
   * Summer program in '98
 - Used that skill to build "apps" for my TI-83 calc in high school
+  * Would type is manually on the calculator using T9
   * Built math apps to help check answers on math homework & tests
   * That's not cheating right?
 
@@ -1017,24 +1018,12 @@ NOTES:
 - **Netlify:** Allows previewing PRs before they even merge!
 
 =====
-<!-- .slide: data-background="url(../../img/webdev/sydney-rae-408416-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-NOTES:
-- Quick question before I finish:
-- **How many people here have been in the industry less than 2 years?**
-- Great that you're here
-- But most new devs have "imposter syndrome"
-- "Thought leaders" who feel you should learn their way
-- So I want to encourage you
-- To sum it up: YOU GOT THIS!
-
-=====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 30%" class="content-overlay closing">
 
-  <h1 class=>Ben Ilegbodu</h1>
+  <h1 class="closing">Ben Ilegbodu</h1>
 
   <br />
 
@@ -1055,10 +1044,10 @@ NOTES:
   * Inviting me to speak
   * Putting on such a great and novel conference
   * _Applause_
+- Ask questions on Twitter (@benmvp) or find me at the conference
 - I hope you enjoyed our ride in the wayback machine
   * Hopefully it gives us all appreciation for where we've come from
   * Next time we wanna complain about flexbox & weird property names
   * Remember the spacer.gif
-- Ask questions on Twitter or find me at the conference
 - Thanks!
 - Enjoy the rest of the conference

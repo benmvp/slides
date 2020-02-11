@@ -956,7 +956,7 @@ NOTES:
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 30%" class="content-overlay closing">
 
-  <h1 class=>Ben Ilegbodu</h1>
+  <h1 class="closing">Ben Ilegbodu</h1>
 
   <br />
 
