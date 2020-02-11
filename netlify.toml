@@ -1,0 +1,46 @@
+[build]
+  # Nothing special needed
+
+[[redirects]]
+  from = "/confoo2016-es6.html"
+  to = "/2016/confoo/es6"
+
+[[redirects]]
+  from = "/confoo2016-no-js.html"
+  to = "/2016/confoo/no-js"
+
+[[redirects]]
+  from = "/devweek2016-es6.html"
+  to = "/2016/devweek/es6"
+
+[[redirects]]
+  from = "/evbeng-js-coding-style-results.html"
+  to = "/2016/evbeng/eslint"
+
+[[redirects]]
+  from = "/evbeng-js-coding-style.html"
+  to = "/2015/evbeng/eslint"
+
+[[redirects]]
+  from = "/fossetcon2015-no-js.html"
+  to = "/2015/fossetcon/no-js"
+
+[[redirects]]
+  from = "/nationjs2016-es6.html"
+  to = "/2016/nationjs/es6"
+
+[[redirects]]
+  from = "/nodevember2015-es6.html"
+  to = "/2015/nodevember/es6"
+
+[[redirects]]
+  from = "/prairiedevcon2016-es6.html"
+  to = "/2016/prdc/es6"
+
+[[redirects]]
+  from = "/prairiedevcon2016-no-js.html"
+  to = "/2016/prdc/no-js"
+
+[[redirects]]
+  from = "/sacjs2015-no-js.html"
+  to = "/2015/sacjs/no-js"
