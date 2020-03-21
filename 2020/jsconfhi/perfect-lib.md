@@ -220,7 +220,7 @@ NOTES:
       </div>
     </div>
     <p>
-      <a href="https://www.divio.com/blog/documentation/" target="_blank"><em>What nobody tells you about documentation</em></a></a>
+      <a href="http://webcache.googleusercontent.com/search?q=cache:FcXqrcLN3bYJ:https://www.divio.com/blog/documentation/&client=firefox-b&hl=en&gl=us&strip=1&vwsrc=0" target="_blank"><em>What nobody tells you about documentation</em></a></a>
     </p>
   </div>
 </div>
