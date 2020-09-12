@@ -220,7 +220,7 @@ NOTES:
       </div>
     </div>
     <p>
-      <a href="https://documentation.divio.com/" target="_blank">The documentation systen</a>
+      <a href="https://documentation.divio.com/" target="_blank">The documentation system</a>
     </p>
   </div>
 </div>
