@@ -1,4 +1,4 @@
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 65%;" class="content-overlay">
@@ -32,8 +32,13 @@ NOTES:
 - **Slides are available online**
 
 =====
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# TS logo
+<div style="display: flex; align-items:center; justify-content: center">
+	<div style="width: 50%;" class="content-overlay">
+    <a href="https://www.typescriptlang.org/" target="_blank"><img src="../../img/nav-react/typescript-logo.png" class="plain" /></a>
+  </div>
+</div>
 
 NOTES:
 - People ask “Why do I need to learn TypeScript when I already am productive with JavaScript”
@@ -41,15 +46,25 @@ NOTES:
 - I argue it’s a matter of perspective
 
 /////
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# jQuery logo
+<div style="display: flex; align-items:center; justify-content: center">
+	<div style="width: 50%;" class="content-overlay">
+    <a href="https://jquery.com/" target="_blank"><img src="../../img/ts-react/jquery-logo-light.png" class="plain" /></a>
+  </div>
+</div>
 
 NOTES:
 - Why do people who are productive in making apps with jQuery decide to learn something like React?
 
 /////
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# React logo
+<div style="display: flex; align-items:center; justify-content: center">
+	<div style="width: 50%;" class="content-overlay">
+    <a href="https://reactjs.org/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" /></a>
+  </div>
+</div>
 
 NOTES:
 - They’ll find themselves struggling to do things in React that they can already do easily w/ jQuery
@@ -60,8 +75,19 @@ NOTES:
 - If they learned web dev for the start with React that sense of “is this necessary” isn’t there
 
 /////
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# React & JS logos
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 70%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="https://reactjs.org/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" /></a>
+      </div>
+      <div style="flex:0 0 45%;">
+        <a href="https://www.javascript.com/" target="_blank" style="display: block"><img src="../../img/nav-react/javascript-logo-flat.svg" class="plain" /></a>
+      </div>
+  </div>
+</div>
 
 NOTES:
 - It’s the same for JavaScript + TypeScript
@@ -70,62 +96,76 @@ NOTES:
 - No different than learning JS from the beginning and have to learn random quirks
 
 /////
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# React & TS logos
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 70%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="https://reactjs.org/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" /></a>
+      </div>
+      <div style="flex:0 0 45%;">
+        <a href="https://www.typescriptlang.org/" target="_blank"><img src="../../img/nav-react/typescript-logo.png" class="plain" /></a>
+      </div>
+  </div>
+</div>
 
 NOTES:
 - Most talks on React + TypeScript just teach how to use TypeScript w/ React
 - They are assuming you already wanna use TS and just wanna know how to
 
 /////
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Kent's blog post
-
-NOTES:
-- But when adopting new tech we should always focus on the user
-- The user doesn’t care what tech we use unless it makes the user experience better (less friction, more delightful, etc)
-
-/////
-
-# Bug photo
-
-NOTES:
-- Users definitely don’t want a buggy experience and of course, neither do we
-- Cuz when there are bugs, users are less likely to use the product
-- And when they use the product less, they purchase less
-- And when they purchase less, we (the company) make less money
-- And when we make less money, I (the developer employee) get fired!
-- So my focus w/ TypeScript is on how using TS helps eliminate bugs
-
-/////
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 65%;" class="content-overlay">
-
-  <h1>How using TypeScript won’t get you fired!</h1>
-
-  <br />
-
-  <h2>Ben Ilegbodu</h2>
-
-  <br />
-
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#TSConf](https://twitter.com/hashtag/TSConf)</p>
-
-  <br />
-
-  <p>October 9, 2020</p>
-
-
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 70%">
+    <a href="https://kentcdodds.com/blog/why-users-care-about-how-you-write-code" target="_blank">
+      <img src="../../img/perfect-lib/kent-c-dodds-why-users-care-about-how-you-write-code.png" alt="Article by Kent C. Dodds entitled 'Why users care about how your write code'" class="plain" />
+    </a>
+    <p>
+      <a href="https://kentcdodds.com/blog/why-users-care-about-how-you-write-code" target="_blank">
+        <em>Why users care about how you write code</em>
+      </a>
+    </p>
   </div>
 </div>
 
 NOTES:
-- In fact, I’m retitling the talk:
-- How using TS won’t get you fired!
-- 8 amazing bug-squashing features...
-- just wait until you see #5!
+- Whenever we're talking about non-end-user features
+  * We need to ask ourselves what exactly is the benefit?
+  * Does this even matter?
+- Because if it's **not** a feature for the end user
+  * Then it **needs** to be a feature for the developer
+  * So that _they_ can build faster/better for end user
+- Otherwise, we find ourselves bike-shedding
+- Kent C. Dodds wrote a blog post says exactly that
+  * We need to measure success based on how well we can deliver what the user wants
+  * Our choice of tooling should be based on that goal (and no more)
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display: flex; align-items:center; justify-content: center">
+	<div style="width: 70%;" class="content-overlay">
+    <img src="../../img/ts-react/dung-beetle-paulo-ziemer-oV3zTK7vuP0-unsplash.jpg" class="plain" />
+  </div>
+</div>
+
+NOTES:
+- Users definitely don’t want a buggy experience and of course, neither do we
+- Most errors don’t occur when writing initially
+  - But when making changes (refactoring)
+  - Either 2 minutes later or 2 months later
+  - That's when bugs get introduced
+- Common errors / classes of bugs
+  - `undefined` is not object
+  - Variable `x` is not a function
+  - Changing interfaces
+    - Deprecated features
+    - Changed types
+- Gonna spend rest of our time showing TS features that can prevent this
+- But I also hope to show you that you can prevent errors w/o too much TS
+- There's lots TS can do but I want to focus on the React world
 
 =====
 
@@ -163,38 +203,15 @@ NOTES:
   * But we have remote engineers all over the country
 
 /////
-<!-- .slide: data-background="url(../../img/giphy/james-harden-wesley-johnson-ankles.gif) no-repeat center" data-background-size="cover" -->
 
-NOTES:
-- Also a huge basketball / NBA fan
-- Originally from Houston, so a huge Rockets fan
+![Screenshot of TypeScript for React Developers Minishop](../../img/ts-react/typescript-for-react-developers.png)
+<!-- .element: class="plain" style="width: 75%" -->
 
-/////
-
-# Minishops
+[TypeScript for React Developers Minishop](https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
 
 NOTES:
 - I do virtual workshops...
 - I'm doing a giveaway...
-
-=====
-
-# Errors
-
-NOTES:
-- Most errors don’t occur when writing initially
-  - But when making changes (refactoring)
-  - Either 2 minutes later or 2 months later
-  - That's when bugs get introduced
-- Common errors / classes of bugs
-  - `undefined` is not object
-  - Variable `x` is not a function
-  - Changing interfaces
-    - Deprecated features
-    - Changed types
-- Gonna spend rest of our time showing TS features that can prevent this
-- But I also hope to show you that you can prevent errors w/o too much TS
-- There's lots TS can do but I want to focus on the React world
 
 =====
 
