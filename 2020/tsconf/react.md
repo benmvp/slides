@@ -1,4 +1,4 @@
-<!-- .slide: data-state="title-page" data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/ts-react/typewriter-james-pond-Z0uzZSM5i4M-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 65%;" class="content-overlay">
@@ -207,191 +207,579 @@ NOTES:
 ![Screenshot of TypeScript for React Developers Minishop](../../img/ts-react/typescript-for-react-developers.png)
 <!-- .element: class="plain" style="width: 75%" -->
 
-[TypeScript for React Developers Minishop](https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
+- [TypeScript for React Developers](https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
+- [Zero to React with Hooks](https://www.benmvp.com/minishops/zero-to-react-with-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
+- [Migrating to React Hooks](https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
+- [Sharing React Component Logic](https://www.benmvp.com/minishops/sharing-react-component-logic/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
 
 NOTES:
 - I do virtual workshops...
 - I'm doing a giveaway...
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/grass-field-ales-krivec-4miBe6zg5r0-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Anatomy of a function component
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h2>TypeScript React function component</h2>
+
+    <pre class="large"><code class="lang-typescript">interface AppProps {
+  // define props and types
+}
+
+const App = (props: AppProps) => {
+  // use props and render UI
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
+- One thing as we get started...
 - A React component is just a function
 - There's nothing _really_ special about it
 - Takes props in and returns JSX
 - Can be treated & typed like any other TS function
 - Use an `interface` to define the props and is type of argument
+- Can name `AppProps` anything you like
+- _Can_ define class components in TS, but I'm only gonna show functions
+- Hooks are the future, so we should be moving that way anyway
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Props
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>1. Props</h1>
+  </div>
+</div>
+
+NOTES:
+- Let's talk all about how props typing works in TS
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# PropTypes vs. TypeScript
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 60%">
+    <img src="../../img/ts-react/ts-compile-failure.png" alt="Screenshot of TypeScript compile failure" style="width: 100%" />
+  </div>
+</div>
 
 NOTES:
 - You may be thinking React already has `PropTypes`
-  - What's the difference
+  - What's the difference?
 - `PropTypes` are runtime checks
   - So you either have to render the component locally
   - Or render it as part of a test
 - Failed validation does not prevent the component from rendering
-  - Errors will as a result, however
-  - It's on the dev to notice and fix
+  - Component may have runtime errors as a result of failing prop types
+  - But they may be in corner cases
+  - It's on the dev to notice in console and care enough to fix
 - TypeScript is compile-time
   - The App won't even run if there are errors
   - It gets in your way, which will be really annoying at the start
   - We'll see lots of examples of that
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 1. Props must be listed
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>I) Props must be listed</h2>
+
+    <pre class="large"><code class="lang-typescript">interface AppProps {
+  message: string
+}
+
+const App = (props: AppProps) => {
+  if (props.loading) {
+    return <span>Loading...</span>
+  }
+
+  return <div>{props.message}</div>
+}</code></pre>
+    <pre class="large"><code class="lang-text">Property 'loading' does not exist on type 'Props'</code></pre>
+  </div>
+</div>
 
 NOTES:
-- Can't be used w/in component w/o definition
+- Props cannot be used within component without definition
 - How many times have you had props in a component used w/o any definition?
 - There are ESLint rules to catch this sort of thing, but they are limited
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>I) Props must be listed</h2>
+
+    <pre class="large"><code class="lang-typescript">
+&lt;App message="hi" count={5} /&gt;
+
+</code></pre>
+    <pre class="large"><code class="lang-text">Property 'count' does not exist on type
+'IntrinsicAttributes & AppProps'</code></pre>
+  </div>
+</div>
 
 
 NOTES:
-- Can't be passed as props to component w/o definition
+- Similarly, you can't pass a prop if it hasn't been defined
+- How many times have you seen a prop being passed to a component
+  * It's not in the `PropTypes` either
+  * But you're afraid to remove it because... you're just not show
+  * TypeScript gives you the confidence because it wouldn't allow it
+- The error message can seem a bit cryptic to be honest
+  * But as you encounter them more often you'll get used to them
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 2. Props are required by default
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>II) Props are required by default</h2>
+
+    <pre class="large"><code class="lang-typescript">interface AppProps {
+  players: string[]
+  count: number
+}
+
+const App = (props: AppProps) => {
+  const topPlayers = props.players.slice(0, props.count)
+
+  // render topPlayers
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
-- See lots of examples where React PropTypes are defined
-- But none of them are marked as required
-- But if you look at the code, the props are _definitely_ required
+- React `PropTypes` are optional by default
+- See lots of examples where `PropTypes` are defined
+  * But none of them are marked with `isRequired`
+  * But if you look at the code, the props are _definitely_ required
+  * A bug waiting to happen
+- TypeScript interfaces are **required** by default
+  * So without doing anything special you're guaranteed that the values will exist
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>II) Props are required by default</h2>
+
+    <pre class="large"><code class="lang-typescript">
+&lt;App
+  names={['Bron', 'Kawhi', 'KD', 'Giannis', 'AD']}
+/&gt;
+
+</code></pre>
+    <pre class="large"><code class="lang-text">Property 'count' is missing in type '{ names: string[]; }'
+but required in type 'AppProps'</code></pre>
+  </div>
+</div>
+
+NOTES:
+- So If I call the component, leaving off a required prop (`count` here)
+- It will yell at me, and again not compile
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>II) Props are required by default</h2>
+
+    <pre class="large"><code class="lang-typescript">interface AppProps {
+  players: string[]
+  count?: number
+}
+
+const App = ({players, count = 2}: AppProps) => {
+  const topPlayers = players.slice(0, count)
+
+  // render topPlayers
+}</code></pre>
+  </div>
+</div>
 
 
 NOTES:
 - Use `?` to denote a prop is optional
-
-/////
-
-NOTES:
+- Which means of course its value is `undefined` when not passed
 - Default props uses object destructuring + defaulting
+- This replaces `defaultProps`
+- Now if I omit `count` there's no error and it'll default to `2`
+- This is typically how TS React function components look
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 3. Prop refactors are caught
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>III) Prop refactors are caught</h2>
+
+    <pre class="large"><code class="lang-typescript">
+&lt;App
+  id={2}
+  players={['Bron', 'Kawhi', 'KD', 'Giannis', 'AD']}
+/&gt;
+
+</code></pre>
+    <pre class="large"><code class="lang-text">Type 'number' is not assignable to type 'string'.</code></pre>
+  </div>
+</div>
 
 NOTES:
-- If you change the type of a value, all the places using it must be updated
+- How about those times where you've changed the type of a prop
+  * Like `id` going from a `number` to a `string`
+  * And now you have to search & replace to fix all the places
+  * But did you get them all? How can you be 100% sure?
+- In TS all the places using it **must** be updated
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>III) Prop refactors are caught</h2>
+
+    <pre class="large"><code class="lang-typescript">
+&lt;App
+  id="2"
+  names={['Bron', 'Kawhi', 'KD', 'Giannis', 'AD']}
+/&gt;
+
+</code></pre>
+    <pre class="large"><code class="lang-text">Property 'names' does not exist on type
+'IntrinsicAttributes & AppProps'.</code></pre>
+  </div>
+</div>
+
 
 NOTES:
 - If you change the name of a prop, all the places using it must be updated
+  * Let's say the prop was originally `names` and I changed it to `players`
+  * But I forgot to change a place
+  * TS will complain
+- A derivative of this is when you mistype a prop
+  * TS will complain immediately as well
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 4. Can't avoid defining complex objects
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>IV) Can't avoid defining complex objects</h2>
+
+    <pre class="large"><code class="lang-typescript">const App = ({user}) => {
+  const { city, isPrimary } = user.addresses.shipping
+
+  // render using city and isPrimary
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
+- Typically if we're getting data from an API, its deeply nested data
 - Without prop types, it's just this huge object w/ undocumented properties
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>IV) Can't avoid defining complex objects</h2>
+
+    <pre class="large"><code class="lang-typescript">const App = ({user}) => {
+  const { city, isPrimary } = user.addresses.shipping
+
+  // render using city and isPrimary
+}
+App.propTypes = {
+  user: PropTypes.shape({}).isRequired
+}</code></pre>
+  </div>
+</div>
+
 
 NOTES:
-- Even with lint rules to enforce prop types
-  - `PropTypes.object` or `PropTypes.shape({})
-  - We're just lazy
+- We try to put in lint rules to force definitions
+  * But we'll `PropTypes.object` or `PropTypes.shape({})
+  * It's a lot of work to define a deeply nested shape
+  * And then it gets out of date as new stuff gets added
+  * There's no enforcement, eslint can only do so much
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>IV) Can't avoid defining complex objects</h2>
+
+    <pre class="large"><code class="lang-typescript">interface Address { /\* city, isPrimary, etc \*/ }
+
+interface User {
+  name: string
+  addresses: {
+    shipping: Address
+    billing?: Address
+  }
+}
+
+interface AppProps {
+  user: User
+}</code></pre>
+  </div>
+</div>
+
 
 NOTES:
 - TS is now getting in your way and preventing you from being lazy
-  - But also saving you because you have to define _exactly_ what's available
-- If object's properties change (in a shared place), compilation will break
+  * But also saving you because you have to define _exactly_ what's available
+  * You can't access properties off the `user` prop unless you define what they are
+- The `Address` interface may be a type defined in a shared place
+  * So if we decide to rename `isPrimary` to `primary` in `Address`
+  * We'll get TS errors in the `App` component
+- TS is resilient to refactors
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 5. Function props have explicit signature
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>V) Function props have explicit signature</h2>
+
+    <pre class="large"><code class="lang-typescript">const Input = ({name, value, onChange}) => {
+  // do input-y stuff & call onChange
+}
+
+Input.propTypes = {
+  variant: PropTypes.enum(['filled', 'outlined']).isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+}</code></pre>
+  </div>
+</div>
+
 
 NOTES:
+- May be my favorite
 - With prop types it's just `PropTypes.func`
+- There's nothing that tells the user of the component what parameters it'll pass
+  * And if it expects anything returned
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>V) Function props have explicit signature</h2>
+
+    <pre class="large"><code class="lang-typescript">interface Props {
+  variant: 'filled' | 'outlined'
+  value: string
+  onChange: (newValue: string) => void
+}
+
+const Input = ({name, value, onChange}: Props) => {
+  // do input-y stuff & call onChange
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Now you have to define both the args as well as return value
+  * Typically callback functions don't have return values (`void`)
+  * But in certain cases, you may
+- And once again, if we decide to add a 2nd param to `onChange`
+  * Or change types
+  * TS will error unless we fix **all** the places
+  * How many times have you forgotten to change it in some places
+  * And since it's a callback it probably requires some user interaction
+  * Meaning you're much less likely to hit the error while manually testing
+  * Have to rely on great test coverage
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-NOTES:
-- How many times have you changed the args of a callback function
-  - Forget to change one or two places?
-- `PropTypes.func` wouldn't have caught it
-  - Just a runtime error
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>V) Function props have explicit signature</h2>
 
-/////
+    <pre class="large"><code class="lang-typescript">interface Props {
+  users: User[]
+  children: (user: User) => React.ReactNode
+}
+
+const UsersList = ({users, children}: Props) => (
+  <aside>
+    {users.map(user => (
+      <div>{children(user)}</div>
+    ))}
+  </aside>
+)</code></pre>
+  </div>
+</div>
+
 
 NOTES:
 - By the way this is also really great for render props
-  - Get to see everything that render prop is passing you
+  * Get to see everything that render prop is passing you
+  * `children` takes a `user` object and returns back React UI
+  * The use of `<UsersList />` will be fully type-safe as well
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 6. Rest props are also typed
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>VI) Rest props are also typed</h2>
+
+    <pre class="large"><code class="lang-typescript">interface Props {
+  type?: 'button' | 'submit'
+  disabled?: boolean
+  onClick: () => void
+  children: React.ReactNode
+}
+
+const Button = ({type = 'button', ...buttonProps}: Props) => {
+  // buttonProps has \*only\* disabled/onClick/children
+
+  return &lt;button type={type} {...buttonProps} /&gt;
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
 - Rest props are also typed
+- We typically use rest props as a kitchen sink hole for pass-thru props
+- But since we're defining the full interface
+  * Only those props not mentioned are included
+- As long as the types match w/ the underlying element/component
+  * We can spread those props onward
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>VI) Rest props are also typed</h2>
+
+    <pre class="large"><code class="lang-typescript">
+&lt;Button
+  disabled={true}
+  onClick={() => console.log('clicked')}
+  title="Extra description"
+&gt;
+  Label
+&lt;/Button&gt;
+
+</code></pre>
+    <pre class="large"><code class="lang-text">Property 'title' does not exist on type
+'IntrinsicAttributes & Props'.</code></pre>
+  </div>
+
 
 NOTES:
-- Can't pass extra props through w/ rest props either
-- Types have to match as well
+- But we still can't pass extra props through, even with rest
+  * We know that `<button>` accepts `title`
+  * But the `Button` component has to define it
+- Will talk about a way around this later in advanced patterns
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 7. Sharing props
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 50%">
+    <h2>VII) VS Code integration 🔥</h2>
+
+    <a href="https://twitter.com/erikras/status/1304479313274851328" target="_blank"><img src="../../img/ts-react/code-typescript-tweet-erikras.png" alt="Screenshot of Tweet from @erikras about TS + Code" style="width: 90%" /></a>
+
+    <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>
+  </div>
+</div>
+
 
 NOTES:
-- Can share props through extending interfaces
-- Validation still works perfectly
-- ESLint can't figure all of this out
+- The Visual Studio Code integration for Typescript is 🔥
+  * VS Code is a free, open-source code editor that runs on all platforms
+- Auto-completes as you type
+  * They call it "IntelliSense"
+- Shows errors inline without even having to leave the editor
+  * Shortens the feedback loop
+- I couldn't imagine writing TS without VS Code
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# 8. VS Code integration
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 50%">
+    <h2>VII) VS Code integration 🔥</h2>
 
-https://twitter.com/erikras/status/1304479313274851328
+    <a href="https://twitter.com/erikras/status/1304479313274851328" target="_blank"><img src="../../img/ts-react/vscode-prop-name-auto-completion.png" alt="Prop name auto-completion in VS Code" style="width: 100%" /></a>
+  </div>
+</div>
 
-NOTES:
-- VS Code integration for Typescript is 🔥
-- Shows errors inline without even having to save and load app
-- I couldn't imagine writing TS w/o Code
-
-////
 
 NOTES:
 - Provides auto-completion for prop names
+- Notice `key` there at the bottom
+  * The `key` prop is always a valid prop to be passed to components/elements
+  * So it shows up even though the component itself doesn't define it
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 50%">
+    <h2>VII) VS Code integration 🔥</h2>
+
+    <a href="https://twitter.com/erikras/status/1304479313274851328" target="_blank"><img src="../../img/ts-react/vscode-prop-value-auto-completion.png" alt="Prop value auto-completion in VS Code" style="width: 100%" /></a>
+  </div>
+</div>
+
 
 NOTES:
 - Provide auto-completion for prop values (enums / booleans)
+- In this case the `status` prop is an enum / union of `failed` & `success`
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 50%">
+    <h2>VII) VS Code integration 🔥</h2>
+
+    <a href="https://twitter.com/erikras/status/1304479313274851328" target="_blank"><img src="../../img/ts-react/vscode-property-value-auto-completion.png" alt="Object property value auto-completion in VS Code" style="width: 100%" /></a>
+  </div>
+</div>
+
 
 NOTES:
-- Even shows prop descriptions via jsDoc
+- Provides auto-completion for object property values
+- So if you have a deeply-nested prop, you can easy see what's inside
+  * As you type!
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 90%">
+    <h2>VII) VS Code integration 🔥</h2>
+
+    <a href="https://twitter.com/erikras/status/1304479313274851328" target="_blank"><img src="../../img/ts-react/vscode-inline-error-reporting.png" alt="Inline error reporting in VS Code" style="width: 100%" /></a>
+  </div>
+</div>
+
 
 NOTES:
-- Shows inline errors for everything, even regular JS
+- Shows inline errors for everything
+  * I usually catch type errors before I even go over to the app
+- I can't really do the developer experience justice with screenshots
+  * You'll have to grab VS Code and start coding to see
+  * I've converted over many vim users who wanna use TS over to VS Code
 
 =====
 
@@ -610,6 +998,21 @@ NOTES:
   * Then a team at ganged up on a single PR to get feet wet
 - VALUE: need to keep a lot less in your head about how components & object data work
   * TS types now keep that info
+
+/////
+
+https://twitter.com/benmvp/status/841412246957785088?s=19
+
+NOTES:
+- Heads up!
+- You may find yourself _fighting_ TypeScript
+  * You're trying to type check some JavaScript, but it just isn't working
+  * You "know" it works, but TS is complaining
+  * This is definitely going to happen
+  * Remember with TS you're signing up for it to make your code strict
+- But I want you to keep this thought from Jared in mind
+  * Maybe if it's really hard to type check, the code itself is hard to understand
+
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
