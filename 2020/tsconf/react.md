@@ -194,6 +194,7 @@ NOTES:
     - Changed types
 - Gonna spend rest of our time showing TS features that can prevent this
 - But I also hope to show you that you can prevent errors w/o too much TS
+- There's lots TS can do but I want to focus on the React world
 
 =====
 
@@ -228,12 +229,14 @@ NOTES:
   - It gets in your way, which will be really annoying at the start
   - We'll see lots of examples of that
 
-=====
+/////
 
 # 1. Props must be listed
 
 NOTES:
 - Can't be used w/in component w/o definition
+- How many times have you had props in a component used w/o any definition?
+- There are ESLint rules to catch this sort of thing, but they are limited
 
 /////
 
@@ -241,7 +244,7 @@ NOTES:
 NOTES:
 - Can't be passed as props to component w/o definition
 
-=====
+/////
 
 # 2. Props are required by default
 
@@ -261,7 +264,7 @@ NOTES:
 NOTES:
 - Default props uses object destructuring + defaulting
 
-=====
+/////
 
 # 3. Prop refactors are caught
 
@@ -273,7 +276,7 @@ NOTES:
 NOTES:
 - If you change the name of a prop, all the places using it must be updated
 
-=====
+/////
 
 # 4. Can't avoid defining complex objects
 
@@ -294,7 +297,7 @@ NOTES:
   - But also saving you because you have to define _exactly_ what's available
 - If object's properties change (in a shared place), compilation will break
 
-=====
+/////
 
 # 5. Function props have explicit signature
 
@@ -309,7 +312,7 @@ NOTES:
 /////
 
 NOTES:
-- How many types have you change the args of a callback function
+- How many times have you changed the args of a callback function
   - Forget to change one or two places?
 - `PropTypes.func` wouldn't have caught it
   - Just a runtime error
@@ -320,7 +323,7 @@ NOTES:
 - By the way this is also really great for render props
   - Get to see everything that render prop is passing you
 
-=====
+/////
 
 # 6. Rest props are also typed
 
@@ -333,13 +336,25 @@ NOTES:
 - Can't pass extra props through w/ rest props either
 - Types have to match as well
 
-=====
+/////
 
-# 7. VS Code integration
+# 7. Sharing props
 
 NOTES:
-- VS Code integration for Typescript is 👍🏾
+- Can share props through extending interfaces
+- Validation still works perfectly
+- ESLint can't figure all of this out
+
+/////
+
+# 8. VS Code integration
+
+https://twitter.com/erikras/status/1304479313274851328
+
+NOTES:
+- VS Code integration for Typescript is 🔥
 - Shows errors inline without even having to save and load app
+- I couldn't imagine writing TS w/o Code
 
 ////
 
@@ -368,18 +383,216 @@ NOTES:
 NOTES:
 - The biggest unique difference with TS + React is with props
   - Because that's the biggest unique aspect of React
-  - And really it's just standard functionality for a function
+  - And for React function components everything I described is standard for functions
 - The rest of React is really just regular TS vs JS
 - But let's talk about some hooks
+
+/////
+
+# `useState`
+
+/////
+
+NOTES:
+- Infers the type from the initial value
+
+/////
+
+NOTES:
+- However if the initial value is `null` you'll need to declare the type
+- Similarly if the initial value is one type of a union of types
+
+/////
+
+# `useEffect`
+
+/////
+
+NOTES:
+- Nothing really special since `useEffect` just takes in a function
+- It does ensure that you only return `undefined` or a clean-up function
+
+/////
+
+# `useReducer`
+
+/////
+
+NOTES:
+- Can use what's called a "discriminated union" to define reducer actions
+
+/////
+
+# Custom hooks
+
+NOTES:
+- In general custom hooks are just regular functions
+  * So you would type them like any TS function
+
+/////
+
+NOTES:
+- However it's common in hooks to return a tuple like `useState`
+- In which case you'll want to use `as const`
+- Otherwise type inference will incorrect guess the type
+
+=====
+
+# Advanced patterns
+
+/////
+
+# One w/ the other
+
+Example calls
+
+NOTES:
+- Let's say you have `<Text>` component that allows you to truncate text with `truncate` prop
+- It also has a `showExpand` to provide link to click to expand
+- The `showExpand` prop doesn't make sense w/o `truncate` prop
+
+/////
+
+Sample interfaces
+
+NOTES:
+- This is what the props definition could look like
+
+/////
+
+# Wrapping HTML components
+
+Example calls
+
+NOTES:
+- Let's say I've got my `<Button>` component that's a wrapper over HTML `<button>`
+- It has some props to control the visual design, but I want to support `<button>` props
+  * And have the all type checked
+- Without TS we sort of implicitly do this spreading rest props on the `<button>`
+- But there's no validation - I could pass anything
+  * Relying on the runtime error from React to tell me that this prop is invalid on `<button>`
+
+////
+
+Sample interface
+
+NOTES:
+- This is what it'd look like
+
+/////
+
+# Parameterized props
+
+Example call for render prop
+
+NOTES:
+- Let's say you have a `<List>` that has a render prop for each item
+- `<List>` is generic so it doesn't know what sort of items it's getting
+  * Doesn't care about the items themselves just displaying them (dividers, etc)
+- My biggest beef with render props is that I literally have no idea what I'm getting
+
+/////
+
+Sample component def
+
+NOTES:
+- But a render prop is just a special function prop, which now can be typed
+- And with the power of generics, it can be _generically_ typed
+
+=====
+
+# Setup
+
+/////
+
+CRA
+
+NOTES:
+- Easiest way of getting set up as always is with Create React App
+- Use `--typescript` arg
+- Adds a basic `tsconfig.json` for you
+- There's also a way to add TS to an existing CRA app
+
+/////
+
+Non-CRA
+
+NOTES:
+- For non-CRA apps, it's pretty straightforward
+- In the past, you had to ditch Babel and use TS for JS transpiling & type checking
+- Now TS & Babel work together
+  * Add `@babel/preset-typescript` to babel config
+  * Handles understanding TS and transpiling to JS just like your other plugins
+- Also need to add a `tsconfig.json`
+
+/////
+
+tsc for CI
+
+NOTES:
+- Generally for PRs I'm not building the app in CI
+  * Make the checks as fast as possible
+- Therefore, you _should_ add a type check step in addition to tests & lint
+- Only using the TS compiler for type-checking, Babel handles transpiling
+  * IMO Babel does a better job of transpiling
+  * Its ecosystem around plugins is much more robust than what TS offers
+
+/////
+
+DefinitelyTyped
+
+NOTES:
+- `DefinitelyTyped` is an amazing repository of type definitions
+  * Has all of your favorite packages
+- In order for you to be able to accurately type your React code
+  * Your dependencies need to be typed as well
+
+## Do I have to switch over all at once?
+
+NOTES:
+- NO! Not at all
+- I always advise against big rewrites
+  * Again, the whole purpose is to deliver a better quality app for your users
+  * You spending weeks/months rewritting is not helping them
+- I suggest taking it component by component
+  * With Babel JS can import TS no-problem
+  * You'll want to try to avoid the reverse because then you're missing type info
+- So I suggest starting with utilities/helpers first
+  * Those with little to no dependencies
+  * Then work your way outwards
+  * The top-level App component would likely be last
 
 =====
 
 # Resources
 
+- [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
+- [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
+
 NOTES:
 - Only talked about function components
 - You can use TS w/ class components too although hooks w/ functions are the way to go
 - These resources will help
+
+=====
+
+(medicine background)
+
+# TypeScript is not a cure-all!
+
+NOTES:
+- I know I've been super excited about TS
+  * But it's not a cure-all
+- It's just a tool like anything else
+  * Still need code review
+  * Still need tests for run-time things
+  * But hopefully you'll need less of both
+- There's a **learning curve** for TS
+  * That's the COST
+  * At SFIX I gave a workshop on TypeScript + React
+  * Then a team at ganged up on a single PR to get feet wet
+- VALUE: need to keep a lot less in your head about how components & object data work
+  * TS types now keep that info
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -400,6 +613,6 @@ NOTES:
 
 NOTES:
 - That's it!
-- Ask questions on Twitter (@benmvp) or find me at the conference
+- Ask questions on Twitter (@benmvp)
 - Thanks!
 - Enjoy the rest of the conference
