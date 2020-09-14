@@ -298,7 +298,7 @@ const App = (props: AppProps) => {
 
   return <div>{props.message}</div>
 }</code></pre>
-    <pre class="large"><code class="lang-text">Property 'loading' does not exist on type 'Props'</code></pre>
+    <pre class="large"><code class="lang-shell">Property 'loading' does not exist on type 'Props'</code></pre>
   </div>
 </div>
 
@@ -318,7 +318,7 @@ NOTES:
 &lt;App message="hi" count={5} /&gt;
 
 </code></pre>
-    <pre class="large"><code class="lang-text">Property 'count' does not exist on type
+    <pre class="large"><code class="lang-shell">Property 'count' does not exist on type
 'IntrinsicAttributes & AppProps'</code></pre>
   </div>
 </div>
@@ -375,7 +375,7 @@ NOTES:
 /&gt;
 
 </code></pre>
-    <pre class="large"><code class="lang-text">Property 'count' is missing in type '{ names: string[]; }'
+    <pre class="large"><code class="lang-shell">Property 'count' is missing in type '{ names: string[]; }'
 but required in type 'AppProps'</code></pre>
   </div>
 </div>
@@ -427,7 +427,7 @@ NOTES:
 /&gt;
 
 </code></pre>
-    <pre class="large"><code class="lang-text">Type 'number' is not assignable to type 'string'.</code></pre>
+    <pre class="large"><code class="lang-shell">Type 'number' is not assignable to type 'string'.</code></pre>
   </div>
 </div>
 
@@ -452,7 +452,7 @@ NOTES:
 /&gt;
 
 </code></pre>
-    <pre class="large"><code class="lang-text">Property 'names' does not exist on type
+    <pre class="large"><code class="lang-shell">Property 'names' does not exist on type
 'IntrinsicAttributes & AppProps'.</code></pre>
   </div>
 </div>
@@ -677,7 +677,7 @@ NOTES:
 &lt;/Button&gt;
 
 </code></pre>
-    <pre class="large"><code class="lang-text">Property 'title' does not exist on type
+    <pre class="large"><code class="lang-shell">Property 'title' does not exist on type
 'IntrinsicAttributes & Props'.</code></pre>
   </div>
 
@@ -782,68 +782,299 @@ NOTES:
   * I've converted over many vim users who wanna use TS over to VS Code
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Hooks
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>2. Hooks</h1>
+  </div>
+</div>
 
 NOTES:
 - The biggest unique difference with TS + React is with props
-  - Because that's the biggest unique aspect of React
-  - And for React function components everything I described is standard for functions
+  * Because that's the biggest unique aspect of React
+  * And for React function components everything I described is standard for functions
 - The rest of React is really just regular TS vs JS
 - But let's talk about some hooks
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# `useState`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>I) <code>useState</code></h2>
 
-/////
+    <pre class="large"><code class="lang-typescript">const App = () => {
+  const [count, setCount] = useState(0)
+
+  const add = () => {
+    setCount(
+      (prevCount) => prevCount + 1
+    )
+  }
+
+  return &lt;button onClick={add}&gt;Add&lt;/button&gt;
+}</code></pre>
+  </div>
 
 NOTES:
-- Infers the type from the initial value
+- Generally you don't need to do any special typing with `useState`
+  * It can infers the type from the initial value
+- In this case it infers that `count` is `number`
+  * `setCount` i a function that accepts a `number`
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>I) <code>useState</code></h2>
+
+    <pre class="large"><code class="lang-typescript">const App = () => {
+  const [value, setValue] = useState('')
+
+  return (
+    &lt;Input
+      variant="filled"
+      value={value}
+      onChange={setValue}
+    /&gt;
+  )
+}</code></pre>
+  </div>
+
+NOTES:
+- And the great part is we can pass around the state set function around
+  * And as long as the types match it Just Work™
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>I) <code>useState</code></h2>
+
+    <pre class="large"><code class="lang-typescript">const App = () => {
+  const [user, setUser] = useState&lt;User | null&gt;(null)
+
+  useEffect(() => {
+    getUserApi().then((data) => {
+      setUser(data.user)
+    })
+  }, [])
+}
+
+return user ? &lt;User user={user} /&gt; : null</code></pre>
+    <p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank">Generics</a></p>
+  </div>
 
 NOTES:
 - However if the initial value is `null` you'll need to declare the type
-- Similarly if the initial value is one type of a union of types
+  * Similarly if the initial value is one type of a union of types
+- Our props are now fully type-safe so it's important that our state is too
+  * So when types are refactored, we can ensure that everything is still correct
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# `useEffect`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>II) <code>useEffect</code></h2>
 
-/////
+    <pre class="large"><code class="lang-typescript">const App = () => {
+  const [user, setUser] = useState&lt;User | null&gt;(null)
+
+  useEffect(() => (
+    getUserApi().then((data) => {
+      setUser(data.user)
+    })
+  ), [])
+}</code></pre>
+    <pre class="large"><code class="lang-shell">Type 'Promise&lt;void&gt;' provides no match for the
+signature '(): void | undefined'.</code></pre>
+  </div>
 
 NOTES:
-- Nothing really special since `useEffect` just takes in a function
-- It does ensure that you only return `undefined` or a clean-up function
+- Not much too type with `useEffect` since it just takes in a function
+- But it does ensure you only return a clean-up function
+  * And don't accidentally return something else
+  * This example looks almost similar to before
+  * Except it's using an implicit return (parentheses vs. curly braces)
+  * We'll get a compilation error
+  * React also warns about this a run-time
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# `useReducer`
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>III) <code>useReducer</code></h2>
 
-/////
+    <pre class="large"><code class="lang-typescript">interface State {
+  status: 'loading' | 'failed' | 'success'
+  items?: Item[]
+  message?: string
+}
+
+type Action =
+  | { type: 'loading' }
+  | { type: 'failed', error: Error }
+  | { type: 'success', payload: Item[] }</code></pre>
+    <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
+  </div>
 
 NOTES:
-- Can use what's called a "discriminated union" to define reducer actions
+- Let's take a quick look at `useReducer`
+- A reducer is a function that takes current state + action
+  * Returns new state
+- So we first define the types of our `State` & valid actions
+- `State`
+  * 3 valid statuses
+  * Optional `items` for when the status is `'success'`
+  * Optional `errorMessage` for when the status is `'failed'`
+- `Action`
+  * Uses what's called a "discriminated union"
+  * Define each action it's type & whatever other properties
+  * We'll see how that benefits us in the `reducer`
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Custom hooks
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>III) <code>useReducer</code></h2>
+
+    <pre class="large"><code class="lang-typescript">type State =
+  | {status: 'loading'}
+  | {status: 'failed', message: string}
+  | {status: 'success', items: Item[]}
+
+type Action =
+  | {type: 'loading'}
+  | {type: 'failed', error: Error}
+  | {type: 'success', payload: Item[]}</code></pre>
+    <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
+  </div>
+
+NOTES:
+- In fact we can change `State` to be a discriminating union too
+- That way `items` will only exist when `status` is `'success'`
+  * Before even when `status` was `'success'`, `items` would still be "optional"
+- This ensures that we cannot get into odd states
+  * Where both the `status` is `'success'` but there's an `message`
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>III) <code>useReducer</code></h2>
+
+    <pre class="large"><code class="lang-typescript">const reducer = (state: State, action: Action): State => {
+  switch(action.type) {
+    case 'loading':
+      return {status: 'loading'}
+    case 'failed':
+      return {status: 'failed', message: action.error.message}
+    case 'success':
+      return {status: 'success', items: action.payload}
+  }
+}</code></pre>
+  </div>
+
+NOTES:
+- Now looking at our reducer
+  * Takes `state` & `action`, returning new `State`
+- TypeScript knows what the valid action types are
+  * VS Code will auto-complete them for me
+- Also knows that for the `'loading'` type there are no other properties on `action`
+- And TS also knows I've handled all cases of `action.type`
+  * So I technically don't even need a `default` case
+- Up until now I've really just been showing you TS
+  * Nothing React-specific yet
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>III) <code>useReducer</code></h2>
+
+    <pre class="large"><code class="lang-typescript">const Items = () => {
+  const [state, dispatch] = useReducer(
+    reducer,
+    {status: 'loading'}
+  )
+
+  useEffect(() => {
+    getItems().then(
+      (data) => dispatch({type: 'success', payload: data}),
+      (error) => dispatch({type: 'failed', error})
+    )
+  }, [])
+}</code></pre>
+  </div>
+
+NOTES:
+- `useReducer` infers the `state` from the state returned by the `reducer`
+  * Validates that the initial state is correct
+- `dispatch` can only take valid `Action` types from discriminated union
+  * If I tried to add payload to `type: 'failed'` it'd be an error
+- Below this I'd actually use `state`
+  * But I'd first have to check `state.status`
+  * Before accessing `state.items` or `state.message`
+- There are a lot of moving parts working together for `useReducer`
+  * Now imagine adding or a changing an action
+  * Or even just mistyping a type
+  * TS will catch all of that for us, whereas without it...
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>IV) Custom hooks</h2>
+
+    <pre class="large"><code class="lang-typescript">const useUser = (initUsername?: string) => {
+  const [username, setUsername] = useState(initUsername)
+  const [user, setUser] = useState&lt;User | null&gt;(null)
+
+  useEffect(() => {
+    getUser().then(setUser)
+  }, [username])
+
+  return [user, setUsername] as const
+  // want tuple: [User, (username: string) => void]
+  // not array: (User | (username: string) => void)[]
+}</code></pre>
+    <p><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions" target="_blank"><code>const</code> assertions</a></p>
+  </div>
 
 NOTES:
 - In general custom hooks are just regular functions
   * So you would type them like any TS function
-
-/////
-
-NOTES:
 - However it's common in hooks to return a tuple like `useState`
-- In which case you'll want to use `as const`
-- Otherwise type inference will incorrect guess the type
+- In which case you'll want to use `as const` assertion
+  * Otherwise type inference will incorrect guess the type
+- We are returning a 2-element array
+  * First element `User` object
+  * Second element function that takes a `string` returns `void`
+- By default TS will infer
+  * An array of strings or functions
+- Once that's all in place we get all the similar type safety we get from `useState`
 
 =====
 
 # Advanced patterns
+
+NOTES:
+- Things were starting to get more advanced there
+- As things get more complex, we're less able to rely on TS inference
+  * We have to be explicit about what we're trying to do
+  * But the nice thing is that once we do, TS protects us from ourselves
+- I wanna return back to discussing props
+  * But talk about some advanced patterns that can be really helpful
+  * They of course require writing more TS types
 
 /////
 
