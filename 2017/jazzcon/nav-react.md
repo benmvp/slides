@@ -10,7 +10,7 @@
 
 <br />
 
-March 23, 2017  
+March 23, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -198,7 +198,7 @@ NOTES:
 /////
 
 ![Ben Ilegbodu](../../img/headshot.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+<!-- .element: style="width: 400px; border-radius: 50%" -->
 
 Ben Ilegbodu
 
@@ -404,7 +404,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;margin-top:1%">
 	<div style="flex:0 0 48%;">
 		ES2015 modules go in...
-		<pre><code class="lang-js">// math.js
+		<pre><code class="language-javascript">// math.js
 
 // This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
@@ -414,7 +414,7 @@ export const square = (x) => x \* x
 export const cube = (x) => x \* x \* x
 		</code></pre>
 
-		<pre><code class="lang-js">// main.js
+		<pre><code class="language-javascript">// main.js
 import {cube} from './math.js'
 
 console.log(cube(5)) // 125
@@ -422,7 +422,7 @@ console.log(cube(5)) // 125
 	</div>
 	<div style="flex:0 0 48%;">
 		...bundle comes out
-		<pre><code class="lang-js">// This function isn't used anywhere, so
+		<pre><code class="language-javascript">// This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
 
 // This function gets included
@@ -441,7 +441,7 @@ NOTES:
 /////
 
 ![Tirell Mckinnon](../../img/nav-react/tirell-mckinnon.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+<!-- .element: style="width: 400px; border-radius: 50%" -->
 
 Tirell Mckinnon
 
@@ -580,7 +580,7 @@ $> flow
 
 2:   x * 10
      ^ string. This type is incompatible with
-2:   x * 10     
+2:   x * 10
      ^ number
 ```
 <!-- .element: class="large" -->
@@ -980,7 +980,7 @@ NOTES:
 /////
 
 ![Jeff Barczewski](../../img/nav-react/jeff-barczewski.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+<!-- .element: style="width: 400px; border-radius: 50%" -->
 
 Jeff Barczewski
 
@@ -1145,7 +1145,7 @@ NOTES:
 /////
 
 ![Bruno Genaro](../../img/nav-react/bruno-genaro.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+<!-- .element: style="width: 400px; border-radius: 50%" -->
 
 Bruno Genaro
 
@@ -1236,7 +1236,7 @@ NOTES:
 /////
 
 ![Jeremy Fairbank](../../img/nav-react/jeremy-fairbank.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+<!-- .element: style="width: 400px; border-radius: 50%" -->
 
 Jeremy Fairbank
 
@@ -1249,7 +1249,7 @@ Today @ 2p (ReactJS)
 /////
 
 ![Kevin Old](../../img/nav-react/kevin-old.jpg)
-<!-- .element: style="width: 400px; border-radius: 50%" -->  
+<!-- .element: style="width: 400px; border-radius: 50%" -->
 
 Kevin Old
 
@@ -1486,7 +1486,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 
 <br />

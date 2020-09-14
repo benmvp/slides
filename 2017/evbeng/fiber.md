@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@evbeng](https://twitter.com/evbeng)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@evbeng](https://twitter.com/evbeng)
 
 <br />
 
-August 21, 2017  
+August 21, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -128,14 +128,14 @@ NOTES:
 <div style="display:flex;align-items:center">
 	<div style="flex:0 0 50%;">
     <h3>20% smaller React bundle!</h3>
-		<pre class="large"><code class="lang-sh">$ jsize react@next react-dom@next
+		<pre class="large"><code class="lang-shell">$ jsize react@next react-dom@next
 react@next        2.95 kB (gzipped)
 react-dom@next    37.3 kB (gzipped)</code></pre>
 
     <br /><br />
 
     <h3>Before</h3>
-		<pre class="large"><code class="lang-sh">$ jsize react@15 react-dom@15
+		<pre class="large"><code class="lang-shell">$ jsize react@15 react-dom@15
 react@15        7.22 kB (gzipped)
 react-dom@15    43.9 kB (gzipped)</code></pre>
 
@@ -257,7 +257,7 @@ export default const App = () => (
 ```
 <!-- .element: class="large" -->
 
-Strings **ARE** valid return values in React 16! 👍🏾  
+Strings **ARE** valid return values in React 16! 👍🏾
 (numbers & booleans too)
 
 NOTES:
@@ -736,7 +736,7 @@ NOTES:
 
 /////
 
-## React Fiber Synchronous Scheduling 😞 
+## React Fiber Synchronous Scheduling 😞
 
 <a href="https://twitter.com/koba04/status/854924460352192520">
   <img src="../../img/react-fiber/sync-browser-perf.jpg" alt="Screenshot of browser performance with sync Fiber scheduling" style="width: 50%" />
@@ -764,29 +764,29 @@ NOTES:
 ## Fiber makes React renderers easier to build
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
-  [`ink`](https://github.com/vadimdemedes/ink)  
-  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
-  [`rax`](https://github.com/alibaba/rax)  
-  [`react-art`](https://github.com/reactjs/react-art)  
-  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
-  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
-  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
-  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
-  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
-  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
-  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
-  [`react-konsul`](https://github.com/mohebifar/konsul)  
-  [_**`react-native`**_](https://github.com/facebook/react-native)  
-  [`react-pdf`](https://github.com/diegomura/react-pdf)  
-  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
-  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
-  [`react-three`](https://github.com/Izzimach/react-three)  
-  [`react-titanium`](https://github.com/yuchi/react-titanium)  
-  [`react-tvml`](https://github.com/ramitos/react-tvml)  
-  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
-  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
-  [`react-x11`](https://github.com/sidorares/react-x11)  
-  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+  [`ink`](https://github.com/vadimdemedes/ink)
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)
+  [`rax`](https://github.com/alibaba/rax)
+  [`react-art`](https://github.com/reactjs/react-art)
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)
+  [`react-konsul`](https://github.com/mohebifar/konsul)
+  [_**`react-native`**_](https://github.com/facebook/react-native)
+  [`react-pdf`](https://github.com/diegomura/react-pdf)
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)
+  [`react-three`](https://github.com/Izzimach/react-three)
+  [`react-titanium`](https://github.com/yuchi/react-titanium)
+  [`react-tvml`](https://github.com/ramitos/react-tvml)
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)
+  [`react-x11`](https://github.com/sidorares/react-x11)
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)
 </div>
 
 Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
@@ -841,7 +841,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 <br /><br />
 

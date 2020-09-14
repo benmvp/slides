@@ -370,7 +370,7 @@ NOTES:
 
 <br />
 Equivalent JavaScript
-    <pre><code class="lang-js">
+    <pre><code class="language-javascript">
 $('label').click(function() {
   var inputId = $(this).attr('for');
 
@@ -644,7 +644,7 @@ NOTES:
   <li><code>max</code></li>
   <li><code>step</code></li>
   <li><code>pattern</code> (regex)</li>
-</ul>  
+</ul>
 
   </div>
   <div style="flex:0 0 48%;">
@@ -1664,7 +1664,7 @@ _[43 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github.com/benmvp](https://github.com/benmvp/)
 
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)

@@ -2,7 +2,7 @@
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
 	<div style="width: 45%;" class="content-overlay">
-  
+
   <h1>Navigating the React Solar System</h1>
 
   <br />
@@ -16,10 +16,10 @@
   <br />
 
   <p>20 September 2018</p>
-  
-  
+
+
   </div>
-</div> 
+</div>
 
 NOTES:
 - Good morning!
@@ -274,7 +274,7 @@ NOTES:
       <li><a href="http://www.benmvp.com/learning-es6-enhanced-object-literals" target="_blank">Object literal shorthand</a></li>
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank">Async functions</a></li>
       <li>and more...</li>
-    </ul>    
+    </ul>
   </div>
 </div>
 
@@ -293,7 +293,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2><a href="http://www.benmvp.com/slides/2017/reactconf/react-esnext.html" target="_blank">React + ES.next = ♥</a></h2>
-  
+
     <iframe width="888" height="500" src="https://www.youtube.com/embed/jh_Qzi-yHU0" frameborder="0" allowfullscreen></iframe>
 
     <p>ReactConf 2017</p>
@@ -311,7 +311,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>JavaScript Resources</h2>
-  
+
     <ul>
       <li><a href="/learning-es6-series/" target="_blank">_Learning ES6_ series</a></li>
       <li><a href="http://es6katas.org/" target="_blank">ES6 Katas</a></li>
@@ -481,7 +481,7 @@ NOTES:
     <div style="display:flex;justify-content:space-between;margin-top:1%">
       <div style="flex:0 0 63%;">
         ES2015 modules go in...
-        <pre class="large"><code class="lang-js">// maths.js
+        <pre class="large"><code class="language-javascript">// maths.js
 
 // This function gets excluded
 export const square = (x) => x \* x
@@ -489,14 +489,14 @@ export const square = (x) => x \* x
 // This function gets included
 export const cube = (x) => x \* x \* x</code></pre>
 
-		    <pre class="large"><code class="lang-js">// main.js
+		    <pre class="large"><code class="language-javascript">// main.js
 import {cube} from './maths.js'
 
 console.log(cube(5)) // 125</code></pre>
 	    </div>
 	    <div style="flex:0 0 33%;">
 		    ...bundle comes out
-		    <pre class="large"><code class="lang-js">function cube(x) {
+		    <pre class="large"><code class="language-javascript">function cube(x) {
   return x \* x \* x
 }
 
@@ -946,7 +946,7 @@ NOTES:
   <div class="content-overlay" style="width: 75%">
     <h2>`css-in-js`</h2>
     <p>Define your CSS using JavaScript</p>
-    
+
     <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
       <div style="flex:0 0 22%;">
         <a href="https://emotion.sh/" target="_blank"><img src="../../img/nav-react/emotion-logo.png" class="plain" /></a>
@@ -1032,7 +1032,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Styling Resources</h2>
-  
+
     <ul>
       <li><a href="https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660" target="_blank">_A Unified Styling Language_</a></li>
       <li><a href="https://github.com/gajus/react-css-modules" target="_blank">React CSS Modules</a></li>
@@ -1094,7 +1094,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Fetch Resources</h2>
-  
+
     <ul>
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">Using Fetch</a></li>
       <li><a href="http://www.benmvp.com/learning-es6-promises/" target="_blank">Learning ES6: Promises</a></li>
@@ -1114,7 +1114,7 @@ NOTES:
   <div class="content-overlay" style="width: 45%">
     <h2>Routing</h2>
     <p>Keep your UI in sync with the URL</p>
-  
+
    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
       <div style="flex:0 0 45%;">
         <a href="https://github.com/ReactTraining/react-router" target="_blank"><img src="../../img/nav-react/react-router-logo.png" class="plain" /></a>
@@ -1247,14 +1247,14 @@ NOTES:
   * Basically built at the same time
   * More or less feature parity
 
-///// 
+/////
 
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Form Resources</h2>
-  
+
     <ul>
       <li><a href="https://reactjs.org/docs/forms.html" target="_blank">Forms in React</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/react/05-email-form" target="_blank">React FUNdamentals Workshop - Forms</a></li>
@@ -1371,7 +1371,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h2>Testing Resources</h2>
-  
+
     <ul>
       <li><a href="http://airbnb.io/enzyme/" target="_blank">Enzyme</a></li>
       <li><a href="https://github.com/benmvp/react-workshop/tree/master/src/testing" target="_blank">React Testing FUNdamentals Workshop</a></li>
@@ -1478,7 +1478,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>Server-side Rendering Resources</h2>
-  
+
     <ul>
       <li><a href="https://github.com/brillout/awesome-ssr" target="_blank">Awesome SSR</a>
       <li><a href="https://github.com/bitinn/node-fetch" target="_blank">`node-fetch`</a> / <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank">`isomorphic-fetch`</a></li>
@@ -1710,7 +1710,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <h2>API Optimization Resources</h2>
-  
+
     <ul>
       <li><a href="https://www.howtographql.com/" target="_blank">How to GraphQL</a></li>
       <li><a href="https://github.com/apollographql/apollo-client-devtools" target="_blank">Apollo Client Devtools</a></li>
@@ -1841,7 +1841,7 @@ NOTES:
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
 	<div style="width: 40%" class="content-overlay">
-  
+
   <h1>Ben Ilegbodu</h1>
 
   <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="/" target="_blank">benmvp.com</a></p>
@@ -1851,7 +1851,7 @@ NOTES:
   <br />
 
   <p>Ask me anything!<br /><a href="http://www.benmvp.com/ama/" target="_blank">benmvp.com/ama</a></p>
-  
+
   </div>
 </div>
 

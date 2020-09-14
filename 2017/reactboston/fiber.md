@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ReactBoston](https://twitter.com/hashtag/ReactBoston)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ReactBoston](https://twitter.com/hashtag/ReactBoston)
 
 <br />
 
-September 24, 2017  
+September 24, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -250,11 +250,11 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content: space-between">
 	<div style="flex:0 0 48%;">
 		<img src="../../img/react-fiber/prop-types-error.png" style="width:100%;height:auto" alt="React Prop Types error screenshot" />
-    <pre><code class="lang-js">import PropTypes from 'prop-types'</code></pre>
+    <pre><code class="language-javascript">import PropTypes from 'prop-types'</code></pre>
 	</div>
 	<div style="flex:0 0 48%;">
 		<img src="../../img/react-fiber/create-class-error.png" style="width:100%;height:auto" alt="React createClass error screenshot" />
-    <pre><code class="lang-js">import createClass from 'create-react-class'</code></pre>
+    <pre><code class="language-javascript">import createClass from 'create-react-class'</code></pre>
 	</div>
 </div>
 
@@ -295,7 +295,7 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content: space-between; margin: 2em 0">
 	<div style="flex:0 0 45%;">
     React 15 JSX
-    <pre class="large"><code class="lang-js">&lt;svg foo="bar" /></code></pre>
+    <pre class="large"><code class="language-javascript">&lt;svg foo="bar" /></code></pre>
 	</div>
 	<div style="flex:0 0 45%;">
 		React 15 HTML
@@ -306,7 +306,7 @@ NOTES:
 <div style="display:flex;align-items:center;justify-content: space-between">
 	<div style="flex:0 0 45%;">
     React 16 JSX
-    <pre class="large"><code class="lang-js">&lt;svg foo="bar" /></code></pre>
+    <pre class="large"><code class="language-javascript">&lt;svg foo="bar" /></code></pre>
 	</div>
 	<div style="flex:0 0 45%;">
 		React 16 HTML
@@ -341,8 +341,8 @@ Warning: Invalid DOM property `classname`. Did you mean `className`?
 
 `<div classNam="foo">` (misspelled camelCase)
 ```js
-React does not recognize the `classNam` prop on a DOM element. If you intentionally 
-want it to appear in the DOM as a custom attribute, spell it as lowercase `classnam` 
+React does not recognize the `classNam` prop on a DOM element. If you intentionally
+want it to appear in the DOM as a custom attribute, spell it as lowercase `classnam`
 instead. If you accidentally passed it from a parent, remove it from the DOM element.
 ```
 <!-- .element: style="margin-bottom: 1.5em" -->
@@ -478,7 +478,7 @@ NOTES:
 
 /////
 
-Strings are also valid return values in React 16! 👍🏾  
+Strings are also valid return values in React 16! 👍🏾
 
 ```js
 const Localized = ({msg, tokens}) => {
@@ -850,7 +850,7 @@ const Modal = ({title, children, shown}) => {
   if (!shown) {
     return null
   }
-  
+
   return (
     <Portal>
       <dialog>
@@ -897,29 +897,29 @@ NOTES:
 ## Fiber makes React renderers easier to build
 
 <div style="columns:3;-webkit-columns:3;-moz-columns:3;margin: 2em 0">
-  [`ink`](https://github.com/vadimdemedes/ink)  
-  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)  
-  [`rax`](https://github.com/alibaba/rax)  
-  [`react-art`](https://github.com/reactjs/react-art)  
-  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)  
-  [`react-canvas`](https://github.com/Flipboard/react-canvas)  
-  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)  
-  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)  
-  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)  
-  [`React-GL`](https://github.com/PixelsCommander/React-GL)  
-  [`react-hardware`](https://github.com/iamdustan/react-hardware)  
-  [`react-konsul`](https://github.com/mohebifar/konsul)  
-  [_**`react-native`**_](https://github.com/facebook/react-native)  
-  [`react-pdf`](https://github.com/diegomura/react-pdf)  
-  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)  
-  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)  
-  [`react-three`](https://github.com/Izzimach/react-three)  
-  [`react-titanium`](https://github.com/yuchi/react-titanium)  
-  [`react-tvml`](https://github.com/ramitos/react-tvml)  
-  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)  
-  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)  
-  [`react-x11`](https://github.com/sidorares/react-x11)  
-  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)  
+  [`ink`](https://github.com/vadimdemedes/ink)
+  [`noop-renderer`](https://github.com/facebook/react/blob/master/src/renderers/noop/ReactNoop.js)
+  [`rax`](https://github.com/alibaba/rax)
+  [`react-art`](https://github.com/reactjs/react-art)
+  [`react-blessed`](https://github.com/Yomguithereal/react-blessed)
+  [`react-canvas`](https://github.com/Flipboard/react-canvas)
+  [_**`react-dom`**_](https://github.com/facebook/react/tree/master/packages/react-dom)
+  [`react-fs-renderer`](https://github.com/ericvicenti/react-fs-renderer)
+  [`React-Gibbon`](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html)
+  [`React-GL`](https://github.com/PixelsCommander/React-GL)
+  [`react-hardware`](https://github.com/iamdustan/react-hardware)
+  [`react-konsul`](https://github.com/mohebifar/konsul)
+  [_**`react-native`**_](https://github.com/facebook/react-native)
+  [`react-pdf`](https://github.com/diegomura/react-pdf)
+  [_**`react-sketchapp`**_](https://github.com/airbnb/react-sketchapp)
+  [_**`react-test-renderer`**_](https://www.npmjs.com/package/react-test-renderer)
+  [`react-three`](https://github.com/Izzimach/react-three)
+  [`react-titanium`](https://github.com/yuchi/react-titanium)
+  [`react-tvml`](https://github.com/ramitos/react-tvml)
+  [_**`react-vr`**_](https://github.com/facebookincubator/react-vr)
+  [`react-worker-dom`](https://github.com/web-perf/react-worker-dom)
+  [`react-x11`](https://github.com/sidorares/react-x11)
+  [`ReactLiberty`](https://github.com/LibertyGlobal/ReactLiberty)
 </div>
 
 Source: [`awesome-react-renderer`](https://github.com/chentsulin/awesome-react-renderer)
@@ -1005,7 +1005,7 @@ NOTES:
 
 /////
 
-## React Fiber Synchronous Scheduling 😞 
+## React Fiber Synchronous Scheduling 😞
 
 <a href="https://twitter.com/koba04/status/854924460352192520">
   <img src="../../img/react-fiber/sync-browser-perf.jpg" alt="Screenshot of browser performance with sync Fiber scheduling" style="width: 50%" />
@@ -1063,7 +1063,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 <br /><br />
 

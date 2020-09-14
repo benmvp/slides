@@ -6,9 +6,9 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ndcoslo](https://twitter.com/hashtag/ndcoslo)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ndcoslo](https://twitter.com/hashtag/ndcoslo)
 
-June 10, 2016  
+June 10, 2016
 
 NOTES:
 - How many folks here would call themselves web developers?
@@ -195,7 +195,7 @@ _[4 minutes]_
 </header>
 ```
 
-[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS  
+[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS
 [BEM](https://css-tricks.com/bem-101/): Block, Element, Modifier
 
 
@@ -402,7 +402,7 @@ NOTES:
       </code></pre>
 
 Equivalent JavaScript
-    <pre class="large"><code class="lang-js">
+    <pre class="large"><code class="language-javascript">
 $('label').click(function() {
   var inputId = $(this).attr('for');
 
@@ -1721,8 +1721,8 @@ _[43 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github.com/benmvp](https://github.com/benmvp/)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+[github.com/benmvp](https://github.com/benmvp/)
 
 <br />
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)

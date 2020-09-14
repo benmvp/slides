@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DEVWEEK17](https://twitter.com/hashtag/DEVWEEK17)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#DEVWEEK17](https://twitter.com/hashtag/DEVWEEK17)
 
 <br />
 
-February 14, 2017  
+February 14, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -386,7 +386,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;margin-top:1%">
 	<div style="flex:0 0 48%;">
 		ES2015 modules go in...
-		<pre><code class="lang-js">// math.js
+		<pre><code class="language-javascript">// math.js
 
 // This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
@@ -396,7 +396,7 @@ export const square = (x) => x \* x
 export const cube = (x) => x \* x \* x
 		</code></pre>
 
-		<pre><code class="lang-js">// main.js
+		<pre><code class="language-javascript">// main.js
 import {cube} from './maths.js'
 
 console.log(cube(5)) // 125
@@ -404,7 +404,7 @@ console.log(cube(5)) // 125
 	</div>
 	<div style="flex:0 0 48%;">
 		...bundle comes out
-		<pre><code class="lang-js">// This function isn't used anywhere, so
+		<pre><code class="language-javascript">// This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
 
 // This function gets included
@@ -556,7 +556,7 @@ $> flow
 
 2:   x * 10
      ^ string. This type is incompatible with
-2:   x * 10     
+2:   x * 10
      ^ number
 ```
 <!-- .element: class="large" -->

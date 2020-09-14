@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ChainReact2017](https://twitter.com/hashtag/ChainReact2017)    
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ChainReact2017](https://twitter.com/hashtag/ChainReact2017)
 
 <br />
 
-July 10, 2017  
+July 10, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -397,7 +397,7 @@ NOTES:
 componentWillMount() {
   this._panResponder = PanResponder.create({
     onStartShouldSetPanResponder: function() { return true },
-    onPanResponderGrant: function(e) { 
+    onPanResponderGrant: function(e) {
 	  this.setState({mapTouchStart: e.nativeEvent.timestamp})
 	}.bind(this),  // pass in proper `this` context
     onPanResponderRelease: this.checkMapTap.bind(this)
@@ -437,7 +437,7 @@ Arrow functions works how you would expect!
 ```js
 this._panResponder = PanResponder.create({
   onStartShouldSetPanResponder: () => true,
-  onPanResponderGrant: (e) => { 
+  onPanResponderGrant: (e) => {
 	this.setState({mapTouchStart: e.nativeEvent.timestamp})
   },
   onPanResponderRelease: this.checkMapTap.bind(this)
@@ -452,7 +452,7 @@ this._panResponder = PanResponder.create({
 ```js
 this._panResponder = PanResponder.create({
   onStartShouldSetPanResponder: function() { return true },
-  onPanResponderGrant: function(e) { 
+  onPanResponderGrant: function(e) {
 	this.setState({mapTouchStart: e.nativeEvent.timestamp})
   }.bind(this),  // pass in proper `this` context
   onPanResponderRelease: this.checkMapTap.bind(this)
@@ -688,14 +688,14 @@ Sharing styles
 
 <div style="display:flex;align-items:center;justify-content:space-between">
 	<div style="width:48%">
-		<pre><code class="lang-js">// Styles/AboutScreenStyle.js
+		<pre><code class="language-javascript">// Styles/AboutScreenStyle.js
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
     flex: 1
   }
 })</code></pre>
-		<pre><code class="lang-js">// Themes/ApplicationStyles.js
+		<pre><code class="language-javascript">// Themes/ApplicationStyles.js
 const ApplicationStyles = {
   screen: {
     titleText: {
@@ -708,7 +708,7 @@ const ApplicationStyles = {
 export default ApplicationStyles</code></pre>
 	</div>
 	<div style="width:48%">
-		<pre><code class="lang-js">// Themes/Fonts.js
+		<pre><code class="language-javascript">// Themes/Fonts.js
 const size = {
   h1: 38,
   h2: 34
@@ -724,7 +724,7 @@ const style = {
   }
 }
 export default {size, style}</code></pre>
-		<pre><code class="lang-js">&lt;Text style={styles.titleText}>
+		<pre><code class="language-javascript">&lt;Text style={styles.titleText}>
   Our Sponsors
 &lt;/Text></code></pre>
 	</div>
@@ -894,7 +894,7 @@ class LocationScreen extends React.PureComponent {
 	super(props)
     this.state = { }  // instance property
   }
-  
+
   _toggleRides() { }  // instance method ("private")
 
   render() {  // instance method
@@ -985,7 +985,7 @@ class LocationScreen extends React.PureComponent {
     this.state = { }  // instance property
 	this._toggleRides = () => { }  // bound function ("private")
   }
-  
+
   render() {  // instance method
     return (
       <TouchableOpacity onPress={this._toggleRides}>
@@ -1014,7 +1014,7 @@ class LocationScreen extends React.PureComponent {
 
   state = { }  // instance property
 
-  #toggleRides = () => { }  // bound function (private) 
+  #toggleRides = () => { }  // bound function (private)
 
   render() {  // instance method
     return (
@@ -1027,7 +1027,7 @@ class LocationScreen extends React.PureComponent {
 ```
 <!-- .element: class="large" -->
 
-[Private class fields](https://github.com/tc39/proposal-class-fields) (Stage 2)  
+[Private class fields](https://github.com/tc39/proposal-class-fields) (Stage 2)
 
 NOTES:
 - Advantage of instance property func:
@@ -1118,7 +1118,7 @@ NOTES:
 
 <br />
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 
 <br />

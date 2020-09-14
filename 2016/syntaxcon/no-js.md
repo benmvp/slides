@@ -4,9 +4,9 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@SyntaxCon](https://twitter.com/syntaxcon)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@SyntaxCon](https://twitter.com/syntaxcon)
 
-May 7, 2016  
+May 7, 2016
 
 NOTES:
 - How many folks here would call themselves web developers?
@@ -162,7 +162,7 @@ _[4 minutes]_
 </header>
 ```
 
-[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS  
+[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS
 [BEM](https://css-tricks.com/bem-101/): Block, Element, Modifier
 
 
@@ -369,7 +369,7 @@ NOTES:
       </code></pre>
 
 Equivalent JavaScript
-    <pre class="large"><code class="lang-js">
+    <pre class="large"><code class="language-javascript">
 $('label').click(function() {
   var inputId = $(this).attr('for');
 
@@ -1602,7 +1602,7 @@ _[41 minutes]_
 
 /////
 
-![Zach Schnackel](../../img/syntaxcon2016/zach-schnackel.jpg)  <!-- .element: style="width: 400px" -->  
+![Zach Schnackel](../../img/syntaxcon2016/zach-schnackel.jpg)  <!-- .element: style="width: 400px" -->
 [Zach Schnackel](https://2016.syntaxcon.com/speaker/zach-schnackel/)
 
 <br />
@@ -1703,8 +1703,8 @@ _[43 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github.com/benmvp](https://github.com/benmvp/)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+[github.com/benmvp](https://github.com/benmvp/)
 
 <br />
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)

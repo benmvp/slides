@@ -6,11 +6,11 @@
 
 <br />
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@connect_js](https://twitter.com/connect_js)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@connect_js](https://twitter.com/connect_js)
 
 <br />
 
-October 21, 2016  
+October 21, 2016
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -367,7 +367,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;margin-top:1%">
 	<div style="flex:0 0 48%;">
 		ES2015 modules go in...
-		<pre><code class="lang-js">// math.js
+		<pre><code class="language-javascript">// math.js
 
 // This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
@@ -381,7 +381,7 @@ export function cube(x) {
 }
 		</code></pre>
 
-		<pre><code class="lang-js">// main.js
+		<pre><code class="language-javascript">// main.js
 import {cube} from './maths.js';
 
 console.log(cube(5)); // 125
@@ -389,7 +389,7 @@ console.log(cube(5)); // 125
 	</div>
 	<div style="flex:0 0 48%;">
 		...bundle comes out
-		<pre><code class="lang-js">// This function isn't used anywhere, so
+		<pre><code class="language-javascript">// This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
 
 // This function gets included
@@ -542,7 +542,7 @@ $> flow
 
 3:   x * 10
      ^ string. This type is incompatible with
-3:   x * 10     
+3:   x * 10
      ^ number
 ```
 <!-- .element: class="large" -->
@@ -998,7 +998,7 @@ NOTES:
 /////
 
 ![Tim Dorr](../../img/nav-react/tim-dorr.jpg)
-<!-- .element: style="width: 400px" -->  
+<!-- .element: style="width: 400px" -->
 
 Tim Dorr
 
@@ -1120,7 +1120,7 @@ it('should render a checked checkbox if it is selected', () => {
 /////
 
 ![Kent C. Dodds](../../img/nav-react/kent-dodds.jpg)
-<!-- .element: style="width: 400px" -->  
+<!-- .element: style="width: 400px" -->
 
 Kent C. Dodds
 
@@ -1179,7 +1179,7 @@ NOTES:
 /////
 
 ![Ben Ilegbodu](../../img/headshot.jpg)
-<!-- .element: style="width: 400px" -->  
+<!-- .element: style="width: 400px" -->
 
 Ben Ilegbodu
 
@@ -1322,7 +1322,7 @@ NOTES:
 /////
 
 ![Clint Ayres](../../img/nav-react/clint-ayres.jpg)
-<!-- .element: style="width: 400px" -->  
+<!-- .element: style="width: 400px" -->
 
 Clint Ayres
 
@@ -1335,7 +1335,7 @@ Today @ 4p in Room C (React.JS)
 /////
 
 ![Jonathan Kemp](../../img/nav-react/jonathan-kemp.jpg)
-<!-- .element: style="width: 400px" -->  
+<!-- .element: style="width: 400px" -->
 
 Jonathan Kemp
 
@@ -1395,7 +1395,7 @@ NOTES:
 /////
 
 ![Kevin Old](../../img/nav-react/kevin-old.jpeg)
-<!-- .element: style="width: 400px" -->  
+<!-- .element: style="width: 400px" -->
 
 Kevin Old
 
@@ -1532,12 +1532,12 @@ NOTES:
 
 <br />
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 
 <br />
 
-[@connect_js](https://twitter.com/connect_js)  
+[@connect_js](https://twitter.com/connect_js)
 
 <br />
 

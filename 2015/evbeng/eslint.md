@@ -343,7 +343,7 @@ else {
 
 <div style="display:flex">
 	<div style="flex:0 0 45%;">
-		<pre class="small"><code class="lang-js" data-trim>
+		<pre class="small"><code class="language-javascript" data-trim>
 {
   templateHelpers: function () {
     var color = '#ff0000',
@@ -365,7 +365,7 @@ else {
 			</code></pre>
 	</div>
 	<div style="flex:0 0 55%;">
-		<pre class="small"><code class="lang-js" data-trim>
+		<pre class="small"><code class="language-javascript" data-trim>
 {
   getRect: function(width, height, name, color) {
     var area = width \* height;

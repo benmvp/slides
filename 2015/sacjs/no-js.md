@@ -374,7 +374,7 @@ NOTES:
 
 <br />
 Equivalent JavaScript
-    <pre><code class="lang-js">
+    <pre><code class="language-javascript">
 $('label').click(function() {
   var inputId = $(this).attr('for');
 
@@ -1672,7 +1672,7 @@ _[43 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github.com/benmvp](https://github.com/benmvp/)
 
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)

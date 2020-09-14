@@ -10,7 +10,7 @@
 
 <br />
 
-May 23, 2017  
+May 23, 2017
 
 NOTES:
 - My name is Ben Ilegbodu
@@ -426,7 +426,7 @@ NOTES:
 <div style="display:flex;justify-content:space-between;margin-top:1%">
 	<div style="flex:0 0 48%;">
 		ES2015 modules go in...
-		<pre><code class="lang-js">// math.js
+		<pre><code class="language-javascript">// math.js
 
 // This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
@@ -436,7 +436,7 @@ export const square = (x) => x \* x
 export const cube = (x) => x \* x \* x
 		</code></pre>
 
-		<pre><code class="lang-js">// main.js
+		<pre><code class="language-javascript">// main.js
 import {cube} from './math.js'
 
 console.log(cube(5)) // 125
@@ -444,7 +444,7 @@ console.log(cube(5)) // 125
 	</div>
 	<div style="flex:0 0 48%;">
 		...bundle comes out
-		<pre><code class="lang-js">// This function isn't used anywhere, so
+		<pre><code class="language-javascript">// This function isn't used anywhere, so
 // Rollup excludes it from the bundle...
 
 // This function gets included
@@ -589,7 +589,7 @@ $> flow
 
 2:   x * 10
      ^ string. This type is incompatible with
-2:   x * 10     
+2:   x * 10
      ^ number
 ```
 <!-- .element: class="large" -->
@@ -1439,7 +1439,7 @@ NOTES:
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
 [github/benmvp](https://github.com/benmvp)
 
 <br />

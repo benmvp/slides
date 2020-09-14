@@ -4,9 +4,9 @@
 
 ## Ben Ilegbodu
 
-[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ConFoo](https://twitter.com/hashtag/confoo)  
+[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#ConFoo](https://twitter.com/hashtag/confoo)
 
-February 24, 2016  
+February 24, 2016
 
 NOTES:
 - How many folks here would call themselves web developers?
@@ -191,7 +191,7 @@ _[4 minutes]_
 </header>
 ```
 
-[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS  
+[SMACSS](https://smacss.com/): Scalable and Modular Architecture for CSS
 [BEM](https://css-tricks.com/bem-101/): Block, Element, Modifier
 
 
@@ -409,7 +409,7 @@ NOTES:
 
 <br />
 Equivalent JavaScript
-    <pre><code class="lang-js">
+    <pre><code class="language-javascript">
 $('label').click(function() {
   var inputId = $(this).attr('for');
 
@@ -782,7 +782,7 @@ _[21 minutes]_
 
 /////
 
-![Myriam Jessier](../../img/confoo2016/myriam-jessier.jpg)  <!-- .element: style="width: 300px" -->  
+![Myriam Jessier](../../img/confoo2016/myriam-jessier.jpg)  <!-- .element: style="width: 300px" -->
 Myriam Jessier
 
 <br />
@@ -1158,7 +1158,7 @@ NOTES:
 
 /////
 
-![Rachel Andrew](../../img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->  
+![Rachel Andrew](../../img/confoo2016/rachel-andrew.jpg)  <!-- .element: style="width: 300px" -->
 Rachel Andrew
 
 <br />
@@ -1169,7 +1169,7 @@ Tomorrow @ 13:00 in Hampstead
 
 /////
 
-![Jen Kramer](../../img/confoo2016/jen-kramer.jpg)  <!-- .element: style="width: 300px" -->  
+![Jen Kramer](../../img/confoo2016/jen-kramer.jpg)  <!-- .element: style="width: 300px" -->
 Jen Kramer
 
 <br />
@@ -1671,7 +1671,7 @@ _[41 minutes]_
 
 /////
 
-![Sarah Etter](../../img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->  
+![Sarah Etter](../../img/confoo2016/sarah-etter.jpg)  <!-- .element: style="width: 300px" -->
 Sarah Etter
 
 <br />
@@ -1772,8 +1772,8 @@ _[43 minutes]_
 
 ## Ben Ilegbodu
 
-[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)  
-[github.com/benmvp](https://github.com/benmvp/)  
+[benmvp.com](/) | [@benmvp](https://twitter.com/benmvp) | [ben@benmvp.com](mailto:ben@benmvp.com)
+[github.com/benmvp](https://github.com/benmvp/)
 
 <br />
 Code examples: [benmvp.com/you-dont-need-js-for-that/](/you-dont-need-js-for-that/)
