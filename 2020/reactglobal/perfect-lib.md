@@ -25,14 +25,16 @@ NOTES:
 
 - Hello World!
   * I've always wanted to do that
-  * And now in my first virtual talk I can!
+  * And now I can in my first virtual talk!
 - It's the "perfect" (in quotes) JavaScript library tooling because it's obviously highly subjective
   * These are naturally my own opinions
 - But it's the talk I would've liked to have heard when I was starting building libraries
-  * Because libraries for developers have different concerns than apps for users
+  * Because **libraries** for developers have different concerns than **apps** for users
 - So these are learnings over the years doing tooling-type things
-  * In open-source & on the job
+  * Both in open-source & on the job
   * As well as watching how other more prolific folks have done it
+
+
 - **TWEETED OUT THE SLIDES!**
 
 =====
@@ -52,7 +54,7 @@ NOTES:
 </div>
 
 NOTES:
-- Whenever we're talking about non-end-user features
+- Whenever we're talking about non-end-user features like tooling
   * We need to ask ourselves what exactly is the benefit?
   * Does this even matter?
 - Because if it's **not** a feature for the end user
@@ -60,7 +62,7 @@ NOTES:
   * So that _they_ can build faster/better for end user
 - Otherwise, we find ourselves bike-shedding
 - Kent C. Dodds wrote a blog post says exactly that
-  * We need to measure success based on how well we can deliver what the user wants
+  * We should always to measure **success** based on how well we can deliver what the user wants
   * Our choice of tooling should be based on that goal (and no more)
 
 =====
@@ -76,8 +78,7 @@ NOTES:
 - In this case, our "focus on the user" principle still applies
   * Except, this time the "user" **is** the developer
   * The libraries we build will be used by other developers
-- And instead of talking about how to write the code
-  * Malte already covered some of that
+- And instead of talking about how to write the code...
   * We're gonna focus on **everything else**
   * Everything that enables developers to build user experiences with our library
 
@@ -119,6 +120,7 @@ NOTES:
 NOTES:
 
 - I'm a Principal Frontend Engineer at Stitch Fix
+  * Customer-facing organization
   * Work on building out our React Design System
   * Also focus on frontend infrastructure to allow devs to focus on features
 - Stitch Fix is an online personal styling service
@@ -127,6 +129,7 @@ NOTES:
   * Combines technology & data science
   * With an actual human stylist
 - We're hiring!
+  * US-only unfortunately
   * Headquarters is in SF
   * And we had remote engineers all over the country even before COVID
 
@@ -138,7 +141,7 @@ _[5 minutes]_
 
 - Ok, enough about me
 - Let's talk about making this perfect JavaScript library
-  * This info applies for an open-source package or internal to your company
+  * This info applies for an **open-source** package or **internal** to your company
 - Remember we're shifting are focus to what our users need (the developers)
   * Not necessarily what we care about
 - So let's jump in!
@@ -171,7 +174,7 @@ NOTES:
 
 NOTES:
 - My suggestion is to write the docs first **before** implementation
-- Why? Because writing **good** docs is hard
+- Why? Because actually writing **good** docs is hard
   * So writing docs first makes it a bit easier
 - 1/ We're more likely to have a cohesive docs
   * The formatting, inclusion of examples will all be the same
@@ -241,7 +244,7 @@ NOTES:
   * They go more in depth than the API doc's coverage of a topic
 - **Tutorials** would be `lodash` workshops we'd find **Egghead** or **Frontend Masters** or online
   * Lessons that take the reader by the hand to build an app with `lodash`
-  * These are perfect for newbies who may not even know what `lodash` is
+  * These are perfect for newcomers who may not even know what `lodash` is
 - For your "perfect" library, you should have **References** & **How-to guides**
   * API docs & examples
 
@@ -272,9 +275,10 @@ NOTES:
 </div>
 
 NOTES:
-- So in summary, my suggestion for the repo's `README.md` is **in this order**
+- So based that, here's my suggestion for what the repo's `README.md` should look like
+  * **In this order**
 - 1/ Add ALL the badges you can think of
-  * Package version, build states, # of downloads, etc.
+  * Package version, build statuses, # of downloads, etc.
 - 2/ A short description of the library's purpose
 - 3/ Installation instructions, _including any necessary peer dependencies_
   * Still need to include both `npm` & `yarn` instructions, unfortunately
@@ -282,7 +286,7 @@ NOTES:
 - 5/ Full API docs
   * May link to other Markdown files
   * Each function or configuration should include a **real-world example**
-  * Please no `foo`/`bar` as they can be confusing to newbies
+  * Please no `foo`/`bar` because they can be confusing to newcomers
 - 6/ Then at the bottom: Technical details
   * How it's faster, tech used, etc.
   * I hate when this is up top for multiple page scrolls!
@@ -307,7 +311,8 @@ NOTES:
 NOTES:
 _[10 minutes]_
 
-- With Helpful Docs, now I can develop my app using your lib
+- Now with the Helpful Docs you've provided
+  * I can develop my app using your lib
 - But the very next thing I'll need are TypeScript types
 - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript
 - Now this suggestion may be be bit controversial
@@ -375,7 +380,7 @@ NOTES:
 </div>
 
 NOTES:
-- One option is build your app in regular JavaScript
+- One option is build your lib in regular JavaScript
   * And then add TypeScript type declaration files to `DefinitelyTyped`
   * A repo of high quality TypeScript type definitions
 - Nearly 7000 library type definition files are in the repo
@@ -402,8 +407,8 @@ NOTES:
 - Write your library in TypeScript of course!
 - There's definitely a learning curve to TypeScript, no doubt
 - But in the interest of serving your users (the developers)
-  * Writing in TypeScript is the best way to provide type definition files
-  * Because they will be auto-generated
+  * Writing in TypeScript is the best way to provide those type definition files
+  * Because they can be auto-generated
   * (more on how they make it into your package later)
 - It's also difficult to write types for un-typed JS code
   * When code is untyped, we can make shortcut assumptions
@@ -441,10 +446,10 @@ NOTES:
 - One of them is called "TypeScript for React Developers"
   * So if you're interested in hands-on learning of using TS + React you should check it out
   * As well as the others listed
-- I'm doing a free giveaway
+- I'm doing a free giveaway for conference attendees
   * Go to my site (benmvp.com) and check out the minishops page
-  * If you find one you like and you can attend
-  * Send a tweet and tag me in
+  * Find one you like AND can attend
+  * Send out a tweet w/ the link and tag me in
   * I'll pick one and give you a free ticket
   * Bonus points if you include a selfie of you watching this talk 😄
 
@@ -465,7 +470,7 @@ _[15 minutes]_
   * I have my TypeScript Types to develop with
   * So I'm good
 - While developing, there's nothing more frustrating than coming across a library bug
-- We're pretty trusting initially, and think it's us
+- I'm really trusting initially, and think it's me
   * And spend countless hours debugging trying to figure out why it isn't working
 - So for our library to be "perfect"
   * Need to do our absolute best to prevent 100% of bugs
@@ -498,16 +503,16 @@ NOTES:
   * Unit Testing w/ Coverage (Jest)
   * Linting (eslint)
   * Type checking (Typescript)
-- **Type checking**
+- **Type checking** comes with TypeScript
   * So not only is developing w/ TypeScript good for providing types for our users
   * It's **also** good for our users because it helps us avoid bugs!
   * Those edge cases where things are unexpectedly `undefined`
-  * Or you refactor a function and forget to change the parameters somewhere
+  * Or you refactor the props of your component and forget to update some places
   * With VS Code type-checking can happen _as you develop_
 - **Linting** comes via ESLint
   * This also can happen _as you develop_ in your favorite editor
   * So TypeScript catches a lot of the non-stylistic errors that ESLint also catches
-  * But ESLint can warn us of _likely_ or _potential_ errors
+  * But ESLint can warn us of _likely_ or _potential_ errors (bad practices)
   * And then there are additional plugins for environments like React
 - **Testing + Coverage** comes with Jest
   * Allows you to write unit tests
@@ -515,7 +520,7 @@ NOTES:
   * Can also check what percentage of your code has been tested
   * The goal with coverage is to make sure you cover edge case branches
   * Unit testing is huge in keeping your lib bug-free
-  * But of course it depends on you actually _writing_ tests
+  * So you actually have to write some tests
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -543,14 +548,14 @@ NOTES:
 </div>
 
 NOTES:
-- I'm guessing most of you already knew that
+- I'm guessing most of you already knew a lot of that
   * More interested in taking it to the next level
 - Typically you'd run typing, linting & testing with 3 separate commands
   * But with Jest projects, you can run them **all** through Jest
 - Jest is a platform that's broken up into 3 main parts
   * The **"file collector"** in the beginning that determines which files to run on
   * The **"error reporter"** at the end that displays success or failure
-  * The **"runner"** in the middle which runs whatever we're validating
+  * A **"runner"** in the middle which runs whatever we're validating
 - Instead of running the Jest test runner, we can run `eslint` or `tsc` for Typescript
 - This enables linting in **watch mode**, which `eslint` command doesn't support
   * Also allows them to be run in **parallel**
@@ -589,8 +594,7 @@ NOTES:
   * But lately I've been using **Github actions** and loving it
   * Can use Github actions w/o registering for another service
 - Here's an example Github workflow to run the tests on Node 10, 12 & 14
-  * I always run on the LTS versions (even) and latest odd
-  * It's important that you test on multiple Node versions!
+  * It's important that you test on all versions your lib supports!
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -604,6 +608,9 @@ NOTES:
       <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
       <li><a href="https://github.com/jest-community/jest-runner-eslint" target="_blank"><code>jest-runner-eslint</code></a> + <a href="https://github.com/azz/jest-runner-tsc" target="_blank"><code>jest-runner-tsc</code></a></li>
       <li><a href="https://github.com/jest-community/jest-watch-typeahead" target="_blank"><code>jest-watch-typeahead</code></a></li>
+      <li><a href="https://github.com/yannickcr/eslint-plugin-react" target="_blank"><code>eslint-plugin-react</code></a></li>
+      <li><a href="https://www.npmjs.com/package/eslint-plugin-react-hooks" target="_blak"><code>eslint-plugin-react-hooks</code></a></li>
+      <li><a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank"><code>eslint-plugin-jsx-a11y</code></a></li>
       <li><a href="https://github.com/features/actions" target="_blank">Github Actions</a></li>
     </ul>
   </div>
@@ -648,12 +655,12 @@ _[20 minutes]_
 NOTES:
 - Well it first starts with the issue itself
 - Whether it's a bug or a feature request we want _as much details as possible_
-- With issue templates you can guide the developer into a flow based on their situation
+- With Github issue templates you can guide the developer into a flow based on their situation
   - Bug report
   - Feature proposal
   - Question / Help
   - Regression Report
-- And you can tie an issue label w/ each type so that your issues are pre-classified
+- And you can tie a label w/ each type so that your issues are pre-classified
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -700,10 +707,9 @@ NOTES:
 </div>
 
 NOTES:
-- So now you're making the fix or developing the new feature
-  - What makes that go fastest?
-- There are all these various communication files to streamline the process
-- **`CONTRIBUTING.md`** - Provides clear guidelines on how to developers can contribute to the library (PRs are welcome! 😂)
+- So now I'm willing to help with fixes or adding a feature
+  - What makes that go fastest for me?
+- **`CONTRIBUTING.md`** - Provides clear guidelines on how I can contribute to the library (PRs are welcome! 😂)
 - **`.nvmrc`** - Locks down the version of Node with NVM so that everyone's using the same version
 - **`.prettierrc.json`** - Prettier provides consistent formatting for everyone
   * No time wasted arguing of code format
@@ -768,15 +774,15 @@ NOTES:
 
 NOTES:
 - After the code is written, the PR is created, passes CI & merged
-  * We need to get the code out ASAP to npm registry
+  * We need to get the code out ASAP to the npm registry
 - First step is ensuring we're generating the correct formats that can be consumed
   * These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
   * **ONE**: `"main"` field for CJS
   * **TWO**: `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
   * **THREE**: `"types"` for TypeScript definition types (from Part 2)
   * **FOUR**: `"files"` tells which files to include in package (instead of using `.npmignore`)
-- **FIVE**: So we use `babel` for transpiling TypeScript to vanilla JS
-  * With TypeScript plugin
+- **FIVE**: W use `babel` for transpiling TypeScript to vanilla JS
+  * There's a Babel plugin for TS that allows us to transpile TS
   * I don't use Webpack or Rollup because they are better suited for creating bundles
 - **SIX**: Use `tsc` for generating TypeScript definition files
 - **SEVEN**: Wrap it all up in a nice `"build"` script
@@ -811,12 +817,12 @@ jobs:
 
 NOTES:
 - With the `build` script in place, we can achieve continuous delivery (CD)
-  * **ONE**: First we run the `build` script to generate all the files
-  * **TWO**: Then we run the `semantic-release` package to release
-  * Meant to be executed in CI env after every successful build on release branch
-  * Makes releases "unromantic & unsentimental"
-  * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
-  * No having to manually push a version commit or run a script locally
+- **ONE**: First we run the `build` script to generate all the files
+- **TWO**: Then we run the `semantic-release` package to release
+- Meant to be executed in CI env after every successful build on release branch
+- Makes releases "unromantic & unsentimental"
+- I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
+- No having to manually push a version commit or run a script locally
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -862,6 +868,7 @@ NOTES:
       <li><a href="https://raw.githubusercontent.com/benmvp/benmvp-cli/master/.github/pull_request_template.md" target="_blank">Example PR template</li>
       <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/.github/workflows/validate-pr.yml" target="_blank">Example PR Validator</a></li>
       <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/src/commands/build/babel-config-cjs.js" target="_blank">Example <code>babel-cjs.js</code></a>  / <a href="https://github.com/benmvp/benmvp-cli/blob/master/src/commands/build/babel-config-esm.js" target="_blank"><code>babel-esm.js</code></a></li>
+      <li><a href="https://babeljs.io/docs/en/babel-preset-typescript" target="_blank"><code>@babel/preset-typescript</code></a></li>
       <li><a href="https://github.com/prettier/eslint-plugin-prettier" target="_blank"><code>eslint-plugin-prettier</code></a></li>
       <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
       <li><a href="https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free" target="_blank"><code>sideEffects</code> in <code>package.json</code></a></li>
@@ -905,8 +912,8 @@ _[30 minutes]_
         <h3>Development</h3>
         <ul>
           <li><a href="https://www.javascript.com/" target="_blank">Modern JS</a></li>
-          <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
-          <li><a href="https://prettier.io/" target="_blank">Prettier</a> & <a href="https://eslint.org/" target="_blank">ESLint</a></li>
+          <li><a href="https://prettier.io/" target="_blank">Prettier</a></li>
+          <li><a href="https://eslint.org/" target="_blank">ESLint</a></li>
           <li><a href="https://www.typescriptlang.org/" target="_blank">Type checking</a></li>
           <li><a href="https://code.visualstudio.com/" target="_blank">Editor integrations</a></li>
         </ul>
@@ -952,7 +959,7 @@ NOTES:
 - There are lots of other **repo files**
   * Docs for your users to figure out how to use your library
   * Other files to make communication with you easy & safe
-- For **testing & continuous integration (CI)**, try use the new Github actions
+- For **testing & continuous integration (CI)**, try using the new Github actions
 - And with Jest as a platform...
   * You can run type checking, linting, unit tests & code coverage all at once
 - **Build & continuous delivery (CD)** are key
@@ -1042,6 +1049,7 @@ NOTES:
 - He's wanting to build a community around this skillset
 - He coined the term **"DivOps"** for this community
 - There's a Slack group & sub-Reddit to join
+- We've been having monthly meetings where we share how divops setups at our companies
 
 =====
 
@@ -1069,5 +1077,8 @@ NOTES:
   * I've also likely forgotten some things so I'd love your feedback!
 - Thank **YOU** for attending my talk
   * There was an equally interesting talk in the Junior track
-- If you've got questions, feel free to ping me on Twitter
+- If you've got questions, ask some in the chat
+  * Moderator will make it available for Q&A
+  * Right after **Ankita's** talk
+  * Otherwise you can reach out to me on Twitter (**@benmvp**)
 - Thank you so much and enjoy the remaining hours of the conference!
