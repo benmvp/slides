@@ -11,11 +11,11 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [@GeekleOfficial](https://twitter.com/GeekleOfficial)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020) | [@GeekleOfficial](https://twitter.com/GeekleOfficial)</p>
 
   <br />
 
-  <p>September 12, 2020</p>
+  <p>September 15, 2020</p>
 
   </div>
 </div>
@@ -265,6 +265,8 @@ NOTES:
           <li>Contributing</li>
           <li>License</li>
         </ul>
+
+        <p style="text-align: center; margin-top: 80px">Check out<br /><a href="https://github.com/SaraVieira/fiddly" target="_blank"><code>fiddly</code></a></p>
       </div>
   </div>
 </div>
@@ -280,13 +282,17 @@ NOTES:
 - 5/ Full API docs
   * May link to other Markdown files
   * Each function or configuration should include a **real-world example**
-  * No `foo`/`bar` as they can be confusing to newbies
+  * Please no `foo`/`bar` as they can be confusing to newbies
 - 6/ Then at the bottom: Technical details
   * How it's faster, tech used, etc.
   * I hate when this is up top for multiple page scrolls!
 - 7/ Contribution Guidelines
   * Likely a link to `CONTRIBUTING.md`
 - 8/ License info
+- One last thing...
+  * Check out this package call `fiddly` by Sara Vieira
+  * It builds static HTML pages from your README.md
+  * So now your package can look "official" hosted on Netlify
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -299,7 +305,7 @@ NOTES:
 
 
 NOTES:
-_[9 minutes]_
+_[10 minutes]_
 
 - With Helpful Docs, now I can develop my app using your lib
 - But the very next thing I'll need are TypeScript types
@@ -312,10 +318,10 @@ _[9 minutes]_
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 75%">
+  <div class="content-overlay" style="width: 40%">
     <h2>TypeScript adoption</h2>
 
-    <div style="height: 750px; width:25%; margin:0 auto; position:relative; ">
+    <div style="height: 750px; width:350px; margin:0 auto; position:relative; ">
       <div style="width: 50%; height: 100%; box-sizing: border-box; border: 10px solid black"></div>
       <div style="width: 100%; border-bottom: 3px solid black; display: flex; justify-content: space-around; position: absolute; bottom: 21%; left: 0">
         <span>21%</span>
@@ -406,6 +412,42 @@ NOTES:
 - TypeScript also gives us modern JavaScript
   * So it's a win for us in our library development too!
 
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 100%">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around">
+      <div style="flex: 0 0 60%;">
+        <a href="https://www.benmvp.com/minishops/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">
+      <img src="../../img/perfect-lib/minishops.png" alt="A Screenshot of the Minishops page on benmvp.com" class="plain" style="width: 100%" />
+    </a>
+      </div>
+      <div style="flex: 0 0 40%; text-align: left;">
+       <ul>
+        <li><a href="https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">TypeScript for React Developers</a></li>
+        <li><a href="https://www.benmvp.com/minishops/zero-to-react-with-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">Zero to React with Hooks</a></li>
+        <li><a href="https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">Migrating to React Hooks</a></li>
+        <li><a href="https://www.benmvp.com/minishops/sharing-react-component-logic/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">Sharing React Component Logic</a></li>
+      </ul>
+      </div>
+  </div>
+</div>
+
+NOTES:
+- Speaking of TypeScript...
+- I periodically host a series of short, 3-hour remote React workshops
+  * I call them "minishops"
+- One of them is called "TypeScript for React Developers"
+  * So if you're interested in hands-on learning of using TS + React you should check it out
+  * As well as the others listed
+- I'm doing a free giveaway
+  * Go to my site (benmvp.com) and check out the minishops page
+  * If you find one you like and you can attend
+  * Send a tweet and tag me in
+  * I'll pick one and give you a free ticket
+  * Bonus points if you include a selfie of you watching this talk 😄
+
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -416,7 +458,7 @@ NOTES:
 </div>
 
 NOTES:
-_[12 minutes]_
+_[15 minutes]_
 
 - Let's start to get a bit tactical now
 - So now I know how your lib works w/ the Helpful Docs
@@ -583,7 +625,7 @@ NOTES:
 </div>
 
 NOTES:
-_[16 minutes]_
+_[20 minutes]_
 
 - Discussed: **Helpful docs**, **TypeScript types** & **Bug free**
   * Let's bring it home
@@ -735,6 +777,7 @@ NOTES:
   * **FOUR**: `"files"` tells which files to include in package (instead of using `.npmignore`)
 - **FIVE**: So we use `babel` for transpiling TypeScript to vanilla JS
   * With TypeScript plugin
+  * I don't use Webpack or Rollup because they are better suited for creating bundles
 - **SIX**: Use `tsc` for generating TypeScript definition files
 - **SEVEN**: Wrap it all up in a nice `"build"` script
 
@@ -825,7 +868,6 @@ NOTES:
       <li><a href="https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm" target="_blank"><em>What are CJS, AMD, UMD, and ESM in Javascript?</em></a></li>
       <li><a href="https://medium.com/@jdxcode/for-the-love-of-god-dont-use-npmignore-f93c08909d8d" target="_blank"><em>For the love of god, don’t use .npmignore</em></a></li>
       <li><a href="https://medium.com/@vcarl/problems-with-npm-link-and-an-alternative-4dbdd3e66811" target="_blank"><em>Testing npm packages before publishing</em></a></li>
-      <li><a href="https://greenkeeper.io/" target="_blank">Greenkeeper</li>
     </ul>
   </div>
 </div>
@@ -843,7 +885,7 @@ NOTES:
 </div>
 
 NOTES:
-_[21 minutes]_
+_[30 minutes]_
 
 - Wow! That was a lot of stuff!
 - Chances are you missed something when you responded to that Slack message 😉
@@ -857,19 +899,29 @@ _[21 minutes]_
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 70%">
+  <div class="content-overlay" style="width: 75%">
     <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
       <div style="flex: 0 0 50%; margin-bottom: 1em;text-align: left;">
         <h3>Development</h3>
         <ul>
-          <li><a href="https://www.typescriptlang.org/" target="_blank">Modern JS</a></li>
-          <li><a href="https://prettier.io/" target="_blank">Prettier</a></li>
-          <li><a href="https://eslint.org/" target="_blank">ESLint</a></li>
+          <li><a href="https://www.javascript.com/" target="_blank">Modern JS</a></li>
+          <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
+          <li><a href="https://prettier.io/" target="_blank">Prettier</a> & <a href="https://eslint.org/" target="_blank">ESLint</a></li>
           <li><a href="https://www.typescriptlang.org/" target="_blank">Type checking</a></li>
           <li><a href="https://code.visualstudio.com/" target="_blank">Editor integrations</a></li>
         </ul>
       </div>
       <div style="flex: 0 0 50%; margin-bottom: 1em;text-align: left;">
+        <h3>Repo files</h3>
+        <ul>
+          <li>API & example docs</li>
+          <li>Badges</li>
+          <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a> & <a href="https://github.com/simonv3/covenant-generator" target="_blank">Code of Conduct</a></li>
+          <li><a href="https://www.npmjs.com/package/license" target="_blank"><code>LICENSE</code></a></li>
+          <li><a href="https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates" target="_blank">Issue & PR templates</a></li>
+        </ul>
+      </div>
+      <div style="flex: 0 0 50%; text-align: left;">
         <h3>Test / CI</h3>
         <ul>
           <li><a href="https://github.com/features/actions" target="_blank">Github actions</a></li>
@@ -882,23 +934,11 @@ _[21 minutes]_
 	    <div style="flex: 0 0 50%; text-align: left;">
         <h3>Build / CD</h3>
         <ul>
-          <li><a href="https://github.com/features/actions" target="_blank">Github actions</a></li>
-          <li><a href="https://babeljs.io/" target="_blank">Transpilation targets</a></li>
+          <li><a href="https://babeljs.io/docs/en/babel-cli" target="_blank">Transpilation targets</a></li>
           <li><a href="https://docs.npmjs.com/files/package.json" target="_blank"><code>package.json</code> metadata</a></li>
           <li><a href="https://medium.com/@vcarl/problems-with-npm-link-and-an-alternative-4dbdd3e66811" target="_blank">Library verification</a></li>
-          <li><a href="https://github.com/semantic-release/semantic-release" target="_blank">Semantic release</a></li>
+          <li><a href="https://github.com/semantic-release/semantic-release" target="_blank">Semantic release</a> & <a href="https://github.com/SaraVieira/fiddly" target="_blank"><code>fiddly</code></a></li>
           <li><a href="https://unpkg.com/" target="_blank">Package browsing</a></li>
-        </ul>
-      </div>
-      <div style="flex: 0 0 50%; text-align: left;">
-        <h3>Repo files</h3>
-        <ul>
-          <li>API & example docs</li>
-          <li>Badges</li>
-          <li><a href="https://github.com/benmvp/benmvp-cli/blob/master/CONTRIBUTING.md" target="_blank"><code>CONTRIBUTING.md</code></a></li>
-          <li><a href="https://github.com/simonv3/covenant-generator" target="_blank"><code>CODE_OF_CONDUCT.md</code></a></li>
-          <li><a href="https://www.npmjs.com/package/license" target="_blank"><code>LICENSE</code></a></li>
-          <li><a href="https://help.github.com/en/github/building-a-strong-community/about-issue-and-pull-request-templates" target="_blank">Issue & PR templates</a></li>
         </ul>
       </div>
   </div>
@@ -909,6 +949,9 @@ NOTES:
 - Your **development experience** starts with getting to write in modern JS (via TypeScript)
 - And with a nice editor like VS Code...
   * Can get prettier formatting, eslint & type checking in the editor
+- There are lots of other **repo files**
+  * Docs for your users to figure out how to use your library
+  * Other files to make communication with you easy & safe
 - For **testing & continuous integration (CI)**, try use the new Github actions
 - And with Jest as a platform...
   * You can run type checking, linting, unit tests & code coverage all at once
@@ -917,10 +960,8 @@ NOTES:
   * Probably only need to target CommonJS & ES Module formats
   * And there are a plethora of `package.json` fields to set
 - You'll want to your CI service to auto release new versions from commits merged to `master`
+  * And auto-publish to your docs site
 - And we now have ways to ensure that what we release looks good
-- Lastly there are lots of other **repo files**
-  * Docs for your users to figure out how to use your library
-  * Other files to make communication with you easy & safe
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -932,7 +973,7 @@ NOTES:
 </div>
 
 NOTES:
-_[22 minutes]_
+_[32 minutes]_
 
 - So that was **all** the info I wanted to know 4+ years ago when I was starting
   * But to be honest, it probably would've been too overwhelming
@@ -975,7 +1016,7 @@ NOTES:
   * Then run "integration" tests on it to make sure the lib can be used just like user would
   * Catches cases where all unit tests pass but I forgot to `export`
 - It uses itself to dev, test & build itself
-  * It itself is the "perfect" repo creating other "perfect" repos
+  * It itself is the "perfect" repo to help create other "perfect" repos
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1013,13 +1054,9 @@ NOTES:
 
   <br />
 
-  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="/" target="_blank">benmvp.com</a></p>
+  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">benmvp.com</a></p>
   <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
   <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
-
-  <br />
-
-  <p>Ask me anything!<br /><a href="http://www.benmvp.com/ama/" target="_blank">benmvp.com/ama</a></p>
 
   </div>
 </div>
@@ -1030,13 +1067,7 @@ NOTES:
   * **Reminder: slides are available online**
 - Hopefully there are a few new things you've learned
   * I've also likely forgotten some things so I'd love your feedback!
-- **Conference:** Inviting me to share my knowledge/experience with y'all (**Kelly** + crew)
-- **YOU!** For coming to the talk
-  * The "hallway track" is always an option
-  * Get a head start on lunch
-  * And it is Hawaii, so you've got lots of options!
-- If you've got questions, feel free to find me afterwards
-  * I also have **swag** to give away!
-  * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
-- Thank you so much and enjoy the rest of the conference!
-- **Mahalo!**
+- Thank **YOU** for attending my talk
+  * There was an equally interesting talk in the Junior track
+- If you've got questions, feel free to ping me on Twitter
+- Thank you so much and enjoy the remaining hours of the conference!
