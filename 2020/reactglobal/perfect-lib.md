@@ -26,6 +26,7 @@ NOTES:
 - Hello World!
   * I've always wanted to do that
   * And now I can in my first virtual talk!
+  * It may already be the 16th of September for some of you
 - It's the "perfect" (in quotes) JavaScript library tooling because it's obviously highly subjective
   * These are naturally my own opinions
 - But it's the talk I would've liked to have heard when I was starting building libraries
@@ -36,6 +37,7 @@ NOTES:
 
 
 - **TWEETED OUT THE SLIDES!**
+- Gonna try to pay attention to the chat to make it somewhat engaging
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -142,6 +144,7 @@ _[5 minutes]_
 - Ok, enough about me
 - Let's talk about making this perfect JavaScript library
   * This info applies for an **open-source** package or **internal** to your company
+  * It can be your React component library or any JS library
 - Remember we're shifting are focus to what our users need (the developers)
   * Not necessarily what we care about
 - So let's jump in!
