@@ -86,6 +86,7 @@ NOTES:
       <div style="flex:0 0 45%;">
         <a href="https://www.javascript.com/" target="_blank" style="display: block"><img src="../../img/nav-react/javascript-logo-flat.svg" class="plain" /></a>
       </div>
+    </div>
   </div>
 </div>
 
@@ -107,6 +108,7 @@ NOTES:
       <div style="flex:0 0 45%;">
         <a href="https://www.typescriptlang.org/" target="_blank"><img src="../../img/nav-react/typescript-logo.png" class="plain" /></a>
       </div>
+    </div>
   </div>
 </div>
 
@@ -818,10 +820,13 @@ NOTES:
   </div>
 
 NOTES:
+- Our props are now fully type-safe so it's important that our state is too
+  * So when types are refactored, we can ensure that everything is still correct
 - Generally you don't need to do any special typing with `useState`
   * It can infers the type from the initial value
 - In this case it infers that `count` is `number`
   * `setCount` i a function that accepts a `number`
+  * So can't accidentally pass in a `string` or `boolean`
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -846,6 +851,7 @@ NOTES:
 NOTES:
 - And the great part is we can pass around the state set function around
   * And as long as the types match it Just Work™
+  * Guaranteed that the child component will pass the right type too
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -871,8 +877,6 @@ return user ? &lt;User user={user} /&gt; : null</code></pre>
 NOTES:
 - However if the initial value is `null` you'll need to declare the type
   * Similarly if the initial value is one type of a union of types
-- Our props are now fully type-safe so it's important that our state is too
-  * So when types are refactored, we can ensure that everything is still correct
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1064,11 +1068,16 @@ NOTES:
 - Once that's all in place we get all the similar type safety we get from `useState`
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Advanced patterns
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>3. Advanced Patterns</h1>
+  </div>
+</div>
 
 NOTES:
-- Things were starting to get more advanced there
+- Things were starting to get more advanced there towards the end
 - As things get more complex, we're less able to rely on TS inference
   * We have to be explicit about what we're trying to do
   * But the nice thing is that once we do, TS protects us from ourselves
@@ -1077,63 +1086,242 @@ NOTES:
   * They of course require writing more TS types
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# One w/ the other
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>I) One with the other</h2>
 
-Example calls
+    <p>Valid configurations</p>
+    <pre class="large"><code class="lang-html">&lt;Text&gt;not truncated&lt;Text&gt;
+&lt;Text truncate&gt;truncated&lt;Text&gt;
+&lt;Text truncate showExpand&gt;truncated w/ expand&lt;Text&gt;</code></pre>
+
+    <p style="margin-top:50px">Invalid configurations</p>
+    <pre class="large"><code class="lang-html">&lt;Text truncate={false} showExpand&gt;not truncated&lt;Text&gt;
+&lt;Text showExpand&gt;only expand&lt;Text&gt;</code></pre>
+    <pre class="large"><code class="lang-shell">Property 'truncate' is missing in type
+'{ children: Element; showExpanded: true; }' but required in type
+'{ truncate: true; showExpanded?: boolean | undefined; }'.</code></pre>
+  </div>
+</div>
 
 NOTES:
+- Sometimes you have a component with dependent props
 - Let's say you have `<Text>` component that allows you to truncate text with `truncate` prop
 - It also has a `showExpand` to provide link to click to expand
 - The `showExpand` prop doesn't make sense w/o `truncate` prop
+  * So you want to make that configuration an error
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-Sample interfaces
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>I) One with the other</h2>
+
+    <pre class="large"><code class="lang-typescript">interface CommonProps {
+  children: React.ReactNode,
+  // other props...
+}
+type TruncateProps =
+  | { truncate?: false, showExpanded: undefined }
+  | { truncate: true, showExpanded?: boolean }
+type Props = CommonProps & TruncateProps
+
+const Text = (props: Props) => {
+  // props.truncate = boolean | undefined
+  // props.showExpanded = boolean | undefined
+}</code></pre>
+  </div>
+</div>
 
 NOTES:
-- This is what the props definition could look like
+- There are a couple of ways you can set this up
+  * This is my preferred approach
+- First you define your `CommonProps`
+  * Has the props that will always exist
+- Then `TruncateProps` type is another "discriminated union"
+- First is for when `truncate` prop is `false` or `undefined` (unspecified)
+  * Then you set `showExpanded` to be `undefined`
+  * `showExpanded` cannot be set when `truncate` is `false` or `undefined`
+- Second is for when the `truncate` prop is `true` and only `true` (not optional)
+  * And in this case `showExpanded` is an optional `boolean`
+- Then `Props` is the intersection or combination of `CommonProps` & `TruncateProps`
+- In the code both `truncate` & `showExpanded` are typed as optional booleans
+  * But you don't really have to guard against the case where `showExpanded` is `true` but `truncate` is `false
+  * TypeScript prevents it from happening!
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Wrapping HTML components
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>II) Extending HTML components</h2>
 
-Example calls
+    <pre class="large"><code class="lang-html">&lt;Button
+  variant="primary"
+  size="large"
+
+  type="button"
+  onClick={() => { /\* ... \*/ }}
+  disabled
+  id="main_btn"
+&gt;
+  Go
+&lt;Button&gt;</code></pre>
+  </div>
+</div>
 
 NOTES:
+- It's possible to have a fully type-checked component
+  * That "extends" an underlying HTML element
 - Let's say I've got my `<Button>` component that's a wrapper over HTML `<button>`
-- It has some props to control the visual design, but I want to support `<button>` props
-  * And have the all type checked
-- Without TS we sort of implicitly do this spreading rest props on the `<button>`
-- But there's no validation - I could pass anything
+- It has some props to control the visual design
+  * But I also want to support all of the `<button>` props
+  * And of course have the all type checked
+- We already do this sort of thing without TS
+  * Pass along unknown props to the underlying `<button>` element
+- But there's no validation
+  * So I could pass any prop
   * Relying on the runtime error from React to tell me that this prop is invalid on `<button>`
 
-////
+/////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-Sample interface
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>II) Extending HTML components</h2>
+
+    <pre class="large"><code class="lang-typescript">interface NewProps {
+  variant: 'primary' | 'secondary'
+  size: 'default' | 'small' | 'large'
+}
+
+type Props = NewProps
+  & Omit&lt;React.ComponentProps&lt;"button"&gt;, keyof NewProps&gt;
+
+const Button = ({ variant, size, ...buttonProps }: Props) => {
+  // do stuff with variant & size
+  return &lt;button {...buttonProps} /&gt;
+}</code></pre>
+
+    <p><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys" target="_blank">Utility types</a></p>
+  </div>
+</div>
 
 NOTES:
-- This is what it'd look like
+- This is what the TypeScript definitions could look like
+  * There are several ways to accomplish this
+- You first define whatever are the new props as `NewProps`
+  * Defining the `variant` & `size`
+- Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
+  * But there may be a chance that the `<button>` element already has `variant` or `size` props
+  * In which case we're wanting to override those props
+  * We want all the `<button>` element props **except** the new ones we're defining
+  * Use `keyof` to get all the prop names of `NewProps`
+  * Remove or omit those props using the `Omit<>` utility generic
+  * Then we merge in our new ones
+  * If we don't `Omit<>` and have a name collision, weird things happen in TS
+- Then in the component code we can spread `buttonProps` like we always do
+  * Except again `buttonProps` is fully typed
+  * So users of `<Button>` wouldn't be able to specify an `href` prop for instance
+  * But we'll get auto-completion for `disabled`, `type`, and other props
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Parameterized props
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 100%">
+    <h2>III) Parameterized props</h2>
 
-Example call for render prop
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-html">&lt;List
+  items={['ball', 'bat', 'hat']}
+&gt;
+  {(item) => (
+    <div>
+      {item.length}
+    </div>
+  )}
+&lt;List&gt;</code></pre>
+      </div>
+      <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-html">&lt;List
+  items={[23, 45, 62, 13]}
+&gt;
+  {(item) => (
+    <div>
+      {item.toFixed(2)}
+    </div>
+  )}
+&lt;List&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
 
 NOTES:
+- Last advanced prop set-up I wanna show you
 - Let's say you have a `<List>` that has a render prop for each item
 - `<List>` is generic so it doesn't know what sort of items it's getting
   * Doesn't care about the items themselves just displaying them (dividers, etc)
+  * The render prop does the work of rendering the items
 - My biggest beef with render props is that I literally have no idea what I'm getting
+  * And in this case `<List>` needs to be able to handle different types
+  * First we pass an array of `string`s and call `.length`
+  * Second we pass an array of `number`s and call `.toFixed(2)`
+- We want to be able to know the type of `item` based on the types of `items`
+  * You can image if `items` were arrays of objects how much more necessary this would be
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-Sample component def
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>III) Parameterized props</h2>
+
+    <pre class="large"><code class="lang-typescript">interface Props&lt;T&gt; {
+  items: T[]
+  children: (item: T) => React.ReactNode
+}
+
+const List = &lt;T,&gt;({ items, children }: Props&lt;T&gt;) => (
+  <div>
+    {items.map((item) => {
+      &lt;div key={item} className="item">
+        {children(item)}
+      &lt;/div>
+    )}}
+  </div>
+)</code></pre>
+
+    <p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank">Generics</a></p>
+  </div>
+</div>
+
 
 NOTES:
-- But a render prop is just a special function prop, which now can be typed
+- Well a render prop is just a special function prop
+  * That happens to return React
+  * But it can be typed just like any other prop function
 - And with the power of generics, it can be _generically_ typed
+  * The `List` component defines a generic parameter type `T`
+  * It's passed to `Props<T>`
+  * Which says that the `items` are an array of `T` types
+  * And the render prop is gonna get an item of type `T`
+- Therefore when I render a `<List>` and pass strings, `T` is now a `string`
+  * When I render a `<List>` and pass numbers, `T` is now a `number`
+  * So `<List>` is generic or parameterized as I call it
+- It adds more flexibility to the component
+  * To enable the sorts of flexible use cases to still be strongly typed
+  * So when I pass in numbers, I'll get an error trying to call `.indexOf`
+- One thing I want to note is the `<T,>` bit
+  * The comma is necessary when defining the component using arrow functions
+  * Otherwise the parser can't tell if it's JSX or an arrow function
 
 =====
 
@@ -1183,6 +1371,8 @@ NOTES:
 - In order for you to be able to accurately type your React code
   * Your dependencies need to be typed as well
 
+/////
+
 ## Do I have to switch over all at once?
 
 NOTES:
@@ -1204,6 +1394,7 @@ NOTES:
 
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
 - [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
+- [_TypeScript and React_](https://fettblog.eu/typescript-react/)
 
 NOTES:
 - Only talked about function components
