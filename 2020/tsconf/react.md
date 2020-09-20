@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](/) | [#TSConf](https://twitter.com/hashtag/TSConf)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020) | [#TSConf](https://twitter.com/hashtag/TSConf)</p>
 
   <br />
 
@@ -818,6 +818,7 @@ NOTES:
   return &lt;button onClick={add}&gt;Add&lt;/button&gt;
 }</code></pre>
   </div>
+</div>
 
 NOTES:
 - Our props are now fully type-safe so it's important that our state is too
@@ -847,6 +848,7 @@ NOTES:
   )
 }</code></pre>
   </div>
+</div>
 
 NOTES:
 - And the great part is we can pass around the state set function around
@@ -871,8 +873,9 @@ NOTES:
 }
 
 return user ? &lt;User user={user} /&gt; : null</code></pre>
-    <p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank">Generics</a></p>
+    <p><a href="https://www.youtube.com/watch?v=nePDL5lQSE4" target="_blank">What are TypeScript Generics?</a> ⏯️</p>
   </div>
+</div>
 
 NOTES:
 - However if the initial value is `null` you'll need to declare the type
@@ -897,6 +900,7 @@ NOTES:
     <pre class="large"><code class="lang-shell">Type 'Promise&lt;void&gt;' provides no match for the
 signature '(): void | undefined'.</code></pre>
   </div>
+</div>
 
 NOTES:
 - Not much too type with `useEffect` since it just takes in a function
@@ -926,6 +930,7 @@ type Action =
   | { type: 'success', payload: Item[] }</code></pre>
     <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
   </div>
+</div>
 
 NOTES:
 - Let's take a quick look at `useReducer`
@@ -959,6 +964,7 @@ type Action =
   | {type: 'success', payload: Item[]}</code></pre>
     <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
   </div>
+</div>
 
 NOTES:
 - In fact we can change `State` to be a discriminating union too
@@ -985,6 +991,7 @@ NOTES:
   }
 }</code></pre>
   </div>
+</div>
 
 NOTES:
 - Now looking at our reducer
@@ -1018,6 +1025,7 @@ NOTES:
   }, [])
 }</code></pre>
   </div>
+</div>
 
 NOTES:
 - `useReducer` infers the `state` from the state returned by the `reducer`
@@ -1053,6 +1061,7 @@ NOTES:
 }</code></pre>
     <p><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions" target="_blank"><code>const</code> assertions</a></p>
   </div>
+</div>
 
 NOTES:
 - In general custom hooks are just regular functions
@@ -1288,18 +1297,16 @@ NOTES:
   items: T[]
   children: (item: T) => React.ReactNode
 }
-
 const List = &lt;T,&gt;({ items, children }: Props&lt;T&gt;) => (
-  <div>
-    {items.map((item) => {
-      &lt;div key={item} className="item">
+  <ul className="list">
+    {items.map((item) => (
+      &lt;li key={item} className="item">
         {children(item)}
-      &lt;/div>
-    )}}
-  </div>
+      &lt;/li>
+    ))}
+  </ul>
 )</code></pre>
-
-    <p><a href="https://www.typescriptlang.org/docs/handbook/generics.html" target="_blank">Generics</a></p>
+    <p><a href="https://ts.chibicode.com/generics" target="_blank"><em>TypeScript Generics for People Who Gave Up on Understanding Generics</em></a></p>
   </div>
 </div>
 
@@ -1324,77 +1331,170 @@ NOTES:
   * Otherwise the parser can't tell if it's JSX or an arrow function
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Setup
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>4. Setup</h1>
+  </div>
+</div>
+
+NOTES:
+- Let's wrap up talking about how you can get setup
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-CRA
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 80%">
+    <h2>Create React App</h2>
+
+    <a href="https://create-react-app.dev/docs/adding-typescript/" target="_blank">
+      <img src="../../img/nav-react/create-react-app-logo.svg" class="plain" style="width: 25%" />
+    </a>
+
+    <pre class="large"><code class="lang-shell">npx create-react-app my-app --template typescript</code></pre>
+
+    <p style="margin-top: 50px"><a href="https://create-react-app.dev/docs/adding-typescript/" target="_blank">Adding TypeScript to Create React App</a></p>
+  </div>
+</div>
 
 NOTES:
 - Easiest way of getting set up as always is with Create React App
-- Use `--typescript` arg
-- Adds a basic `tsconfig.json` for you
+- Use `typescript` template with `npx` & `create-react-app` package
+  - This adds a basic `tsconfig.json` for you
 - There's also a way to add TS to an existing CRA app
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-Non-CRA
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 70%">
+    <h2>Without Create React App</h2>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="https://www.typescriptlang.org/" target="_blank"><img src="../../img/nav-react/typescript-logo.png" class="plain" /></a>
+      </div>
+      <div style="flex:0 0 45%;">
+        <a href="https://www.javascript.com/" target="_blank" style="display: block"><img src="../../img/es6/babel-logo.png" class="plain" /></a>
+      </div>
+    </div>
+    <p style="margin-top: 50px"><a href="https://babeljs.io/docs/en/babel-preset-typescript" target="_blank"><code>@babel/preset-typescript</code></a></p>
+  </div>
+</div>
 
 NOTES:
 - For non-CRA apps, it's pretty straightforward
 - In the past, you had to ditch Babel and use TS for JS transpiling & type checking
 - Now TS & Babel work together
-  * Add `@babel/preset-typescript` to babel config
-  * Handles understanding TS and transpiling to JS just like your other plugins
-- Also need to add a `tsconfig.json`
-
-/////
-
-tsc for CI
-
-NOTES:
-- Generally for PRs I'm not building the app in CI
-  * Make the checks as fast as possible
-- Therefore, you _should_ add a type check step in addition to tests & lint
-- Only using the TS compiler for type-checking, Babel handles transpiling
+  * Add `@babel/preset-typescript` to Babel config
+  * It handles understanding TS and transpiling to JS with other plugins like JSX
+- You only using the TS compiler for type-checking, while Babel handles transpiling
   * IMO Babel does a better job of transpiling
   * Its ecosystem around plugins is much more robust than what TS offers
+- You will, need to add your own `tsconfig.json`
+  * Speaking of which...
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-DefinitelyTyped
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 50%">
+    <h2><code>tsc</code> in CI</h2>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <a href="https://www.typescriptlang.org/" target="_blank"><img src="../../img/nav-react/typescript-logo.png" class="plain" /></a>
+      </div>
+      <div style="flex:0 0 45%;">
+        <a href="https://www.javascript.com/" target="_blank" style="display: block"><img src="../../img/webdev/github-logo.png" class="plain" /></a>
+      </div>
+    </div>
+    <pre class="large"><code class="lang-shell">tsc --noEmit</code></pre>
+    <p style="margin-top: 50px"><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank">Using the TypeScript CLI</a></p>
+  </div>
+</div>
 
 NOTES:
-- `DefinitelyTyped` is an amazing repository of type definitions
-  * Has all of your favorite packages
+- You're likely not building the entire app in PRs
+  * You wanna make the checks as fast as possible
+  * Without building the app, you won't catch all the type errors we've been discussing
+- Therefore, you _should_ add a type check step in addition to tests & lint
+  * Using the TypeScript compiler, `tsc`
+  * Running it in "no emit" mode will just run type-checking without trying to generate fiels
+
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 85%">
+    <a href="http://definitelytyped.org/" target="_blank">
+      <img src="../../img/perfect-lib/definitelytyped-screenshot.png" alt="A screenshot of the DefinitelyTyped homepage" class="plain" />
+    </a>
+    <p>
+      <a href="http://definitelytyped.org/" target="_blank">DefinitelyTyped</a>
+    </p>
+
+  </div>
+</div>
+
+NOTES:
 - In order for you to be able to accurately type your React code
   * Your dependencies need to be typed as well
+- Some of your dependencies may be written in TS
+  * In which case TS definition files will come with the package
+- Other dependencies aren't written in TS
+- `DefinitelyTyped` is an amazing repository of type definitions
+  * Has all of your favorite packages, including React
+  * This way you don't have to write the definitions yourself
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-## Do I have to switch over all at once?
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 50%">
+    <h2>Do I have to switch over all at once?</h2>
+  </div>
+</div>
 
 NOTES:
-- NO! Not at all
+- Question I always get
+  * Do I have to switch over all at once?
+- The answer: NO! Not at all
 - I always advise against big rewrites
   * Again, the whole purpose is to deliver a better quality app for your users
   * You spending weeks/months rewritting is not helping them
 - I suggest taking it component by component
-  * With Babel JS can import TS no-problem
-  * You'll want to try to avoid the reverse because then you're missing type info
+  * With Babel setup, a JS component can import a TS component no-problem
+  * You'll want to try to avoid the reverse
+  * A JS component that a TS component is importing won't have any type information
+- There are many schools of thought
+  * But my opinion is that if you're gonna bother using TS you should go **all in**
+  * So being _as strict as possible_
 - So I suggest starting with utilities/helpers first
   * Those with little to no dependencies
   * Then work your way outwards
   * The top-level App component would likely be last
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Resources
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Resources</h2>
 
-- [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
-- [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
-- [_TypeScript and React_](https://fettblog.eu/typescript-react/)
+    <ul>
+      <li><a href="https://react-typescript-cheatsheet.netlify.app/" target="_blank">React TypeScript Cheatsheet</li>
+      <li><a href="https://www.typescriptlang.org/tsconfig" target="_blank"><code>tsconfig.json</code></a></li>
+      <li><a href="https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html" target="_blank">Using Babel with TypeScript</a></li>
+      <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
+      <li><a href="https://www.benmvp.com/blog/react-prop-types-with-typescript/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank"><em>React PropTypes with TypeScript</em></a></li>
+      <li><a href="https://fettblog.eu/typescript-react/" target="_blank"><em>TypeScript and React</em></a></li>
+    </ul>
+  </div>
+</div>
 
 NOTES:
 - Only talked about function components
@@ -1446,7 +1546,7 @@ NOTES:
 
   <br />
 
-  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="/" target="_blank">benmvp.com</a></p>
+  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank">benmvp.com</a></p>
   <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
   <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
