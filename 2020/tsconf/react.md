@@ -1481,7 +1481,7 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: center">
   <div class="content-overlay">
     <h2>Resources</h2>
 
@@ -1502,10 +1502,13 @@ NOTES:
 - These resources will help
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-(medicine background)
-
-# TypeScript is not a cure-all!
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 50%">
+    <h2>TypeScript is not a cure-all!</h2>
+  </div>
+</div>
 
 NOTES:
 - I know I've been super excited about TS
@@ -1522,8 +1525,15 @@ NOTES:
   * TS types now keep that info
 
 /////
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-https://twitter.com/benmvp/status/841412246957785088?s=19
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 85%">
+    <a href="https://twitter.com/benmvp/status/841412246957785088" target="_blank">
+      <img src="../../img/ts-react/jared-forsyth-type-check-tweet.png" alt="A screenshot of a tweet from Jared Forsyth at ReactConf about type checking" class="plain" />
+    </a>
+  </div>
+</div>
 
 NOTES:
 - Heads up!
@@ -1532,9 +1542,8 @@ NOTES:
   * You "know" it works, but TS is complaining
   * This is definitely going to happen
   * Remember with TS you're signing up for it to make your code strict
-- But I want you to keep this thought from Jared in mind
-  * Maybe if it's really hard to type check, the code itself is hard to understand
-
+- But I want you to keep in mind this thought from Jared from 3 years ago at ReactConf
+  * Maybe if your code really hard to type check, the code itself is hard to understand
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
