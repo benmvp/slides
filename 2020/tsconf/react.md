@@ -24,12 +24,19 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
+- Hello there!
+- Welcome to "TypeScript + React = ❤️"
+  * Kinda wish I had used 🔥 instead
+  * Because that's how awesome I think the partnership is
 - TSConf is intended to be framework agnostic
   - Learn all the nitty gritty about TS
-- They asked me to do a deep dive into React + TS
+- But they felt that this content would be valuable
+  * So they asked me to do a deep dive into React + TS
+  * And I'm excited to share with you!
 
 
 - **Slides are available online**
+- I include lots of links in my slides so you'll definitely wanna grab them
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -42,7 +49,7 @@ NOTES:
 
 NOTES:
 - People ask “Why do I need to learn TypeScript when I already am productive with JavaScript”
-- Especially since there'll be a learning curve
+- Especially since there will be a somewhat steep learning curve
 - I argue it’s a matter of perspective
 
 /////
@@ -69,10 +76,12 @@ NOTES:
 NOTES:
 - They’ll find themselves struggling to do things in React that they can already do easily w/ jQuery
 - Manipulating the DOM, for instance
-- They’ll be “fighting” React instead of actually building the app
-- But once they pass the learning curve, they’ll be able to build bigger and more sophisticated apps AND less buggy apps because they’re not maintaining state in the DOM triggered by events
-- It’s because they already knew how to web dev with jQuery
-- If they learned web dev for the start with React that sense of “is this necessary” isn’t there
+- They’ll be “fighting” React instead of actually building the app in the beginning
+- But once they pass the learning curve
+  * They’ll be able to build bigger and more sophisticated apps
+  * AND likely less buggy apps too because they’re not maintaining state in the DOM triggered by events
+- The early struggle is because they already knew how to web dev with jQuery
+- If they learned web dev for the start with React that sense of “is this necessary?” likely isn’t there
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -91,10 +100,9 @@ NOTES:
 </div>
 
 NOTES:
-- It’s the same for JavaScript + TypeScript
+- It’s the same for JavaScript vs TypeScript
 - Because you already know how to build React apps in JavaScript, jumping to TypeScript may not seem worth it
 - But if you were learning JavaScript as TypeScript from the beginning your perspective would be different
-- No different than learning JS from the beginning and have to learn random quirks
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -133,12 +141,12 @@ NOTES:
 </div>
 
 NOTES:
-- Whenever we're talking about non-end-user features
+- But Whenever we're talking about non-end-user features
   * We need to ask ourselves what exactly is the benefit?
   * Does this even matter?
 - Because if it's **not** a feature for the end user
   * Then it **needs** to be a feature for the developer
-  * So that _they_ can build faster/better for end user
+  * So that _they_ can build faster, better or more reliably for end user
 - Otherwise, we find ourselves bike-shedding
 - Kent C. Dodds wrote a blog post says exactly that
   * We need to measure success based on how well we can deliver what the user wants
@@ -156,18 +164,19 @@ NOTES:
 NOTES:
 - Users definitely don’t want a buggy experience and of course, neither do we
 - Most errors don’t occur when writing initially
-  - But when making changes (refactoring)
+  - But when making changes (i.e. refactoring)
   - Either 2 minutes later or 2 months later
   - That's when bugs get introduced
-- Common errors / classes of bugs
+- Common errors or classes of bugs
   - `undefined` is not object
   - Variable `x` is not a function
-  - Changing interfaces
-    - Deprecated features
-    - Changed types
-- Gonna spend rest of our time showing TS features that can prevent this
-- But I also hope to show you that you can prevent errors w/o too much TS
-- There's lots TS can do but I want to focus on the React world
+  - Then there's changing interfaces
+    - Like deprecating features
+    - Or changing the types of parameters
+- Gonna spend rest of our time showing TS features that can prevent these bugs
+- But I also hope to show you that you can prevent errors w/o writing too much TS
+- There's lots TS can do, which is the purpose of the conference
+  * So I am going to focus on the React world
 
 =====
 
@@ -206,17 +215,37 @@ NOTES:
 
 /////
 
-![Screenshot of TypeScript for React Developers Minishop](../../img/ts-react/typescript-for-react-developers.png)
-<!-- .element: class="plain" style="width: 75%" -->
-
-- [TypeScript for React Developers](https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
-- [Zero to React with Hooks](https://www.benmvp.com/minishops/zero-to-react-with-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
-- [Migrating to React Hooks](https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
-- [Sharing React Component Logic](https://www.benmvp.com/minishops/sharing-react-component-logic/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020)
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 100%">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around">
+      <div style="flex: 0 0 60%;">
+        <a href="https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank">
+          <img src="../../img/ts-react/typescript-for-react-developers.png" alt="A Screenshot of the TypeScript for React Developers minishop page on benmvp.com" class="plain" style="width: 100%" />
+        </a>
+      </div>
+      <div style="flex: 0 0 40%; text-align: left;">
+       <ul>
+        <li><a href="https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank">TypeScript for React Developers</a></li>
+        <li><a href="https://www.benmvp.com/minishops/zero-to-react-with-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank">Zero to React with Hooks</a></li>
+        <li><a href="https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank">Migrating to React Hooks</a></li>
+        <li><a href="https://www.benmvp.com/minishops/sharing-react-component-logic/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank">Sharing React Component Logic</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 NOTES:
-- I do virtual workshops...
-- I'm doing a giveaway...
+- I periodically host a series of short, 3-hour remote React workshops
+  * I call them "minishops"
+- One of them is called "TypeScript for React Developers"
+  * So if you're interested in hands-on learning of using TS + React you should check it out
+  * As well as the others listed
+- I'm doing a free giveaway for conference attendees
+  * Go to my site (benmvp.com) and check out the minishops page
+  * Find **one** you like AND can attend
+  * Send out a tweet w/ the link and tag me in
+  * I'll pick one and give you a free ticket
+  * Bonus points if you include a selfie of you watching this talk 😄
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/grass-field-ales-krivec-4miBe6zg5r0-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -232,18 +261,23 @@ NOTES:
 const App = (props: AppProps) => {
   // use props and render UI
 }</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 174px; left: 337px; width: 257px"></div>
+    <div class="code-highlight" style="height: 70px; top: 400px; left: 579px; width: 301px"></div>
   </div>
 </div>
 
 NOTES:
-- One thing as we get started...
+- But enough about me
+  * Let's dive into React + TS
+- One thing I want to make clear as we begin...
 - A React component is just a function
 - There's nothing _really_ special about it
 - Takes props in and returns JSX
 - Can be treated & typed like any other TS function
-- Use an `interface` to define the props and is type of argument
-- Can name `AppProps` anything you like
-- _Can_ define class components in TS, but I'm only gonna show functions
+- Use an `interface` to define the props and is the type of the `props` argument
+- You can name `AppProps` anything you like
+- You _can_ define class components in TS, but I'm only gonna show functions
 - Hooks are the future, so we should be moving that way anyway
 
 =====
@@ -301,6 +335,7 @@ const App = (props: AppProps) => {
   return <div>{props.message}</div>
 }</code></pre>
     <pre class="large"><code class="lang-shell">Property 'loading' does not exist on type 'Props'</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 459px;"></div>
   </div>
 </div>
 
@@ -329,7 +364,7 @@ NOTES:
 NOTES:
 - Similarly, you can't pass a prop if it hasn't been defined
 - How many times have you seen a prop being passed to a component
-  * It's not in the `PropTypes` either
+  * And it's not in the `PropTypes` either
   * But you're afraid to remove it because... you're just not show
   * TypeScript gives you the confidence because it wouldn't allow it
 - The error message can seem a bit cryptic to be honest
@@ -350,7 +385,7 @@ NOTES:
 const App = (props: AppProps) => {
   const topPlayers = props.players.slice(0, props.count)
 
-  // render topPlayers
+  // render topPlayers in UI
 }</code></pre>
   </div>
 </div>
@@ -398,11 +433,12 @@ NOTES:
   count?: number
 }
 
-const App = ({players, count = 2}: AppProps) => {
+const App = ({ players, count = 2 }: AppProps) => {
   const topPlayers = players.slice(0, count)
 
-  // render topPlayers
+  // render topPlayers in UI
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 284px;"></div>
   </div>
 </div>
 
@@ -411,8 +447,9 @@ NOTES:
 - Use `?` to denote a prop is optional
 - Which means of course its value is `undefined` when not passed
 - Default props uses object destructuring + defaulting
-- This replaces `defaultProps`
-- Now if I omit `count` there's no error and it'll default to `2`
+  * This replaces `defaultProps`
+- Now if I omit `count` when rendering `<App />`
+  * There's no error and it'll default to `2`
 - This is typically how TS React function components look
 
 /////
@@ -430,6 +467,7 @@ NOTES:
 
 </code></pre>
     <pre class="large"><code class="lang-shell">Type 'number' is not assignable to type 'string'.</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 287px;"></div>
   </div>
 </div>
 
@@ -456,6 +494,7 @@ NOTES:
 </code></pre>
     <pre class="large"><code class="lang-shell">Property 'names' does not exist on type
 'IntrinsicAttributes & AppProps'.</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 343px;"></div>
   </div>
 </div>
 
@@ -475,11 +514,12 @@ NOTES:
   <div class="content-overlay">
     <h2>IV) Can't avoid defining complex objects</h2>
 
-    <pre class="large"><code class="lang-typescript">const App = ({user}) => {
+    <pre class="large"><code class="lang-typescript">const App = ({ user }) => {
   const { city, isPrimary } = user.addresses.shipping
 
-  // render using city and isPrimary
+  // render UI using city and isPrimary
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 230px;"></div>
   </div>
 </div>
 
@@ -494,21 +534,22 @@ NOTES:
   <div class="content-overlay">
     <h2>IV) Can't avoid defining complex objects</h2>
 
-    <pre class="large"><code class="lang-typescript">const App = ({user}) => {
+    <pre class="large"><code class="lang-typescript">const App = ({ user }) => {
   const { city, isPrimary } = user.addresses.shipping
 
-  // render using city and isPrimary
+  // render UI using city and isPrimary
 }
 App.propTypes = {
   user: PropTypes.shape({}).isRequired
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 514px;"></div>
   </div>
 </div>
 
 
 NOTES:
-- We try to put in lint rules to force definitions
-  * But we'll `PropTypes.object` or `PropTypes.shape({})
+- We try to put in lint rules to force definitions of prop types
+  * But we'll do `PropTypes.object` or `PropTypes.shape({})
   * It's a lot of work to define a deeply nested shape
   * And then it gets out of date as new stuff gets added
   * There's no enforcement, eslint can only do so much
@@ -541,7 +582,7 @@ NOTES:
 - TS is now getting in your way and preventing you from being lazy
   * But also saving you because you have to define _exactly_ what's available
   * You can't access properties off the `user` prop unless you define what they are
-- The `Address` interface may be a type defined in a shared place
+- The `Address` interface may also be a type defined in a shared place
   * So if we decide to rename `isPrimary` to `primary` in `Address`
   * We'll get TS errors in the `App` component
 - TS is resilient to refactors
@@ -553,7 +594,7 @@ NOTES:
   <div class="content-overlay">
     <h2>V) Function props have explicit signature</h2>
 
-    <pre class="large"><code class="lang-typescript">const Input = ({name, value, onChange}) => {
+    <pre class="large"><code class="lang-typescript">const Input = ({ name, value, onChange }) => {
   // do input-y stuff & call onChange
 }
 
@@ -562,6 +603,7 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 571px;"></div>
   </div>
 </div>
 
@@ -585,9 +627,10 @@ NOTES:
   onChange: (newValue: string) => void
 }
 
-const Input = ({name, value, onChange}: Props) => {
+const Input = ({ name, value, onChange }: Props) => {
   // do input-y stuff & call onChange
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 343px;"></div>
   </div>
 </div>
 
@@ -615,13 +658,15 @@ NOTES:
   children: (user: User) => React.ReactNode
 }
 
-const UsersList = ({users, children}: Props) => (
+const UsersList = ({ users, children }: Props) => (
   <aside>
-    {users.map(user => (
+    {users.map((user) => (
       <div>{children(user)}</div>
     ))}
   </aside>
 )</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 286px;"></div>
+    <div class="code-highlight" style="height: 70px; top: 629px;"></div>
   </div>
 </div>
 
@@ -631,6 +676,7 @@ NOTES:
   * Get to see everything that render prop is passing you
   * `children` takes a `user` object and returns back React UI
   * The use of `<UsersList />` will be fully type-safe as well
+- We'll talk even more about lists in a little bit
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -640,17 +686,18 @@ NOTES:
     <h2>VI) Rest props are also typed</h2>
 
     <pre class="large"><code class="lang-typescript">interface Props {
-  type?: 'button' | 'submit'
+  type: 'button' | 'submit'
   disabled?: boolean
   onClick: () => void
   children: React.ReactNode
 }
 
-const Button = ({type = 'button', ...buttonProps}: Props) => {
+const Button = ({ type, ...buttonProps }: Props) => {
   // buttonProps has \*only\* disabled/onClick/children
 
   return &lt;button type={type} {...buttonProps} /&gt;
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 572px;"></div>
   </div>
 </div>
 
@@ -681,8 +728,9 @@ NOTES:
 </code></pre>
     <pre class="large"><code class="lang-shell">Property 'title' does not exist on type
 'IntrinsicAttributes & Props'.</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 400px;"></div>
   </div>
-
+</div>
 
 NOTES:
 - But we still can't pass extra props through, even with rest
@@ -727,6 +775,7 @@ NOTES:
 
 NOTES:
 - Provides auto-completion for prop names
+  * Even indicates whether or not the prop is optional w/ the `?`
 - Notice `key` there at the bottom
   * The `key` prop is always a valid prop to be passed to components/elements
   * So it shows up even though the component itself doesn't define it
@@ -744,7 +793,7 @@ NOTES:
 
 
 NOTES:
-- Provide auto-completion for prop values (enums / booleans)
+- It also provides auto-completion for prop values (enums / booleans)
 - In this case the `status` prop is an enum / union of `failed` & `success`
 
 /////
@@ -761,7 +810,8 @@ NOTES:
 
 NOTES:
 - Provides auto-completion for object property values
-- So if you have a deeply-nested prop, you can easy see what's inside
+- So if you have a deeply-nested prop like we saw earlier
+  * You can easy see what's inside and their types
   * As you type!
 
 /////
@@ -795,7 +845,9 @@ NOTES:
 NOTES:
 - The biggest unique difference with TS + React is with props
   * Because that's the biggest unique aspect of React
-  * And for React function components everything I described is standard for functions
+  * And for React function components everything I described is standard for typing functions
+  * Those functions just happen to be React components
+  * So the error reporting happens in JSX
 - The rest of React is really just regular TS vs JS
 - But let's talk about some hooks
 
@@ -817,17 +869,25 @@ NOTES:
 
   return &lt;button onClick={add}&gt;Add&lt;/button&gt;
 }</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 235px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 181px; top: 406px;"></div>
   </div>
 </div>
 
 NOTES:
 - Our props are now fully type-safe so it's important that our state is too
   * So when types are refactored, we can ensure that everything is still correct
-- Generally you don't need to do any special typing with `useState`
-  * It can infers the type from the initial value
-- In this case it infers that `count` is `number`
-  * `setCount` i a function that accepts a `number`
+- **ONE:** Generally you don't need to do any special typing with `useState`
+  * It can infer the type from the initial value
+  * This is called **type inference**
+- In this case it infers that `count` is `number` from `0`
+  * **TWO:** `setCount` is a function that accepts a `number`
   * So can't accidentally pass in a `string` or `boolean`
+  * Here I'm passing a function to `setCount` because next value depends on previous value
+  * Even the updater function is typed such that `prevCount` is a number
+  * Return value also can only be a `number`
+- If I pass anything that's not a number or try to do non numeric operations
+  * I get an error of course
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -847,6 +907,7 @@ NOTES:
     /&gt;
   )
 }</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 576px;"></div>
   </div>
 </div>
 
@@ -874,6 +935,7 @@ NOTES:
 
 return user ? &lt;User user={user} /&gt; : null</code></pre>
     <p><a href="https://www.youtube.com/watch?v=nePDL5lQSE4" target="_blank">What are TypeScript Generics?</a> ⏯️</p>
+    <div class="code-highlight" style="height: 70px; top: 235px;"></div>
   </div>
 </div>
 
@@ -899,6 +961,7 @@ NOTES:
 }</code></pre>
     <pre class="large"><code class="lang-shell">Type 'Promise&lt;void&gt;' provides no match for the
 signature '(): void | undefined'.</code></pre>
+    <div class="code-highlight" style="height: 70px; top: 347px;"></div>
   </div>
 </div>
 
@@ -929,6 +992,8 @@ type Action =
   | { type: 'failed', error: Error }
   | { type: 'success', payload: Item[] }</code></pre>
     <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
+    <div class="code-highlight fragment current-visible" style="height: 298px; top: 176px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 238px; top: 523px;"></div>
   </div>
 </div>
 
@@ -953,33 +1018,6 @@ NOTES:
   <div class="content-overlay">
     <h2>III) <code>useReducer</code></h2>
 
-    <pre class="large"><code class="lang-typescript">type State =
-  | {status: 'loading'}
-  | {status: 'failed', message: string}
-  | {status: 'success', items: Item[]}
-
-type Action =
-  | {type: 'loading'}
-  | {type: 'failed', error: Error}
-  | {type: 'success', payload: Item[]}</code></pre>
-    <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
-  </div>
-</div>
-
-NOTES:
-- In fact we can change `State` to be a discriminating union too
-- That way `items` will only exist when `status` is `'success'`
-  * Before even when `status` was `'success'`, `items` would still be "optional"
-- This ensures that we cannot get into odd states
-  * Where both the `status` is `'success'` but there's an `message`
-
-/////
-<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-    <h2>III) <code>useReducer</code></h2>
-
     <pre class="large"><code class="lang-typescript">const reducer = (state: State, action: Action): State => {
   switch(action.type) {
     case 'loading':
@@ -990,19 +1028,54 @@ NOTES:
       return {status: 'success', items: action.payload}
   }
 }</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 176px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 234px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 291px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 404px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 518px;"></div>
   </div>
 </div>
 
 NOTES:
 - Now looking at our reducer
-  * Takes `state` & `action`, returning new `State`
-- TypeScript knows what the valid action types are
-  * VS Code will auto-complete them for me
-- Also knows that for the `'loading'` type there are no other properties on `action`
+  * **ONE:** Takes `state` & `action`, returning new `State`
+- **TWO:** TypeScript knows what the valid action types are in the `switch`
+  * VS Code will even auto-complete each `case` statement for me
+- **THREE:** Also knows that for the `'loading'` type there are no other properties on `action`
+  * **FOUR:** But for `'failed'` it has an `error` property
+  * **FIVE:** And `'success'` there is `payload`
 - And TS also knows I've handled all cases of `action.type`
   * So I technically don't even need a `default` case
 - Up until now I've really just been showing you TS
   * Nothing React-specific yet
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h2>III) <code>useReducer</code></h2>
+
+    <pre class="large"><code class="lang-typescript">type State =
+  | {status: 'loading'}
+  | {status: 'failed', message: string}
+  | {status: 'success', items: Item[]}
+
+type Action =
+  | {type: 'loading'}
+  | {type: 'failed', error: Error}
+  | {type: 'success', payload: Item[]}</code></pre>
+    <p><a href="https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions" target="_blank">Discriminating Unions</a></p>
+    <div class="code-highlight" style="height: 246px; top: 176px;"></div>
+  </div>
+</div>
+
+NOTES:
+- In fact we can change `State` to be a discriminating union too
+- That way `items` will only exist when `status` is `'success'`
+  * Before even when `status` was `'success'`, `items` would still be "optional"
+- This ensures that we cannot get into odd states
+  * Where both the `status` is `'success'` but there's an `message`
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1024,21 +1097,24 @@ NOTES:
     )
   }, [])
 }</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 239px; top: 236px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 634px;"></div>
   </div>
 </div>
 
 NOTES:
-- `useReducer` infers the `state` from the state returned by the `reducer`
+- **ONE:** `useReducer` infers the type of `state` from the type returned by the `reducer`
   * Validates that the initial state is correct
-- `dispatch` can only take valid `Action` types from discriminated union
-  * If I tried to add payload to `type: 'failed'` it'd be an error
+- **TWO:** `dispatch` can only take valid `Action` types from discriminated union
+  * If I tried to add `payload` to `type: 'failed'` it'd be an error
 - Below this I'd actually use `state`
   * But I'd first have to check `state.status`
   * Before accessing `state.items` or `state.message`
 - There are a lot of moving parts working together for `useReducer`
   * Now imagine adding or a changing an action
-  * Or even just mistyping a type
+  * Or even just mistyping a property in state
   * TS will catch all of that for us, whereas without it...
+  * Who knows
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1052,7 +1128,7 @@ NOTES:
   const [user, setUser] = useState&lt;User | null&gt;(null)
 
   useEffect(() => {
-    getUser().then(setUser)
+    getUser(username).then(setUser)
   }, [username])
 
   return [user, setUsername] as const
@@ -1060,6 +1136,7 @@ NOTES:
   // not array: (User | (username: string) => void)[]
 }</code></pre>
     <p><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions" target="_blank"><code>const</code> assertions</a></p>
+    <div class="code-highlight" style="height: 70px; top: 630px;"></div>
   </div>
 </div>
 
@@ -1142,24 +1219,76 @@ const Text = (props: Props) => {
   // props.truncate = boolean | undefined
   // props.showExpanded = boolean | undefined
 }</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 239px; top: 173px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 182px; top: 403px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 455px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 514px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 573px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 743px;"></div>
   </div>
 </div>
 
 NOTES:
 - There are a couple of ways you can set this up
   * This is my preferred approach
-- First you define your `CommonProps`
+- **ONE:** First you define your `CommonProps`
   * Has the props that will always exist
-- Then `TruncateProps` type is another "discriminated union"
-- First is for when `truncate` prop is `false` or `undefined` (unspecified)
+- **TWO:** Then `TruncateProps` type is another "discriminated union"
+- **THREE:** First is for when `truncate` prop is `false` or `undefined` (unspecified)
   * Then you set `showExpanded` to be `undefined`
-  * `showExpanded` cannot be set when `truncate` is `false` or `undefined`
-- Second is for when the `truncate` prop is `true` and only `true` (not optional)
+  * Translation: `showExpanded` cannot be set when `truncate` is `false` or `undefined`
+- **FOUR:** Second is for when the `truncate` prop is `true` and only `true` (not optional)
   * And in this case `showExpanded` is an optional `boolean`
-- Then `Props` is the intersection or combination of `CommonProps` & `TruncateProps`
-- In the code both `truncate` & `showExpanded` are typed as optional booleans
+- **FIVE:** Then `Props` is the intersection or combination of `CommonProps` & `TruncateProps`
+- **SIX:** In the code both `truncate` & `showExpanded` are typed as optional booleans
   * But you don't really have to guard against the case where `showExpanded` is `true` but `truncate` is `false
   * TypeScript prevents it from happening!
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>I) One with the other</h2>
+
+    <pre class="large"><code class="lang-shell">Type '{ children: Element; truncate: false;
+showExpanded: true; }' is not assignable to type
+'(IntrinsicAttributes & CommonProps & { truncate?:
+false | undefined; showExpanded: undefined; }) |
+(IntrinsicAttributes & CommonProps & { ...; })'.
+  Type '{ children: Element; truncate: false; showExpanded:
+  true; }' is not assignable to type '{ truncate: true;
+  showExpanded?: boolean | undefined; }'.
+    Types of property 'truncate' are incompatible.
+      Type 'false' is not assignable to type 'true'.</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 685px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 628px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 182px; top: 455px;"></div>
+  </div>
+</div>
+
+
+NOTES:
+- Quick tip on understanding TypeScript errors
+- As you create more advanced or sophisticated types for more complex situations
+  * Your error messages will get more complicated to read
+- This is the error when `trucate` is set to `false` but `showExpanded` is `true`
+  * And invalidate combination based on how we defined the pros
+- What I've found easiest is to read the errors from bottom to top
+  * Until you get enough information to understand what the problem is
+- I was going to try to add some spacing to try to make the error message a bit easier to read
+  * But this is what it actually looks like!
+- **ONE:** `Type 'false' is not assignable to type 'true'.` is probably not enough info so lets go up
+- **TWO:** `Types of property 'truncate' are incompatible.`
+  * This with the last error tells me `truncate` is being passed as `false` but expected to be `true`
+- This may be enough for me to understand the problem, but let's say it wasn't
+  * I would go up one more frame
+- **THREE:** `Type '{ children: Element; truncate: false; showExpanded: true; }' is not assignable to type '{ truncate: true; showExpanded?: boolean | undefined; }'.`
+  * `Type '{ children: Element; truncate: false; showExpanded: true; }'` is what the code is doing
+  * `'{ truncate: true; showExpanded?: boolean | undefined; }'` is what the types expect
+- As you go up the errors get more macro and you have full context, which _can_ be confusing
+  * As you go down the errors get more micro, but you lose context
+  * You'll likely need multiple frames to fully piece it together
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1178,7 +1307,7 @@ NOTES:
   id="main_btn"
 &gt;
   Go
-&lt;Button&gt;</code></pre>
+&lt;/Button&gt;</code></pre>
   </div>
 </div>
 
@@ -1188,6 +1317,7 @@ NOTES:
 - Let's say I've got my `<Button>` component that's a wrapper over HTML `<button>`
 - It has some props to control the visual design
   * But I also want to support all of the `<button>` props
+  * Like `type`, `onClick`, `disabled`, etc.
   * And of course have the all type checked
 - We already do this sort of thing without TS
   * Pass along unknown props to the underlying `<button>` element
@@ -1214,25 +1344,29 @@ const Button = ({ variant, size, ...buttonProps }: Props) => {
   // do stuff with variant & size
   return &lt;button {...buttonProps} /&gt;
 }</code></pre>
-
     <p><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys" target="_blank">Utility types</a></p>
+    <div class="code-highlight fragment current-visible" style="height: 239px; top: 173px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 455px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 514px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 125px; top: 455px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 743px;"></div>
   </div>
 </div>
 
 NOTES:
 - This is what the TypeScript definitions could look like
   * There are several ways to accomplish this
-- You first define whatever are the new props as `NewProps`
+- **ONE:** You first define whatever are the new props as `NewProps`
   * Defining the `variant` & `size`
-- Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
+- **TWO:** Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
   * But there may be a chance that the `<button>` element already has `variant` or `size` props
   * In which case we're wanting to override those props
   * We want all the `<button>` element props **except** the new ones we're defining
-  * Use `keyof` to get all the prop names of `NewProps`
+  * **THREE:** Use `keyof` to get all the prop names of `NewProps`
   * Remove or omit those props using the `Omit<>` utility generic
-  * Then we merge in our new ones
+  * **FOUR:** Then we merge in our new ones
   * If we don't `Omit<>` and have a name collision, weird things happen in TS
-- Then in the component code we can spread `buttonProps` like we always do
+- **FIVE:** Then in the component code we can spread `buttonProps` like we always do
   * Except again `buttonProps` is fully typed
   * So users of `<Button>` wouldn't be able to specify an `href` prop for instance
   * But we'll get auto-completion for `disabled`, `type`, and other props
@@ -1275,15 +1409,19 @@ NOTES:
 
 NOTES:
 - Last advanced prop set-up I wanna show you
+- Remember when we were talking about `<UsersList>`
+  * When talking about typing render props?
+  * Let's take it a step further
 - Let's say you have a `<List>` that has a render prop for each item
-- `<List>` is generic so it doesn't know what sort of items it's getting
+- But `<List>` is generic so it doesn't know what sort of items it's getting
   * Doesn't care about the items themselves just displaying them (dividers, etc)
   * The render prop does the work of rendering the items
 - My biggest beef with render props is that I literally have no idea what I'm getting
   * And in this case `<List>` needs to be able to handle different types
-  * First we pass an array of `string`s and call `.length`
-  * Second we pass an array of `number`s and call `.toFixed(2)`
-- We want to be able to know the type of `item` based on the types of `items`
+  * On the left we pass an array of `string`s and call `.length`
+  * On the right we pass an array of `number`s and call `.toFixed(2)`
+- We want to be able to know the type of `item` in the render prop
+  * Based on the types of `items`
   * You can image if `items` were arrays of objects how much more necessary this would be
 
 /////
@@ -1307,28 +1445,35 @@ const List = &lt;T,&gt;({ items, children }: Props&lt;T&gt;) => (
   </ul>
 )</code></pre>
     <p><a href="https://ts.chibicode.com/generics" target="_blank"><em>TypeScript Generics for People Who Gave Up on Understanding Generics</em></a></p>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 403px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 239px; top: 173px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 230px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 286px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 403px; left: 420px; width: 146px"></div>
   </div>
 </div>
 
 
 NOTES:
-- Well a render prop is just a special function prop
+- Like I mentioned, a render prop is just a special function prop
   * That happens to return React
   * But it can be typed just like any other prop function
-- And with the power of generics, it can be _generically_ typed
-  * The `List` component defines a generic parameter type `T`
-  * It's passed to `Props<T>`
-  * Which says that the `items` are an array of `T` types
-  * And the render prop is gonna get an item of type `T`
-- Therefore when I render a `<List>` and pass strings, `T` is now a `string`
+- And with the power of **generics**, it can be _generically_ typed
+  * **ONE:** The `List` component defines a generic parameter type `T`
+  * **TWO:** It's passed to `Props<T>`
+  * **THREE:** Which says that the `items` are an array of `T` types
+  * **FOUR:** And the render prop is gonna get an item of type `T`
+- Type inference also works with generics
+  * Therefore when I render a `<List>` and pass strings, `T` is now a `string`
   * When I render a `<List>` and pass numbers, `T` is now a `number`
-  * So `<List>` is generic or parameterized as I call it
+  * So `<List>` is generic, or parameterized as I call it
 - It adds more flexibility to the component
-  * To enable the sorts of flexible use cases to still be strongly typed
-  * So when I pass in numbers, I'll get an error trying to call `.indexOf`
-- One thing I want to note is the `<T,>` bit
+  * To enable the sorts of flexible use cases and still be strongly typed
+  * So when I pass in numbers, I'll get an error when trying to call `.indexOf`
+- **FIVE:** One thing I want to note is the `<T,>` bit
   * The comma is necessary when defining the component using arrow functions
   * Otherwise the parser can't tell if it's JSX or an arrow function
+
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1362,8 +1507,9 @@ NOTES:
 NOTES:
 - Easiest way of getting set up as always is with Create React App
 - Use `typescript` template with `npx` & `create-react-app` package
-  - This adds a basic `tsconfig.json` for you
+  * This adds a basic `tsconfig.json` for you
 - There's also a way to add TS to an existing CRA app
+  * Just follow the docs
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1385,16 +1531,14 @@ NOTES:
 </div>
 
 NOTES:
-- For non-CRA apps, it's pretty straightforward
+- For non-CRA apps, it's fairly straightforward
 - In the past, you had to ditch Babel and use TS for JS transpiling & type checking
 - Now TS & Babel work together
   * Add `@babel/preset-typescript` to Babel config
-  * It handles understanding TS and transpiling to JS with other plugins like JSX
-- You only using the TS compiler for type-checking, while Babel handles transpiling
+  * It handles understanding TS and transpiling to JS with other presets like `@babel/preset-react`
+- You only use the TS compiler for type-checking, while Babel handles transpiling
   * IMO Babel does a better job of transpiling
   * Its ecosystem around plugins is much more robust than what TS offers
-- You will, need to add your own `tsconfig.json`
-  * Speaking of which...
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/tools-todd-quackenbush-IClZBVw5W5A-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1422,7 +1566,7 @@ NOTES:
   * Without building the app, you won't catch all the type errors we've been discussing
 - Therefore, you _should_ add a type check step in addition to tests & lint
   * Using the TypeScript compiler, `tsc`
-  * Running it in "no emit" mode will just run type-checking without trying to generate fiels
+  * Running it in "no emit" mode will just run type-checking without trying to generate files
 
 
 /////
@@ -1463,17 +1607,18 @@ NOTES:
 - Question I always get
   * Do I have to switch over all at once?
 - The answer: NO! Not at all
-- I always advise against big rewrites
+- I always advise against big rewrites anyway
   * Again, the whole purpose is to deliver a better quality app for your users
-  * You spending weeks/months rewritting is not helping them
+  * You spending weeks/months rewritting in TS is not providing value
 - I suggest taking it component by component
   * With Babel setup, a JS component can import a TS component no-problem
-  * You'll want to try to avoid the reverse
+  * You'll want to try to avoid the reverse, however
   * A JS component that a TS component is importing won't have any type information
 - There are many schools of thought
   * But my opinion is that if you're gonna bother using TS you should go **all in**
-  * So being _as strict as possible_
-- So I suggest starting with utilities/helpers first
+  * So be _as strict as possible_
+  * There are many settings in the TS config and I suggest the highest level of strictness
+- Also I suggest starting with utilities/helpers first
   * Those with little to no dependencies
   * Then work your way outwards
   * The top-level App component would likely be last
@@ -1492,14 +1637,20 @@ NOTES:
       <li><a href="https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin" target="_blank"><code>@typescript-eslint/eslint-plugin</code></a></li>
       <li><a href="https://www.benmvp.com/blog/react-prop-types-with-typescript/?utm_source=benmvp&utm_medium=slides&utm_campaign=tsconf-2020" target="_blank"><em>React PropTypes with TypeScript</em></a></li>
       <li><a href="https://fettblog.eu/typescript-react/" target="_blank"><em>TypeScript and React</em></a></li>
+      <li><a href="https://github.com/antonjb/TypeScript-Learning-Plan" target="_blank">TypeScript Learning Plan</a></li>
     </ul>
   </div>
 </div>
 
 NOTES:
-- Only talked about function components
-- You can use TS w/ class components too although hooks w/ functions are the way to go
-- These resources will help
+- I included links to lots of resources as we went
+  * But I've got some additional ones here for you
+- The most useful will likely be the first one
+  * The **React TypeScript Cheatsheet**
+  * Provides a lot of recipes for common situations
+- Also, I only talked about function components
+  * You can use TS w/ class components too but hooks w/ functions are the future
+  * However if you need class examples, some of the resources have them
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1512,17 +1663,17 @@ NOTES:
 
 NOTES:
 - I know I've been super excited about TS
+  * How it catches & prevents so many errors
+  * And how it'll solve all of your problems
   * But it's not a cure-all
 - It's just a tool like anything else
-  * Still need code review
+  * So you'll still need code review
   * Still need tests for run-time things
   * But hopefully you'll need less of both
-- There's a **learning curve** for TS
-  * That's the COST
-  * At SFIX I gave a workshop on TypeScript + React
-  * Then a team at ganged up on a single PR to get feet wet
-- VALUE: need to keep a lot less in your head about how components & object data work
-  * TS types now keep that info
+- I also have to point out that there's a **learning curve** for TS
+  * At SFIX I gave a workshop on TypeScript + React (same minishop)
+  * Then a team ganged up on a single PR to get feet wet
+  * That way they could level up together
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1536,14 +1687,16 @@ NOTES:
 </div>
 
 NOTES:
-- Heads up!
+- Another heads up!
 - You may find yourself _fighting_ TypeScript
-  * You're trying to type check some JavaScript, but it just isn't working
+  * You're trying to type some JavaScript, but it just isn't working
   * You "know" it works, but TS is complaining
   * This is definitely going to happen
   * Remember with TS you're signing up for it to make your code strict
-- But I want you to keep in mind this thought from Jared from 3 years ago at ReactConf
-  * Maybe if your code really hard to type check, the code itself is hard to understand
+  * Some people at this point suggest just making your types loose
+  * But again I say strict to it being very strict
+- So I want you to keep in mind this thought from Jared from 3 years ago at ReactConf
+  * Maybe if your code is really hard to type check, the code itself is hard to understand
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1563,7 +1716,12 @@ NOTES:
 </div>
 
 NOTES:
-- That's it!
+- So that's it!
+- I know I just flooded you with a whole bunch of information
+- Hopefully you found it all insightful
+  * And it's motivated you to use TS in your current/next React project
+- I want to thank the **TSConf** team for giving me the opportunity to share w/ you
+- And also want to thank **YOU** for taking the time to watch
 - Ask questions on Twitter (@benmvp)
 - Thanks!
-- Enjoy the rest of the conference
+- Hope you enjoy the conference!

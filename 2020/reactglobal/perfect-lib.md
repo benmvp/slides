@@ -428,8 +428,8 @@ NOTES:
     <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around">
       <div style="flex: 0 0 60%;">
         <a href="https://www.benmvp.com/minishops/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">
-      <img src="../../img/perfect-lib/minishops.png" alt="A Screenshot of the Minishops page on benmvp.com" class="plain" style="width: 100%" />
-    </a>
+          <img src="../../img/perfect-lib/minishops.png" alt="A Screenshot of the Minishops page on benmvp.com" class="plain" style="width: 100%" />
+        </a>
       </div>
       <div style="flex: 0 0 40%; text-align: left;">
        <ul>
@@ -438,7 +438,7 @@ NOTES:
         <li><a href="https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">Migrating to React Hooks</a></li>
         <li><a href="https://www.benmvp.com/minishops/sharing-react-component-logic/?utm_source=benmvp&utm_medium=slides&utm_campaign=rgos-2020" target="_blank">Sharing React Component Logic</a></li>
       </ul>
-      </div>
+    </div>
   </div>
 </div>
 
