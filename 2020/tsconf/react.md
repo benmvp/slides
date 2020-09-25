@@ -315,7 +315,7 @@ const App = (props: AppProps) => {
 
   return <div>{props.message}</div>
 }</code></pre>
-    <pre class="large"><code class="lang-shell">Property 'loading' does not exist on type 'Props'</code></pre>
+    <pre class="large"><code class="lang-shell">Property 'loading' does not exist on type 'AppProps'</code></pre>
     <div class="code-highlight" style="height: 70px; top: 459px;"></div>
   </div>
 </div>
@@ -421,15 +421,16 @@ const App = ({ players, count = 2 }: AppProps) => {
 
   // render topPlayers in UI
 }</code></pre>
-    <div class="code-highlight" style="height: 70px; top: 284px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 284px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 459px;"></div>
   </div>
 </div>
 
 
 NOTES:
-- You can use `?` to denote a prop is optional
+- **ONE:** You can use `?` to denote a prop is optional
 - Which means of course its value is `undefined` when not passed
-- You can then use object destructuring + defaulting to replace `defaultProps`
+- **TWO:** You can then use object destructuring + defaulting to replace `defaultProps`
 - Now if I omit `count` when rendering `<App />`
   * There's no error and it'll default to `2`
 - This is typically how TS React function components look
@@ -898,6 +899,9 @@ NOTES:
   * And the return value also **must** be a `number` as well
 - If I pass anything that's not a number or try to do non numeric operations on the state
   * I get an error of course
+- But take a look at this code
+  * **There area no typescript types**
+  * Yet it's fully type-safe
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1062,8 +1066,6 @@ NOTES:
   * **FIVE:** And for `'success'` there is `payload` property
 - And TS also knows I've handled all cases of `action.type`
   * So I technically don't even need a `default` case
-- So... up until now I've really just been showing you TS
-  * There's been nothing React-specific yet
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1088,10 +1090,12 @@ type Action =
 
 NOTES:
 - In fact we can change `State` to be a discriminating union too
-- That way `items` will **really* only exist when `status` is `'success'`
+- That way `items` will **really** only exist when `status` is `'success'`
   * Before even when `status` was `'success'`, `items` would technically still be "optional"
 - This ensures that we cannot get into odd states
   * Where both the `status` is `'success'` but there's an error `message`
+- So... up until now I've really just been showing you TS
+  * There's been nothing React-specific yet
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1747,6 +1751,7 @@ NOTES:
 - I know I just flooded you with a whole bunch of information
 - Hopefully you found it all insightful
   * And it's motivated you to use TS in your next (or current) React project
+- Again, the slides are already available online
 - I want to thank the **TSConf** team for finding an opportunity for me to share w/ you
 - And also want to thank **YOU** for taking the time to watch & listen
 - Ask questions on Twitter (@benmvp)
