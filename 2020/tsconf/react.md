@@ -178,7 +178,7 @@ NOTES:
 - There's lots TS can do, which is the purpose of the whole conference
   * But I am going to focus on TS for the React world
 - So as a heads up, I'm assuming that you have developed in React before
-  * But you know little to know TypeScript
+  * But you know little to no TypeScript
   * Even if you know lots of TS you'll get tons out of this
   * But for those that don't know TS I will be explaining the concepts
 
@@ -321,8 +321,9 @@ const App = (props: AppProps) => {
 </div>
 
 NOTES:
-- With TS, props cannot be used within a component without a definition
+- With TS, props **cannot** be used within a component without a definition
 - How many times have you had props in a component used w/o any `PropTypes` definition?
+  * In this case we're trying to use `props.loading` w/o defining in props
 - There are ESLint rules to catch this sort of thing, but they are limited
 
 /////
@@ -1386,7 +1387,7 @@ const Button = ({ variant, size, ...buttonProps }: Props) => {
 
 NOTES:
 - Instead, this is what the TypeScript definitions could look like
-  * Aagain, there are several ways to accomplish this
+  * Again, there are several ways to accomplish this
 - **ONE:** You first define whatever are the new props as `NewProps`
   * In this case, `variant` & `size`
 - **TWO:** Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
