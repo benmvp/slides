@@ -26,10 +26,10 @@ NOTES:
 
 - Hello there!
 - First off, Happy 5th Anniversary to React Summit!
-- Amd welcome to "TypeScript + React = ❤️"
+- And welcome to "TypeScript + React = ❤️"
   * Kinda wish I had used 🔥 instead
   * Because that's how awesome I think the partnership is
-- I'm wanna spend our time showing TS features
+- I wanna spend our time showing TS features
   * That can prevent bugs in our React apps
 - So I'm assuming that you have developed in React before
   * But you know little to no TypeScript
@@ -332,7 +332,7 @@ NOTES:
   * And we all know how that goes...
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -362,7 +362,7 @@ NOTES:
 - So how do we make this happen?
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -407,7 +407,7 @@ NOTES:
 - **SIX:** And finally in the code both `truncate` & `showExpanded` are typed as optional booleans
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -441,7 +441,7 @@ NOTES:
   * Relying on the runtime error from React to tell me whether or not this prop is invalid on `<button>`
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -482,12 +482,12 @@ NOTES:
   * **FOUR:** Then we merge in our `NewProps`
   * If we don't `Omit<>` and have a name collision, weird things happen in TS
 - **FIVE:** Then in the component code we can spread `buttonProps` like we always do
-  * Except again `buttonProps` is fully typed
+  * Except `buttonProps` is fully typed
   * So users of `<Button>` wouldn't be able to specify an `href` prop for instance
   * But we'll get auto-completion for `disabled`, `type`, and other props
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 100%">
@@ -537,7 +537,7 @@ NOTES:
   * You can imagine if `items` were arrays of objects how much more necessary this would be
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
