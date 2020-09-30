@@ -15,7 +15,7 @@
 
   <br />
 
-  <p>October 16, 2020</p>
+  <p>October 15, 2020</p>
 
 
   </div>
@@ -26,6 +26,7 @@ NOTES:
 
 - Hello there!
 - First off, Happy 5th Anniversary to React Summit!
+  * Happy Birthday!
 - And welcome to "TypeScript + React = ❤️"
   * Kinda wish I had used 🔥 instead
   * Because that's how awesome I think the partnership is
@@ -88,8 +89,9 @@ NOTES:
 - Takes props in and returns JSX
 - Can be treated & typed like any other TS function
 - To start off, you use an `interface` to define the props
-  * and is the type of the `props` argument
+  * and it is the type of the `props` argument
 - You can name `AppProps` anything you like
+  * I usually go with just `Props` as we'll see in following slides
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -115,6 +117,7 @@ const App = (props: AppProps) => {
 </div>
 
 NOTES:
+- Ok, so the first benefit...
 - With TS, props **cannot** be used within a component without a definition
 - How many times have you had props in a component used w/o any `PropTypes` definition?
   * In this case we're trying to use `props.loading` w/o defining in props
@@ -176,7 +179,7 @@ NOTES:
 - TypeScript interface properties are **required** by default
   * So without doing anything special you're guaranteed that the values will exist
   * Nice!
-- So If I call the component, leaving off a required prop (`count` here)
+- So if I call the component, leaving off a required prop (`count` in this case)
 - It will yell at me, and again not compile
 
 /////
@@ -203,9 +206,9 @@ const App = ({ players, count = 2 }: AppProps) => {
 
 
 NOTES:
-- You can use `?` to denote a prop is optional
+- You can use `?` to denote that a prop is optional
   * Which means its value is `undefined` when not passed
-- Now if I omit `count` when rendering `<App />`
+- Now, if I omit `count` when rendering `<App />`
   * There's no error and it'll default to `2`
 
 /////
@@ -231,7 +234,7 @@ NOTES:
 
 NOTES:
 - If you change the name of a prop, all the places using it must be updated
-  * Let's say the prop was originally `names` and I changed it to `players`
+  * Let's say the prop was originally `names` and I changed it to `players` w/in the component
   * You search & replace to fix all the places
   * But did you get them all? How can you be 100% sure?
   * Well TS will complain if you miss a spot
@@ -265,7 +268,7 @@ interface AppProps {
 NOTES:
 - It's a lot of work to define a deeply nested shape
   * Even with eslint rules we find ways to "cheat"
-  * There's nothing forcing the `PropTypes` to be 100%
+  * There's nothing forcing the `PropTypes` to be 100% accurate
 - TS is now getting in your way and preventing you from being lazy
   * But also saving you because you have to define _exactly_ what's available
   * You can't access properties off the `user` prop unless you define what they are
@@ -476,15 +479,14 @@ NOTES:
 - **TWO:** Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
   * But there may be a chance that the `<button>` element already has `variant` or `size` props
   * In which case we want to override those props
-  * We want all the `<button>` element props **except** the new ones we're defining
+  * But when there are name collisions, weird things happen in TS
+  * So we want all the `<button>` element props **except** the new ones we're defining
   * **THREE:** We use `keyof` to get all the prop names of `NewProps`
-  * Remove or omit those props using the `Omit<>` utility generic
-  * **FOUR:** Then we merge in our `NewProps`
-  * If we don't `Omit<>` and have a name collision, weird things happen in TS
+  * Then we remove or omit those props using the `Omit<>` utility generic
+  * **FOUR:** Then finally we merge in our `NewProps`
 - **FIVE:** Then in the component code we can spread `buttonProps` like we always do
   * Except `buttonProps` is fully typed
   * So users of `<Button>` wouldn't be able to specify an `href` prop for instance
-  * But we'll get auto-completion for `disabled`, `type`, and other props
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -567,21 +569,23 @@ const List = &lt;T,&gt;({ items, children }: Props&lt;T&gt;) => (
 
 
 NOTES:
-- A render prop is just a special function prop
-  * That happens to return React
+- A render prop is just a special function prop that happens to return React
   * But it can be typed just like any other prop function
 - And with the power of **generics**, it can be _generically_ typed
   * **ONE:** The `List` component defines a generic parameter type `T`
   * **TWO:** It's passed to `Props<T>`
   * **THREE:** Which says that the `items` are an array of `T` types
   * **FOUR:** And the render prop is gonna be passed an item of type `T`
-- Type inference also works with generics
-  * Therefore when I render a `<List>` and pass strings, `T` is now a `string`
+- When I render a `<List>` and pass strings, `T` is now a `string`
   * When I render a `<List>` and pass numbers, `T` is now a `number`
   * So `<List>` is generic, or parameterized as I call it
 - **FIVE:** One thing I want to note is the `<T,>` bit
   * The comma is necessary when defining the component using arrow functions
   * Otherwise the parser can't tell if it's JSX or an arrow function
+- Generics are pretty mind-bending at first
+  * But they're also used a lot in shareable code
+  * So I've included another link to a resource for you
+  * _TypeScript Generics for People Who Gave Up on Understanding Generics_ 😄
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -604,8 +608,7 @@ NOTES:
 </div>
 
 NOTES:
-- I included links to lots of resources throughout the slides
-  * But I've got some additional ones here for you
+- I've got some resources here for you
 - The most useful will likely be the first one
   * The **React TypeScript Cheatsheet**
   * Provides a lot of recipes for common situations
@@ -636,6 +639,7 @@ NOTES:
 </div>
 
 NOTES:
+- Before I finish...
 - I periodically host a series of short, 3-hour remote React workshops
   * I call them "minishops"
 - One of them is called "TypeScript for React Developers"
@@ -646,7 +650,7 @@ NOTES:
   * Find **one** you like AND can attend
   * Send out a tweet w/ the link and tag me in
   * I'll pick one and give you a free ticket
-  * Bonus points if you include a selfie of you watching this talk 😄
+  * Bonus points if you include a selfie of you watching this talk or during Q&A 😄
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->

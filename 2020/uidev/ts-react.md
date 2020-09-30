@@ -286,7 +286,7 @@ NOTES:
 - TypeScript interface properties are **required** by default
   * So without doing anything special you're guaranteed that the values will exist
   * Nice!
-- So If I call the component, leaving off a required prop (`count` here)
+- So if I call the component, leaving off a required prop (`count` in this case)
 - It will yell at me, and again not compile
 
 /////
@@ -313,9 +313,9 @@ const App = ({ players, count = 2 }: AppProps) => {
 
 
 NOTES:
-- You can use `?` to denote a prop is optional
+- You can use `?` to denote that a prop is optional
   * Which means its value is `undefined` when not passed
-- Now if I omit `count` when rendering `<App />`
+- Now, if I omit `count` when rendering `<App />`
   * There's no error and it'll default to `2`
 
 /////
@@ -341,7 +341,7 @@ NOTES:
 
 NOTES:
 - If you change the name of a prop, all the places using it must be updated
-  * Let's say the prop was originally `names` and I changed it to `players`
+  * Let's say the prop was originally `names` and I changed it to `players` w/in the component
   * You search & replace to fix all the places
   * But did you get them all? How can you be 100% sure?
   * Well TS will complain if you miss a spot
@@ -816,11 +816,11 @@ NOTES:
 - **TWO:** Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
   * But there may be a chance that the `<button>` element already has `variant` or `size` props
   * In which case we want to override those props
-  * We want all the `<button>` element props **except** the new ones we're defining
+  * But when there are name collisions, weird things happen in TS
+  * So we want all the `<button>` element props **except** the new ones we're defining
   * **THREE:** We use `keyof` to get all the prop names of `NewProps`
-  * Remove or omit those props using the `Omit<>` utility generic
-  * **FOUR:** Then we merge in our `NewProps`
-  * If we don't `Omit<>` and have a name collision, weird things happen in TS
+  * Then we remove or omit those props using the `Omit<>` utility generic
+  * **FOUR:** Then finally we merge in our `NewProps`
 - **FIVE:** Then in the component code we can spread `buttonProps` like we always do
   * Except `buttonProps` is fully typed
   * So users of `<Button>` wouldn't be able to specify an `href` prop for instance
@@ -907,8 +907,7 @@ const List = &lt;T,&gt;({ items, children }: Props&lt;T&gt;) => (
 
 
 NOTES:
-- A render prop is just a special function prop
-  * That happens to return React
+- A render prop is just a special function prop that happens to return React
   * But it can be typed just like any other prop function
 - And with the power of **generics**, it can be _generically_ typed
   * **ONE:** The `List` component defines a generic parameter type `T`
