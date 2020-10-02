@@ -28,12 +28,15 @@ NOTES:
 - Welcome to "TypeScript + React = ❤️"
   * Kinda wish I had used 🔥 instead
   * Because that's how awesome I think the partnership is
-- I wanna spend our time showing TS features
-  * That can prevent bugs in our React apps
 - So I'm assuming that you have developed in React before
   * But you know little to no TypeScript
   * Even if you know lots of TS you'll get tons out of this
   * But for those that don't know TS I will be explaining the concepts
+- I can't see any of you
+  * But feel free to comment in the chat as we go
+  * I'll probably save Q&A for the end
+  * But if things are confusing let me know
+  * Or if you wanna say how awesome it is, that's cool too! 😂
 
 - **Slides are available online**
 - I'll be sharing a lot of links as we go
@@ -103,7 +106,7 @@ NOTES:
   - But usually when making changes (i.e. refactoring)
   - This can be 2 **minutes** later or 2 **months** later
   - That's when bugs get introduced
-- I'm gonna spend rest of our time showing TS features that can prevent these bugs
+- So I'm gonna spend rest of our time showing TS features that can prevent these bugs
 - There's lots TS can do
   * But I am going to focus on TS for the React world
 - So as a heads up, I'm assuming that you have developed in React before
