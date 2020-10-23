@@ -23,13 +23,11 @@
 </div>
 
 NOTES:
-**RESTART THE TIMER!!!!**
-
+- Hello, hello everyone!
+- **RESTART THE TIMER!!!!**
 -
-
 - **Slides are available online**
-
-**RESTART THE TIMER!!!!**
+- **RESTART THE TIMER!!!!**
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -53,14 +51,14 @@ NOTES:
     <div style="display:flex;align-items:flex-end;justify-content:space-around;">
 	    <div style="flex:0 0 45%;">
         <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => {
-  // ...
+  // retrieve playerImages
   return (
     &lt;section>
       &lt;h1>All Players&lt;/h1>
       &lt;Slideshow
         images={playerImages}
         page={2}
-        onNextPage={ ... }
+        onNext={ ... }
       />
     &lt;/section>
   )
@@ -68,14 +66,14 @@ NOTES:
       </div>
       <div style="flex:0 0 45%; margin-left: 20px;">
         <pre class="large"><code class="lang-javascript">const Teams = () => {
-  // ...
+  // retrieve teamLogos
   return (
     &lt;section>
       &lt;h1>All Teams&lt;/h1>
       &lt;Slideshow
         images={teamLogos}
         page={5}
-        onNextPage={ ... }
+        onNext={ ... }
       />
     &lt;/section>
   )
@@ -88,7 +86,7 @@ NOTES:
 </div>
 
 NOTES:
-- React is great at sharing UI
+- React is especially great at sharing UI
 - Here we have a `<Slideshow>` component
   * No doubt has lots of markup, styling & UI logic
 - Using it in two components
@@ -104,20 +102,12 @@ NOTES:
   <div class="content-overlay">
     <h2>Sharing Utilities</h2>
 
-    <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => {
-  // maintain state of paginated player images
+    <pre class="large"><code class="lang-javascript">const fetchImages = (teamId, page) => {
+  const apiUrl = teamId ? '...' : '...'
 
-  useEffect(() => {
-    const getPlayersAsync = async () => {
-      const data = getPlayers(teamId, curPage)
-      const images = getImages(data)
-
-      // update state of paginated player images
-    }
-    getPlayersAsync()
-  }, [teamId, curPage])
-
-  // render UI of paginated player images
+  return fetch(apiUrl)
+    .then((resp) => resp.json())
+    .then((data) => data.images)
 }</code></pre>
   </div>
 </div>
@@ -136,19 +126,16 @@ NOTES:
     <h2>Sharing Non-Visual Logic?</h2>
 
     <pre class="large"><code class="lang-javascript">const useImages = ({ teamId }) => {
-  // maintain state of paginated images
+  const [images, setImages] = useState([])
+  const [curPage, setCurPage] = useState(1)
 
   useEffect(() => {
-    const getPlayersAsync = async () => {
-      const data = getPlayers(teamId, curPage)
-      const images = getImages(data)
-
-      // update state of paginated images
-    }
-    getPlayersAsync()
+    fetchImages(teamId, curPage).then((images) => {
+      setImages(images)
+    })
   }, [teamId, curPage])
 
-  // return paginated images & page updater
+  return [images, setCurPage]
 }</code></pre>
   </div>
 </div>
@@ -207,19 +194,589 @@ NOTES:
 
 =====
 
-# Mixins
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>Mixins</h1>
+    <h2>(React &lt;= 0.14)</h2>
+  </div>
+</div>
+
+NOTES:
+- Alright enough about me. Let's just right in
+- The first approach to solve this was via mixins
+- This pre-dates me because it basically ended with React 15 & classes
+- But I did see lots of 0.14 code using mixins
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const Players = React.createClass({
+  mixins: [ImagesMixin],
+  render() {
+    return (
+      &lt;section>
+        &lt;Slideshow
+          images={this.state.images}
+          page={this.state.curPage}
+          onNext={this.handleNextPage}
+        />
+      &lt;/section>
+    )
+  },
+})</code></pre>
+  </div>
+</div>
+
+NOTES:
+- We used `React.createClass` to create a component
+- And it took an optional `mixins` property to define 1 or more mixins
+  - We're using an `ImagesMixin` which I'll show
+- In this case `ImagesMixin` defines `images` & `curPage` state variables
+  * They are passed to the `<SlideShow />`
+- And finally `this.handleNextPage` is called when slideshow changes
+  * This is also defined in the mixin
+- As you can see there's some magic happening
+  * The state is magically available
+  * I have to know that `handleNextPage` is provided
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">const ImagesMixin = {
+  getInitialState() { return { images: [], curPage: 1 } },
+  componentDidMount() { this.updateImages() }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.curPage !== this.state.curPage
+      || prevProps.teamId !== this.props.teamId) {
+      this.updateImages()
+    }
+  },
+  updateImages() {
+    fetchImages(this.props.teamId, this.state.curPage)
+      .then((images) => { this.setState({ images }) })
+  }
+  handleNextPage(curPage) { this.setState({ curPage }) },
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- And here's the implementation of `ImagesMixin`
+  * Kinda verbose compared to the custom hook
+  * But let's walk through it
+- Here's where the `images` & `curPage` state are defined
+- In `componentDidMount` we call `updateImages` to retrieve the images initially
+- In `componentDidUpdate` we call `updateImages`
+  * Either when `curPage` state or `teamId` prop change
+- `updateImages` is where we make the actual `fetchImages` call
+  * And set `images` state w/ returned data
+- And finally we provide the `handleNextPage` helper **for the components**
+  * To update the current page
+  * It's not actually called from w/in the mixin
+- This is probably not exactly how I would've written it back then
+  - I'm applying new JavaScript syntax & React coding style to old patterns 😂
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Gotchas with Mixins</h2>
+
+    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-javascript">React.createClass({
+  mixins: [
+    ThemeMixin,
+    AuthMixin,
+    I18nMixin,
+  ],
+  render() {
+    // use this.state
+    // call helpers
+    // render UI
+  },
+})</code></pre>
+      </div>
+      <div style="flex:0 0 45%;">
+        <ul>
+          <li>No ES class support</li>
+          <li>Lots of indirection</li>
+          <li>Naming collisions</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+NOTES:
+- Mixins worked okay, but there were several gotchas with them
+- Classes were being introduced to JavaScript
+  * They didn't support mixins
+  * React team wanted to move to using ES classes instead of maintaining own class system
+- Mixins inherently relied on indirection & agreements to work
+  * Mixin might need the component to define a helper method/property
+  * Or the mixin provides a helper method/property for the component
+  * When there were multiple mixins it was hard to know where state came from
+  * React was able to merge the lifecycle methods
+  * But if a specific sequence was important, it was challenging
+- Also there could be helper method name collisions
+  * Would have to namespace to ensure they were unique
+- React would warn if two mixins had a `getInitialState` w/ the same keys
+  * But it was still possible to have cases where two mixins were clobbering state
+
 
 =====
+<!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Higher-order components (HOCs)
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>Higher-order components (HOCs)</h1>
+    <h2>(React 15)</h2>
+  </div>
+</div>
+
+NOTES:
+- So because of all of those issues
+  * React 15 migrated to ES classes & ditched mixins support
+- Technically you could still do mixins in React 15
+  * Because `createClass` still existed in React 15
+  * But there was even an official blog post _Mixins Considered Harmful_
+  * And then it was deprecated in React `15.5.0`
+  * And moved to its own package `create-react-class`
+  * It was completely removed in React 16
+- So w/o mixins we needed a new strategy for solving this problem
+  * Sharing non-visual logic
+- The next pattern that became popular was higher-order components (HOCs)
+  * They had existed way back in React 0.13
+  * But they surged in popularity with mixins gone
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">const withImages = (Component) => {
+  return class WithImages extends React.Component {
+    state = { images: [], curPage: 1 }
+    // lifecycle methods + updateImages
+    render() {
+      return &lt;Component
+        {...this.props}
+        images={this.state.images}
+        curPage={this.state.curPage}
+        handleNextPage={ ... }
+      /&gt;
+    }
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- An HOC was/is a function that takes an existing component
+  * And returns another component that wraps the original
+  * It was popularized by Dan Abramov
+  * Before he even started working at Facebook yet
+- So `withImages` is the HOC & it takes the `Component` as a parameter
+  * And it returns a new class component called `WithImages`
+  * It's a wrapper class
+- `WithImages` has all the same `state` & lifecycle methods as the mixins approach
+  * Except they are methods on the wrapper `WithImages` class
+- The big difference is that the HOC **renders** the component passed in
+  * It passes along all the existing `props`
+  * But then adds to the props the state properties
+  * As well as the `handleNextPage` callback function prop for updating the `curPage` state
+- I used to call HOCs "component enhancers"
+  * Because they enhance the wrapped component by providing additional props
+- Prefixing the HOC with `with` was a common convention
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">class Players extends React.Component {
+  render() {
+    return (
+      &lt;section>
+        &lt;Slideshow
+          images={this.props.images}
+          page={this.props.curPage}
+          onNext={this.props.handleNextPage}
+        />
+      &lt;/section>
+    )
+  }
+}
+export default withImages(Players)</code></pre>
+  </div>
+</div>
+
+NOTES:
+- The HOC is used similar to the mixin
+  * Except the component is receiving props instead of state
+  * This approach is **composition** over mixing in
+- The exported component is the actual component that'll be used in UIs
+- But by wrapping `Players` with `withImages` it'll do the work to maintain the state
+  * And update as we paginate with the `handleNextProp`
+  * Since `Players` is never exported, we can write to expect props `withImages` will give
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Gotchas with HOCs</h2>
+
+    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-javascript">class Example {
+  render() {
+    // use this.props
+    // render UI
+  }
+}
+withTheme(
+  withAuth(
+    withI18n(Example)
+  )
+)</code></pre>
+      </div>
+      <div style="flex:0 0 45%;">
+        <ul>
+          <li>Indirection</li>
+          <li>Naming collisions</li>
+          <li>Static composition</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+NOTES:
+- So while HOCs did play nicely with ES classes there were still similar problems from mixins
+- Indirection was still a problem
+  * With mixins we didn't know which mixin state was coming from
+  * There was also communication between helper methods/properties
+  * Now with HOCs the only communication is through props
+  * But with multiple HOCs we now don't know where our props are coming from
+  * Makes debugging...fun
+- There are no method or state name collisions with HOCs
+  * But there can be prop name collisions if 2 HOCs try to set the same prop
+  * And there'll be nothing that will tell us this is happening either
+- Lastly the composition that happens w/ HOC is **static**
+  * Meaning it happens outside of the `render()`
+  * So it cannot be configured based upon the component's props and/or state
+  * When we render child components, that's **dynamic** composition
+  * In fact, doing the enhancement within `render()` would be terrible for performance
+  * Would be creating a new component class with each render!
+  * This actually was the case with mixins as well passing in that array
+  * This wasn't always a problem, but made complex situations challenging
+
 
 =====
+<!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Render props
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>Render props</h1>
+    <h2>(React &lt; 16.8)</h2>
+  </div>
+</div>
+
+NOTES:
+- Render props have always existed in React
+  * And they still do now
+  * But they became popular as an alternative to HOCs right around when React 16 was released
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">class Images extends React.Component {
+  state = { images: [], curPage: 1 }
+
+  // lifecycle methods + updateImages
+
+  render() {
+    return this.props.render({
+      images: this.state.images,
+      curPage: this.state.curPage,
+      handleNextPage: (curPage) => {
+        this.setState({ curPage })
+      }
+    })
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- A render prop is a special prop of a component
+  * It's a function
+  * But instead of being your typical callback handler
+  * It's a function that takes in data and returns JSX
+- It was popularized by Michael Jackson from React Training
+  * As a completely better alternative to HOCs
+  * He even wrote the Render Props React docs if you've ever written those
+- So instead of a special mixin or a function
+  * We have a normal component
+  * Calling it `Images` here
+- It has all the same `state` & lifecycle methods as the HOC & mixins approaches
+  * So on `componentDidMount` it'll make the `fetchImages` call
+  * And update the `images` state
+- The component also has a function prop called `render`
+  * It can actually be called anything, but `render` is a common convention
+  * Hence "render prop"
+  * It's also common to use the `children` prop too
+- So within the `render()` method we call the `render` prop
+  * And we pass it all the data the consumer of `<Images />` will need
+  * The `images` & `curPage` state properties
+  * As well as the `handleNextPage` callback for updating the `curPage` state
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">class Players extends React.Component {
+  render() {
+    return (
+      &lt;section>
+        &lt;Images render={(data) => (
+          &lt;Slideshow
+            images={data.images}
+            page={data.curPage}
+            onNext={data.handleNextPage}
+          />
+        )} />
+      &lt;/section>
+    )
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- The use feels like normal React
+- The `<Images />` component basically exposes its state to `Players`
+  * By calling the `render` prop function passed to it
+- `Players` now can render whatever UI it likes
+  * Based on the `data` it receives in the `render` prop!
+  * And here, just like the other examples, it's rendering the `<SlideShow />`
+  * And any other UI that relies on the `data` would go w/in `<Images />` as well
+- And `<Images />` is just like any other component so I could conditionally render it
+  * Based on props/state of `Players`
+  * Because the composition is **dynamic**
+  * So if I don't render `<Images />`, I never make the `fetchImages` request
+  * There was no such option for HOCs nor mixins
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">const withImages = (Component) => {
+  return class WithImages extends React.Component {
+    render() {
+      return &lt;Images render={(data) => (
+        &lt;Component
+          {...this.props}
+          images={data.images}
+          curPage={data.curPage}
+          handleNextPage={data.handleNextPage}
+        />
+      )} />
+    }
+  }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Render props can basically be a complete replacement of HOCs
+- They do everything HOCs can do + more
+- In fact, we can re-implement our `withImages` using our render prop!
+- It renders the `<Images />` component
+- Passes a function prop to the `render` prop
+- And then passes all the data along to the passed-in `Component`
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 80%">
+    <h2>Gotchas with Render props</h2>
+
+    <div style="display:flex;align-items:center;justify-content:space-around;">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-javascript">&lt;Theme>
+  {(theme) => (
+    &lt;Auth>
+      {(authData) => (
+        &lt;I18n>
+          {(translations) => (
+            ...
+          )}
+        &lt;/I18n>
+      )}
+    &lt;/Auth>
+  )}
+&lt;/Theme></code></pre>
+      </div>
+      <div style="flex:0 0 45%;">
+        <ul>
+          <li><code>PropTypes.func</code></li>
+          <li>Crazy nesting</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+NOTES:
+- The render prop pattern is a pretty great pattern
+  * Because it piggybacks on regular ol' React
+  * New React 16 APIs started adopting it (React 16 Context for instance)
+- However, there are a couple of gotchas
+- React `PropTypes` only have `PropTypes.func`
+  * There's no public definition of what parameters the function will pass
+  * Is `theme` and object or a single value?
+  * What properties are in `authData`?
+  * What's the shape of `translations`?
+  * It can be trick to know without something like TypeScript
+- Also as we can see here... when there are multiple render props
+  * Things can get a bit crazy
+  * The entire UI is nested 6 levels before you even begin
+- The nice thing though is that the order in which the nesting needs to be is clearer
+  * So if the `<I18n>` component needed data from the `<Auth>` component
+  * We'd manually pass it as a prop to `<I18n>`
+  * With HOCs that would all handle behind the scenes
+  * And it wouldn't be clear which order the enhancers needed to be in
+- But overall render props worked well for sharing non-visual logic
 
 =====
+<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Custom Hooks
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <h1>Custom hooks</h1>
+    <h2>(React &gt;= 16.8)
+  </div>
+</div>
+
+NOTES:
+- And then came custom hooks (dun! dun! dun!!! 😂)
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay" style="width: 100%">
+    <h2>Sharing Custom hooks</h2>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => {
+  // retrieve playerImages
+  return (
+    &lt;section>
+      &lt;h1>All Players&lt;/h1>
+      &lt;Slideshow
+        images={playerImages}
+        page={2}
+        onNext={ ... }
+      />
+    &lt;/section>
+  )
+}</code></pre>
+      </div>
+      <div style="flex:0 0 45%; margin-left: 20px;">
+        <pre class="large"><code class="lang-javascript">const Teams = () => {
+  // retrieve teamLogos
+  return (
+    &lt;section>
+      &lt;h1>All Teams&lt;/h1>
+      &lt;ResultsGrid
+        items={teamLogos}
+        page={5}
+        onPage={ ... }
+      />
+    &lt;/section>
+  )
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+NOTES:
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 65%">
+    <h2>Gotchas with Custom hooks</h2>
+
+    <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-javascript"></code></pre>
+      </div>
+      <div style="flex:0 0 45%;">
+        <ul>
+          <li>Conditional hooks</li>
+          <li>No markup</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+NOTES:
+
+=====
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>Recap</h1>
+  </div>
+</div>
+
+NOTES:
+- Well that was a fun walk through React history
+- I hope you caught it all, but if you didn't, here's a recap for ya
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>Implementations</h1>
+  </div>
+</div>
+
+NOTES:
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>Consumptions</h1>
+  </div>
+</div>
+
+NOTES:
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -229,11 +786,22 @@ NOTES:
     <h2>Resources</h2>
 
     <ul>
+      <li><a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750" target="_blank"><em>Mixins Are Dead. Long Live Composition</em></a> (3/13/2015)</li>
+      <li><a href="https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html" target="_blank"><em>Mixins Considered Harmful</em></a> (7/13/2016)</li>
+      <li><a href="https://ui.dev/react-higher-order-components/" target="_blank"><em>React Higher-Order Components</em></a></li>
+      <li><a href="https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce" target="_blank"><em>Use a Render Prop!</em></a> (9/18/2017)</li>
+      <li><a href="https://ui.dev/react-render-props/" target="_blank"><em>React Render Props</em></a></li>
+      <li><a href="https://reactjs.org/blog/2019/02/06/react-v16.8.0.html" target="_blank"><em>React v16.8: The One With Hooks</em></a> (2/6/2019)</li>
+      <li><a href="https://reactjs.org/docs/hooks-intro.html" target="_blank"><em>Introducing Hooks</em></a></li>
+      <li><a href="https://ui.dev/why-react-hooks/" target="_blank"><em>Why React Hooks?</em></a></li>
     </ul>
   </div>
 </div>
 
 NOTES:
+- Several blog posts covering this history
+- It's fun to watch the timeline of the approved method of solving this problem
+- React is continuously evolving!
 
 
 /////
@@ -262,15 +830,15 @@ NOTES:
 - Before I finish...
 - I periodically host a series of short, 3-hour remote React workshops
   * I call them "minishops"
-- One of them is called "TypeScript for React Developers"
-  * So if you're interested in hands-on learning of using TS + React you should check it out
+- One of them is called "Sharing React Component Logic"
+  * So if you're interested in hands-on learning of when to use different patterns for sharing
+  * Including render props and custom hooks, check it out
   * As well as the others listed
 - I'm doing a free giveaway for conference attendees
   * Go to my site (benmvp.com) and check out the minishops page
   * Find **one** you like AND can attend
   * Send out a tweet w/ the link and tag me in
   * I'll pick one and give you a free ticket
-  * Bonus points if you include a selfie of you watching this talk or during Q&A 😄
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
