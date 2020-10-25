@@ -18,14 +18,15 @@
 
   <p>November 5, 2020</p>
 
-
   </div>
 </div>
 
 NOTES:
 - Hello, hello everyone!
 - **RESTART THE TIMER!!!!**
--
+- Excited to be sharing about sharing in React
+- Basically gonna go on a 6-year journey on React
+- From mixins to hooks
 - **Slides are available online**
 - **RESTART THE TIMER!!!!**
 
@@ -200,23 +201,6 @@ NOTES:
 - We live in Pittsburg, CA (SF Bay Area)
 - I'm a Principal Frontend Engineer at Stitch Fix
 - Also a Google Developer Expert & Microsoft MVP in Web Technologies
-
-/////
-
-![Stitch Fix Corporate logo (dark)](../../img/stitchfix/lockup-solid-vert-gender-neutral-dark.svg)
-<!-- .element: class="plain" style="width: 75%" -->
-
-NOTES:
-
-- I'm a Principal Frontend Engineer at Stitch Fix
-- Stitch Fix is an online personal styling service
-  * Combines technology & data science
-  * With an actual human stylist
-  * Take the effort out of shdddddddddopping by providing a selection of clothes picked just for you
-  * And sent to your door on a frequency that you choose
-- We're hiring!
-  * Headquarters is in SF
-  * But we have remote engineers all over the country
 
 =====
 
@@ -602,36 +586,6 @@ NOTES:
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-
-    <pre class="large"><code class="lang-javascript">const withImages = (Component) => {
-  return class WithImages extends React.Component {
-    render() {
-      return &lt;Images render={(data) => (
-        &lt;Component
-          {...this.props}
-          images={data.images}
-          curPage={data.curPage}
-          handleNextPage={data.handleNextPage}
-        />
-      )} />
-    }
-  }
-}</code></pre>
-  </div>
-</div>
-
-NOTES:
-- Render props can basically be a complete replacement of HOCs
-- They do everything HOCs can do + more
-- In fact, we can re-implement our `withImages` using our render prop!
-- It renders the `<Images />` component
-- Passes a function prop to the `render` prop
-- And then passes all the data along to the passed-in `Component`
-
-/////
-<!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 65%">
@@ -665,7 +619,9 @@ NOTES:
 NOTES:
 - The render prop pattern is a pretty great pattern
   * Because it piggybacks on regular ol' React
-  * New React 16 APIs started adopting it (React 16 Context for instance)
+  * Render props also are a complete replacement of HOCs
+  * They do everything HOCs can do + more
+  * Even new React 16 APIs started adopting it (React 16 Context for instance)
 - However, there are still a couple of gotchas
 - React `PropTypes` only have `PropTypes.func`
   * There's no public definition of what parameters the function will pass
@@ -861,134 +817,6 @@ NOTES:
   * That in itself can be a whole separate talk 😄
 
 =====
-<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1>Recap</h1>
-  </div>
-</div>
-
-NOTES:
-- Well that was a fun walk through React history
-- I hope you caught it all
-  * But if you were distracted by Slack, Discord or text messages
-  * Here's a recap for ya
-
-/////
-<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay">
-    <h2>Implementations</h2>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
-	    <div style="flex:0 0 45%;">
-        <h3>Mixins</h3>
-        <pre class="large"><code class="lang-javascript">const ImagesMixin = {
-  getInitialState() { ... },
-  componentDidMount() { ... }
-  componentDidUpdate() { ... }
-}</code></pre>
-
-        <h3>Higher-order components</h3>
-        <pre class="large"><code class="lang-javascript">const withImages = (Comp) => (
-  class Images extends Component {
-    render() { ... }
-  }
-)</code></pre>
-      </div>
-      <div style="flex:0 0 45%; margin-left: 20px;">
-        <h3>Render props</h3>
-        <pre class="large"><code class="lang-javascript">class Images extends Component {
-  render() {
-    return this.props.render({})
-  }
-}</code></pre>
-
-        <h3>Custom hooks</h3>
-        <pre class="large"><code class="lang-javascript">const useImages = (teamId) => {
-  // useState + useEffect
-
-  return { ... }
-}</code></pre>
-      </div>
-    </div>
-  </div>
-</div>
-
-NOTES:
-- Mixins are an object
-  * Maintain state + helper methods to be shared w/ consuming component
-- HOCs are a function
-  * Accept a component and return a new enhanced component
-  * The enhanced component maintains state & logic
-  * Then renders the initial component w/ additional props
-- Render props are components with a prop function
-  * The component maintains state & logic
-  * Passes data to the prop function and renders returned UI
-- Custom hooks are functions that use React hooks to maintain state
-  * Return the data
-- All 4 approaches maintain state + logic in their own way
-  * To share w/ components that consume them
-
-/////
-<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h2>Consumptions</h2>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
-	    <div style="flex:0 0 45%;">
-        <h3>Mixins</h3>
-        <pre class="large"><code class="lang-javascript">const Players = createClass({
-  mixins: [ImagesMixin],
-
-  render() { ... },
-})</code></pre>
-
-        <h3>Higher-order components</h3>
-        <pre class="large"><code class="lang-javascript">const Players = () => (
-  // render UI
-)
-
-withImages(Players)</code></pre>
-      </div>
-      <div style="flex:0 0 45%; margin-left: 20px;">
-        <h3>Render props</h3>
-        <pre class="large"><code class="lang-javascript">const Players = () => (
-  &lt;Images>
-    {() => { ... }}
-  &lt;/Images>
-)</code></pre>
-
-        <h3>Custom hooks</h3>
-        <pre class="large"><code class="lang-javascript">const Players = () => {
-  const { ... } = useImages()
-
-  // render UI
-}</code></pre>
-      </div>
-    </div>
-  </div>
-</div>
-
-NOTES:
-- To use mixins...
-  * Use old-school `createClass` and are mixed in using the `mixins` prop
-  * The state is now magically available to use
-- To use HOCs...
-  * Pass a component to the enhancer function
-  * The main component will receive the state as extra props
-- To use render props
-  * Pass a function to the `children` or `render` prop
-  * The function accepts the state and renders the UI
-- To use custom hooks
-  * Call the custom hook like a utility function
-  * Render the UI based upon the returned data
-
-=====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
@@ -1044,11 +872,6 @@ NOTES:
   * So if you're interested in hands-on learning of when to use different patterns for sharing
   * Including render props and custom hooks, like I was mentioning
   * As well as the others listed
-- I'm doing a free giveaway for conference attendees
-  * Go to my site (benmvp.com) and check out the minishops page
-  * Find **one** you like AND can attend
-  * Send out a tweet w/ the link and tag me in
-  * I'll pick one and give you a free ticket
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
