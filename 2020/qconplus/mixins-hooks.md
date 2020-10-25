@@ -125,36 +125,62 @@ NOTES:
   <div class="content-overlay">
     <h2>Sharing Non-Visual Logic?</h2>
 
-    <pre class="large"><code class="lang-javascript">const useImages = ({ teamId }) => {
-  const [images, setImages] = useState([])
-  const [curPage, setCurPage] = useState(1)
-
-  useEffect(() => {
-    fetchImages(teamId, curPage).then((images) => {
-      setImages(images)
-    })
-  }, [teamId, curPage])
-
-  return [images, setCurPage]
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
+	    <div style="flex:0 0 45%;">
+        <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => {
+  // retrieve playerImages
+  return (
+    &lt;section>
+      &lt;h1>All Players&lt;/h1>
+      &lt;Slideshow
+        images={playerImages}
+        page={2}
+        onNext={ ... }
+      />
+    &lt;/section>
+  )
 }</code></pre>
+      </div>
+      <div style="flex:0 0 45%; margin-left: 20px;">
+        <pre class="large"><code class="lang-javascript">const Teams = () => {
+  // retrieve teamLogos
+  return (
+    &lt;section>
+      &lt;h1>All Teams&lt;/h1>
+      &lt;ImageList
+        items={teamLogos}
+        page={5}
+        onPage={ ... }
+      />
+    &lt;/section>
+  )
+}</code></pre>
+      </div>
+    </div>
   </div>
 </div>
 
 NOTES:
 - But the tricky part is the non-visual logic
-  * More or less the combination of state + logic
-- Want to be able to re-use the code around
+- I've got a `Players` component & a `Teams` component
+  * They are going to render different UI, a `<SlideShow />` & an `<ImageList />`
+  * But they both are gonna call the same API
+  * They both need to maintain state of images/logos
+  * And both of them need to act on when the page changes
+- So they have similar state + logic but different UI
+- Therefore we want to be able to re-use the code around...
   * Maintaining the current page
   * Calling the API when the current page changes
   * Getting the images from response
   * Maintaining the list of those images
-- That way I could render the paginated player images as...
-  * A slideshow like before
-  * A grid view
+- That way I could render the paginated player images or team logos as...
+  * A slideshow
   * A list view
-- I've kinda given away the answer by showing you the custom hooks way
-  * But wanna take us on a journey of how we've tried to solve this problem
-  * Before hooks came to save us
+  * A grid view
+  * Whatever
+  * But not have to repeat the non-visual logic
+- So I wanna take us on a journey of how we've tried to solve this problem
+  * This problem of sharing non-visual logic
 
 =====
 
@@ -186,7 +212,7 @@ NOTES:
 - Stitch Fix is an online personal styling service
   * Combines technology & data science
   * With an actual human stylist
-  * Take the effort out of shopping by providing a selection of clothes picked just for you
+  * Take the effort out of shdddddddddopping by providing a selection of clothes picked just for you
   * And sent to your door on a frequency that you choose
 - We're hiring!
   * Headquarters is in SF
@@ -294,9 +320,9 @@ NOTES:
 	    <div style="flex:0 0 45%;">
         <pre class="large"><code class="lang-javascript">React.createClass({
   mixins: [
-    ThemeMixin,
-    AuthMixin,
     I18nMixin,
+    AuthMixin,
+    ThemeMixin,
   ],
   render() {
     // use this.state
@@ -364,7 +390,7 @@ NOTES:
   <div class="content-overlay">
 
     <pre class="large"><code class="lang-javascript">const withImages = (Component) => {
-  return class WithImages extends React.Component {
+  return class Images extends React.Component {
     state = { images: [], curPage: 1 }
     // lifecycle methods + updateImages
     render() {
@@ -386,10 +412,10 @@ NOTES:
   * It was popularized by Dan Abramov
   * Before he even started working at Facebook yet
 - So `withImages` is the HOC & it takes the `Component` as a parameter
-  * And it returns a new class component called `WithImages`
+  * And it returns a new class component called `Images`
   * It's a wrapper class
-- `WithImages` has all the same `state` & lifecycle methods as the mixins approach
-  * Except they are methods on the wrapper `WithImages` class
+- `Images` has all the same `state` & lifecycle methods as the mixins approach
+  * Except they are methods on the wrapper `Images` class
 - The big difference is that the HOC **renders** the component passed in
   * It passes along all the existing `props`
   * But then adds to the props the state properties
@@ -403,19 +429,15 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
-    <pre class="large"><code class="lang-javascript">class Players extends React.Component {
-  render() {
-    return (
-      &lt;section>
-        &lt;Slideshow
-          images={this.props.images}
-          page={this.props.curPage}
-          onNext={this.props.handleNextPage}
-        />
-      &lt;/section>
-    )
-  }
-}
+    <pre class="large"><code class="lang-javascript">const Players = (props) => (
+  &lt;section>
+    &lt;Slideshow
+      images={props.images}
+      page={props.curPage}
+      onNext={props.handleNextPage}
+    />
+  &lt;/section>
+)
 export default withImages(Players)</code></pre>
   </div>
 </div>
@@ -444,9 +466,9 @@ NOTES:
     // render UI
   }
 }
-withTheme(
+withI18n(
   withAuth(
-    withI18n(Example)
+    withTheme(Example)
   )
 )</code></pre>
       </div>
@@ -547,21 +569,20 @@ NOTES:
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
 
-    <pre class="large"><code class="lang-javascript">class Players extends React.Component {
-  render() {
-    return (
-      &lt;section>
-        &lt;Images render={(data) => (
-          &lt;Slideshow
-            images={data.images}
-            page={data.curPage}
-            onNext={data.handleNextPage}
-          />
-        )} />
-      &lt;/section>
-    )
-  }
-}</code></pre>
+    <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => (
+  &lt;section>
+    &lt;Images
+      teamId={teamId}
+      render={(data) => (
+        &lt;Slideshow
+          images={data.images}
+          page={data.curPage}
+          onNext={data.handleNextPage}
+        />
+      )}
+    />
+  &lt;/section>
+)</code></pre>
   </div>
 </div>
 
@@ -613,24 +634,24 @@ NOTES:
 <!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 80%">
+  <div class="content-overlay" style="width: 65%">
     <h2>Gotchas with Render props</h2>
 
     <div style="display:flex;align-items:center;justify-content:space-around;">
 	    <div style="flex:0 0 45%;">
-        <pre class="large"><code class="lang-javascript">&lt;Theme>
-  {(theme) => (
+        <pre class="large"><code class="lang-javascript">&lt;I18n>
+  {(translations) => (
     &lt;Auth>
       {(authData) => (
-        &lt;I18n>
-          {(translations) => (
+        &lt;Theme>
+          {(theme) => (
             ...
           )}
-        &lt;/I18n>
+        &lt;/Theme>
       )}
     &lt;/Auth>
   )}
-&lt;/Theme></code></pre>
+&lt;/I18n></code></pre>
       </div>
       <div style="flex:0 0 45%;">
         <ul>
@@ -645,7 +666,7 @@ NOTES:
 - The render prop pattern is a pretty great pattern
   * Because it piggybacks on regular ol' React
   * New React 16 APIs started adopting it (React 16 Context for instance)
-- However, there are a couple of gotchas
+- However, there are still a couple of gotchas
 - React `PropTypes` only have `PropTypes.func`
   * There's no public definition of what parameters the function will pass
   * Is `theme` and object or a single value?
@@ -654,10 +675,11 @@ NOTES:
   * It can be trick to know without something like TypeScript
 - Also as we can see here... when there are multiple render props
   * Things can get a bit crazy
-  * The entire UI is nested 6 levels before you even begin
+  * With render props the entire UI is nested w/in the function prop
+  * So here we're 6 levels indented before we even begin the real UI
 - The nice thing though is that the order in which the nesting needs to be is clearer
-  * So if the `<I18n>` component needed data from the `<Auth>` component
-  * We'd manually pass it as a prop to `<I18n>`
+  * So if the `<Theme>` component somehow needed data from the `<Auth>` component
+  * We'd manually pass it as a prop to `<Theme>`
   * With HOCs that would all handle behind the scenes
   * And it wouldn't be clear which order the enhancers needed to be in
 - But overall render props worked well for sharing non-visual logic
@@ -673,66 +695,139 @@ NOTES:
 </div>
 
 NOTES:
-- And then came custom hooks (dun! dun! dun!!! 😂)
-
-/////
-<!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-start">
-  <div class="content-overlay" style="width: 100%">
-    <h2>Sharing Custom hooks</h2>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
-	    <div style="flex:0 0 45%;">
-        <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => {
-  // retrieve playerImages
-  return (
-    &lt;section>
-      &lt;h1>All Players&lt;/h1>
-      &lt;Slideshow
-        images={playerImages}
-        page={2}
-        onNext={ ... }
-      />
-    &lt;/section>
-  )
-}</code></pre>
-      </div>
-      <div style="flex:0 0 45%; margin-left: 20px;">
-        <pre class="large"><code class="lang-javascript">const Teams = () => {
-  // retrieve teamLogos
-  return (
-    &lt;section>
-      &lt;h1>All Teams&lt;/h1>
-      &lt;ResultsGrid
-        items={teamLogos}
-        page={5}
-        onPage={ ... }
-      />
-    &lt;/section>
-  )
-}</code></pre>
-      </div>
-    </div>
-  </div>
-
-  </div>
-</div>
-
-NOTES:
+- We talked about mixins, then HOCs, and just now render props
+- Then with React 16.8 came custom hooks (dun! dun! dun!!! 😂)
+- When mixins went away with React 15 & ES classes
+  * We started molding React into patterns to try to solve our problem
+  * Our problem of sharing non-visual logic
+- Hooks, particularly custom hooks, are now the modern solution to the problem
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 65%">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">const useImages = (teamId) => {
+  const [images, setImages] = useState([])
+  const [curPage, setCurPage] = useState(1)
+
+  useEffect(() => {
+    fetchImages(teamId, curPage)
+      .then((newImages) => {
+        setImages(newImages)
+      })
+  }, [teamId, curPage])
+
+  return { images, curPage, setCurPage }
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- Here's the custom hook that we saw from the very beginning
+- Custom hooks are **functions** that have to start with `use`
+  * So we're calling it `useImages`
+  * Went from `ImagesMixins` to `withImages` HOC to `Images` render prop component
+  * Now to `useImages` custom hook
+- It maintains state for `images` & `curPage` just like the others
+  * Now using the `useState` hook
+- It fetches new images whenever the current page changes as well
+  * Now using the `useEffect` hook which is a bit simpler
+- Finally we're returning the data the consuming component needs
+  * `images`, `curPage` & `setCurPage` (the function that updates the `curPage`)
+- All the same things as before, but much clearer & more concise IMO
+  * Actually able to fit it all on one screen!
+  * Remember how gnarly our mixins code looked at the beginning?
+  * AND we can use function components; no more class components
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+    <pre class="large"><code class="lang-javascript">const Players = ({ teamId }) => {
+  const {
+    images, curPage, setCurPage
+  } = useImages(teamId)
+
+  return (
+    &lt;section>
+      &lt;Slideshow
+        images={images}
+        page={curPage}
+        onNext={setCurPage}
+      />
+    &lt;/section>
+  )
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- So now our same `Players` component calls our `useImages` custom hook
+  * And gets the `images` & `curPage` data + `setCurPage` function
+- And passes them on to the `<Slideshow />` component
+- This is pretty similar in spirit to the render prop
+  * But the `useImages` custom hook looks like a normal function call
+  * So it has a typical input & outputs that functions have to get data
+  * All outside of the render
+  * So we don't get that sometimes-hard-to-parse UI nesting from the render prop
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">const Teams = () => {
+  const {
+    images, curPage, setCurPage
+  } = useImages()
+
+  return (
+    &lt;section>
+      &lt;ImageList
+        items={images}
+        page={curPage}
+        onPage={setCurPage}
+      />
+    &lt;/section>
+  )
+}</code></pre>
+  </div>
+</div>
+
+NOTES:
+- If you remember before way in the beginning, we also had a `Teams` component
+- And before it was also rendering a `<Slideshow />` component
+  * To show how component UIs can be used
+- But now instead we can render an `<ImageList />`
+  * And it uses the same data we get back from `useImages`
+- So we call the `useImages` custom hook like before
+- But this time pass the data to `<ImageList />`
+- So we were able to share the same state management + API calls
+  * Across 2 different components
+  * And render 2 completely different UIs, a `<Slideshow />` & a `<ImageList />`
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 80%">
     <h2>Gotchas with Custom hooks</h2>
 
     <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
-        <pre class="large"><code class="lang-javascript"></code></pre>
+	    <div style="flex:0 0 60%;">
+        <pre class="large"><code class="lang-javascript">const Example = () => {
+  const translations = useI18n()
+  const authData = useAuth()
+  const theme = useTheme()
+
+  // render UI
+}</code></pre>
       </div>
-      <div style="flex:0 0 45%;">
+      <div style="flex:0 0 35%;">
         <ul>
           <li>Conditional hooks</li>
           <li>No markup</li>
@@ -742,6 +837,28 @@ NOTES:
 </div>
 
 NOTES:
+- The main advantage of custom hooks over render props is there's no nesting
+  * Call the custom hooks in sequence
+  * Use the variables in the UI
+  * Can even use the `translations` variable as the input of `useAuth` if I wanted
+  * So there is some **dynamic composition**
+- However it's only semi-dynamic composition
+  * It's not full like render props
+  * It's against the rules to conditionally render custom hooks
+  * So even if data from a hook is not needed because of the value of a prop
+  * We still **must** call the hook
+  * Like I mentioned we can pass values **to** the custom hook so it could do nothing based on the value
+- The other thing to note is that custom hooks don't render markup
+  * I didn't show this as we discussed them, but...
+  * An HOC can render markup before, after or around the `Component` you passed to it
+  * A render prop component can do the same to the function prop passed to it
+  * But custom hooks cannot do that
+  * For the most part, they're purely data
+- This is why custom hooks haven't "killed" render props
+  * There's still a place for them
+  * Particularly when you need something to abstract state, logic AND UI
+  * That's when you would use a render prop
+  * That in itself can be a whole separate talk 😄
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -754,29 +871,122 @@ NOTES:
 
 NOTES:
 - Well that was a fun walk through React history
-- I hope you caught it all, but if you didn't, here's a recap for ya
+- I hope you caught it all
+  * But if you were distracted by Slack, Discord or text messages
+  * Here's a recap for ya
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h2>Implementations</h2>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
+	    <div style="flex:0 0 45%;">
+        <h3>Mixins</h3>
+        <pre class="large"><code class="lang-javascript">const ImagesMixin = {
+  getInitialState() { ... },
+  componentDidMount() { ... }
+  componentDidUpdate() { ... }
+}</code></pre>
+
+        <h3>Higher-order components</h3>
+        <pre class="large"><code class="lang-javascript">const withImages = (Comp) => (
+  class Images extends Component {
+    render() { ... }
+  }
+)</code></pre>
+      </div>
+      <div style="flex:0 0 45%; margin-left: 20px;">
+        <h3>Render props</h3>
+        <pre class="large"><code class="lang-javascript">class Images extends Component {
+  render() {
+    return this.props.render({})
+  }
+}</code></pre>
+
+        <h3>Custom hooks</h3>
+        <pre class="large"><code class="lang-javascript">const useImages = (teamId) => {
+  // useState + useEffect
+
+  return { ... }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+NOTES:
+- Mixins are an object
+  * Maintain state + helper methods to be shared w/ consuming component
+- HOCs are a function
+  * Accept a component and return a new enhanced component
+  * The enhanced component maintains state & logic
+  * Then renders the initial component w/ additional props
+- Render props are components with a prop function
+  * The component maintains state & logic
+  * Passes data to the prop function and renders returned UI
+- Custom hooks are functions that use React hooks to maintain state
+  * Return the data
+- All 4 approaches maintain state + logic in their own way
+  * To share w/ components that consume them
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1>Implementations</h1>
+    <h2>Consumptions</h2>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-around;">
+	    <div style="flex:0 0 45%;">
+        <h3>Mixins</h3>
+        <pre class="large"><code class="lang-javascript">const Players = createClass({
+  mixins: [ImagesMixin],
+
+  render() { ... },
+})</code></pre>
+
+        <h3>Higher-order components</h3>
+        <pre class="large"><code class="lang-javascript">const Players = () => (
+  // render UI
+)
+
+withImages(Players)</code></pre>
+      </div>
+      <div style="flex:0 0 45%; margin-left: 20px;">
+        <h3>Render props</h3>
+        <pre class="large"><code class="lang-javascript">const Players = () => (
+  &lt;Images>
+    {() => { ... }}
+  &lt;/Images>
+)</code></pre>
+
+        <h3>Custom hooks</h3>
+        <pre class="large"><code class="lang-javascript">const Players = () => {
+  const { ... } = useImages()
+
+  // render UI
+}</code></pre>
+      </div>
+    </div>
   </div>
 </div>
 
 NOTES:
-
-/////
-<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1>Consumptions</h1>
-  </div>
-</div>
-
-NOTES:
+- To use mixins...
+  * Use old-school `createClass` and are mixed in using the `mixins` prop
+  * The state is now magically available to use
+- To use HOCs...
+  * Pass a component to the enhancer function
+  * The main component will receive the state as extra props
+- To use render props
+  * Pass a function to the `children` or `render` prop
+  * The function accepts the state and renders the UI
+- To use custom hooks
+  * Call the custom hook like a utility function
+  * Render the UI based upon the returned data
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -799,8 +1009,8 @@ NOTES:
 </div>
 
 NOTES:
-- Several blog posts covering this history
-- It's fun to watch the timeline of the approved method of solving this problem
+- There are several blog posts covering this history
+- It's fun to watch the timeline of the "approved" method of solving this problem
 - React is continuously evolving!
 
 
@@ -832,7 +1042,7 @@ NOTES:
   * I call them "minishops"
 - One of them is called "Sharing React Component Logic"
   * So if you're interested in hands-on learning of when to use different patterns for sharing
-  * Including render props and custom hooks, check it out
+  * Including render props and custom hooks, like I was mentioning
   * As well as the others listed
 - I'm doing a free giveaway for conference attendees
   * Go to my site (benmvp.com) and check out the minishops page
@@ -859,10 +1069,11 @@ NOTES:
 
 NOTES:
 - So that's it!
-- I know I just flooded you with a whole bunch of information
-- Hopefully you found it all insightful
-  * And it's motivated you to use TS in your next (or current) React project
+- Hopefully you found this journey insightful
+  * Hopefully it made you appreciate hooks a bit more
+  * And you probably got a history lesson too!
 - Again, the slides are already available online
-- Ask questions on Twitter (@benmvp)
+- Would love to chat and hear what you think!
+  * Reach out to me on Twitter (@benmvp)
 - Thanks!
 - Hope you enjoy the rest conference!
