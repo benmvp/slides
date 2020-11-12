@@ -846,6 +846,42 @@ _[22 minutes]_
 - It's fun to watch the timeline of the "approved" method of solving this problem
 - React is continuously evolving!
 
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 100%">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around">
+      <div style="flex: 0 0 60%;">
+        <a href="https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=reactjsmeetup-2020" target="_blank">
+          <img src="../../img/mixins-hooks/migrating-to-react-hooks.png" alt="A Screenshot of the Migrating to React Hooks minishop page on benmvp.com" class="plain" style="width: 100%" />
+        </a>
+      </div>
+      <div style="flex: 0 0 40%; text-align: left;">
+       <ul>
+        <li><a href="https://www.benmvp.com/minishops/typescript-for-react-developers/?utm_source=benmvp&utm_medium=slides&utm_campaign=reactjsmeetup-2020" target="_blank">TypeScript for React Developers</a></li>
+        <li><a href="https://www.benmvp.com/minishops/zero-to-react-with-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=reactjsmeetup-2020" target="_blank">Zero to React with Hooks</a></li>
+        <li><a href="https://www.benmvp.com/minishops/migrating-to-react-hooks/?utm_source=benmvp&utm_medium=slides&utm_campaign=reactjsmeetup-2020" target="_blank">Migrating to React Hooks</a></li>
+        <li><a href="https://www.benmvp.com/minishops/sharing-react-component-logic/?utm_source=benmvp&utm_medium=slides&utm_campaign=reactjsmeetup-2020" target="_blank">Sharing React Component Logic</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+NOTES:
+- And before I finish...
+- I periodically host a series of short, 3-hour remote React workshops
+  * I call them "minishops"
+- One of them is called "Migrating to React Hooks"
+  * So if you're currently using React class components and wanna learn hooks
+  * You should check it out
+- I'm doing a free giveaway for conference attendees
+  * Go to my site (benmvp.com) and check out the minishops page
+  * **If** you can attend
+  * Send out a tweet w/ the link and tag me in
+  * I'll pick one and give you a free ticket
+
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
