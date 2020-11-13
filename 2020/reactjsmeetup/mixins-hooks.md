@@ -44,7 +44,7 @@ NOTES:
 NOTES:
 _[1 minute]_
 
-- React's approach to building UIs makes sharing & reuse great!
+- React's approach to building user interfaces makes sharing & reuse great!
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -96,7 +96,7 @@ NOTES:
 - Here we have a `<Slideshow>` component
   * No doubt it has lots of markup, styling & UI logic
 - And we can easily use it in two components
-  * `Players` component to have a slideshow of team players
+  * `Players` component to have a slideshow of team player photos
   * `Teams` component to have a slideshow of team logos
 
 /////
@@ -169,11 +169,12 @@ NOTES:
 NOTES:
 _[2 minutes]_
 
-- But the tricky part is the stateful non-visual logic
+- But the tricky part is the stateful, non-visual logic
+  * What do I mean by that?
 - We've got the `Players` & `Teams` components again
   * But this time they are rendering different UI
   * A `<SlideShow />` & an `<ImageList />`
-  * But they both are can call the same API
+  * But they both can call the same API
   * They both need to maintain state of images/logos
   * And both of them need to call the API again when the page changes
 - So they have similar state + logic but different UI
@@ -232,8 +233,9 @@ NOTES:
 _[4 minutes]_
 
 - Alright enough about me. Let's just right in
-- The first approach to solve this was via mixins
+- The first approach to solve this problem of stateful, non-visual logic was via **mixins**
   * React 0.14 before
+  * We're talking early 2016 and before
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -267,11 +269,11 @@ NOTES:
   - **ONE:** Here we're using an `ImagesMixin` which I'll show in a sec
 - In this case `ImagesMixin` defines the `images` & `curPage` state variables
   * **TWO:** That are passed to the `<SlideShow />`
-- **THREE:** And finally `this.handleNextPage` is called when slideshow changes
+- **THREE:** And finally `this.handleNextPage` is called when the slideshow changes
   * This helper method is also defined in the mixin
 - As you can see there's some magic happening
   * The state is magically available
-  * And we have to know that `handleNextPage` is provided
+  * And we have to know that `handleNextPage` is also provided
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -304,15 +306,16 @@ NOTES:
 NOTES:
 - And here's the implementation of `ImagesMixin`
   * Kinda gnarly to look at
-  * But let's walk through it
+  * But let's try walk through it
 - **ONE:** the `images` & `curPage` state are defined in the `getInitialState`
 - **TWO:** We use `componentDidMount` & `componentDidUpdate`
   * To retrieve the images initially
   * And when either the `curPage` state or the `teamId` prop change
   * By calling `updateImages`
 - **THREE:** `updateImages` is where we make the actual `fetchImages` call
+  * It's technically "private" and only called w/in the mixins (but it's leaky)
   * And set `images` state w/ returned data
-- **FOUR:** And finally we provide the `handleNextPage` helper **for the components**
+- **FOUR:** And finally we provide the `handleNextPage` helper method **for the components**
   * To update the current page
   * It's not actually called from w/in the mixin
 - _This_ is the stateful, non-visual logic that we're trying to share
@@ -381,8 +384,8 @@ _[9 minutes]_
 - So w/o mixins we needed a new strategy for solving this problem
   * Of sharing stateful, non-visual logic
 - The next pattern that became popular was higher-order components (HOCs)
-  * The pattern was first created way back in React 0.13 (in February 2015)
-  * But it was popularized by Dan Abramov before he even started working at Facebook
+  * The pattern was first created way back in React 0.13 (early 2015)
+  * But it was later popularized by Dan Abramov before he even started working at Facebook
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -415,7 +418,7 @@ _[9 minutes]_
 
 NOTES:
 - An HOC was/is a function that takes an existing component
-  * And returns another component that wraps the original
+  * And returns another component that wraps the original one
 - **ONE:** So `withImages` is the HOC & it takes the `Component` as a parameter
   * Prefixing the HOC with `with` was a common convention
   * **TWO:** And it returns a new class component called `Images`
@@ -452,7 +455,7 @@ NOTES:
   * **ONE:** Except the component is receiving props instead of state
 - **TWO:** The exported component is the actual component that'll be used in UIs
 - But by wrapping `Players` with `withImages`, the HOC will do the work to maintain the state & lifecycles
-  * **THREE:** And update as we paginate with the `handleNextPage`
+  * **THREE:** As we paginate we update the UI bay calling the `handleNextPage` prop
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -492,8 +495,8 @@ NOTES:
   * But with multiple HOCs we now don't know where our props are coming from
 - 2/ There can be prop name collisions if 2 HOCs try to set the same prop
   * Like multiple HOCs wanting to set a `value` prop
-- 3/ Lastly there's no way to alter or configure how the HOCs are composed
-  * Based on the component's props or state
+- 3/ Lastly there's no way to alter or configure how the HOCs are composed based on the component's props or state
+  * Composition only happened statically
   * This wasn't always a problem, but it did make complex situations challenging
 
 
@@ -537,7 +540,7 @@ _[13 minutes]_
   }
 }</code></pre>
     <div class="code-highlight fragment current-visible" style="height: 70px; top: 81px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 252px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 185px; top: 137px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 70px; top: 423px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 130px; top: 480px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 185px; top: 594px;"></div>
@@ -549,17 +552,18 @@ NOTES:
   * **ONE:** We have a normal component
   * Calling it `Images` here
 - **TWO:** It has all the same `state` & lifecycle methods as the HOC & mixins approaches
+  * That's our stateful, non-visual logic
 - **THREE:** The key piece is the function prop called `render`
   * It's a special function prop of a component
-  * But instead of being your typical callback handler
+  * But instead of being your typical callback handler (like `onClick`)
   * It's a function that takes in data and returns JSX
   * It can actually be called anything, but `render` is a common convention
   * Hence "render prop"
   * It's also common to use the `children` prop as well
 - So within the `render()` method we call the `render` prop
-  * And we pass it all the data the consumer of `<Images />` will need
+  * And we pass it all the data the caller of `<Images />` will need
   * **FOUR:** The `images` & `curPage` state properties
-  * **FIVE:** As well as the `handleNextPage` callback for updating the `curPage` state
+  * **FIVE:** As well as the `handleNextPage` callback for updating the `curPage` state when paginating
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -587,10 +591,9 @@ NOTES:
 
 NOTES:
 - The use of a render prop feels more like normal React
-- The `<Images />` component basically exposes its state to `Players`
+- The `<Images />` component basically exposes its underlying state to `Players`
   * **ONE:** By calling the `render` prop function passed to it
-- `Players` now can render whatever UI it likes
-  * Based on the `data` it receives in the `render` prop!
+- `Players` now can render whatever UI it likes based on the `data` it receives in the `render` prop!
   * **TWO:** And here, just like the other examples, it's rendering the `<Slideshow />`
   * And any other UI that relies on the `data` would go w/in `<Images />` as well
 
@@ -638,7 +641,7 @@ NOTES:
   * Things can get a bit crazy
   * With render props the entire UI is nested w/in the function prop
   * So here we're 6 levels indented before we even begin the real UI
-- But overall render props worked well for sharing non-visual logic
+- But overall render props worked well for sharing stateful, non-visual logic
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -684,7 +687,7 @@ _[17 minutes]_
 </div>
 
 NOTES:
-- Custom hooks are **functions** that have to start with `use`
+- Custom hooks are **functions** that _must_ to start with `use`
   * **ONE:** So we're calling it `useImages`
 - **TWO:** It maintains state for `images` & `curPage` just like the others
   * Now using the `useState` hook
@@ -725,6 +728,7 @@ NOTES:
 
 NOTES:
 - **ONE:** So now our same `Players` component calls our `useImages` custom hook
+  * Passing in the `teamId`
   * **TWO:** And gets the `images` & `curPage` data + `setCurPage` function
 - **THREE:** And passes them on to the `<Slideshow />` component
 - This is pretty similar in spirit to the render prop
@@ -763,7 +767,7 @@ NOTES:
 NOTES:
 - If you remember before way in the beginning, we also had a `Teams` component
   * **ONE:** And instead of rendering a `<Slideshow />` we wanna render an `<ImageList />`
-  * Well now we can use the same data we get back from `useImages`
+  * Well now we can use the same _type_ of data we get back from `useImages`
 - **TWO:** So we call the `useImages` custom hook like before
 - **THREE:** But this time pass the data to `<ImageList />`
 - So we were able to share the same state management + API calls
@@ -813,7 +817,7 @@ NOTES:
   * But custom hooks cannot do that
   * For the most part, they deal purely data
 - This is why custom hooks haven't "killed" render props
-  * Render props may have killed HOCs
+  * Render props may removed the need for HOCs
   * But there's still a place for render props
   * Particularly when you need something to abstract state, logic **AND** UI
   * But that in itself can be a whole separate talk 😄
