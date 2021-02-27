@@ -30,12 +30,15 @@ NOTES:
 - And welcome to "TypeScript + React = ❤️"
   * Kinda wish I had used 🔥 instead
   * Because that's how awesome I think the partnership is
-- I wanna spend our time showing TS features
+- I wanna spend our time showing off a couple of TS features
   * That can prevent bugs in our React apps
 - So I'm assuming that you have developed in React before
   * But you know little to no TypeScript
   * Even if you know lots of TS you'll get tons out of this
   * But for those that don't know TS I will be explaining the concepts
+- Normally at an in-person event I could see your faces
+  * I'll be monitoring the chat as best I can as we go
+  * So feel free to chime in as we go
 
 - **Slides are available online**
 
