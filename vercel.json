@@ -1,0 +1,48 @@
+{
+  "redirects": [
+    {
+      "source": "/confoo2016-es6.html",
+      "destination": "/2016/confoo/es6"
+    },
+    {
+      "source": "/confoo2016-no-js.html",
+      "destination": "/2016/confoo/no-js.html"
+    },
+    {
+      "source": "/devweek2016-es6.html",
+      "destination": "/2016/devweek/es6.html"
+    },
+    {
+      "source": "/evbeng-js-coding-style-results.html",
+      "destination": "/2016/evbeng/eslint.html"
+    },
+    {
+      "source": "/evbeng-js-coding-style.html",
+      "destination": "/2015/evbeng/eslint.html"
+    },
+    {
+      "source": "/fossetcon2015-no-js.html",
+      "destination": "/2015/fossetcon/no-js.html"
+    },
+    {
+      "source": "/nationjs2016-es6.html",
+      "destination": "/2016/nationjs/es6.html"
+    },
+    {
+      "source": "/nodevember2015-es6.html",
+      "destination": "/2015/nodevember/es6.html"
+    },
+    {
+      "source": "/prairiedevcon2016-es6.html",
+      "destination": "/2016/prdc/es6.html"
+    },
+    {
+      "source": "/prairiedevcon2016-no-js.html",
+      "destination": "/2016/prdc/no-js.html"
+    },
+    {
+      "source": "/sacjs2015-no-js.html",
+      "destination": "/2015/sacjs/no-js.html"
+    }
+  ]
+}
