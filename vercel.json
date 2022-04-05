@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/confoo2016-es6.html",
-      "destination": "/2016/confoo/es6"
+      "destination": "/2016/confoo/es6.html"
     },
     {
       "source": "/confoo2016-no-js.html",
