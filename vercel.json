@@ -1,4 +1,5 @@
 {
+  "cleanUrls": false,
   "redirects": [
     {
       "source": "/confoo2016-es6.html",
