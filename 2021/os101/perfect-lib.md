@@ -930,6 +930,7 @@ _[30 minutes]_
           <li><a href="https://unpkg.com/" target="_blank">Package browsing</a></li>
         </ul>
       </div>
+    </div>
   </div>
 </div>
 
@@ -1075,6 +1076,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - So that's it!
 - Just flooded you with a lot of information
   * **Reminder: slides are available online**
