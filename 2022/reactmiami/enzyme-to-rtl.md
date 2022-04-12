@@ -1,5 +1,6 @@
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display: flex; align-items:center; justify-content: flex-end">
+<div style="display: flex; align-items:center; justify-content: center">
 	<div style="width: 70%;" class="content-overlay">
 
   <h1>Migrating from Enzyme to React Testing Library</h1>
@@ -233,7 +234,7 @@ NOTES:
 - All of my code examples involve basketball
 
 =====
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
@@ -256,7 +257,7 @@ NOTES:
   - But I hope that as we see the migration, you'll see how RTL is a nice change
 
 =====
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -267,7 +268,7 @@ NOTES:
 NOTES:
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -291,7 +292,7 @@ NOTES:
   - The `location` is optional and only rendered when it exists
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -316,15 +317,17 @@ expect(screen.getByText('Houston, TX')).toBeVisible()</code></pre>
 NOTES:
 
 - Shallow rendering is super popular with Enzyme
-  - With `shallow()` we won't see the resultant tags because they're w/in the `<Text>`
-  - It makes true unit tests because we don't have to know how `<Text>` is implemented
+  - With `shallow()` we won't see the resultant elements because they're w/in the `<Text>`
+  - It forces true unit tests because we don't have to know how `<Text>` is implemented
   - It's almost like an "auto-mock" of `<Text>`
+  - The goal of the test is to ensure we're passing the right props to the `<Text>` components
 - RTL doesn't have a shallow rendering equivalent; everything is `render()`
+  - It's a full DOM render
   - We _could_ mock `<Text>` but it's an RTL anti-pattern
-  - Instead we find elements how user would interact w/ them
+  - Instead RTL provides a handful of "queries"
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -348,16 +351,16 @@ expect(screen.getByText('Houston, TX')).toBeVisible()</code></pre>
 
 NOTES:
 
-- Pretty similar really
-- Enzyme `mount` & RTL `render` are the closest
-- Enzyme provides CSS selector syntax similar to jQuery
+- Enzyme full DOM rendering w/ `mount()` is most like RTL `render()`
+  - Because we have **all** the DOM elements we can use CSS selector syntax similar to jQuery
   - Many ways to find an element; it's super flexible
-- RTL instead provides a handful of type of selections
-  - Pushes us to find things in an accessible way
+  - In fact searching by component constructor or component display name still works
+- RTL pushes us to find things in an accessible way
+  - We find elements how user would interact w/ them
   - The most preferred way is `*ByRole`
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 75%">
@@ -395,7 +398,7 @@ NOTES:
   - So full DOM rendering is the only way to accomplish that
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -432,7 +435,7 @@ NOTES:
   - This makes it useful for asserting if an element is not present
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay" style="width: 75%">
@@ -456,22 +459,22 @@ NOTES:
         <h3>React Testing Library</h3>
         <h5 style="margin: 0">Accessible to everyone</h5>
         <ul>
-          <li><code>*ByRole()</code></li>
-          <li><code>*ByLabelText()</code></li>
-          <li><code>*ByPlaceholderText()</code></li>
-          <li><code>*ByText()</code></li>
-          <li><code>*ByDisplayValue()</code></li>
+          <li><code>\*ByRole()</code></li>
+          <li><code>\*ByLabelText()</code></li>
+          <li><code>\*ByPlaceholderText()</code></li>
+          <li><code>\*ByText()</code></li>
+          <li><code>\*ByDisplayValue()</code></li>
         </ul>
 
         <h5 style="margin: 0">Semantic</h5>
         <ul>
-          <li><code>*ByAltText()</code></li>
-          <li><code>*ByTitle()</code></li>
+          <li><code>\*ByAltText()</code></li>
+          <li><code>\*ByTitle()</code></li>
         </ul>
 
         <h5 style="margin: 0">Test IDs</h5>
         <ul>
-          <li><code>*ByTestId()</code></li>
+          <li><code>\*ByTestId()</code></li>
         </ul>
       </div>
     </div>
@@ -496,7 +499,7 @@ NOTES:
   - But there are several queries (`getByRole` especially) that are unique
 
 =====
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -507,7 +510,7 @@ NOTES:
 NOTES:
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -517,11 +520,11 @@ NOTES:
   useEffect(() => { /\* fetch + setData \*/ }, [props.id])
 
   if (!data) { /\* render "Loading" \*/ }
-  if (!data.length) { /\* render empty state \*/ }
+  if (data.length === 0) { /\* render empty state \*/ }
   render (
     &lt;div className="container">
       &lt;h4>Championship info&lt;/h4>
-      {data.map(info => (
+      {data.map((info) => (
         &lt;dl className="champ-info"> ... &lt;/dl>
       ))}
     &lt;/div>
@@ -531,6 +534,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - That first example was standard Enzyme vs. RTL
 - Things get more interesting when start talking about async testing
 - Here we have a `Championships` component that may be rendered on the `TeamPage`
@@ -542,7 +546,7 @@ NOTES:
   - Render info like the year, opponent, the series record, etc
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -552,12 +556,12 @@ NOTES:
     <pre><code class="lang-javascript">const wrapper = shallow(&lt;Championships id="miami-heat" />)
 
 expect(wrapper.find(Spinner)).toExist()
-expect(wrapper.find(Spinner)).toHaveProp('label', 'Loading')</code></pre>
+expect(wrapper.find(Spinner)).toHaveProp('label', 'Loading...')</code></pre>
 
     <p>React Testing Library</p>
     <pre><code class="lang-javascript">render(&lt;Championships id="miami-heat" />)
 
-expect(screen.getByText('Loading')).toBeVisible()</code></pre>
+expect(screen.getByText('Loading...')).toBeVisible()</code></pre>
   </div>
 </div>
 
@@ -568,7 +572,7 @@ NOTES:
 - RTL we can verify that we see the "Loading" message on the page
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -591,7 +595,8 @@ expect(await screen.findByText('No championships found.')).toBeVisible()</code><
 
 NOTES:
 
-- But about verifying after we've fetched the data?
+- Here's where it gets tricky
+- What about verifying after we've fetched the data?
 - With Enzyme we have to switch to `mount()` in order for the `useEffect()` to run
   - There are workarounds with `jest-react-hooks-shallow` or manually running `useEffect()`
 - Let's assume we've mocked the `fetch()` request with `jest-fetch-mock` or all the many other ways
@@ -604,7 +609,9 @@ NOTES:
   - Then call `wrapper.update()` cuz the UI has now re-rendered and updated
   - Then we can finally assert that Utah Jazz have never one a championship
 - This is simplified with RTL
-  - RTL has a third-style query called `findBy*`, which is asynchronous
+  - Take a step back... as a user how would we know when we've got the empty state?
+  - When we see the "No championships found." message for the Utah Jazz
+  - Well RTL has a third-style query called `findBy*`, which is asynchronous
   - It will wait until the text is found (and throw an Error if timeout is reached)
   - So the test waits for all the async stuff to happen and then continues once found
 - RTL has async helpers build in which make async testing much simpler
@@ -613,7 +620,7 @@ NOTES:
 
 /////
 
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -656,7 +663,7 @@ NOTES:
   - But the key here is that since we expect multiple items we use `getAllByText`
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
@@ -750,7 +757,7 @@ NOTES:
   - Got a link to it at the end
 
 =====
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -761,14 +768,14 @@ NOTES:
 NOTES:
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
     <pre class="large"><code class="lang-javascript">const PlayerSearch = () => {
   const [query, setQuery] = useState('')
   const [players, setPlayers] = useState(null)
-  const search = (q) => { /\* fetch + setPlayers \*/ }
+  const search = () => { /\* return fetch Promise \*/ }
 
   render (
     &lt;div className="container">
@@ -797,7 +804,7 @@ NOTES:
 - Then the players data is rendered similar to our async component from before
 
 /////
-<!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -841,6 +848,7 @@ NOTES:
   - But RTL provides a convenience query called `getByLabelText`
   - Because we provided the `Name` label we can search by it
   - This assumes that `Input` is implemented in an accessible way with `<label>` or `aria-label`
+  - If it wasn't, I'd have to fix it to write my tests
 - What's cool is that RTL provides user event helpers like `.type`
   - It's different than `.invoke` or even `.simulate` because it types each individual character
   - With Enzyme we're kinda cheating and sending the last event
@@ -866,8 +874,8 @@ NOTES:
       <li><a href="https://testing-library.com/docs/dom-testing-library/api-within" target="_blank">Querying within elements</a></li>
       <li><a href="https://testing-library.com/docs/user-event/intro/" target="_blank">User Interactions</a></li>
       <li><a href="https://www.benmvp.com/blog/asynchronous-testing-with-enzyme-react-jest/?utm_source=benmvp&utm_medium=slides&utm_campaign=reactmiami-2022" target="_blank">Asynchronous testing with Enzyme & React in Jest</a></li>
-      <li><a href="https://testing-library.com/docs/react-testing-library/migrate-from-enzyme/" target="_blank">Migrate from Enzyme to RTL docs</a></li>
       <li><a href="https://dev.to/wojtekmaj/enzyme-is-dead-now-what-ekl" target="_blank">Enzyme is dead. Now what?</a></li>
+      <li><a href="https://testing-library.com/docs/react-testing-library/migrate-from-enzyme/" target="_blank">Migrate from Enzyme to RTL docs</a></li>
     </ul>
   </div>
 </div>
