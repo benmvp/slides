@@ -198,8 +198,8 @@ NOTES:
 <!-- .slide: data-background="#000" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 65%">
-    <img src="../../img/family/family-brentwood-park.jpg" alt="Ilegbodu family at a park 2021" />
+  <div class="content-overlay" style="width: 35%">
+    <img src="../../img/family/family-gregg-wedding.jpg" alt="Ilegbodu family at a park 2021" />
   </div>
 </div>
 
