@@ -24,11 +24,14 @@ NOTES:
 **RESTART THE TIMER!!!!**
 
 - Hello everyone!
-- Excited to be here in Miami
-  - And speaking at my first in-person conf in 2+ years
+- I'm excited to be here in Miami
+  - And speaking at my first in-person conf in 2+ years!
+- I realize I'm standing between you and the snack break
+  - I promise to make it worth your while
 - I'm here to talk about migrating to React Testing Library from Enzyme
   - You may be wondering... why do we need to migrate?
   - Well, let's talk about it
+
 
 - **RESTART THE TIMER!!!!**
 - **TWEETED OUT THE SLIDES!**
@@ -50,15 +53,15 @@ NOTES:
 
 - Let's start w/ a quick history lesson
 - Enzyme really changed the game for how we could unit test UIs
-  - It's v1 came out latest in 2015
+  - It's v1 came out late in 2015
 - Because React separates rendering from flushing to the DOM
   - We can render React components without needing a browser
-  - Before React testing UIs required running the unit tests in a headless browser
+  - Before React, testing UIs required running the unit tests in a headless browser
 - It's API Mimics jQuery's API for DOM manipulation & traversal
   - It has a element wrapper similar to jQuery (we'll see in a bit)
   - But it also dug into implementation details like inspecting state
   - Ultimately became its undoing
-- **How many people are using Enzyme?**
+- **✋🏾 How many people are using Enzyme right now?**
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -73,19 +76,24 @@ NOTES:
 
 NOTES:
 
-- But in general everything was okay until React 17 came out
-- For us consumers of React 17 it was probably the easiest React upgrade there had ever been
-  - Just switched from React `16.14.0` to `17.0.2`
+- But in general everything was okay w/ Enzyme until React 17 came out
+- For us consumers of React 17...
+  - It was probably the easiest major React upgrade there had ever been
+  - We just switched from React `16.14.0` to `17.0.2`
   - And our apps worked the same
 - The same couldn't be said for our tests though
-- While React 17 didn't change any features
+- While React 17 didn't change any external features
   - A lot of its internals were rewritten to set the stage for React 18 & beyond
 - And unfortunately the Enzyme adapters relied heavily on React internals
-- This Github issue was opened nearly 2 years ago and has ~100 comments
-  - And it's still open; the official adapter never got created 😭
-- The questions of "is Enzyme dead" began
+- This Github issue requesting a React 17 Enzyme adapter...
+  - Was created nearly 2 years ago
+  - And it has ~100 comments
+  - ...And it's still open...
+  - The official adapter never got created 😭
+- This began questions of "is Enzyme dead???"
   - Enzyme the API was actually fine
-  - But the fact there there wasn't a React 17 adapter made it unusable
+  - But because there wasn't a React 17 adapter...
+  - It made Enzyme as a whole unusable w/ React 17
 
 
 /////
@@ -103,18 +111,24 @@ NOTES:
 
 NOTES:
 
-- However, shortly after that issue was filed, a kind soul created an "unofficial" React 17 adapter
+- However, shortly after that issue was filed,
+  - A kind soul created an "unofficial" React 17 adapter
   - The intention was for it to be a stopgap adapter until the official one was released
-  - But nearly 2 years and 24 releases later, it's basically become the official React 17 adapter
+  - But nearly 2 years and 24 releases later
+  - It's basically become the _official_ React 17 adapter
+  - I mean... it gets half a million downloads a week
 - I was hesitant to use it when React 17 first came out
-  - But it now gets over 500k weekly downloads!
-  - I've upgraded some apps w/ Enzyme tests over to it w/o a problem
+  - But so many folks are using it now
+  - I've upgraded some apps w/ Enzyme tests over w/o a problem
   - It was just as easy as the main React 17 upgrade
-- Turns out that the unofficial adapter helped prolong Enzyme's end-of-life
-  - A year after releasing the adapter, the maintainer wrote a blog post claiming Enzyme's death
-  - He regretted publishing the unofficial adapter because it gave devs hope that they could continue to use Enzyme
+- But it turns out that this unofficial adapter helped prolong Enzyme's end-of-life
+  - A year after releasing the adapter
+  - The maintainer wrote a blog post claiming Enzyme's death
+  - He even regretted publishing the unofficial adapter...
+  - Because it gave us devs hope that we could continue to use Enzyme
   - When really, the writing was on the wall
-- When the React 18 beta was announced he tried to create a React 18 adapter to get ahead
+- When the React 18 beta was announced
+  - He tried to create an "unofficial" React 18 adapter
   - But he quickly realized that it just wouldn't be possible
   - It would require a whole team to rewrite not only the adapter but also Enzyme itself
   - No React 18 adapter would be coming
@@ -137,8 +151,10 @@ NOTES:
   - React 18 finally released last month
   - There's lots of excitement & anticipation (it's been a long time coming)
   - There are new Hooks, concurrent features, and more
-- But that basically means Enzyme is officially end-of-life
-  - We won't be able to upgrade apps to React 18 because of Enzyme
+  - Definitely check it out if you haven't already
+- But that basically means Enzyme is officially **end-of-life**
+  - We won't be able to upgrade apps to React 18
+  - Because none of our existing tests would pass...
   - Even though React 18 provides gradual adoption
 
 /////
@@ -155,15 +171,15 @@ NOTES:
 NOTES:
 
 - But it's not the end of the world
-  - Because React Testing Library has entered the chat
+  - Because... _React Testing Library has entered the chat_
 - Kent C. Dodds created React Testing Library just over 4 years ago
-  - Well before these technical issues with Enzyme, RTL had already become more popular
-  - If not in raw downloads, definitely in preference
-  - Many people have already migrated over because of the better experience (which we'll talk about)
-- RTL's guiding principle is that React tests should closely resemble how the web page is used
-  - It's API is designed to accomplish that and almost prevent testing internals
+  - RTL has already become more popular than Enzyme well before these issues IMO
+  - If not in raw downloads, then definitely in preference
+  - Many people have already migrated over because of the better experience
+- RTL's guiding principle is that React tests should resemble how the web page is used
+  - It's API is designed to accomplish that and prevent us from testing internals
 - It still works w/ newer versions of React because it doesn't rely on React internals
-- **How many people here are using RTL?**
+- **✋🏾 How many people here are using RTL?**
 
 =====
 
@@ -202,18 +218,19 @@ NOTES:
 
 NOTES:
 
-- I'm a Frontend Architect at Stitch Fix
+- I'm also a Frontend Architect at Stitch Fix
   - On our frontend platform team
   - We work on building out our React Design System
   - Also focus on frontend infrastructure to allow devs to focus on features
+  - Right now we're building out a brand new web development platform on top of Next.js
 - Stitch Fix is an online personal styling service
+  - We combine technology, data science & human stylists to...
   - Take the effort out of shopping by providing a selection of clothes picked just for you
   - And sent to your door on a frequency that you choose or you can shop directly
-  - Combines technology, data science & human stylists
 - We're hiring!
-  - US-only unfortunately
-  - Headquarters is in SF
-  - And we had remote engineers all over the country even before COVID
+  - My frontend platform team is hiring a Principal Frontend Engineer
+  - Headquarters is in SF, but we're mostly remote
+  - If you're interested at all, come find me and I'll tell you all about it
 
 /////
 <!-- .slide: data-background="url(../../img/bball/wade-lebron-alley-oop.jpeg) no-repeat center" data-background-size="cover" -->
@@ -222,30 +239,30 @@ NOTES:
 
 - I'm a huge basketball fan; love playing & watching the NBA
 - I'm actually a Rockets fan, but I figured since I'm in Miami lemme give y'all some love
-- All of my code examples involve basketball
+- I'm a huge LeBron fan, so I watched a lot of Heat basketball those 4 years
+- I'm actually going to the Game 2 of the playoffs tonight!
+- I say all of that because all of my code examples involve basketball
 
 =====
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1>Examples</h1>
-  </div>
-</div>
-
 NOTES:
 
 - Enough about me!
-- Let's talk about transitioning from Enzyme to React Testing Library
-- Because of RTL's different strategy for testing, migrating isn't just search and replace
-  - And that's the whole purpose of this talk!
-- I'll be covering some RTL best practices
+- Let's talk about transitioning from Enzyme to over  React Testing Library
+- Because of RTL's different strategy for testing
+  - Migrating isn't just search and replace
+  - And that's the whole purpose of the rest of the talk!
+  - We're gonna go over some common transitions
+- I'll be covering some RTL best practices along the way too
   - So even if you're already using RTL...
-  - My hope is that you'll learn something new
-- Even though I'm biased to RTL, my goals isn't to convince you to switch
+  - My hope is that you'll learn some new nuggets of info
+- Even though I'm biased to RTL
+  - My goals isn't to convince you to switch
   - IMO that ship has sailed
   - We gotta move from Enzyme
-  - But I hope that as we see the migration, you'll see how RTL is a nice change
+  - But I hope that as we see the migration...
+  - You'll see how RTL is a nice change
 
 =====
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -287,7 +304,7 @@ NOTES:
 
 - Here we have a `TeamPage` component that's rendering two `<Text>` components
 - **ONE:** The `name` prop is required and always rendered
-  - It renders the team name as "title" presumably an `<h1>`
+  - It renders the team name as "title", presumably an `<h1>`
 - **TWO:** The `location` prop is optional and only rendered when it exists
   - The team's location is "body text" most likely a `<p>`
 
@@ -313,6 +330,7 @@ expect(screen.getByText('Houston, TX')).toBeVisible()</code></pre>
 
     <div class="code-highlight fragment current-visible" style="height: 60px; top: 253px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 60px; top: 337px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 105px; top: 383px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 60px; top: 600px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 60px; top: 686px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 60px; top: 731px;"></div>
@@ -325,19 +343,24 @@ NOTES:
 - Now let's look at the tests for this component
   - And let's start with how we render in Enzyme vs. RTL
 - Shallow rendering is super popular with Enzyme
-  - **ONE:** With `shallow()` we won't see the rendered HTML elements because they're w/in the `<Text>`
-  - It forces true unit tests because we don't have to know how `<Text>` is implemented
+  - **ONE:** With `shallow()` we won't see the rendered HTML elements...
+  - Because they're w/in the `<Text>`
+  - It forces "true" unit testing because we don't have to know how `<Text>` is implemented
   - It's almost like an "auto-mock" of `<Text>`
-  - **TWO:** The goal of the test is to ensure we're passing the right props to the `<Text>` components
-- **THREE:** RTL doesn't have a shallow rendering equivalent; everything is `render()`
+  - The goal is to ensure we're passing the right props to the `<Text>` components
+  - **TWO:** So the first asserts `<Text>` gets the `children` prop w/ the `name` we passed
+  - **THREE:** And the second asserts `<Text>` exists...
+  - And its `children` prop is the `location`
+- **FOUR:** RTL doesn't have a shallow rendering equivalent
+  - Everything uses the `render()` method
   - It's a full DOM render
   - We _could_ mock `<Text>` but it's an RTL anti-pattern
   - Instead RTL provides a handful of "queries"
 - RTL pushes us to find things in an accessible way
-  - So we find elements how user would interact w/ them
-  - The most preferred way is `*ByRole`
-  - **FOUR:** We find the team name element by role and verify it's text content
-  - **FIVE:** But we can also search for elements directly by their text content
+  - So we find elements based on how user would interact w/ them
+  - The most preferred way are these `*ByRole` queries
+  - **FIVE:** We find the team name element by `heading` role and verify its text content
+  - **SIX:** But we can also search for elements directly by their text content
 
 /////
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -371,13 +394,17 @@ NOTES:
 
 - **ONE:** Enzyme also has full DOM rendering w/ `mount()`
   - Personally, this is what I used mostly with Enzyme
-- It is most like RTL `render()`
-- Because we have **all** the DOM elements we can use CSS selector syntax similar to jQuery
-  - There are many ways to find an element; it's super flexible
-  - **TWO:** Like by tag name
-  - **THREE:** class name
-  - **FOUR:** or even HTML attribute (to be like RTL 😉)
+- It's the one most like `render()` from RTL
+- Because we have **all** the DOM elements...
+  - We can use a CSS selector syntax similar to jQuery
+  - There are many ways to find an element
+  - It's super flexible
+  - **TWO:** Like by tag name (finding the `<h1>`)
+  - **THREE:** By class name (the styling class for body text)
+  - **FOUR:** Or even by an HTML attribute (to be like RTL 😉)
   - In fact searching by component reference or component display name still works
+- So the tests kinda look the same
+  - But RTL has a much narrower scope in how we can find elements
 
 
 /////
@@ -408,12 +435,16 @@ NOTES:
 
 NOTES:
 
-- So to quickly recap
+- So to quickly recap on rendering
 - With Enzyme we had:
-  - **Shallow rendering** with `shallow()` where it only tested the component as a unit, explicitly not testing rendering or behavior of child components
-  - **Full DOM rendering** with `mount()` where it rendered the whole component tree w/ DOM elements _(and components)_
-  - And also **Static rendering** with `render()` where it rendered out just the resultant HTML w/o the DOM
-- RTL gives us just `render()`, which is most similar to Enzyme `mount()` (not `render()`)
+- **Shallow rendering** with `shallow()` where it only tested the component as a unit
+  - Explicitly not testing rendering or behavior of child components
+- **Full DOM rendering** with `mount()`
+  - Where it rendered the whole component tree w/ DOM elements
+- And finally **Static rendering** with `render()`
+  - Where it rendered out just the resultant HTML w/o the DOM
+- RTL gives us just `render()`
+  - Which is most similar to Enzyme `mount()` (not `render()`)
   - RTL just has a different testing philosophy
   - It's better to test the component how the user sees it
   - Not how it's implemented
@@ -448,17 +479,19 @@ expect(screen.queryByText('Houston, TX')).not.toBeInTheDocument()</code></pre>
 NOTES:
 
 - What if we want to see if an element _doesn't_ exist?
-- **ONE:** In Enzyme the `wrapper`, like jQuery, is always an object that exists
+- **ONE:** In Enzyme, the `wrapper` is an object that always exists (like `jQuery`)
   - It can have 0, 1, or many elements within it
   - So we can use `.find()` whether we expect 1 element, many or even none
-- RTL on contrast has a different flavor for each
-- **TWO:** We've seen `getBy*` already and that is when we expect to find a single element
+- RTL on contrast has a different flavor for each, depending on what we expect
+- **TWO:** We've seen some `getBy\*` queries already...
+  - And that is when we expect to find a **single** element
   - It'll throw an error if 0 elements match or multiple do
   - There's `getByRole`, `getByText`, and a number of others we'll see in a bit
-- **THREE:** There's also `queryBy*` as we see here
-  - It'll return the matching element or throw an error if it gets multiple, just like `getBy*`
+- **THREE:** There's also `queryBy\*` as we see here
+  - It'll return the matching element or throw an error if it gets multiple (just like `getBy*`)
   - But if there is no match, it'll return `null` instead
-  - This makes it useful for asserting if an element is not present
+  - The slight difference can be confusing at first (at least it was for me)
+  - But returning `null` makes it useful for asserting if an element is not present
 
 /////
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -510,19 +543,26 @@ NOTES:
 NOTES:
 
 - So let's quickly compare querying in Enzyme to RTL
-- With Enzyme we basically have `.find()`
-  - There is also `.findWhere()` but it's far less prevalant
-  - With `.find()` there are 4 types of finding
-  - By **CSS Selector**, **Component reference**, **Component `displayName`**, and object property selector
+- With Enzyme we basically have the `.find()` method
+  - There is also `.findWhere()` but it's far less prevalent
+- With `.find()` there are 4 types of finding
+  - By **CSS Selector**
+  - By **Component reference**
+  - By **Component `displayName`**
+  - And By **object property selector**
   - RTL would argue that the last 3 are implementation details
-  - And most CSS selectors are as well
-- With RTL we go from single `.find()` to 8 different queries
+  - And most CSS selectors are details as well
+- With RTL we go from a single `.find()` to **8 different queries**
   - And these are in priority order
-  - **Accessible to Everyone** are queries that mimic the experience of both our visual and assistive technology users
-  - **Semantic** are HTML5 & ARIA selectors. User experiences vary greatly across browsers & assistive technologies
-  - **Test IDs** are the escape hatch. Cannot be seen/heard by users. Better than classes
-- Could actually test in Enzyme using RTL patterns
-  - Once I learned RTL, but was still working on Enzyme code bases I changed how I wrote Enzyme
+- **Accessible to Everyone** are queries that mimic the experience of all users
+  - Both our visual and assistive technology users (like screen readers)
+- **Semantic** are HTML5 & ARIA selectors
+  - User experiences vary greatly across browsers & assistive technologies
+- **Test IDs** are the escape hatch
+  - They cannot be seen/heard by users
+  - But are better than searching by classes
+- We _could_ actually test in Enzyme using some RTL patterns
+  - Once I learned RTL, I changed how I wrote Enzyme
   - But there are several queries (`getByRole` especially) that are unique
 
 =====
@@ -538,6 +578,7 @@ NOTES:
 
 - That first example was standard Enzyme vs. RTL
 - Things get more interesting when start talking about async testing
+  - And most of our UIs are asynchronous in nature
 
 /////
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -570,7 +611,8 @@ NOTES:
 
 NOTES:
 
-- Here we have a `Championships` component that may be rendered on the `TeamPage`
+- Here we have a `Championships` component
+  - It may be rendered on the `TeamPage` we just saw
   - It'll list information about each one of the championships the team has one
 - **ONE:** When it initially renders, it displays a loading state (when `data` is `null`)
 - **TWO:** Then in the `useEffect()` the info is fetched & the state is updated
@@ -604,10 +646,12 @@ expect(screen.getByText('Loading...')).toBeVisible()</code></pre>
 NOTES:
 
 - Verifying the loading state is what we've already done
-- Enzyme we render w/ `shallow()`
-  - **ONE:** And verify that our loading state child component like a `<Spinner>` is rendered w/ props
-- **TWO:** With RTL we can verify that we see the "Loading" message in element on the page
-  - Basically combines the Enzyme ones together
+- In Enzyme we render w/ `shallow()`
+  - **ONE:** And verify that our loading state child component (like a `<Spinner>`)...
+  - Is rendered w/ the expected props (`label="Loading..."`)
+- **TWO:** With RTL we can verify...
+  - That we see the "Loading" message in an element on the page
+  - It basically combines the Enzyme ones together
 
 /////
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -639,31 +683,32 @@ expect(await screen.findByText('No championships found.')).toBeVisible()</code><
 
 NOTES:
 
-- Here's where it gets tricky
+- But here's where it gets tricky
 - What about verifying **after** we've fetched the data?
 - **ONE:** With Enzyme we have to switch to `mount()` in order for the `useEffect()` to run
-  - There are workarounds with `jest-react-hooks-shallow` or manually running `useEffect()`
-- Let's assume we've mocked the `fetch()` request with `jest-fetch-mock` or all the many other ways
-  - We'll mock it to return the data we need for the test
-  - In this case, no results
-- We need to tell the test to wait to run our assertions until **after** the `fetch` has returned
-  - After `Championships` has called `setData` with the empty list
-  - (Cuz the Utah Jazz have never, ever won)
-  - And after it has re-rendered to render the `<EmptyState />`
+  - There are workarounds but lets stick w/ the basics
+- Let's assume we've mocked the `fetch()` request...
+  - To return the data we need for the test
+  - In this case, **no results**
+- Now we need to wait to run our assertions until **after** the `fetch` has returned
+  - **After** `setData` is called with the empty list
+  - And **after** the component has rendered the `<EmptyState />`
 - I've linked to a blog post I wrote on how to accomplish this w/ Enzyme
-  - **TWO:** Need to create a helper call `runAllPromises()` that will exhaust all the in-progress JS Promises
-  - We don't have any way to "hook" into when the `fetch` is done (we'll see an example of this in a bit)
-  - **THREE:** Then call `wrapper.update()` cuz the UI has now re-rendered and updated
-  - **FOUR:** Then we can finally assert that Utah Jazz have never one a championship
+  - **TWO:** Basically we create a helper call `runAllPromises()`...
+  - It will exhaust all the in-progress JS Promises
+  - **THREE:** Then we call `wrapper.update()` cuz the UI has now re-rendered
+  - **FOUR:** Then we can finally assert that **Utah Jazz have never won a championship**
 - This is simplified with RTL
-  - Take a step back... as a user how would we know when we've got the empty state?
-  - When we see the "No championships found." message for the Utah Jazz
-  - **FIVE:** Well RTL has a third-style query called `findBy*`, which is asynchronous
-  - It will wait until the element w/ this text is found (or throw an Error if timeout is reached)
+  - Take a step back..
+  - As a user how would we know when we've got the empty state?
+  - When we see the **"No championships found."** message for the Utah Jazz
+  - **FIVE:** Well RTL has a third-style query...
+  - It's called `findBy*`, which is asynchronous
+  - It will wait until the element w/ this text is found
   - So the test waits for all the async stuff to happen and then continues once found
-- RTL has async helpers like this built-in which make async testing much simpler
-  - It's more similar to browser-based, end-to-end utilities like Cypress or Selenium
-  - Again it's wanting to test like users use the component
+- RTL has async helpers like this built-in to make async testing much simpler
+  - It's more similar to browser-based utilities like Cypress or Selenium
+  - Again it's wanting to test how end users use the component
 
 /////
 
@@ -701,21 +746,23 @@ NOTES:
 - Similarly we need to verify actual results to validate the UI
 - With Enzyme
   - **ONE:** We `runAllPromises()` again to watch for after the `fetch()`
-  - **TWO:** Update because the UI has updated behind the scenes
-  - **THREE:** We'll probably validate that the entire container exists using a selector like class name
-  - **FOUR:** And then we'll want to verify that the correct number of championship UIs have displayed
-  - Since the Rockets have won 2 championships, we verify that we get back 2 items
-  - We'd probably go on to verify individual information, but you get the idea
+  - **TWO:** We call update because the UI has updated behind the scenes
+  - **THREE:** We'll likely validate that the container exists using a selector like class name
+  - **FOUR:** And then we verify that the correct number of UIs have displayed
+  - Since the Rockets have won 2 championships, we verify that we get 2 items back
+  - We'd probably go on to verify individual info, but you get the idea
 - With RTL
-  - **FIVE:** Again we have `findBy*` at our disposal to wait for something to display
-- Instead of waiting for the container, which is invisible to the user
-  - We wait for the `<h4>` "Championship header" that's w/in the container (what the user actually sees)
-- Then afterward we can use normal `getBy*`/`query*` queries because UI has fully rendered
+  - **FIVE:** Again we have `findBy\*` at our disposal to wait for something to display
+- Instead of waiting for the container (which is invisible to the user)
+  - We wait for the `<h4>` "Championship header" that's w/in the container
+  - That's what the user actually sees
+- Then afterward we can use normal `getBy\*` or `query\*` queries
   - We don't have to keep waiting
 - **SIX:** Since we can't search by class name like we did with `.champ-info` for Enzyme...
-  - We're using "Year" headings as a proxy in searching by text
-  - We could have added a `data-testid` attribute and searched `*ByTestId` like I mentioned
-  - But the key here is that since we expect multiple items we use `get*All*ByText` to select multiple
+  - We're using the "Year" headings as a proxy in searching by text
+  - We could have added a `data-testid` attribute and searched `\*ByTestId`
+  - But actually the key here is that since we expect multiple items...
+  - We use `getALLByText` to select multiple
 
 /////
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -791,27 +838,30 @@ NOTES:
 NOTES:
 
 - Here's the full list of queries
-  - Broken up into 2 groups: ones for selecting a single element & ones for selecting multiple
+  - Broken up into 2 groups: selecting a single element vs selecting multiple
 - For the single queries...
   - When they all get the element, they return it
   - And when they all get more than 1 match they throw an error
-  - The two main differences are for 0 matches: `queryBy*` return `null` instead of throwing an error
-  - This is great for when we expect something to not be there like we saw in the beginning
-  - The other difference is that `findBy*` will wait until the element appears
-  - This is great for async UIs where the element may not be immediately there like we just saw
-- The multiple queries are the same except they're for retrieving multiple
+  - For 0 matches: `queryBy\*` returns `null` instead of throwing an error
+  - This is great for when we expect something to not be there
+  - The other difference is that `findBy\*` will wait until the element appears
+  - This is great for async UIs when the element is not immediately there
+- The multiple queries are the same except they're for retrieving multiple elements
   - They all return an array whether there's a single match or multiple matches
-  - And `queryAllBy` queries return an empty array (instead of `null`)
+  - And `queryAllBy\*` queries return an empty array (instead of `null`)
 - So what does all this mean for migrating?
   - We lose the simplicity of one method with Enzyme `.find()` and its flexibility
-  - We have to remember when/where to use each of these queries
+  - We have to remember when & where to use each of these queries
 - But that loss of flexibility with RTL helps us test in a more accessible way
-  - And the result may be having to change our UI code in order to be easily tested
-  - Normally that's a no-no; your test framework shouldn't require you to change your code
+  - And avoid testing implementation details
+  - And the result may be having to change our UI code
+  - Normally that's a no-no
+  - Your test framework shouldn't require you to change your code
   - But many times the changes actually make our code more accessible
-  - That's a win for the user
-- BTW - there is an eslint plugin that helps guides us to which query type we should use
-  - Got a link to it coming up at the end
+  - So that's a win for the user
+- BTW - there is an eslint plugin
+  - It helps guide us to which query type we should use
+  - I got a link to it coming up at the end
 
 =====
 <!-- .slide: data-background="url(../../img/enzyme-to-rtl/mountain-pass-tom-wheatley-b6b5oXwdwzY-unsplash.jpeg) no-repeat center" data-background-size="cover" -->
@@ -858,12 +908,14 @@ NOTES:
 
 - We've got a player search component
 - **ONE:** It renders an `<Input>` child component where we can search for a player
-  - Our `<Input>` takes the typical `value` & `onChange`, but also takes a `label`
+  - Our `<Input>` takes the typical `value` & `onChange`
+  - But also takes a `label`
 - **TWO:** Also renders a search `<Button>` child component to start the search
 - **THREE:** There's a `search` event handler that makes the API request and updates state
   - But this is a bit different from before
-  - The details aren't show here, but it also returns a `Promise` after we get & set fetched data
-  - That way the button `onClick` would return that a promise
+  - The details aren't show here
+  - But it also returns a `Promise` after we get & set the fetched data
+  - That way the button `onClick` would return that promise too
   - All to make it easier to test async code in our tests
 - **FOUR:** And finally the players data is rendered similar to our async component from before
 
@@ -902,39 +954,42 @@ await userEvent.click(screen.getByRole('button'))
 
 NOTES:
 
-- **ONE:** With Enzyme, we can return back to using `shallow()` because there's no `useEffect()`
-  - **TWO:** As a result to simulate typing in search, we use `.invoke()` on the `Input` component
+- **ONE:** With Enzyme, we can go back to using `shallow()` cuz there's no `useEffect()`
+  - **TWO:** To simulate typing, we use `.invoke()` on the `Input` component
   - That grabs the `onChange` function prop and calls it with the string we pass
-  - This is pure unit testing where we don't have to care how `Input` is implemented
-- **THREE:** Similarly to click the button we `.invoke()` on the `Button` component
+  - This is pure unit testing
+  - We don't have to care how `Input` is implemented
+- **THREE:** Similarly, to click the button we `.invoke()` on the `Button` component
   - But we do something different here
   - Remember, our `search` click handler makes the fetch & updates the UI
-  - But it _also_ returns a `Promise` after the fetch, which `onClick` returns
+  - But it _also_ returns a `Promise` after the fetch
   - So now here in the test we have access to that `Promise`
   - We don't need any data, we just want to `await` it to know the `fetch` is done
-  - Now our assertions after can safely assume that the UI has been updated (most of the time)
+  - Now our assertions after can assume that the UI has been updated
   - This is a common pattern with Enzyme
-  - It required us to change our UI code solely in service of the the tests
+  - It required us to slightly change our UI code solely in service of the the tests
   - But not in a way that helps the user
 - **FOUR:** Then we can go on an verify our UI just like we've done before
 - The approach is **completely** different for RTL
-  - And this is why we can't search & replace
   - Remember, we are testing how our users are using the component
-  - We don't care how the component is implemented and that we're using `Input` & `Button` child components
+  - We don't care that we're using `Input` & `Button` child components
 - So to get the text field, we need to get the actual DOM element
   - **FIVE:** Well RTL provides a convenience query called `getByLabelText`
   - Because we provided the `Name` label to the `Input` component we can search by it
-  - This assumes of course that `Input` is accessible w/ `<label>` or `aria-label`
+  - This assumes of course that `Input` is accessible w/ a `<label>` or `aria-label`
   - If it wasn't, we'd have to fix it to write our tests
-  - Win for the tests
-  - But more importantly a win for our users using assistive technologies like screen readers
 - What's cool is that RTL provides user event helpers like `.type`
-  - It's different than `.invoke` or even `.simulate` in Enzyme because it types each individual character
-  - With Enzyme we're kinda cheating and sending basically the last event
+  - It types each individual character
+  - With Enzyme `.invoke` or `.simulate` we're basically sending the last event
   - But RTL more closely mimics user behavior
 - **SIX:** Similarly we find the button by role and click it with `userEvent.click()`
 - **SEVEN:** And lastly we can go and verify the players list
   - We're using `findBy` because we need to wait until we know the UI has been updated
+- Quick FYI for those already using `userEvent` in RTL
+  - The API changed in v14
+  - All interactions are now `async`
+  - And there's more setup you have to do
+  - I've linked to the new docs for ya
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -962,11 +1017,11 @@ NOTES:
 Notes:
 
 - Here are a bunch of resources
-- I've aggregated all the links I had listed throughout the talk
-- I really wanted to talk about **Debugging** in RTL
+  - I've aggregated all the links I had listed throughout the talk
+- I really, really wanted to talk about **Debugging in RTL**
   - There are some key differences & cool features from Enzyme
-  - But I just didn't have time
-  - So there's a link
+  - But I just didn't have time in 25 minutes
+  - So there's a link to the docs here
 - If you're still on Enzyme, I specifically mentioned `runAllPromises` as an async solution
   - The **Asynchronous testing with Enzyme & React in Jest** blog post explains it all
 
@@ -996,15 +1051,17 @@ NOTES:
   - If you're using Enzyme currently, you **1)** realize you have to migrate
   - And **2)** now you've got a jump start on what migrating looks like
   - And if you're already using RTL, you got to reminisce on the old days
-  - Or if you've never used Enzyme before, a better understanding for RTL design decisions
-- I wanna give a special thanks to the organizers of the first React Miami
+  - ...Or if you've never used Enzyme before...
+  - You've got a better understanding for RTL design decisions
+- I wanna give a special thanks to the organizers of the first React Miami...
   - For inviting me to share my knowledge with y'all
-  - G2i & JS World
+  - To G2i & JS World
 - Also thank **YOU** for attending my talk
   - You could've skipped to get a jump on the refreshments, but you stayed
 - Speaking of which we've got a break after this
   - And I'll be here right after for any questions you've got
   - And I'll also be around throughout the day as well for feel free to grab me whenever
   - But you can always reach out to me on Twitter (**@benmvp**)
-- **REMINDER:** You can also find a tweet to the slides there or on my website: **benmvp.com**
+- **REMINDER:** You can also find a tweet w/ a link to the slides there
+  - Or on my website: **benmvp.com**
 - Thanks again & enjoy the rest of the conference!
