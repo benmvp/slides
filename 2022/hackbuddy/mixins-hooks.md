@@ -242,7 +242,7 @@ NOTES:
 - We're hiring!
   * Headquarters is in SF
   * But we have remote engineers all over the country
-  * I mentioned our job openings at the last conf I spoke at in March
+  * I mentioned our job openings at the last conf I spoke at back in April
   * Someone reached out to me
   * And now we're coworkers!
 - I'm also a Microsoft MVP
