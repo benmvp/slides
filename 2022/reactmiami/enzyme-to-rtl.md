@@ -138,22 +138,6 @@ _[4 minutes]_
 - **✋🏾 How many people here are using RTL?**
 
 =====
-
-<!-- .slide: data-background="url(../../img/giphy/stand-up-steph-curry.gif) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1 style="font-size: 5em">Stand Up!</h1>
-  </div>
-</div>
-
-NOTES:
-_[5 minutes]_
-
-
-- Before we continue can I get everyone to stand up?
-
-/////
 <!-- .slide: data-background="#000" -->
 
 <div style="display:flex; justify-content: center">
@@ -188,6 +172,7 @@ NOTES:
   - And sent to your door on a frequency that you choose or you can shop directly
 - We're hiring!
   - My frontend platform team is hiring a Principal Frontend Engineer
+  - But we have other openings as well
   - Headquarters is in SF, but we're mostly remote
   - If you're interested at all, come find me and I'll tell you all about it
 
@@ -334,14 +319,14 @@ expect(wrapper.find('[data-testid="location"]')).toHaveText('Houston, TX')</code
 expect(screen.getByRole('heading')).toHaveTextContent('Rockets')
 expect(screen.getByText('Houston, TX')).toBeVisible()</code></pre>
 
-    <div class="code-highlight fragment current-visible" style="height: 60px; top: 253px;"></div>
+    <div class="code-highlight" style="height: 60px; top: 253px;"></div>
 
   </div>
 </div>
 
 NOTES:
 
-- **ONE:** Enzyme also has full DOM rendering w/ `mount()`
+- Enzyme also has full DOM rendering w/ `mount()`
   - Personally, this is what I used mostly with Enzyme
 - The tests kinda look the same
   - But RTL has a much narrower scope in how we can find elements
@@ -632,6 +617,7 @@ NOTES:
   - It will exhaust all the in-progress JS Promises
   - **THREE:** Then we call `wrapper.update()` cuz the UI has now re-rendered
   - **FOUR:** Then we can finally assert that **Utah Jazz have never won a championship**
+  - That tidbit there is for Tyler McGinnis
 - This is simplified with RTL
   - Take a step back..
   - As a user how would we know when we've got the empty state?
