@@ -2,6 +2,10 @@
   "cleanUrls": false,
   "redirects": [
     {
+      "source": "/",
+      "destination": "http://www.benmvp.com/speak/"
+    },
+    {
       "source": "/confoo2016-es6.html",
       "destination": "/2016/confoo/es6.html"
     },
