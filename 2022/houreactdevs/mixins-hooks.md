@@ -26,11 +26,13 @@ NOTES:
 - Hi everyone!
 - **RESTART THE TIMER!!!!**
 - I'm excited to be a part of Houston React Developers
-  - Sharing about sharing in React 😂
+  - Sharing about _sharing_ in React 😂
 - We're basically gonna go on a 8-year journey with React
-  - Starting w/ mixins in the beginning to Hooks right now
+  - But instead of going past to present
+  - I'm gonna work our way backwards
+  - Starting w/ Hooks in the beginning to mixins 8 years ago
 - **Slides are available online**
-- I'm gonna be paying attention to the chat a bit, so join in!
+- I'm gonna try to pay attention to the chat as we go, so feel free to join in!
 - **RESTART THE TIMER!!!!**
 
 =====
@@ -113,7 +115,6 @@ NOTES:
   return fetch(apiUrl)
     .then((resp) => resp.json())
     .then((data) => data.images)
-    .then(/\* retrieve \`page\` subset \*/)
 }</code></pre>
   </div>
 </div>
@@ -123,12 +124,12 @@ NOTES:
 
 - And because React is basically "Just JavaScript™"
   - Sharing helper functions is great too
-  - Can call API utilities, data transformation helpers, etc
+  - Can call API utilities, data transformation helpers (like `lodash`), etc
   - All from within the component code
 - Here we have a `fetchImages` that when given an optional `teamId`
   - Will retrieve images of the players for the team
   - Or retrieve team logs when `teamId` is `undefined`
-- Keep this `fetchImages` utility in mind because we'll be referencing it throughout
+- Keep this `fetchImages` utility in mind because we'll be referencing it throughout the rest of our time
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -180,16 +181,17 @@ NOTES:
 - We've got the `Players` & `Teams` components again
   - But this time they are rendering different UI
   - A `<SlideShow />` for `Players`, an `<ImageList />` for `Teams`
-  - But `Players` & `Teams` both can call the same data `fetchImages` API
-  - They both need to maintain state of images/logos
-  - And both of them need to call the `fetchImages` API again when the page changes
-- So they have similar state + logic but different UI
+  - But `Players` & `Teams` both can call the same `fetchImages` API to get data
+  - They both need to maintain the state of images or logos
+  - And both of them need to call the `fetchImages` API again when...
+  - Going to the next page of the slide show or clicking next in the image list
+- So they have similar state + logic but very different UI
 - Ideally we'd be able to render the paginated player images or team logos as...
   - A slideshow
   - A list view
   - A grid view
-  0 Or whatever
-  - But not have to repeat the stateful non-visual logic
+  - Or whatever
+  - But not have to repeat the state + fetch logic
 - So I wanna take us on a journey of how we've tried to solve this problem over React's lifetime
   - To hopefully help us understand React a bit better
 
@@ -220,19 +222,24 @@ NOTES:
 - My name is Ben Ilegbodu
 - Christian, Husband, Father
 - _Family introductions_
-- We live in Pittsburg, CA (SF Bay Area)
-  - I'm actually originally from Houston
-  - Moved to the Bay Area 20 years ago
-  - And now we're moving back in December!
+- I'm actually originally from Houston
+  - Moved to Pittsburg, CA (in the Bay Area) 20 years ago
+  - And now we're moving back at the end of December!
 
 /////
 
-![Stitch Fix Corporate logo (dark)](../../img/stitchfix/lockup-solid-vert-gender-neutral-dark.svg)
-<!-- .element: class="plain" style="width: 75%" -->
+<div style="display:flex;align-items:center;justify-content:space-around;">
+  <div style="flex:0 0 45%;">
+    <img src="../../img/gde/experts-sticker-01.gif" alt="Google Developer Experts animation" class="plain"/>
+  </div>
+  <div style="flex:0 0 45%; margin-left: 20px">
+    <img src="../../img/stitchfix/lockup-solid-vert-gender-neutral-dark.svg" alt="Stitch Fix Corporate logo (dark)" /class="plain" />
+  </div>
+</div>
 
 NOTES:
 
-- I'm a Microsoft MVP & currently a Frontend Architect Engineer at Stitch Fix
+- I'm a Google Developer Expert & currently a Frontend Architect Engineer at Stitch Fix
 - Stitch Fix is an online personal styling service
   - Combines technology & data science
   - With an actual human stylist
@@ -242,8 +249,20 @@ NOTES:
   - Headquarters is in SF
   - But we have remote engineers all over the country
   - I mentioned our job openings at the last conf I spoke at back in April
-  - Someone reached out to me
+  - Someone (Kayla Griffith) reached out to me
   - And now we're coworkers!
+
+/////
+<!-- .slide: data-background="url(../../img/bball/rockets-wallpaper.jpeg) no-repeat center" data-background-size="cover" -->
+
+NOTES:
+
+- I'm a huge basketball fan
+  - Love playing & watching the NBA
+- Since I grew up in Houston, I'm a Rockets fan
+  - We're not winning a lot right now, but I'm excited for our future
+- I only mention it because all of my code examples revolve around basketball
+  - Just a heads up
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -257,14 +276,14 @@ NOTES:
 
 NOTES:
 
-- Alright enough about me. Let's just right in
+- Alright enough about me. Let's just jump right in
 - I know typically histories start from the past to the present
   - But I want to try going backwards in history
-  - So we can start with what we're probably most familiar with
+  - So we can start with what we're probably most familiar with...
   - **custom hooks**
 - Hooks were designed specifically to solve this problem of sharing stateful, non-visual logic
   - Came out with React 16.8 (in early 2019)
-- If you've developed any React recently, you should be using custom hooks
+- If you've developed any React recently, you should be using Hooks
   - Let's take a look...
 
 /////
@@ -305,14 +324,17 @@ NOTES:
   - And in this case, it's a "custom Hook" because we've defined it ourselves
   - And we'll take a peek at it next
   - `Players` calls our `useImages` custom Hook, passing it the `teamId`
-  - **THREE:** And gets the `images` & `curPage` data + a `setCurPage` function
-- **FOUR:** It passes them on to that `<Slideshow />` component
+- **THREE:** `useImages` returns
+  - `images` - the list of images to display in a UI (such as our `Slideshow`)
+  - `curPage` - the current page in a paginated list
+  - Plus `setCurPage` - a function that a UI can use to change the page
+- **FOUR:** `Players` passes them on to that `<Slideshow />` component
 - This all seems pretty "magical" to be honest
   - And in a sense, it is
-  - **FIVE:** The `useImages` custom Hook looks like a normal function call
+- **FIVE:** The `useImages` custom Hook looks like a normal function call
   - So it has the typical inputs & outputs that functions have to get data
-  - And it's separate from the UI
-  - Let's take a look at how it's implemented
+  - And it's separate from the `render()`
+- So let's take a look at how it's implemented
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -344,13 +366,13 @@ NOTES:
 
 - Custom Hooks are **functions** that _must_ start with `use`
   - **ONE:** So we're calling it `useImages`
-- **TWO:** It maintains state for `images` & `curPage`
+- **TWO:** It maintains state for `images` & `curPage` variable
   - Using the built-in `useState` Hook
 - **THREE:** It fetches new images whenever the current page changes
-  - We're using the built-in `useEffect` Hook which takes a bit of getting used to to be honest
+  - We're using the built-in `useEffect` Hook, which takes a bit of getting used to to be honest
 - **FOUR:** Finally it returns the data the consuming component needs
   - `images`, `curPage` & `setCurPage` (the function that updates the `curPage`)
-- It's pretty nice that the entire functionality fits on one screen
+- It's pretty nice that the entire functionality fits on one slide
   - You'll see in a bit how gnarly things will get
 
 /////
@@ -387,11 +409,11 @@ NOTES:
 - **TWO:** And instead of rendering a `<Slideshow />` we wanna render an `<ImageList />`
   - Well now we can use the same _type_ of data we get back from `useImages`
 - **THREE:** So we call the `useImages` custom Hook like before
-- **FOUR:** But this time pass the data to `<ImageList />`
+- **FOUR:** But this time pass the data to the `<ImageList />`
 - So we were able to share the same state management + API calls
   - Across 2 different components
-  - And render 2 completely different UIs, a `<Slideshow />` & a `<ImageList />`
-  - That's the power & ease of custom Hooks
+  - And render 2 completely different UIs: a `<Slideshow />` & an `<ImageList />`
+- That's the power & ease of custom Hooks
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -421,13 +443,13 @@ NOTES:
 
 NOTES:
 
-- The nice thing about custom Hooks the other patterns we'll see is that we can call them in sequence
+- The nice thing about custom Hooks over the other patterns we'll see is that we can call them in sequence
 - However we still have some issues
 - 1/ React Hooks cannot be called conditionally
   - Because it's against the rules to conditionally render custom Hooks
   - So even if we know we don't need to call a Hook because of the value of a prop
   - We still **must** call the hook
-  - Buuut there are ways around this and I'll share a blog post about it
+  - Buuut there are ways around this and I'll share a blog post I wrote about it
 - 2/ The other thing to note is that custom hooks don't render markup
   - For the most part, they deal purely data
 - This is why custom hooks haven't "killed" another pattern called Render Props
