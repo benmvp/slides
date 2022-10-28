@@ -451,7 +451,7 @@ NOTES:
   - We still **must** call the hook
   - Buuut there are ways around this and I'll share a blog post I wrote about it
 - 2/ The other thing to note is that custom hooks don't render markup
-  - For the most part, they deal purely data
+  - For the most part, they deal purely in data
 - This is why custom hooks haven't "killed" another pattern called Render Props
   - What are Render props?
   - Well... let's talk about them
@@ -471,8 +471,8 @@ NOTES:
 
 - Technically Render Props have always existed in React
   - And they still do now, actually
-  - But they were popularized by Michael Jackson from React Training
-  - As a superior replacement of HOCs (we'll talk about those next)
+  - But they were popularized by Michael Jackson from Remix...
+  - As a superior replacement of HOCs (we'll talk about those in the next section)
   - This was right around when React 16 was released (mid-2017)
 - Let's see how render props compare to Hooks...
 
@@ -511,21 +511,27 @@ NOTES:
 - So instead of a special function for our shareable code
   - **ONE:** We have a class component
   - Anyone still using class components?
-  - Chime in in the chat
+  - _Chime in in the chat_
   - We're calling it `Images` here
   - This compares with our `useImages` Hook
 - **TWO:** It has the same `state` as the Hook
-  - but it's defined in the class component way
-- **THREE:** We use the `componentDidMount` & `componentDidUpdate` lifecycle methods
+  - But it's defined in the class component way
+  - Remember...
+  - `images` will be the list of images to display in a UI
+  - `curPage` will be the current page in a paginated list
+- **THREE:** We use the `componentDidMount` & `componentDidUpdate` lifecycle methods...
   - To retrieve the images initially and...
   - When either the `curPage` state or the `teamId` prop change...
   - By calling `updateImages()`
   - We'll see how the `teamId` prop is used in a couple of slides
-- **FOUR:** The `updateImages()` method is where we make the actual `fetchImages()` call
+- **FOUR:** The `updateImages()` method is where we make the actual `fetchImages()` call...
   - And set the `images` state w/ returned data
-  - It's intended to be "private" but back then we didn't yet have private methods
+  - `updateImages()` intended to be "private" but back then we didn't yet have private methods
+- `componentDidMount` + `componentDidUpdate` + `updateImages`...
+  - Are effectively equivalent to the `useEffect` in our `useImages` custom Hook
 - And if class components aren't familiar to you
   - Don't get too hung up on the code either way
+  - I'm not trying to teach it to you
 - **FIVE:** But let's take a look at the last piece I couldn't fit on the screen
   - The `render()` method of this class component
 
@@ -560,20 +566,21 @@ NOTES:
 - **ONE:** The key piece of a render prop pattern is the function prop called `render`
   - It's a special component prop that is a function
   - Typically function props are callback functions like `onClick` or `onChange`
-  - They respond to an event & do something, but don't return anything
+  - They respond to a user event (like a click) & do something (but don't return anything)
 - This `render` prop is a function that takes in data and will return JSX
   - It can actually be named anything, but `render` is a common convention
   - Hence the term "render prop"
   - It's also common to use the `children` prop as well
 - So within the `render()` method we call the `render` prop
   - And we pass it all the data the caller of `<Images />` will need
-- **TWO:** First we have the `images` & `curPage` state properties
+- **TWO:** First we pass the `images` & `curPage` state properties
 - **THREE:** As well as a `handleNextPage` callback
   - It's for updating the `curPage` state when paginating
-  - And based on the previous slide, updating the `curPage` will ultimately fetch new images
+  - Just like that function we were returning from the custom Hook
+  - Updating the `curPage` will ultimately fetch new `images`
   - Which will in turn calls the render prop with new `images` state
 - For the render prop, the stateful, non-visual logic is...
-  - `state` + the lifecycle methods + `render` prop
+  - `state` + the lifecycle methods + this `render` function
 - So how do we use this render prop?
 
 /////
@@ -595,6 +602,7 @@ NOTES:
     />
   &lt;/section>
 )</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 575px; top: 195px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 415px; top: 308px;"></div>
     <div class="code-highlight fragment current-visible" style="height: 295px; top: 365px;"></div>
   </div>
@@ -603,13 +611,14 @@ NOTES:
 NOTES:
 
 - It looks kind of like a normal React component
-- The `<Images />` render prop component we just defined...
+- **ONE:** That `<Images />` render prop component we just defined...
   - Basically exposes its underlying state to its parent component
-  - Which is now `Players` in this case
-- **ONE:** By calling the `render` prop function passed to it...
-  - `Players` can now render whatever UI it likes based on the `data` it receives in the `render` prop!
-- **TWO:** And here, just like the preview example, it's rendering the `<Slideshow />`
-  * And any other UI that relies on the `data` would go w/in `<Images />` as well
+  - Which in this case is our `Players`
+- **TWO:** You see how by passing the `render` prop a function...
+  - `Players` can now render whatever UI it likes...
+  - Based on that `data` param it receives in the `render` prop!
+- **THREE:** And here, just like the previous examples, it's rendering the `<Slideshow />`
+  * And any other UI that relies on the `data` would go within the `render` prop of `<Images />` as well
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/basketball-hoop-brandi-redd-z_UJ6FhVJZI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -646,12 +655,14 @@ NOTES:
 NOTES:
 
 - However, there are still a couple of pain points
-- 1/ React `PropTypes` only have `PropTypes.func`
-  - There's no public definition of what parameters the function will pass
-  - What's the shape of `translations`?
-  - What properties are in `authData`?
-  - Is `theme` and object or a single value?
-  - It can be tricky to know without something like TypeScript
+- 1/ `React.PropTypes` only have `PropTypes.func`
+  - So if you use `React.PropTypes` you know that they can be limited
+  - For `func`, there's no public definition of what parameters the function will pass
+  - In our example here on the left...
+  - What's the shape of the translations object `translations` passed back by `I18N`?
+  - What properties are in `authData` object in the render prop of `Auth`?
+  - Is `theme` and object or a single value for `Theme`?
+  - It can be tricky to know without something like TypeScript (which I highly recommend)
 - 2/ Also as we can see here... when there are multiple render props
   - Things can get a bit crazy with the nesting
   - With render props the entire UI is nested w/in the function prop
@@ -659,10 +670,12 @@ NOTES:
 - But overall render props worked well for sharing stateful, non-visual logic
   - But Hooks kind took over as a tailor-made solution
 - However render props are still useful when a component wants to...
-  - 1/ share stateful, non-visual logic
-  - 2/ also needs to offload rendering UI to the parent
-- I wish I could spend more time explaining render props
-  - But I still have 2 more to cover
+  - 1/ share stateful, non-visual logic; **AND**
+  - 2/ also needs to offload some rendering UI to the parent
+- I wish I could spend more time explaining these use cases
+  - But it'd be a tangent from our topic
+  - Plus I still have 2 more to cover
+- Let's talk about the pattern that was popular before render props
 
 
 =====
@@ -677,75 +690,20 @@ NOTES:
 
 NOTES:
 
-- Let's talk about the pattern that was popular before render props
-  - Higher-order components aka HOCs
+- Higher-order components aka "HOCs"
 - You may never have even seen HOCs depending on when you started working in React
   - Just like w/ render props, HOCs technically always existed
   - But the pattern was first "created" way back in React 0.13 (early 2015)
   - It was later popularized by Dan Abramov before he even started working at Facebook
-- Render props can do everything an HOC can do
-  - And arguably in a better developer experience
-  - Render props kinda made the HOC patter obsolete
+  - And it became heavily used because of `react-redux`'s `connect()` function
+- Render props can do everything an HOC can do...
+  - And arguably in a better developer experience...
+  - So render props kinda made the HOC patter obsolete
 - But let's take a look at them anyway
   - Because before render props they were a way to solve the problem...
   - Of how to share stateful, non-visual logic
-
-/////
-<!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay">
-
-    <pre class="large"><code class="lang-javascript">const withImages = (Component) => {
-  return class Images extends React.Component {
-    state = { images: [], curPage: 1 }
-    // lifecycle methods + updateImages
-    render() {
-      return &lt;Component
-        {...this.props}
-        images={this.state.images}
-        curPage={this.state.curPage}
-        handleNextPage={ ... }
-      /&gt;
-    }
-  }
-}</code></pre>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 81px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 700px; top: 137px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 130px; top: 195px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 350px; top: 365px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 423px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 185px; top: 480px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 480px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 594px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 536px;"></div>
-    <div class="code-highlight fragment current-visible" style="height: 70px; top: 656px;"></div>
-  </div>
-</div>
-
-NOTES:
-
-- An HOC was (technically still is) a function that takes an existing component
-  - And returns another component that wraps the original one
-- **ONE:** So `withImages` is the HOC & it takes the `Component` reference as a parameter
-  - Prefixing the HOC with `with*` was a common convention
-  - It's not a requirement like `use*` is with Hooks, but was a convention
-- Our Hook was named `useImages`
-  - Our render prop component was called `Images`
-  - And now our HOC is called `withImages`
-  - **TWO:** And it returns a new class component called `Images`
-  - It's a component class that wraps our actual `Component` we've passed in
-- **THREE:** `Images` has all the same `state` & lifecycle methods as the previous approaches
-- **FOUR:** The big difference is that the HOC **renders** the component passed in
-- **FIVE:** It passes along all the existing `props`
-- **SIX:** But then adds to the props those state properties it's maintaining
-  - **SEVEN:** The `curPage` state that gets updated as we paginate the images
-  - **EIGHT:** The `images` state that comes back from fetching new images based on the `curPage`
-- **NINE:** We also pass the same `handleNextPage` callback function prop
-  - Which updates the `curPage` state
-- There's a lot more to the HOC code
-  - I'm just trying to showcase the highlights
-  - Again the HOC is a function that takes a component class and returns a wrapped one
+  - Especially after mixins were banned
+  - Uh-oh! Spoiler alert!
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -773,22 +731,86 @@ export default EnhancedPlayers</code></pre>
 
 NOTES:
 
-- The HOC is used very differently than the render prop
-- **ONE:** The way we use `withImages` is completely outside of the component definition
-  - We pass it a reference to our `Players` component to `withImages`...
+- You know, let's look at how an HOC was used before we look at how they're written
+  - Because the HOC is used very differently than the render prop
+- **ONE:** Our HOC is called `withImages`
+  - It actually looks pretty similar to our `useImages` Hook
+- Except the way we use `withImages` is completely outside of the component definition
+  - We pass a reference to our `Players` component to `withImages`...
   - And it gives us back an "enhanced" or wrapped version
-  - `withImages` will be what actually renders `<Players>`
-- **TWO:** And if you remember...
-  - `withImages` passed the state it was keeping as props to the `Component` we passed in
-  - So now our `Players` component can magically assume that it'll now have those props
+- **TWO:** And here's where things get... interesting
+  - Even though the `Players` component won't actually be passed...
+  - The `images` & `curPage` props in the app...
+  - It now "magically" has them to render the `<Slideshow>`
 - By wrapping `Players` with `withImages`...
-  - The HOC will do the work to maintain the state & lifecycle methods
-  - **THREE:** As the `Slideshow` paginates we update the UI by calling the `handleNextPage` prop
-- **FOUR:** And lastly the exported `EnhancedPlayers` is the actual component that'll be used in UIs
+  - The HOC provides those props for `Players`
+  - It just needs to render them appropriately
+- **THREE:** Similarly, as the `Slideshow` paginates...
+  - We call that similar `handleNextPage` callback function
+  - Also a prop that the `Players` component magically has available
+- **FOUR:** And lastly the exported `EnhancedPlayers`...
+  - Is the actual component that'll be used in the rest of the app
 - IMO it's all a bit weird & difficult to wrap your head around at first
   - And at second, and third and forth 😂
   - I always found HOCs to be a very strange concept
-  - But it was the pattern we had at the time...
+- But let's look behind the curtain at how the magic is happening, shall we?
+
+/////
+<!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay">
+
+    <pre class="large"><code class="lang-javascript">const withImages = (Component) => {
+  return class Images extends React.Component {
+    state = { images: [], curPage: 1 }
+    // lifecycle methods + updateImages
+    render() {
+      return &lt;Component
+        {...this.props}
+        curPage={this.state.curPage}
+        images={this.state.images}
+        handleNextPage={ ... }
+      /&gt;
+    }
+  }
+}</code></pre>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 81px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 700px; top: 137px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 130px; top: 195px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 350px; top: 365px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 423px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 185px; top: 480px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 480px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 536px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 594px;"></div>
+  </div>
+</div>
+
+NOTES:
+
+- An HOC was (and technically still is) a function that takes an existing component
+  - And returns another component that wraps the original one
+- **ONE:** So `withImages` is our HOC & it takes the `Component` reference as a parameter
+  - Remember we were passing the `Players` component in our example
+  - Prefixing the HOC with `with` was a common convention
+  - It's not a requirement like `use` is with Hooks, but was a convention
+- Our Hook was named `useImages`
+  - Our render prop component was called `Images`
+  - So naturally our HOC is called `withImages`
+  - **TWO:** And it returns a new class component called `Images`
+  - It's a component class that wraps the actual `Component` we've passed in
+- **THREE:** `Images` has all the same `state` & lifecycle methods as with the render prop
+- **FOUR:** The big difference is that the HOC **renders** the component passed in
+- **FIVE:** It passes along all the `props` passed to it when it's render in the app
+- **SIX:** But then adds to those props those state properties it's maintaining
+  - **SEVEN:** The `curPage` state that gets updated as we paginate in the UI
+  - **EIGHT:** The `images` state that comes back from fetching new images based on the `curPage`
+- **NINE:** We also pass the same `handleNextPage` callback function prop
+  - Which updates the `curPage` state
+- There's a lot more to the HOC code
+  - I'm just trying to showcase the highlights
+  - Again the HOC is a function that takes a component class and returns a wrapped one
 
 /////
 <!-- .slide: data-background="url(../../img/mixins-hooks/russian-nesting-dolls-julia-kadel-YmULswIbc3I-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -826,17 +848,19 @@ NOTES:
 - So HOCs worked _okay_, but there were several gotchas with them
 - 1/ HOCs inherently relied on indirection & agreements to work
   - With **HOCs** the only communication is through props
-  - But with multiple HOCs we now don't know which HOC is providing which props
+  - But with multiple HOCs & looking at a component implementation...
+  - We now don't know which HOC is providing which props
 - 2/ There can be prop name collisions if 2 HOCs try to set the same prop
-  - Like multiple HOCs wanting to set a `value` prop
-- 3/ Lastly there's no way to alter or configure how the HOCs are composed based on the component's props or state
-  - Let's look at this code snippet
+  - Like multiple HOCs wanting to set a `value` prop (or another common name)
+- 3/ Lastly there's no way to alter or configure...
+  - How the HOCs are composed based on the component's props or state
+  - Let's use the code snippet on the left as an example
   - Maybe we only want to add `withAuth` if a `needsAuth` prop is set to `true`
   - The composition of the HOCs is happening outside of the `render()` method
   - So the prop values can't impact which HOCs are used
   - This wasn't always a problem, but it did make complex situations challenging
 - But again don't worry if you don't understand HOCs immediately
-  - I'd be more surprised if you did 😂
+  - I'd be more surprised if you did right out the gate 😂
   - It's based on Higher-order functions found in mathematics
   - Many blog posts were written to explain the concept
   - Plus you'll never need to write one in modern React anyway thanks to Hooks & render props 😃
@@ -855,8 +879,9 @@ NOTES:
 NOTES:
 
 - So we've talked about custom Hooks, render props, and just now HOCs
-- Let's talk about the OG way of handling this problem of stateful, non-visual logic: **mixins**
-  - This is React 0.14 before
+- Let's bring it home...
+  - Talking about the OG way of handling this problem of stateful, non-visual logic: **mixins**
+  - This is React 0.14 & before
   - We're talking early 2016 and before
   - This was the original way of sharing stateful, non-visual logic
 - I'm assuming most, if not all, of you have never seen this code before
@@ -880,7 +905,7 @@ NOTES:
   },
 
   handleNextPage: function(curPage) {
-    this.setState({ curPage })
+    this.setState({ curPage: curPage })
   },
 }</code></pre>
     <div class="code-highlight fragment current-visible" style="height: 70px; top: 81px;"></div>
@@ -899,10 +924,10 @@ NOTES:
   - Similar to a class constructor
 - **THREE:** We have the same `componentDidMount` & `componentDidUpdate` lifecycle methods
   - I didn't bother writing them out again
-  - They're the same ones from the render prop...
-  - That retrieve the images initially and when the `curPage` state or `teamId` prop change
+  - They're the same ones from the render prop & HOC...
+  - That retrieve the images initially and again when the `curPage` state or `teamId` prop change
 - **FOUR:** The lifecycle methods also call `updateImages`
-  - And again that's where we make the actual `fetchImages` call
+  - And as a reminder that's where we make the actual `fetchImages` call
   - Which sets the `images` state w/ returned data
   - All the innards are the same as the previous patterns
   - Oh `updateImages` is technically "private" and only supposed to be called w/in the mixin
@@ -911,6 +936,7 @@ NOTES:
   - It's **exclusively for the components** to update the current page
   - It's not actually called from within the mixin
 - At a high level, it seems simple enough
+  - I've definitely hidden lots of the code in order to get the pertinent pieces on the slide
   - Like Hooks, mixins were created primarily for solving this problem...
   - Of stateful, non-visual logic
 
@@ -945,17 +971,18 @@ NOTES:
 - And here's how we'd use the mixin
 - **ONE:** We used `React.createClass` to create our `Players` component
   - This is before ES6 classes & the React class component existed
-- And it took an optional `mixins` property to define 1 or more mixins
-  - **TWO:** Here we're using the `ImagesMixin` object which we just defined
-- `ImagesMixin` defines the `images` & `curPage` the state variables
-  - **THREE:** that we now can use to pass to the `<SlideShow />`
-- **FOUR:** And finally that `this.handleNextPage` helper is called when the slideshow changes
+- **TWO:** And it took an optional `mixins` property to define 1 or more mixins
+  - Here we're using the `ImagesMixin` object which we just defined
+- `ImagesMixin` defines the `images` & `curPage` state variables
+  - They just magically show up as available
+  - **THREE:** And we now can use to pass to the `<SlideShow />`
+- **FOUR:** And finally that `this.handleNextPage` helper is called when the slideshow paginates
   - Remember: this helper method was also defined in the `ImagesMixin`
 - As you can see there appears some magic happening
   - Kind of similar to the HOCs in a sense
   - It feels like the state is magically available
   - And we have to know that `handleNextPage` is also provided
-  - And that we should not use `updateImages`
+  - And that we should not use that private `updateImages` helper
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -991,10 +1018,11 @@ NOTES:
 
 NOTES:
 
-- Mixins kinda had the same problems as the HOCs that came after, but different flavors
+- Mixins had some challenges to say the least
 - 1/ ES Classes didn't support mixins
   - This was a biggie
   - The React team wanted to move to using ES classes instead of maintaining their own class system
+- They also kinda had the same problems as the HOCs that came after, but different flavors
 - 2/ Mixins had the same indirection problem as HOCs
   - A mixin might need the component to define a helper method/property or vice versa
   - The `handleNextPage` method in `ImageMixins` provided is an example of this
@@ -1002,7 +1030,7 @@ NOTES:
   - Furthermore, when there were multiple mixins it was hard to know where the state came from
 - 3/ Also there could be helper method name collisions
   - What if 2 mixins wanted to name a method `handleNextPage` or even `updateValue`?
-  - So we would have to namespace the method names to ensure they were unique
+  - So we would try to namespace the method names to ensure they were unique
 - These problems were so bad...
   - That eventually there was even an official React blog post entitled _Mixins Considered Harmful_
   - I've got a link at the end of the slides
@@ -1063,9 +1091,9 @@ NOTES:
 
 - Contrast that with the `useImages` Hook implementation
 - Which became the new way in 2019
-- There was quite a bit of churn in between in those 4 years
+- There was quite a bit of churn in between those 4 years
   - For those of us who were developing during that time
-- But I'll certainly take Hooks over Mixins
+- But I'll certainly take Hooks over Mixins any day, and twice on Fridays!
   - Makes me wonder where we'll be 4 years from now!
 
 =====
@@ -1125,4 +1153,5 @@ NOTES:
   - And if you've got other questions about React, I'll do my best to answer those too
 - But if you think of something later
   - Reach out to me on Twitter (@benmvp)
+  - That's always cool too
 - Thanks!
