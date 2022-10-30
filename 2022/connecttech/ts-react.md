@@ -135,6 +135,26 @@ NOTES:
 - I'm a Frontend Architect at Stitch Fix
 - Also a Google Developer Expert in Web Technologies
 
+/////
+
+<div style="display:flex;align-items:center;justify-content:space-around;">
+  <div style="flex:0 0 45%">
+    <img src="../../img/gde/experts-sticker-01.gif" alt="Google Developer Experts animation" class="plain" style=" background-color: #ddd; border-radius: 5px"/>
+  </div>
+  <div style="flex:0 0 45%; margin-left: 20px">
+    <img src="../../img/stitchfix/lockup-solid-vert-gender-neutral-light.svg" alt="Stitch Fix Corporate logo (light)" /class="plain" />
+  </div>
+</div>
+
+NOTES:
+
+- I'm a Google Developer Expert & currently a Frontend Architect Engineer at Stitch Fix
+- Stitch Fix is an online personal styling service
+  - Combines technology & data science
+  - With an actual human stylist
+  - Take the effort out of shopping by providing a selection of clothes picked just for you
+  - And sent to your door on a frequency that you choose
+
 =====
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -156,6 +176,7 @@ const App = (props: AppProps) => {
 </div>
 
 NOTES:
+
 - But enough about me
   * Let's dive into React + TS
 - One thing I want to make clear as we begin...
@@ -871,9 +892,6 @@ NOTES:
 NOTES:
 - I included links to lots of resources throughout the slides
   * But I've got some additional ones here for you
-- The most useful will likely be the first one
-  * The **React TypeScript Cheatsheet**
-  * Provides a lot of recipes for common situations
 - Also, I only talked about function components
   * Like I mentioned, you can use TS w/ class components too but hooks w/ functions are the future
   * However if you need class examples, some of the resources have them
