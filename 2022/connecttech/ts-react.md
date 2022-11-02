@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022) | [@connect_js](https://twitter.com/connect_js)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022) | [@connect_js](https://twitter.com/connect_js)</p>
 
   <br />
 
@@ -132,8 +132,7 @@ NOTES:
 - Christian, Husband, Father
 - _Family introductions_
 - We live in Pittsburg, CA (SF Bay Area)
-- I'm a Frontend Architect at Stitch Fix
-- Also a Google Developer Expert in Web Technologies
+  - But we're moving back home to Houston in 6 weeks!
 
 /////
 
@@ -142,7 +141,7 @@ NOTES:
     <img src="../../img/gde/experts-sticker-01.gif" alt="Google Developer Experts animation" class="plain" style=" background-color: #ddd; border-radius: 5px"/>
   </div>
   <div style="flex:0 0 45%; margin-left: 20px">
-    <img src="../../img/stitchfix/lockup-solid-vert-gender-neutral-light.svg" alt="Stitch Fix Corporate logo (light)" /class="plain" />
+    <img src="../../img/stitchfix/lockup-solid-vert-gender-neutral-light.svg" alt="Stitch Fix Corporate logo (light)" class="plain" />
   </div>
 </div>
 
@@ -154,6 +153,22 @@ NOTES:
   - With an actual human stylist
   - Take the effort out of shopping by providing a selection of clothes picked just for you
   - And sent to your door on a frequency that you choose
+
+/////
+<!-- .slide: data-background="url(../../img/giphy/trae-young-cold.gif) no-repeat center" data-background-size="contain"-->
+
+NOTES:
+
+- I love playing and watching basketball
+- I flew in last night and was seriously considering going to last night's game
+  - But we had the speakers had a dinner together
+- And unfortunately I booked my flight out tomorrow evening
+  - Before knowing there was a game tomorrow too!
+- But the Houston Rockets are my team!
+  - We're riding the struggle bus right now
+  - But we'll be back soon enough
+- And I'm excited I'm moving back home to Houston
+  - After 20 years in the Bay Area
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -968,6 +983,31 @@ NOTES:
   * But again I say stick to it being very strict
 - So I want you to keep in mind this thought from Jared from over 5 years ago at ReactConf
   * Maybe if your code is really hard to type check, the code itself is hard to understand
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/speakers/waller-goble.jpeg" alt="Waller Goble" class="speaker-headshot" />
+      <br />
+      Waller Goble
+    </p>
+
+    <h2>Typescript Deep Dive</h2>
+
+    <p>10:00a (Room ABE)</p>
+  </div>
+</div>
+
+NOTES:
+
+- Waller is going to real deep into TS tomorrow at 10am in Room ABE
+- So for those of you who already know TS
+  - But were hear to know more about how it connected to React
+  - Circle his talk on your schedule
+- We'll be learning about conditional types, mapped types, and more!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
