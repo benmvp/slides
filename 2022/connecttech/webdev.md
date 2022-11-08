@@ -24,7 +24,7 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- Welcome back from lunch!
+- Welcome back from lunch everyone!
 - **QUESTION: So how many of you were developing back in 1999?**
   - I bet there's someone who's like: "I wasn't even born in 1999"
 - Hoping to share a little about my dev story and walk down memory lane

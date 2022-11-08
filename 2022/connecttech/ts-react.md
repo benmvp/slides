@@ -24,12 +24,12 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
-- Hello there!
-- Excited and honored to be a part of the 10th anniversary of Connect.Tech
-  * So happy to be in person
+- Hello everybody!
+- I am excited and honored to be a part of the 10th anniversary of Connect.Tech
+  - So happy to be in person and see friends and hopefully make new ones
 - And welcome to "TypeScript + React = ❤️"
-  * Kinda wish I had used 🔥 instead
-  * Because that's how awesome I think the partnership is
+  - Kinda wish I had used 🔥 instead
+  - Because that's how awesome I think the partnership is
 
 - **Slides are available online**
 
@@ -52,16 +52,17 @@ NOTES:
 </div>
 
 NOTES:
+
 - But whenever we're talking about non-end-user features such as the coding language
   * We need to ask ourselves what exactly is the benefit?
   * Does this even matter?
-- Because if it's **not** a feature for the end user
+- Because IF it's **not** a direct feature **for** the end user
   * Then it **needs** to be a feature for the developer
   * So that _they_ can build faster, better or more reliably for the end user
-- Otherwise, we find ourselves bike-shedding
-- Kent C. Dodds wrote a blog post awhile that says exactly that
+- Otherwise, we find ourselves bike-shedding, right?
+- Kent C. Dodds wrote a blog post awhile back that says exactly that
   * We need to measure success based on how well we can deliver what the user wants
-  * Our choice of tooling should be based on that goal (and no more)
+  * Our choice of tooling should be based on that goal, and no more
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -96,13 +97,14 @@ NOTES:
 </div>
 
 NOTES:
+
 - So I'm gonna spend rest of our time showing TS features that can prevent these bugs
 - There's lots TS can do
   * But I am going to focus on TS for the React world
 - So as a heads up, I'm assuming that you have developed in React before
   * But you know little to no TypeScript
   * Even if you know lots of TS you'll get tons out of this
-  * But for those that don't know TS I will be explaining the concepts
+  * But for those that don't know TS I will be explaining the concepts as we go
 
 =====
 
@@ -147,7 +149,7 @@ NOTES:
 
 NOTES:
 
-- I'm a Google Developer Expert & currently a Frontend Architect Engineer at Stitch Fix
+- I'm a Google Developer Expert & currently a Frontend Architect at Stitch Fix
 - Stitch Fix is an online personal styling service
   - Combines technology & data science
   - With an actual human stylist
@@ -160,17 +162,32 @@ NOTES:
 NOTES:
 
 - I love playing and watching basketball
-- I flew in last night and was seriously considering going to last night's game
-  - But we had the speakers had a dinner together
-- And unfortunately I booked my flight out tomorrow evening
-  - Before knowing there was a game tomorrow too!
+- I flew in last night
+  - I was supposed to attend the speaker's dinner
+  - But instead I chose to see Trae Young and Giannis at the game
+- It's my goal to visit every arena in the NBA
 - But the Houston Rockets are my team!
-  - We're riding the struggle bus right now
+  - We're driving the struggle bus right now
   - But we'll be back soon enough
-- And I'm excited I'm moving back home to Houston
+- And I'm excited that my family & I are moving back home to Houston!
   - After 20 years in the Bay Area
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-start">
+  <div class="content-overlay">
+    <h1>1. Props</h1>
+  </div>
+</div>
+
+NOTES:
+
+- But you didn't come to hear about me
+  - You came for React & TypeScript
+- We'll start with how props typing works in TS
+
+/////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: flex-start">
@@ -192,17 +209,15 @@ const App = (props: AppProps) => {
 
 NOTES:
 
-- But enough about me
-  * Let's dive into React + TS
 - One thing I want to make clear as we begin...
 - A React component is just a function
 - There's nothing _really_ special about it
-- Takes props in and returns JSX
-- Can be treated & typed like any other TS function
-- To start off, you use an `interface` to define the props
-  * and it is the type of the `props` argument
+- It takes props in and returns JSX
+- So it can be treated & typed like any other TS function
+- To start off, you can use an `interface` to define the props
+  - And it becomes the TS type of the `props` argument
 - You can name `AppProps` anything you like
-  * I usually go with just `Props` but used `AppProps` here for greater clarity
+  - I usually go with just `Props` but used `AppProps` here for greater clarity
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -228,12 +243,14 @@ const App = (props: AppProps) => {
 </div>
 
 NOTES:
+
 - Ok, so the first benefit...
 - With TS, props **cannot** be used within a component without a definition
 - How many times have you had props in a component used w/o any `PropTypes` definition?
-- Here we're defining the `AppProps` interface saying it has 1 property called `message` (a string)
-  * This will be the one prop available to use in the `App` component
-- But in this case we're trying to use `props.loading` w/o defining in props
+- Here we're defining the `AppProps` interface w/ 1 property called `message` (a string)
+  * This prop will be the only prop available to use in the `App` component
+- But in this case we're trying to use `props.loading` w/o defining in `AppProps` interface
+  - So it fails the type checker
 - There are ESLint rules to catch this sort of thing, but they are limited
 
 /////
@@ -254,14 +271,16 @@ NOTES:
 
 
 NOTES:
+
 - Similarly, you can't pass a prop if it hasn't been defined either
 - How many times have you seen a prop being passed to a component
   * And it's not in the `PropTypes`
   * And it doesn't _seem_ to be used in the code
   * But you're afraid to remove it because... you're just not sure
-  * TypeScript gives us the confidence because it just wouldn't allow it
-- The error message can seem a bit cryptic to be honest
-  * But as you encounter them more often you'll get used to parsing them
+-TypeScript gives us the confidence to remove it
+  - Because it wouldn't have allowed it in the first place
+- Now the error message can seem a bit cryptic to be honest
+  * But as you encounter them more often, you'll get used to parsing them
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -284,19 +303,21 @@ but required in type 'AppProps'</code></pre>
 </div>
 
 NOTES:
+
+- Okay, #2
 - React `PropTypes` are optional by default
-- I used to see of examples where `PropTypes` are defined
+- I used to see plenty of examples where `PropTypes` are defined
   * But none of them are marked with `isRequired`
   * But if you look at the code and how they're used, the props are _definitely_ required
   * These are bugs waiting to happen
 - TypeScript interface properties are **required** by default
   * So without doing anything special you're guaranteed that the values will exist
-  * Nice!
-- Here we're defining the `AppProps` w/ 2 properties:
+  * Super nice!
+- Here we're defining the `AppProps` props w/ 2 properties:
   * `players` is a string array (think `PropTypes.arrayOf()`)
   * `count` which is a number
 - So if I call the component, leaving off a required prop (`count` in this case)
-- It will yell at me, and again not compile
+- The type checker will yell at me, and again not compile
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -325,9 +346,9 @@ NOTES:
 - However, we can use `?` to denote that a prop is optional
   * Which means its value is `undefined` when not passed
 - But based on how `App` is defined now...
-  * If I omit `count` when rendering `<App />`
-  * There's no error and it'll default to `2`
-  * That's how we do `defaultProps`
+  * If I omit `count` when rendering the `<App />` component
+  * There's no error this time and it's value will default to `2`
+  * That's how we do `defaultProps` in TypeScript
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -351,15 +372,21 @@ NOTES:
 
 
 NOTES:
+
+- Let's move on to our 3rd example
 - If we change the name of a prop, all the places using it **must** be updated
-  * Let's say the prop was originally `names`...
-  * But I later changed it to `players` w/in the `App` component
-  * We can search & replace to try to fix all the places
-  * But did we get them all? How can we be 100% sure?
-  * Well, TS will complain if we miss a spot
-  * It'll look something like this error below
+- This is kind of related to the first feature
+- So let's say the prop was originally `names`...
+  - But I later changed the `interface` definition **within** the `App` component to `players`
+  - i.e I refactored `App`
+- We can search & replace to try to fix all the places
+  - But did we get them all? How can we be 100% sure?
+  - Well, TS will complain if we miss a spot
+  - It'll look something like this error below
+  - And this is something ESLint just can't do
+  - It doesn't do cross-module typing
 - A derivative of this is when we simply mistype a prop
-  * TS will complain immediately as well
+  - TS will complain immediately as well
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -387,16 +414,22 @@ interface AppProps {
 
 NOTES:
 
+- Okay
+  - I) Forced our prop types to be defined
+  - II) We saw how prop values are required by default
+  - III) Prop refactors are easily caught
+- Let's look at the fourth feature
 - It's a lot of work to define a deeply nested shape
-  * Even with eslint rules prevent `PropTypes.object` we still find ways to "cheat"
+  * Even with eslint rules to prevent `PropTypes.object`, we can still find ways to "cheat"
   * There's nothing forcing the `PropTypes` to be 100% accurate
   * And typically we use `PropTypes.shape`
-  * When really we really we should use `PropTypes.exact` to warn on extra properties
+  * When we really should use `PropTypes.exact` to warn on extra properties
 - Here `AppProps` has one property: an object called `user`
   * But `user` itself is a complex object called `User`
   * It has 2 properties: `name` (a string) and `address` (yet another complext object)
-  * `Address` will no doubt have properties like `city`, `state`, etc
-  * And maybe `Address` itself will have complex objects "unsafe"
+  * `Address` will no doubt have many properties like `city`, `state`, etc
+  * And maybe `Address` itself will have complex objects
+  - So this `User` object is very deeply nested
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -407,11 +440,13 @@ NOTES:
 
     <pre class="large"><code class="lang-typescript">
 &lt;App
-  user={{ user: { name: 'Ben', addresses: { } } }}
+  user={{
+    user: { id: '1234', name: 'Ben', addresses: { } }
+  }}
 /&gt;
 
 </code></pre>
-    <pre class="large"><code class="lang-shell">Property 'name' does not exist on type
+    <pre class="large"><code class="lang-shell">Property 'id' does not exist on type
 'IntrinsicAttributes & User'.</code></pre>
     <div class="code-highlight" style="height: 70px; top: 287px;"></div>
   </div>
@@ -420,18 +455,19 @@ NOTES:
 
 NOTES:
 
-- So in this example, we can't access properties off the `user` prop unless we define what they are
-  * So if we decide to rename `name` in `User` to `fullName`
-  * We'll get TS errors in the `App` component
+- So we can't pass properties of the `user` prop
+  - Unless we define them in `AppProps`
+- So if we try to pass extra props that don't exist
+  - We'll get TS errors
+  - In this case `id` doesn't exist w/in `App`
+  - Maybe we _removed_ `id` and now it fails
 - So TS continues to be very beneficial in refactors
-- Also if the JSX tries to pass additional props
-  * It'll be an error
 - By forcing us to define the entire nested object...
-  * TS is now getting in our way, let me be real
-  * It can be a pain and sometimes; we'd rather be lazy
-- But after doing this over and over and getting used to
-  * We also get used to the safety it provides
-  * Going back to a JavaScript-only project starts to feel...
+  - TS is now getting in our way, I wanna keep it real
+  - It can be a pain and sometimes; we'd rather be lazy
+- But after doing this over and over and getting used to it
+  - We also get used to the safety it provides
+  - Going back to a JavaScript-only project starts to feel "unsafe"
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -455,11 +491,14 @@ Input.propTypes = {
 
 
 NOTES:
+
 - Ok, this last one is probably my favorite
+  - So listen in carefully
 - Let's say one of our props is a function
   * Typically these are callback functions that are called after a user event
   * Here ours is called `onChange`
 - With React prop types, all we get is `PropTypes.func` for functions
+  - And we can use `.isRequired` if we're really diligent
 - There's nothing that tells the consumer of the component...
   * What parameters the function will pass when called
   * Or if it expects anything returned
@@ -485,22 +524,24 @@ const Input = ({ name, value, onChange }: Props) => {
 </div>
 
 NOTES:
-- Now with TS we have to define both the arguments as well as return value
-- Here we're defining `onChange` to be a function
-  * It'll give the consumer a single parameter, a `string`
+
+- Now with TS we have to define both the arguments as well as return value of a function
+- Here we're defining `onChange` not only to be a function
+  * But It'll also give the consumer a single parameter, a `string`
   * AND that function **must not** return anything
   * That's signified by the `void` type
 - And once again, if we decide to add a 2nd param to `onChange`
   * Or change the types
   * TS will error unless we fix **all** the places
 - How many times have you forgotten to change a function handler in some places?
-  * And they are usually called as a result of user interaction
+  * And they usually are called as a result of user interaction
   * Meaning we're much less likely to hit the error while manually testing
   * We have to rely on great test coverage
   * And we all know how that goes...
-- And if you're wondering about the strange syntax for `variant`...
+- Also if you're wondering about the strange syntax for the `variant` prop...
   * The pipe creates what is technically called a "union type"
   * But we can think of it as `PropTypes.oneOf()`
+  - `variant` can either be `'filled'` or `'outlined'`
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/mixing-console-abigail-keenan-QdEn9s5Q_4w-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -522,9 +563,9 @@ NOTES:
   * VS Code is a free, open-source code editor that runs on all platforms
 - It auto-completes props & prop values as you type
   * They call it "IntelliSense"
-- Shows errors inline without even having to leave the editor
+- It shows errors inline without even having to leave the editor
   * So it shortens the feedback loop
-- It has the refactor option
+- It also has the refactor option
   * So when we want to change the name of the prop
   * It'll update all the use cases for us!
 - I couldn't imagine writing TS without VS Code
@@ -543,12 +584,12 @@ NOTES:
 
 NOTES:
 
-- The biggest unique difference with TS + React is with props
-  * Because that's the biggest unique aspect of React
-  * And for React function components everything I described is basically standard for typing functions
-  * Those functions just happen to be React components
-  * Therefore the error reporting happens in JSX
-- The rest of React is really just regular TS vs JS
+- So the biggest unique difference with TS + React is with props
+  - Because that's the biggest unique aspect of React
+  - And for React function components everything I described is basically standard for typing functions in general
+  - Those functions just happen to be React components
+  - Therefore the error reporting happens in JSX
+- The rest of React is really just totally regular JS vs TS
 - But let's talk about some hooks
 
 /////
@@ -577,21 +618,22 @@ NOTES:
 NOTES:
 
 - Our props are now fully type-safe so it's important that our state is too
-  * So when types are refactored, we can ensure that everything is still correct
+  - So when types are refactored, we can ensure that everything is still correct
 - **ONE:** Generally you don't need to do any special typing with `useState`
-  * It can infer the type from the initial value
-  * This is what's called **type inference**
-- In this case TS infers that `count` is a `number` from the value `0`
-  * **TWO:** `setCount` is a function that accepts a `number`
-  * So you can't accidentally pass in a `string` or `boolean`
-  * Here I'm using an updater function in `setCount` because the next value depends on the previous value
-  * Even the updater function is typed such that `prevCount` is a number
-  * And the return value also **must** be a `number` as well
+  - It can infer the type from the initial value that we pass in
+  - This is what's called **type inference**
+- In this case, TS infers that `count` is a `number` from the value `0`
+  - **TWO:** `setCount` is second value from `useState`
+  - It is a function that accepts a `number`
+  - So we can't accidentally pass in a `string` or `boolean` or some other type
+  - Here I'm using an updater function in `setCount` because the next value depends on the previous value
+  - Even the updater function is typed such that `prevCount` param is also a number
+  - And the return value also **must** be a `number` as well
 - If I pass anything that's not a number or try to do non numeric operations on the state
-  * I get an error of course
+  - I get an error of course
 - But take a look at this code
-  * **There area no typescript types**
-  * Yet it's fully type-safe
+  - **There area no Typescript types**
+  - Yet it's fully type-safe
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -618,11 +660,11 @@ return user ? &lt;User user={user} /&gt; : null</code></pre>
 
 NOTES:
 
-- However if the initial value is `null` you'll need to declare the type
-  * Same situation if the initial value is one type of a union of types
-- We specify the type of the state using the angle bracket syntax for Generics
-  * The type can either be a `User` object or `null`
-  * If you're unfamiliar with Generics, I included a link to a great video from Harry Wolff
+- However if the initial value is `null`, we'll need to declare the type
+  - Same situation if the initial value is one type of a union of types
+- We specify the type of the state using the angle bracket syntax for **TS Generics**
+  - The type can either be a `User` object or `null`
+  - If you're unfamiliar with Generics, I included a link to a great video from Harry Wolff
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -648,17 +690,17 @@ signature '(): void | undefined'.</code></pre>
 
 NOTES:
 
-- I know `useEffect` is supposedly taboo now
-  * But we all still use it
+- I know `useEffect` is considered taboo now by some
+  - But we all still use it, right?
 - There's not too much type with `useEffect`...
-  * Since it just takes in a function
+  - Since it just takes in a function with no args
 - But it does ensure you only return a clean-up function
-  * And don't accidentally return something else
-  * This example looks almost similar to the example we just saw
+  - And don't accidentally return something else
+  - This example looks almost similar to the example we just saw
 - Except it's using an implicit return (parentheses vs. curly braces)
-  * Which means because we're accidentally returning a `Promise`
-  * We'll get a compilation error like you see here
-  * React does also warn about this a run-time & there's an eslint rule to catch it
+  - Which means we're accidentally returning a `Promise`
+  - So we'll get a compilation error like you see here
+  - React does also warn about this a run-time & there's an eslint rule to catch it
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/anchor-hooks-chuttersnap-f2LYxnmnKxI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -687,21 +729,24 @@ NOTES:
 NOTES:
 
 - In general custom hooks are just regular functions
-  * So you would type them like any TS function
+  - So you would type them like any TS function
 - However it's common in hooks to return a tuple just like `useState`
-- In which case you'll want to use an `as const` assertion
-  * Otherwise type inference will incorrect guess the type
-- We are returning a 2-element array
-  * Where the first element is a `User` object
-  * And the second element is a `function` that takes a `string` returns `void`
-- By default TS will infer an array of strings or functions
-  * When we use array destructuring after calling `useUser`
-  * Our types wouldn't be what we expect
+  - In which case you'll want to use what's called a `const` assertion
+  - Otherwise type inference will incorrect guess the type
+- Lemme see if I can try to explain this w/o being in the editor itself
+- We are returning a 2-item array
+  - Where the first item is a `User` object
+  - And the second item is a `function` that takes a `string` returns `void`
+- By default TS will infer this an array of strings or functions
+  - Any item can be an `string` and any item can be a `function`
+  - When we use array destructuring after calling `useUser`
+  - Our types wouldn't be what we expect
+  - A string first and an array second
 - But with our `const` assertion in place
-  * We get all the similar type safety we get from `useState`
+  - We get all the similar type safety we get from `useState`
 - We _could_ define a return type for `useUser`
-  * And in this case the type would be rather simple
-  * But when complex objects are returned that could get really annoying
+  - And in this case the type would be rather simple
+  - But when complex objects are returned that _could_ get really cumbersome
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -715,13 +760,13 @@ NOTES:
 NOTES:
 
 - Phew...
-- So I wanna return back to discussing props
-  * But talk about some advanced patterns that can be really helpful
-  * They are more complex, so they do require more TS
+- So I wanna use our remaining time & return back to discussing props
+  - But this time talk about some advanced patterns that can be really helpful
+  - They are more complex, so they do require deeper TS understand
 - If you've been like "yeah, yeah, I know this stuff"
-  * These may pique your interest
-  * They are cases you may find yourself in
-  * Let's jump in!
+  - These patterns may pique your interest
+  - They are cases you may find yourself in
+  - Let's jump in!
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -750,9 +795,12 @@ NOTES:
 - Let's say you have `<Text>` component that allows you to truncate text with a `truncate` prop
 - It also has a `showExpand` prop to provide a link to click to expand the truncated text
 - The `showExpand` prop doesn't make sense w/o the `truncate` prop
-  * So you want to make that configuration an error right?
-  * It's a much better developer experience for users of the `<Text>` component
-- So how do we make this happen?
+  - So you want to make that configuration an error right?
+  - It's a much better developer experience for users of the `<Text>` component
+  - We want invalid combinations to be caught as early as possible
+- Now we _could_ combine these two propers into an object
+  - But IMO from a developer experience specifying flat props is easier
+- So how do we make this setup happen?
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -786,20 +834,25 @@ const Text = (props: Props) => {
 
 NOTES:
 
-- There are a couple of ways you can set this up
-  * This is my preferred approach
-- **ONE:** First you define your `CommonProps`
-  * This has all the props that will always exist
-- **TWO:** Then `TruncateProps` type is what's called a "discriminating union"
-  * Basically means a bunch of object unions
-- **THREE:** First is for when the `truncate` prop is `false` or `undefined` (i.e. unspecified)
-  * In this case, you set `showExpanded` to be `undefined`
-  * Translation: `showExpanded` cannot be set when `truncate` is `false` or `undefined`
-- **FOUR:** Second is for when the `truncate` prop is specifically set to `true` and only `true`
-  * And in this case `showExpanded` is an optional `boolean`
-  * We're allowed to make this extra configuration
-- **FIVE:** Then `Props` is the intersection or combination of `CommonProps` & `TruncateProps`
+- Well I'm glad you asked!
+- There are a couple of ways we can set this up
+  - This is my preferred approach
+- **ONE:** First we define our `CommonProps`
+  - This has all the props that will always exist
+  - Basically the normal props we talked about earlier
+- **TWO:** Then the `TruncateProps` type is what's called a **discriminating union**
+  - Basically it means a bunch of object unions
+- **THREE:** The first union is when the `truncate` prop is `false` or `undefined` (i.e. unspecified)
+  - In this case, we set `showExpanded` to be `undefined`
+  - Translation: `showExpanded` cannot be set when `truncate` is `false` or `undefined`
+- **FOUR:** The second is when the `truncate` prop is specifically set to `true` and only `true`
+  - And in this case `showExpanded` is an optional `boolean` (the `?` remember)
+  - We're allowed to make this extra configuration with `showExpaned`
+- **FIVE:** Then `Props` is the intersection (or combination) of `CommonProps` & `TruncateProps`
 - **SIX:** And finally in the code both `truncate` & `showExpanded` are typed as optional booleans
+- Don't worry if you didn't catch all of that
+  - I have included a link to a blog post I wrote that walks through all of this
+  - So you can read and learn at your leisure
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -824,17 +877,18 @@ NOTES:
 
 NOTES:
 
-- Let's look at another advanced pattern
-- Let's say I've got my `<Button>` component that's a wrapper over HTML `<button>`
-- It has some props to control the visual design (`variant` & `size`)
-  * But I also want to support all of the `<button>` props
-  * Like `type`, `onClick`, `disabled`, etc.
-  * And of course have them all type checked
+- Ok! On to the next one, shall we?
+- Let's say I've got my `<Button>` component that's a wrapper over the HTML `<button>`
+- It has some props to control the visual design (`variant` & `size`),
+  - But I also want to support all of the `<button>` props
+  - Like `type`, `onClick`, `disabled`, etc.
+  - And of course we want them all type checked 😀
 - We already do this sort of thing without TS
-  * Pass along unknown props to the underlying `<button>` element
+  - Pass along unknown props to the underlying `<button>` elements
 - But there's no validation in vanilla JS
-  * So I could pass any prop
-  * Relying on the runtime error from React to tell me whether or not this prop is invalid on `<button>`
+  - So we could pass any prop
+  - And rely on the runtime error from React
+  - To tell me whether or not this prop is invalid on `<button>`
 
 /////
 <!-- .slide: data-background="url(../../img/ts-react/electric-cables-john-barkiple-l090uFWoPaI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -843,13 +897,13 @@ NOTES:
   <div class="content-overlay">
     <h2>II) Extending HTML components</h2>
 
-    <pre class="large"><code class="lang-typescript">interface NewProps {
+    <pre class="large"><code class="lang-typescript">interface ExtraProps {
   variant: 'primary' | 'secondary'
   size: 'default' | 'small' | 'large'
 }
 
-type Props = NewProps
-  & Omit&lt;React.ComponentProps&lt;"button"&gt;, keyof NewProps&gt;
+type Props = ExtraProps
+  & Omit&lt;React.ComponentProps&lt;"button"&gt;, keyof ExtraProps&gt;
 
 const Button = ({ variant, size, ...buttonProps }: Props) => {
   // do stuff with variant & size
@@ -867,21 +921,132 @@ const Button = ({ variant, size, ...buttonProps }: Props) => {
 NOTES:
 
 - Instead, this is what the TypeScript definitions could look like
-  * Again, there are several ways to accomplish this
-- **ONE:** You first define whatever are the new props as `NewProps`
-  * In this case, `variant` & `size`
-- **TWO:** Then we want to define `Props` as the intersection of `NewProps` & `<button>` element props
-  * But there may be a chance that the `<button>` element already has `variant` or `size` props
-  * In which case we want to override those props
-  * But when there are name collisions, weird things happen in TS
-  * So we want all the `<button>` element props **except** the new ones we're defining
-  * **THREE:** We use `keyof` to get all the prop names of `NewProps`
-  * Then we remove or omit those props using the `Omit<>` utility generic
-  * **FOUR:** Then finally we merge in our `NewProps`
-- **FIVE:** Then in the component code we can spread `buttonProps` like we always do
-  * Except `buttonProps` is fully typed
-  * So users of `<Button>` wouldn't be able to specify an `href` prop for instance
-  * But we'll get auto-completion for `disabled`, `type`, and other props
+  - Again, there are several ways to accomplish this
+- **ONE:** We first define whatever are the extra props as `ExtraProps`
+  - In this case, `variant` & `size`
+- **TWO:** Then we want to define `Props` as the intersection of `ExtraProps` & `<button>` element props
+  - But there may be a chance that the `<button>` element already has `variant` or `size` props
+  - In which case we want to override those props
+  - But when there are name collisions, weird things happen in TS
+  - I have yet to figure the reason for this
+  - So if anyone knows, I'd love to find out!
+- So we want all the `<button>` element props **except** the extra ones we're defining
+  - **THREE:** We use TS `keyof` to get all the prop names of `ExtraProps`
+  - Then we remove or omit those props using the `Omit<>` TS utility generic
+- **FOUR:** Next we merge in our `ExtraProps` with another union
+- **FIVE:** Then finally in the component code we can spread `buttonProps` like we always do
+  - Except now `buttonProps` is fully typed
+  - So consumers of `<Button>` wouldn't be able to accidentally specify an `href` prop for instance
+  - But they'll get auto-completion for `disabled`, `type`, and other props
+- I've provided a link here to all the TS utility types w/ their descriptions & examples
+- But also at the end I have a link to another blog post
+  - That breaks this all down
+
+=====
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 50%">
+    <h2>TypeScript is not a cure-all!</h2>
+  </div>
+</div>
+
+NOTES:
+
+- I know I've been super excited about TS
+  - About how it catches & prevents so many errors
+  - And how it'll solves lots of problems
+  - But it's not a cure-all
+- It's just a tool like anything else
+  - So we'll still need code review
+  - We'll still need to _write tests_ for run-time things like data APIs
+  - But hopefully we'll need less of them
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 50%">
+    <h2>Do I have to switch over all at once?</h2>
+  </div>
+</div>
+
+NOTES:
+
+- One question I always get
+  - Do I have to switch over to TS all at once?
+- Thanks the answer: NO! Not at all
+- I always advise against big rewrites anyway
+  - Again, the whole purpose is to deliver a better quality app for our users
+  - IMO us spending weeks/months rewritting in TS is not providing enough value
+- I suggest taking it component by component
+  - With a Babel setup, an existing JS component _can_ import a TS component no-problem
+  - But we'll want to try to avoid the reverse, however
+  - A TS component won't be able to get any type information from a JS component
+- There are many schools of thought on the TS configuration itself
+  - But my opinion is that if we're gonna bother using TS we should go **all in**
+  - So being _as strict as possible_, don't allow the `any` type
+  - There are many settings in the TS config and I suggest the highest level of strictness
+- Also I suggest starting with migrating utilities/helpers first
+  - Those with little to no dependencies
+  - Then work our way outwards
+  - The top-level App component would likely be last
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: flex-end">
+  <div class="content-overlay" style="width: 85%">
+    <a href="https://twitter.com/benmvp/status/841412246957785088" target="_blank">
+      <img src="../../img/ts-react/jared-forsyth-type-check-tweet.png" alt="A screenshot of a tweet from Jared Forsyth at ReactConf about type checking" class="plain" />
+    </a>
+  </div>
+</div>
+
+NOTES:
+
+- Another heads up!
+- You may find ourselves _fighting_ TypeScript
+  - We're trying to type some code, but TS typing just isn't working
+  - We just "know" it works, but TS is still complaining
+  - This is definitely going to happen
+- But Remember with TS we're signing up for it to make our code more strict
+  - Even if at run-time a certain case will "never" happen
+  - Some people at this point suggest just making types loose
+  - And moving on
+  - At times, that's all we can do
+  - But again I say for the vast majority of times stick to it being very strict
+- So I want you to keep in mind this thought from Jared from over 5 years ago at ReactConf
+  - Maybe if your code is really hard to type check, the code itself is hard to understand
+  - Depending on the quality (or lack thereof)...
+  - The JS code itself will likely need to be written differently to be type-safe
+  - It's rarely just a matter of adding types
+
+/////
+<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/speakers/waller-goble.jpeg" alt="Waller Goble" class="speaker-headshot" />
+      <br />
+      Waller Goble
+    </p>
+
+    <h2>Typescript Deep Dive</h2>
+
+    <p>10:00a (Room ABE)</p>
+  </div>
+</div>
+
+NOTES:
+
+- Waller is going real deep into TS tomorrow at 10am in Room ABE
+- So for those of you who already know TS
+  - But were here to see how it connected to React
+  - Circle his talk on your schedule
+  - To learn even more about TS
+- We'll be learning about conditional types, mapped types, and more!
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -905,109 +1070,12 @@ NOTES:
 </div>
 
 NOTES:
-- I included links to lots of resources throughout the slides
-  * But I've got some additional ones here for you
-- Also, I only talked about function components
-  * Like I mentioned, you can use TS w/ class components too but hooks w/ functions are the future
-  * However if you need class examples, some of the resources have them
 
-=====
-<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 50%">
-    <h2>TypeScript is not a cure-all!</h2>
-  </div>
-</div>
-
-NOTES:
-- I know I've been super excited about TS
-  * How it catches & prevents so many errors
-  * And how it'll solves lots of problems
-  * But it's not a cure-all
-- It's just a tool like anything else
-  * So you'll still need code review
-  * Still need tests for run-time things
-  * But hopefully you'll need less of both
-
-/////
-<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 50%">
-    <h2>Do I have to switch over all at once?</h2>
-  </div>
-</div>
-
-NOTES:
-
-- One question I always get
-  * Do I have to switch over all at once?
-- The answer: NO! Not at all
-- I always advise against big rewrites anyway
-  * Again, the whole purpose is to deliver a better quality app for your users
-  * You spending weeks/months rewritting in TS is not providing value
-- I suggest taking it component by component
-  * With a Babel setup, a JS component can import a TS component no-problem
-  * But you'll want to try to avoid the reverse, however
-  * A TS component won't be able to get any type information from a JS component
-- There are many schools of thought
-  * But my opinion is that if you're gonna bother using TS you should go **all in**
-  * So be _as strict as possible_, don't allow the `any` type
-  * There are many settings in the TS config and I suggest the highest level of strictness
-- Also I suggest starting with migrating utilities/helpers first
-  * Those with little to no dependencies
-  * Then work your way outwards
-  * The top-level App component would likely be last
-
-/////
-<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: flex-end">
-  <div class="content-overlay" style="width: 85%">
-    <a href="https://twitter.com/benmvp/status/841412246957785088" target="_blank">
-      <img src="../../img/ts-react/jared-forsyth-type-check-tweet.png" alt="A screenshot of a tweet from Jared Forsyth at ReactConf about type checking" class="plain" />
-    </a>
-  </div>
-</div>
-
-NOTES:
-
-- Another heads up!
-- You may find yourself _fighting_ TypeScript
-  * You're trying to type some code, but it just isn't working
-  * You "know" it works, but TS is complaining
-  * This is definitely going to happen
-  * Remember with TS you're signing up for it to make your code more strict
-  * Some people at this point suggest just making your types loose
-  * But again I say stick to it being very strict
-- So I want you to keep in mind this thought from Jared from over 5 years ago at ReactConf
-  * Maybe if your code is really hard to type check, the code itself is hard to understand
-
-/////
-<!-- .slide: data-background="url(../../img/ts-react/medicine-pills-wengang-zhai-BFB7ydn1-DI-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/speakers/waller-goble.jpeg" alt="Waller Goble" class="speaker-headshot" />
-      <br />
-      Waller Goble
-    </p>
-
-    <h2>Typescript Deep Dive</h2>
-
-    <p>10:00a (Room ABE)</p>
-  </div>
-</div>
-
-NOTES:
-
-- Waller is going to real deep into TS tomorrow at 10am in Room ABE
-- So for those of you who already know TS
-  - But were hear to know more about how it connected to React
-  - Circle his talk on your schedule
-- We'll be learning about conditional types, mapped types, and more!
+- So like I mentioned
+  - I already included links to lots of resources throughout the slides
+  - But I've got some additional ones here for you
+- Not to be self-seeking
+  - But I have are a number of blog posts that go into more detail
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1029,12 +1097,12 @@ NOTES:
 NOTES:
 
 - And that's it!
-- Hopefully you found this quick look at TypeScript in React insightful
-  * And it's motivated you to use TS in your next (or current) React project
-- Shout out again to Pratik & Vincent for continuing to put this together
-  * And of course for you all attending
-  * It's my hope that you'll be inspired to speak and share your knowledge as well
+- Hopefully you found this quick tour on TypeScript in React insightful...
+  - And that it's motivated you to use TS in your next (or current) React project
+- I wanna give a shout out to Pratik & Vincent for continuing to put Connect.tech together
+  - And of course for you all attending
 - Again, the slides are already available online
-- Ask questions on Twitter (@benmvp)
+- If you've got questions, feel free to find me throughout the rest of the conference
+  - Or hit me up on Twitter (@benmvp)
 - Thanks!
-- Hope you enjoy the rest conference!
+- And enjoy the rest conference!
