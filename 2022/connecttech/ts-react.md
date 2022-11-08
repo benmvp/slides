@@ -33,12 +33,12 @@ NOTES:
 
 /////
 
-<a href="https://benmvp.com/ct-ts-react/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
+<a href="https://benmvp.com/ct-ts-react?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
   <img src="../../img/qrcodes/connecttech-2022-ts-react.svg" style="width: 40%" alt="QR code for &quot;TS + React = ❤️&quot; talk" class="plain" />
 </a>
 
 <p>
-  <a href="https://benmvp.com/ct-ts-react/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
+  <a href="https://benmvp.com/ct-ts-react?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
     benmvp.com/ct-ts-react
   </a>
 </p>
