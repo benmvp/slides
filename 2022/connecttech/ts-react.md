@@ -31,9 +31,22 @@ NOTES:
   - Kinda wish I had used 🔥 instead
   - Because that's how awesome I think the partnership is
 
-- **Slides are available online**
+/////
 
-**RESTART THE TIMER!!!!**
+<a href="https://benmvp.com/ct-ts-react/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
+  <img src="../../img/qrcodes/connecttech-2022-ts-react.svg" style="width: 40%" alt="QR code for &quot;TS + React = ❤️&quot; talk" class="plain" />
+</a>
+
+<p>
+  <a href="https://benmvp.com/ct-ts-react/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
+    benmvp.com/ct-ts-react
+  </a>
+</p>
+
+
+NOTES:
+
+- **Slides are available online**
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -126,7 +139,7 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 65%">
-    <img src="../../img/family/ilegbodu-family-photo-2022.jpg" alt="Ilegbodu family photo in 2022" />
+    <img src="../../img/family/family-domagalski-wedding-photobooth.jpg" alt="Photobooth photos of Ilegbodu family at Drew &amp; Kamala's wedding" />
   </div>
 </div>
 
