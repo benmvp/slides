@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022) | [@connect_js](https://twitter.com/connect_js)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022) | [#ConnectTech2022](https://twitter.com/hashtag/connecttech2022)</p>
 
   <br />
 
