@@ -51,7 +51,7 @@ NOTES:
 NOTES:
 
 - I want to let you know that the slides are already available online
-  - So if you want to follow along or can't see well from the back, you're good
+  - So if you want to follow along or can't see well from the back, I've got you covered
 - You can use this handy dandy QR code that'll take you to the slides
 - You can go to my website, benmvp.com, and find them there
 - Or I've already tweeted a link to the slides as well
@@ -192,6 +192,7 @@ NOTES:
   - No building necessary 😂
 - It's at https://bgo.benmvp.com/
   - Feel free to follow this QR code to see it & seriously judge me
+  - Heads up: it's gonna look terrible on your phone
 - The code itself is at: https://github.com/benmvp/bgo
 
 /////
@@ -274,7 +275,7 @@ NOTES:
 
 NOTES:
 
-- I'm a Google Developer Expert & currently a Frontend Architect Engineer at Stitch Fix
+- I'm a Google Developer Expert & currently a Frontend Architect at Stitch Fix
 - Stitch Fix is an online personal styling service
   - Combines technology & data science
   - With an actual human stylist
@@ -391,6 +392,7 @@ NOTES:
 NOTES:
 
 - Talking about `<frameset>`!
+  - **QUESTION: Anybody here use `<frameset>` before?**
 - Before I even try to explain the code, take in this HTML!
   - No it's not React 😂
 - And it's in ALL-CAPS
@@ -578,6 +580,7 @@ NOTES:
 - I'm really hoping you had a chance to catch Scott's Flexbox & Grid talk
   - It was right in this room _before_ lunch at 11:30
 - He showed us how we can use both Flexbox & CSS Grid effectively
+  - It was crazy how modern it was vs what we were doing 20 years ago
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1226,6 +1229,6 @@ NOTES:
 - You can ask me questions on Twitter (@benmvp) or find me afterwards
 - I hope you enjoyed our ride in the wayback machine
   - Hopefully it gives us all an appreciation for where we've come from
-  - Next time we wanna complain about flexbox or weird property names
-  - Remember the spacer.gif
+- Next time we wanna complain about missing CSS features we wish would exist...
+  - Remember the spacer gif
 - Thanks!
