@@ -11,7 +11,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022) | [@connect_js](https://twitter.com/connect_js)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022) | [#ConnectTech2022](https://twitter.com/hashtag/connecttech2022)</p>
 
   <br />
 
@@ -26,14 +26,36 @@ NOTES:
 
 - Welcome back from lunch everyone!
 - **QUESTION: So how many of you were developing back in 1999?**
-  - I bet there's someone who's like: "I wasn't even born in 1999"
-- Hoping to share a little about my dev story and walk down memory lane
+  - I bet there's someone who's like: "I wasn't even born in 1999!"
+- So I'm hoping to share a little about my dev story and walk down memory lane
   - Or have a history lesson for most of you
 - We'll hopefully learn some new things along the way
   - And appreciate where we are, based on where we've come from
-- Not try to wreck your brain too much right after lunch
+- If you attend my React w/ TypeScript talk yesterday...
+  - This is a _completely_ different type of talk
+- I'm also not try to wreck your brain too much right after lunch
 
-- **Slides are available online**
+/////
+
+<a href="https://benmvp.com/ct-webdev?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
+  <img src="../../img/qrcodes/connecttech-2022-webdev.svg" style="width: 40%" alt="QR code for &quot;Let's web dev like it's 1999!&quot; talk" class="plain" />
+</a>
+
+<p>
+  <a href="https://benmvp.com/ct-webdev?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2022" target="_blank">
+    benmvp.com/ct-webdev
+  </a>
+</p>
+
+
+NOTES:
+
+- I want to let you know that the slides are already available online
+  - So if you want to follow along or can't see well from the back, you're good
+- You can use this handy dandy QR code that'll take you to the slides
+- You can go to my website, benmvp.com, and find them there
+- Or I've already tweeted a link to the slides as well
+- So you're covered with **four** different ways to access the slides!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
@@ -41,10 +63,11 @@ NOTES:
 NOTES:
 
 - My first programming language I learned was `BASIC`
-  - Summer program in '98
+  - Summer program in 1998
 - Used that skill to build "apps" for my TI-83 calc in high school
-  - Would type is manually on the calculator using T9
-  - Built math apps to help check answers on math homework & tests
+  - **QUESTION:** Any users of any of the TI calculators?
+- So I would manually type on the calculator using T9
+  - And I built math apps to help check answers on math homework & tests
   - That's not cheating right?
 
 /////
@@ -54,13 +77,42 @@ NOTES:
 
 - Started sharing my apps online
   - No Github, no App store
-- Folks would ask how to write TI apps
+  - Just various sites where we could share apps
+- And folks would ask how to write TI apps
 - So I started writing TI calculator tutorials
 - Initially I wrote them as Windows Help Applications
-  - Kind of like a hypercard system where you can link screens
+  - Kind of like a hypercard system where you can link screens together
   - Generated a `.hlp` file
   - Hard to distribute
 - Quickly realized the web was a better way to distribute...
+
+/////
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 75%">
+    <a href="http://bgo.benmvp.com/" target="_blank">
+      <img src="../../img/webdev/bgo-geocities-2001-screenshot-top.png" style="width: 100%" alt="Basic Guru Online Geocities circa 2001 Screenshot" />
+    </a>
+  </div>
+</div>
+
+
+NOTES:
+
+- So naturally I created a website
+- I went into the Wayback Machine and found my very first site
+  - Isn't it beautiful?
+- I uilt "Basic Guru Online" as a Geocities website
+  - (because apparently I was a "guru" at 16)
+  - Geocities was like THE hosting service of the day
+  - There was also Angelfire & Tripod
+  - I'm talking early 2000
+- BGO was like a full web application
+  - Geocities handled all the backend with various plugins
+- Now we have sophisticated deployment processes
+  - But back then, I pushed new static files directly to their servers
+  - Using FTP (File Transfer Protocol)
+  - No source control
 
 /////
 
@@ -74,40 +126,23 @@ NOTES:
 <div class="code-highlight fragment current-visible" style="height: 70px; top: 607px; left: 1400px; width: 490px"></div>
 <div class="code-highlight fragment current-visible" style="height: 140px; top: 747px; left: 50px; width: 1320px"></div>
 
-
 NOTES:
 
-- So naturally I created a website
-- Went into the Wayback Machine and found my very first site
-  * Isn't it beautiful
-- Built "Basic Guru Online" as a Geocities website
-  * (because apparently I was a "guru" at 16)
-  * Geocities was like THE hosting service of the day
-  * There was also Angelfire & Tripod
-  * Talking early 2000
-- BGO was like a full web application
-  * Geocities handled all the backend
-- Now we have sophisticated deployment processes
-  * But back then, I pushed new static files directly to their servers
-  * Using FTP (File Transfer Protocol)
-  * No source control
-
-----
-
-- **ONE:** Definitely created the logo in Microsoft Paint using PowerPoint clip-art + Comic Sans
-  * Comic Sans was 🔥 back then
-- **TWO:** Trusty-dusty hit counter (broken)
-  * No need for Google Analytics! 😂
+- So I wanna just quickly walk through the interesting parts of the website
+- **ONE:** I definitely created the logo in Microsoft Paint using PowerPoint clip-art + Comic Sans
+  - Comic Sans was 🔥 back then
+- **TWO:** I had a trusty-dusty hit counter (broken)
+  - No need for Google Analytics! 😂
 - **THREE:** Current date display still works
-  * For some reason I thought that was necessary
-  * This is why JS is backwards compatible - so my 20yo site still works
+  - For some reason I thought that was necessary
+  - This is why JS is backwards compatible - so my 20yo site still works
 - **FOUR:** According to the Recent Updates
-  * I had at least 70 members!
-- **FIVE:** I suggested using AOL to view the page
-  * "Should be okay" using Internet Explorer or Netscape Navigator
-  * Best viewed on an 800x600 res monitor!
-  * Used `<table>` for 2-column layout
-  * Still "responsive" nearly 20 years later!
+  - I had at least 70 members!
+- **FIVE:** I suggested using the AOL browser to view the page
+  - It "should be okay" using Internet Explorer or Netscape Navigator
+  - Best viewed on an 800x600 res monitor!
+  - Used `<table>` for 2-column layout
+  - Still "responsive" nearly 20 years later!
 
 /////
 
@@ -121,26 +156,52 @@ NOTES:
 
 NOTES:
 
-- **ONE:** Weekly poll asks about internet connect speed
-  - Wish I still had the results
+- At the bottom of the page...
+- **ONE:** There was a weekly poll
+  - I guess at the time the Wayback Machine crawled the site...
+  - I was asking about internet connection speed
+  - I really wish I still had those results
 - **TWO:** The bottom frame was fixed height
   - Main section filled rest of the window
   - More on this in a bit
 - Surprisingly, I didn't use `<marquee>` or `<blink>` tags
-- I was going through my backup hard drive the other day
-  - Found a version of the old code
-  - Put it on Github and hosted it on Vercel
+
+/////
+
+<a href="https://bgo.benmvp.com/" target="_blank">
+  <img src="../../img/qrcodes/basic-guru-online.svg" style="width: 40%" alt="QR code for old Basic Guru Online website" class="plain" />
+</a>
+
+<p>
+  <a href="https://bgo.benmvp.com/" target="_blank">
+    bgo.benmvp.com
+  </a>
+  |
+  <a href="https://github.com/benmvp/bgo" target="_blank">
+    github.com/benmvp/bgo
+  </a>
+</p>
+
+
+
+NOTES:
+
+- I was going through my backup hard drive a couple of years ago...
+- And I found a version of the old code from a little bit later than what I just showed
+- So I put it on Github and hosted it on Vercel
   - No building necessary 😂
-  - At http://bgo.benmvp.com/
+- It's at https://bgo.benmvp.com/
+  - Feel free to follow this QR code to see it & seriously judge me
+- The code itself is at: https://github.com/benmvp/bgo
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
 
-- For fun...
+- Just for funsies...
 - Here's what yahoo.com looked like at the time
-- "Powered by Compaq" at the bottom
+- It's small, but notice "Powered by Compaq" at the bottom
 - https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/
 
 /////
@@ -158,15 +219,14 @@ NOTES:
 NOTES:
 
 - Fast forward nearly 2 decades
-- Have my site: benmvp.com
-- Uses Gatsby for static site generation
-- Written all in React
-- Rather it be in Next.js, but that's another topic
+- I have my site: benmvp.com
+- It uses Gatsby for static site generation
+  - Written all in React
+  - I'd Rather it be in Next.js, but that's another topic
 - It generates the static HTML pages
   - Just like I did by hand way back when
-- Uses TypeScript, GraphQL, Material UI, eslint & more!
+- It uses TypeScript, GraphQL (unfortunately), Material UI, eslint & more!
 - All to build a personal site!
-
 
 =====
 
@@ -188,17 +248,17 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 65%">
-    <img src="../../img/family/ilegbodu-family-photo-2022.jpg" alt="Ilegbodu family photo in 2022" />
+    <img src="../../img/family/family-domagalski-wedding-photobooth.jpg" alt="Photobooth photos of Ilegbodu family at Drew &amp; Kamala's wedding" />
   </div>
 </div>
 
 NOTES:
 
-- My name is Ben Ilegbodu
+- For those I haven't met yet, my name is Ben Ilegbodu
 - Christian, Husband, Father
 - _Family introductions_
 - We live in Pittsburg, CA (SF Bay Area)
-  - But after 20 years in the Bay
+  - As I mentioned yesterday, after 20 years in the Bay...
   - We're moving back home to Houston, TX in 6 weeks!
 
 /////
@@ -230,8 +290,9 @@ NOTES:
 - I love playing and watching basketball
 - I flew in last night and was seriously considering going to last night's game
   - But we had the speakers had a dinner together
-- And unfortunately I booked my flight out tomorrow evening
-  - Before knowing there was a game tomorrow too!
+  - So I didn't go
+- And unfortunately I booked my flight out tonight
+  - Before knowing there was a game tonight too!
 - But the Houston Rockets are my team!
   - Like I said, I grew up there
   - We're riding the struggle bus right now
@@ -332,10 +393,10 @@ NOTES:
 - Talking about `<frameset>`!
 - Before I even try to explain the code, take in this HTML!
   - No it's not React 😂
-- It's in ALL-CAPS
+- And it's in ALL-CAPS
 - Attributes like `MARGINHEIGHT` & `FRAMEBORDER` aren't even quoting the values
-- `<FRAME>` tags aren't even self-closing
-  - Dunno how the browser figured out that one!
+- `<FRAME>` tags aren't even self-closings
+  - Like how browsers even figure out how to handle that?
 - The web was wild!
 
 /////
@@ -350,7 +411,7 @@ NOTES:
 NOTES:
 
 - This is the layout that this contrived example is building
-- Got a "frame" that span the top
+- We got a "frame" that spans the top
 - Then 3 frames in a column
   - Outer ones are fixed and the middle one flexes
 - So lets say "Frame 1" is your global header
@@ -390,23 +451,28 @@ NOTES:
 
 - Back to the code
 - **ONE:** Each `<FRAME>` pointed to a separate actual HTML page
-  - A page with just the header, just the nav, etc.
+  - There was a page with just the header, just the nav, etc.
   - Kinda like today's `<iframe>`
 - **TWO:** The `<FRAMESET>` can be aligned in either `ROWS` or `COLUMNS`
   - Sound familiar? 😉
   - **THREE:** And they can be nested
   - **FOUR:** Notice the `*` syntax to signal that the column takes up remaining space
-  - Pretty fancy for 20+ years ago right?
+  - This is pretty fancy for 20+ years ago, right?
 - And we've got visual styling mixed right in the markup
 - **FIVE:** Frames by default had ugly borders so they needed to be turned off
-- If we kept the borders on, they could be resized
+  - With `FRAMEBORDER=0`
+- However, if we kept the borders on, they could be resized
   - **SIX:** So there was an attribute to turn prevent resizing
   - That's why the `<IFRAME>` became a thing
   - To not have to deal with the gnarliness of normal frames
-- **SEVEN:** So what about that `NAME=content` attribute?
-  - What's that for?
-  - Why did we have to give it a name?
-  - Glad you asked!
+- This whole setup was to allow us to avoid having to update the whole pages
+  - The header, nav, and ads sections aren't changing
+  - Just the main content
+  - So clicking links in the header, shouldn't require a full page refresh?
+  - Sound familiar?
+  - We're trying to build in our fancy new technologies features that existed 20+ years ago!
+- **SEVEN:** So that's what this `NAME=content` attribute is for
+  - It lets allows us to make changes in one frame from another
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -428,14 +494,11 @@ NOTES:
 
 NOTES:
 
-- Well in addition to providing a grid-like layout
-  - We also don't want to have to refresh the whole page
-- The header, nav & ads are staying fixed
 - This is `nav.html`
   - Again it's a completely separate HTML file (like an `iframe`)
-  - we just have our links target the `content` frame
-  - You've probably always just done `target="_blank"` for a new window right?
-  - But `target` has other purposes!
+  - But for the links we set the `target` to point to that `content` frame
+- You've probably always just done `target="_blank"` for a new window, right?
+  - But `target` had other purposes!
 - For some reason we liked to not close our `<LI>` tags either
   - Or maybe it was just me 😂
   - But it worked!
@@ -491,7 +554,7 @@ NOTES:
 - Notice how `<main>` actually comes before `<nav>` in the markup
   - For SEO purposes
   - But Grid layout puts it where we want visually!
-  - And has a responsive, mobile-first layout as well
+  - And unlike my site this code provides responsive, mobile-first layout as well
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -506,7 +569,7 @@ NOTES:
 
     <h2>Flexbox + CSS Grid = Awesome!</h2>
 
-    <p>11:30 (Room D)</p>
+    <p>11:30 (Room 105)</p>
   </div>
 </div>
 
@@ -514,7 +577,7 @@ NOTES:
 
 - I'm really hoping you had a chance to catch Scott's Flexbox & Grid talk
   - It was right in this room _before_ lunch at 11:30
-- He showed us how we can use both effectively
+- He showed us how we can use both Flexbox & CSS Grid effectively
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -561,15 +624,15 @@ p { margin-left: 40px; }
 
 NOTES:
 
-- So let's say we have the schedule for Room D here at Connect.Tech
+- So let's say we have the schedule for Room 105 here at Connect.Tech
 - We just want to indent the speaker name by 40 pixels
 - Naturally we'd just use some CSS selector to add `margin-left`
-- Simple enough right?
-- Or maybe use a grid system like Bootsrap
+  - Simple enough right?
+- Or maybe use a grid system like Bootstrap
   - Burn columns with offset
 - But what do you do if CSS doesn't exist?
-  - Or at least it's not guaranteed to be available in all browsers?
-  - Yeah there was a time when CSS didn't exist!
+  - Or at least it's not guaranteed to be available in all browsers your customers might use?
+  - Yeah there was a time when CSS didn't exist! 🤯
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -603,14 +666,15 @@ NOTES:
 NOTES:
 
 - Well you use `1x1.gif`!
-- It's known as a "spacer gif"
-- And yes I say "gif" not "jif" 😀
+  - It's known as a "spacer gif"
+  - And yes I say "gif" not "jif" 😀
 - It was 100% transparent, so it was see-thru
   - It was teeny tiny in size because its 1x1
-  - We Used it to do "pixel perfect" spacing before CSS
-- Would work in both horizontal & vertical direction
-- We used all over the place!
-  - Here we set the pixel to be 40px in width to indent
+  - We used it to do "pixel perfect" spacing before CSS
+- It would work in both horizontal & vertical direction
+  - Just add a `width` or add a `height`
+- And we used all over the place!
+  - Here we set the spacer gif to be `40px` in width to indent
 - Again, responsive design & development wasn't a thing
 
 /////
@@ -649,7 +713,7 @@ NOTES:
   - This was also used heavily
   - Because HTML ignores multiple whitespace characters
 - But the spacing is dependent on the font
-  - Wouldn't be exact if needed to line things up
+  - And it wouldn't be exact if needed to line things up
 - So the spacer gif was the solution
 - And then...
 
@@ -717,11 +781,11 @@ NOTES:
 
 NOTES:
 
-- We were still using `<table>` for layout then of course
+- Of course we were still using `<table>` for layout back then
   - But we no longer needed all the styling **in** the markup
   - Yep we did that!
 - Now... catch this...
-  - We could put the styling... in a separate CSS file
+  - We could put the styling... in a separate CSS file 🤯
 - However...
 - You know what we ended up using CSS most for in the beginning????
 
@@ -739,13 +803,13 @@ NOTES:
 
 - To change the default link styling
   - Finally!
-- We could make default links a different color; no underline
+- We could make default links a different color or remove the underline
 - Visited links used to look different by default; let's undo that
-- Change color/underline on hover
+- We changed the color or underline on hover
   - Look how dynamic it is!
 - Really, CSS originally was just about taking styling out of HTML
   - It didn't really do anything _cool_ initially
-  - No animations, transformations and the like
+  - No animations, transformations and all that stuff that came with CSS3
   - So this was about the coolest thing we could do
 
 =====
@@ -754,7 +818,7 @@ NOTES:
 NOTES:
 
 - So we've talked about...
-  - `<FRAMESET>` - building page layouts
+  - `<FRAMESET>` - building optimized page layouts
   - spacer.gif - "pixel-perfect" spacing
   - And just now link styling - rudimentary CSS
 - Now I wanna share something near & dear to my heart
@@ -768,8 +832,9 @@ NOTES:
 
 NOTES:
 
-- This was the poll I had on the right-hand-side of my site
-- Asking about connection speed
+- If you remember...
+  - This was the poll I had on the right-hand-side of my site
+- It was asking about connection speed
 - It had square corners
 
 /////
@@ -790,13 +855,14 @@ NOTES:
 NOTES:
 
 - But I really wanted to have rounded corners
-  - But I didn't really know how to that at the time
+  - But I didn't really know how to do that at the time
 - These "pods" w/ rounded corners were starting to be a thing
   - I think Yahoo! popularized it
 - Then rounded corners went out of fashion in the late 2000s with Material Design
   - Everything was flat again!
 - But now they're coming back again?
-  - It's all cyclical
+  - You stay in the game long enough...
+  - And you realized that it's all cyclical
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -837,6 +903,7 @@ NOTES:
 - You would think we could just throw `border-radius` on it and be done with it
 - But `border-radius` wasn't introduced into CSS until 2005
   - And wasn't widely supported 'til years later
+  - Like a decade after I needed it
 - So what did we do?
 
 /////
@@ -872,12 +939,13 @@ NOTES:
 
 NOTES:
 
-- Back then, to make a "pod" with rounded corners...
+- Well, back then, to make a "pod" with rounded corners...
   - I would cut it up into a 3x3 grid
 - The corners would be the round corner images exported from Photoshop or equivalent
   - `blue-top-left-5px.gif`, `gray-bottom-right-5px.gif`, etc
   - The web didn't support rounded corners
   - So we had to resort to images
+  - Yes, actual images to create rounded corners
 - And what HTML element did we use to build this?
 
 /////
@@ -908,13 +976,16 @@ NOTES:
 NOTES:
 
 - The HTML `<table>` of course
-- Header could be styled all in HTML but had to line up in height with the images
+- The header could be styled all in HTML, but had to line up in height with the images
   - Same with the footer
 - To create a "pod" took at least 4 images!
   - Imagine the web performance of the pages 😂
   - But also imagine... anytime the border radius or color changed
-  - Had to export new images
-  - No iterating going on here
+  - We had to export new images
+  - Hardly any iterating was going on here
+- If the designer wanted to change anything about the pod...
+  - I would say "Well, you have to give me the corner images first!"
+  - And that was the end of the conversation 😂
 - There _was_ a small amount of time where `<table>`-based layouts were shunned
   - But `border-radius` couldn't reliably be used yet
   - We don't talk about those dark times 😭
@@ -951,7 +1022,7 @@ NOTES:
 
 NOTES:
 
-- In fact, after lunch Timothy in Room 103...
+- In fact, Timothy next door in Room 103...
   - is giving a talk on real-time web apps
   - Event-driven server-side systems, websockets, and advanced JS
 - It's such an advancement in 20+ years
@@ -984,11 +1055,13 @@ NOTES:
   - Which we later learned is bad because it slows page render
 - Using `document.writeln` to dynamically write content to the page
 - Unobstrusive JS wasn't a thing yet
-  - Instead of calling the function in `<body onload>` here
+  - Instead of calling the function in `<body onload>` like I'm doing here
   - We should use `addEventListener`
   - But we didn't have jQuery yet (2006)
   - Back in the day we had to check for both `attachEvent` (IE) & `addEventListener` (standard)
-- Imagine debugging and having that `alert()` pop up every time! 🤣
+- Going back to the code again...
+  - Imagine debugging and having that `alert()` pop up every time! 🤣
+  - What was I even doing?
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1019,7 +1092,7 @@ NOTES:
   - Not even `console` debugging, because there was no console!
   - And even console debugging is considered sub-par now
 - And don't accidentally put an `alert()` in a loop or endless loop!
-  - Had to just `Ctrl`+`Alt`+`Delete` to quit the browser
+  - At that point, we had to just `Ctrl`+`Alt`+`Delete` to quit the browser
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1032,13 +1105,13 @@ NOTES:
 
 NOTES:
 
-- In IE, whenever an error would happen **everyone** get this cryptic message
+- In IE, whenever an error would happen, **everyone** would get this cryptic message
   - "An error has occurred in this script, do you want to continue running scripts?"
-  - Our users would see this!
+  - Our users would actually see this!
   - And this is before people were even somewhat web-savvy
 - It'd show for **every** error
   - It was a usability nightmare
-  - That's some motivation to write bug-free code
+- Boy, if you ever needed motivation to write bug-free code
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1051,14 +1124,15 @@ NOTES:
 
 NOTES:
 
-- Then Firebug came along and it changed the game in 2006/2007
+- Then Firebug came along and it changed the game in like 2006/2007
 - It's possible you've never have even heard of it
 - It was originally a extension to Firefox
   - Got me to move from IE to FF at the time
-  - And it let you **see** the CSS and **debug** the JS!
-  - Could change CSS values w/o refreshing the page!
-  - Truly revolutionary!
+  - And it let us **see** the CSS and **debug** the JS!
+  - I could change CSS values w/o refreshing the page!
+  - It truly was revolutionary!
   - It paved the way for our amazing web inspectors today
+  - And now it's table stakes for any modern web browser
 - I don't think "Web 2.0" with the AJAX revolution happens w/o the debugging from Firebug
 
 /////
@@ -1073,8 +1147,8 @@ NOTES:
       <a href="https://www.typescriptlang.org/" target="_blank">
         <img src="../../img/es6/typescript-logo-square.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://www.npmjs.com/" target="_blank">
-        <img src="../../img/webdev/npm-cube-logo.png" alt="" class="plain" style="width: 250px" />
+      <a href="https://github.com/" target="_blank">
+        <img src="../../img/webdev/github-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://eslint.org/" target="_blank">
         <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
@@ -1085,11 +1159,11 @@ NOTES:
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://github.com/" target="_blank">
-        <img src="../../img/webdev/github-logo.png" alt="" class="plain" style="width: 250px" />
+      <a href="https://swc.rs/" target="_blank">
+        <img src="../../img/webdev/swc-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://rollupjs.org/" target="_blank">
-        <img src="../../img/nav-react/rollup-logo.svg" alt="" class="plain" style="width: 250px" />
+      <a href="https://www.npmjs.com/" target="_blank">
+        <img src="../../img/webdev/npm-cube-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://www.vercel.com/" target="_blank">
         <img src="../../img/webdev/vercel-icon-light.png" alt="" class="plain" style="width: 250px" />
@@ -1100,25 +1174,29 @@ NOTES:
 
 NOTES:
 
-- And these days we have all this dev tooling to make our lives easier
-  - To ensure we don't ship broken code
+- And these days we have all this dev tooling to make our lives easier...
+  - to ensure we don't ship broken code
   - _Past:_ All we had was our desktop & FTP to transfer the files
-  - Would work directly on the server and break all sorts of things on Production
-  - _One dangling commas would break **everything** in IE_
-- Our code goes thru an incredible journey from idea to Production
+  - We would work directly on the server and break all sorts of things on "Production"
+  - _One dangling comma would break **everything** in IE_
+- Now, our code goes thru an incredible journey from idea to Production
+- **Question:** How many of you can name all of the icons up here?
+  - Go ahead and shout them out
 - **VSCode:** Editors like VSCode that make writing code so much easier
-  - Intellisense, unused code warning, integrations with TypeScript, other extensions
-- **Github:** Like table stakes now, but we didn't have version control
-  - VC existed but only w/in the biggest of companies
+  - Intellisense, unused code warnings, integrations with TypeScript, and many other extensions
+- **Github:** Is like table stakes now, but we didn't even have version control back then
+  - Well it existed but only w/in the biggest of companies
   - Imagine just 2 people working on the site at the same time w/o VC
-- **Github actions:** A continuous integration env automatically kicked off w/ git commits!
-  - Can run tests (written in Jest)
-  - And even automatically deploy
-- **Rollup:** Run build scripts (like minification)
+- **SWC:** Run build scripts (like compiling/minification)
   - At Yahoo: Intentionally used to write terse JS/CSS to keep file sizes down
   - I had a friend at AOL who wasn't allowed to write any comments!
-- **Vercel:** Allows previewing PRs before they even merge!
-- And this doesn't even get into all of the JS frameworks out there
+- **Github actions:** A continuous integration env automatically kicked off w/ git commits!
+  - Can run tests (written in Jest)
+  - And even continuously deploy
+- **Vercel:** Is a deployment platform
+  - It allows previewing PRs before they even merge!
+- And this doesn't even get into all of the CSS & JS frameworks out there
+  - Like Tailwind, React, Next.js, etc.
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1140,13 +1218,14 @@ NOTES:
 NOTES:
 
 - And that's it!
-- Wanted to take a moment to thank the organizers (Pratik & Vincent)
-  - For inviting me to speak
+- As the conference slowly wraps up
+  - I wanted to take a moment to thank the organizers (Pratik & Vincent)...
+  - for inviting me to speak
   - But more importantly for continuing to put this together
   - _Applause_
-- Ask questions on Twitter (@benmvp) or find me afterwards
+- You can ask me questions on Twitter (@benmvp) or find me afterwards
 - I hope you enjoyed our ride in the wayback machine
-  - Hopefully it gives us all appreciation for where we've come from
+  - Hopefully it gives us all an appreciation for where we've come from
   - Next time we wanna complain about flexbox or weird property names
   - Remember the spacer.gif
 - Thanks!
