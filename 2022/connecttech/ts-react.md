@@ -46,7 +46,12 @@ NOTES:
 
 NOTES:
 
-- **Slides are available online**
+- I want to let you know that the slides are already available online
+  - So if you want to follow along or can't see well from the back, you're good
+- You can use this handy dandy QR code that'll take you to the slides
+- You can go to my website, benmvp.com, and find them there
+- Or I've already tweeted a link to the slides as well
+- So you're covered with **four** different ways to access the slides!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/alessandra-caretto-cAY9X4rPG3g-bicycle-unsplash.jpg) no-repeat center" data-background-size="cover" -->
