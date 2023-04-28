@@ -24,7 +24,7 @@ NOTES:
 **RESTART THE TIMER!!!!**
 
 - **QUESTION: So how many of you were developing back in 1999?**
-  - I bet there's someone who's like: "I wasn't even born in 1999!"
+  - There may be someone who's like: "I wasn't even born in 1999!"
 - So I'm hoping to share a little about my dev story and walk down memory lane
   - Or have a history lesson for most of you
 - We'll hopefully learn some new things along the way
@@ -44,10 +44,10 @@ NOTES:
 
 NOTES:
 
-- I want to let you know that the slides are already available online
+- I want to let you know that these slides are already available online
   - So if you want to follow along or can't see well from the back, I've got you covered
 - You can use this handy dandy QR code that'll take you to the slides
-- You can go to my website, benmvp.com, and find them there
+- You can go to my website, `benmvp.com`, and find them there too
 - So you're covered with **three** different ways to access the slides!
 
 =====
@@ -94,7 +94,7 @@ NOTES:
 - So naturally I created a website
 - I went into the Wayback Machine and found my very first site
   - Isn't it beautiful?
-- I uilt "Basic Guru Online" as a Geocities website
+- I built "Basic Guru Online" as a Geocities website
   - (because apparently I was a "guru" at 16)
   - Geocities was like THE hosting service of the day
   - There was also Angelfire & Tripod
@@ -103,8 +103,9 @@ NOTES:
   - Geocities handled all the backend with various plugins
 - Now we have sophisticated deployment processes
   - But back then, I pushed new static files directly to their servers
-  - Using FTP (File Transfer Protocol)
+  - Using FTP (File Transfer Protocol) - almost like SSH
   - No source control
+  - I could pull up a File Explorer directly on the server and save files in Notepad
 
 /////
 
@@ -130,8 +131,9 @@ NOTES:
   - This is why JS is backwards compatible - so my 20yo site still works
 - **FOUR:** According to the Recent Updates
   - I had at least 70 members!
+  - I wonder what Matt Hamlin is up to these days
 - **FIVE:** I suggested using the AOL browser to view the page
-  - It "should be okay" using Internet Explorer or Netscape Navigator
+  - It "should be okay" using Internet Explorer (probably v4) or Netscape Navigator
   - Best viewed on an 800x600 res monitor!
   - Used `<table>` for 2-column layout
   - Still "responsive" nearly 20 years later!
@@ -191,6 +193,8 @@ NOTES:
 
 - Just for funsies...
 - Here's what yahoo.com looked like at the time
+  - Summer of 2001
+  - Honestly, not too dissimilar from mine
 - It's small, but notice "Powered by Compaq" at the bottom
 - <https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/>
 
@@ -231,7 +235,6 @@ NOTES:
 NOTES:
 
 - But before we continue further can I get everyone to stand up?
-- For those who went to my talk yesterday, you know what's coming 😀
 
 /////
 <!-- .slide: data-background="#000" -->
@@ -244,8 +247,8 @@ NOTES:
 
 NOTES:
 
-- For those I haven't met yet, my name is Ben Ilegbodu
-- Christian, Husband, Father
+- My name is Ben Ilegbodu
+  - Christian, Husband, Father
 - _Family introductions_
 - We live in Manvel, TX (suburb of Houston)
   - Used to live in the Bay Area for 20 years
@@ -264,7 +267,8 @@ NOTES:
 
 NOTES:
 
-- I'm a Google Developer Expert & currently a Frontend Architect at Stitch Fix
+- I'm a Google Developer Expert in Web Technologies
+- Also currently a Frontend Architect at Stitch Fix
 - Stitch Fix is an online personal styling service
   - Combines technology & data science
   - With an actual human stylist
@@ -310,10 +314,9 @@ NOTES:
   - Command Line & Git (now table stakes)
   - jQuery, Bootstrap, React
   - Django, Express & MongoDB
-- And it's _just_ enough to get an junior-level job
+- And it's _just_ enough to get an entry-level job
 
-/////
-<!-- .slide: data-background="#000 url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+///// lash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 
@@ -365,7 +368,6 @@ NOTES:
 - Talking about `<frameset>`!
   - **QUESTION: Anybody here use `<frameset>` before?**
 - Before I even try to explain the code, take in this HTML!
-  - No it's not React 😂
 - And it's in ALL-CAPS
 - Attributes like `MARGINHEIGHT` & `FRAMEBORDER` aren't even quoting the values
 - `<FRAME>` tags aren't even self-closings
@@ -710,6 +712,7 @@ NOTES:
 - No longer did we have to use the `<FONT>` tag for styling everything
 - Yep, that was definitely a thing I used **a lot**
   - No `<span>` just `<font>`, `<font>`, `<font>` everywhere!
+  - Especialluy from tools like Dreamweaver
 - The `<font>` tag is now _obsolete_
   - Like it shouldn't even work in browsers now!
 
@@ -780,7 +783,7 @@ NOTES:
 
 - If you remember...
   - This was the poll I had on the right-hand-side of my site
-- It was asking about connection speed
+- It was asking about connection speed, remember?
 - It had square corners
 
 /////
@@ -802,7 +805,8 @@ NOTES:
   - But I didn't really know how to do that at the time
 - These "pods" w/ rounded corners were starting to be a thing
   - I think Yahoo! popularized it
-- Then rounded corners went out of fashion in the late 2000s with Material Design
+  - That Amazon screenshot from earlier had them
+- But then rounded corners went out of fashion in the late 2000s with Material Design
   - Everything was flat again!
 - But now they're coming back again?
   - You stay in the game long enough...
@@ -843,7 +847,7 @@ header {
 
 NOTES:
 
-- You would think we could just throw `border-radius` on it and be done with it
+- Anyway, you would think we could just throw `border-radius` on it and be done with it
 - But `border-radius` wasn't introduced into CSS until 2005
   - And wasn't widely supported 'til years later
   - Like a decade after I needed it
@@ -944,7 +948,7 @@ NOTES:
 - We use JS to build:
   - Highly-concurrent / low-latency servers in Node
   - Super-sophisticated web apps w/ service workers on the client
-  - Power CLIs and build tooling as well
+  - Powerful CLIs and build tooling as well
 - But 2 decades ago JavaScript really was a toy language
   - And we did silly things with it
 
@@ -1043,7 +1047,7 @@ NOTES:
 
 NOTES:
 
-- Then Firebug came along and it changed the game in like 2006/2007
+- Then Firebug came along and it changed the game around like 2006/2007
 - It's possible you've never have even heard of it
 - It was originally a extension to Firefox
   - Got me to move from IE to FF at the time
@@ -1099,10 +1103,10 @@ NOTES:
   - We would work directly on the server and break all sorts of things on "Production"
   - _One dangling comma would break **everything** in IE_
 - Now, our code goes thru an incredible journey from idea to Production
-- **Question:** How many of you can name all of the icons up here?
+- **Question:** How many of you can name all **9** of the icons up here?
   - Go ahead and shout them out
 - **VSCode:** Editors like VSCode that make writing code so much easier
-  - Intellisense, unused code warnings, integrations with TypeScript, and many other extensions
+  - Intellisense, unused code warnings, integrations with TypeScript, **Co-pilot**, and many other extensions
 - **Github:** Is like table stakes now, but we didn't even have version control back then
   - Well it existed but only w/in the biggest of companies
   - Imagine just 2 people working on the site at the same time w/o VC
@@ -1138,9 +1142,9 @@ NOTES:
 
 - And that's it!
 - As the conference slowly wraps up
-  - I wanted to take a moment to thank the organizers (Pratik & Vincent)...
+  - I wanted to take a moment to thank our organizer (Dylan)...
   - for inviting me to speak
-  - But more importantly for continuing to put this together
+  - But more importantly for continuing to put HalfStack conferences together
   - _Applause_
 - You can ask me questions on Twitter (@benmvp) or find me afterwards
 - I hope you enjoyed our ride in the wayback machine
