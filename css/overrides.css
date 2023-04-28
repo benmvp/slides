@@ -90,6 +90,7 @@
   position: absolute;
   left: 0;
   border: 10px solid #98bdef;
+  border-radius: 15px;
   opacity: 0.8;
   box-sizing: border-box;
   animation: fade-in-out 1.5s ease-in-out infinite;

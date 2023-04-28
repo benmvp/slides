@@ -316,7 +316,8 @@ NOTES:
   - Django, Express & MongoDB
 - And it's _just_ enough to get an entry-level job
 
-///// lash.jpg) no-repeat center" data-background-size="cover" -->
+/////
+<!-- .slide: data-background="#000 url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
 
