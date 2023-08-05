@@ -1132,7 +1132,7 @@ NOTES:
 
   <br />
 
-  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=halfstackclt-2023" target="_blank">benmvp.com</a></p>
+  <p><a href="https://twitter.com/benmvp" target="_blank">@benmvp</a> | <a href="https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=halfstackclt-2023" target="_blank">benmvp.com</a></p>
   <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
   <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
