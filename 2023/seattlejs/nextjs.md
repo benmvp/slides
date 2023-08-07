@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD034 -->
 
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/nextjs/sunglasses-dmitry-mishin-KE_xElQyQhQ-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
  <div style="width: 45%;" class="content-overlay">
@@ -13,7 +13,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=seattlejs-2023) | [@halfstackconf](https://twitter.com/halfstackconf/)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=seattlejs-2023) | [#SeattleJSConf](https://twitter.com/hashtag/SeattleJSConf)</p>
 
   <br />
 
@@ -54,7 +54,7 @@ NOTES:
   <div class="content-overlay">
     <h2>React supports multiple renderers</h2>
 
-    <pre class="large"><code class="lang-typescript">// src/index.js
+    <pre class="large"><code class="lang-typescript">// src/client/index.js
 import React from 'react'
 
 const App = () => {
@@ -90,7 +90,7 @@ NOTES:
   <div class="content-overlay">
     <h2>React can even render to a string</h2>
 
-    <pre class="large"><code class="lang-typescript">// src/index.js
+    <pre class="large"><code class="lang-typescript">// src/server/index.js
 import React from 'react'
 
 const App = () => {
