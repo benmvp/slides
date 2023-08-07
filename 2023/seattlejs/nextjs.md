@@ -24,6 +24,12 @@
 
 NOTES:
 
+- ✋🏾 Who here uses React?
+  - ✋🏾 Of y'all, who here uses Next.js?
+- I've been using it for several years now
+  - And got really into understanding how it all worked
+  - So this talk is a distillation of a lot of what I learned
+
 **RESTART THE TIMER!!!!**
 
 /////
@@ -65,6 +71,8 @@ React.render(
   document.getElementById('root'),
   &lt;App />
 )</code></pre>
+
+    <div class="code-highlight" style="height: 240px; top: 577px;"></div>
   </div>
 </div>
 
@@ -98,6 +106,8 @@ const App = () => {
 }
 
 const html = React.renderToString(&lt;App />)</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 577px;"></div>
   </div>
 </div>
 
@@ -248,26 +258,34 @@ NOTES:
   return <p>{data ? \`The data ${data}\` : 'Loading...'}</p>
 }
 export default ProductPage</code></pre>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 855px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 740px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 279px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 298px; top: 394px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 740px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 451px;"></div>
   </div>
 </div>
 
 NOTES:
 
 - Within that component file (`/product/[id].tsx`)...
-  - The default export is the page component
+  - **ONE:** The default export is the page component
 - Client-side rendering (aka CSR) is how single-page apps (SPAs) started out
   - It's probably the most common
   - Create React App is like this still
-- For our product details page, Next will pre-render a minimal HTML file at build time
+- **TWO:** For our product details page, Next will pre-render a minimal HTML file at build time
   - It'll have our loading state
-- Then the Next.js JavaScript will **render the page in the browser**...
-  - It grabs the `id` (from `[id]`) in puts in the `query` object returned by Next's built-in router
-  - After the product API is called
-- Because the API is called every time the page renders...
-  - The data can be constantly changing or even user-specific
-  - The size selector in-stock data can change
-  - The product can go on sale
-  - The header can show logged-in status
+- **THREE:** It grabs the `id` (based on `[id]`)...
+  - and puts in the `query` object returned by Next's built-in router
+- **FOUR:** Then the after the product API is called in `useEffect`...
+  - **FIVE:** Next.js JavaScript will **render the page in the browser**
+- **SIX:** Because the API is called every time the page renders...
+  - The **data** can be constantly changing or even user-specific
+  - The **size selector** in-stock data can change
+  - The **product** can go on sale
+  - The **header** can show logged-in status
   - And everything will be immediately reflected with the next page request
 - More than likely the related product carousel would be loaded as a separate render
 
@@ -341,19 +359,28 @@ const ProductPage = ({ data }) => {
   // render page using data...
 }
 export default ProductPage</code></pre>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 164px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 219px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 451px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 624px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 679px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 219px;"></div>
+
   </div>
 </div>
 
 NOTES:
 
-- The way to render server-side is by also exporting a `getServerSideProps` function
+- **ONE:** The way to render server-side is by exporting a `getServerSideProps` function
 - So for our product details page, instead of retrieving the product data in the browser
   - It retrieves it within Next's Node server
-  - The dynamic route `id` now comes from the `params` context s
-  - Next then will pass that data as props to our `ProductPage` component
-  - And the server will render and return the the same UI as HTML
+- **TWO:** The dynamic route `id` now comes from the `params` context
+- **THREE:** Using the props returned from `getServerSideProps`...
+  - **FOUR:** Next then will pass that data as props to our `ProductPage` component
+  - **FIVE:** And the server will render and return the the same UI as HTML
   - It doesn't need a loading state since it doesn't render server-side until it has the data
-- Similar to CSR, SSR calls the API and renders the HTML on **every request**
+- **SIX:** Similar to CSR, SSR calls the API and renders the HTML on **every request**
   - As a result...
   - The data once again can be constantly changing or even user-specific
   - And the server will return HTML with the most up-to-date UI as we'd expect
@@ -436,6 +463,11 @@ export const getStaticPaths = async () => {
 }</code></pre>
 
     <p><a href="https://nextjs.org/docs/pages/api-reference/functions/get-static-paths#fallback-false" target="_blank"><code>fallback</code></a> property<p>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 219px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 275px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 298px; top: 451px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 679px;"></div>
   </div>
 </div>
 
@@ -444,12 +476,12 @@ NOTES:
 - With SSG, HTML pages are **pre-rendered at build** time (when running `next build`)
   - That same HTML will be reused for **every request**
 - For a dynamic route like our PDP (`src/pages/product/[id].tsx`)
-  - The page file needs to export `getStaticPaths`
+  - **ONE:** The page file needs to export `getStaticPaths`
   - It's goal is to inform which static pages it should pre-render for the route
-- So it'll call the **products** API route to get the list of **all** products
-  - That then is massaged into an array of paths returned by `getStaticPaths`
-  - The property within `params` (`id` here) needs to match the dynamic route `[id]`
-- The `fallback: false` property means that any requested page that wasn't pre-rendered at build time...
+- **TWO:** So it'll call the **/products/** API route to get the list of **all** products
+  - **THREE:** That then is massaged into an array of paths returned by `getStaticPaths`
+  - (The property within `params` (`id` here) needs to match the dynamic route `[id]`)
+- **FOUR:** The `fallback: false` property here means that any requested page that wasn't pre-rendered at build time...
   - will return a 404
   - So `acme-hoodie` would need to be included in the `paths`, otherwise 404
   - Only the paths returned by `getStaticPaths` will work
@@ -474,6 +506,8 @@ export const getStaticPaths = async () => {
 }</code></pre>
 
     <p><a href="https://nextjs.org/docs/pages/api-reference/functions/get-static-paths#fallback-true" target="_blank"><code>fallback</code></a> property<p>
+
+    <div class="code-highlight" style="height: 70px; top: 679px;"></div>
   </div>
 </div>
 
@@ -507,17 +541,25 @@ const ProductPage = ({ data }) => {
   // render page using data...
 }
 export default ProductPage</code></pre>
+
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 164px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 219px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 451px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 624px;"></div>
+    <div class="code-highlight fragment current-visible" style="height: 70px; top: 679px;"></div>
+
   </div>
 </div>
 
 NOTES:
 
 - Now when Next is pre-rendering at build time...
-  - it takes the ids we passed in `getStaticPaths` and passes it to `getStaticProps` for every render
-- This is now where `ProductPage` makes the API call to retrieve the data
+  - **ONE:** it takes the ids we passed in `getStaticPaths` and passes it to `getStaticProps` for every render
+- **TWO:** This is now where `ProductPage` makes the API call to retrieve the data
   - It's still happening in Node, but just at build time, not in the server
-  - But just like with `getServerSideProps`, the `data` is returned which becomes props to `ProductPage`
-- The render UI HTML is stored on the filesystem and returned for **every request**
+  - **THREE:** But just like with `getServerSideProps`, the `data` that is returned
+  - **FOUR:** Becomes the props passed to `ProductPage`
+- **FIVE:** The rendered page HTML is stored on the filesystem and returned for **every request**
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/pages-olga-tutunaru-JMATuFkXeHU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -600,13 +642,15 @@ NOTES:
     revalidate: 300, // 5 minutes (in secs)
   }
 }</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 565px;"></div>
   </div>
 </div>
 
 NOTES:
 
 - So the page will still be pre-rendered at build time
-- Let's look at `getStaticProps`
+- Let's look at `getStaticProps` again
 - It's the same except we include this `revalidate` property
   - It tells Next how long to keep around this cached version of the page
   - After cache time is up, it'll **regenerate** the page the next time it's requested (hence the name)
@@ -633,12 +677,14 @@ export const getStaticPaths = async () => {
 }</code></pre>
 
     <p><a href="https://nextjs.org/docs/pages/api-reference/functions/get-static-paths#fallback-blocking" target="_blank"><code>fallback</code></a> property<p>
+
+    <div class="code-highlight" style="height: 70px; top: 679px;"></div>
   </div>
 </div>
 
 NOTES:
 
-- We can combine this with the 3rd option for `fallback`: `'blocking'` to provide a different experience
+- We can combine this with the 3rd option for `fallback: 'blocking'` to provide a different experience
 - If you remember, `false` meant that requested pages that were not pre-rendered are a 404
   - And `true` meant that non-pre-rendered pages can be requested...
   - but it'll show a fallback loading UI while it pre-renders
@@ -690,7 +736,7 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h2>One site, many render types</h2>
+    <h2>One site, many render modes</h2>
 
     <ul>
       <li><strong>Login / onboarding / blog</strong> 👉🏾 SSG</li>
@@ -730,6 +776,7 @@ NOTES:
       <li><a href="https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering" target="_blank">Server-side rendering with Next.js</li>
       <li><a href="https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation" target="_blank">Static-site generation</li>
       <li><a href="https://nextjs.org/docs/pages/building-your-application/rendering/incremental-static-regeneration" target="_blank">Incremental static regeneration</li>
+      <li><a href="https://nextjs.org/docs/pages/building-your-application/rendering/incremental-static-regeneration#on-demand-revalidation" target="_blank">On-demand Incremental static regeneration</li>
       <li><a href="https://nextjs.org/docs/getting-started/react-essentials#server-components" target="_blank">Client & server components</li>
       <li><a href="https://nextjs.org/docs/pages/api-reference/functions/get-server-side-props" target="_blank"><code>getServerSideProps</code></li>
       <li><a href="https://nextjs.org/docs/pages/api-reference/functions/get-static-paths" target="_blank"><code>getStaticPaths</code></li>
@@ -745,6 +792,7 @@ NOTES:
 - So if you get the slides you can click through to all of these resources
 - The first is actually a blog I wrote about this topic a few years ago now
 - The rest are guides and docs for the official Next.js site
+  - "On-demand incremental static rengeration" is like ISR, but with a sort of webhook
 - You may want to check out the "client & server components" one
   - Next 13 opens up even more flexibility and performance in how pages are rendered
 
