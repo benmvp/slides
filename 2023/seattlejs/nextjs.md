@@ -179,8 +179,8 @@ NOTES:
 <!-- .slide: data-background="#222" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 50%">
-    <img src="../../img/family/ben-rashida-seattle.jpeg" alt="Ben & Rashida in Seattle 2023" />
+  <div class="content-overlay" style="width: 80%">
+    <img src="../../img/family/ben-steering-boat-seattle-2023.jpeg" alt="Ben steering a boat in Seattle 2023" />
   </div>
 </div>
 
@@ -188,6 +188,9 @@ NOTES:
 
 - My wife is actually here with me
   - She tagged along for us to celebrate our 13th wedding anniversary
+- As part of it we went on this boat tour on the water
+  - And the captain let me steer the ship for 30 minutes
+  - Including docking it
 
 /////
 <!-- .slide: data-background="#222" -->
