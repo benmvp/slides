@@ -26,9 +26,9 @@ NOTES:
 
 - ✋🏾 Who here uses React?
   - ✋🏾 Of y'all, who here uses Next.js?
-- I've been using it for several years now
+- I've been using Next for several years now
   - And got really into understanding how it all worked
-  - So this talk is a distillation of a lot of what I learned
+  - So this talk is basically a distillation of a lot of what I learned
 
 **RESTART THE TIMER!!!!**
 
@@ -79,17 +79,17 @@ React.render(
 NOTES:
 
 - When React burst on the scene in 2015, it was a game changer for many reasons
-- Other UI libraries of the day attached directly to the DOM
-  - Think jQuery or Backbone
+- Other UI libraries of the day attached their UI directly to the DOM
+  - Think jQuery or Backbone if you were around back then
   - Everything operated on the DOM
 - React on the other hand **separated the UI** from the rendering
-- Because of this the generated UI could be rendered in multiple different ways...
+- And because of this, the generated UI could be rendered in multiple different ways...
   - Using different renders
 - **React Native** works because React can be rendered in a mobile environment
 - **Netflix** and other streaming providers can also use React...
-  - Because they've built renders for TVs
-- Here we have what was the most common render...
-  - For the Web that renders the UI into a browser DOM element
+  - because they've built renders for TVs
+- And here we have what was and still is the most common render...
+  - The Web render that attaches the UI into a browser DOM element
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -113,12 +113,16 @@ const html = React.renderToString(&lt;App />)</code></pre>
 
 NOTES:
 
-- **Next.js** took React's ability to **render** to a string in order to render a React app server-side
+- **Next.js** capitalized on another one of React's renderers
+  - The ability to **render** to a string allowing for server-side rendering
   - This was the "isomorphic React" revolution
   - The ability to render the same UI on the server as well as in the browser
-- Next started way back in 2016, focusing mainly on server-side rendering
-- The UI is rendered to a string on the server
-  - And then **"hydrated"** in the browser attaching event handlers and such
+- Next actually started way back in 2016, focusing mainly on server-side rendering
+  - It was created by Vercel's founder, Guillermo Rauch
+  - Although back then Vercel was called ZEIT
+- The simplified version of how it works is...
+  - The UI is rendered to a string on the server
+  - And then **"hydrated"** in the browser by attaching event handlers and such
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -132,7 +136,8 @@ NOTES:
 NOTES:
 
 - Around Next 9 (2019), Next started emphasizing pre-rendering at build time
-- So not only could we render server-side, but before the server even ran
+- So not only could we render server-side...
+  - but before the server even started
 - Ever since then, Next has been adding more functionality...
   - To provide us more and more ways to render the pages within our apps
 - So I want to take our remaining time to showcase a few of the more popular rendering strategies
@@ -165,8 +170,8 @@ NOTES:
   - Christian, Husband, Father
 - _Family introductions_
 - We live in Manvel, TX (suburb of Houston)
-  - Used to live in the Bay Area for 20 years
-  - Moved back home
+- My wife is actually here with me
+  - She tagged along for us to celebrate our 13th wedding anniversary
 
 /////
 <!-- .slide: data-background="#222" -->
@@ -193,7 +198,7 @@ NOTES:
 =====
 <!-- .slide: data-background="#222 url(../../img/nextjs/sample-product-page.png) no-repeat top right 5%" data-background-size="contain" -->
 
-<div style="display:flex; justify-content: flex-start">
+<div style="display:flex; justify-content: flex-start" class="fragment current-visible">
   <div class="content-overlay">
     <p>https://acme.store/product/acme-hoodie</p>
 
@@ -206,23 +211,24 @@ NOTES:
 
 NOTES:
 
-- Let's take a look at this made up product details page (aka PDP)
+- OK, enough about me...
+- Let's take a look at this product details page (aka PDP) within our made up e-commerce site
   - It's got the title & main product images
   - The price
   - The sizes (which may or may not be out-of-stock)
   - The add-to-cart button (which or may not be enabled)
   - The carousel of related products at the bottom
-  - And the related products
+  - And the header & footer
 - I want us to keep all of this in mind
-  - Because we'll be using it as our example for the code
-- Oh and before we begin,
+  - Because we'll be using this PDP as our example for the code
+- **ONE:** Oh and before we begin,
 - Next.js uses what's called **path-based routing**
-  - Meaning that if we want a page at `/product/acme-hoodie`
-  - We'll put our page component at `src/product/`
+  - Meaning that if we want this product details page at `/product/acme-hoodie`
+  - We'll put the page React component within `src/pages/product/`
 - It also supports **dynamic path-based routing**
   - So if we want to support having multiple pages within `/product`...
-  - we can use `[id]`
-  - And `acme-hoodie` would be one of the ids
+  - we can use `[id]` for the name
+  - And `acme-hoodie` would be one of the ids as well as any other product in our site
 - Without further ado, let's dive in
 
 =====
@@ -236,7 +242,7 @@ NOTES:
 
 NOTES:
 
-- First let's start with CSR, client-side rendering
+- First let's start with CSR better know as **client-side rendering**
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/laptop-carlos-muza-hpjSkU2UYSU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -270,24 +276,24 @@ export default ProductPage</code></pre>
 
 NOTES:
 
-- Within that component file (`/product/[id].tsx`)...
+- So within that component file (`src/pages/product/[id].tsx`)...
   - **ONE:** The default export is the page component
 - Client-side rendering (aka CSR) is how single-page apps (SPAs) started out
-  - It's probably the most common
+  - It's probably the most common rendering strategy
   - Create React App is like this still
 - **TWO:** For our product details page, Next will pre-render a minimal HTML file at build time
-  - It'll have our loading state
-- **THREE:** It grabs the `id` (based on `[id]`)...
+  - In this case, it'll have our loading state
+- **THREE:** It grabs the `id` from the URL (based on `[id]`)...
   - and puts in the `query` object returned by Next's built-in router
 - **FOUR:** Then the after the product API is called in `useEffect`...
   - **FIVE:** Next.js JavaScript will **render the page in the browser**
-- **SIX:** Because the API is called every time the page renders...
+- **SIX:** Here's the thing... because the API is called every time the page renders...
   - The **data** can be constantly changing or even user-specific
-  - The **size selector** in-stock data can change
+  - The **size selector** availability data can change
   - The **product** can go on sale
   - The **header** can show logged-in status
-  - And everything will be immediately reflected with the next page request
-- More than likely the related product carousel would be loaded as a separate render
+  - And everything will be immediately reflected for the next page request
+- More than likely the related product carousel would be loaded as a separate API + render
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/laptop-carlos-muza-hpjSkU2UYSU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -311,18 +317,21 @@ NOTES:
 
 NOTES:
 
-- So CSR is great for dynamic content
-  - And since the page is mostly blank initially the response is fast
+- So CSR is great for **dynamic content**
+  - And since the page is mostly blank initially the **response is fast**
 - However, because everything is rendered in the browser...
-  - Browser render times are slow especially since they wait on the API return
-  - This is magnified on lower in devices
-  - SEO is generally worse because there's no HTML markup for the search engine
-  - Similarly there's no real markup to cache in the CDN
-- So I probably wouldn't use CSR for this PDP
+  - **render times are slow** especially since they wait on the API response
+  - This is magnified on lower-end devices
+  - **SEO is generally worse** too because there's no HTML markup for the search engine
+  - Similarly there's no real markup to **cache in a CDN**
+
+- So while CSR will totally work for the PDP...
+  - And many sites use it for PDPs...
+  - I ideally wouldn't use it for this PDP
   - SEO is too important & the client needs to see _something_ quickly
 - Instead CSR is great for UIs like highly-interactive, user-specific dashboards
   - Think Figma or task managers like Asana
-- It's also good for pages that rely heavily on browser-based 3rd-party
+- It's also good for pages that rely heavily on browser-based 3rd-party widgets
   - Like embedding a Stripe checkout widget
 
 =====
@@ -336,9 +345,9 @@ NOTES:
 
 NOTES:
 
-- Ok, let's move to what's likely the most familiar form of rendering
-  - Server-side rendering
-- Also know as "SSR" or "Dynamic rendering"
+- Ok, let's move to what's likely the most prevalent form of rendering
+  - **Server-side rendering**
+- You may have also heard terms like "SSR" or "Dynamic rendering"
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/servers-ismail-enes-ayhan-lVZjvw-u9V8-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -373,18 +382,18 @@ export default ProductPage</code></pre>
 NOTES:
 
 - **ONE:** The way to render server-side is by exporting a `getServerSideProps` function
-- So for our product details page, instead of retrieving the product data in the browser
+- So for our product details page, instead of retrieving the product data in the browser...
   - It retrieves it within Next's Node server
 - **TWO:** The dynamic route `id` now comes from the `params` context
-- **THREE:** Using the props returned from `getServerSideProps`...
+- **THREE:** Then, using the props returned from `getServerSideProps`...
   - **FOUR:** Next then will pass that data as props to our `ProductPage` component
-  - **FIVE:** And the server will render and return the the same UI as HTML
+  - **FIVE:** And the server will render and return the the same UI, but as HTML
   - It doesn't need a loading state since it doesn't render server-side until it has the data
 - **SIX:** Similar to CSR, SSR calls the API and renders the HTML on **every request**
   - As a result...
   - The data once again can be constantly changing or even user-specific
-  - And the server will return HTML with the most up-to-date UI as we'd expect
-- The server could even retrieve the related products data
+  - And the server will return HTML with the most up-to-date UI, as we'd expect
+- The server could even retrieve the related products data in `getServerSideProps`
   - And return the HTML for that as well
 
 /////
@@ -410,22 +419,22 @@ NOTES:
 
 NOTES:
 
-- Similar to client-side rendering, SSR is also great for dynamic content
-  - Because its data is retrieved on the server for every request
-- And because the full UI is in the HTML response
-  - It's very SEO-friendly - crawlers have everything they need
-  - In-browser render times are also fast because of this
-- But it comes as the cost of slow response times
-  - While the server is fast at rendering HTML
+- Similar to client-side rendering, SSR is also great for **dynamic content**
+  - Because its data is retrieved on the server for **every request**
+- And because the full UI is in the HTML response...
+  - It's very **SEO-friendly** - crawlers have everything they need
+  - **In-browser render times** are also fast because of all the HTML is there
+- But it comes as the cost of **slow response times**
+  - While the server is likely fast at rendering HTML
   - It's got to wait on the API response
-  - So the user doesn't see _anything_ until the response is complete
+  - So the user doesn't see _anything_ until the full response is complete
+
 - So if this PDP had a lot of changing content
-  - Like price or stock changes
-  - SSR could be a good fit
+  - Like price or size availability changes, then SSR could be a good fit
   - But if the data was mostly static, it'd be overkill & a sub-optimal render experience
 - In general SSR is good for pages that either...
-  - Have data that could change with every render
-  - Or have user-specific content
+  - 1/ Have data that could change with every render
+  - 2/ Or have user-specific content
   - So think search results, checkout flows, etc
 
 =====
@@ -439,9 +448,9 @@ NOTES:
 
 NOTES:
 
-- Now let's talk about static-site generation
-- Static-site generation became super popular around 2019 thanks to Gatsby
-  - And Next joined the party, electing to make pages static by default
+- Now let's talk about **static-site generation**
+- SSG became super popular around 2019 thanks to Gatsby
+  - And Next later joined the party, electing to make all pages static by default
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/pages-olga-tutunaru-JMATuFkXeHU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -473,14 +482,16 @@ export const getStaticPaths = async () => {
 
 NOTES:
 
-- With SSG, HTML pages are **pre-rendered at build** time (when running `next build`)
-  - That same HTML will be reused for **every request**
+- With SSG, HTML pages are **pre-rendered at build** time...
+  - when running `next build` before the server even starts
+  - And that same HTML will be reused for **every request**
 - For a dynamic route like our PDP (`src/pages/product/[id].tsx`)
   - **ONE:** The page file needs to export `getStaticPaths`
-  - It's goal is to inform which static pages it should pre-render for the route
-- **TWO:** So it'll call the **/products/** API route to get the list of **all** products
+  - It's goal is to inform Next which static pages it should pre-render for the route
+- **TWO:** So we call the **/products/** API route to get the list of **all** products
   - **THREE:** That then is massaged into an array of paths returned by `getStaticPaths`
-  - (The property within `params` (`id` here) needs to match the dynamic route `[id]`)
+  - So if our site has 100 products, then `getStaticPaths` will return 100 paths
+  - FYI: The property within `params` (`id` here) needs to match the dynamic route `[id]`
 - **FOUR:** The `fallback: false` property here means that any requested page that wasn't pre-rendered at build time...
   - will return a 404
   - So `acme-hoodie` would need to be included in the `paths`, otherwise 404
@@ -514,11 +525,11 @@ export const getStaticPaths = async () => {
 NOTES:
 
 - Alternatively, `getStaticPaths` can return `fallback: true` instead
-  - This means that pages other than those pre-rendered can be requested
-  - Next will then render that page when it's first requested while showing a fallback loading UI
-  - Then it uses that HTML for every subsequent request
-- We can use this strategy to speed up the build
-  - If we have 100s of PDPs, building all of them would take forever
+  - This means that pages other than those pre-rendered can still be requested
+  - When it's first requested, Next will show a fallback loading UI while it renders in the background
+  - Then it uses that same HTML for every subsequent request
+- We can use this fallback strategy to speed up the initial build
+  - If instead of 100, we have 1000s of PDPs, building all of them would take forever
   - So we can build the most popular ones
   - And leave the long tail to be built on-demand
 
@@ -554,12 +565,14 @@ export default ProductPage</code></pre>
 NOTES:
 
 - Now when Next is pre-rendering at build time...
-  - **ONE:** it takes the ids we passed in `getStaticPaths` and passes it to `getStaticProps` for every render
+  - **ONE:** it takes the ids we passed in `getStaticPaths`...
+  - and passes it to `getStaticProps` for every page
 - **TWO:** This is now where `ProductPage` makes the API call to retrieve the data
   - It's still happening in Node, but just at build time, not in the server
-  - **THREE:** But just like with `getServerSideProps`, the `data` that is returned
+  - **THREE:** But just like with `getServerSideProps`, the `data` that _is_ returned...
   - **FOUR:** Becomes the props passed to `ProductPage`
-- **FIVE:** The rendered page HTML is stored on the filesystem and returned for **every request**
+- **FIVE:** Lastly, the rendered page HTML is stored on the filesystem
+  - And is the **same HTML** for every request
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/pages-olga-tutunaru-JMATuFkXeHU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -584,26 +597,28 @@ NOTES:
 
 NOTES:
 
-- The appeal of static rendering is that it's super fast
+- The appeal of static rendering is that it's **super fast**
   - The HTML is already ready when the user requests it
-  - In fact it can be cacheable by CDNs because it's the same for everybody
-  - But the flip side of the coin is that it results in slower build time...
+  - In fact it can be **cacheable by CDNs** because it's the same for everybody
+  - But the flip side of the coin is that it results in **slower build times**...
   - because all of these pages have to built before the server even runs
-- However like SSR it's also SEO-friendly because all of the HTML is there
+- However like SSR it's also **SEO-friendly** because all of the HTML is there
 - The idea with SSG is that there's a single page file for everyone...
-  - So dynamic or user-specific data can be tricky
-  - We can of course make API requests in the browser for the dynamic...
+  - So **dynamic or user-specific data** can be tricky
+  - We can of course make API requests in the browser for the dynamic content...
   - but then we may miss out on SSGs cacheability goodness
 - It takes planning and forethought to get the right mix of static & dynamic
-- So for our PDP...
+
+- So if I wanted to use SSG for our PDP...
   - We can render the all the UI at build time (image, title, sizes, etc)
-  - Then in the browser we can mark the necessary sizes out of stock
+  - Then in the browser we can retrieve & apply any size availability changes
   - Enable/disable the checkout button
   - Load in any user info in the header
   - And retrieve the related products
-- So we pre-render static content (default or loading states)
-  - And update in the browser
-- In general, SSG is best for logged out pages...
+- So for the dynamic stuff...
+  - we pre-render static content w/ default content or loading states
+  - And sync w/ up-to-date data in the browser
+- But in general, SSG is best & simplest for logged out pages...
   - Where the page is typically the same for everyone
   - Things like marketing landing pages, blog posts, etc
   - Or even product listings or our product details page if they rarely changed
@@ -620,10 +635,12 @@ NOTES:
 NOTES:
 
 - So we've talked about CSR, SSR & just now SSG
-- As I mentioned, the trouble with SSG is it's built once
-  - We like that it's super fast because it's cacheable
-  - But the rendered HTML never changes until the next build
-- Here's where incremental static regeneration aims to improve SSG
+  - Lemme confuse you by adding one more acronym 😆
+- As I mentioned, the trouble with SSG is that it's built once
+- We like that it's super fast because it's cacheable...
+  - But the rendered HTML never changes until we trigger another build
+- Here's where **incremental static regeneration** aims to improve SSG...
+  - by bringing the server to the party 🎉
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/salamander-michaela-klikova-izRfVtrRX30-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -652,10 +669,10 @@ NOTES:
 - So the page will still be pre-rendered at build time
 - Let's look at `getStaticProps` again
 - It's the same except we include this `revalidate` property
-  - It tells Next how long to keep around this cached version of the page
-  - After cache time is up, it'll **regenerate** the page the next time it's requested (hence the name)
-- So the page is still static, but not "permanent"
-  - It can change w/o a rebuild
+  - It tells Next how long to keep around the cached version of the page
+  - After cache time is up, it'll **"regenerate"** the page the next time it's requested (hence the name)
+- So the page is still static, but not "permanently static"
+  - It can change w/o a triggered rebuild
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/salamander-michaela-klikova-izRfVtrRX30-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -684,15 +701,17 @@ export const getStaticPaths = async () => {
 
 NOTES:
 
-- We can combine this with the 3rd option for `fallback: 'blocking'` to provide a different experience
+- We can combine `revalidate` with the 3rd option for `fallback:`...
+  - `'blocking'` to provide a different user experience
 - If you remember, `false` meant that requested pages that were not pre-rendered are a 404
   - And `true` meant that non-pre-rendered pages can be requested...
-  - but it'll show a fallback loading UI while it pre-renders
+  - but the user will see a fallback loading UI while Next pre-renders in the background
 - With `'blocking'`, it won't show the fallback UI
-  - But instead wait to update the UI until the new page has been pre-rendered by the server
+- Instead Next waits to update the UI until the new page has been pre-rendered by the server
   - So it kinda sorta feels like SSR
   - But we still get the cacheability of SSG
   - It's a hybrid
+  - Vercel calls it "dynamic at the speed of static"
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/salamander-michaela-klikova-izRfVtrRX30-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -718,18 +737,20 @@ NOTES:
 NOTES:
 
 - So ISR has all the same advantages and disadvantages as SSG
-  - The huge difference is that the HTML can actually update w/o requiring a rebuild
-- Maybe for the product details page we want the stock state to always be up-to-date...
-  - so we still request that in the browser
-  - So if we're ok with the price or the related products to be stale for our cache time...
-  - We could pre-render those without having to update the API in the browser providing a better UX
-  - We could even change the title & imagery regularly too
+  - The huge difference is that the HTML can actually **update w/o requiring a rebuild**
+- Maybe for the PDP we want the size availability to always be up-to-date...
+  - so we still make that API call in the browser for every page request
+- But if we're ok with the price or the related products to be stale for a bit...
+  - We could pre-render those without having to call the API in the browser
+  - Then once the cache expired we'd get the a **new pre-rendered page** w/ updated data
+  - This provides a faster UX
+- If the data or imagery changed, those would get updated too
 - Like static-site generation, ISR works best for pages that are the same for everyone...
-  - but they have data that needs to update regularly
-- Best for pages that are the same for everyone but need to update regularly
+  - but the difference is the data frequency needs
+- ISR is best for pages that are the same for everyone but need to update regularly
   - I'm thinking of headless CMS pages where UI changes can be hands-off by Engineering
   - Or semi-static product listings & pages
-  - They need to be able to update, but they aren't changing on every request either
+  - They need to be able to update, but they aren't different on every request either
 
 =====
 <!-- .slide: data-background="url(../../img/nextjs/mockups-hal-gatewood-weRQAu9TA-A-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -751,18 +772,19 @@ NOTES:
 
 - Next.js isn't _just_ a client-side renderer like CRA
 - It's not _just_ a static-site generator like Gatsby
-- It's not _just_ a server-side renderer like... OG Next
+- It's not even _just_ a server-side renderer like... OG Next
 - It's all of them!
   - And the beauty is that any given page can use a different render mode
 - I went through the 4 most popular modes
   - But we can configure pages to be various combinations too
-- We could build every page with any of these render modes...
+  - The combinations are endless!
+- Honestly, we probably could build every page with any of these render modes...
   - But some lend themselves better to certain types of pages
 - So for our one e-commerce site...
   - Maybe the **login, onboarding pages & blog pages** use SSG
   - ISR would be good for **product detail pages & landing pages** because they're static, but could change outside of the build cycle
   - **Search results pages, shopping cart, order history**,  and other user-tailored pages are likely good candidates for SSR
-  - And finally CSR for **3rd-party checkout, the shipment tracking page**, and any secondary UI that can be loaded after the main page
+  - And finally CSR for **3rd-party checkout, the shipment tracking page**, and any secondary UI that can be loaded after the main page renders
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -789,7 +811,7 @@ NOTES:
 NOTES:
 
 - So I know I just hit you with a bunch of information
-- So if you get the slides you can click through to all of these resources
+- Get these slides you can click through to all of these resources
 - The first is actually a blog I wrote about this topic a few years ago now
 - The rest are guides and docs for the official Next.js site
   - "On-demand incremental static rengeration" is like ISR, but with a sort of webhook
@@ -817,8 +839,8 @@ NOTES:
 
 - So as I wrap up...
   - I encourage you to give Next.js a try
-- Or if you have...
-  - Evaluate whether the pages are using the best rendering strategy
+- Or if you already have...
+  - Evaluate whether the pages you are using the best rendering strategy
 - I'm here for the remainder of the conference...
   - So you can ask me questions on Twitter (@benmvp) or find me afterwards
 - Thanks!
