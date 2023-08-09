@@ -4,11 +4,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>50 shades of React rendering with Next.js (SeattleJS Conf 2023)</title>
+	<title>Let's web dev like it's 1999! (Black Is Tech 2023)</title>
 
-	<meta name="description" content="CSR. SSG. SSR. ISR. These acronyms may seem similar, but they represent different rendering methods for React applications. In the past, we had to commit to a single rendering approach for the entire app, but with Next.js, we have the flexibility to choose the optimal rendering type for each page. This hybrid approach aligns closely with the unique needs of our applications. Imagine a landing page with static content that updates only when the code changes, a universally consistent page that undergoes frequent changes, and a personalized logged-in page with content tailored to each user—all rendered differently within a single application.
+	<meta name="description" content="When we “view source” our modern web applications, the code looks nothing like what we originally wrote. At a minimum, it's 	gone through linting, transpilation, obfuscation, minification, and bundling. And in order to build our beautifully designed apps with sophisticated interactions, we leverage the latest features in HTML, CSS and JavaScript available in our modern evergreen browsers.
 
-	This session is designed for React developers of all backgrounds. We'll explore the various types of rendering methods and deep dive into how Next.js empowers us to leverage them effectively. By the end of this talk, you'll not only gain a comprehensive understanding of these different rendering methods but also have the confidence to make informed decisions that maximize the potential of your React applications.">
+	However, when web development was in its infancy two decades ago, things were drastically different. Sites had hit counters, used frames for navigation, and were updated manually via FTP. We used the blink tag and scrolling marquees! Let's take a walk down memory lane (or have a history lesson) and have some laughs cringing at how sites looked, how they were built, and the rudimentary tooling we had to develop them.">
 	<meta name="author" content="Ben Ilegbodu">
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,8 +17,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 	<link rel="stylesheet" href="../../css/reveal.css">
-	<link rel="stylesheet" href="../../css/theme/benmvp-light.css" id="theme">
+	<link rel="stylesheet" href="../../css/theme/benmvp-dark.css" id="theme">
 	<link rel="stylesheet" href="../../css/overrides.css">
+
+	<style>
+		.reveal .code-highlight {
+			border: 10px solid red;
+		}
+	</style>
 
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="../../lib/css/zenburn.css">
@@ -43,13 +49,13 @@
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section data-markdown="nextjs.md" data-separator="^=====" data-separator-vertical="^/////" data-separator-notes="^NOTES:"></section>
+			<section data-markdown="webdev.md" data-separator="^=====" data-separator-vertical="^/////" data-separator-notes="^NOTES:"></section>
 		</div>
 
 		<footer class="slide-footer">
-			<a href="nextjs.html"><img src="../../img/globe.svg" class="plain"
+			<a href="webdev.html"><img src="../../img/globe.svg" class="plain"
 					style="height:40px;vertical-align:middle;" /></a>
-			<a href="nextjs.html">benmvp.com/seattlejs-nextjs</a> |
+			<a href="webdev.html">benmvp.com/bit-webdev</a> |
 			<a href="https://twitter.com/benmvp" target="_blank"><img src="../../img/twitter-logo-blue.svg" class="plain"
 					style="height:50px;vertical-align: middle" /></a>
 			<a href="https://twitter.com/benmvp" target="_blank">@benmvp</a>
