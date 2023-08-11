@@ -226,20 +226,6 @@ NOTES:
 - All to build a personal site!
 
 =====
-
-<!-- .slide: data-background="url(../../img/giphy/stand-up-steph-curry.gif) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1 style="font-size: 5em">Stand Up!</h1>
-  </div>
-</div>
-
-NOTES:
-
-- But before we continue further can I get everyone to stand up?
-
-/////
 <!-- .slide: data-background="#000" -->
 
 <div style="display:flex; justify-content: center">
