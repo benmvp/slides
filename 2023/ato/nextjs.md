@@ -13,11 +13,11 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=seattlejs-2023) | [#SeattleJSConf](https://twitter.com/hashtag/SeattleJSConf)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=ato-2023) | [#AllThingsOpen](https://twitter.com/hashtag/AllThingsOpen)</p>
 
   <br />
 
-  <p>August 8, 2023</p>
+  <p>October 17, 2023</p>
 
   </div>
 </div>
@@ -36,13 +36,13 @@ NOTES:
 /////
 <!-- .slide: data-background="#222" data-background-size="cover" -->
 
-<a href="https://benmvp.com/seattlejs-nextjs?utm_source=benmvp&utm_medium=slides&utm_campaign=seattlejs-2023" target="_blank">
-  <img src="../../img/qrcodes/seattlejs-2023-nextjs.svg" style="width: 40%" alt="QR code for &quot;50 shades of React rendering with Next.js&quot; talk" class="plain" />
+<a href="https://benmvp.com/ato-nextjs?utm_source=benmvp&utm_medium=slides&utm_campaign=ato-2023" target="_blank">
+  <img src="../../img/qrcodes/ato-2023-nextjs.svg" style="width: 40%" alt="QR code for &quot;50 shades of React rendering with Next.js&quot; talk @ All Things Open 2023" class="plain" />
 </a>
 
 <p>
-  <a href="https://benmvp.com/seattlejs-nextjs?utm_source=benmvp&utm_medium=slides&utm_campaign=seattlejs-2023" target="_blank">
-    benmvp.com/seattlejs-nextjs
+  <a href="https://benmvp.com/ato-nextjs?utm_source=benmvp&utm_medium=slides&utm_campaign=ato-2023" target="_blank">
+    benmvp.com/ato-nextjs
   </a>
 </p>
 
@@ -63,18 +63,19 @@ NOTES:
     <h2>React supports multiple renderers</h2>
 
     <pre class="large"><code class="lang-typescript">// src/client/index.js
-import React from 'react'
+import ReactDOM from 'react-dom'
 
 const App = () => {
   // render app UI
 }
 
-React.render(
-  document.getElementById('root'),
-  &lt;App />
-)</code></pre>
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+)
 
-    <div class="code-highlight" style="height: 240px; top: 577px;"></div>
+root.render(&lt;App />)</code></pre>
+
+    <div class="code-highlight" style="height: 300px; top: 577px;"></div>
   </div>
 </div>
 
@@ -172,25 +173,6 @@ NOTES:
   - Christian, Husband, Father
 - _Family introductions_
 - We live in Manvel, TX (suburb of Houston)
-- My wife is actually here with me
-  - She tagged along for us to celebrate our 13th wedding anniversary
-
-/////
-<!-- .slide: data-background="#222" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 80%">
-    <img src="../../img/family/ben-steering-boat-seattle-2023.jpeg" alt="Ben steering a boat in Seattle 2023" />
-  </div>
-</div>
-
-NOTES:
-
-- My wife is actually here with me
-  - She tagged along for us to celebrate our 13th wedding anniversary
-- As part of it we went on this boat tour on the water
-  - And the captain let me steer the ship for 30 minutes
-  - Including docking it
 
 /////
 <!-- .slide: data-background="#222" -->
