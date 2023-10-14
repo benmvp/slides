@@ -461,6 +461,8 @@ NOTES:
 - Now let's talk about **static-site generation**
 - SSG became super popular around 2019 thanks to Gatsby
   - And Next.js later joined the party, electing to make **all pages static by default**
+- Technically SSG started with Jekyll back in the day
+  - But it's in Ruby so we don't care 😆
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/pages-olga-tutunaru-JMATuFkXeHU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
