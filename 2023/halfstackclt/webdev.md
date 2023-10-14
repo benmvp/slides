@@ -1090,7 +1090,7 @@ NOTES:
         <img src="../../img/webdev/npm-cube-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://www.vercel.com/" target="_blank">
-        <img src="../../img/webdev/vercel-icon-light.png" alt="" class="plain" style="width: 250px" />
+        <img src="../../img/webdev/vercel-icon-dark.png" alt="" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>

@@ -1,0 +1,22 @@
+<svg viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg"
+  class="animated-logo_logo__noJiC animated-logo_theme-regolith__IZQIQ">
+  <path
+    d="M39 77.5C60.263 77.5 77.5 60.263 77.5 39C77.5 17.737 60.263 0.5 39 0.5C17.737 0.5 0.5 17.737 0.5 39C0.5 60.263 17.737 77.5 39 77.5Z"
+    fill="var(--background-color)" stroke="#ffeadb"></path>
+  <path
+    d="M50.6771 46.4275L49.4452 42.9266L47.8229 38.3168L46.6494 34.9807L45.113 30.6146L43.3283 25.5435H34.6718L33.2901 29.4703L32.0582 32.9712L25.9397 50.3582H31.6489L33.4399 45.2831H42.098L40.5616 40.917H34.9699L36.1435 37.5809L38.5949 30.6146L39.0001 29.4616L39.4053 30.6146L46.3496 50.3543L46.3512 50.3582H52.0604L50.6771 46.4275Z"
+    fill="#ffeadb"></path>
+  <path
+    d="M61.5744 26.2968C63.7606 30.1732 64.906 34.5496 64.899 39C64.899 53.3034 53.3036 64.8989 39.0002 64.8989C24.6968 64.8989 13.1013 53.3034 13.1013 39C13.1013 24.6966 24.6968 13.1012 39.0002 13.1012C43.6465 13.0938 48.2085 14.3425 52.2034 16.7151"
+    stroke="#ffeadb" stroke-width="2.20228" stroke-miterlimit="10"
+    stroke-linecap="round" transform="rotate(0 39 39)"
+    style="stroke-dashoffset: 0; stroke-dasharray: none;"></path>
+  <g transform="rotate(0 39 39)">
+    <path
+      d="M53.7499 21.1C55.6001 21.1 57.0999 19.6002 57.0999 17.75C57.0999 15.8999 55.6001 14.4 53.7499 14.4C51.8997 14.4 50.3999 15.8999 50.3999 17.75C50.3999 19.6002 51.8997 21.1 53.7499 21.1Z"
+      fill="#ffeadb" data-svg-origin="50.399898529052734 14.399999618530273"
+      transform="matrix(1,0,0,1,0,0)"
+      style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+    </path>
+  </g>
+</svg>

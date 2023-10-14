@@ -50,47 +50,326 @@ NOTES:
 
 # ✋🏾 Who's a Platform Engineer?
 
+NOTES:
+
+- Not too many now, but let's see if that changes by the end of our time
+
 =====
 
-# Good ol' days
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Good ol' days</h2>
 
-/////
-
-# jQuery / AJAX days
-
-/////
-
-# Framework wars (I)
-
-/////
-
-# Modernization of tooling
-
-/////
-
-# Framework wars (II)
-
-/////
-
-# Framework wars (III)
-
-/////
-
-# DivOps
+    <pre class="large"><code class="lang-html">&lt;HTML>&lt;HEAD>
+    &lt;LINK rel="stylesheet" href="styles.css">
+    &lt;SCRIPT src="script.js">
+  &lt;/HEAD>&lt;BODY>
+    &lt;IMG SRC="spacer.gif">
+&lt;/BODY>&lt;/HTML>
+</code></pre>
+  </div>
+</div>
 
 NOTES:
 
-- I call this fusion of Frontend & DevOps "DivOps"
-- Typical DevOps engineers don't know frontend
-- The "Frontend" is pushing further and further out
+- I've been developing on the web for over 20 years now
+  - Since I was a teenager in high school
+- And when I first started, we were using...
+  - Literal, handwritten HTML pages using all caps
+  - Manually including CSS using the `<link>`
+  - And, if using JS, a blocking `<script>`
+- If anyone coded with that "spacer gif" you're a real O.G.!
+- It was really the wild west then
 
 /////
+<!-- .slide: data-background="url(../../img/nextjs/servers-ismail-enes-ayhan-lVZjvw-u9V8-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-[![Entrique's tweet calling it DivOps](./../../img/divops/divops-tweet.png)](https://twitter.com/chochosmx/status/1183045782095699968)
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>jQuery &amp; AJAX</h2>
+
+    <pre class="large"><code class="lang-javascript">$.ajax({
+  url: "/api/getWeather",
+  data: {
+    zip: 77578
+  },
+  success: function(result) {
+    $("#weather-temp")
+      .html("&lt;p>" + result + "&lt;/p> degrees");
+  }
+});</code></pre>
+  </div>
+</div>
 
 NOTES:
 
-- Can't take credit for the name
+- Then jQuery and AJAX entered the chat
+- And it was A LOT easier for me to write interactive pages
+  - Because jQuery smoothed over the browser JS differences
+- We complain about browsers moving slow to adopt awesome new features
+  - But back then browsers didn't agree on how to make `fetch` requests
+- In fact, `fetch` didn't exist back then
+  - We had AJAX: Asynchronous JavaScript and XML
+  - We quickly ditched the XML for JS but the name stuck
+- jQuery was great, but not great enough
+  - Which lead to...
+
+/////
+<!-- .slide: data-background="url(../../img/divops/soldier-British-trench-Western-F.png) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Framework War I (FWI)</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://angularjs.org/" target="_blank">
+        <img src="../../img/react/angular-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://emberjs.com/" target="_blank">
+        <img src="../../img/divops/emberjs-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://backbonejs.org/" target="_blank">
+        <img src="../../img/react/backbone-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://extjs.com" target="_blank">
+        <img src="../../img/divops/ext-js-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://knockoutjs.com/" target="_blank">
+        <img src="../../img/divops/knockoutjs-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://polymer-library.polymer-project.org/" target="_blank">
+        <img src="../../img/divops/polymer-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.meteor.com/" target="_blank">
+        <img src="../../img/divops/meteor-icon.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://getbootstrap.com/" target="_blank">
+        <img src="../../img/divops/bootstrap-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://get.foundation/" target="_blank">
+        <img src="../../img/divops/foundation-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://jquery.com/" target="_blank">
+        <img src="../../img/nav-react/jquery-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div
+  </div>
+</div>
+
+NOTES:
+
+- The first framework war
+  - Focused on making it easier to create browser interactivity
+  - They were all "MVC" (Model, View, Controller) frameworks
+  - Adapted from the backend frameworks
+- ✋🏾 How many of these 10 can you name?
+  - AngularJS, EmberJS, BackboneJS, ExtJS, KnockoutJS
+  - PolymerJS, MeteorJS, Bootstrap, Foundation, jQuery
+- There was no npm or Github
+  - These were available my downloading zip files with minified JS
+  - Link to it as a `<script>` in the HTML
+
+/////
+<!-- .slide: data-background="url(../../img/divops/modern-home.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Modernization of tooling</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://www.npmjs.com/" target="_blank">
+        <img src="../../img/divops/npm-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://webpack.js.org/" target="_blank">
+        <img src="../../img/nav-react/webpack-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://babeljs.io/" target="_blank">
+        <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://gruntjs.com/" target="_blank">
+        <img src="../../img/nav-react/grunt-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://gulpjs.com/" target="_blank">
+        <img src="../../img/nav-react/gulp-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://eslint.org/" target="_blank">
+        <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://jestjs.io/" target="_blank">
+        <img src="../../img/nav-react/jest-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://yarnpkg.com/" target="_blank">
+        <img src="../../img/divops/yarn-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://prettier.io/" target="_blank">
+        <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div
+  </div>
+</div>
+
+NOTES:
+
+- Well we need a way to manage all of this JavaScript and CSS
+- We needed to store and retrieve it somewhere (npm & later yarn)
+- We needed to bundle & minify it (Webpack & Prettier)
+- We needed to verify it (ESLint & Jest)
+- As we transitioned from ES5 to ES6...
+  - We wanted to use new functionality earlier (Babel)
+- TypeScript initially came out to provide new capabilities + typing
+  - But then quickly adopted the specs and now focuses on types
+- Needed to be able to run all these tasks (Grunt & Gulp)
+- **This is where FE engineers started to move away from just UI**
+  - Working in a Node environment as well
+
+/////
+<!-- .slide: data-background="url(../../img/divops/world-war-2-flag-raising.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Framework War II (FWII)</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://angularjs.org/" target="_blank">
+        <img src="../../img/react/angular-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://reactjs.com" target="_blank">
+        <img src="../../img/react/react-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://vuejs.org/" target="_blank">
+        <img src="../../img/divops/vue-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://redux.js.org/" target="_blank">
+        <img src="../../img/nav-react/redux-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://mobx.js.org/" target="_blank">
+        <img src="../../img/divops/mobx-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://rxjs.dev/" target="_blank">
+        <img src="../../img/divops/rxjs-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://reactrouter.com/" target="_blank">
+        <img src="../../img/nav-react/react-router-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://relay.dev/" target="_blank">
+        <img src="../../img/nav-react/relay-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.apollographql.com/" target="_blank">
+        <img src="../../img/divops/apollo-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://netflix.github.io/falcor/" target="_blank">
+        <img src="../../img/divops/falcor-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div
+  </div>
+</div>
+
+NOTES:
+
+- As if one framework was enough, there was another one
+- This was the second iteration of UI frameworks
+  - But instead of all-in-one frameworks...
+  - There were targeted libraries that had to be composed together
+- The frontend is getting real complicated
+  - We need tools like Create React App & Lerna to help manage it all
+- ✋🏾 How many of these libraries can you name?
+  - Angular, React, Vue, Redux, MobX
+  - RxJS, React Router, Relay, Apollo, Falcor
+- These still focused on the UI...
+
+/////
+<!-- .slide: data-background="url(../../img/divops/zombie-apocalypse.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Framework War III (FWIII)</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://create-react-app.dev/" target="_blank">
+        <img src="../../img/nav-react/create-react-app-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://nextjs.org/" target="_blank">
+        <img src="../../img/nextjs/nextjs-logo-light.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.gatsbyjs.com/" target="_blank">
+        <img src="../../img/nav-react/gatsby-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://astro.build/" target="_blank">
+        <img src="../../img/divops/astro-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://remix.run/" target="_blank">
+        <img src="../../img/divops/remix-logo-dark.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://vitejs.dev/" target="_blank">
+        <img src="../../img/divops/vite-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://swc.rs/" target="_blank">
+        <img src="../../img/webdev/swc-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://vercel.com/" target="_blank">
+        <img src="../../img/webdev/vercel-icon-dark.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.netlify.com/" target="_blank">
+        <img src="../../img/webdev/netlify-logo.jpg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://aws.amazon.com/amplify/" target="_blank">
+        <img src="../../img/divops/aws-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div
+  </div>
+</div>
+
+NOTES:
+
+- In Framework War 3, it's less about the UI...
+  - And more about the development & deployment environments
+  - Next.js and others are making us full-stack engineers
+- These frameworks are trying to abstract all the non-UI work that the previous frameworks created
+- What's also interesting is that a lot of tooling is migrating to Rust
+  - To make the tooling even faster
+  - SWC is one of them: a Rust-based platform for the Web
+- ✋🏾 These should be easier to identify since they're newer
+  - Create React App, Next.js, Gatsby, Astro, Remix
+  - Vite, SWC, Vercel, Netlify, AWS
+
+/////
+<!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h1 style="font-size: 5em">DivOps Engineering</h1>
+  </div>
+</div>
+
+NOTES:
+
+- Now enters the poor Frontend Engineer...
+- All they want to do is write sophisticated UI code
+  - But instead they have to first figure out what tools to use
+  - And then figure out how to put them all together...
+  - Just to deliver all of the UI code they have yet to write
+- I call this fusion of Frontend & DevOps...
+  - This new discipline of also (or exclusively) maintaining frontend-related infra...
+  - "DivOps"
+  - It's Frontend engineers who are also (or exclusively) managing infra
+- Your typical DevOps engineers don't know frontend
+  - So they are usually unfamiliar with all of this tooling
+  - Including deployment platforms like Vercel
+- As a result, the "Frontend" is pushing further & further out from UI
+- We're DivOps Engineers
+
+/////
+
+<a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank"><img src="../../img/divops/divops-tweet.png" alt="Entrique's tweet calling it DivOps" /></a>
+
+NOTES:
+
+- I can't take credit for the name DivOps
+  - Enrique tweeted this almost exactly 3 years ago
+- But I've been pushing and broadcasting it wherever I go!
 
 =====
 <!-- .slide: data-background="url(../../img/giphy/stand-up-steph-curry.gif) no-repeat center" data-background-size="cover" -->
@@ -142,6 +421,22 @@ NOTES:
   - With an actual human stylist
   - Take the effort out of shopping by providing a selection of clothes picked just for you
   - And sent to your door on a frequency that you choose
+
+/////
+<!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:center">
+ <div class="content-overlay" style="width: 75%;">
+    <h1 style="font-size: 5em">DivOps Engineering</h1>
+  </div>
+</div>
+
+NOTES:
+
+- Okay, enough about me...
+- Let's dig deeper into DivOps engineering
+- And none of this will be about UI development
+  - Just everything around it to make it happen
 
 =====
 
