@@ -55,6 +55,7 @@ NOTES:
 - Not too many now, but let's see if that changes by the end of our time
 
 =====
+<!-- .slide: data-background="url(../../img/ts-react/grass-field-ales-krivec-4miBe6zg5r0-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
  <div class="content-overlay" style="width: 75%;">
@@ -183,6 +184,9 @@ NOTES:
       <a href="https://webpack.js.org/" target="_blank">
         <img src="../../img/nav-react/webpack-logo.png" class="plain" style="width: 250px" />
       </a>
+      <a href="https://rollupjs.org/" target="_blank">
+        <img src="../../img/nav-react/rollup-logo.svg" class="plain" style="width: 250px" />
+      </a>
       <a href="https://babeljs.io/" target="_blank">
         <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
@@ -204,9 +208,6 @@ NOTES:
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-        <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
-      </a>
     </div
   </div>
 </div>
@@ -219,8 +220,6 @@ NOTES:
 - We needed to verify it (ESLint & Jest)
 - As we transitioned from ES5 to ES6...
   - We wanted to use new functionality earlier (Babel)
-- TypeScript initially came out to provide new capabilities + typing
-  - But then quickly adopted the specs and now focuses on types
 - Needed to be able to run all these tasks (Grunt & Gulp)
 - **This is where FE engineers started to move away from just UI**
   - Working in a Node environment as well
@@ -439,28 +438,334 @@ NOTES:
   - Just everything around it to make it happen
 
 =====
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Development
-
-=====
-
-# Repo
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 75%;">
+    <h1>Development</h1>
+  </div>
+</div>
 
 NOTES:
 
-- Dependency updates/wrangling
+- Let's start with the development environment
+- The foundation of any modern web dev environment is...
+  - A JavaScript compiler/transpiler and a module bundler
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Compilers/transpilers</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://babeljs.io/" target="_blank">
+        <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://swc.rs/" target="_blank">
+        <img src="../../img/webdev/swc-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://developers.google.com/closure/compiler" target="_blank">
+        <img src="../../img/nav-react/closure-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- The most popular JS compiler/transpiler is still **Babel**
+  - Since it's 6to5 days
+- _Transpiling_ transforms modern JS into code that JS engines (like the browser) can understand
+- TypeScript technically is another transpiler
+  - We can use its CLI to output vanilla JS
+  - But these days it focuses mainly on its type system
+  - I actually use a TS Babel plugin to type check with TS but transpile with Babel
+- But the Rust-based **SWC** is on the come up
+  - Next.js and other tools have switched from Babel to it
+  - It claims to be 20x faster than Babel
+- There's also **Closure** from Google...
+  - But I haven't met any one using it
+  - If you are, I'd like to meet you
+  - You are the real unicorn developer 😆
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Bundlers</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://webpack.js.org/" target="_blank">
+        <img src="../../img/nav-react/webpack-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://vitejs.dev/" target="_blank">
+        <img src="../../img/divops/vite-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://rollupjs.org/" target="_blank">
+        <img src="../../img/nav-react/rollup-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://esbuild.github.io/" target="_blank">
+        <img src="../../img/divops/esbuild-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://turbo.build/pack" target="_blank">
+        <img src="../../img/divops/turbopack-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://parceljs.org/" target="_blank">
+        <img src="../../img/nav-react/parcel-logo.png" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Then there are the many bundlers
+  - This space is more active because large & slow-to-build bundles are a huge problem for the ecosystem
+- Webpack is the dominant player in this section
+- But Vite, Turbopack & esbuild are all promising speed and small sizes
+- There also were Rome & Snowpack but they've dropped out of the space
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 80%;">
+    <h2>Configs, configs, configs!</h2>
+
+    <pre class="large"><code class="lang-js">module.exports = {
+  entry: './path/to/my/entry/file.js',
+  module: {
+    rules: [{
+      test: /\.m?js$/,
+      use: {
+        loader: 'babel-loader',
+        options: { presets: ['@babel/preset-env'] }
+      }
+    }]
+  }
+}</code></pre>
+
+  </div>
+</div>
+
+NOTES:
+
+- Because Babel & Webpack are so powerful & have such large ecosystems
+  - Configuring a `babel.config.js` or `webpack.config.js`...
+  - Takes deep understanding of how the tools work
+  - Gotta know how to set things up correctly to get the most optimized builds
+- Because of the complexity & expertise needed to properly configure these low-level tools...
+  - Many other tools wrap compilers & bundles to get them to work w/ particular frameworks
+- I develop in React, and just w/in React there is...
+  - Create React App, Next.js, Astro, Remix, and many others
+  - Of course these frameworks do other things, but one goal is to abstract these DivOps-y things
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>API Integrations</h2>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://firebase.google.com/" target="_blank">
+        <img src="../../img/divops/firebase-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.apollographql.com/" target="_blank">
+        <img src="../../img/divops/apollo-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- But there's even more once we get passed compilers and bundlers
+- Frontend engineers may even have to setup API integrations like Firebase or Apollo GraphQL
+- _Maybe_ the DevOps engineers can set up Firestore or Firebase authentication
+  - But I wouldn't be surprised if a Frontend Engineer does it either
+
+/////
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Command-line scripts</h2>
+
+    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+      <a href="https://nodejs.org/" target="_blank">
+        <img src="../../img/browsers/nodejs-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Lastly, FE engineers often around other kinds of JavaScript
+  - It's not JS going into the browser
+  - It's also not JS running on a Node server (like Express)
+- These are scripts run from the command-line typically via npm scripts
+  - They glue everything together
+- They can run mock data environments like Firebase's Emulator Suite
+- They can be codemods that rewrite/upgrade/refactor source code
+- Others scripts run other tools like `server` or `nodemon` for running the web app locally
+- Once we know JS the possibilities are endless
 
 =====
+<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Static-analysis
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 50%;">
+    <h1>Repo</h1>
+  </div>
+</div>
+
+NOTES:
+
+- So we've got our development environment
+- But there's actually setup that needs to come before
+
+/////
+<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Dependency management</h2>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://github.com/dependabot" target="_blank">
+        <img src="../../img/divops/dependabot-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://renovatebot.com/" target="_blank">
+        <img src="../../img/divops/renovate-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- First there's everyone's favorite topic
+  - Dependency management
+- If we don't keep things up-to-date...
+  - Updating when we really need to becomes a pain
+- I have first-hand experience
+  - My website is using a 3-year old version of Gatsby (v1?)
+- All the plugins worked when they were on Node 14
+  - When I try to update to 18 or 20 I keep getting errors with the `sharp` package
+- There are some tools to help us wrangle these dependencies
+  - **Depandabot** which was acquired by Google
+  - **Renovate**
+- Each of them, of course, have their laundry list of config options & presets
+  - And who gets to figure all of that out?
+  - Us frontend developers! ✋🏾
+
+/////
+<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Multi-app orchestration</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://www.npmjs.com/" target="_blank">
+        <img src="../../img/divops/npm-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://yarnpkg.com/" target="_blank">
+        <img src="../../img/divops/yarn-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://pnpm.io/" target="_blank">
+        <img src="../../img/divops/pnpm-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://lerna.js.org/" target="_blank">
+        <img src="../../img/divops/lerna-logo.png" alt="" class="plain" style="width: 250px; background: white" />
+      </a>
+      <a href="https://turbo.build/repo" target="_blank">
+        <img src="../../img/divops/turborepo-logo.svg" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- If in addition to the primary site the company also has...
+  - A marketing site or blog or other sub-domains...
+  - All backed by a shared component library
+  - A monorepo is super helpful to keep things centralized & in sync
+- A monorepo allows for multiple projects (apps and/or libraries) to live in the same repo
+  - Modern cloud platforms know to deploy these for multiple domains
+- This is typically handle by workspaces where each project is a workspace
+  - npm, yarn & pnpm all support them
+- And then tools like **Lerna** & **Turborepo**...
+  - Can be layered on top of them to help with orchestrating builds, tests, etc.
+- A DevOps engineer is definitely not setting this up
+  - So who does it fall to?
+  - Us!
+
+/////
+<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Starter templates</h2>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://plopjs.com/" target="_blank">
+        <img src="../../img/divops/plop-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://yeoman.io/" target="_blank">
+        <img src="../../img/divops/yeoman-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- A company that is creating many apps or libraries...
+  - May need to create starter templates to provide consistency and...
+  - Ease the burden for creating greenfield projects
+- Tools like **Yeoman** or **Plop** are open-source libraries for this
+- Again, it's not frontend code, but tooling to make frontend development easier
 
 =====
+<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Testing
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h1>Static-analysis</h1>
+  </div>
+</div>
+
+NOTES:
 
 =====
+<!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
-# CI / CD
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 50%;">
+    <h1>Testing</h1>
+  </div>
+</div>
+
+NOTES:
+
+=====
+<!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 50%;">
+    <h1>CI / CD</h1>
+  </div>
+</div>
 
 NOTES:
 
@@ -468,8 +773,13 @@ NOTES:
 - More Node scripts
 
 =====
+<!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-# Production
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h1>Production</h1>
+  </div>
+</div>
 
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -482,6 +792,9 @@ NOTES:
 
 NOTES:
 
+- I've picked one option for each of the types of tools I mentioned
+  - See how many there are!
+
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -491,6 +804,23 @@ NOTES:
   </div>
 </div>
 
+NOTES:
+
+- So now based upon what I said who's a platform engineer?
+
+/////
+<!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>✋🏾 Who's a DivOps Engineer?</h1>
+  </div>
+</div>
+
+NOTES:
+
+- Or better said, a DivOps engineer?
+
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -499,6 +829,12 @@ NOTES:
     <h1>Awareness & Legitimacy</h1>
   </div>
 </div>
+
+NOTES:
+
+- Personally, I was hesitant/afraid to get into it
+- Didn't do it all at once
+- But slowly started building experience and expertise
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->

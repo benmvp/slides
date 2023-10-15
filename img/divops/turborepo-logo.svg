@@ -1,0 +1,32 @@
+<svg class="" width="40" height="32" viewBox="0 0 34 32" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logo-ring-gradient" x1="15.0234" y1="4.00556"
+      x2="3.64419" y2="15.3847" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0096FF"></stop>
+      <stop offset="1" stop-color="#FF1E56"></stop>
+    </linearGradient>
+    <linearGradient id="gradient">
+      <stop offset="0%" stop-color="#000000"></stop>
+      <stop offset="25%" stop-color="#ffffff"></stop>
+      <stop offset="85%" stop-color="#ffffff"></stop>
+      <stop offset="100%" stop-color="#000000"></stop>
+    </linearGradient>
+    <mask id="logo-mask">
+      <rect x="0" y="0" width="46" height="26" fill="url(#gradient)"
+        transform="translate(-8,0)"></rect>
+    </mask>
+  </defs>
+  <g mask="url(#logo-mask)" transform="translate(8,0)">
+    <g class="z-0 relative" opacity="1" data-projection-id="67"
+      transform-origin="13.948790550231934px 13.939799308776855px"
+      style="transform: none; transform-origin: 13.9488px 13.9398px;">
+      <path
+        d="M13.9396 6.42181C9.79423 6.42181 6.42163 9.79441 6.42163 13.9398C6.42163 18.0852 9.79423 21.4578 13.9396 21.4578C18.085 21.4578 21.4576 18.0852 21.4576 13.9398C21.4576 9.79441 18.085 6.42181 13.9396 6.42181ZM13.9396 17.8304C11.7906 17.8304 10.049 16.0888 10.049 13.9398C10.049 11.7908 11.7906 10.0492 13.9396 10.0492C16.0886 10.0492 17.8302 11.7908 17.8302 13.9398C17.8302 16.0888 16.0886 17.8304 13.9396 17.8304Z"
+        fill="white"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M14.5697 5.187V2.38C20.6709 2.7062 25.5177 7.7574 25.5177 13.9398C25.5177 20.1222 20.6709 25.172 14.5697 25.4996V22.6926C19.1169 22.3678 22.7177 18.5682 22.7177 13.9398C22.7177 9.3114 19.1169 5.5118 14.5697 5.187ZM7.30928 19.6798C6.10388 18.2882 5.32688 16.5158 5.18828 14.5698H2.37988C2.52548 17.2928 3.61468 19.7638 5.32128 21.6664L7.30788 19.6798H7.30928ZM13.3097 25.4996V22.6926C11.3623 22.554 9.5899 21.7784 8.1983 20.5716L6.2117 22.5582C8.1157 24.2662 10.5867 25.354 13.3083 25.4996H13.3097Z"
+        fill="url(#logo-ring-gradient)"></path>
+    </g>
+  </g>
+</svg>
