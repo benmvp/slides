@@ -536,7 +536,7 @@ NOTES:
 
 <div style="display:flex;justify-content:end">
  <div class="content-overlay" style="width: 80%;">
-    <h2>Configs, configs, configs!</h2>
+    <h2><code>webpack.config.js</code></h2>
 
     <pre class="large"><code class="lang-js">module.exports = {
   entry: './path/to/my/entry/file.js',
@@ -747,6 +747,206 @@ NOTES:
 
 NOTES:
 
+- So we've talked about the **Development** & **Repo** environments...
+- Let's get into the **Static-analysis** environment
+- I don't know how it is with other communities...
+  - But I'm a fan of the emphasis on static-analysis w/in the FE ecosystem
+- These tools help us to keep our code style consistent...
+  - But also catch issues in our code w/o ever running it
+
+/////
+<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Linting</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://eslint.org/" target="_blank">
+        <img src="../../img/nav-react/eslint-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://standardjs.com/" target="_blank">
+        <img src="../../img/divops/standard-js-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://stylelint.io/" target="_blank">
+        <img src="../../img/divops/stylelint-dark-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- **ESLint** for JavaScript & **Stylelint** for CSS are the main players in the linting game
+  - Technically **StandardJS** is a linter in the JS space
+  - But I haven't seen anyone using it lately
+- If this were 5 years ago, maybe I'd mention StandardJS
+  - Or **TSLint** or **JSLint**
+  - But it's basically all **ESLint** now
+- Each with their on configuration platform
+  - And each with their own plugins ecosystems
+- In fact...
+
+/////
+<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 80%;">
+    <h2><code>.prettierrc.js</code></h2>
+
+    <pre class="large"><code class="lang-js">modules.exports = {
+  extends: [
+    'airbnb', 'airbnb/hooks',
+    'typescript', 'typescript/prettier',
+    'plugin:testing-library/react',
+    'plugin:eslint-comments/recommended',
+    'turbo'
+  ],
+  plugins: [
+    'jest', 'testing-library', 'eslint-comments'
+  ]
+}</code></pre>
+
+  </div>
+</div>
+
+NOTES:
+
+- Not only are there general code plugins...
+  - But each framework/platform has its own plugins
+  - These help us avoid footguns in the platform
+  - Or at least nudge us in the right direction of best practices
+- I really like using lint rules as implicit docs/teaching...
+  - Instead of trying to do it manually
+  - Many times the lint failure will include a link
+- With all of these base configs & plugins...
+  - There's plenty DivOps work here to tweak things
+- I mean look at it...
+  - There's an eslint plugin for eslint comments
+  - How you disable an eslint rule is linted by eslint! 🤯
+- But let's dig more into **Prettier** & **TypeScript**
+
+/////
+<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Formatting</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://prettier.io/" target="_blank">
+        <img src="../../img/webdev/prettier-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://typicode.github.io/husky/" target="_blank">
+        <span style="font-size: 5em">🐶</span>
+      </a>
+      <a href="https://github.com/lint-staged/lint-staged" target="_blank">
+        <img src="../../img/divops/lint-staged-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- And then there's code formatting
+- It's a bit different than linting
+  - It actually has similar qualities to compiling & linting
+  - It changes your code like a compiler...
+  - But more for code style like a linter
+- Like ESLInt, **Prettier** is the main player here
+  - (**StandardJs** is also a formatter BTW)
+- Luckily the Prettier configuration is pretty small
+  - I think that's which it was really successful
+  - Unlike most tools where we have to decide what options to configure
+  - It is very opinionated out of the box
+- Oh and I use Husky + Lint Staged in order to lint before committing code
+  - It's an annoying DevEx to linting rules in CI
+
+-----
+
+- I mentioned how static-analysis tools help validate our code before even running it
+- Well I use Prettier + VS Code as immediate feedback
+- I format on save...
+  - So if I save and the code doesn't shift and format...
+  - I know that there's something invalid with my code...
+  - Like a missing curly brace or parenthesis such that the code is invalid
+
+/////
+<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Type-checking</h2>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- And then there's TypeScript
+  - Is there anything else doing type-checking?
+- Whenever I have to go back to JS-only codebase
+  - I just feel so... unsafe
+  - Can this be `null`?
+  - What properties are on this nested object?
+- As I mentioned before, I use TypeScript with Babel
+  - Babel does the transpiling of TypeScript to valid JS
+  - TypeScript handles the type-checking
+- And when combined with VS Code, I immediately have type errors/hint
+  - To guide me to the correct code
+- Learning TypeScript has a huge learning code...
+  - In fact, I've been using it for 5 years and still learn new things
+
+/////
+<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content:end">
+ <div class="content-overlay" style="width: 80%;">
+    <h2><code>tsconfig.json</code></h2>
+
+    <pre><code class="lang-json">{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "moduleResolution": "Node16",
+    "noEmit": true,
+    "noUnusedLocals": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
+    "types": ["node", "jest"]
+  }
+}</code></pre>
+
+  </div>
+</div>
+
+NOTES:
+
+- But unlike Prettier, the configuration for a `tsconfig.json` is no joke!
+- Your average FE Developer has no idea what this all means
+  - And someone has to learn what each one of these configurations mean
+  - Because when we don't stuff we expect to work, have type errors
+  - And there's nothing worse than fighting the type system
+- This is why DivOps Engineering is important
+- I mean look at this thing
+  - Even ChatGPT struggles!
+- There's definitely someone right now looking at this configuration...
+  - Pointing out stuff that's incorrect
+  - And my response is... yep you're right! 😆
+
 =====
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
@@ -793,7 +993,9 @@ NOTES:
 NOTES:
 
 - I've picked one option for each of the types of tools I mentioned
-  - See how many there are!
+  - See how many there are for each ecosystem!
+- So not only do we have to learn how to configure & maintain each...
+  - In many cases we have to first decide which one to pick 😔
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -835,6 +1037,16 @@ NOTES:
 - Personally, I was hesitant/afraid to get into it
 - Didn't do it all at once
 - But slowly started building experience and expertise
+- I want to encourage you
+  - It's not janitorial work
+  - Don't have to feel like it's a tangent
+  - It's a legit field of FE development
+- That's why I'm trying to bring awareness to it
+  - And really legitimize it
+- I'm waiting for the time where I don't just see...
+  - A FE job posting with these skills
+  - But an actual "DivOps Engineer" role
+  - One day...
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -855,15 +1067,7 @@ NOTES:
 
 NOTES:
 
-- And that's it!
-- As the conference slowly wraps up
-  - I wanted to take a moment to thank our organizer (Dylan)...
-  - for inviting me to speak
-  - But more importantly for continuing to put HalfStack conferences together
-  - _Applause_
+- Lemme wrap up now
 - You can ask me questions on Twitter (@benmvp) or find me afterwards
-- I hope you enjoyed our ride in the wayback machine
-  - Hopefully it gives us all an appreciation for where we've come from
-- Next time we wanna complain about missing CSS features we wish would exist...
-  - Remember the spacer gif
+-
 - Thanks!
