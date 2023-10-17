@@ -284,7 +284,7 @@ NOTES:
 
 <div style="display:flex;justify-content:center">
  <div class="content-overlay" style="width: 75%;">
-    <h2>Framework War III (FWIII)</h2>
+    <h2>(Meta) Framework War III (FWIII)</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
       <a href="https://create-react-app.dev/" target="_blank">
@@ -324,7 +324,7 @@ NOTES:
 NOTES:
 
 - In Framework War 3, it's less about the UI...
-  - And more about the development & deployment environments
+  - And more about the development & deployment environments, i.e. meta frameworks
   - Next.js and others are making us full-stack engineers
 - These frameworks are trying to abstract all the non-UI work that the previous frameworks created
 - What's also interesting is that a lot of tooling is migrating to Rust
@@ -958,10 +958,170 @@ NOTES:
 
 NOTES:
 
+- What do we have next?
+  - Ah, yes. The testing environment
+- FE Engineers also have to set up and maintain the various FE testing environments
+  - Yes, there is more than unit testing
+- But IMO, the earlier we can configure the testing platforms...
+  - The healthier the code base remains
+  - And that's basically what the testing infra is for
+- So let's dive into what DivOps engineers have to do in the testing space
+
+/////
+<!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>Unit Testing</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://jestjs.io/" target="_blank">
+        <img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://mochajs.org/" target="_blank">
+        <img src="../../img/nav-react/mocha-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.chaijs.com/" target="_blank">
+        <img src="../../img/nav-react/chai-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://github.com/avajs/ava" target="_blank">
+        <img src="../../img/nav-react/ava-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://github.com/ljharb/tape" target="_blank">
+        <img src="../../img/divops/tape-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- So technically there are a few options we have for unit testing
+  - **Jest**, **Mocha/Chai**, **Ava** & **Tape**
+- But as far as I've seen, everyone uses Jest
+- And just like **Babel**, **Webpack**, **ESLint**, **TypeScript** and everything else
+  - It comes with it's own huge config options and presets
+
+/////
+<!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 75%;">
+    <h2><code>jest.config.json</code></h2>
+
+    <pre><code class="lang-js">module.exports = {
+  moduleNameMapper: { '\*\*/\*.modules.s?css': 'identity-obj-proxy' },
+  modulePathIgnorePatterns: ['/\\built/'],
+  setupFiles: ['&lt;rootDir>/jest.setupFiles.ts'],
+  setupFilesAfterEnv: ['&lt;rootDir>/jest.setupFilesAfterEnv.ts'],
+  testMatch: ['\*\*/\*.test.[jt]sx?'],
+  transform: {
+    '\\.[jt]sx?$': 'babel-jest'
+  },
+  verbose: true,
+}</code></pre>
+
+  </div>
+</div>
+
+NOTES:
+
+- Technically we can use Jest without a configuration file
+  - But given all of the other things we've customized
+  - There's no way we can go without one
+- I counted over **70** configuration properties 🫨
+  - And that doesn't all the various presets and transformers
+- Testing is important, but this is very different than writing React code
+  - It takes skill set (and interest) to create and maintain these things
+
+/////
+<!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 60%;">
+    <h2>End-to-end testing</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://playwright.dev/" target="_blank">
+        <img src="../../img/divops/playwright-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.cypress.io/" target="_blank">
+        <img src="../../img/divops/cypress-logo-dark.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://pptr.dev/" target="_blank">
+        <img src="../../img/divops/puppeteer-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://webdriver.io/" target="_blank">
+        <img src="../../img/divops/webdriverio-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- On one end of the spectrum is unit testing
+  - These are tests that validate input/output functions
+  - And with modern frameworks like React...
+  - We can test markup and light UI interactions
+- But if we really want to validate the browser UX...
+  - We need to write end-to-end tests
+- There are a number of options we can pick
+  - **Webdriver.io** is the O.G. of the group built on Selenium
+  - **Cypress** used to be the darling...
+  - But now it seems like **Playwright** is the library of choice
+- So once again, not only does someone have to decide which one to choose...
+  - But they also have to configure & maintain the platform
+  - And figure out how to have the proper test & CI environments
+- And of course each platform has its own set of configurations
+
+/////
+<!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 60%;">
+    <h2>Visual testing</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://storybook.js.org/" target="_blank">
+        <img src="../../img/divops/storybook-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.chromatic.com/" target="_blank">
+        <img src="../../img/divops/chromatic-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.browserstack.com/percy" target="_blank">
+        <img src="../../img/divops/percy-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.browserstack.com/" target="_blank">
+        <img src="../../img/divops/browserstack-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Finally there's visual testing
+- First is **Storybook** that works for a number of UI frameworks...
+  - Although it started off for React
+  - It's all about testing UI components
+  - But for component libraries it serves as documentation & even development environment as well
+- **Chromatic** is a visual regression tool made by the Storybook folks
+  - So now we can ensure that our components continue to look the way they should after code changes
+  - The components are just as much as about their look & feel as their UI interactions
+- But now the service needs to integrate with Github, set up tokens...
+  - In addition to having to configure browsers, browser widths and all that jazz
+- **Percy** is also a visual regression too
+  - Probably the most popular one
+  - **Browserstack** recently bought them
+- Browserstack allow us to run tests on _real_ devices so there's no emulation
+  - Couple that with Percy and one end-to-end frameworks...
+  - And we've got a powerful way to ensure that our UIs are visually consistent on real browsers
+
 =====
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 50%;">
     <h1>CI / CD</h1>
   </div>
@@ -969,13 +1129,78 @@ NOTES:
 
 NOTES:
 
-- [optimizing your development pipelines and workflows with CI/CD](https://2023.connect.tech/session/493179)
-- More Node scripts
+- Let's recap before we continue
+  - We've covered: **Development**, **Repo**, **Static-analysis**, and just now **Testing**
+  - And now we've got Continuous Integration & Continuous Deployment/Delivery
+- This is where I think FE engineers _really_ get out of the frontend space
+  - Although since CI & Production apply for all sorts of projects & services
+  - DevOps engineers are likely going to be the ones who set it up
+- But typically they are trained in backend engineering
+  - So they are less familiar in maintaining frontend toolchains in production
+- As a result, the responsibility falls on FE (DivOps) engineers to...
+  - Do what's necessary to get the web app to Production
+  - Or the JS library to npm
+
+/////
+<!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Continuous Integration</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://github.com/features/actions" target="_blank">
+        <img src="../../img/divops/github-actions-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://circleci.com/" target="_blank">
+        <img src="../../img/divops/circleci-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.jenkins.io/" target="_blank">
+        <img src="../../img/divops/jenkins-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Up until now, everything that the DivOps engineer has set up, configured, and maintained...
+  - Has be local to the repo running on an individual developers' machine
+- But once we get to Continuous Integration...
+  - We're running in Github Actions, Circle CI, Jenkins, and other CI tools
+  - So that means we're writing YAML for Github Actions
+  - Or YAML for Circle CI
+  - Or YAML for Jenkins
+  - Or YAML for... I don't know what the deal is with CI tools in YAML
+  - I still copy and paste YAML because I just don't quite get the format
+- We're probably also writing more Node or Bash scripts to orchestrate all of the previous tools...
+  - In a CI environment
+  - Running static checks, running tests, building the app/library, etc
+  - Figuring out pipelines, caching, test sharding, etc
+
+/////
+<!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <a href="https://2023.connect.tech/session/493179">
+      <img src="../../img/divops/jeremy-meiss.jpg" />
+    </a>
+
+    <p><a href="https://2023.connect.tech/session/493179">Optimizing your development pipelines and workflows with CI/CD</a></p>
+    <p>11:30 AM (Core/Advanced JS)</p>
+  </div>
+</div>
+
+NOTES:
+
+- Jeremy is actually giving a talk about CI/CD later today
+- He's giving a 45-minute talk just on CI/CD
+  - That's how we know there's a lot there
 
 =====
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h1>Production</h1>
   </div>
