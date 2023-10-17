@@ -1,7 +1,7 @@
 <!-- .slide: data-background="url(../../img/nav-react/solar-system.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 45%;" class="content-overlay">
+ <div style="width: 45%;" class="content-overlay">
 
   <h1>Navigating the React Solar System</h1>
 
@@ -17,28 +17,27 @@
 
   <p>20 September 2018</p>
 
-
   </div>
 </div>
 
 NOTES:
+
 - Good morning!
 - Really excited to be here in Australia
-  * Expected to see kangaroos hoping by
-  * Everyone saying "G'day mate"
-  * But I guess that's just an American stereotype
-
+  - Expected to see kangaroos hoping by
+  - Everyone saying "G'day mate"
+  - But I guess that's just an American stereotype
 
 - If you're new to React you might hear that on top of learning React
-  * You need to know ES6, Redux, inline styles, server-side rendering, etc.
-  * All at the same time
-  * It can be so overwhelming
+  - You need to know ES6, Redux, inline styles, server-side rendering, etc.
+  - All at the same time
+  - It can be so overwhelming
 - And then React is just a UI library
-  * Need to pick libraries for fetching data, managing, data, etc.
-  * How can you pick something if you don't yet know what you need?
+  - Need to pick libraries for fetching data, managing, data, etc.
+  - How can you pick something if you don't yet know what you need?
 - So I want to walk through the different "planets" in the React solar system
-  * So you can get an idea of how to prioritize what to learn
-  * I'll also try to give a list of options for each category and my preference
+  - So you can get an idea of how to prioritize what to learn
+  - I'll also try to give a list of options for each category and my preference
 
 /////
 
@@ -57,6 +56,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/family/family-selfie-madrid.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - Christian, Husband, Father
 - We live in a small town outside of San Francisco
 
@@ -66,18 +66,20 @@ NOTES:
 <!-- .element: class="plain" style="width: 85%" -->
 
 NOTES:
+
 - I'm a Principal Frontend Engineer at Eventbrite
 - We're an online Events & Ticketing platform
 - Work on our Frontend Platform team
-  * Doing FE infra + design system work
-  * We've been using React for 2.5 years
-  * Migrated from Backbone and have never looked back
+  - Doing FE infra + design system work
+  - We've been using React for 2.5 years
+  - Migrated from Backbone and have never looked back
 
 /////
 
 <!-- .slide: data-background="url(../../img/giphy/james-harden-pot-cook.gif) no-repeat center" data-background-size="contain" -->
 
 NOTES:
+
 - Originally from Houston
 - Love Basketball
 - Favorite team in the NBA is the Rockets
@@ -91,8 +93,8 @@ _[5 minutes]_
 - Ok, enough about me
 - Let's talk about the React Solar System
 - **Who here considers themselves React newbies?**
-  * Going to be *a lot* of stuff covered
-  * Tweeted a link to slides cuz there will be **a lot** of resources
+  - Going to be _a lot_ of stuff covered
+  - Tweeted a link to slides cuz there will be **a lot** of resources
 
 =====
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -104,6 +106,7 @@ _[5 minutes]_
 </div>
 
 NOTES:
+
 - At the center of this solar system obviously is React
 
 /////
@@ -124,17 +127,17 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
+
 - First, learn React and learn it _really_ well
-  * Sounds like an obvious statement
-  * But there's a lot to learn
+  - Sounds like an obvious statement
+  - But there's a lot to learn
 - React is highly functional & reactive with a uni-directional data flow
 - If you're used to MVC with Angular or backend
-  * It'll take some time to wrap your head around the concepts
+  - It'll take some time to wrap your head around the concepts
 - Then of course there's JSX syntax
 - Ensuring that you're fully leveraging the Virtual DOM
-  * Not directly manipulating DOM nodes takes time
+  - Not directly manipulating DOM nodes takes time
 - But thankfully the API is really narrow so there's not that much learn
 - You can build a lot of great UIs with just JSX & the React API
 
@@ -163,6 +166,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - For simple task, imperative code is easy to follow
 - But as we all know, as things get more complicated, this sort of code gets pretty crazy
 
@@ -197,19 +201,20 @@ NOTES:
 </div>
 
 NOTES:
+
 - Combine the markup with the JavaScript
-  * UI is described as a "function" of its state
+  - UI is described as a "function" of its state
 - **ONE:** Initialize the `state` to have `value` which defaults to `0`
 - **TWO:** Render out the UI, specifically the input with the `state`
-  * Initial value is `0` cuz that's the default value of `this.state.value`
+  - Initial value is `0` cuz that's the default value of `this.state.value`
 - **THREE:** Click the button which calls `_handleClick` handler
 - **FOUR:** Call `setState()` which updates `state` to be previous value `+ 1`
 - **FIVE:** As a result, `render()` is called again
-  * New value is back in input field
-  * Updating state causes an optimized re-render via the reconciler (aka "Virtual DOM")
-  * Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
+  - New value is back in input field
+  - Updating state causes an optimized re-render via the reconciler (aka "Virtual DOM")
+  - Even though it looks like we would re-render the entire UI, only the part that changes updates the DOM
 - For this most basic example of interactivity, imperative seems more straightforward, right?
-  * As the UI gets more sophisticated React will scale much better
+  - As the UI gets more sophisticated React will scale much better
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -229,10 +234,11 @@ NOTES:
 </div>
 
 NOTES:
+
 - The purpose of this talk is not to be an intro to React
 - The React docs have an "Intro to React" tutorial
-  * It teaches all the core concepts
-  * While building a small game
+  - It teaches all the core concepts
+  - While building a small game
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -252,9 +258,10 @@ NOTES:
 </div>
 
 NOTES:
+
 - I've also created my own step-by-step workshop
-  * Called "React FUNdamentals Workshop"
-  * Can check that out for a more in-depth tutorial
+  - Called "React FUNdamentals Workshop"
+  - Can check that out for a more in-depth tutorial
 - Both the official tutorial and my workshop are written in ES6/ES.next, so...
 
 /////
@@ -279,13 +286,14 @@ NOTES:
 </div>
 
 NOTES:
+
 - React IMO is even easier to write with ES.next (modern JavaScript)
 - Outside of the JSX syntax, React is just JavaScript
-  * And even JSX is transpiled down to regular JavaScript
-  * So learning ES.next makes writing React easier
+  - And even JSX is transpiled down to regular JavaScript
+  - So learning ES.next makes writing React easier
 - Chances are if you learn React, you're gonna learn it with some ES.next concepts
 - Here's a super quick look at some features
-  * Likely been using some of these already in your JS framework of choice
+  - Likely been using some of these already in your JS framework of choice
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/sun.jpg) no-repeat center" data-background-size="cover" -->
@@ -301,6 +309,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - I gave a talk call _React + ES.next = ♥_ at ReactConf 2017
 - What I just talked about was just a small snippet of all the different features
 - Feel free to watch the video (not now)
@@ -335,9 +344,9 @@ _[11 minutes]_
 
 - **First planet:** Mercury
 - Probably the biggest complaint w/ React isn't React itself
-  * But the tooling needed to get set up
+  - But the tooling needed to get set up
 - I think the problem is that there's so much choice in this area
-  * You need to know how the tools work before you can get up and running
+  - You need to know how the tools work before you can get up and running
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -354,10 +363,11 @@ _[11 minutes]_
 </div>
 
 NOTES:
+
 - Let's start easy
 - The React Dev Tools are super helpful in debugging React props & state
 - You just browse the React component tree just like the DOM tree
-  * And you can look at the component props as well as the state
+  - And you can look at the component props as well as the state
 - Available for Chrome & Firefox. Sorry Edge users.
 - And just recently with the release of React 16.5.0 enabling performance debugging
 
@@ -382,14 +392,13 @@ NOTES:
   </div>
 </div>
 
-
-
 NOTES:
+
 - Two major players are NPM & Yarn
-  * Now they more or less do the same thing
+  - Now they more or less do the same thing
 - I currently use Yarn, by Facebook
-  * But am considering switching back to NPM
-  * Facebook no longer has a dedicated team on Yarn
+  - But am considering switching back to NPM
+  - Facebook no longer has a dedicated team on Yarn
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -413,9 +422,10 @@ NOTES:
 </div>
 
 NOTES:
+
 - Yarn changed the game
-  * There was really only NPM and they weren't innovating IMO
-  * Yarn's feature-set caused NPM to update as well and now they match
+  - There was really only NPM and they weren't innovating IMO
+  - Yarn's feature-set caused NPM to update as well and now they match
 - **Flat Mode:** Resolve mismatching versions of dependencies to a single version to avoid creating duplicates.
 - **Offline Mode:** If you've installed a package before, you can install it again without any internet connection.
 - **Deterministic:** The same dependencies will be installed the same exact way across every machine regardless of install order.
@@ -452,24 +462,25 @@ NOTES:
 </div>
 
 NOTES:
+
 - This is space has a lot of players
 - Webpack is the prevailing bundler right now
 - Rollup works specifically with ES6 modules
-  * Introduced the concept of "tree-shaking" feature that results in less generated code
-  * But instead of bundling the code into one file, it transpiles individual files
-  * Good for libraries
+  - Introduced the concept of "tree-shaking" feature that results in less generated code
+  - But instead of bundling the code into one file, it transpiles individual files
+  - Good for libraries
 - Prepack is a new tool for making JS code run faster
-  * From Facebook
-  * Computations that can be done at compile-time instead of run-time get eliminated
-  * Still in early DEV stage so not quite ready for production
+  - From Facebook
+  - Computations that can be done at compile-time instead of run-time get eliminated
+  - Still in early DEV stage so not quite ready for production
 - RequireJS is the original, but just isn't well suited at all for modern web development practices
 - I'd say go with Webpack
-  * It's still constantly evolving
-  * Webpack has "tree-shaking" too
-  * There's a whole ecosystem around it
+  - It's still constantly evolving
+  - Webpack has "tree-shaking" too
+  - There's a whole ecosystem around it
 - It's at this step where the "JavaScript fatigue" really kicks in
-  * Your typical JS developer doesn't want to or know how to configure these bundlers
-  * Just work please
+  - Your typical JS developer doesn't want to or know how to configure these bundlers
+  - Just work please
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -489,14 +500,14 @@ export const square = (x) => x \* x
 // This function gets included
 export const cube = (x) => x \* x \* x</code></pre>
 
-		    <pre class="large"><code class="language-javascript">// main.js
+      <pre class="large"><code class="language-javascript">// main.js
 import {cube} from './maths.js'
 
 console.log(cube(5)) // 125</code></pre>
-	    </div>
-	    <div style="flex:0 0 33%;">
-		    ...bundle comes out
-		    <pre class="large"><code class="language-javascript">function cube(x) {
+     </div>
+     <div style="flex:0 0 33%;">
+      ...bundle comes out
+      <pre class="large"><code class="language-javascript">function cube(x) {
   return x \* x \* x
 }
 
@@ -507,6 +518,7 @@ console.log(cube(5))</code></pre>
 </div>
 
 NOTES:
+
 - With tree-shaking, functions in a reference module that aren't used don't get bundled
 
 /////
@@ -535,13 +547,14 @@ NOTES:
 </div>
 
 NOTES:
+
 - Build files, run shell scripts, etc.
 - Grunt was the original & dominant
-  * Then because grunt files became so unmanageable
+  - Then because grunt files became so unmanageable
 - Gulp approached it with streams in a functional way
 - But with "building fatigue" and the fact that webpack could do so much of this for us
 - NPM scripts have lately become the most popular
-  * Essentially wrappers around command line calls
+  - Essentially wrappers around command line calls
 - If things are simple, use npm scripts.
 - If things are complex, use Gulp since it's functional
 
@@ -567,14 +580,13 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
+
 - For something simple like this, NPM scripts are great!
 - But I have some package.json files that have 25+ scripts that generate files, etc
-  * In that case, and actual build system like Gulp makes sense
-  * But it's good to always have NPM scripts to abstract the build system
-  * So if things change underneath the commands the user calls stay the same
-
+  - In that case, and actual build system like Gulp makes sense
+  - But it's good to always have NPM scripts to abstract the build system
+  - So if things change underneath the commands the user calls stay the same
 
 - Speaking of linting...
 
@@ -595,29 +607,29 @@ NOTES:
         <a href="https://flowtype.org/" target="_blank" style="display:block"><img src="../../img/nav-react/flow-logo.png" class="plain" /></a>
         <a href="https://flowtype.org/" target="_blank">Flow</a>
       </div>
-	    <div style="flex:0 0 30%;">
+     <div style="flex:0 0 30%;">
         <a href="https://www.typescriptlang.org/" target="_blank"><img src="../../img/nav-react/typescript-logo.png" class="plain" /></a>
-		    <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>
+      <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>
       </div>
     </div>
   </div>
 </div>
 
-
 NOTES:
+
 - The static analyzers help you catch errors in your code before it ever executes
-  * Can add these to your editor to get feedback in realtime
+  - Can add these to your editor to get feedback in realtime
 - **ESLint:** originally just for stylistic code preferences
-  * Can catch common errors, including in JSX
+  - Can catch common errors, including in JSX
 - Flow & Typescript are both static _type_ checkers
 - Flow is exclusively for type checking
 - TypeScript is a superset of JavaScript that includes type checking plus future JavaScript;
-  * It introduced classes before they were in ES2015
-  * It has interfaces which JS does not
+  - It introduced classes before they were in ES2015
+  - It has interfaces which JS does not
 - I have used Flow, and in practice is not so great
-  * Leaning more towards TypeScript
-  * Seems to just be better at typing
-  * But it's more "all-in" than Flow
+  - Leaning more towards TypeScript
+  - Seems to just be better at typing
+  - But it's more "all-in" than Flow
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -638,11 +650,12 @@ foo('Hello, world!')</code></pre>
 </div>
 
 NOTES:
+
 - Flow supports type inference
-  * So without even changing the code, it can start providing helpful feedback
+  - So without even changing the code, it can start providing helpful feedback
 - Just add `@flow` to the top
 - In this case we're trying to multiply a passed string by `10` which is obviously wrong
-  * Flow won't compile and will let us know something is wrong
+  - Flow won't compile and will let us know something is wrong
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mercury.jpg) no-repeat center" data-background-size="cover" -->
@@ -664,18 +677,17 @@ $> yarn start</code></pre>
   </div>
 </div>
 
-
 NOTES:
-- So this is everything you need to set up your React app!
-  * And I didn't even go into a bunch of nitty gritty details
-- This had been the biggest complaint about React
-  * How to get started
 
+- So this is everything you need to set up your React app!
+  - And I didn't even go into a bunch of nitty gritty details
+- This had been the biggest complaint about React
+  - How to get started
 
 - So the fine folks at Facebook did something about it...
-  * They created Create React App
-  * Allows you to bootstrap super quick w/ zero-config
-  * And if you need to config something it doesn't support you can "eject"
+  - They created Create React App
+  - Allows you to bootstrap super quick w/ zero-config
+  - And if you need to config something it doesn't support you can "eject"
 - Also creates an optimized bundle you can ship to production
 
 /////
@@ -698,6 +710,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Here are some miscellaneous resources regarding all the tools we talked about
 
 =====
@@ -709,11 +722,11 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
 _[21 minutes]_
 
 -**Next planet:** Venus
+
 - Let's talking about styling because visuals are just as important as interaction
 - There are _at least_ 5 ways to tackle the styling problem
 
@@ -736,11 +749,11 @@ _[21 minutes]_
 </div>
 
 NOTES:
-- You'd use the Global CSS option if you are transitioning to React
-  * Already have your CSS being built by some other process
-  * Create new React components with existing CSS classes
-- Bootstrap or Foundation would fall under this as well
 
+- You'd use the Global CSS option if you are transitioning to React
+  - Already have your CSS being built by some other process
+  - Create new React components with existing CSS classes
+- Bootstrap or Foundation would fall under this as well
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -770,6 +783,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Use BEM syntax as a convention to prevent name collisions
 
 /////
@@ -793,9 +807,10 @@ const Card = ({title, imageUrl, message}) => (
 </div>
 
 NOTES:
+
 - Component CSS is the exact same as Global CSS
-  * Except the CSS is imported by the Component
-  * Therefore if the Component isn't used the CSS won't be included in the bundle
+  - Except the CSS is imported by the Component
+  - Therefore if the Component isn't used the CSS won't be included in the bundle
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -815,6 +830,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Same BEM style CSS class names convention because eventually it'll all be merged
 - If the convention is broken you could still have collisions
 - Hopefully your global CSS was already modularized, so this transition shouldn't be tough
@@ -839,10 +855,10 @@ const Card = ({title, imageUrl, message}) => (
   </div>
 </div>
 
-
 NOTES:
+
 - CSS Modules are similar to Component CSS
-  * except the import of the CSS will return an object lookup with a generated class name
+  - except the import of the CSS will return an object lookup with a generated class name
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -862,6 +878,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - No need for naming conventions
 - Just name the classes what they are w/o worry about collision
 
@@ -883,6 +900,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - The generated CSS classes will be unique so there's no way they can collide
 - The generated markup will also have the same class names
 
@@ -906,12 +924,12 @@ const Card = ({title, imageUrl, message}) => (
   </div>
 </div>
 
-
 NOTES:
+
 - Then there's the "screw CSS" option w/ inline styles
 - As a result there's no chance of class name collisions or unexpected CSS cascade
 - There was a big huge push for this in React mainly because of React Native
-  * it doesn't support CSS, only inline styles
+  - it doesn't support CSS, only inline styles
 - If you want to share components across React & React Native you can't use CSS
 
 /////
@@ -937,6 +955,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Inline styles use `camelCase` version of the property names instead of `kebab-case`
 
 /////
@@ -968,12 +987,13 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
+
 - Problem with inline styles is that it only supports what inline styles support
-  * No media queries, pseudo-selectors, etc
+  - No media queries, pseudo-selectors, etc
 - New libraries have popped up to try to solve that issue in various clever ways
- * Most take what's defined as inline styles but map to unique CSS classes
+
+- Most take what's defined as inline styles but map to unique CSS classes
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -999,13 +1019,13 @@ const Card = ({title, imageUrl, message}) => (
   </div>
 </div>
 
-
 NOTES:
+
 - Quick look at how Emotion works
 - Create a custom elements/components with the styling you want
 - Supports all CSS syntax including media queries, keyframe animations & pseudo-selectors!
-  * There's also themeing support as well
-  * Been recently looking into for Eventbrite
+  - There's also themeing support as well
+  - Been recently looking into for Eventbrite
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/venus.jpg) no-repeat center" data-background-size="cover" -->
@@ -1024,6 +1044,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Here's what the generated markup will look like
 
 /////
@@ -1045,6 +1066,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Here are some miscellaneous resources regarding styling
 
 =====
@@ -1081,12 +1103,13 @@ _[32 minutes]_
 </div>
 
 NOTES:
+
 - Your favorite "walled garden" JS framework (like Angular) has a mechanism for making AJAX requests
-  * React does not come with one because it's just the UI side
-  * So the second you need to make an AJAX request, you need to figure out what to do
+  - React does not come with one because it's just the UI side
+  - So the second you need to make an AJAX request, you need to figure out what to do
 - You could use jQuery, but that could lead you to to using it improperly with React
 - Instead we're going to use a native AJAX implementation, new Fetch API
-  * Works with ES2015 Promises
+  - Works with ES2015 Promises
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
@@ -1104,7 +1127,7 @@ NOTES:
   </div>
 </div>
 
-NOTES:
+NOTES
 -
 
 /////
@@ -1128,20 +1151,19 @@ NOTES:
   </div>
 </div>
 
-
-
 NOTES:
+
 - Then there's routing to keep your UI in sync w/ the URL
 - React Router is the main router
-  * v4 was a complete API change which had drawbacks
-  * Most prevalent in use
+  - v4 was a complete API change which had drawbacks
+  - Most prevalent in use
 - Reach Router was a complete rethink by Ryan Florence
-  * Intended to be accessible by default
-  * Manages focus of your app on route transitions
-  * Has ambiguous path ranking algorithm
-  * Relative links, "not found" default components, etc.
+  - Intended to be accessible by default
+  - Manages focus of your app on route transitions
+  - Has ambiguous path ranking algorithm
+  - Relative links, "not found" default components, etc.
 - Don't think active dev is happening on React Router v4
-  * Go with Reach Router
+  - Go with Reach Router
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/earth.jpg) no-repeat center" data-background-size="cover" -->
@@ -1172,9 +1194,10 @@ const App = () => (
 </div>
 
 NOTES:
+
 - Can set up your routes with the same JSX syntax
-  * Within the `<Router>` just have your normal child components
-  * Just add special `path` prop (similar to special `key` prop)
+  - Within the `<Router>` just have your normal child components
+  - Just add special `path` prop (similar to special `key` prop)
 - Then you can `<Link>` to different sections using relative paths too
 
 =====
@@ -1191,19 +1214,19 @@ _[36 minutes]_
 
 - **Next planet:** Mars
 - Let's be real, forms are hard
-  * Forms with validation are hard
-  * And in React, it's no different
+  - Forms with validation are hard
+  - And in React, it's no different
 - Forms are hard because, the requirements are always different
-  * Form level errors
-  * Form element level errors
-  * Synchronous validation
-  * Async validation via AJAX
-  * Validation that depends on the values of multiple fields
-  * Errors that should show immediately (used username)
-  * Errors that should wait until form submission
+  - Form level errors
+  - Form element level errors
+  - Synchronous validation
+  - Async validation via AJAX
+  - Validation that depends on the values of multiple fields
+  - Errors that should show immediately (used username)
+  - Errors that should wait until form submission
 - React has a guide on Forms
-  * But speaks mostly about how to maintain form state
-  * Nothing about form validation & the complications
+  - But speaks mostly about how to maintain form state
+  - Nothing about form validation & the complications
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/mars.jpg) no-repeat center" data-background-size="cover" -->
@@ -1230,22 +1253,23 @@ _[36 minutes]_
 </div>
 
 NOTES:
+
 - The original is Redux Form
-  * But relied on having Redux (we haven't gotten to)
-  * It's also a pretty big lib for simple forms
-  * Kept adding on feature requests
+  - But relied on having Redux (we haven't gotten to)
+  - It's also a pretty big lib for simple forms
+  - Kept adding on feature requests
 - Erik decided to do a rebuild
-  * Created React Final Form
-  * No dependencies; small footprint
-  * Works with React render props
-  * New features are added via plugins
-  * Battle-proven with all of the existing features of Redux Form
-  * Has 30+ examples/recipes
+  - Created React Final Form
+  - No dependencies; small footprint
+  - Works with React render props
+  - New features are added via plugins
+  - Battle-proven with all of the existing features of Redux Form
+  - Has 30+ examples/recipes
 - While React Final Form was happening
-  * Jared created Formik
-  * Also wanted a Redux-free form implementation
-  * Basically built at the same time
-  * More or less feature parity
+  - Jared created Formik
+  - Also wanted a Redux-free form implementation
+  - Basically built at the same time
+  - More or less feature parity
 
 /////
 
@@ -1276,11 +1300,11 @@ _[38 minutes]_
 
 - At this point we've hit the asteroid belt
 - We actually have everything we need to build Production-level apps
-  * React & ES.next
-  * Tooling
-  * Styling
-  * Single Page-Apps
-  * Forms
+  - React & ES.next
+  - Tooling
+  - Styling
+  - Single Page-Apps
+  - Forms
 - But there's more to cover
 - Moving into the needs of large-scale apps
 
@@ -1313,7 +1337,7 @@ _[39 minutes]_
         <a href="https://mochajs.org" target="_blank">Mocha</a> + <a href="http://chaijs.com/" target="_blank">Chai</a>
       </div>
       <div style="flex:0 0 30%;">
-        <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%" /></a>
+        <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width:40%" /></a>
         <a href="https://facebook.github.io/jest/" target="_blank" style="display:block">Jest</a>
       </div>
       <div style="flex:0 0 30%;">
@@ -1324,18 +1348,18 @@ _[39 minutes]_
   </div>
 </div>
 
-
 NOTES:
+
 - Much like how there are many options for JS frameworks
-  * There are many for JS testing frameworks
+  - There are many for JS testing frameworks
 - Some are micro libraries like Mocha & Chai that do specific things
-  * Chai is just for assertions
+  - Chai is just for assertions
 - Others are like Jest that do it all
-  * Built on Jasmine
-  * Jest is by Facebook
-  * Started off pretty crappy, but has become really awesome
+  - Built on Jasmine
+  - Jest is by Facebook
+  - Started off pretty crappy, but has become really awesome
 - There's also Ava that had some buzz around it
-  * But it seems like for React testing it hasn't caught on
+  - But it seems like for React testing it hasn't caught on
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
@@ -1359,11 +1383,12 @@ it('adds CSS class for style primary', () => {
 </div>
 
 NOTES:
+
 - When unit testing React components, you want to test the logic in the component
-  * But only via its public API
-  * What it renders, and the callback handler props it calls
+  - But only via its public API
+  - What it renders, and the callback handler props it calls
 - Enzyme is a helper library that allows us to render React components w/o a browser
-  * Has a very jQuery-like interface for inspecting components
+  - Has a very jQuery-like interface for inspecting components
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/jupiter.jpg) no-repeat center" data-background-size="cover" -->
@@ -1398,13 +1423,13 @@ _[42 minutes]_
 - **Next planet:** Saturn
 - Chances are if you're building an app of significant size SEO & initial render speed will matter
 - Rendering server-side can help both
-  * This is called "Isomorphic/Universal React"
+  - This is called "Isomorphic/Universal React"
 - Rendering the same components server-side improves initial startup performance because content is already there
 - Google includes rendering speed in their ranking algorithm which affects SEO
-  * Even though now they execute JavaScript
+  - Even though now they execute JavaScript
 - There's also SMO (social media optimization) as well
-  * Having content for social media sites like Twitter, Instagram can use for previews
-  * They're likely not executing JavaScript
+  - Having content for social media sites like Twitter, Instagram can use for previews
+  - They're likely not executing JavaScript
 - React provides a method that will render the component tree to a string which you can include in server response
 
 /////
@@ -1435,24 +1460,25 @@ _[42 minutes]_
 </div>
 
 NOTES:
+
 - A couple of different options for server-side rendering
 - Next.js
-  * A minimalist framework for server-rendered React applications
-  * Has built-in routing, code-splitting, CSS support, data fetching, etc
+  - A minimalist framework for server-rendered React applications
+  - Has built-in routing, code-splitting, CSS support, data fetching, etc
 - Gatsby is an amazing static-site generator
-  * Use it for my site benmvp.com
-  * Basically does similar things as Next.js but does it all at build time
-  * It's all HTML, CSS & JS
-  * Creates a progressive web app, with data-prefetching
-  * Uses GraphQL to retrieve data for components
+  - Use it for my site benmvp.com
+  - Basically does similar things as Next.js but does it all at build time
+  - It's all HTML, CSS & JS
+  - Creates a progressive web app, with data-prefetching
+  - Uses GraphQL to retrieve data for components
 - Razzle is a library for bootstrapping server-side rendering
-  * Works with Vue, Angular & other libs as well
-  * You still figure out your routing, data fetching, etc
+  - Works with Vue, Angular & other libs as well
+  - You still figure out your routing, data fetching, etc
 - Lastly, you can roll your own solution
-  * When you have a Node backend
-  * Using Node server lib, like Express or Koa
-  * Router like Reach Router
-  * Data fetching with `isomorphic-fetch`
+  - When you have a Node backend
+  - Using Node server lib, like Express or Koa
+  - Router like Reach Router
+  - Data fetching with `isomorphic-fetch`
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/saturn.jpg) no-repeat center" data-background-size="cover" -->
@@ -1467,8 +1493,8 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
+
 - If your backend is in Django / Rails / .Net / etc. it's a bit more challenging
 - But I have a talk that explains it all!
 
@@ -1517,12 +1543,13 @@ _[45 minutes]_
 </div>
 
 NOTES:
+
 - Enter the Flux design pattern
 - If you've seen anything about Flux, no doubt you've seen this diagram
-  * And if you're like me, the first time it was explained to you, it didn't make sense
-  * And if you're like me, it didn't make sense the second time either
-  * I think I had to see it at least 3 or four times until I really got it
-  * And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
+  - And if you're like me, the first time it was explained to you, it didn't make sense
+  - And if you're like me, it didn't make sense the second time either
+  - I think I had to see it at least 3 or four times until I really got it
+  - And really it wasn't until I fully understood React, that I could grasp what the Flux pattern was conveying
 - That's why I think workshops are doing newbies a disservice by trying to teach React _AND_ Redux at the same time
 - The Flux pattern is basically about making application state mutations predictable
 
@@ -1535,26 +1562,26 @@ NOTES:
     <p>Make application state mutations predictable</p>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
+     <div style="flex:0 0 45%;">
         <a href="http://redux.js.org/" target="_blank"><img src="../../img/nav-react/redux-logo.png" class="plain" /></a>
-		    <a href="http://redux.js.org/" target="_blank">Redux</a>
+      <a href="http://redux.js.org/" target="_blank">Redux</a>
       </div>
-	    <div style="flex:0 0 45%;">
+     <div style="flex:0 0 45%;">
         <a href="http://mobxjs.github.io/mobx/" target="_blank"><img src="../../img/nav-react/mobx-logo.png" class="plain" /></a>
-		    <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
+      <a href="http://mobxjs.github.io/mobx/" target="_blank">MobX</a>
       </div>
     </div>
   </div>
 </div>
 
-
 NOTES:
+
 - Number of implementations of Flux
 - Originally there was just the pattern and we're on our own
 - At Eventbrite we created our own Flux implementation using Backbone (not that great)
 - The Facebook came out with Flux due to demand
 - Later Dan Ambramov created Redux which has been basically the main implementation that everyone uses
-  * Look we're talking about Redux at Step 8!
+  - Look we're talking about Redux at Step 8!
 - Redux uses the concept of reducers where you generate new state on actions
 - Mobx uses Observables that subscribe to mutations to state
 
@@ -1567,30 +1594,30 @@ NOTES:
     <p>Provide immutable collections for JavaScript</p>
 
     <div style="display:flex;align-items:center;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 45%;">
+     <div style="flex:0 0 45%;">
         <a href="https://facebook.github.io/immutable-js/" target="_blank"><img src="../../img/nav-react/immutable-logo.png" class="plain" /></a>
       </div>
-	    <div style="flex:0 0 45%;">
+     <div style="flex:0 0 45%;">
         <a href="https://github.com/rtfeldman/seamless-immutable" target="_blank">`seamless-immutable`</a>
       </div>
     </div>
   </div>
 </div>
 
-
 NOTES:
+
 - While on the subject of mutating state...
 - By default, JavaScript arrays, objects and other collections are mutable
-  * Normally you would just enforce a standard that data cannot be mutated
-  * That's how React works
-  * This leads to a lot of defensive copying with the spread operator
-  * Making lots of copies can hurt performance
+  - Normally you would just enforce a standard that data cannot be mutated
+  - That's how React works
+  - This leads to a lot of defensive copying with the spread operator
+  - Making lots of copies can hurt performance
 - Instead you can use a library like Immutable or `seamless-immutable` to have true immutable objects
 - `Immutable` is the big player, yet another library from Facebook
-  * Only used it a bit
-  * Found the API a bit cumbersome
-  * Constantly going to and from Immutable and native objects
-  * Don't _really_ want my React components to have to care, just Redux
+  - Only used it a bit
+  - Found the API a bit cumbersome
+  - Constantly going to and from Immutable and native objects
+  - Don't _really_ want my React components to have to care, just Redux
 - `seamless-immutable` is an alternative that has data structures that are backwards-compatible
 - The work just like Arrays or Objects except they don't mutate and have extra functionality
 - A lot lighter than Immutable
@@ -1615,6 +1642,7 @@ console.log(JSON.stringify(array))
 </div>
 
 NOTES:
+
 - Can pass to libraries like `lodash` or `underscore`
 
 =====
@@ -1659,17 +1687,17 @@ _[50 minutes]_
   </div>
 </div>
 
-
 NOTES:
+
 - Facebook & Netflix tackled the same problem with different approaches
 - Facebook came up with GraphQL, a generic query language for APIs
 - Relay & Apollo are connections of React to GraphQL
 - Falcor models all backend data as a single Virtual JSON object
-  * Clients request a subset of the model on-demand
-  * It has a JavaScript API
+  - Clients request a subset of the model on-demand
+  - It has a JavaScript API
 - In both cases you get only the data you want, nothing more, nothing less
 - Gotta change your traditional REST API to be compatible
-  * Can start by putting this in front of REST
+  - Can start by putting this in front of REST
 
 /////
 <!-- .slide: data-background="url(../../img/nav-react/neptune.jpg) no-repeat center" data-background-size="cover" -->
@@ -1699,8 +1727,8 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
+
 - Don't need much global state management as each component declares its own data dependencies
 - Gatsby uses GraphQL
 
@@ -1720,6 +1748,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - How to GraphQL is a full-stack tutorial for GraphQL
 
 =====
@@ -1742,7 +1771,7 @@ _[53 minutes]_
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 80%">
     <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-around">
-	    <div style="flex: 0 0 33%; margin-bottom: 0.8em">
+     <div style="flex: 0 0 33%; margin-bottom: 0.8em">
         <div>1. React & JavaScript</div>
         <a href="https://facebook.github.io/react/" target="_blank"><img src="../../img/react/react-logo.png" class="plain" style="width: 33%" /></a>
         <a href="/learning-es6-series/" target="_blank"><img src="../../img/es6/es6-logo.png" class="plain" style="width: 30%" /></a>
@@ -1765,7 +1794,7 @@ _[53 minutes]_
       </div>
       <div style="flex: 0 0 33%; margin-bottom: 0.8em">
         <div>6. Testing</div>
-        <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:30%" /></a>
+        <a href="https://facebook.github.io/jest/" target="_blank"><img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width:30%" /></a>
       </div>
       <div style="flex: 0 0 33%">
         <div>7. Performance & SEO</div>
@@ -1784,6 +1813,7 @@ _[53 minutes]_
 </div>
 
 NOTES:
+
 - 1/ Obviously start off with React & ES.next
 - 2/ For tooling using Create React App
 - 3/ For styling trying learning & using Emotion
@@ -1791,7 +1821,7 @@ NOTES:
 - 5/ Give React Final Form a try for sophisticated form handling
 - 6/ Use Jest + Enzyme for your unit testing
 - 7/ For SSR rendering look into Next.js
-  * (but use Gatsby for any sort of static site)
+  - (but use Gatsby for any sort of static site)
 - 8/ Redux for app state management
 - 9/ If you jump into GraphQL take a look at Apollo
 
@@ -1816,7 +1846,7 @@ NOTES:
         <a href="https://flowtype.org/" style="display:block"><img src="../../img/nav-react/flow-logo.png" class="plain" style="max-width:100%;" /></a>
       </div>
       <div style="flex:0 0 25%">
-        <a href="https://facebook.github.io/jest/"><img src="../../img/nav-react/jest-logo.svg" class="plain" style="width:40%;" /></a>
+        <a href="https://facebook.github.io/jest/"><img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width:40%;" /></a>
       </div>
       <div style="flex:0 0 25%">
         <a href="http://redux.js.org/"><img src="../../img/nav-react/redux-logo.png" class="plain" style="width:50%" /></a>
@@ -1832,6 +1862,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - So here are ALL the open-source libraries Facebook has put out
 - I think all that's missing is routing (react-router)
 - Makes me wonder if Facebook is a social networking company or an OSS company
@@ -1840,7 +1871,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 40%" class="content-overlay">
+ <div style="width: 40%" class="content-overlay">
 
   <h1>Ben Ilegbodu</h1>
 
@@ -1856,16 +1887,16 @@ NOTES:
 </div>
 
 NOTES:
+
 - So that's it!
 - Just flooded you with a lot of information
-  * Slides are available online
+  - Slides are available online
 - Hopefully 1, 2 or all 9 of these suggestions will prove useful to you
-  * You don't need to be overwhelmed and try to learn at once
-  * Get good at one and build on it
-
+  - You don't need to be overwhelmed and try to learn at once
+  - Get good at one and build on it
 
 - **Conference:** Inviting me all the way out here to share my knowledge/experience with y'all
 - **YOU!** For attending the conference
-  * I go through the stress of preparing and delivering so you can learn
-  * So even if you only learned one little thing it was worth it
+  - I go through the stress of preparing and delivering so you can learn
+  - So even if you only learned one little thing it was worth it
 - Thanks!

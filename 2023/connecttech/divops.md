@@ -200,7 +200,7 @@ NOTES:
         <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://jestjs.io/" target="_blank">
-        <img src="../../img/nav-react/jest-logo.svg" alt="" class="plain" style="width: 250px" />
+        <img src="../../img/nav-react/jest-logo-dark.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://yarnpkg.com/" target="_blank">
         <img src="../../img/divops/yarn-logo.png" alt="" class="plain" style="width: 250px" />

@@ -1,7 +1,7 @@
 <!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 45%;" class="content-overlay">
+ <div style="width: 45%;" class="content-overlay">
 
   <h1>Let's web dev like it's 1999!</h1>
 
@@ -17,7 +17,6 @@
 
   <p>September 13, 2019</p>
 
-
   </div>
 </div>
 
@@ -28,11 +27,10 @@ NOTES:
 - This talk is called "Let's web dev like it's 1999!"
 - **QUESTION: So how many of you were developing in 1999?**
 - Hoping to share a little about my dev story and walk down memory lane
-  * Or take a history lesson for most of you
+  - Or take a history lesson for most of you
 - Hopefully learn some new things along the way
-  * Appreciate where we are based on where we've come from
+  - Appreciate where we are based on where we've come from
 - Not try to wreck your brain too much right after lunch
-
 
 - **Slides are available online**
 
@@ -46,6 +44,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - But first, would like everyone to stand up!
 - Now turn to your neighbors, fist bump & say hi
 
@@ -56,27 +55,28 @@ NOTES:
 _[3 minutes]_
 
 - Christian, Husband, Father
-  * Live in the San Francisco Bay Area
+  - Live in the San Francisco Bay Area
 - I'm a Principal Frontend Engineer at Eventbrite
 - Work on our new Data & Recommendations team
-  * Focused on providing insights to event organizers to help them be more successful
+  - Focused on providing insights to event organizers to help them be more successful
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/2019_nba_champion_toronto_raptors_wallpaper_by_lancetastic27_dd9a3dg.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
-- Also a huge basketball / NBA fan
-  * Congrats to the Toronto Raptors on the championship
-  * I'm from Houston & a Rockets fan so I was rooting for y'all against the Warriors!
 
+- Also a huge basketball / NBA fan
+  - Congrats to the Toronto Raptors on the championship
+  - I'm from Houston & a Rockets fan so I was rooting for y'all against the Warriors!
 
 =====
 
 <!-- .slide: data-background="url(../../img/webdev/nikita-kostrykin-JmUl_t_v3dw-ps1-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - But I don't wanna talk about me now
-  * Wanna talk about me 20 years ago
+  - Wanna talk about me 20 years ago
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/aid109294-v4-900px-Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-1.jpg) no-repeat center" data-background-size="cover" -->
@@ -85,23 +85,24 @@ NOTES:
 _[4 minutes]_
 
 - My first programming language I learned was `BASIC`
-  * Summer program in '98
+  - Summer program in '98
 - Used that skill to build "apps" for my TI-83 calc in high school
-  * Math apps to help check answers on math homework & tests
-  * That's not cheating right?
+  - Math apps to help check answers on math homework & tests
+  - That's not cheating right?
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/win95help.png) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - Started sharing my apps online
-  * No Github, no App store
+  - No Github, no App store
 - Folks would ask how to write TI apps
 - So I started writing TI calculator tutorials
 - Initially I wrote them as Windows Help Applications
-  * Kind of like a hypercard system where you can link screens
-  * Generated a `.hlp` file
-  * Hard to distribute
+  - Kind of like a hypercard system where you can link screens
+  - Generated a `.hlp` file
+  - Hard to distribute
 - Quickly realized the web was a better way to distribute...
 
 /////
@@ -115,29 +116,29 @@ NOTES:
 <div class="code-highlight fragment current-visible" style="height: 100px; top: 450px; left: 1400px; width: 490px"></div>
 <div class="code-highlight fragment current-visible" style="height: 140px; top: 747px; left: 50px; width: 1320px"></div>
 
-
 NOTES:
+
 - So naturally I created a website
 - Went into the Wayback Machine and found my first site
-  * Isn't it beautiful
+  - Isn't it beautiful
 - Built "Basic Guru Online" as a Geocities website
-  * (because apparently I was a "guru")
-  * Geocities was like THE hosting service of the day
-  * There was also Angelfire & Tripod
-  * Talking early 2000
+  - (because apparently I was a "guru")
+  - Geocities was like THE hosting service of the day
+  - There was also Angelfire & Tripod
+  - Talking early 2000
 - BGO was like a full web application
-  * Geocities handled all the backend
-  * Updated site by pushing new static files directly to their servers with FTP (File Transfer Protocol)
+  - Geocities handled all the backend
+  - Updated site by pushing new static files directly to their servers with FTP (File Transfer Protocol)
 - **ONE:** Definitely created the logo in Microsoft Paint using PowerPoint clip-art + Comic Sans
 - **TWO:** Trusty-dusty hit counter (broken)
 - **THREE:** Current date display still works
-  * For some reason I thought that was necessary
+  - For some reason I thought that was necessary
   - This is why JS is backwards compatible - so my 20yo site still works
 - **FOUR:** I suggested using AOL to view the page
-  * "Should be okay" using Internet Explorer or Netscape Navigator
-  * Best viewed on an 800x600 res monitor!
-  * Used `<table>` for 2-column layout
-    * Still "responsive" nearly 20 years later!
+  - "Should be okay" using Internet Explorer or Netscape Navigator
+  - Best viewed on an 800x600 res monitor!
+  - Used `<table>` for 2-column layout
+    - Still "responsive" nearly 20 years later!
 
 /////
 
@@ -148,45 +149,47 @@ NOTES:
 <div class="code-highlight fragment current-visible" style="height: 470px; top: 56px; left: 1390px; width: 474px"></div>
 <div class="code-highlight fragment current-visible" style="height: 124px; top: 900px; left: 30px; width: 1859px"></div>
 
-
 NOTES:
 _[7 minutes]_
 
 - **ONE:** Weekly poll asks about internet connect speed
-  * Wish I had the results
+  - Wish I had the results
 - **TWO:** The bottom frame was fixed height
-  * Main section filled rest of the window
-  * More on this in a bit
+  - Main section filled rest of the window
+  - More on this in a bit
 - Surprisingly I didn't use `<marquee>` or `<blink>` tags
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/yahoo-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
+
 - For fun...
 - Here's what yahoo.com looked like at the time
 - "Powered by Compaq" at the bottom
-- https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/
+- <https://web.archive.org/web/20010601021654/http://www.yahoo.com:80/>
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/amazon-2001-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
+
 - And amazon.com
 - "Microsoft XP is now shipping!" at the bottom
-- https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html
+- <https://web.archive.org/web/20010601111711/http://www.amazon.com:80/exec/obidos/subst/home/home.html>
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/gatsby-blog-screenshot.png) no-repeat center" data-background-size="contain" -->
 
 NOTES:
+
 - Fast forward nearly 2 decades
 - Have my blog: benmvp.com
 - Uses Gatsby for static site generation
-  * It generates the static HTML pages I did by hand way back when
+  - It generates the static HTML pages I did by hand way back when
 - Written all in React
-  * Uses Redux, GraphQL, css-in-js, Algolia, Webpack, Babel & more!
-  * All to build a blog!
+  - Uses Redux, GraphQL, css-in-js, Algolia, Webpack, Babel & more!
+  - All to build a blog!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/uc-berkeley-coding-bootcamp.jpg) no-repeat center" data-background-size="cover" -->
@@ -218,27 +221,28 @@ NOTES:
 </div>
 
 NOTES:
+
 - Friend of mine recently graduated from UC Berkely coding boot camp
 - Look at all these skills they learned in just 12 weeks
-  * Not just HTML, CSS & JavaScript
-  * Command Line & Git (table stakes)
-  * jQuery, Bootstrap, React
-  * Django, Express & MongoDB
-  * Exactly what Chris was talking about in the morning keynote
+  - Not just HTML, CSS & JavaScript
+  - Command Line & Git (table stakes)
+  - jQuery, Bootstrap, React
+  - Django, Express & MongoDB
+  - Exactly what Chris was talking about in the morning keynote
 - And it's _just_ enough to get an entry-level job
 
 /////
 <!-- .slide: data-background="#000 url(../../img/webdev/justyn-warner-551353-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - Wow!
 - The bar for "minimally-viable" skills to build a site is so high now
 - We go to meetups/conferences like this to hear about all the things we **should** be doing
 
-
 - But the bar wasn't always so high
-  * In fact it was really, really low
-  * Probably non-existent
+  - In fact it was really, really low
+  - Probably non-existent
 - So I wanted to take a look at various aspects of how we built sites back in the day
 
 =====
@@ -249,9 +253,9 @@ _[9 minutes]_
 
 - Before CSS3, flexbox & grid we needed ways to lay out our pages
 - And many times we had some navigation that we wanted fixed
-  * Either a header menu on top
-  * Left nav
-  * Or in the case of my site I thought a fixed nav footer was a good idea
+  - Either a header menu on top
+  - Left nav
+  - Or in the case of my site I thought a fixed nav footer was a good idea
 - Now you may think I'm talking about using `<table>`s, but no!
 - I'm talking about page layouts that pre-dated `<table>`
 
@@ -259,7 +263,7 @@ _[9 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 85%;">
+ <div class="content-overlay" style="width: 85%;">
     <pre class="large"><code class="lang-html">&lt;FRAMESET ROWS="150px,\*">
   &lt;FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
   &lt;FRAMESET COLS="20%,\*,20%">
@@ -271,22 +275,22 @@ _[9 minutes]_
   </div>
 </div>
 
-
 NOTES:
+
 - Talking about `<frameset>`!
 - Before I even try to explain the code, take in this HTML!
-  * No it's not React 😂
+  - No it's not React 😂
 - It's in ALL-CAPS
 - Attributes like `MARGINHEIGHT` & `FRAMEBORDER` aren't even quoting the values
 - `<FRAME>` isn't even self-closing
-  * Dunno how the browser figured out that one!
+  - Dunno how the browser figured out that one!
 - The web was wild!
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 100%;">
+ <div class="content-overlay" style="width: 100%;">
     <img src="../../img/webdev/frameset-borders-margins.jpg" style="width: 100%" />
   </div>
 </div>
@@ -297,18 +301,17 @@ _[11 minutes]_
 - This is the layout that this contrived example is building
 - Got a "frame" that span the top
 - Then 3 frames in a column
-  * Outer ones are fixed and the middle one flexes
+  - Outer ones are fixed and the middle one flexes
 - So lets say "Frame 1" is your global header
 - "Frame 2" would be a left nav
 - "Frame 4" would be a right-side ads column maybe
 - And "Frame 3" would actually be the main contents
 
-
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 85%;">
+ <div class="content-overlay" style="width: 85%;">
     <p>site.html</p>
     <pre class="large"><code class="lang-html">&lt;FRAMESET ROWS="150px,\*">
   &lt;FRAME NORESIZE SRC="header.html" MARGINHEIGHT=15>
@@ -330,27 +333,27 @@ _[11 minutes]_
   </div>
 </div>
 
-
 NOTES:
+
 - Back to the code
 - **ONE:** Each `<FRAME>` pointed to a separate actual page
-  * An HTML page with just the header, just the nav, etc.
+  - An HTML page with just the header, just the nav, etc.
 - **TWO:** The `<FRAMESET>` can be aligned in either `ROWS` or `COLUMNS`
-  * **THREE:** And they can be nested
-  * **FOUR:** Notice the `*` syntax to signal that the column takes up remaining space
-  * Pretty fancy for 20 years ago right?
+  - **THREE:** And they can be nested
+  - **FOUR:** Notice the `*` syntax to signal that the column takes up remaining space
+  - Pretty fancy for 20 years ago right?
 - Got visual styling mixed right in the markup
 - **FIVE:** Frames by default had borders so they needed to be turned off
 - If you left the borders on, they could be resized
-  * **SIX:** So there was an attribute to turn prevent resizing
+  - **SIX:** So there was an attribute to turn prevent resizing
 - **SEVEN:** So what about that `NAME=content`? What's that for?
-  * Lemme explain
+  - Lemme explain
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 95%;">
+ <div class="content-overlay" style="width: 95%;">
     <p>nav.html</p>
     <pre class="large"><code class="lang-html">&lt;HTML>
   &lt;BODY>
@@ -368,21 +371,21 @@ NOTES:
 _[13 minutes]_
 
 - Well in addition to providing a grid-like layout
-  * We also don't want to have to refresh the whole page
+  - We also don't want to have to refresh the whole page
 - The header, nav & ads are staying fixed
 - So w/in `nav.html`, we just have our links target the `content` frame
-  * You've probably always just done `target="_blank"` for a new window right?
-  * But `target` has other purposes!
+  - You've probably always just done `target="_blank"` for a new window right?
+  - But `target` has other purposes!
 - For some reason we liked to not close our `<LI>` tags either
-  * Or maybe it was just me 😂
+  - Or maybe it was just me 😂
 - BTW, `<frameset>` was actually deprecated in HTML5
-  * Browsers still display it, but...
+  - Browsers still display it, but...
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 100%;">
+ <div class="content-overlay" style="width: 100%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 35%;">
@@ -425,17 +428,18 @@ NOTES:
 _[14 minutes]_
 
 - If you've been keeping up with the latest in CSS-land
-  * This sounds awfully similar to CSS Grid
+  - This sounds awfully similar to CSS Grid
 - Here's how we could implement the same thing now
 - Notice how `<main>` actually comes before `<nav>` in the markup
-  * For SEO
-  * But Grid layout puts it where we want visually!
-  * And has a responsive, mobile-first layout as well
+  - For SEO
+  - But Grid layout puts it where we want visually!
+  - And has a responsive, mobile-first layout as well
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - But CSS Grid is wayyy too modern for us
 - Let's go back 2 decades again...
 
@@ -443,7 +447,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 85%;">
+ <div class="content-overlay" style="width: 85%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 40%;text-align:left">
@@ -482,15 +486,15 @@ _[15 minutes]_
 - Naturally we'd just use some CSS selector to add `margin-left`
 - Simple enough right?
 - Or maybe use Bootstrap's grid system
-  * Burn columns with offset
+  - Burn columns with offset
 - But what do you do if CSS doesn't exist?
-  * Or at least it's not guaranteed to be available in all browsers?
+  - Or at least it's not guaranteed to be available in all browsers?
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 100%;">
+ <div class="content-overlay" style="width: 100%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 30%;text-align:left">
@@ -523,8 +527,8 @@ _[16 minutes]_
 - It's known as a "spacer gif"
 - And yes I say "gif" not "jif" 😀
 - It was 100% transparent, so it was see-thru
-  * It was teeny tiny in size
-  * Used to do "pixel perfect" spacing before CSS
+  - It was teeny tiny in size
+  - Used to do "pixel perfect" spacing before CSS
 - Would work in both horizontal & vertical direction
 - Used all over the place!
 - Again, responsive design & development wasn't a thing
@@ -533,7 +537,7 @@ _[16 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/celso-405219-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 85%;">
+ <div class="content-overlay" style="width: 85%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 30%;text-align:left">
@@ -563,10 +567,10 @@ NOTES:
 _[17 minutes]_
 
 - For this, we could use a whole bunch of `&nbsp;` entities
-  * This was also used heavily
-  * Because HTML ignores multiple whitespace characters
+  - This was also used heavily
+  - Because HTML ignores multiple whitespace characters
 - But the spacing is dependent on the font
-  * Wouldn't be exact if needed to line things up
+  - Wouldn't be exact if needed to line things up
 - So the spacer gif was the solution
 - And then...
 
@@ -574,6 +578,7 @@ _[17 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - CSS became a thing!
 - We had HTML **AND** CSS!
 - So awesome!
@@ -582,7 +587,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 50%;">
+ <div class="content-overlay" style="width: 50%;">
     <pre class="large"><code class="lang-html">&lt;BODY
   BGCOLOR="#DDDDDD"
   TEXT="#000000"
@@ -593,7 +598,6 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
 _[18 minutes]_
 
@@ -603,7 +607,7 @@ _[18 minutes]_
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 85%;">
+ <div class="content-overlay" style="width: 85%;">
     <pre class="large"><code class="lang-html">&lt;FONT FACE="COMIC SANS MS" COLOR="#FF0000" SIZE="-1">
   Weekly Poll
 &lt;/FONT></code></pre>
@@ -611,16 +615,17 @@ _[18 minutes]_
 </div>
 
 NOTES:
+
 - No longer did we have to use the `<FONT>` tag for styling everything
 - Yep, that was definitely a thing I used **a lot**
-  * No `<span>` just `<font>`, `<font>`, `<font>`
+  - No `<span>` just `<font>`, `<font>`, `<font>`
 - No obsolete
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 100%;">
+ <div class="content-overlay" style="width: 100%;">
     <pre class="large"><code class="lang-html">&lt;TABLE RULES="NONE" WIDTH="95" BORDERCOLOR="#00008B" BORDER="1">
   &lt;TR ALIGN="CENTER" BGCOLOR="#00008B">
     ...
@@ -630,10 +635,10 @@ NOTES:
 </div>
 
 NOTES:
-- Still using `<table>` for layout then of course
-  * But no longer need all the styling **in** the markup
-  * Could put it in a separate file
 
+- Still using `<table>` for layout then of course
+  - But no longer need all the styling **in** the markup
+  - Could put it in a separate file
 
 - However...
 - You know what we ended up using CSS most for in the beginning????
@@ -642,7 +647,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/greg-rakozy-129733-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 90%;">
+ <div class="content-overlay" style="width: 90%;">
     <pre class="large"><code class="lang-css">a, a:visited { color: red;   text-decoration: none; }
 a:hover      { color: black; text-decoration: underline; }</code></pre>
   </div>
@@ -657,17 +662,18 @@ _[19 minutes]_
 - Change color/underline on hover
 - Look how dynamic it is!
 - Really, CSS originally was just about taking styling out of HTML
-  * It didn't really do anything _cool_ initially
-  * So this was about the coolest thing we could do
+  - It didn't really do anything _cool_ initially
+  - So this was about the coolest thing we could do
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - So we've talked about
-  * `<FRAMESET>` - building page layouts
-  * spacer.gif - "pixel-perfect" spacing
-  * And just link styling - rudimentary CSS
+  - `<FRAMESET>` - building page layouts
+  - spacer.gif - "pixel-perfect" spacing
+  - And just link styling - rudimentary CSS
 - Now I wanna share something near dear to my heart
 
 /////
@@ -676,15 +682,14 @@ NOTES:
 ![Basic Guru Online table w/o rounded corners](../../img/webdev/bgo-internet-speed-poll-table.png)
 <!-- .element: style="width:50%" -->
 
-
 NOTES:
+
 - This was the poll I had on the right-hand-side of my site
 - Asking about connection speed
 - It has hard corners
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 
 <div style="display:flex;justify-content:center">
   <aside style="border-radius:75px;width:50%;background:#ddd;overflow:hidden;border:10px solid #00008b">
@@ -696,10 +701,10 @@ NOTES:
   </aside>
 </div>
 
-
 NOTES:
+
 - But I really wanted to have rounded corners
-  * But I didn't really know how to that
+  - But I didn't really know how to that
 - It was starting to be a thing with these "pods"
 - I think Yahoo! started doing it
 - Then rounded corners went out of fashion in the late 2000s with Material Design
@@ -710,7 +715,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 85%;">
+ <div class="content-overlay" style="width: 85%;">
 
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="flex:0 0 45%;">
@@ -734,17 +739,16 @@ header {
       </div>
     </div>
 
-
-
 <div class="code-highlight" style="height:70px;top:137px;left:850px;width:852px"></div>
 
   </div>
 </div>
 
 NOTES:
+
 - You would think you could just throw `border-radius` on it and be done with it
 - But `border-radius` wasn't introduced until 2005
-  * And wasn't widely supported 'til years later
+  - And wasn't widely supported 'til years later
 - So what did we do?
 
 /////
@@ -779,17 +783,18 @@ NOTES:
 </div>
 
 NOTES:
+
 - To make a "pod" with rounded corners I would cut it up into a 3x3 grid
 - The corners would be the rounder corners exported from Photoshop or equivalent
-  * `blue-top-left-5px.gif`, `gray-bottom-right-5px.gif`, etc
-  * Web didn't support it, so we had to resort to images
+  - `blue-top-left-5px.gif`, `gray-bottom-right-5px.gif`, etc
+  - Web didn't support it, so we had to resort to images
 - And what HTML element did we use to build this?
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/valentin-gautier-bEbwgH6wP6Y-rounded-building-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 70%;">
+ <div class="content-overlay" style="width: 70%;">
     <pre class="large"><code class="lang-html">&lt;table>
   &lt;tr>
     &lt;td class="pod--top-left">&lt;/td>
@@ -811,35 +816,37 @@ NOTES:
 </div>
 
 NOTES:
+
 - HTML `<table>`s of course
 - Header could be styled all in HTML but had to line up in height with the images
-  * Same with the footer
+  - Same with the footer
 - To create a "pod" took at least 4 images!
-  * Imagine the web performance of the pages 😂
-  * But also imagine... anytime the border radius or color changed
-  * Had to export new images
-  * No iterating going on here
+  - Imagine the web performance of the pages 😂
+  - But also imagine... anytime the border radius or color changed
+  - Had to export new images
+  - No iterating going on here
 - There _was_ a small amount of time where `<table>`-based layouts were shunned, but `border-radius` couldn't be used yet
-  * We don't talk about those times 😭
+  - We don't talk about those times 😭
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 NOTES:
+
 - You know how BE engineers are always saying JavaScript is a toy language
 - And we get mad saying it's legit
-  * Especially since ES6+
+  - Especially since ES6+
 - We use JS to build:
-  * Highly-concurrent / low-latency servers in Node
-  * Super-sophisticated web apps w/ service workers on the client
+  - Highly-concurrent / low-latency servers in Node
+  - Super-sophisticated web apps w/ service workers on the client
 - Well 2 decades ago it really was a toy language
-  * We did silly things with it
+  - We did silly things with it
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 70%;">
+ <div class="content-overlay" style="width: 70%;">
     <pre class="large"><code class="lang-html">&lt;head>
   &lt;script language="javascript">
     function sayHello() {
@@ -852,17 +859,17 @@ NOTES:
 </div>
 
 NOTES:
+
 - Things like display an alert message whenever someone visited my site! 🤦🏾‍♂️
-  * Kinda similar to those permission to send Notifications or read Location pop-ups
-  * It's all cyclical
+  - Kinda similar to those permission to send Notifications or read Location pop-ups
+  - It's all cyclical
 - Soooo many things we wouldn't do today
 - Like including a `<script>` in the `<head>` is bad because it blocks down render
 - Using `document.writeln` to dynamically write content to the page
 - Unobstrusive JS wasn't a thing yet
-  * Instead of calling the function in `onload`, we should use `addEventListener`
-  * But we didn't have jQuery (2006)
-  * Had to check for both `attachEvent` (IE) & `addEventListener` (standard)
-
+  - Instead of calling the function in `onload`, we should use `addEventListener`
+  - But we didn't have jQuery (2006)
+  - Had to check for both `attachEvent` (IE) & `addEventListener` (standard)
 
 - Imagine debugging and having that `alert()` pop up every time!
 
@@ -870,7 +877,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 80%;">
+ <div class="content-overlay" style="width: 80%;">
     <pre class="large"><code class="lang-javascript">alert('start');
 var num = getNum(new Date());
 
@@ -889,47 +896,50 @@ for (var i = 0; i < num; i++) {
 </div>
 
 NOTES:
+
 - Speaking of debugging, we had no debugging tools!
 - `alert()` debugging is all we had
-  * Not even `console` debugging, because there was no console
-  * And console debugging is considered sub-par
+  - Not even `console` debugging, because there was no console
+  - And console debugging is considered sub-par
 - And don't accidentally put an `alert()` in a loop or endless loop!
-  * Had to just quit the browser
+  - Had to just quit the browser
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 70%;">
+ <div class="content-overlay" style="width: 70%;">
     <img src="../../img/webdev/internet-explorer-script-error.jpg" alt="IE script error" style="width: 100%" />
   </div>
 </div>
 
 NOTES:
+
 - In IE, whenever an error would happen **everyone** get this cryptic message
-  * "An error has occurred in this script, do you want to continue running scripts?"
+  - "An error has occurred in this script, do you want to continue running scripts?"
 - It'd show for **every** error
-  * Usability nightmare
-  * That's some motivation to write bug-free code
+  - Usability nightmare
+  - That's some motivation to write bug-free code
 
 /////
 <!-- .slide: data-background="url(../../img/webdev/rodolfo-mari-81201-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
-	<div class="content-overlay" style="width: 70%;">
+ <div class="content-overlay" style="width: 70%;">
     <img src="../../img/webdev/firebug-shutdown-screenshot.png" alt="Screenshot of page officially shutting down Firebug" style="width: 100%" />
   </div>
 </div>
 
 NOTES:
+
 - Then Firebug came along and it changed the game in 2006/2007
 - May never have even heard of it
 - It was originally a Firefox extension
-  * Got me to move from IE to FF at the time
-  * And let you *see* the CSS and debug the JS!
-  * Could change CSS values w/o refreshing the page!
-  * Truly revolutionary!
-  * Paved the way for our amazing web inspectors today
+  - Got me to move from IE to FF at the time
+  - And let you _see_ the CSS and debug the JS!
+  - Could change CSS values w/o refreshing the page!
+  - Truly revolutionary!
+  - Paved the way for our amazing web inspectors today
 - I don't think "Web 2.0" with AJAX happens w/o the debugging from Firebug
 - Henri gave a great breakdown of web inspectors before lunch
 
@@ -952,7 +962,7 @@ NOTES:
         <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://jestjs.io/" target="_blank">
-        <img src="../../img/nav-react/jest-logo.svg" alt="" class="plain" style="width: 250px" />
+        <img src="../../img/nav-react/jest-logo-dark.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
@@ -974,30 +984,31 @@ NOTES:
 </div>
 
 NOTES:
+
 - And these days we have all this dev tooling to make our lives easier
-  * To ensure we don't ship broken code
-  * _Past:_ All we had was our desktop & FTP to transfer the files
-  * Would work directly on the server and break all sorts of things on Production
-  * _One dangling commas would break **everything**_
+  - To ensure we don't ship broken code
+  - _Past:_ All we had was our desktop & FTP to transfer the files
+  - Would work directly on the server and break all sorts of things on Production
+  - _One dangling commas would break **everything**_
 - Our code goes thru an incredible journey from idea to Production
 - **VSCode:** Editors like VSCode that make writing code so much easier
-  * Intellisense, unused code warning, extensions
+  - Intellisense, unused code warning, extensions
 - **Github:** Like table stakes now, but we didn't have version control
-  * It existed but only w/in the biggest of companies
-  * Imagine just 2 people working on the site at the same time w/o VC
+  - It existed but only w/in the biggest of companies
+  - Imagine just 2 people working on the site at the same time w/o VC
 - **Travis:** Continuous integration env automatically kicked off w/ git commits!
-  * Can run tests (written in Jest)
-  * Even automatically deploy
+  - Can run tests (written in Jest)
+  - Even automatically deploy
 - **Gulp:** Run build scripts (minification)
-  * Yahoo: Used to write terse JS/CSS to keep file sizes down
-  * Friend at AOL wasn't allowed to write comments!
+  - Yahoo: Used to write terse JS/CSS to keep file sizes down
+  - Friend at AOL wasn't allowed to write comments!
 - **Netlify:** Allows previewing PRs before they even merge!
 
 =====
 <!-- .slide: data-background="url(../../img/webdev/matt-jones-42954-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-start">
-	<div style="width: 40%" class="content-overlay">
+ <div style="width: 40%" class="content-overlay">
 
   <h1>Ben Ilegbodu</h1>
 
@@ -1017,13 +1028,13 @@ _[24 minutes]_
 
 - That's it!
 - Wanted to thank the organizers
-  * Inviting me to speak
-  * Putting on such a great conference
-  * _Applause_
+  - Inviting me to speak
+  - Putting on such a great conference
+  - _Applause_
 - I hope you enjoyed our ride in the wayback machine
-  * Hopefully it gives us all appreciation for where we've come from
-  * Next time we wanna complain about flexbox & weird property names
-  * Remember the spacer.gif
+  - Hopefully it gives us all appreciation for where we've come from
+  - Next time we wanna complain about flexbox & weird property names
+  - Remember the spacer.gif
 - Ask questions on Twitter
 - Thanks!
 - Enjoy the rest of the conference

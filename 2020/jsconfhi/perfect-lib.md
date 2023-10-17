@@ -1,7 +1,7 @@
 <!-- .slide: data-background="url(../../img/perfect-lib/jeshoots-com-VdOO4_HFTWM-tools-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 50%;" class="content-overlay">
+ <div style="width: 50%;" class="content-overlay">
 
   <h1>The “perfect” library tooling</h1>
 
@@ -24,15 +24,15 @@ NOTES:
 **RESTART THE TIMER!!!!**
 
 - **Aloha everyone!**
-  * Fully aware that I'm standing between you and lunch
-  * So I'll jump right in!
+  - Fully aware that I'm standing between you and lunch
+  - So I'll jump right in!
 - It's the "perfect" (in quotes) JavaScript library tooling because it's obviously highly subjective
-  * These are naturally my own opinions
+  - These are naturally my own opinions
 - But it's the talk I would've liked to have heard when I was starting building libraries
-  * Because libraries for developers have different concerns than apps for users
+  - Because libraries for developers have different concerns than apps for users
 - So these are learnings over the years doing tooling-type things
-  * In open-source & on the job
-  * As well as watching how other more prolific folks have done it
+  - In open-source & on the job
+  - As well as watching how other more prolific folks have done it
 - **TWEETED OUT THE SLIDES!**
 
 =====
@@ -52,16 +52,17 @@ NOTES:
 </div>
 
 NOTES:
+
 - Whenever we're talking about non-end-user features
-  * We need to ask ourselves what exactly is the benefit?
-  * Does this even matter?
+  - We need to ask ourselves what exactly is the benefit?
+  - Does this even matter?
 - Because if it's **not** a feature for the end user
-  * Then it **needs** to be a feature for the developer
-  * So that _they_ can build faster/better for end user
+  - Then it **needs** to be a feature for the developer
+  - So that _they_ can build faster/better for end user
 - Otherwise, we find ourselves bike-shedding
 - Kent C. Dodds wrote a blog post says exactly that
-  * We need to measure success based on how well we can deliver what the user wants
-  * Our choice of tooling should be based on that goal (and no more)
+  - We need to measure success based on how well we can deliver what the user wants
+  - Our choice of tooling should be based on that goal (and no more)
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -73,13 +74,14 @@ NOTES:
 </div>
 
 NOTES:
+
 - In this case, our "focus on the user" principle still applies
-  * Except, this time the "user" **is** the developer
-  * The libraries we build will be used by other developers
+  - Except, this time the "user" **is** the developer
+  - The libraries we build will be used by other developers
 - And instead of talking about how to write the code
-  * Malte already covered some of that
-  * We're gonna focus on **everything else**
-  * Everything that enables developers to build user experiences with our library
+  - Malte already covered some of that
+  - We're gonna focus on **everything else**
+  - Everything that enables developers to build user experiences with our library
 
 =====
 
@@ -92,6 +94,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Before we continue can I get everyone to stand up?
 
 /////
@@ -120,14 +123,14 @@ NOTES:
 
 - I'm a Principal Frontend Engineer at Stitch Fix
 - Stitch Fix is an online personal styling service
-  * Take the effort out of shopping by providing a selection of clothes picked just for you
-  * And sent to your door on a frequency that you choose
-  * Combines technology & data science
-  * With an actual human stylist
+  - Take the effort out of shopping by providing a selection of clothes picked just for you
+  - And sent to your door on a frequency that you choose
+  - Combines technology & data science
+  - With an actual human stylist
 - We're hiring!
-  * Headquarters is in SF
-  * But we have remote engineers all over the country
-  * Colleagues **James** & **Logan** are here!
+  - Headquarters is in SF
+  - But we have remote engineers all over the country
+  - Colleagues **James** & **Logan** are here!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/jeshoots-com-VdOO4_HFTWM-tools-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -137,9 +140,9 @@ _[5 minutes]_
 
 - Ok, enough about me
 - Let's talk about making this perfect JavaScript library
-  * This info applies for an open-source package or internal to your company
+  - This info applies for an open-source package or internal to your company
 - Remember we're shifting are focus to what our users need (the developers)
-  * Not necessarily what we care about
+  - Not necessarily what we care about
 - So let's jump in!
 
 =====
@@ -152,11 +155,12 @@ _[5 minutes]_
 </div>
 
 NOTES:
+
 - The first thing we need are Helpful Docs
 - Docs that explain:
-  * How to install the library
-  * Examples of how to use the library
-  * Full API spec once I already know how to use the library
+  - How to install the library
+  - Examples of how to use the library
+  - Full API spec once I already know how to use the library
 - Question for us: **So what makes Helpful Docs possible?**
 
 /////
@@ -169,16 +173,17 @@ NOTES:
 </div>
 
 NOTES:
+
 - My suggestion is to write the docs first **before** implementation
 - Why? Because writing **good** docs is hard
-  * So writing docs first makes it a bit easier
+  - So writing docs first makes it a bit easier
 - 1/ We're more likely to have a cohesive docs
-  * The formatting, inclusion of examples will all be the same
+  - The formatting, inclusion of examples will all be the same
 - 2/ We will write the docs when we know how it works **the least**
-  * We're able to **empathy** for newcomers
-  * As **Malte** mentioned in his talk
+  - We're able to **empathy** for newcomers
+  - As **Malte** mentioned in his talk
 - 3/ We can get feedback from others **before** implementation
-  * And it's in a format that's much more approachable than an implementation spec
+  - And it's in a format that's much more approachable than an implementation spec
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -210,7 +215,7 @@ NOTES:
           <li>provides background &amp; context</li>
         </ul>
       </div>
-	    <div style="flex: 0 0 50%; margin-bottom: 2em;text-align: left;">
+     <div style="flex: 0 0 50%; margin-bottom: 2em;text-align: left;">
         <h3>Tutorials</h3>
         <ul>
           <li>is <strong>learning-oriented</strong></li>
@@ -226,16 +231,17 @@ NOTES:
 </div>
 
 NOTES:
+
 - So what sort of docs should you write?
 - Keep in mind there are at least **four types** of docs
 - Tutorials, How-to guides, Explanations & References
-  * Let's use `lodash` as an example
+  - Let's use `lodash` as an example
 - **References** would be the traditional API docs for `lodash`
 - **How-to guides** are examples showing common use cases for `lodash` functions
 - **Explanations** are blogs/talks/videos to explain why using `_.chain` may be a bad idea
 - **Tutorials** would be `lodash` workshops we'd find **Egghead** or **Frontend Masters** or online
 - For your "perfect" library, you should have **References** & **How-to guides**
-  * API docs & examples
+  - API docs & examples
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/calle-macarone-15wIddvL5dU-emergency-instructions-guide-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -262,10 +268,11 @@ NOTES:
 </div>
 
 NOTES:
+
 - So in summary, my suggestion for the repo's `README.md` is **in this order**
 - Key is putting Technical Details at the bottom
-  * How it's faster, tech used, etc.
-  * I hate when this is up top for multiple page scrolls!
+  - How it's faster, tech used, etc.
+  - I hate when this is up top for multiple page scrolls!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -276,7 +283,6 @@ NOTES:
   </div>
 </div>
 
-
 NOTES:
 _[9 minutes]_
 
@@ -284,8 +290,8 @@ _[9 minutes]_
 - But the very next thing I'll need are TypeScript types
 - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript
 - Now this suggestion may be be bit controversial
-  * It's certainly my own bias
-  * But the numbers back me up (from the State of JavaScript survey)
+  - It's certainly my own bias
+  - But the numbers back me up (from the State of JavaScript survey)
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -321,16 +327,16 @@ _[9 minutes]_
 </div>
 
 NOTES:
+
 - TypeScript has become super popular
 - 2018 was the year everyone "discovered" TypeScript
 - Only 1/3 of devs had used TypeScript in 2017
 - In 2018, it was 47%
 - In 2019, it was nearly 60%
-  * If we add in those devs that are interested in learning TS: **80%**
+  - If we add in those devs that are interested in learning TS: **80%**
 - 8 out of every 10 developers will need **TypeScript definitions** from your lib
-  * In order to write their app in TypeScript that uses your lib
+  - In order to write their app in TypeScript that uses your lib
 - Question for us: **So what makes it possible to make TypeScript definitions available?**
-
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -348,14 +354,14 @@ NOTES:
 </div>
 
 NOTES:
+
 - One option is build your app in regular JavaScript
-  * And then add TypeScript type declaration files to `DefinitelyTyped`
-  * A repo of high quality TypeScript type definitions
+  - And then add TypeScript type declaration files to `DefinitelyTyped`
+  - A repo of high quality TypeScript type definitions
 - Nearly 7000 library type definition files are in the repo
-  * `React`, `lodash`, `node`, etc
+  - `React`, `lodash`, `node`, etc
 - The drawback is that you have to know quite a bit of TypeScript to generate these files manually
 - Therefore, my suggestion is...
-
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/pop-zebra-wp81DxKUd1E-safety-helmets-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -372,18 +378,19 @@ NOTES:
 </div>
 
 NOTES:
+
 - Write your library in TypeScript of course!
 - There's definitely a learning curve to TypeScript, no doubt
 - But in the interest of serving your users (the developers)
-  * Writing in TypeScript is the best way to provide type definition files
-  * Because they will be auto-generated
-  * (more on how they make it into your package later)
+  - Writing in TypeScript is the best way to provide type definition files
+  - Because they will be auto-generated
+  - (more on how they make it into your package later)
 - It's also difficult to write types for un-typed JS code
-  * When code is untyped, we can make shortcut assumptions
-  * These aren't allowed in TypeScript
-  * So writing types could be challenging or impossible
+  - When code is untyped, we can make shortcut assumptions
+  - These aren't allowed in TypeScript
+  - So writing types could be challenging or impossible
 - TypeScript also gives us modern JavaScript
-  * So it's a win for us in our library development too!
+  - So it's a win for us in our library development too!
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -399,15 +406,15 @@ _[12 minutes]_
 
 - Let's start to get a bit tactical now
 - So now I know how your lib works w/ the Helpful Docs
-  * I have my TypeScript Types to develop with
-  * So I'm good
+  - I have my TypeScript Types to develop with
+  - So I'm good
 - While developing, there's nothing more frustrating than coming across a library bug
 - We're pretty trusting initially, and think it's us
-  * And spend countless hours debugging trying to figure out why it isn't working
+  - And spend countless hours debugging trying to figure out why it isn't working
 - So for our library to be "perfect"
-  * Need to do our absolute best to prevent 100% of bugs
+  - Need to do our absolute best to prevent 100% of bugs
 - The question of course for us is...
-  * **What makes our library as Bug-free possible?**
+  - **What makes our library as Bug-free possible?**
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -415,32 +422,33 @@ _[12 minutes]_
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay" style="width: 65%">
     <div style="display:flex;align-items:flex-end;justify-content:space-around;margin-top:5%">
-	    <div style="flex:0 0 31%;">
+     <div style="flex:0 0 31%;">
         <a href="https://www.typescriptlang.org/" target="_blank" style="display: block"><img src="../../img/nav-react/typescript-logo.png" class="plain" style="width: 95%" /></a>
-		    Type checking
+      Type checking
       </div>
       <div style="flex:0 0 31%;">
         <a href="http://eslint.org/" target="_blank" style="display: block"><img src="../../img/nav-react/eslint-logo.svg" class="plain" style="width: 95%"/></a>
         Linting
       </div>
       <div style="flex:0 0 31%;">
-        <a href="https://jestjs.io/" target="_blank" style="display: block"><img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width: 95%"/></a>
+        <a href="https://jestjs.io/" target="_blank" style="display: block"><img src="../../img/nav-react/jest-logo-light.svg" class="plain" style="width: 95%"/></a>
         Testing + Coverage
       </div>
   </div>
 </div>
 
 NOTES:
+
 - The 3-headed monster of
-  * Unit Testing w/ Coverage (Jest)
-  * Linting (eslint)
-  * Type checking (Typescript)
+  - Unit Testing w/ Coverage (Jest)
+  - Linting (eslint)
+  - Type checking (Typescript)
 - **Type checking**
-  * So not only is developing w/ TypeScript good for providing types for our users
-  * It's **also** good for our users because it helps us avoid bugs!
-  * Those edge cases where things are unexpectedly `undefined`
-  * Or you refactor a function and forget to change the parameters somewhere
-  * With VS Code type-checking can happen _as you develop_
+  - So not only is developing w/ TypeScript good for providing types for our users
+  - It's **also** good for our users because it helps us avoid bugs!
+  - Those edge cases where things are unexpectedly `undefined`
+  - Or you refactor a function and forget to change the parameters somewhere
+  - With VS Code type-checking can happen _as you develop_
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -468,18 +476,19 @@ NOTES:
 </div>
 
 NOTES:
+
 - I'm guessing most of you already knew that
-  * More interested in taking it to the next level
+  - More interested in taking it to the next level
 - Typically you'd run typing, linting & testing with 3 separate commands
-  * But with Jest projects, you can run them **all** through Jest
+  - But with Jest projects, you can run them **all** through Jest
 - Jest is a platform that's broken up into 3 main parts
-  * The **"file collector"** in the beginning that determines which files to run on
-  * The **"error reporter"** at the end that displays success or failure
-  * The **"runner"** in the middle which runs whatever we're validating
+  - The **"file collector"** in the beginning that determines which files to run on
+  - The **"error reporter"** at the end that displays success or failure
+  - The **"runner"** in the middle which runs whatever we're validating
 - Instead of running the Jest test runner, we can run `eslint` or `tsc` for Typescript
 - This enables linting in **watch mode**, which `eslint` command doesn't support
-  * Also allows them to be run in **parallel**
-  * But w/ consistent and **grouped error messaging**
+  - Also allows them to be run in **parallel**
+  - But w/ consistent and **grouped error messaging**
 - Simply call `jest` as the `"test"` script in `package.json`
 
 /////
@@ -509,13 +518,14 @@ jobs:
 </div>
 
 NOTES:
+
 - Can take the `"test"` script and run it in continuous integration (CI) env
-  * There are many CI services out there (Travis CI, Circle CI, etc.)
-  * But lately I've been using **Github actions** and loving it
-  * Can use Github actions w/o registering for another service
+  - There are many CI services out there (Travis CI, Circle CI, etc.)
+  - But lately I've been using **Github actions** and loving it
+  - Can use Github actions w/o registering for another service
 - Here's an example Github workflow to run the tests on Node 10, 12 & 13
-  * I always run on the LTS versions (even) and latest odd
-  * It's important that you test on multiple Node versions!
+  - I always run on the LTS versions (even) and latest odd
+  - It's important that you test on multiple Node versions!
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/katka-pavlickova-Sf5Q7Ljjf58-volkswagen-beetles-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -535,10 +545,10 @@ NOTES:
 </div>
 
 NOTES:
-- Really wanna spend more time unpacking all of that
-  * But I have more things to share
-- Here are resources that dive deeper into what I just talked about
 
+- Really wanna spend more time unpacking all of that
+  - But I have more things to share
+- Here are resources that dive deeper into what I just talked about
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -553,7 +563,7 @@ NOTES:
 _[16 minutes]_
 
 - Discussed: **Helpful docs**, **TypeScript types** & **Bug free**
-  * Let's bring it home
+  - Let's bring it home
 - No matter how hard you test and test, there will inevitably still be bugs
 - Or even if you write perfect code...
   - Your users (the developers) will have requests for nice features you haven't thought of
@@ -571,6 +581,7 @@ _[16 minutes]_
 </div>
 
 NOTES:
+
 - Well it first starts with the issue itself
 - Whether it's a bug or a feature request we want _as much details as possible_
 - With issue templates you can guide the developer into a flow based on their situation
@@ -582,7 +593,6 @@ NOTES:
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -604,6 +614,7 @@ Binaries:
 </div>
 
 NOTES:
+
 - BTW - for bugs you can have the dev run the `envinfo` package & include the results
 - It's a quick way to get helpful system information
 
@@ -625,16 +636,16 @@ NOTES:
 </div>
 
 NOTES:
+
 - So now you're making the fix or developing the new feature
   - What makes that go fastest?
 - There are all these various communication files to streamline the process
 - **`.prettierrc.json`** - Prettier provides consistent formatting for everyone
-  * No time wasted arguing of code format
-  * Also makes developing faster cuz your editor can auto-format with Prettier
+  - No time wasted arguing of code format
+  - Also makes developing faster cuz your editor can auto-format with Prettier
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -650,6 +661,7 @@ npm init -y</code></pre>
 </div>
 
 NOTES:
+
 - In fact, if you're starting out the library there are a couple of scripts you can run
   - Setup MIT license
   - Setup `.gitignore` for Node files
@@ -687,22 +699,22 @@ NOTES:
 </div>
 
 NOTES:
+
 - After the code is written, the PR is created, passes CI & merged
-  * We need to get the code out ASAP to npm registry
+  - We need to get the code out ASAP to npm registry
 - First step is ensuring we're generating the correct formats that can be consumed
-  * These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
-  * **ONE**: `"main"` field for CJS
-  * **TWO**: `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
-  * **THREE**: `"types"` for TypeScript definition types (from Part 2)
-  * **FOUR**: `"files"` tells which files to include in package (instead of using `.npmignore`)
+  - These days for modern JS you need ESM (tree-shaking) & CJS (standard Node)
+  - **ONE**: `"main"` field for CJS
+  - **TWO**: `"module"`, `"jsnext:main"` & `"sideEffects"` fields for ESM
+  - **THREE**: `"types"` for TypeScript definition types (from Part 2)
+  - **FOUR**: `"files"` tells which files to include in package (instead of using `.npmignore`)
 - **FIVE**: So we use `babel` for transpiling TypeScript to vanilla JS
-  * With TypeScript plugin
+  - With TypeScript plugin
 - **SIX**: Use `tsc` for generating TypeScript definition files
 - **SEVEN**: Wrap it all up in a nice `"build"` script
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
 
 <div style="display:flex; justify-content: flex-end">
   <div class="content-overlay">
@@ -713,7 +725,9 @@ on:
 jobs:
   main:
     steps:
+
       # Setup & install
+
       - name: Build package
         run: npm run build
 
@@ -729,13 +743,14 @@ jobs:
 </div>
 
 NOTES:
+
 - With the `build` script in place, we can achieve continuous delivery (CD)
-  * **ONE**: First we run the `build` script to generate all the files
-  * **TWO**: Then we run the `semantic-release` package to release
-  * Meant to be executed in CI env after every successful build on release branch
-  * Makes releases "unromantic & unsentimental"
-  * I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
-  * No having to manually push a version commit or run a script locally
+  - **ONE**: First we run the `build` script to generate all the files
+  - **TWO**: Then we run the `semantic-release` package to release
+  - Meant to be executed in CI env after every successful build on release branch
+  - Makes releases "unromantic & unsentimental"
+  - I can merge a PR on my phone and it get automatically pushed to npm in 5 mins
+  - No having to manually push a version commit or run a script locally
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -751,8 +766,9 @@ NOTES:
 </div>
 
 NOTES:
+
 - Lastly, you can browse the package to make sure everything was released properly
-  * With unkpg, jsDelivr, and now on the npm site itself
+  - With unkpg, jsDelivr, and now on the npm site itself
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/russ-ward-18MJRuL4tUE-plasma-cutter-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -778,6 +794,7 @@ NOTES:
 </div>
 
 NOTES:
+
 - Tons more resources on little details I wasn't able to cover
 
 =====
@@ -826,7 +843,7 @@ _[21 minutes]_
           <li><a href="https://www.youtube.com/watch?v=ZJ43STkmK-4" target="_blank">Jest as a platform</a></li>
         </ul>
       </div>
-	    <div style="flex: 0 0 50%; text-align: left;">
+     <div style="flex: 0 0 50%; text-align: left;">
         <h3>Build / CD</h3>
         <ul>
           <li><a href="https://github.com/features/actions" target="_blank">Github actions</a></li>
@@ -852,22 +869,23 @@ _[21 minutes]_
 </div>
 
 NOTES:
+
 - Here it all is in one slide!
 - Your **development experience** starts with getting to write in modern JS (via TypeScript)
 - And with a nice editor like VS Code...
-  * Can get prettier formatting, eslint & type checking in the editor
+  - Can get prettier formatting, eslint & type checking in the editor
 - For **testing & continuous integration (CI)**, try use the new Github actions
 - And with Jest as a platform...
-  * You can run type checking, linting, unit tests & code coverage all at once
+  - You can run type checking, linting, unit tests & code coverage all at once
 - **Build & continuous delivery (CD)** are key
 - Use Babel for transpiling (TypeScript for type-checking)
-  * Probably only need to target CommonJS & ES Module formats
-  * And there are a plethora of `package.json` fields to set
+  - Probably only need to target CommonJS & ES Module formats
+  - And there are a plethora of `package.json` fields to set
 - You'll want to your CI service to auto release new versions from commits merged to `master`
 - And we now have ways to ensure that what we release looks good
 - Lastly there are lots of other **repo files**
-  * Docs for your users to figure out how to use your library
-  * Other files to make communication with you easy & safe
+  - Docs for your users to figure out how to use your library
+  - Other files to make communication with you easy & safe
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -882,15 +900,15 @@ NOTES:
 _[22 minutes]_
 
 - So that was **all** the info I wanted to know 4+ years ago when I was starting
-  * But to be honest, it probably would've been too overwhelming
-  * I count over **20** different things!
-  * I wanted to have the right tooling, but I was more interested in building my lib
+  - But to be honest, it probably would've been too overwhelming
+  - I count over **20** different things!
+  - I wanted to have the right tooling, but I was more interested in building my lib
 - Even for me, now knowing it all...
-  * I still don't wanna try to set those up each time
+  - I still don't wanna try to set those up each time
 - So I created a zero-config CLI tool, called `@benmvp/cli` to abstract all that work
-  * Everything but the docs (and the source code)
+  - Everything but the docs (and the source code)
 - The CLI has some options, so you _could_ totally use it
-  * But I built it for myself, so don't expect any PRs to make it more configurable!
+  - But I built it for myself, so don't expect any PRs to make it more configurable!
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -909,20 +927,21 @@ _[22 minutes]_
 </div>
 
 NOTES:
+
 - It works a lot like `react-scripts` if you've ever used Create React App before
 - You run `npx @benmvp/cli create` (with name of app) and it initializes an app for you
-  * Includes everything
-  * Github actions CI/CD, repo files, sets all the `package.json` fields
-  * Adds `@benmvp/cli` as a dev dependency
-  * Adds scripts for the other commands
+  - Includes everything
+  - Github actions CI/CD, repo files, sets all the `package.json` fields
+  - Adds `@benmvp/cli` as a dev dependency
+  - Adds scripts for the other commands
 - `test` & `build` do what we've already described
 - `start` is for dev, it runs `test` in watch mode based on any `git` changes
 - `integrate` is something pretty cool that ideally deserves some devoted time
-  * Basically packages up the library just like it'll be in the registry
-  * Then run "integration" tests on it to make sure the lib can be used just like user would
-  * Catches cases where all unit tests pass but I forgot to `export`
+  - Basically packages up the library just like it'll be in the registry
+  - Then run "integration" tests on it to make sure the lib can be used just like user would
+  - Catches cases where all unit tests pass but I forgot to `export`
 - It uses itself to dev, test & build itself
-  * It itself is the "perfect" repo creating other "perfect" repos
+  - It itself is the "perfect" repo creating other "perfect" repos
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/annie-spratt-rx1iJ59jRyU-gift-box-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -937,7 +956,6 @@ NOTES:
     </p>
   </div>
 </div>
-
 
 NOTES:
 
@@ -954,7 +972,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
-	<div style="width: 30%" class="content-overlay closing">
+ <div style="width: 30%" class="content-overlay closing">
 
   <h1 class="closing">Ben Ilegbodu</h1>
 
@@ -972,18 +990,19 @@ NOTES:
 </div>
 
 NOTES:
+
 - So that's it!
 - Just flooded you with a lot of information
-  * **Reminder: slides are available online**
+  - **Reminder: slides are available online**
 - Hopefully there are a few new things you've learned
-  * I've also likely forgotten some things so I'd love your feedback!
+  - I've also likely forgotten some things so I'd love your feedback!
 - **Conference:** Inviting me to share my knowledge/experience with y'all (**Kelly** + crew)
 - **YOU!** For coming to the talk
-  * The "hallway track" is always an option
-  * Get a head start on lunch
-  * And it is Hawaii, so you've got lots of options!
+  - The "hallway track" is always an option
+  - Get a head start on lunch
+  - And it is Hawaii, so you've got lots of options!
 - If you've got questions, feel free to find me afterwards
-  * I also have **swag** to give away!
-  * But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
+  - I also have **swag** to give away!
+  - But if you're introverted or miss the opportunity, ping me in Twitter or my AMA
 - Thank you so much and enjoy the rest of the conference!
 - **Mahalo!**
