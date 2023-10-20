@@ -5,7 +5,7 @@
 <div style="display: flex; align-items:center; justify-content: flex-end">
  <div style="width: 50%;" class="content-overlay">
 
-  <h1>50 shades of React rendering with Next.js</h1>
+  <h1>50 Shades of React Rendering with Next.js</h1>
 
   <br />
 
@@ -203,12 +203,14 @@ NOTES:
 
 <div style="display:flex; justify-content: flex-start" class="fragment current-visible">
   <div class="content-overlay">
-    <p>https://acme.store/product/acme-hoodie</p>
+    <h3 style="color: black">File-system routing</h3>
 
     <pre class="large"><code class="lang-typescript">
 // src/pages/product/[id].tsx
 
 </code></pre>
+
+    <p><a href="https://demo.vercel.store/product/acme-hoodie" target="_blank">https://acme.store/product/acme-hoodie</a></p>
   </div>
 </div>
 
@@ -225,10 +227,10 @@ NOTES:
 - I want us to keep all of this in mind
   - Because we'll be using this PDP as our example for the code
 - **ONE:** Oh and before we begin,
-- Next.js uses what's called **path-based routing**
+- Next.js uses what's called **file-system based routing** w/ the Pages Router
   - Meaning that if we want this PDP at the URL `/product/acme-hoodie`
   - We'll put the page React component within `src/pages/product/`
-- It also supports **dynamic path-based routing**
+- It also supports **dynamic routes**
   - So if we want to support having multiple pages within `/product/`...
   - we can use `[id]` notation for the name
   - And `acme-hoodie` would be one of the ids, as well as any other product in our site
