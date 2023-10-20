@@ -1,4 +1,4 @@
-<!-- .slide: data-state="title-page" data-background="url(../../img/webdev/jason-leung-479251-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/divops/tools-elena-rouame-9JU2CKqtw0M-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
  <div style="width: 60%;" class="content-overlay">
@@ -16,7 +16,7 @@
 
   <br />
 
-  <p>October 25, 2023</p>
+  <p>October 26, 2023</p>
 
   </div>
 </div>
@@ -24,7 +24,12 @@
 NOTES:
 **RESTART THE TIMER!!!!**
 
--
+- Good morning everyone!
+  - Welcome to Day 2 of Connect.Tech
+  - I hope everyone enjoyed Day 1 and are excited for what's to come today
+- The last few years I've had a bit of an identity crisis
+  - I consider myself a frontend engineer but I rarely do frontend in code!
+- So I want to take you on a journey of my "self discovery"
 
 /////
 
@@ -44,14 +49,19 @@ NOTES:
   - So if you want to follow along or can't see well from the back, I've got you covered
 - You can use this handy dandy QR code that'll take you to the slides
 - You can go to my website, `benmvp.com`, and find them there too
+- You may be thinking "how do I know that I even want these slides, Ben?"
+  - Well... you will
+  - But if you're still doubtful, I've got a short URL at the bottom
+  - So once you are convinced you've always got a link to follow
 - So you're covered with **three** different ways to access the slides!
 
 =====
 
-# ✋🏾 Who's a Platform Engineer?
+# ✋🏾 Who's a (Frontend) Platform Engineer?
 
 NOTES:
 
+- Actually before I begin, who considers themselves a Frontend Platform Engineer?
 - Not too many now, but let's see if that changes by the end of our time
 
 =====
@@ -73,7 +83,7 @@ NOTES:
 
 NOTES:
 
-- I've been developing on the web for over 20 years now
+- My story begins 20 years ago when I started web dev
   - Since I was a teenager in high school
 - And when I first started, we were using...
   - Literal, handwritten HTML pages using all caps
@@ -302,6 +312,9 @@ NOTES:
       <a href="https://remix.run/" target="_blank">
         <img src="../../img/divops/remix-logo-dark.png" alt="" class="plain" style="width: 250px" />
       </a>
+      <a href="https://nuxt.com/" target="_blank">
+        <img src="../../img/divops/nuxt-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
       <a href="https://vitejs.dev/" target="_blank">
         <img src="../../img/divops/vite-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
@@ -313,9 +326,6 @@ NOTES:
       </a>
       <a href="https://www.netlify.com/" target="_blank">
         <img src="../../img/webdev/netlify-logo.jpg" alt="" class="plain" style="width: 250px" />
-      </a>
-      <a href="https://aws.amazon.com/amplify/" target="_blank">
-        <img src="../../img/divops/aws-logo-dark.svg" alt="" class="plain" style="width: 250px" />
       </a>
     </div
   </div>
@@ -329,10 +339,31 @@ NOTES:
 - These frameworks are trying to abstract all the non-UI work that the previous frameworks created
 - What's also interesting is that a lot of tooling is migrating to Rust
   - To make the tooling even faster
-  - SWC is one of them: a Rust-based platform for the Web
+  - **SWC** is one of them: a Rust-based platform for the Web
 - ✋🏾 These should be easier to identify since they're newer
-  - Create React App, Next.js, Gatsby, Astro, Remix
-  - Vite, SWC, Vercel, Netlify, AWS
+  - **Create React App**, **Next.js**, **Gatsby**, **Astro**, **Remix**
+  - **Vite**, **SWC**, **Vercel**, **Netlify**
+
+/////
+<!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
+
+<a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank"><img src="../../img/divops/jonathan-poll-tweet.png" alt="Jonathan's poll asking for naming suggestions" /></a>
+
+NOTES:
+
+- Now enters the poor Frontend Engineer...
+- All they want to do is write sophisticated UI code
+  - But instead they have to first figure out what tools to use
+  - And then figure out how to put them all together...
+  - Just to deliver all of the UI code they have yet to write
+- As my good friend Jonathan points in this tweet...
+  - Maintaining a complex FE build system is serious work
+- Your typical DevOps engineers don't know frontend
+  - So they are usually unfamiliar with all of this tooling
+  - Including deployment platforms like Vercel
+- As a result, the "Frontend" is pushing further & further out from UI
+- So what is this discipline called?
+  - What ARE we?
 
 /////
 <!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
@@ -345,29 +376,24 @@ NOTES:
 
 NOTES:
 
-- Now enters the poor Frontend Engineer...
-- All they want to do is write sophisticated UI code
-  - But instead they have to first figure out what tools to use
-  - And then figure out how to put them all together...
-  - Just to deliver all of the UI code they have yet to write
 - I call this fusion of Frontend & DevOps...
-  - This new discipline of also (or exclusively) maintaining frontend-related infra...
-  - "DivOps"
-  - It's Frontend engineers who are also (or exclusively) managing infra
-- Your typical DevOps engineers don't know frontend
-  - So they are usually unfamiliar with all of this tooling
-  - Including deployment platforms like Vercel
-- As a result, the "Frontend" is pushing further & further out from UI
+  - This new discipline of also maintaining frontend-related infra is...
+  - **"DivOps"**
+  - It's Frontend engineers who are also (or exclusively) maintaining infra
+- It's everything else besides the actual feature development
+  - Everything that enables, accelerates or improves quality of feature development
 - We're DivOps Engineers
+  - We're taking part in DivOps engineering
 
 /////
 
-<a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank"><img src="../../img/divops/divops-tweet.png" alt="Entrique's tweet calling it DivOps" /></a>
+<a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank"><img src="../../img/divops/enrique-divops-tweet.png" alt="Entrique's tweet calling it DivOps" /></a>
 
 NOTES:
 
 - I can't take credit for the name DivOps
-  - Enrique tweeted this almost exactly 3 years ago
+  - Technically, Enrique was the genesis
+  - He tweeted this almost exactly 3 years ago
 - But I've been pushing and broadcasting it wherever I go!
 
 =====
@@ -685,7 +711,7 @@ NOTES:
         <img src="../../img/divops/pnpm-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://lerna.js.org/" target="_blank">
-        <img src="../../img/divops/lerna-logo.png" alt="" class="plain" style="width: 250px; background: white" />
+        <img src="../../img/divops/lerna-logo-dark.svg" alt="" class="plain" style="width: 250px;" />
       </a>
       <a href="https://turbo.build/repo" target="_blank">
         <img src="../../img/divops/turborepo-logo.svg" class="plain" style="width: 250px" />
@@ -792,7 +818,7 @@ NOTES:
 
 <div style="display:flex;justify-content:end">
  <div class="content-overlay" style="width: 80%;">
-    <h2><code>.prettierrc.js</code></h2>
+    <h2><code>.eslintrc.js</code></h2>
 
     <pre class="large"><code class="lang-js">modules.exports = {
   extends: [
@@ -974,7 +1000,7 @@ NOTES:
  <div class="content-overlay" style="width: 75%;">
     <h2>Unit Testing</h2>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://jestjs.io/" target="_blank">
         <img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width: 250px" />
       </a>
@@ -1006,7 +1032,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 80%;">
     <h2><code>jest.config.json</code></h2>
 
     <pre><code class="lang-js">module.exports = {
@@ -1041,7 +1067,7 @@ NOTES:
  <div class="content-overlay" style="width: 60%;">
     <h2>End-to-end testing</h2>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://playwright.dev/" target="_blank">
         <img src="../../img/divops/playwright-logo.svg" class="plain" style="width: 250px" />
       </a>
@@ -1082,7 +1108,7 @@ NOTES:
  <div class="content-overlay" style="width: 60%;">
     <h2>Visual testing</h2>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://storybook.js.org/" target="_blank">
         <img src="../../img/divops/storybook-logo.svg" class="plain" style="width: 250px" />
       </a>
@@ -1130,8 +1156,16 @@ NOTES:
 NOTES:
 
 - Let's recap before we continue
-  - We've covered: **Development**, **Repo**, **Static-analysis**, and just now **Testing**
+  - We've already covered a lot:
+  - **Development**, **Repo**, **Static-analysis**, and just now **Testing**
   - And now we've got Continuous Integration & Continuous Deployment/Delivery
+- Quick aside, I got my first professional job in 2006
+  - And we didn't have any testing or continuous deployment
+  - We shipped once every 2 weeks
+  - So manually testing running up to those 2 weeks was a nightmare
+
+-----
+
 - This is where I think FE engineers _really_ get out of the frontend space
   - Although since CI & Production apply for all sorts of projects & services
   - DevOps engineers are likely going to be the ones who set it up
@@ -1139,7 +1173,7 @@ NOTES:
   - So they are less familiar in maintaining frontend toolchains in production
 - As a result, the responsibility falls on FE (DivOps) engineers to...
   - Do what's necessary to get the web app to Production
-  - Or the JS library to npm
+  - OR the JS library to npm
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1147,7 +1181,7 @@ NOTES:
  <div class="content-overlay" style="width: 50%;">
     <h2>Continuous Integration</h2>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://github.com/features/actions" target="_blank">
         <img src="../../img/divops/github-actions-logo.png" class="plain" style="width: 250px" />
       </a>
@@ -1164,18 +1198,116 @@ NOTES:
 NOTES:
 
 - Up until now, everything that the DivOps engineer has set up, configured, and maintained...
-  - Has be local to the repo running on an individual developers' machine
+  - Has been local to the repo running on an individual developers' machine
 - But once we get to Continuous Integration...
-  - We're running in Github Actions, Circle CI, Jenkins, and other CI tools
+  - We're running in **Github Actions**, **Circle CI**, **Jenkins**, and other CI tools
   - So that means we're writing YAML for Github Actions
   - Or YAML for Circle CI
   - Or YAML for Jenkins
-  - Or YAML for... I don't know what the deal is with CI tools in YAML
+  - Or YAML for... I don't know what the deal is with CI tools in YAML!
   - I still copy and paste YAML because I just don't quite get the format
-- We're probably also writing more Node or Bash scripts to orchestrate all of the previous tools...
-  - In a CI environment
+- We're probably also writing more Node or even Bash scripts to orchestrate all of the previous tools...
+  - ...but in a CI environment
   - Running static checks, running tests, building the app/library, etc
   - Figuring out pipelines, caching, test sharding, etc
+  - Running end-to-end tests, sending snapshots for visual regression, everything!
+
+/////
+<!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 75%;">
+    <h2>App deployment (DIY)</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://docs.docker.com/" target="_blank">
+        <img src="../../img/divops/docker-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.nginx.com/" target="_blank">
+        <img src="../../img/divops/nginx-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://aws.amazon.com/" target="_blank">
+        <img src="../../img/divops/aws-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://azure.microsoft.com/" target="_blank">
+        <img src="../../img/divops/azure-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://cloud.google.com/" target="_blank">
+        <img src="../../img/divops/google-cloud-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://kubernetes.io/" target="_blank">
+        <img src="../../img/divops/kubernetes-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.terraform.io/" target="_blank">
+        <img src="../../img/divops/terraform-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.cloudflare.com/" target="_blank">
+        <img src="../../img/divops/cloudflare-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.akamai.com/" target="_blank">
+        <img src="../../img/divops/akamai-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.fastly.com/" target="_blank">
+        <img src="../../img/divops/fastly-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Then comes the CD of CI/CD, **Continuous Deployment** of applications
+- This is on the very fringes of my expertise or even desire to understand
+  - The nice part is that this is what actual DevOps engineers do
+  - So this is the hand-off point
+- The tools I've listed here are just names I've heard of over the years 🤣
+  - I don't know if they are a subset of each other or what
+- I actually have had to write **Docker** & **NGINX** configs
+- Then you've got the deployment platforms (?) like **AWS**, **GCP** & **Azure**
+- Then **Kubernets** & **Terraform** are ways to deliver the code to the platforms (?)
+- Lastly I've listed a couple of Content Delivery Networks (CDNs):
+  - **Cloudflare**, **Akamai**, and **Fastly**
+- I couldn't tell you how to configure any of those providers
+  - That's the DevOps engineer's job
+
+/////
+<!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 65%;">
+    <h2>App deployment (providers)</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://vercel.com/" target="_blank">
+        <img src="../../img/webdev/vercel-icon-dark.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.netlify.com/" target="_blank">
+        <img src="../../img/divops/netlify-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://firebase.google.com/products/hosting" target="_blank">
+        <img src="../../img/divops/firebase-hosting-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="hhttps://www.heroku.com/" target="_blank">
+        <img src="../../img/divops/heroku-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- However, in an environment where are there are no DevOps engineers
+  - Or we're working on a different app (maybe internal, blog, marketing, etc)
+  - A Frontend Engineer may end up still being responsible for deployment/delivery
+- That's where these cloud providers come in
+  - They layer on top of those previous platforms (AWS, Kubernetes, etc)...
+  - To create a much easier experience
+- Tools like **Vercel**, **Netlify**, **Firebase**, and others
+  - And of course they have their own config files, like `vercel.json`
+  - And of course that's set up and maintained by the DivOps engineers
+- The promise with these is that you connect your Vercel project to a repo
+  - So that whenever we commit to `main`, it'll run checks & build automatically
+  - Then when everything passes it'll deploy to Production
+- And many of these services offer what's called **branch previews**
+  - We can push up a branch or create a PR and we can see what our update will look like in Production
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1193,9 +1325,48 @@ NOTES:
 
 NOTES:
 
-- Jeremy is actually giving a talk about CI/CD later today
-- He's giving a 45-minute talk just on CI/CD
+- If any of this CI/CD stuff sounds interesting to you
+  - Jeremy is actually giving a talk about CI/CD later this morning
+- The entire talk is just on CI/CD
   - That's how we know there's a lot there
+
+/////
+<!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: end">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Package release</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://semantic-release.gitbook.io/semantic-release/" target="_blank">
+        <img src="../../img/divops/semantic-release-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://lerna.js.org/" target="_blank">
+        <img src="../../img/divops/lerna-logo-dark.svg" alt="" class="plain" style="width: 250px;" />
+      </a>
+      <a href="https://github.com/changesets/changesets" target="_blank">
+        <img src="../../img/divops/changesets-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Oh but we're not quite done yet when it comes to continuous delivery
+- What if instead of trying to deploy an app to production...
+  - We're trying to release a new package version to npm?
+- The common practice is to queue up a bunch of changes
+  - And then do a manually do a release
+- But how many of you have filed a bug for a library...
+  - They actually fix it...
+  - But it doesn't get released for weeks...?
+- This is where "continuous release" comes in for JS packages
+- **`semantic-release`** is the primary tool for this
+  - They say they by removing human involvement they make releases "unromantic and unsentimental"
+- However, it doesn't work with monorepo setups
+  - One alternative, especially if you're already using **Lerna** is to use it's releasing functionality
+  - Or you can use the standalone **`changesets`** library
 
 =====
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1206,47 +1377,257 @@ NOTES:
   </div>
 </div>
 
+NOTES:
+
+- Ok, so we've configured our app to make it out to Production (continuously)
+  - But we're not done yet 😅
+  - Of course more happens while our apps are running live
+- So let's jump into our final section
+
+/////
+<!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 65%;">
+    <h2>Analytics</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://analytics.google.com/" target="_blank">
+        <img src="../../img/divops/google-analytics-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.cloudflare.com/" target="_blank">
+        <img src="../../img/divops/cloudflare-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://plausible.io/" target="_blank">
+        <img src="../../img/divops/plausible-logo.png" alt="" class="plain" style="width: 250px;" />
+      </a>
+      <a href="https://matomo.org/" target="_blank">
+        <img src="../../img/divops/matomo-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Analytics are key with pretty much any app...
+  - Because we need to have insights into what are users are doing...
+  - So that we can make business decisions with the data
+- **Google Analytics** is the obvious big elephant in the room
+  - But there are some alternatives too...
+- **Cloudflare** has analytics too
+- I added 2 companies I had never heard of, but seem highly recommended
+  - **Plausible** & **Matomo**
+- So these need setup and instrumentation of the pages in the app
+
+/////
+<!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 50%;">
+    <h2>Monitoring</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://www.bugsnag.com/" target="_blank">
+        <img src="../../img/divops/bugsnag-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://sentry.io/" target="_blank">
+        <img src="../../img/divops/sentry-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://firebase.google.com/products/crashlytics" target="_blank">
+        <img src="../../img/divops/crashlytics-logo-dark.svg" alt="" class="plain" style="width: 250px;" />
+      </a>
+      <a href="https://www.datadoghq.com/" target="_blank">
+        <img src="../../img/divops/datadog-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.dynatrace.com/" target="_blank">
+        <img src="../../img/divops/dynatrace-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://newrelic.com/" target="_blank">
+        <img src="../../img/divops/new-relic-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- And then there's monitoring
+  - Equally important if not more so that Analytics
+- We also need to know about our users' experience
+- We need to know when something's gone wrong...
+  - **Bugsnag**, **Sentry** or **Firebase Crashlytics**
+- Or if something's already gone wrong, debug the problem
+  - **Datadog**, **Dynatrace** or **New Relic**
+- It's quite possible that the traditional DevOps team will help here...
+  - With setting up the services
+  - But we'll likely need to do the integrations into the apps
+
+/////
+<!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex;justify-content: start">
+ <div class="content-overlay" style="width: 65%;">
+    <h2>Performance</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank">
+        <img src="../../img/divops/lighthouse-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://pagespeed.web.dev/" target="_blank">
+        <img src="../../img/divops/pagespeed-insights-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://web.dev/explore/learn-core-web-vitals" target="_blank">
+        <img src="../../img/divops/web-dev-logo.svg" alt="" class="plain" style="width: 250px;" />
+      </a>
+      <a href="https://www.speedcurve.com/" target="_blank">
+        <img src="../../img/divops/speedcurve-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
+  </div>
+</div>
+
+NOTES:
+
+- Lastly, we have performance
+  - Performance is a feature
+  - Data shows that speading up pages increases conversions
+- We can run things manually with **Lighthouse** & **PageSpeed Insights**
+  - In fact, there's Lighthouse CI which allows us to do regression tests in CI
+- We could roll our own perf monitoring on top of **Core Web Vitals**
+- Or we can go full Sass and use a tool like **SpeedCurve**...
+  - It specifically does real-user monitoring
+- All of the previous mega tools (Datadog, etc.) have their own RUM offerings too
+- And because these run entirely on the frontend...
+  - DivOps! 😅
+
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay">
+  <div class="content-overlay" style="width: 65%;">
     <h1>Recap</h1>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <a href="https://babeljs.io/" target="_blank">
+        <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://vitejs.dev/" target="_blank">
+        <img src="../../img/divops/vite-logo.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://www.apollographql.com/" target="_blank">
+        <img src="../../img/divops/apollo-logo.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://nodejs.org/" target="_blank">
+        <img src="../../img/browsers/nodejs-logo.png" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://renovatebot.com/" target="_blank">
+        <img src="../../img/divops/renovate-logo.png" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://turbo.build/repo" target="_blank">
+        <img src="../../img/divops/turborepo-logo.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://plopjs.com/" target="_blank">
+        <img src="../../img/divops/plop-logo-dark.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://eslint.org/" target="_blank">
+        <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://stylelint.io/" target="_blank">
+        <img src="../../img/divops/stylelint-dark-logo.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://prettier.io/" target="_blank">
+        <img src="../../img/webdev/prettier-logo.png" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://jestjs.io/" target="_blank">
+        <img src="../../img/nav-react/jest-logo-dark.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://playwright.dev/" target="_blank">
+        <img src="../../img/divops/playwright-logo.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://storybook.js.org/" target="_blank">
+        <img src="../../img/divops/storybook-logo.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://www.browserstack.com/percy" target="_blank">
+        <img src="../../img/divops/percy-logo.png" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://github.com/features/actions" target="_blank">
+        <img src="../../img/divops/github-actions-logo.png" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://vercel.com/" target="_blank">
+        <img src="../../img/webdev/vercel-icon-dark.png" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://github.com/changesets/changesets" target="_blank">
+        <img src="../../img/divops/changesets-logo-dark.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://analytics.google.com/" target="_blank">
+        <img src="../../img/divops/google-analytics-logo.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://www.bugsnag.com/" target="_blank">
+        <img src="../../img/divops/bugsnag-logo-dark.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://www.datadoghq.com/" target="_blank">
+        <img src="../../img/divops/datadog-logo-dark.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank">
+        <img src="../../img/divops/lighthouse-logo.svg" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://pagespeed.web.dev/" target="_blank">
+        <img src="../../img/divops/pagespeed-insights-logo.svg" alt="" class="plain" style="width: 150px" />
+      </a>
+      <a href="https://web.dev/explore/learn-core-web-vitals" target="_blank">
+        <img src="../../img/divops/web-dev-logo.svg" alt="" class="plain" style="width: 150px;" />
+      </a>
+    </div>
   </div>
 </div>
 
 NOTES:
 
-- I've picked one option for each of the types of tools I mentioned
-  - See how many there are for each ecosystem!
-- So not only do we have to learn how to configure & maintain each...
+- Ok, wow that was a lot!
+- I've picked options for each of the types of tools I mentioned
+  - Most of them I've used...
+  - Others seem like the latest and greatest
+- There are 24 tools shown here
+  - It'd be interesting to see how many logos we can recognize
+- But not only do we have to learn how to configure & maintain each...
   - In many cases we have to first decide which one to pick 😔
+- And this doesn't even include configuring UI frameworks...
+  - Like **Nuxt**. **Tailwind**, **Material UI**, etc.
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1>✋🏾 Who's a Platform Engineer?</h1>
+    <h1>✋🏾 Who is a Platform Engineer?</h1>
   </div>
 </div>
 
 NOTES:
 
-- So now based upon what I said who's a platform engineer?
+- So now based upon all that I said who's a platform engineer?
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1>✋🏾 Who's a DivOps Engineer?</h1>
+    <h1>✋🏾 Who is a DivOps Engineer?</h1>
   </div>
 </div>
 
 NOTES:
 
 - Or better said, a DivOps engineer?
+- Even if you don't do this all day, every day...
+  - You're at least doing **DivOps engineering** when you do
+- If most of you work revolves around these tools, you're definitely a DivOps engineer
+- Or if it's some hybrid, then you're a Full Stack engineer
+  - It's just that the stack goes in a different direction 😆
 
 =====
 <!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1259,7 +1640,7 @@ NOTES:
 
 NOTES:
 
-- Personally, I was hesitant/afraid to get into it
+- Personally, I was hesitant/afraid to get into this space
 - Didn't do it all at once
 - But slowly started building experience and expertise
 - I want to encourage you
@@ -1273,11 +1654,22 @@ NOTES:
   - But an actual "DivOps Engineer" role
   - One day...
 
+/////
+<!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay">
+    <h1>Community</h1>
+  </div>
+</div>
+
+NOTES:
+
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
 
 <div style="display: flex; align-items:center; justify-content: flex-end">
- <div style="width: 30%" class="content-overlay closing">
+ <div style="width: 36%" class="content-overlay closing">
 
   <h1 class="closing">Ben Ilegbodu</h1>
 
@@ -1287,12 +1679,23 @@ NOTES:
   <p><a href="mailto:ben@benmvp.com">ben@benmvp.com</a></p>
   <p><a href="https://github.com/benmvp" target="_blank">github/benmvp</a></p>
 
+  <br />
+
+  <a href="https://benmvp.com/ct-divops?utm_source=benmvp&utm_medium=slides&utm_campaign=connecttech-2023" target="_blank">
+    <img src="../../img/qrcodes/connecttech-2023-divops.svg" style="width: 50%" alt="QR code for &quot;DivOps Engineering&quot; talk" class="plain" />
+  </a>
+
   </div>
 </div>
 
 NOTES:
 
-- Lemme wrap up now
+- Wow! So that was a lot
+- Hopefully you learned a thing or 2
+  - Maybe exposed to some new tools you hadn't heard of?
+- I could use your help, though...
+  - I highlighted tools that I was aware of
+  - If there any other ones that you think should've been included
+  - Hit me up on Twitter
 - You can ask me questions on Twitter (@benmvp) or find me afterwards
--
 - Thanks!
