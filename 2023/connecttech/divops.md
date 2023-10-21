@@ -27,9 +27,17 @@ NOTES:
 - Good morning everyone!
   - Welcome to Day 2 of Connect.Tech
   - I hope everyone enjoyed Day 1 and are excited for what's to come today
-- The last few years I've had a bit of an identity crisis
-  - I consider myself a frontend engineer but I rarely do frontend in code!
+- A few years ago I started to have a bit of an identify crisis
+- I called myself a frontend engineer, but I wasn't really writing frontend code anymore
+  - I wasn't writing any React
+  - No semantic HTML or CSS
+  - I could go days without visiting `localhost` in the browser
+- I was doing everything _around_ frontend development
+- I've always been on Frontend Platform teams...
+  - So am I a frontend platform engineer?
+  - Doesn't exactly roll of the tongue
 - So I want to take you on a journey of my "self discovery"
+  - Of who I truly am now 😆
 
 /////
 
@@ -467,7 +475,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 50%;">
     <h1>Development</h1>
   </div>
 </div>
@@ -482,7 +490,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 65%;">
     <h2>Compilers/transpilers</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
@@ -523,7 +531,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 50%;">
     <h2>Bundlers</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
@@ -1630,17 +1638,18 @@ NOTES:
   - It's just that the stack goes in a different direction 😆
 
 =====
-<!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/divops/tools-elena-rouame-9JU2CKqtw0M-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1>Awareness & Legitimacy</h1>
+    <h1 style="font-size: 5em">DivOps is legit!</h1>
   </div>
 </div>
 
 NOTES:
 
 - Personally, I was hesitant/afraid to get into this space
+  - Wanted to stay in my FE bubble of comfort
 - Didn't do it all at once
 - But slowly started building experience and expertise
 - I want to encourage you
@@ -1655,15 +1664,37 @@ NOTES:
   - One day...
 
 /////
-<!-- .slide: data-background="url(../../img/ts-react/curved-library-susan-yin-2JIvboGLeho-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-state="title-page" data-background="url(../../img/divops/tools-elena-rouame-9JU2CKqtw0M-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay">
-    <h1>Community</h1>
+  <div class="content-overlay" style="width: 50%;">
+    <h2>Divops community ✊🏾</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap;">
+      <a href="https://twitter.com/hashtag/divops" target="_blank">
+        <img src="../../img/x-logo.svg" class="plain" style="width: 250px" />
+        <span style="display: block">#divops</span>
+      </a>
+      <a href="https://www.reddit.com/r/divops/" target="_blank">
+        <img src="../../img/divops/reddit-logo.svg" alt="" class="plain" style="width: 250px" />
+        <span style="display: block">r/divops</span>
+      </a>
+      <a href="https://discord.gg/Vvk67JDX6t" target="_blank">
+        <img src="../../img/divops/discord-logo-blue.svg" alt="" class="plain" style="width: 250px;" />
+        <span style="display: block">Divops</span>
+      </a>
+    </div>
   </div>
 </div>
 
 NOTES:
+
+- There's a burgeoning community around DivOps
+- We've got the *_Twitter_ hashtag
+- Divops **subreddit**
+- And the DivOps **Discord** server
+  - We tools and solutions for various DivOps-y problems we're facing
+- Feel free to join the party! 🎉
 
 =====
 <!-- .slide: data-background="url(../../img/perfect-lib/kelly-sikkema-fvpgfw3IF1w-thanks-unsplash.jpg) no-repeat center" data-background-size="cover"  -->
@@ -1692,7 +1723,7 @@ NOTES:
 
 - Wow! So that was a lot
 - Hopefully you learned a thing or 2
-  - Maybe exposed to some new tools you hadn't heard of?
+  - Maybe I exposed to some new tools you hadn't heard of?
 - I could use your help, though...
   - I highlighted tools that I was aware of
   - If there any other ones that you think should've been included
