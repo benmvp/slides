@@ -178,15 +178,16 @@ NOTES:
 NOTES:
 
 - The first framework war
-  - Focused on making it easier to create browser interactivity
+  - It focused on making it easier to create browser interactivity
   - They were all "MVC" (Model, View, Controller) frameworks
   - Adapted from the backend frameworks
 - ✋🏾 How many of these 10 can you name?
-  - AngularJS, EmberJS, BackboneJS, ExtJS, KnockoutJS
-  - PolymerJS, MeteorJS, Bootstrap, Foundation, jQuery
+  - **AngularJS, EmberJS, BackboneJS, ExtJS, KnockoutJS**
+  - **PolymerJS, MeteorJS, Bootstrap, Foundation, jQuery**
 - There was no npm or Github
   - These were available my downloading zip files with minified JS
-  - Link to it as a `<script>` in the HTML
+  - Then link to it as a `<script>` in the HTML
+  - Unfathomable now
 
 /////
 <!-- .slide: data-background="url(../../img/divops/modern-home.jpg) no-repeat center" data-background-size="cover" -->
@@ -232,14 +233,14 @@ NOTES:
 
 NOTES:
 
-- Well we need a way to manage all of this JavaScript and CSS
+- Well the industry needed a way to manage all of this JavaScript and CSS
 - We needed to store and retrieve it somewhere (npm & later yarn)
 - We needed to bundle & minify it (Webpack & Prettier)
 - We needed to verify it (ESLint & Jest)
 - As we transitioned from ES5 to ES6...
   - We wanted to use new functionality earlier (Babel)
-- Needed to be able to run all these tasks (Grunt & Gulp)
-- **This is where FE engineers started to move away from just UI**
+- We needed to be able to run all these tasks (Grunt & Gulp)
+- **This is where I slowly started to move away from just UI**
   - Working in a Node environment as well
 
 /////
@@ -289,13 +290,12 @@ NOTES:
 - As if one framework was enough, there was another one
 - This was the second iteration of UI frameworks
   - But instead of all-in-one frameworks...
-  - There were targeted libraries that had to be composed together
-- The frontend is getting real complicated
-  - We need tools like Create React App & Lerna to help manage it all
+  - There were targeted libraries that I had to compose together
+- The frontend is getting real complicated now
 - ✋🏾 How many of these libraries can you name?
-  - Angular, React, Vue, Redux, MobX
-  - RxJS, React Router, Relay, Apollo, Falcor
-- These still focused on the UI...
+  - **Angular, React, Vue, Redux, MobX**
+  - **RxJS, React Router, Relay, Apollo, Falcor**
+- But these still focused on the UI...
 
 /////
 <!-- .slide: data-background="url(../../img/divops/zombie-apocalypse.jpg) no-repeat center" data-background-size="cover" -->
@@ -341,11 +341,11 @@ NOTES:
 
 NOTES:
 
-- In Framework War 3, it's less about the UI...
+- Now we're in Framework War 3 where it's less about the UI...
   - And more about the development & deployment environments, i.e. meta frameworks
   - Next.js and others are making us full-stack engineers
 - These frameworks are trying to abstract all the non-UI work that the previous frameworks created
-- What's also interesting is that a lot of tooling is migrating to Rust
+- What I find interesting is that a lot of tooling is migrating to Rust
   - To make the tooling even faster
   - **SWC** is one of them: a Rust-based platform for the Web
 - ✋🏾 These should be easier to identify since they're newer
@@ -373,7 +373,7 @@ NOTES:
 
 NOTES:
 
-- Now we have a Frontend Engineer...
+- Now I am a Frontend Engineer...
   - Who's not writing any UI code
   - But instead is focused on everything else besides the actual feature development
 - As my good friend Jonathan points in this tweet...
@@ -415,7 +415,26 @@ NOTES:
 - My name is Ben Ilegbodu
   - Christian, Husband, Father
 - _Family introductions_
-- We live in Manvel, TX (suburb of Houston)
+- We live in Houston (suburb called Manvel)
+  - We just moved back
+
+/////
+<!-- .slide: data-background="#222" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 50%">
+    <img src="../../img/family/ben-and-kids-rockets-collage.jpg" alt="Collage of Ben and the kids at the Rockets arena" />
+  </div>
+</div>
+
+NOTES:
+
+- I love basketball
+  - Both playing & watching
+- Being from Houston, I'm a Rockets fan
+  - But my daughter grew up in the Bay Area
+  - So she's a Warriors fan
+  - Gotta work on that one
 
 /////
 <!-- .slide: data-background="#222" -->
@@ -439,7 +458,7 @@ NOTES:
   - Take the effort out of shopping by providing a selection of clothes picked just for you
   - And sent to your door on a frequency that you choose
 
-/////
+=====
 <!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
@@ -496,10 +515,11 @@ NOTES:
 
 NOTES:
 
+- _Transpiling_ transforms modern JS into code that JS engines (like the browser) can understand
 - The most popular JS compiler/transpiler is still **Babel**
   - Since it's 6to5 days
-- _Transpiling_ transforms modern JS into code that JS engines (like the browser) can understand
-- TypeScript technically is another transpiler
+  - It's got a huge config because of all the plugins it supports
+- **TypeScript** technically is another transpiler
   - We can use its CLI to output vanilla JS
   - But these days it focuses mainly on its type system
   - I actually use a TS Babel plugin to type check with TS but transpile with Babel
@@ -545,44 +565,46 @@ NOTES:
 
 - Then there are the many bundlers
   - This space is more active because large & slow-to-build bundles are a huge problem for the ecosystem
-- Webpack is the dominant player in this section
-- But Vite, Turbopack & esbuild are all promising speed and small sizes
+- **Webpack** is the dominant player in this section
+  - Has a crazy amount of configurations as well with all the loaders
+- But **Vite**, **Turbopack** & **esbuild** are all promising speed and small sizes
 - There also were Rome & Snowpack but they've dropped out of the space
+  - We gotta be careful who we hitch are wagons to
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 80%;">
-    <h2><code>webpack.config.js</code></h2>
+ <div class="content-overlay" style="width: 65%;">
+    <h2>UI (Meta) Frameworks</h2>
 
-    <pre class="large"><code class="lang-js">module.exports = {
-  entry: './path/to/my/entry/file.js',
-  module: {
-    rules: [{
-      test: /\.m?js$/,
-      use: {
-        loader: 'babel-loader',
-        options: { presets: ['@babel/preset-env'] }
-      }
-    }]
-  }
-}</code></pre>
-
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
+      <a href="https://nextjs.org/" target="_blank">
+        <img src="../../img/nextjs/nextjs-logo-light.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://nuxt.com/" target="_blank">
+        <img src="../../img/divops/nuxt-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://analogjs.org/" target="_blank">
+        <img src="../../img/divops/analog-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://astro.build/" target="_blank">
+        <img src="../../img/divops/astro-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+    </div>
   </div>
 </div>
 
 NOTES:
 
-- Because Babel & Webpack are so powerful & have such large ecosystems
-  - Configuring a `babel.config.js` or `webpack.config.js`...
-  - Takes deep understanding of how the tools work
-  - Gotta know how to set things up correctly to get the most optimized builds
 - Because of the complexity & expertise needed to properly configure these low-level tools...
   - Many other tools wrap compilers & bundles to get them to work w/ particular frameworks
-- I develop in React, and just w/in React there is...
-  - Create React App, Next.js, Astro, Remix, and many others
-  - Of course these frameworks do other things, but one goal is to abstract these DivOps-y things
+  - There are now **meta** frameworks to handle it for us as I mentioned at the beginning
+  - "Frameworks of frameworks"
+- **Next** for React, **Nuxt** for Vue, **Analog** for Angular...
+  - Or can go the route of **Astro** which works with (almost) any framework
+- They also support routing, styling, SSR, etc.
+  - But one goal is to abstract the DivOps-y things
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -728,46 +750,6 @@ NOTES:
   - But it's basically all **ESLint** now
 - Each with their on configuration platform
   - And each with their own plugins ecosystems
-- In fact...
-
-/////
-<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 80%;">
-    <h2><code>.eslintrc.js</code></h2>
-
-    <pre class="large"><code class="lang-js">modules.exports = {
-  extends: [
-    'airbnb', 'airbnb/hooks',
-    'typescript', 'typescript/prettier',
-    'plugin:testing-library/react',
-    'plugin:eslint-comments/recommended',
-    'turbo'
-  ],
-  plugins: [
-    'jest', 'testing-library', 'eslint-comments'
-  ]
-}</code></pre>
-
-  </div>
-</div>
-
-NOTES:
-
-- Not only are there general code plugins...
-  - But each framework/platform has its own plugins
-  - These help us avoid footguns in the platform
-  - Or at least nudge us in the right direction of best practices
-- I really like using lint rules as implicit docs/teaching...
-  - Instead of trying to do it manually
-  - Many times the lint failure will include a link
-- With all of these base configs & plugins...
-  - There's plenty DivOps work here to tweak things
-- I mean look at it...
-  - There's an eslint plugin for eslint comments
-  - How you disable an eslint rule is linted by eslint! 🤯
-- But let's dig more into **Prettier** & **TypeScript**
 
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
