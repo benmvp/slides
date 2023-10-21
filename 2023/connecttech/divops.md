@@ -211,9 +211,6 @@ NOTES:
       <a href="https://gruntjs.com/" target="_blank">
         <img src="../../img/nav-react/grunt-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://gulpjs.com/" target="_blank">
-        <img src="../../img/nav-react/gulp-logo.svg" alt="" class="plain" style="width: 250px" />
-      </a>
       <a href="https://eslint.org/" target="_blank">
         <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
@@ -225,6 +222,9 @@ NOTES:
       </a>
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
     </div
   </div>
@@ -350,56 +350,40 @@ NOTES:
   - **SWC** is one of them: a Rust-based platform for the Web
 - ✋🏾 These should be easier to identify since they're newer
   - **Create React App**, **Next.js**, **Gatsby**, **Astro**, **Remix**
-  - **Vite**, **SWC**, **Vercel**, **Netlify**
-
-/////
-<!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
-
-<a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank"><img src="../../img/divops/jonathan-poll-tweet.png" alt="Jonathan's poll asking for naming suggestions" /></a>
-
-NOTES:
-
-- Now enters the poor Frontend Engineer...
-- All they want to do is write sophisticated UI code
-  - But instead they have to first figure out what tools to use
-  - And then figure out how to put them all together...
-  - Just to deliver all of the UI code they have yet to write
-- As my good friend Jonathan points in this tweet...
-  - Maintaining a complex FE build system is serious work
-- Your typical DevOps engineers don't know frontend
-  - So they are usually unfamiliar with all of this tooling
-  - Including deployment platforms like Vercel
-- As a result, the "Frontend" is pushing further & further out from UI
-- So what is this discipline called?
-  - What ARE we?
+  - **Nuxt**, **Vite**, **SWC**, **Vercel**, **Netlify**
 
 /////
 <!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:center">
  <div class="content-overlay" style="width: 75%;">
-    <h1 style="font-size: 5em">DivOps Engineering</h1>
+    <h2>DivOps Engineering</h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px">
+      <a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank">
+        <img src="../../img/divops/jonathan-poll-tweet.png" alt="Jonathan's poll asking for naming suggestions" />
+      </a>
+
+      <a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank" style="width: 60%">
+        <img src="../../img/divops/enrique-divops-tweet.png" alt="Enrique's tweet calling it DivOps" />
+      </a>
+    </div
   </div>
 </div>
 
 NOTES:
 
+- Now we have a Frontend Engineer...
+  - Who's not writing any UI code
+  - But instead is focused on everything else besides the actual feature development
+- As my good friend Jonathan points in this tweet...
+  - Maintaining a complex FE build system is serious work
+  - So what type of engineering is this?
 - I call this fusion of Frontend & DevOps...
-  - This new discipline of also maintaining frontend-related infra is...
+  - This new discipline of maintaining frontend-related infra is...
   - **"DivOps"**
   - It's Frontend engineers who are also (or exclusively) maintaining infra
-- It's everything else besides the actual feature development
-  - Everything that enables, accelerates or improves quality of feature development
-- We're DivOps Engineers
-  - We're taking part in DivOps engineering
-
-/////
-
-<a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank"><img src="../../img/divops/enrique-divops-tweet.png" alt="Entrique's tweet calling it DivOps" /></a>
-
-NOTES:
-
-- I can't take credit for the name DivOps
+- I can't take credit for the name DivOps though...
   - Technically, Enrique was the genesis
   - He tweeted this almost exactly 3 years ago
 - But I've been pushing and broadcasting it wherever I go!
@@ -628,83 +612,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 50%;">
-    <h2>Command-line scripts</h2>
-
-    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-      <a href="https://nodejs.org/" target="_blank">
-        <img src="../../img/browsers/nodejs-logo.png" alt="" class="plain" style="width: 250px" />
-      </a>
-    </div>
-  </div>
-</div>
-
-NOTES:
-
-- Lastly, FE engineers often around other kinds of JavaScript
-  - It's not JS going into the browser
-  - It's also not JS running on a Node server (like Express)
-- These are scripts run from the command-line typically via npm scripts
-  - They glue everything together
-- They can run mock data environments like Firebase's Emulator Suite
-- They can be codemods that rewrite/upgrade/refactor source code
-- Others scripts run other tools like `server` or `nodemon` for running the web app locally
-- Once we know JS the possibilities are endless
-
-=====
-<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 50%;">
-    <h1>Repo</h1>
-  </div>
-</div>
-
-NOTES:
-
-- So we've got our development environment
-- But there's actually setup that needs to come before
-
-/////
-<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 50%;">
-    <h2>Dependency management</h2>
-
-    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
-      <a href="https://github.com/dependabot" target="_blank">
-        <img src="../../img/divops/dependabot-logo.png" class="plain" style="width: 250px" />
-      </a>
-      <a href="https://renovatebot.com/" target="_blank">
-        <img src="../../img/divops/renovate-logo.png" alt="" class="plain" style="width: 250px" />
-      </a>
-    </div>
-  </div>
-</div>
-
-NOTES:
-
-- First there's everyone's favorite topic
-  - Dependency management
-- If we don't keep things up-to-date...
-  - Updating when we really need to becomes a pain
-- I have first-hand experience
-  - My website is using a 3-year old version of Gatsby (v1?)
-- All the plugins worked when they were on Node 14
-  - When I try to update to 18 or 20 I keep getting errors with the `sharp` package
-- There are some tools to help us wrangle these dependencies
-  - **Depandabot** which was acquired by Google
-  - **Renovate**
-- Each of them, of course, have their laundry list of config options & presets
-  - And who gets to figure all of that out?
-  - Us frontend developers! ✋🏾
-
-/////
-<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 75%;">
     <h2>Multi-app orchestration</h2>
 
@@ -745,18 +653,15 @@ NOTES:
   - Us!
 
 /////
-<!-- .slide: data-background="url(../../img/divops/filing-cabinet-maksym-kaharlytskyi-Q9y3LRuuxmg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+<!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content:end">
  <div class="content-overlay" style="width: 50%;">
-    <h2>Starter templates</h2>
+    <h2>Command-line scripts</h2>
 
-    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
-      <a href="https://plopjs.com/" target="_blank">
-        <img src="../../img/divops/plop-logo-dark.svg" class="plain" style="width: 250px" />
-      </a>
-      <a href="https://yeoman.io/" target="_blank">
-        <img src="../../img/divops/yeoman-logo.png" alt="" class="plain" style="width: 250px" />
+    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+      <a href="https://nodejs.org/" target="_blank">
+        <img src="../../img/browsers/nodejs-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>
@@ -764,16 +669,20 @@ NOTES:
 
 NOTES:
 
-- A company that is creating many apps or libraries...
-  - May need to create starter templates to provide consistency and...
-  - Ease the burden for creating greenfield projects
-- Tools like **Yeoman** or **Plop** are open-source libraries for this
-- Again, it's not frontend code, but tooling to make frontend development easier
+- Lastly, FE engineers often write other kinds of JavaScript
+  - It's not JS going into the browser
+  - It's also not JS running on a Node server (like Express)
+- These are scripts run from the command-line typically via npm scripts
+  - They glue everything together
+- They can run mock data environments like Firebase's Emulator Suite
+- They can be codemods that rewrite/upgrade/refactor source code
+- Others scripts run other tools like `server` or `nodemon` for running the web app locally
+- Once we know JS the possibilities are endless
 
 =====
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h1>Static-analysis</h1>
   </div>
@@ -791,7 +700,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h2>Linting</h2>
 
@@ -824,7 +733,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 80%;">
     <h2><code>.eslintrc.js</code></h2>
 
@@ -863,7 +772,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h2>Formatting</h2>
 
@@ -909,7 +818,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h2>Type-checking</h2>
 
@@ -940,7 +849,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content:end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 80%;">
     <h2><code>tsconfig.json</code></h2>
 
@@ -984,7 +893,7 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 50%;">
     <h1>Testing</h1>
   </div>
@@ -1004,7 +913,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 75%;">
     <h2>Unit Testing</h2>
 
@@ -1039,7 +948,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 80%;">
     <h2><code>jest.config.json</code></h2>
 
@@ -1065,13 +974,13 @@ NOTES:
   - There's no way we can go without one
 - I counted over **70** configuration properties 🫨
   - And that doesn't all the various presets and transformers
-- Testing is important, but this is very different than writing React code
+- Testing is important, but configuring Jest is very different than writing tests
   - It takes skill set (and interest) to create and maintain these things
 
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 60%;">
     <h2>End-to-end testing</h2>
 
@@ -1112,7 +1021,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 60%;">
     <h2>Visual testing</h2>
 
@@ -1155,7 +1064,7 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h1>CI / CD</h1>
   </div>
@@ -1185,7 +1094,7 @@ NOTES:
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h2>Continuous Integration</h2>
 
@@ -1222,7 +1131,7 @@ NOTES:
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 75%;">
     <h2>App deployment (DIY)</h2>
 
@@ -1279,7 +1188,7 @@ NOTES:
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 65%;">
     <h2>App deployment (providers)</h2>
 
@@ -1320,7 +1229,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <a href="https://2023.connect.tech/session/493179">
       <img src="../../img/divops/jeremy-meiss.jpg" />
@@ -1341,7 +1250,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: end">
+<div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
     <h2>Package release</h2>
 
@@ -1379,7 +1288,7 @@ NOTES:
 =====
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 50%;">
     <h1>Production</h1>
   </div>
@@ -1395,7 +1304,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 65%;">
     <h2>Analytics</h2>
 
@@ -1431,7 +1340,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 50%;">
     <h2>Monitoring</h2>
 
@@ -1474,7 +1383,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
-<div style="display:flex;justify-content: start">
+<div style="display:flex;justify-content: end">
  <div class="content-overlay" style="width: 65%;">
     <h2>Performance</h2>
 
@@ -1513,7 +1422,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 65%;">
+  <div class="content-overlay" style="width: 60%;">
     <h1>Recap</h1>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -1532,20 +1441,11 @@ NOTES:
       <a href="https://nodejs.org/" target="_blank">
         <img src="../../img/browsers/nodejs-logo.png" alt="" class="plain" style="width: 150px" />
       </a>
-      <a href="https://renovatebot.com/" target="_blank">
-        <img src="../../img/divops/renovate-logo.png" alt="" class="plain" style="width: 150px" />
-      </a>
       <a href="https://turbo.build/repo" target="_blank">
         <img src="../../img/divops/turborepo-logo.svg" class="plain" style="width: 150px" />
       </a>
-      <a href="https://plopjs.com/" target="_blank">
-        <img src="../../img/divops/plop-logo-dark.svg" class="plain" style="width: 150px" />
-      </a>
       <a href="https://eslint.org/" target="_blank">
         <img src="../../img/nav-react/eslint-logo.svg" alt="" class="plain" style="width: 150px" />
-      </a>
-      <a href="https://stylelint.io/" target="_blank">
-        <img src="../../img/divops/stylelint-dark-logo.svg" alt="" class="plain" style="width: 150px" />
       </a>
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" class="plain" style="width: 150px" />
@@ -1599,7 +1499,7 @@ NOTES:
 - I've picked options for each of the types of tools I mentioned
   - Most of them I've used...
   - Others seem like the latest and greatest
-- There are 24 tools shown here
+- There are 21 tools shown here
   - It'd be interesting to see how many logos we can recognize
 - But not only do we have to learn how to configure & maintain each...
   - In many cases we have to first decide which one to pick 😔
