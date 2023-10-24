@@ -3,7 +3,7 @@
 <div style="display: flex; align-items:center; justify-content: flex-end">
  <div style="width: 60%;" class="content-overlay">
 
-  <h1>"DivOps" Engineering</h1>
+  <h1>“DivOps” Engineering</h1>
   <h4>Unveiling the fusion of Frontend and DevOps</h4>
 
   <br />
@@ -287,7 +287,7 @@ NOTES:
 
 NOTES:
 
-- As if one framework was enough, there was another one
+- As if one framework war was enough, there was another one
 - This was the second iteration of UI frameworks
   - But instead of all-in-one frameworks...
   - There were targeted libraries that I had to compose together
@@ -808,14 +808,19 @@ NOTES:
       <a href="https://www.typescriptlang.org/" target="_blank">
         <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
+      <a href="https://flow.org/" target="_blank">
+        <img src="../../img/divops/flow-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
     </div>
   </div>
 </div>
 
 NOTES:
 
-- And then there's TypeScript
+- And then there's **TypeScript**
   - Is there anything else doing type-checking?
+- I guess there's technically **Flow**
+  - But I'm not sure if that's even used outside of Meta/Facebook
 - Whenever I have to go back to JS-only codebase
   - I just feel so... unsafe
   - Can this be `null`?
@@ -1077,12 +1082,15 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 <div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 50%;">
+ <div class="content-overlay" style="width: 65%;">
     <h2>Continuous Integration</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://github.com/features/actions" target="_blank">
         <img src="../../img/divops/github-actions-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://docs.gitlab.com/ee/ci/" target="_blank">
+        <img src="../../img/divops/gitlab-logo.svg" class="plain" style="width: 250px" />
       </a>
       <a href="https://circleci.com/" target="_blank">
         <img src="../../img/divops/circleci-logo-dark.svg" alt="" class="plain" style="width: 250px" />
@@ -1099,7 +1107,7 @@ NOTES:
 - Up until now, everything that the DivOps engineer has set up, configured, and maintained...
   - Has been local to the repo running on an individual developers' machine
 - But once we get to Continuous Integration...
-  - We're running in **Github Actions**, **Circle CI**, **Jenkins**, and other CI tools
+  - We're running in **Github Actions**, **GitLab CI**, **Circle CI**, **Jenkins**, and other CI tools
   - So that means we're writing YAML for Github Actions
   - Or YAML for Circle CI
   - Or YAML for Jenkins
@@ -1213,11 +1221,13 @@ NOTES:
 
 <div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
+    <p><a href="https://2023.connect.tech/session/493179">Optimizing your development pipelines and workflows with CI/CD</a></p>
+
     <a href="https://2023.connect.tech/session/493179">
       <img src="../../img/divops/jeremy-meiss.jpg" />
     </a>
 
-    <p><a href="https://2023.connect.tech/session/493179">Optimizing your development pipelines and workflows with CI/CD</a></p>
+    <p><strong>Jerey Meiss</strong></p>
     <p>11:30 AM (Core/Advanced JS)</p>
   </div>
 </div>
@@ -1366,7 +1376,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content: end">
- <div class="content-overlay" style="width: 65%;">
+ <div class="content-overlay" style="width: 50%;">
     <h2>Performance</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -1381,6 +1391,12 @@ NOTES:
       </a>
       <a href="https://www.speedcurve.com/" target="_blank">
         <img src="../../img/divops/speedcurve-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.datadoghq.com/" target="_blank">
+        <img src="../../img/divops/datadog-logo-dark.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://newrelic.com/" target="_blank">
+        <img src="../../img/divops/new-relic-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>
@@ -1550,7 +1566,7 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 50%;">
-    <h2>Divops community ✊🏾</h2>
+    <h2>DivOps community ✊🏾</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap;">
       <a href="https://twitter.com/hashtag/divops" target="_blank">
