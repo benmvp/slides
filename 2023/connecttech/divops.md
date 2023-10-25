@@ -168,8 +168,8 @@ NOTES:
       <a href="https://get.foundation/" target="_blank">
         <img src="../../img/divops/foundation-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://jquery.com/" target="_blank">
-        <img src="../../img/nav-react/jquery-logo.png" alt="" class="plain" style="width: 250px" />
+      <a href="https://jqueryui.com/" target="_blank">
+        <img src="../../img/divops/jquery-ui-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
     </div
   </div>
@@ -183,7 +183,7 @@ NOTES:
   - Adapted from the backend frameworks
 - ✋🏾 How many of these 10 can you name?
   - **AngularJS, EmberJS, BackboneJS, ExtJS, KnockoutJS**
-  - **PolymerJS, MeteorJS, Bootstrap, Foundation, jQuery**
+  - **PolymerJS, MeteorJS, Bootstrap, Foundation, jQuery UI**
 - There was no npm or Github
   - These were available my downloading zip files with minified JS
   - Then link to it as a `<script>` in the HTML
@@ -535,7 +535,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 65%;">
+ <div class="content-overlay" style="width: 65 %;">
     <h2>Bundlers</h2>
 
     <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px">
