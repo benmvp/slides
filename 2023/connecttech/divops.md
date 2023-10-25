@@ -207,7 +207,7 @@ NOTES:
         <img src="../../img/nav-react/rollup-logo.svg" class="plain" style="width: 250px" />
       </a>
       <a href="https://babeljs.io/" target="_blank">
-        <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 250px" />
+        <img src="../../img/divops/babel-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://gruntjs.com/" target="_blank">
         <img src="../../img/nav-react/grunt-logo.svg" alt="" class="plain" style="width: 250px" />
@@ -498,7 +498,7 @@ NOTES:
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
       <a href="https://babeljs.io/" target="_blank">
-        <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 250px" />
+        <img src="../../img/divops/babel-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://www.typescriptlang.org/" target="_blank">
         <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 250px" />
@@ -535,10 +535,10 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 50%;">
+ <div class="content-overlay" style="width: 65%;">
     <h2>Bundlers</h2>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
+    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px">
       <a href="https://webpack.js.org/" target="_blank">
         <img src="../../img/nav-react/webpack-logo.png" class="plain" style="width: 250px" />
       </a>
@@ -556,6 +556,9 @@ NOTES:
       </a>
       <a href="https://parceljs.org/" target="_blank">
         <img src="../../img/nav-react/parcel-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.rspack.dev/" target="_blank">
+        <img src="../../img/divops/rspack-logo.png" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>
@@ -613,12 +616,15 @@ NOTES:
  <div class="content-overlay" style="width: 50%;">
     <h2>API Integrations</h2>
 
-    <div style="display: flex; justify-content: center; align-items: center; gap: 150px; flex-wrap: wrap; margin-top: 20px">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
       <a href="https://firebase.google.com/" target="_blank">
         <img src="../../img/divops/firebase-logo.png" class="plain" style="width: 250px" />
       </a>
       <a href="https://www.apollographql.com/" target="_blank">
         <img src="../../img/divops/apollo-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.prisma.io/" target="_blank">
+        <img src="../../img/divops/prisma-logo-dark.svg" alt="" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>
@@ -627,7 +633,8 @@ NOTES:
 NOTES:
 
 - But there's even more once we get passed compilers and bundlers
-- Frontend engineers may even have to setup API integrations like Firebase or Apollo GraphQL
+- Frontend engineers may even have to setup API integrations like...
+  - **Firebase** or **Apollo GraphQL** or **Prisma**
 - _Maybe_ the DevOps engineers can set up Firestore or Firebase authentication
   - But I wouldn't be surprised if a Frontend Engineer does it either
 
@@ -678,12 +685,21 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 50%;">
+ <div class="content-overlay" style="width: 65%;">
     <h2>Command-line scripts</h2>
 
-    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://nodejs.org/" target="_blank">
         <img src="../../img/browsers/nodejs-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://mswjs.io/" target="_blank">
+        <img src="../../img/divops/msw-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://firebase.google.com/docs/emulator-suite" target="_blank">
+        <img src="../../img/divops/firebase-logo.png" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md" target="_blank">
+        <img src="../../img/divops/babel-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>
@@ -696,10 +712,12 @@ NOTES:
   - It's also not JS running on a Node server (like Express)
 - These are scripts run from the command-line typically via npm scripts
   - They glue everything together
-- They can run mock data environments like Firebase's Emulator Suite
-- They can be codemods that rewrite/upgrade/refactor source code
-- Others scripts run other tools like `server` or `nodemon` for running the web app locally
+- They can run mock data environments like **Firebase Emulator Suite** or **Mock service worker**
+- They can be **codemods** w/ Babel that rewrite/upgrade/refactor source code
+- Others scripts run other tools like `serve` or `nodemon` for running the web app locally
 - Once we know JS the possibilities are endless
+- Some of us take running a development environment for granted
+  - I know plenty of projects where devs can't even run the app locally because it hadn't been maintained
 
 =====
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -901,12 +919,15 @@ NOTES:
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content: end">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 50%;">
     <h2>Unit Testing</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://jestjs.io/" target="_blank">
         <img src="../../img/nav-react/jest-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://vitest.dev/" target="_blank">
+        <img src="../../img/divops/vitest-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://mochajs.org/" target="_blank">
         <img src="../../img/nav-react/mocha-logo.svg" alt="" class="plain" style="width: 250px" />
@@ -926,11 +947,12 @@ NOTES:
 
 NOTES:
 
-- So technically there are a few options we have for unit testing
-  - **Jest**, **Mocha/Chai**, **Ava** & **Tape**
-- But as far as I've seen, everyone uses Jest
+- So there are a number of unit testing platforms
+  - **Jest**, **Vitest**, **Mocha/Chai**, **Ava** & **Tape**
+- But there are only really 2 legit options
+  - **Jest** & **Vitest**
 - And just like **Babel**, **Webpack**, **ESLint**, **TypeScript** and everything else
-  - It comes with it's own huge config options and presets
+  - They with it's own huge config options
 
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
@@ -1179,7 +1201,7 @@ NOTES:
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 <div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 65%;">
+ <div class="content-overlay" style="width: 50%;">
     <h2>App deployment (providers)</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -1192,8 +1214,14 @@ NOTES:
       <a href="https://firebase.google.com/products/hosting" target="_blank">
         <img src="../../img/divops/firebase-hosting-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="hhttps://www.heroku.com/" target="_blank">
+      <a href="https://www.heroku.com/" target="_blank">
         <img src="../../img/divops/heroku-logo-dark.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://launchdarkly.com/" target="_blank">
+        <img src="../../img/divops/launchdarkly-logo.svg" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://www.harness.io/" target="_blank">
+        <img src="../../img/divops/harness-logo.svg" class="plain" style="width: 250px" />
       </a>
     </div>
   </div>
@@ -1213,7 +1241,7 @@ NOTES:
 - The promise with these is that you connect your Vercel project to a repo
   - So that whenever we commit to `main`, it'll run checks & build automatically
   - Then when everything passes it'll deploy to Production
-- And many of these services offer what's called **branch previews**
+- And many of these services offer what are called **branch previews**
   - We can push up a branch or create a PR and we can see what our update will look like in Production
 
 /////
@@ -1227,7 +1255,7 @@ NOTES:
       <img src="../../img/divops/jeremy-meiss.jpg" />
     </a>
 
-    <p><strong>Jerey Meiss</strong></p>
+    <p><strong>Jeremy Meiss</strong></p>
     <p>11:30 AM (Core/Advanced JS)</p>
   </div>
 </div>
@@ -1425,7 +1453,7 @@ NOTES:
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://babeljs.io/" target="_blank">
-        <img src="../../img/divops/babel-logo.png" alt="" class="plain" style="width: 150px" />
+        <img src="../../img/divops/babel-logo.svg" alt="" class="plain" style="width: 150px" />
       </a>
       <a href="https://www.typescriptlang.org/" target="_blank">
         <img src="../../img/nav-react/typescript-logo.png" alt="" class="plain" style="width: 150px" />
