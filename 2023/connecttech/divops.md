@@ -27,7 +27,7 @@ NOTES:
 - Good morning everyone!
   - Welcome to Day 2 of Connect.Tech
   - I hope everyone enjoyed Day 1 and are excited for what's to come today
-- A few years ago I started to have a bit of an identify crisis
+- A few years ago I started to have a bit of a professional identify crisis
 - I called myself a frontend engineer, but I wasn't really writing frontend code anymore
   - I wasn't writing any React
   - No semantic HTML or CSS
@@ -235,7 +235,7 @@ NOTES:
 
 - Well the industry needed a way to manage all of this JavaScript and CSS
 - We needed to store and retrieve it somewhere (npm & later yarn)
-- We needed to bundle & minify it (Webpack & Prettier)
+- We needed to bundle & minify it (Webpack)
 - We needed to verify it (ESLint & Jest)
 - As we transitioned from ES5 to ES6...
   - We wanted to use new functionality earlier (Babel)
@@ -257,11 +257,14 @@ NOTES:
       <a href="https://reactjs.com" target="_blank">
         <img src="../../img/react/react-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
+      <a href="https://redux.js.org/" target="_blank">
+        <img src="../../img/nav-react/redux-logo.png" alt="" class="plain" style="width: 250px" />
+      </a>
       <a href="https://vuejs.org/" target="_blank">
         <img src="../../img/divops/vue-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://redux.js.org/" target="_blank">
-        <img src="../../img/nav-react/redux-logo.png" alt="" class="plain" style="width: 250px" />
+      <a href="https://svelte.dev/" target="_blank">
+        <img src="../../img/divops/svelte-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://mobx.js.org/" target="_blank">
         <img src="../../img/divops/mobx-logo.png" alt="" class="plain" style="width: 250px" />
@@ -278,9 +281,6 @@ NOTES:
       <a href="https://www.apollographql.com/" target="_blank">
         <img src="../../img/divops/apollo-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
-      <a href="https://netflix.github.io/falcor/" target="_blank">
-        <img src="../../img/divops/falcor-logo.svg" alt="" class="plain" style="width: 250px" />
-      </a>
     </div
   </div>
 </div>
@@ -293,8 +293,8 @@ NOTES:
   - There were targeted libraries that I had to compose together
 - The frontend is getting real complicated now
 - ✋🏾 How many of these libraries can you name?
-  - **Angular, React, Vue, Redux, MobX**
-  - **RxJS, React Router, Relay, Apollo, Falcor**
+  - **Angular, React, Redux, Vue, Svelte**
+  - **MobX, RxJS, React Router, Relay, Apollo**
 - But these still focused on the UI...
 
 /////
@@ -357,7 +357,7 @@ NOTES:
 
 <div style="display:flex;justify-content:center">
  <div class="content-overlay" style="width: 75%;">
-    <h2>DivOps Engineering</h2>
+    <h2>&lt;DivOps /&gt; Engineering</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px">
       <a href="https://twitter.com/chochosmx/status/1183045782095699968" target="_blank">
@@ -373,16 +373,13 @@ NOTES:
 
 NOTES:
 
-- Now I am a Frontend Engineer...
-  - Who's not writing any UI code
-  - But instead is focused on everything else besides the actual feature development
 - As my good friend Jonathan points in this tweet...
-  - Maintaining a complex FE build system is serious work
+  - Maintaining a complex frontend build system is serious work
   - So what type of engineering is this?
 - I call this fusion of Frontend & DevOps...
   - This new discipline of maintaining frontend-related infra is...
   - **"DivOps"**
-  - It's Frontend engineers who are also (or exclusively) maintaining infra
+  - It's Frontend engineers who are also (or exclusively) maintaining frontend infra
 - I can't take credit for the name DivOps though...
   - Technically, Enrique was the genesis
   - He tweeted this almost exactly 3 years ago
@@ -463,7 +460,7 @@ NOTES:
 
 <div style="display:flex;justify-content:center">
  <div class="content-overlay" style="width: 75%;">
-    <h1 style="font-size: 5em">DivOps Engineering</h1>
+    <h1 style="font-size: 5em">&lt;DivOps /&gt; Engineering</h1>
   </div>
 </div>
 
@@ -486,8 +483,6 @@ NOTES:
 NOTES:
 
 - Let's start with the development environment
-- The foundation of any modern web dev environment is...
-  - A JavaScript compiler/transpiler and a module bundler
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -535,7 +530,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 65 %;">
+ <div class="content-overlay" style="width: 65%;">
     <h2>Bundlers</h2>
 
     <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px">
@@ -578,7 +573,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 65%;">
+ <div class="content-overlay" style="width: 75%;">
     <h2>UI (Meta) Frameworks</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
@@ -590,6 +585,9 @@ NOTES:
       </a>
       <a href="https://analogjs.org/" target="_blank">
         <img src="../../img/divops/analog-logo.svg" alt="" class="plain" style="width: 250px" />
+      </a>
+      <a href="https://kit.svelte.dev/" target="_blank">
+        <img src="../../img/divops/svelte-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
       <a href="https://astro.build/" target="_blank">
         <img src="../../img/divops/astro-logo.png" alt="" class="plain" style="width: 250px" />
@@ -604,7 +602,7 @@ NOTES:
   - Many other tools wrap compilers & bundles to get them to work w/ particular frameworks
   - There are now **meta** frameworks to handle it for us as I mentioned at the beginning
   - "Frameworks of frameworks"
-- **Next** for React, **Nuxt** for Vue, **Analog** for Angular...
+- **Next** for React, **Nuxt** for Vue, **Analog** for Angular, **SvelteKit** for Svelte...
   - Or can go the route of **Astro** which works with (almost) any framework
 - They also support routing, styling, SSR, etc.
   - But one goal is to abstract the DivOps-y things
@@ -642,7 +640,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content: end">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 50%;">
     <h2>Multi-app orchestration</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -661,21 +659,24 @@ NOTES:
       <a href="https://turbo.build/repo" target="_blank">
         <img src="../../img/divops/turborepo-logo.svg" class="plain" style="width: 250px" />
       </a>
+      <a href="https://nx.dev/" target="_blank">
+        <img src="../../img/divops/nx-logo.svg" class="plain" style="width: 250px" />
+      </a>
     </div>
   </div>
 </div>
 
 NOTES:
 
-- If in addition to the primary site the company also has...
+- If a company also has...
   - A marketing site or blog or other sub-domains...
-  - All backed by a shared component library
+  - All backed by a **shared** component library
   - A monorepo is super helpful to keep things centralized & in sync
-- A monorepo allows for multiple projects (apps and/or libraries) to live in the same repo
-  - Modern cloud platforms know to deploy these for multiple domains
-- This is typically handle by workspaces where each project is a workspace
+- A monorepo allows for multiple projects (apps and/or packages]) to live in the same repo
+  - Modern cloud platforms know to deploy these to multiple domains
+- This is typically handled by workspaces where each project is a workspace
   - npm, yarn & pnpm all support them
-- And then tools like **Lerna** & **Turborepo**...
+- And then tools like **Lerna**, **Turborepo** or **NX**...
   - Can be layered on top of them to help with orchestrating builds, tests, etc.
 - A DevOps engineer is definitely not setting this up
   - So who does it fall to?
@@ -711,12 +712,15 @@ NOTES:
   - It's not JS going into the browser
   - It's also not JS running on a Node server (like Express)
 - These are scripts run from the command-line typically via npm scripts
+  - They are the equivalent of writing bash scripts without you **bashing** your head against the wall
   - They glue everything together
 - They can run mock data environments like **Firebase Emulator Suite** or **Mock service worker**
 - They can be **codemods** w/ Babel that rewrite/upgrade/refactor source code
 - Others scripts run other tools like `serve` or `nodemon` for running the web app locally
 - Once we know JS the possibilities are endless
 - Some of us take running a development environment for granted
+  - You run `npm start` and voila! It just works
+  - But there's a lot of work to make it happen
   - I know plenty of projects where devs can't even run the app locally because it hadn't been maintained
 
 =====
@@ -730,7 +734,6 @@ NOTES:
 
 NOTES:
 
-- So we've talked about the **Development** & **Repo** environments...
 - Let's get into the **Static-analysis** environment
 - I don't know how it is with other communities...
   - But I'm a fan of the emphasis on static-analysis w/in the FE ecosystem
@@ -742,7 +745,7 @@ NOTES:
 
 <div style="display:flex;justify-content: start">
  <div class="content-overlay" style="width: 50%;">
-    <h2>Linting</h2>
+    <h2>Linting & formatting</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 20px">
       <a href="https://eslint.org/" target="_blank">
@@ -754,29 +757,6 @@ NOTES:
       <a href="https://stylelint.io/" target="_blank">
         <img src="../../img/divops/stylelint-dark-logo.svg" alt="" class="plain" style="width: 250px" />
       </a>
-    </div>
-  </div>
-</div>
-
-NOTES:
-
-- **ESLint** for JavaScript & **Stylelint** for CSS are the main players in the linting game
-  - Technically **StandardJS** is a linter in the JS space
-  - But I haven't seen anyone using it lately
-- If this were 5 years ago, maybe I'd mention StandardJS
-  - Or **TSLint** or **JSLint**
-  - But it's basically all **ESLint** now
-- Each with their on configuration platform
-  - And each with their own plugins ecosystems
-
-/////
-<!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex;justify-content: start">
- <div class="content-overlay" style="width: 50%;">
-    <h2>Formatting</h2>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
       <a href="https://prettier.io/" target="_blank">
         <img src="../../img/webdev/prettier-logo.png" class="plain" style="width: 250px" />
       </a>
@@ -792,19 +772,21 @@ NOTES:
 
 NOTES:
 
-- And then there's code formatting
-- It's a bit different than linting
-  - It actually has similar qualities to compiling & linting
+- **ESLint** for JavaScript & **Stylelint** for CSS are the main players in the linting game
+  - Each with their on configuration platform
+  - And each with their own plugins ecosystems
+- Maybe If this were 5 years ago, I'd mention **StandardJS**
+  - Or **TSLint** or **JSLint**
+  - But it's basically all **ESLint** now for JS
+- And then there's code formatting with **Prettier**
   - It changes your code like a compiler...
   - But more for code style like a linter
-- Like ESLInt, **Prettier** is the main player here
-  - (**StandardJs** is also a formatter BTW)
 - Luckily the Prettier configuration is pretty small
-  - I think that's which it was really successful
+  - I think that's one of the reasons why it was really successful
   - Unlike most tools where we have to decide what options to configure
   - It is very opinionated out of the box
-- Oh and I use Husky + Lint Staged in order to lint before committing code
-  - It's an annoying DevEx to linting rules in CI
+- Oh and I use **Husky** + **Lint Staged** in order to lint before committing code
+  - It's an annoying DevEx to have linting failures in CI
 
 -----
 
@@ -850,6 +832,7 @@ NOTES:
   - To guide me to the correct code
 - Learning TypeScript has a huge learning code...
   - In fact, I've been using it for 5 years and still learn new things
+  - I was at **Waller's** TypeScript deep dive talk yesterday and finally learned about `infer`!
 
 /////
 <!-- .slide: data-background="url(../../img/divops/magnifying-glass-markus-winkler-afW1hht0NSs-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -906,6 +889,7 @@ NOTES:
 
 NOTES:
 
+- We talked about the **Development environment** and the **Static-analysis environment**
 - What do we have next?
   - Ah, yes. The testing environment
 - FE Engineers also have to set up and maintain the various FE testing environments
@@ -947,12 +931,13 @@ NOTES:
 
 NOTES:
 
+- First off is unit testing
 - So there are a number of unit testing platforms
-  - **Jest**, **Vitest**, **Mocha/Chai**, **Ava** & **Tape**
+  - **Jest**, **Vitest**, **Mocha/Chai**, and others
 - But there are only really 2 legit options
   - **Jest** & **Vitest**
 - And just like **Babel**, **Webpack**, **ESLint**, **TypeScript** and everything else
-  - They with it's own huge config options
+  - They come with their own huge config options
 
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
@@ -978,13 +963,14 @@ NOTES:
 
 NOTES:
 
-- Technically we can use Jest without a configuration file
+- _Technically_ we can use Jest without a configuration file
   - But given all of the other things we've customized
   - There's no way we can go without one
 - I counted over **70** configuration properties 🫨
   - And that doesn't all the various presets and transformers
 - Testing is important, but configuring Jest is very different than writing tests
-  - It takes skill set (and interest) to create and maintain these things
+  - It takes skill set (and interest) to create and maintain this sort of infra
+  - That enables developers to focus on feature development
 
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
@@ -1025,7 +1011,7 @@ NOTES:
 - So once again, not only does someone have to decide which one to choose...
   - But they also have to configure & maintain the platform
   - And figure out how to have the proper test & CI environments
-- And of course each platform has its own set of configurations
+- And like evrything else each platform has its own set of configurations
 
 /////
 <!-- .slide: data-background="url(../../img/divops/litmus-test.jpeg) no-repeat center" data-background-size="cover" -->
@@ -1061,14 +1047,14 @@ NOTES:
 - **Chromatic** is a visual regression tool made by the Storybook folks
   - So now we can ensure that our components continue to look the way they should after code changes
   - The components are just as much as about their look & feel as their UI interactions
-- But now the service needs to integrate with Github, set up tokens...
-  - In addition to having to configure browsers, browser widths and all that jazz
-- **Percy** is also a visual regression too
+- **Percy** is also a visual regression tool
   - Probably the most popular one
   - **Browserstack** recently bought them
 - Browserstack allow us to run tests on _real_ devices so there's no emulation
-  - Couple that with Percy and one end-to-end frameworks...
+  - Couple that with Percy and one of the end-to-end testing frameworks from before...
   - And we've got a powerful way to ensure that our UIs are visually consistent on real browsers
+- But now these services needs to integrate with Github, set up tokens, etc...
+  - On top of having to configure which browsers, browser widths and all that jazz
 
 =====
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1083,7 +1069,7 @@ NOTES:
 
 - Let's recap before we continue
   - We've already covered a lot:
-  - **Development**, **Repo**, **Static-analysis**, and just now **Testing**
+  - **Development**, **Static-analysis**, and just now **Testing**
   - And now we've got Continuous Integration & Continuous Deployment/Delivery
 - Quick aside, I got my first professional job in 2006
   - And we didn't have any testing or continuous deployment
@@ -1140,6 +1126,8 @@ NOTES:
   - Running static checks, running tests, building the app/library, etc
   - Figuring out pipelines, caching, test sharding, etc
   - Running end-to-end tests, sending snapshots for visual regression, everything!
+- All of this is happening in CI...
+  - And likely someone on the frontend is configuring it all
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1302,8 +1290,10 @@ NOTES:
 - **`semantic-release`** is the primary tool for this
   - They say they by removing human involvement they make releases "unromantic and unsentimental"
 - However, it doesn't work with monorepo setups
-  - One alternative, especially if you're already using **Lerna** is to use it's releasing functionality
+  - if you're already using **Lerna** you can use it's releasing functionality
   - Or you can use the standalone **`changesets`** library
+- I don't have time time to go into ESM vs CJS targets
+  - And how to configure `package.json` for each
 
 =====
 <!-- .slide: data-background="url(../../img/divops/live-concert-tijs-van-leur-Qnlp3FCO2vc-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1440,7 +1430,7 @@ NOTES:
 - We could roll our own perf monitoring on top of **Core Web Vitals**
 - Or we can go full Sass and use a tool like **SpeedCurve**...
   - It specifically does real-user monitoring
-- All of the previous mega tools (Datadog, etc.) have their own RUM offerings too
+- All of the previous mega monitoring tools (Datadog, etc.) have their own RUM offerings too
 - And because these run entirely on the frontend...
   - DivOps! 😅
 
@@ -1529,8 +1519,8 @@ NOTES:
   - It'd be interesting to see how many logos we can recognize
 - But not only do we have to learn how to configure & maintain each...
   - In many cases we have to first decide which one to pick 😔
-- And this doesn't even include configuring UI frameworks...
-  - Like **Nuxt**. **Tailwind**, **Material UI**, etc.
+- And this doesn't even include configuring other UI libraries...
+  - Like **Tailwind**, **Material UI**, etc.
 
 /////
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1550,7 +1540,7 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1>✋🏾 Who is a DivOps Engineer?</h1>
+    <h1>✋🏾 Who is a &lt;DivOps /&gt; Engineer?</h1>
   </div>
 </div>
 
@@ -1568,7 +1558,7 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay">
-    <h1 style="font-size: 5em">DivOps is legit!</h1>
+    <h1 style="font-size: 5em">&lt;DivOps /&gt; is legit!</h1>
   </div>
 </div>
 
@@ -1594,7 +1584,7 @@ NOTES:
 
 <div style="display:flex; justify-content: center">
   <div class="content-overlay" style="width: 50%;">
-    <h2>DivOps community ✊🏾</h2>
+    <h2>&lt;DivOps /&gt; community ✊🏾</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap;">
       <a href="https://twitter.com/hashtag/divops" target="_blank">
@@ -1616,10 +1606,10 @@ NOTES:
 NOTES:
 
 - There's a burgeoning community around DivOps
-- We've got the *_Twitter_ hashtag
+- We've got the `#divops` **Twitter** hashtag
 - Divops **subreddit**
 - And the DivOps **Discord** server
-  - We tools and solutions for various DivOps-y problems we're facing
+  - We share tools and solutions for various DivOps-y problems we're facing
 - Feel free to join the party! 🎉
 
 =====
