@@ -99,6 +99,7 @@ NOTES:
   - And, if using JS, a blocking `<script>`
 - If anyone coded with that "spacer gif" you're a real O.G.!
 - It was really the wild west then
+- I say "good ol' days" but they were pretty terrible actually
 
 /////
 <!-- .slide: data-background="url(../../img/nextjs/servers-ismail-enes-ayhan-lVZjvw-u9V8-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -123,14 +124,17 @@ NOTES:
 NOTES:
 
 - Then jQuery and AJAX entered the chat
+  - AJAX stood for **Asynchronous JavaScript And XML**
+  - XML!
+  - But we quickly replaced it with JSON
 - And it was A LOT easier for me to write interactive pages
   - Because jQuery smoothed over the browser JS differences
 - We complain about browsers moving slow to adopt awesome new features
   - But back then browsers didn't agree on how to make `fetch` requests
-- In fact, `fetch` didn't exist back then
-  - We had AJAX: Asynchronous JavaScript and XML
-  - We quickly ditched the XML for JS but the name stuck
-- jQuery was great, but not great enough
+  - In fact, `fetch` didn't exist back then
+- There were other tools at the time too..
+  - **PrototypeJS**, **Dojo**, **YUI**, **MooTools**, **script.aculo.us**, etc.
+- This were good, but ultimately not good enough
   - Which lead to...
 
 /////
@@ -351,6 +355,7 @@ NOTES:
 - ✋🏾 These should be easier to identify since they're newer
   - **Create React App**, **Next.js**, **Gatsby**, **Astro**, **Remix**
   - **Nuxt**, **Vite**, **SWC**, **Vercel**, **Netlify**
+- BTW - all the icons in the slides are linked so you can learn more about them
 
 /////
 <!-- .slide: data-background="url(../../img/divops/gandini-juggling-guardian.jpg) no-repeat center" data-background-size="cover" -->
@@ -438,10 +443,14 @@ NOTES:
 
 <div style="display:flex;align-items:center;justify-content:space-around;">
   <div style="flex:0 0 45%">
-    <img src="../../img/gde/experts-sticker-01.gif" alt="Google Developer Experts animation" class="plain" style=" background-color: #ddd; border-radius: 5px"/>
+    <a href="https://developers.google.com/community/experts" target="_blank">
+      <img src="../../img/gde/experts-sticker-01.gif" alt="Google Developer Experts animation" class="plain" style=" background-color: #ddd; border-radius: 5px"/>
+    </a>
   </div>
   <div style="flex:0 0 45%; margin-left: 20px">
-    <img src="../../img/stitchfix/lockup-solid-vert-gender-neutral-light.svg" alt="Stitch Fix Corporate logo (light)" class="plain" />
+    <a href="https://www.stitchfix.com/careers/jobs" target="_blank">
+      <img src="../../img/stitchfix/lockup-solid-vert-gender-neutral-light.svg" alt="Stitch Fix Corporate logo (light)" class="plain" />
+    </a>
   </div>
 </div>
 
@@ -573,7 +582,7 @@ NOTES:
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
 <div style="display:flex;justify-content:end">
- <div class="content-overlay" style="width: 75%;">
+ <div class="content-overlay" style="width: 50%;">
     <h2>UI (Meta) Frameworks</h2>
 
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 20px">
@@ -592,6 +601,9 @@ NOTES:
       <a href="https://astro.build/" target="_blank">
         <img src="../../img/divops/astro-logo.png" alt="" class="plain" style="width: 250px" />
       </a>
+      <a href="https://vitejs.dev/" target="_blank">
+        <img src="../../img/divops/vite-logo.svg" alt="" class="plain" style="width: 150px" />
+      </a>
     </div>
   </div>
 </div>
@@ -603,9 +615,10 @@ NOTES:
   - There are now **meta** frameworks to handle it for us as I mentioned at the beginning
   - "Frameworks of frameworks"
 - **Next** for React, **Nuxt** for Vue, **Analog** for Angular, **SvelteKit** for Svelte...
-  - Or can go the route of **Astro** which works with (almost) any framework
+  - Or can go the route of **Astro** or **Vite** which works with (almost) any framework
 - They also support routing, styling, SSR, etc.
   - But one goal is to abstract the DivOps-y things
+- So many options!
 
 /////
 <!-- .slide: data-background="url(../../img/perfect-lib/nesa-by-makers-kwzWjTnDPLk-black-developers-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -1231,6 +1244,7 @@ NOTES:
   - Then when everything passes it'll deploy to Production
 - And many of these services offer what are called **branch previews**
   - We can push up a branch or create a PR and we can see what our update will look like in Production
+- **LaunchDarkly** & **Harness** are more for feature flagging
 
 /////
 <!-- .slide: data-background="url(../../img/divops/highway-interchange-patrick-federi-WkAIAf3l4zg-unsplash.jpg) no-repeat center" data-background-size="cover" -->
