@@ -33,28 +33,6 @@ NOTES:
 
 **RESTART THE TIMER!!!!**
 
-/////
-<!-- .slide: data-background="#222" data-background-size="cover" -->
-
-<a href="https://benmvp.com/rm-nextjs?utm_source=benmvp&utm_medium=slides&utm_campaign=rm-2024" target="_blank">
-  <img src="../../img/qrcodes/rm-2024-nextjs.svg" style="width: 40%" alt="QR code for &quot;50 shades of React rendering with Next.js&quot; talk @ React Miami 2024" class="plain" />
-</a>
-
-<p>
-  <a href="https://benmvp.com/rm-nextjs?utm_source=benmvp&utm_medium=slides&utm_campaign=rm-2024" target="_blank">
-    benmvp.com/rm-nextjs
-  </a>
-</p>
-
-NOTES:
-
-- I want to let you know that these slides are already available online
-  - So if you want to follow along or can't see well from the back, I've got you covered
-- You can use this handy dandy QR code that'll take you to the slides
-- You can go to my website, `benmvp.com`, and find them there too
-- AND I've already tweeted a link to my slides, **@benmvp**
-- So you're covered with **four** different ways to access the slides!
-
 =====
 <!-- .slide: data-background="url(../../img/esnext/simon-rae-221560-unsplash.jpg) no-repeat center" data-background-size="cover" -->
 
@@ -290,7 +268,7 @@ NOTES:
 
         <h3>Advantages</h3>
           <p>Dynamic content (user-specific)</p>
-          <p>Fast render times</p>
+          <p>Fast browser render times</p>
           <p>SEO-friendly</p>
 
         <h3 style="margin-top: 5rem">Disadvantages</h3>
@@ -388,6 +366,7 @@ getStaticProps() {
 }</code></pre>
         <p><a href="https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-paths" target="_blank"><code>getStaticPaths</code></a> function</p>
         <p><a href="https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props" target="_blank"><code>getStaticProps</code></a> function</p>
+        <p><a href="https://nextjs.org/docs/pages/api-reference/functions/get-static-paths#fallback-false" target="_blank"><code>fallback</code></a> property</p>
       </div>
     </div>
   </div>
@@ -581,8 +560,7 @@ NOTES:
 
         <h3>Advantages</h3>
           <p>Data-driven &quot;auto&quot; rendering</p>
-          <p>Only necessary JS</p>
-          <p>Dynamic content (user-specific)</p>
+          <p>Sophisticated routing</p>
 
         <h3 style="margin-top: 5rem">Disadvantages</h3>
           <p>Component complexity</p>
