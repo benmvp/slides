@@ -54,6 +54,9 @@ root.render(&lt;App />) // flush to DOM
 React.renderToString(&lt;App />) // or to string
 
 MyRenderer.render(&lt;App />) // etc</code></pre>
+
+    <div class="code-highlight" style="height: 70px; top: 805px;"></div>
+
   </div>
 </div>
 
@@ -346,8 +349,8 @@ NOTES:
           <p>Highly cacheable</p>
 
         <h3 style="margin-top: 5rem">Disadvantages</h3>
-          <p>Slow build times</p>
           <p>Dynamic content (user-specific)</p>
+          <p>Slow build times</p>
 
         <h3 style="margin-top: 5rem">Good candidates</h3>
           <p>Marketing pages</p>
@@ -435,8 +438,8 @@ NOTES:
           <p>Allows for frequent data updates</p>
 
         <h3 style="margin-top: 5rem">Disadvantages</h3>
-          <p>Slow build times</p>
           <p>Dynamic, user-specific content</p>
+          <p>Slow build times</p>
 
         <h3 style="margin-top: 5rem">Good candidates</h3>
           <p>Headless CMS pages</p>
