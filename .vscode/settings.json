@@ -1,3 +1,6 @@
 {
-  "workbench.colorTheme": "Night Owl"
+  "workbench.colorTheme": "Night Owl",
+  "[markdown]": {
+    "editor.formatOnSave": false
+  }
 }

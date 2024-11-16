@@ -156,24 +156,6 @@ NOTES:
 NOTES:
 
 - OK, enough about me...
-- Let's take a look at this product details page (aka PDP) within our made up e-commerce site
-  - It's got the title & main product images
-  - The price
-  - The size selector (which may or may not be out-of-stock)
-  - The add-to-cart button (which or may not be enabled)
-  - The carousel of related products at the bottom
-  - And the header & footer
-- I want us to keep all of this in mind
-  - Because we'll be using this PDP as our example for the code
-- **ONE:** Oh and before we begin,
-- Next.js uses what's called **file-system based routing** w/ the Pages Router
-  - Meaning that if we want this PDP at the URL `/product/acme-hoodie`
-  - We'll put the page React component within `src/pages/product/`
-- It also supports **dynamic routes**
-  - So if we want to support having multiple pages within `/product/`...
-  - we can use `[id]` notation for the name
-  - And `acme-hoodie` would be one of the ids, as well as any other product in our site
-- Without further ado, let's dive in...
 
 =====
 <!-- .slide: data-background="url(../../img/nextjs/laptop-carlos-muza-hpjSkU2UYSU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -280,7 +262,7 @@ NOTES:
         <h3 style="margin-top: 5rem">Good candidates</h3>
           <p>Dynamic product listings & pages</p>
           <p>Search results pages</p>
-          <p>Checkout pages</p>
+          <p>Cart & checkout pages</p>
       </div>
       <div style="flex:0 0 45%; margin-right: 20px">
     <pre class="large"><code class="lang-typescript">// pages/posts/[slug].tsx
