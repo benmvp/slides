@@ -8,6 +8,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "npx serve --config vercel.json"
+    "start": "npx serve --listen 3124 --config vercel.json"
   }
 }

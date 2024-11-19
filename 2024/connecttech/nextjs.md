@@ -13,7 +13,7 @@
 
   <br />
 
-  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=ct-2024) | [#@connect_js](https://twitter.com/connect_js)</p>
+  <p>[@benmvp](https://twitter.com/benmvp) | [benmvp.com](https://www.benmvp.com/?utm_source=benmvp&utm_medium=slides&utm_campaign=ct-2024) | [@connect_js](https://twitter.com/connect_js)</p>
 
   <br />
 
@@ -53,8 +53,7 @@ NOTES:
   - So if you want to follow along or can't see well from the back, I've got you covered
 - You can use this handy dandy QR code that'll take you to the slides
 - You can go to my website, `benmvp.com`, and find them there too
-- AND I've already tweeted a link to my slides, **@benmvp**
-- So you're covered with **four** different ways to access the slides!
+- So you're covered with **three** different ways to access the slides!
 
 =====
 
@@ -146,11 +145,10 @@ NOTES:
 NOTES:
 
 - Around Next 9 (2019), Next started emphasizing pre-rendering at build time
-- So not only could we render server-side...
-  - but now before the server even started
-- Ever since then, Next has been adding more functionality...
-  - with the page-based router
-  - to provide us more and more ways to render the pages within our apps
+- So not only could we render server-side for every request...
+  - but now we could render before the server even started
+- Ever since then, Next had been adding more functionality with the **page-based router**...
+  - to provide us more and more ways to render pages within our apps
 
 /////
 
@@ -159,11 +157,15 @@ NOTES:
 
 NOTES:
 
-- But then with Next 13 (October 2022) Next introduced the App Router
+- But then with Next 13 (2 years ago now) Next introduced the App Router
 - It ultimately generates the same types of pages
-  - But it improves the Developer Experience for sophisticated layouts & routes
-- With Next 14 (October 2023) it became ready for primetime
+  - But it improves the DevEx for more sophisticated layouts & routes
+- And with Next 14 (last year) it became ready for primetime
 - So I want to take our remaining time to showcase a few of the more popular rendering strategies
+
+---
+
+**BUILD DEMO APP!!!!**
 
 =====
 
@@ -230,6 +232,7 @@ NOTES:
 NOTES:
 
 - OK, enough about me...
+- I'm going to use this demo app to showcase the different rendering strategies
 
 =====
 
@@ -245,9 +248,14 @@ NOTES:
 NOTES:
 
 - First let's start with CSR better known as **client-side rendering**
+  - The page is rendered in the **browser** for **every** request
 - Client-side rendering is how single-page apps (SPAs) started out
   - It's probably the most common rendering strategy
   - In fact, Create React App is like this still
+
+---
+
+**DEMO content that updates**
 
 /////
 
@@ -296,7 +304,13 @@ function Page() {
 
 NOTES:
 
-- So CSR is great for **dynamic content**
+- Client Components (`'use client'`) are where we can do client-side rendering
+  - Usually with state and/or an effect
+- It's actually pretty difficult to make a CSR-only page in Next.js
+
+---
+
+- So CSR is great for **dynamic content** that's different per user
   - And since the page is mostly blank initially, the **server response is fast**
 - However, because everything is rendered in the browser...
   - **render times are slow** especially since they wait on the API response
@@ -310,7 +324,7 @@ NOTES:
   - I ideally wouldn't use it for this
   - SEO is too important & the client needs to see _something_ quickly
 - Instead, full CSR is great for UIs like highly-interactive, user-specific dashboards
-  - Think Figma or task managers like Asana
+  - Think Figma or task managers like Jira
 - It's also good for pages that rely heavily on browser-based 3rd-party widgets
   - Like embedding a Stripe checkout widget
 - But we'll see in a bit that we can sprinkle CSR within our other rendering strategies
@@ -331,6 +345,12 @@ NOTES:
 - Ok, let's move to what's likely the most prevalent form of rendering
   - **Server-side rendering**
 - You may have also heard terms like "SSR" or "Dynamic rendering"
+- Instead of rendering in the browser...
+  - Every page is generated on the **server** for every request
+
+---
+
+**DEMO content that updates**
 
 /////
 
@@ -380,6 +400,13 @@ async function Page() {
 
 NOTES:
 
+- We don't have to do anything to "opt-in" to SSR
+- Basically once we read some request-specific data (headers/cookies/etc)
+  - We have to render on the server for each request
+- So Next.js is able to pick the best rendering strategy based on how we access or data
+
+---
+
 - Similar to client-side rendering, SSR is also great for **dynamic content**
   - Because its data is retrieved on the server for **every request**
 - And because the full UI is in the HTML response...
@@ -393,10 +420,12 @@ NOTES:
 ---
 
 - So if this blog post had frequently changing content
+  - Or somehow was unique to every user
   - Then SSR could be a good fit
   - But if the data was mostly static, it'd be overkill & a sub-optimal render experience
+  - Plus we'd be hitting the server way more than necessary
 - In general SSR is good for pages that either...
-  - 1/ Have data that could change with every render
+  - 1/ Have data that could change with **every** render
   - 2/ Or the page is mostly user-specific content
   - So think search results, checkout flows, etc
 
@@ -414,10 +443,16 @@ NOTES:
 NOTES:
 
 - Now let's talk about **static-site generation**
+  - Where the page is pre-rendered at **build time** before the server even starts
 - SSG became super popular in React around 2019 thanks to Gatsby
   - And Next.js later joined the party, electing to make **all pages static by default**
+  - So pages will get generated at build time
 - Technically SSG started with Jekyll back in the day
   - But it's in Ruby so we don't care 😆
+
+---
+
+**DEMO content that DOES NOT update**
 
 /////
 
@@ -466,10 +501,17 @@ async function Page() {
 
 NOTES:
 
+- Like I mentioned, SSG is what happens by default
+- We can even fetch within our component and it'll happen at build time
+- As long as we don't access anything request-specific, it's static
+- But we can tell Next which pages to pre-render using `generateStaticParams`
+
+---
+
 - The appeal of static rendering is that it's **super fast**
   - The HTML is already ready when the user requests it
   - In fact it can be **cacheable by CDNs** because it's the same for everybody
-  - But the flip side of the coin is that it results in **slower build times**...
+  - But the flip side of the coin is that it can result in **slower build times**...
   - because all of these pages have to built before the server even runs
 - However like SSR it's also **SEO-friendly** because all of the HTML is there
 - The idea with SSG is that there's a single page file for everyone...
@@ -477,17 +519,14 @@ NOTES:
   - We can of course make API requests in the browser for the dynamic content...
   - but then we may miss out on SSG's cacheability goodness
 - It takes planning and forethought to get a hybrid page rendered with the right mix of static & dynamic using SSG
+- Or we have to set up webhooks to trigger a site rebuild
 
 ---
 
 - So if we wanted to use SSG for our blog post...
-  - We can render all the UI at build time
+  - We can render all the page UI at build time
   - Then in the browser we can retrieve the recommended posts
-- So for this dynamic stuff...
-  - we pre-render statically w/ default data or loading states
-  - And sync w/ up-to-date data in the browser
-- We've created a hybrid page
-- But in general, SSG is best & simplest for logged out pages...
+- So in general, SSG is best & simplest for logged out pages...
   - Where the page is typically the same for everyone
 - Things like marketing landing pages, blog posts, etc
   - Or even product listings or product details page if they rarely changed
@@ -499,7 +538,7 @@ NOTES:
 <div style="display:flex; justify-content: flex-start">
   <div class="content-overlay">
     <h1>Incremental static regeneration (ISR)</h1>
-    <p>Page HTML is <u>regenerated</u> on the <b?>server</b> after cache timeout</p>
+    <p>Page HTML is <u>regenerated</u> on the <b>server</b> after cache timeout</p>
   </div>
 </div>
 
@@ -512,6 +551,7 @@ NOTES:
   - But the rendered HTML never changes until we trigger a rebuild
 - Here's where **incremental static regeneration** aims to improve SSG
 - It brings the server back to the static party 🎉
+- The page content can be **regenerated** on the **server** on an interval
 
 /////
 
@@ -562,14 +602,23 @@ async function Page() {
 
 NOTES:
 
+- All we have to do to opt-in to ISR is set the `revalidate` property
+  - And that tells Next when the cache should expire and rebuild the page
+
+---
+
 - ISR has all the same advantages and disadvantages as SSG
   - The huge difference is that the pre-rendered HTML can actually **update w/o requiring a rebuild**
+  - We don't have to rebuild the entire site to change a couple of pages
+- There's even something called "on-demand incremental static regeneration" (OD-ISR?)
+  - Basically instead of revalidating on an interval we can tell Next when to revalidate
+  - Kind of like a webhook but with page-level granularity
 
 ---
 
 - ISR would work great for our blog posts
-- Everyone is still getting the same blog post
-- But if we're adding/updating content w/ a CMS
+  - Everyone is still getting the same blog post
+- But if we're adding/updating content w/ a headless CMS
   - We don't want to have to rebuild each time the content changes
   - That was the drawback of the static site builders
 - ISR is best for pages that are the same for everyone but need to update regularly
@@ -624,7 +673,7 @@ NOTES:
 
 ---
 
-- So for our one e-commerce site...
+- So for a single e-commerce site...
   - Maybe the **login, onboarding & blog pages** use SSG
   - ISR would be good for **product detail pages & landing pages** because they're static, but could change outside of the build cycle
   - **Search results pages, shopping cart, order history**, and other user-tailored pages are likely good candidates for SSR
@@ -644,6 +693,14 @@ NOTES:
 
 NOTES:
 
+- So like I mentioned there are lots rendering capabilities
+- These are more nuanced and I just don't have enough time to get into them
+
+---
+
+- So we've got **Layouts &amp; Templates**
+  - Where we can create UI that's shared between multiple routes
+
 /////
 
 <!-- .slide: data-background="url(../../img/nextjs/complexity-timo-volz-9Psb5Q1TLD4-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -657,6 +714,10 @@ NOTES:
 </div>
 
 NOTES:
+
+- There are different **Component Composition** strategies
+  - That help us maximize server-rendered UI
+  - You know, better SEO, faster browser rendered times, etc
 
 /////
 
@@ -672,6 +733,9 @@ NOTES:
 
 NOTES:
 
+- And Next.js has **Streaming** support to make the server render times faster
+- And it includes a built-in interface for displaying **Loading UIs** while we wait for rendering
+
 /////
 
 <!-- .slide: data-background="url(../../img/nextjs/complexity-timo-volz-9Psb5Q1TLD4-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -686,6 +750,8 @@ NOTES:
 
 NOTES:
 
+- There's **Partial Pre-rendering** that's experimental still
+
 /////
 
 <!-- .slide: data-background="url(../../img/nextjs/complexity-timo-volz-9Psb5Q1TLD4-unsplash.jpg) no-repeat center" data-background-size="cover" -->
@@ -699,6 +765,11 @@ NOTES:
 </div>
 
 NOTES:
+
+- And finally there are **Server Actions**
+- They aren't rendering per-se
+  - They are... rendering adjacent because they deal with form handling
+- So far, they have been the trickiest for me to wrap my head around
 
 =====
 
@@ -728,10 +799,9 @@ NOTES:
 NOTES:
 
 - So I know I just hit you with a bunch of information
-- Get these slides so you can click through to all of these resources
-- The first is actually a blog I wrote about this topic a few years ago now
+- Get these slides so you can click through to all of these resources I link to
+- The first link is to the Github repo to play around with
 - The rest are guides and docs from the official Next.js site
-  - "On-demand incremental static rengeration" is like ISR, but with a sort of webhook
 
 =====
 
@@ -764,5 +834,6 @@ NOTES:
 - Or if you already have...
   - Evaluate whether the pages you have are using the best rendering strategy
 - I should be around for the remainder of the conference...
-  - So find me later or you can ask me questions on Twitter (@benmvp)
+  - Find me a lunch or at one of the breaks
+  - Or you can ask me questions on Twitter (@benmvp)
 - Thanks!
