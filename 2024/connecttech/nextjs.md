@@ -270,7 +270,7 @@ NOTES:
           <p>Dynamic content (user-specific)</p>
           <p>Fast initial response times</p>
 
-        <h3 style="margin-top: 5rem">Disadvantages</h3>
+        <h3 style="margin-top: 5rem">Challenges</h3>
           <p>Poor SEO & UI cache</p>
           <p>Slow render times</p>
 
@@ -364,10 +364,10 @@ NOTES:
 
         <h3>Advantages</h3>
           <p>Dynamic content (user-specific)</p>
-          <p>Fast browser render times</p>
+          <p>Fast browser render &amp; less JS</p>
           <p>SEO-friendly</p>
 
-        <h3 style="margin-top: 5rem">Disadvantages</h3>
+        <h3 style="margin-top: 5rem">Challenges</h3>
           <p>Slow server response times</p>
 
         <h3 style="margin-top: 5rem">Good candidates</h3>
@@ -412,6 +412,7 @@ NOTES:
 - And because the full UI is in the HTML response...
   - It's very **SEO-friendly** - crawlers have everything they need
   - **In-browser render times** are also fast because of all the HTML is there
+  - There's also **less JS** being sent for the static content
 - But... it comes as the cost of **slow response times**
   - While the server is likely fast at rendering HTML
   - It's got to wait on the API response
@@ -428,28 +429,6 @@ NOTES:
   - 1/ Have data that could change with **every** render
   - 2/ Or the page is mostly user-specific content
   - So think search results, checkout flows, etc
-
-/////
-<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
-
-<div style="display:flex; justify-content: center">
-  <div class="content-overlay" style="width: 40%">
-    <p>
-      <img src="../../img/speakers/dustin-goodman.jpg" alt="Dustin Goodman" class="speaker-headshot" />
-      <br />
-      Dustin Goodman
-    </p>
-
-    <h2>Demystifying React Server Components</h2>
-
-    <p>10:00 (Salon A)</p>
-  </div>
-</div>
-
-NOTES:
-
-- Dustin is giving us a deep-dive into React Server Components tomorrow in this room
-- So if Server Components have been, or still are confusing join me to check it out
 
 =====
 
@@ -489,14 +468,14 @@ NOTES:
         <h3>Advantages</h3>
           <p>SEO-friendly</p>
           <p>Highly cacheable</p>
+          <p>Fast browser render &amp; less JS</p>
 
-        <h3 style="margin-top: 5rem">Disadvantages</h3>
+        <h3 style="margin-top: 5rem">Challenges</h3>
           <p>Dynamic content (user-specific)</p>
           <p>Slow build times</p>
 
         <h3 style="margin-top: 5rem">Good candidates</h3>
-          <p>Marketing pages</p>
-          <p>Blog posts</p>
+          <p>Marketing/blog pages</p>
           <p>Static product listings & pages</p>
       </div>
       <div style="flex:0 0 45%; margin-right: 20px">
@@ -591,25 +570,25 @@ NOTES:
 
         <h3>Advantages</h3>
           <p>SEO-friendly</p>
-          <p>Fast initial load times</p>
+          <p>Fast browser render &amp; less JS</p>
           <p>Allows for periodic data updates</p>
 
-        <h3 style="margin-top: 5rem">Disadvantages</h3>
+        <h3 style="margin-top: 5rem">Challenges</h3>
           <p>Dynamic, user-specific content</p>
           <p>Slow build times</p>
 
         <h3 style="margin-top: 5rem">Good candidates</h3>
           <p>Headless CMS pages</p>
-          <p>Periodically-updating product listings & pages</p>
+          <p>Product listings & pages</p>
       </div>
-      <div style="flex:0 0 45%; margin-right: 20px">
+      <div style="flex:0 0 45%; margin-right: 20px; position: relative">
     <pre class="large"><code class="lang-typescript">// app/posts/[slug]/page.tsx
 
 generateStaticParams() {
   // build list of pages
 }
 
-// refresh after 15
+// refresh after 15 secs
 export const revalidate = 15
 
 async function Page() {
@@ -617,9 +596,10 @@ async function Page() {
   await fetch(...)
 }</code></pre>
 
+    <div class="code-highlight" style="height: 70px; top: 432px; width: 100%; left: 0"></div>
+
 <p><a href="https://github.com/benmvp/nextjs-rendering/blob/main/src/app/posts-isr/%5Bslug%5D/page.tsx" target="_blank">ISR Example</a></p>
 <p><a href="https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration" target="_blank">Incremental Static Regeneration</p>
-<p><a href="https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams" target="_blank"><code>dynamicParams</code></a> property</p>
 
 </div>
 
@@ -633,7 +613,7 @@ NOTES:
 
 ---
 
-- ISR has all the same advantages and disadvantages as SSG
+- ISR most of the same advantages and disadvantages as SSG
   - The huge difference is that the pre-rendered HTML can actually **update w/o requiring a rebuild**
   - We don't have to rebuild the entire site to change a couple of pages
 - There's even something called "on-demand incremental static regeneration" (OD-ISR?)
@@ -735,7 +715,7 @@ NOTES:
   <div class="content-overlay">
     <h1>Component Composition</h1>
 
-    <p>Maximize how much UI is rendered server-side</p>
+    <p>Use slot pattern to maximize how much UI is rendered server-side</p>
   </div>
 </div>
 
@@ -796,6 +776,28 @@ NOTES:
 - They aren't rendering per-se
   - They are... rendering adjacent because they deal with form handling
 - So far, they have been the trickiest for me to wrap my head around
+
+/////
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/speakers/dustin-goodman.jpg" alt="Dustin Goodman" class="speaker-headshot" />
+      <br />
+      Dustin Goodman
+    </p>
+
+    <h2>Demystifying React Server Components</h2>
+
+    <p>10:00 (Salon A)</p>
+  </div>
+</div>
+
+NOTES:
+
+- Dustin is giving us a deep-dive into React Server Components tomorrow in this room
+- So if Server Components have been, or still are confusing join me to check it out
 
 =====
 
