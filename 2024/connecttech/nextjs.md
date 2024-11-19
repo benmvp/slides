@@ -84,7 +84,7 @@ React.render(
 NOTES:
 
 - When React burst on the scene in early 2015, it was a game changer for many reasons
-- Other UI libraries of the day attached their UI directly to the DOM
+- Other UI libraries of the day attached their UI & state directly to the DOM
   - Think jQuery, Backbone and those flavors from way back when
   - Everything operated on the DOM
 - React on the other hand **separated the UI** from the rendering
@@ -194,7 +194,7 @@ NOTES:
 NOTES:
 
 - My name is Ben Ilegbodu
-  - Christian, Husband, Father
+  - Christian, Husband of 1, Father of 3
 - _Family introductions_
 - We live in Manvel, TX (suburb of Houston)
 
@@ -429,6 +429,28 @@ NOTES:
   - 2/ Or the page is mostly user-specific content
   - So think search results, checkout flows, etc
 
+/////
+<!-- .slide: data-background="url(../../img/webdev/rawpixel-487103-unsplash.jpg) no-repeat center" data-background-size="cover" -->
+
+<div style="display:flex; justify-content: center">
+  <div class="content-overlay" style="width: 40%">
+    <p>
+      <img src="../../img/speakers/dustin-goodman.jpg" alt="Dustin Goodman" class="speaker-headshot" />
+      <br />
+      Dustin Goodman
+    </p>
+
+    <h2>Demystifying React Server Components</h2>
+
+    <p>10:00 (Salon A)</p>
+  </div>
+</div>
+
+NOTES:
+
+- Dustin is giving us a deep-dive into React Server Components tomorrow in this room
+- So if Server Components have been, or still are confusing join me to check it out
+
 =====
 
 <!-- .slide: data-background="url(../../img/nextjs/pages-olga-tutunaru-JMATuFkXeHU-unsplash.jpg) no-repeat top" data-background-size="cover" -->
@@ -552,6 +574,10 @@ NOTES:
 - Here's where **incremental static regeneration** aims to improve SSG
 - It brings the server back to the static party 🎉
 - The page content can be **regenerated** on the **server** on an interval
+
+---
+
+**DEMO content that updates on cache timeout**
 
 /////
 
@@ -833,6 +859,8 @@ NOTES:
   - I encourage you to give Next.js a try
 - Or if you already have...
   - Evaluate whether the pages you have are using the best rendering strategy
+- I want to take a moment to give a special shout-out to Pratik & Vince
+  - The organizers of Connect.Tech for 1o+ years now
 - I should be around for the remainder of the conference...
   - Find me a lunch or at one of the breaks
   - Or you can ask me questions on Twitter (@benmvp)
